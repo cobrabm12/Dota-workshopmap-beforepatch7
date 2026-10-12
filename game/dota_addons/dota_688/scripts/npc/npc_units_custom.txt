@@ -5,7 +5,7 @@
 	"npc_dota688_techies_land_mine"
 	{
 		"Model"		"models/heroes/techies/fx_techiesfx_mine.vmdl"
-		"BaseClass"		"npc_dota_techies_mines"
+		"BaseClass"		"npc_dota_creature"
 		"SoundSet"		"0"
 		"Level"		"1"
 		"ModelScale"		"1.0"
@@ -38,11 +38,13 @@
 		"CombatClassDefend"		"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 		"Ability1"		""
+		"IsSummoned"		"1"
+		"ConsideredHero"		"0"
 	}
 	"npc_dota688_techies_stasis_trap"
 	{
 		"Model"		"models/heroes/techies/fx_techiesfx_stasis.vmdl"
-		"BaseClass"		"npc_dota_techies_mines"
+		"BaseClass"		"npc_dota_creature"
 		"SoundSet"		"0"
 		"Level"		"1"
 		"ModelScale"		"1.0"
@@ -75,11 +77,13 @@
 		"CombatClassDefend"		"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 		"Ability1"		""
+		"IsSummoned"		"1"
+		"ConsideredHero"		"0"
 	}
 	"npc_dota688_techies_remote_mine"
 	{
 		"Model"		"models/heroes/techies/fx_techies_remotebomb.vmdl"
-		"BaseClass"		"npc_dota_techies_mines"
+		"BaseClass"		"npc_dota_creature"
 		"SoundSet"		"0"
 		"Level"		"1"
 		"ModelScale"		"1.0"
@@ -111,6 +115,8 @@
 		"CombatClassDefend"		"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 		"Ability1"		""
+		"IsSummoned"		"1"
+		"ConsideredHero"		"0"
 	}
 	"npc_dota_beastmaster_boar_1"
 	{

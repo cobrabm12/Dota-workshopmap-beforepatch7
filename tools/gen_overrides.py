@@ -662,6 +662,9 @@ def gen_units(U0, UN, report: dict) -> kv.KV:
             if re.fullmatch(r"Ability\d+", k):
                 del blk[k]
         blk["Ability1"] = ""
+        blk["BaseClass"] = "npc_dota_creature"   # fara clasa C++ a minelor moderne; logica e in Lua
+        blk["IsSummoned"] = "1"
+        blk["ConsideredHero"] = "0"
         out[new] = blk
         report["unitati"][new] = [f"(copiat din 6.88: {old_name}, fara abilitati)"]
     for name in EXTRA_UNITS:
