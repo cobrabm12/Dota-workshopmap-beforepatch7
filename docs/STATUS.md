@@ -342,6 +342,6 @@ Total: **116** (doar informativ; nu suprascriem comportamentul automat)
 
 ## Unități (turnuri, creepi, neutrali, Roshan, curieri)
 
-* Unități cu statistici readuse la 6.88: **111**
+* Unități cu statistici readuse la 6.88: **112**
 * Unități din 6.88 care nu mai există în joc: **2** – `npc_dota_neutral_blue_dragonspawn_sorcerer`, `npc_dota_neutral_blue_dragonspawn_overseer`
 

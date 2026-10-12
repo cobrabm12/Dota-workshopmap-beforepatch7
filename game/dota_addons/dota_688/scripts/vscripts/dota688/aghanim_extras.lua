@@ -17,6 +17,7 @@ AG.EXTRA = {
 	npc_dota_hero_invoker = { modifier = "modifier_dota688_scepter_invoker" },
 	npc_dota_hero_rubick = { modifier = "modifier_dota688_scepter_rubick" },
 	npc_dota_hero_meepo = {
+		modifier = "modifier_dota688_scepter_meepo",   -- scepter cumparat inainte de Divided We Stand nivel 3
 		gained = function(hero)
 			local a = hero:FindAbilityByName("meepo_divided_we_stand")
 			if a and a:GetLevel() == 3 then a:SetLevel(4) end
@@ -25,12 +26,18 @@ AG.EXTRA = {
 			local a = hero:FindAbilityByName("meepo_divided_we_stand")
 			if a and a:GetLevel() == 4 then
 				a:SetLevel(3)
-				-- clona in plus dispare (6.88)
-				local clones = {}
-				for _, u in ipairs(FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
-					if u ~= hero and u:GetUnitName() == hero:GetUnitName() and u.IsClone and u:IsClone() then table.insert(clones, u) end
-				end
-				if #clones > 3 then clones[#clones]:ForceKill(false) end
+				-- clona in plus dispare (6.88). SetLevel ruleaza OnUpgrade-ul C++, care creeaza INCA o clona (testat:
+				-- 3 -> 4 dupa vanzare): pastram cate o clona pe nivel, restul se scot cu UTIL_Remove
+				-- (ForceKill pe o clona ar omori toti Meepo)
+				Dota688Timers:After(0.1, function()
+					if hero:IsNull() then return end
+					local clones = {}
+					for _, u in ipairs(Entities:FindAllByClassname("npc_dota_hero_meepo")) do
+						if u ~= hero and u:IsClone() and u:GetCloneSource() == hero then table.insert(clones, u) end
+					end
+					table.sort(clones, function(x, y) return x:entindex() < y:entindex() end)
+					for i = #clones, a:GetLevel() + 1, -1 do UTIL_Remove(clones[i]) end
+				end)
 			end
 		end,
 	},
@@ -375,7 +382,20 @@ function AG.OnUnitSpawned(unit)
 	end
 end
 
-for _, m in ipairs({ "modifier_dota688_scepter_sven", "modifier_dota688_scepter_sven_buff", "modifier_dota688_scepter_gyrocopter",
+-- Meepo: scepter-ul da o clona in plus si cand Divided We Stand ajunge la nivelul 3 dupa cumparare
+modifier_dota688_scepter_meepo = class({})
+function modifier_dota688_scepter_meepo:IsHidden() return true end
+function modifier_dota688_scepter_meepo:IsPurgable() return false end
+function modifier_dota688_scepter_meepo:RemoveOnDeath() return false end
+function modifier_dota688_scepter_meepo:OnCreated() if IsServer() then self:StartIntervalThink(0.5) end end
+function modifier_dota688_scepter_meepo:OnIntervalThink()
+	local p = self:GetParent()
+	if p:IsClone() then return end
+	local a = p:FindAbilityByName("meepo_divided_we_stand")
+	if a and a:GetLevel() == 3 then a:SetLevel(4) end
+end
+
+for _, m in ipairs({ "modifier_dota688_scepter_meepo", "modifier_dota688_scepter_sven", "modifier_dota688_scepter_sven_buff", "modifier_dota688_scepter_gyrocopter",
 	"modifier_dota688_scepter_batrider", "modifier_dota688_scepter_batrider_burn", "modifier_dota688_scepter_visage",
 	"modifier_dota688_scepter_ward_damage", "modifier_dota688_scepter_golem", "modifier_dota688_scepter_invoker",
 	"modifier_dota688_scepter_rubick", "modifier_dota688_meepo_share" }) do
