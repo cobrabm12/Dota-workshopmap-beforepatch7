@@ -138,15 +138,13 @@ Total: **0**
 Aceste abilități există încă, însă unele valori din 6.88 nu mai au corespondent; 
 de verificat în joc dacă mecanica s‑a schimbat și, dacă da, de rescris în Lua.
 
-Rezolvate prin override manual (`tools/manual_overrides.json`): **70** – `abaddon_death_coil`, `antimage_blink`, `antimage_mana_break`, `arc_warden_spark_wraith`, `axe_culling_blade`, `bane_fiends_grip`, `bane_nightmare`, `batrider_flamebreak`, `batrider_flaming_lasso`, `bloodseeker_rupture`, `bloodseeker_thirst`, `bounty_hunter_track`, `broodmother_spin_web`, `crystal_maiden_frostbite`, `dark_seer_wall_of_replica`, `death_prophet_spirit_siphon`, `disruptor_thunder_strike`, `doom_bringer_devour`, `dragon_knight_elder_dragon_form`, `drow_ranger_frost_arrows`, `earth_spirit_geomagnetic_grip`, `earthshaker_fissure`, `ember_spirit_searing_chains`, `furion_force_of_nature`, `gyrocopter_call_down`, `gyrocopter_homing_missile`, `huskar_burning_spear`, `invoker_exort`, `invoker_quas`, `invoker_wex`, `item_quelling_blade`, `jakiro_dual_breath`, `jakiro_ice_path`, `jakiro_macropyre`, `juggernaut_healing_ward`, `keeper_of_the_light_illuminate`, `kunkka_tidebringer`, `kunkka_x_marks_the_spot`, `legion_commander_overwhelming_odds`, `leshrac_lightning_storm`, `lich_frost_nova`, `life_stealer_infest`, `lion_finger_of_death`, `meepo_divided_we_stand`, `naga_siren_song_of_the_siren`, `necrolyte_heartstopper_aura`, `necronomicon_archer_aoe`, `nevermore_necromastery`, `obsidian_destroyer_astral_imprisonment`, `obsidian_destroyer_sanity_eclipse`, `pudge_meat_hook`, `pugna_nether_ward`, `queenofpain_blink`, `rattletrap_power_cogs`, `sandking_epicenter`, `sandking_sand_storm`, `shadow_demon_demonic_purge`, `shredder_timber_chain`, `slark_essence_shift`, `sniper_shrapnel`, `sven_great_cleave`, `templar_assassin_psionic_trap`, `tidehunter_anchor_smash`, `tiny_avalanche`, `treant_overgrowth`, `venomancer_poison_nova`, `warlock_upheaval`, `winter_wyvern_arctic_burn`, `wisp_tether`, `witch_doctor_paralyzing_cask`
+Rezolvate prin override manual (`tools/manual_overrides.json`): **78** – `abaddon_death_coil`, `ancient_apparition_cold_feet`, `ancient_apparition_ice_blast`, `antimage_blink`, `antimage_mana_break`, `arc_warden_spark_wraith`, `axe_culling_blade`, `bane_fiends_grip`, `bane_nightmare`, `batrider_flamebreak`, `batrider_flaming_lasso`, `bloodseeker_rupture`, `bloodseeker_thirst`, `bounty_hunter_track`, `broodmother_spin_web`, `crystal_maiden_frostbite`, `dark_seer_wall_of_replica`, `death_prophet_spirit_siphon`, `disruptor_thunder_strike`, `doom_bringer_devour`, `dragon_knight_elder_dragon_form`, `drow_ranger_frost_arrows`, `earth_spirit_geomagnetic_grip`, `earth_spirit_stone_caller`, `earthshaker_fissure`, `ember_spirit_fire_remnant`, `ember_spirit_searing_chains`, `furion_force_of_nature`, `gyrocopter_call_down`, `gyrocopter_homing_missile`, `huskar_burning_spear`, `invoker_exort`, `invoker_quas`, `invoker_wex`, `item_clarity`, `item_flask`, `item_quelling_blade`, `item_tango`, `item_tango_single`, `jakiro_dual_breath`, `jakiro_ice_path`, `jakiro_macropyre`, `juggernaut_healing_ward`, `keeper_of_the_light_illuminate`, `kunkka_tidebringer`, `kunkka_x_marks_the_spot`, `legion_commander_overwhelming_odds`, `leshrac_lightning_storm`, `lich_frost_nova`, `life_stealer_infest`, `lion_finger_of_death`, `meepo_divided_we_stand`, `naga_siren_song_of_the_siren`, `necrolyte_heartstopper_aura`, `necronomicon_archer_aoe`, `nevermore_necromastery`, `obsidian_destroyer_astral_imprisonment`, `obsidian_destroyer_sanity_eclipse`, `pudge_meat_hook`, `pugna_nether_ward`, `queenofpain_blink`, `rattletrap_power_cogs`, `sandking_epicenter`, `sandking_sand_storm`, `shadow_demon_demonic_purge`, `shredder_timber_chain`, `slark_essence_shift`, `sniper_shrapnel`, `sven_great_cleave`, `templar_assassin_psionic_trap`, `tidehunter_anchor_smash`, `tiny_avalanche`, `treant_overgrowth`, `venomancer_poison_nova`, `warlock_upheaval`, `winter_wyvern_arctic_burn`, `wisp_tether`, `witch_doctor_paralyzing_cask`
 
-Total cu valori reale lipsă: **75** (alte 82 au doar chei de tooltip/Aghanim lipsă – irelevante)
+Total cu valori reale lipsă: **71** (alte 82 au doar chei de tooltip/Aghanim lipsă – irelevante)
 
 * `abaddon_borrowed_time`: redirect
 * `abyssal_underlord_firestorm`: first_wave_delay
 * `alchemist_unstable_concoction_throw`: movement_speed, vision_range
-* `ancient_apparition_cold_feet`: damage
-* `ancient_apparition_ice_blast`: dot_damage
 * `beastmaster_call_of_the_wild`: boar_duration, hawk_duration
 * `beastmaster_hawk_invisibility`: idle_invis_delay
 * `big_thunder_lizard_wardrums_aura`: damage_bonus
@@ -162,9 +160,7 @@ Total cu valori reale lipsă: **75** (alte 82 au doar chei de tooltip/Aghanim li
 * `crystal_maiden_freezing_field`: explosion_interval
 * `drow_ranger_silence`: duration
 * `earth_spirit_rolling_boulder`: move_slow, rock_distance, slow_duration
-* `earth_spirit_stone_caller`: charge_restore_time, max_charges
 * `earthshaker_enchant_totem`: aftershock_range, duration
-* `ember_spirit_fire_remnant`: charge_restore_time, max_charges
 * `enigma_malefice`: duration
 * `faceless_void_time_walk`: radius
 * `greevil_miniboss_black_nightmare`: nightmare_dot_interval

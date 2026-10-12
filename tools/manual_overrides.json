@@ -270,5 +270,35 @@
     "base_damage": "50 50 50 50",
     "creep_damage_pct": "150 200 250 300",
     "bounce_bonus_damage": "0"
+  },
+  "item_clarity": {
+    "mana_regen": "3.8",
+    "AbilityDuration": "50"
+  },
+  "item_flask": {
+    "health_regen": "50",
+    "AbilityDuration": "8"
+  },
+  "item_tango": {
+    "health_regen": "7.2",
+    "AbilityDuration": "16"
+  },
+  "item_tango_single": {
+    "health_regen": "7.2",
+    "AbilityDuration": "16"
+  },
+  "ancient_apparition_cold_feet": {
+    "damage_per_second": "37.5 50 62.5 75"
+  },
+  "ancient_apparition_ice_blast": {
+    "damage_per_second": "12.5 20 32"
+  },
+  "ember_spirit_fire_remnant": {
+    "AbilityCharges": "3",
+    "AbilityChargeRestoreTime": "35"
+  },
+  "earth_spirit_stone_caller": {
+    "AbilityCharges": "6",
+    "AbilityChargeRestoreTime": "30"
   }
 }

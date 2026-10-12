@@ -2427,6 +2427,7 @@
 		{
 			"break_distance"		"740 740 740 740"
 			"stun_duration"		"1.25 2.0 2.75 3.5"
+			"damage_per_second"		"37.5 50 62.5 75"
 		}
 	}
 	"ancient_apparition_ice_vortex"
@@ -2453,6 +2454,7 @@
 			"path_radius"		"275 275 275"
 			"frostbite_duration"		"8.0 9.0 10.0"
 			"kill_pct"		"10.0 11.0 12.0"
+			"damage_per_second"		"12.5 20 32"
 		}
 	}
 	"spirit_breaker_charge_of_darkness"
@@ -4036,7 +4038,9 @@
 		"AbilityValues"
 		{
 			"damage"		"100 150 200"
+			"AbilityChargeRestoreTime"		"35"
 		}
+		"AbilityCharges"		"3"
 	}
 	"ember_spirit_activate_fire_remnant"
 	{
@@ -4085,6 +4089,8 @@
 		"AbilityValues"
 		{
 			"duration"		"120.0"
+			"AbilityCharges"		"6"
+			"AbilityChargeRestoreTime"		"30"
 		}
 	}
 	"earth_spirit_petrify"
@@ -4973,7 +4979,9 @@
 		"AbilityValues"
 		{
 			"buff_duration"		"50"
+			"mana_regen"		"3.8"
 		}
+		"AbilityDuration"		"50"
 	}
 	"item_enchanted_mango"
 	{
@@ -4993,7 +5001,9 @@
 		"AbilityValues"
 		{
 			"buff_duration"		"8"
+			"health_regen"		"50"
 		}
+		"AbilityDuration"		"8"
 	}
 	"item_dust"
 	{
@@ -5063,11 +5073,21 @@
 		"ItemInitialCharges"		"4"
 		"SideShop"		"0"
 		"ItemShopTags"		"consumable"
+		"AbilityValues"
+		{
+			"health_regen"		"7.2"
+		}
+		"AbilityDuration"		"16"
 	}
 	"item_tango_single"
 	{
 		"AbilityCooldown"		"60.0"
 		"ItemShopTags"		"consumable"
+		"AbilityValues"
+		{
+			"health_regen"		"7.2"
+		}
+		"AbilityDuration"		"16"
 	}
 	"item_courier"
 	{
