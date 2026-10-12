@@ -1,0 +1,4 @@
+"custom_net_tables"
+{
+	"1"		"dota688"
+}

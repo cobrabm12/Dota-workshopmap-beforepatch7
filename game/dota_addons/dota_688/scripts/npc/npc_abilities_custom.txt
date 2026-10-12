@@ -1,0 +1,33 @@
+// Abilitati proprii addon-ului Dota 6.88.
+// Abilitatile de erou din 6.88 care nu mai exista in joc se rescriu aici (BaseClass ability_lua);
+// generatorul (tools/gen_overrides.py) le detecteaza automat dupa nume si le pune in sloturile eroului.
+"DOTAAbilities"
+{
+	"Version"		"1"
+
+	// Placeholder invizibil pentru sloturile goale.
+	"dota688_empty"
+	{
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"abilities/dota688_empty"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"				"1"
+	}
+
+	// Attribute Bonus clasic (pre-7.00): +2 la toate atributele, 10 niveluri, de la nivelul 1.
+	"dota688_attribute_bonus"
+	{
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"abilities/dota688_attribute_bonus"
+		"AbilityType"			"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"	"attribute_bonus"
+		"MaxLevel"				"10"
+		"RequiredLevel"			"1"
+		"LevelsBetweenUpgrades"	"1"
+		"AbilityValues"
+		{
+			"attribute_bonus_per_level"		"2"
+		}
+	}
+}

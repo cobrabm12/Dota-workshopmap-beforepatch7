@@ -1,0 +1,12 @@
+"lang"
+{
+	"Language"		"Romanian"
+	"Tokens"
+	{
+		"addon_game_name"							"Dota 6.88 Classic"
+		"DOTA_Tooltip_ability_dota688_attribute_bonus"				"Bonus de atribute"
+		"DOTA_Tooltip_ability_dota688_attribute_bonus_Description"	"Creste Forta, Agilitatea si Inteligenta cu 2 pe nivel (stats ca inainte de 7.00)."
+		"DOTA_Tooltip_ability_dota688_empty"						""
+		"dota688_rules_title"						"Reguli Dota 6.88"
+	}
+}

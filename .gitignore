@@ -1,0 +1,9 @@
+# rezultate intermediare ale uneltelor
+build/
+__pycache__/
+*.pyc
+# fisiere compilate de Workshop Tools (se regenereaza)
+game/dota_addons/dota_688/maps/*.vpk
+game/dota_addons/dota_688/panorama/
+content/dota_addons/dota_688/maps/*.vmap_c
+content/dota_addons/dota_688/maps/*.bak

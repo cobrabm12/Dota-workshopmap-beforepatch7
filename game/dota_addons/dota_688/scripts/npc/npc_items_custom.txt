@@ -1,0 +1,7 @@
+// Iteme proprii addon-ului Dota 6.88.
+// npc_items_generated.txt este produs de tools/gen_overrides.py (iteme din 6.88 care nu mai exista in joc).
+#base "npc_items_generated.txt"
+"DOTAAbilities"
+{
+	"Version"		"1"
+}
