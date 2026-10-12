@@ -146,6 +146,12 @@ end
 function M:SetupAll()
 	local all = self:AllBuildings(nil)
 	for _, b in ipairs(all) do self:SetupBuilding(b) end
+	-- fantana 6.88: +14 mana pe secunda constant (vezi modifier_dota688_fountain)
+	for _, f in ipairs(Entities:FindAllByClassname("ent_dota_fountain")) do
+		if not f:IsNull() and not f:HasModifier("modifier_dota688_fountain") then
+			f:AddNewModifier(f, nil, "modifier_dota688_fountain", {})
+		end
+	end
 	return #all
 end
 

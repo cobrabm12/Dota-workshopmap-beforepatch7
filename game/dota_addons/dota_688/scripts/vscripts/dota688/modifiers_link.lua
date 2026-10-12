@@ -8,4 +8,6 @@ LinkLuaModifier("modifier_dota688_familiar", "modifiers/modifier_dota688_familia
 LinkLuaModifier("modifier_dota688_glyph", "modifiers/modifier_dota688_glyph", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_tower_aura", "modifiers/modifier_dota688_tower_aura", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_tower_aura_effect", "modifiers/modifier_dota688_tower_aura", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_dota688_fountain", "modifiers/modifier_dota688_fountain", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_dota688_fountain_effect", "modifiers/modifier_dota688_fountain", LUA_MODIFIER_MOTION_NONE)
 require("dota688/runes_link")   -- modifierii runelor de putere 6.88 (si pe client)

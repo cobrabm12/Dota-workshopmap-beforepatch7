@@ -86,7 +86,9 @@ function Dota688:Init()
 	-- fantana 6.88: 4 % HP si 14 + 4 % mana pe secunda (7.07 -> 5 % / 6 %)
 	Dota688SafeCall(gm, "SetFountainPercentageHealthRegen", C.FOUNTAIN_HP_REGEN_PCT)
 	Dota688SafeCall(gm, "SetFountainPercentageManaRegen", C.FOUNTAIN_MANA_REGEN_PCT)
-	Dota688SafeCall(gm, "SetFountainConstantManaRegen", C.FOUNTAIN_MANA_REGEN_CONST)
+	-- partea constanta (+14) o da modifier_dota688_fountain (Dota688Buildings): apelul motorului nu mai are efect;
+	-- 0 ca sa nu se dubleze daca reincepe sa mearga
+	Dota688SafeCall(gm, "SetFountainConstantManaRegen", 0)
 	Dota688SafeCall(gm, "SetRecommendedItemsDisabled", true)                               -- ghidurile/itemele recomandate (7.x)
 	Dota688SafeCall(gm, "SetHUDVisible", DOTA_HUD_VISIBILITY_SHOP_SUGGESTEDITEMS, false)  -- itemele sugerate din shop/quickbuy
 
