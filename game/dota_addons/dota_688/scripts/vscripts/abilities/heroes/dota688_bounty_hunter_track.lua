@@ -22,7 +22,7 @@ end
 local function give_gold(hero, amount)
 	local pid = hero:GetPlayerOwnerID()
 	if amount <= 0 or not pid or pid < 0 then return end
-	PlayerResource:ModifyGold(pid, amount, true, DOTA_ModifyGold_AbilityGold)
+	Dota688GiveGold(pid, amount, true, DOTA_ModifyGold_AbilityGold)
 	SendOverheadEventMessage(nil, OVERHEAD_ALERT_GOLD, hero, amount, nil)
 end
 

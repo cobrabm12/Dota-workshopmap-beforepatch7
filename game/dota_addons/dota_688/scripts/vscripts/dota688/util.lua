@@ -82,3 +82,18 @@ function Dota688SafeRemove(u)
 		return false
 	end)
 end
+
+-- Aur sigur: motorul curent ignora parametrul "reliable" al lui ModifyGold (testat: doar motivul BountyRune ramane
+-- sigur, toate celelalte ajung nesigure). In 6.88 aurul de la eroi, cladiri si Roshan era sigur, iar la moarte se
+-- pierdea doar din cel nesigur. Dam aurul prin ModifyGold (filtru, popup, statistici) si mutam castigul in sigur.
+function Dota688GiveGold(pid, amount, reliable, reason)
+	if pid == nil or pid < 0 or amount == 0 then return end
+	local u0 = PlayerResource:GetUnreliableGold(pid)
+	PlayerResource:ModifyGold(pid, amount, reliable, reason)
+	if not reliable then return end
+	local gained = PlayerResource:GetUnreliableGold(pid) - u0   -- dupa filtru (ex. penalizarea de buyback)
+	if gained > 0 then
+		PlayerResource:SetGold(pid, PlayerResource:GetUnreliableGold(pid) - gained, false)
+		PlayerResource:SetGold(pid, PlayerResource:GetReliableGold(pid) + gained, true)
+	end
+end

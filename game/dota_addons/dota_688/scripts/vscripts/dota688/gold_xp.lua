@@ -73,7 +73,7 @@ function M:OnHeroKilled(victim, attacker)
 	-- aur direct pentru ucigas (daca e un jucator)
 	if killerPID >= 0 then
 		local direct = math.floor(C.KILL_GOLD_BASE + streakGold + C.KILL_GOLD_PER_LEVEL * level)
-		PlayerResource:ModifyGold(killerPID, direct, true, DOTA_ModifyGold_HeroKill)
+		Dota688GiveGold(killerPID, direct, true, DOTA_ModifyGold_HeroKill)
 	end
 	-- aur si XP "AoE" pentru fiecare erou din raza (inclusiv ucigasul)
 	local aoe = C.AOE_GOLD[n]
@@ -83,7 +83,7 @@ function M:OnHeroKilled(victim, attacker)
 	for _, hero in ipairs(nearby) do
 		local pid = OwnerPlayerID(hero)
 		if pid >= 0 then
-			PlayerResource:ModifyGold(pid, aoeGold, true, DOTA_ModifyGold_HeroKill)
+			Dota688GiveGold(pid, aoeGold, true, DOTA_ModifyGold_HeroKill)
 		end
 		hero:AddExperience(xpEach, DOTA_ModifyXP_HeroKill, false, true)
 	end

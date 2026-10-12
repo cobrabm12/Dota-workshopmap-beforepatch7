@@ -86,7 +86,7 @@ function M:GiveTeam(team, amount, reason)
 	if not IsPlayingTeam(team) or amount <= 0 then return end
 	for pid = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
 		if PlayerResource:IsValidPlayerID(pid) and PlayerResource:GetTeam(pid) == team and PlayerResource:HasSelectedHero(pid) then
-			PlayerResource:ModifyGold(pid, amount, true, reason)
+			Dota688GiveGold(pid, amount, true, reason)
 		end
 	end
 end
@@ -206,7 +206,7 @@ function M:OnBuildingKilled(building, attacker)
 	end
 	self:Award(function()
 		self:GiveTeam(enemy, each, DOTA_ModifyGold_Building)
-		if lastHit > 0 then PlayerResource:ModifyGold(lastPid, lastHit, true, DOTA_ModifyGold_Building) end
+		if lastHit > 0 then Dota688GiveGold(lastPid, lastHit, true, DOTA_ModifyGold_Building) end
 	end)
 	print(string.format("[dota688] %s distrus (echipa atacatorului %s): %d aur/jucator echipei %d, last hit %d (jucator %d)",
 		building:GetUnitName(), tostring(atkTeam), each, enemy, lastHit, lastPid))
@@ -227,7 +227,7 @@ function M:OnRoshanKilled(roshan, attacker)
 	end
 	self:Award(function()
 		self:GiveTeam(team, C.ROSHAN_TEAM_GOLD, DOTA_ModifyGold_RoshanKill)
-		if lastHit > 0 then PlayerResource:ModifyGold(pid, lastHit, true, DOTA_ModifyGold_RoshanKill) end
+		if lastHit > 0 then Dota688GiveGold(pid, lastHit, true, DOTA_ModifyGold_RoshanKill) end
 	end)
 	print(string.format("[dota688] Roshan ucis de echipa %d: %d aur/jucator, last hit %d (jucator %d)", team,
 		C.ROSHAN_TEAM_GOLD, lastHit, pid))
