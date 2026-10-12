@@ -1,4 +1,5 @@
--- Ghostship (6.88): corabia porneste de la 1000 in spatele punctului tintit si se sfarama la punct (viteza 650): 400/500/600 daune magice + stun 1.4 in 425.
+-- Ghostship (6.88): corabia porneste de la 1000 in spatele lui Kunkka (opus punctului tintit) si se sfarama la punctul tintit (viteza 650;
+-- la raza maxima 1000 parcurge 2000, ~3 s - Liquipedia, Archive:Kunkka): 400/500/600 daune magice + stun 1.4 in 425.
 -- Aliatii atinsi de corabie primesc Rum: +10% viteza si 40/45/50% din daunele primite sunt amanate 10 s.
 -- Scepter: corabia (latime 200) trage inamicii atinsi pana la locul naufragiului (ei pot actiona in continuare).
 require("dota688/val")
@@ -15,10 +16,11 @@ function dota688_kunkka_ghostship:OnSpellStart()
 	local dir = target - caster:GetAbsOrigin(); dir.z = 0
 	if dir:Length2D() < 1 then dir = caster:GetForwardVector() end
 	dir = dir:Normalized()
-	local dist = self:GetSpecialValueFor("ghostship_distance")
-	local start = target - dir * dist
+	local dist = self:GetSpecialValueFor("ghostship_distance")   -- 1000 in spatele lui Kunkka
+	local start = caster:GetAbsOrigin() - dir * dist
+	local travel = dist + (target - caster:GetAbsOrigin()):Length2D()
 	caster:EmitSound("Ability.Ghostship")
-	CreateModifierThinker(caster, self, "modifier_dota688_ghostship", { duration = dist / self:GetSpecialValueFor("ghostship_speed") + 0.2, dx = dir.x, dy = dir.y, tx = target.x, ty = target.y }, start, caster:GetTeamNumber(), false)
+	CreateModifierThinker(caster, self, "modifier_dota688_ghostship", { duration = travel / self:GetSpecialValueFor("ghostship_speed") + 0.2, dx = dir.x, dy = dir.y, tx = target.x, ty = target.y }, start, caster:GetTeamNumber(), false)
 end
 modifier_dota688_ghostship = class({})
 function modifier_dota688_ghostship:IsHidden() return true end
