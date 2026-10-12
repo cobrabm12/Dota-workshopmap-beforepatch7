@@ -57,31 +57,29 @@
   "gyrocopter_homing_missile": {
     "hit_damage": "125 250 375 500"
   },
-  "slark_essence_shift": {},
   "juggernaut_healing_ward": {
     "healing_ward_bonus_health": "0"
   },
   "huskar_burning_spear": {
     "max_health_cost": "0",
-    "burn_damage": "5 10 15 20"
+    "burn_damage": "5 10 15 20",
+    "burn_damage_max_pct": "0"
   },
   "crystal_maiden_frostbite": {
-    "damage_per_second": "100"
+    "damage_per_second": "100",
+    "creep_multiplier": "1"
   },
   "doom_bringer_devour": {
     "hero_ability_steal_time": "99999"
   },
   "earthshaker_fissure": {
     "AbilityCastRange": "1400",
-    "fissure_damage": "125 175 225 275"
+    "fissure_damage": "110 160 210 260"
   },
   "pugna_nether_ward": {
     "base_damage": "0",
     "health_restore_pct": "0",
     "mana_restore_pct": "0"
-  },
-  "tidehunter_anchor_smash": {
-    "attack_damage": "0"
   },
   "item_quelling_blade": {
     "damage_bonus": "140",
@@ -108,7 +106,8 @@
   },
   "batrider_flamebreak": {
     "knockback_distance": "400",
-    "slow": "0"
+    "slow": "0",
+    "damage_impact": "0"
   },
   "batrider_flaming_lasso": {
     "damage": "0 0 0"
@@ -137,7 +136,11 @@
   },
   "dragon_knight_elder_dragon_form": {
     "corrosive_damage_per_second": "20 20 20 20",
-    "corrosive_duration": "5 5 5 5"
+    "corrosive_duration": "5 5 5 5",
+    "bonus_ability_cast_range": "0",
+    "frost_bonus_movement_speed": "0 0 30",
+    "frost_bonus_attack_speed": "0 0 20",
+    "frost_duration": "0 0 3"
   },
   "drow_ranger_frost_arrows": {
     "damage": "0"
@@ -153,11 +156,8 @@
     "treant_health": "550",
     "treant_damage": "30 30 30 30",
     "treant_bonus_hero_damage": "0",
-    "treant_movespeed": "300"
-  },
-  "gyrocopter_call_down": {
-    "total_strikes": "2",
-    "damage": "200 275 350"
+    "treant_movespeed": "300",
+    "treewalking": "0"
   },
   "invoker_quas": {
     "max_level": "7",
@@ -186,11 +186,8 @@
   },
   "kunkka_x_marks_the_spot": {
     "ghostship_absorb": "40 45 50 50",
-    "movespeed_bonus": "10"
-  },
-  "legion_commander_overwhelming_odds": {
-    "bonus_attack_speed": "0",
-    "movement_slow": "0"
+    "movespeed_bonus": "10",
+    "allied_duration": "8"
   },
   "leshrac_lightning_storm": {
     "damage": "50 100 150 200"
@@ -203,7 +200,8 @@
     "bonus_health": "0",
     "bonus_movement_speed": "0",
     "self_regen": "0",
-    "creep_max_hp_drain_pct_per_second": "0"
+    "creep_max_hp_drain_pct_per_second": "0",
+    "can_target_ancients": "0 1 1"
   },
   "naga_siren_song_of_the_siren": {
     "heal_pct": "0 0 0"
@@ -232,11 +230,8 @@
     "epicenter_radius_base": "275",
     "epicenter_radius_increment": "47"
   },
-  "sandking_sand_storm": {
-    "fade_delay": "1.5"
-  },
   "shadow_demon_demonic_purge": {
-    "AbilityCooldown": "40 40 40"
+    "AbilityCooldown": "50.0 50.0 50.0"
   },
   "shredder_timber_chain": {
     "AbilityCastRange": "850 1050 1250 1450"
@@ -312,17 +307,11 @@
   "morphling_morph_str": {
     "morph_rate": "2 4 8 16"
   },
-  "skeleton_king_reincarnation": {
-    "slow_radius": "1200"
-  },
   "visage_summon_familiars": {
     "familiar_attack_damage": "0 0 0"
   },
   "_aghanim": "Abilitatile oferite de scepter in 6.88 deblocate din Lua (dota688/aghanim.lua): scoatem flag-urile de scepter/shard moderne ca sa nu depinda de HasScepter() din C++.",
   "life_stealer_assimilate": {
-    "IsGrantedByScepter": "0"
-  },
-  "ogre_magi_unrefined_fireblast": {
     "IsGrantedByScepter": "0"
   },
   "tusk_walrus_kick": {
@@ -331,6 +320,308 @@
   "keeper_of_the_light_recall": {
     "IsGrantedByShard": "0",
     "HasShardUpgrade": "0",
-    "IsGrantedByScepter": "0"
+    "IsGrantedByScepter": "0",
+    "ally_movespeed_pct": "0"
+  },
+  "item_blade_mail": {
+    "passive_reflection_constant": "0",
+    "passive_reflection_pct": "0",
+    "active_reflection_pct": "100"
+  },
+  "item_desolator": {
+    "bonus_damage_per_kill": "0",
+    "bonus_damage_per_assist": "0",
+    "max_damage": "0"
+  },
+  "item_arcane_boots": {
+    "aura_mana_regen": "0",
+    "mana_regen": "0"
+  },
+  "item_bracer": {
+    "bonus_health": "0",
+    "bonus_health_regen": "0"
+  },
+  "item_moon_shard": {
+    "consumed_bonus_night_vision": "0"
+  },
+  "item_tome_of_knowledge": {
+    "xp_per_use": "0"
+  },
+  "item_smoke_of_deceit": {
+    "secondary_application_radius": "0"
+  },
+  "item_black_king_bar": {
+    "spell_reduce": "100"
+  },
+  "item_radiance": {
+    "evasion": "0",
+    "aura_damage_illusions": "0"
+  },
+  "item_vanguard": {
+    "block_chance": "100"
+  },
+  "item_gem": {
+    "active_radius": "0"
+  },
+  "item_refresher": {
+    "refresh_items": "1",
+    "bonus_mana_regen": "0"
+  },
+  "item_bottle": {
+    "rune_expire_time": "120"
+  },
+  "item_sobi_mask": {
+    "bonus_mana_regen": "0"
+  },
+  "item_void_stone": {
+    "bonus_mana_regen": "0"
+  },
+  "item_orchid": {
+    "bonus_mana_regen": "0"
+  },
+  "item_cyclone": {
+    "bonus_mana_regen": "0"
+  },
+  "magnataur_shockwave": {
+    "pull_distance": "0",
+    "movement_slow": "0"
+  },
+  "magnataur_skewer": {
+    "damage_distance_pct": "0"
+  },
+  "mirana_invis": {
+    "bonus_movement_speed": "0",
+    "bonus_outgoing_damage_pct": "0"
+  },
+  "medusa_stone_gaze": {
+    "speed_boost": "0"
+  },
+  "nevermore_shadowraze1": {
+    "stack_bonus_damage": "0",
+    "damage_per_soul": "0"
+  },
+  "nevermore_shadowraze2": {
+    "stack_bonus_damage": "0",
+    "damage_per_soul": "0"
+  },
+  "nevermore_shadowraze3": {
+    "stack_bonus_damage": "0",
+    "damage_per_soul": "0"
+  },
+  "nyx_assassin_spiked_carapace": {
+    "damage_reflect_pct": "100"
+  },
+  "nyx_assassin_vendetta": {
+    "break_duration": "0",
+    "attack_range_bonus": "0",
+    "attack_animation_bonus": "0"
+  },
+  "viper_viper_strike": {
+    "does_break": "0"
+  },
+  "phantom_lancer_phantom_edge": {
+    "evasion": "0"
+  },
+  "phantom_lancer_doppelwalk": {
+    "illusion_extended_duration": "0"
+  },
+  "puck_illusory_orb": {
+    "curve_orb": "0",
+    "damage_over_time_pct": "0"
+  },
+  "puck_waning_rift": {
+    "max_distance": "0"
+  },
+  "storm_spirit_static_remnant": {
+    "is_point_targeted": "0"
+  },
+  "queenofpain_scream_of_pain": {
+    "damage_reflected_to_self": "0"
+  },
+  "rattletrap_rocket_flare": {
+    "slow_pct": "0"
+  },
+  "razor_plasma_field": {
+    "slow_min": "0",
+    "slow_max": "0"
+  },
+  "shadow_demon_disruption": {
+    "illusion_flat_damage": "0"
+  },
+  "shadow_shaman_shackles": {
+    "heal_percentage": "0"
+  },
+  "shredder_whirling_death": {
+    "tree_damage_scale": "0"
+  },
+  "silencer_curse_of_the_silent": {
+    "application_damage": "0"
+  },
+  "slardar_slithereen_crush": {
+    "puddle_radius": "0"
+  },
+  "slark_dark_pact": {
+    "self_damage_pct": "50"
+  },
+  "slark_pounce": {
+    "essence_stacks": "0"
+  },
+  "sniper_headshot": {
+    "knockback_distance": "0"
+  },
+  "templar_assassin_psi_blades": {
+    "attack_spill_pct": "100",
+    "meld_strike_spills": "0"
+  },
+  "sven_gods_strength": {
+    "bonus_slow_resistance": "0"
+  },
+  "tidehunter_kraken_shell": {
+    "creep_reduction_penalty_pct": "0",
+    "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_PASSIVE",
+    "AbilityManaCost": "0",
+    "AbilityCooldown": "0",
+    "active_pct_effectiveness": "100",
+    "active_move_speed_penalty_pct": "0",
+    "active_duration": "0"
+  },
+  "ursa_earthshock": {
+    "hop_distance": "0"
+  },
+  "ursa_overpower": {
+    "slow_resist": "0"
+  },
+  "vengefulspirit_wave_of_terror": {
+    "attack_reduction": "0"
+  },
+  "weaver_geminate_attack": {
+    "bonus_damage": "0"
+  },
+  "windrunner_powershot": {
+    "slow": "0"
+  },
+  "winter_wyvern_winters_curse": {
+    "bonus_duration_per_hero": "0",
+    "bonus_duration_per_creep": "0"
+  },
+  "pudge_dismember": {
+    "pull_units_per_second": "0"
+  },
+  "undying_decay": {
+    "creep_damage_multiplier": "1"
+  },
+  "witch_doctor_death_ward": {
+    "bonus_accuracy": "0"
+  },
+  "disruptor_glimpse": {
+    "min_damage": "0",
+    "max_damage": "0"
+  },
+  "earth_spirit_boulder_smash": {
+    "move_slow": "0"
+  },
+  "earth_spirit_rolling_boulder": {
+    "damage_str": "0"
+  },
+  "earthshaker_enchant_totem": {
+    "bonus_attack_range": "0"
+  },
+  "juggernaut_blade_fury": {
+    "immunity_resist": "100"
+  },
+  "lion_mana_drain": {
+    "movespeed": "0",
+    "movespeed_bonus_when_empty_pct": "0"
+  },
+  "dazzle_shallow_grave": {
+    "heal_amplify": "0"
+  },
+  "furion_sprout": {
+    "sprout_damage": "0"
+  },
+  "furion_teleportation": {
+    "barrier": "0"
+  },
+  "enchantress_enchant": {
+    "attack_range_bonus": "0",
+    "enchant_health": "0",
+    "enchant_damage": "0",
+    "xp_gain_pct": "0"
+  },
+  "enchantress_impetus": {
+    "illusion_damage_multiplier": "1"
+  },
+  "broodmother_spawn_spiderlings": {
+    "movement_speed": "0"
+  },
+  "broodmother_incapacitating_bite": {
+    "attack_damage": "0"
+  },
+  "jakiro_liquid_fire": {
+    "building_dmg_pct": "100"
+  },
+  "batrider_sticky_napalm": {
+    "stacks_per_cast": "1",
+    "application_damage": "0"
+  },
+  "batrider_firefly": {
+    "movement_speed_pct_total": "0"
+  },
+  "chen_hand_of_god": {
+    "heal_per_second": "0"
+  },
+  "ancient_apparition_ice_vortex": {
+    "drag_speed": "0",
+    "damage_per_second": "0"
+  },
+  "alchemist_unstable_concoction": {
+    "move_speed": "0"
+  },
+  "invoker_ghost_walk": {
+    "health_regen": "0",
+    "mana_regen": "0"
+  },
+  "invoker_emp": {
+    "self_mana_restore_pct": "50"
+  },
+  "lycan_shapeshift": {
+    "health_bonus": "0"
+  },
+  "beastmaster_primal_roar": {
+    "movement_speed": "0"
+  },
+  "beastmaster_wild_axes": {
+    "damage_amp": "0"
+  },
+  "centaur_stampede": {
+    "strength_damage": "0"
+  },
+  "ember_spirit_flame_guard": {
+    "shield_pct_absorb": "100"
+  },
+  "arc_warden_tempest_double": {
+    "has_debuff": "0"
+  },
+  "arc_warden_magnetic_field": {
+    "rune_pull_radius": "0"
+  },
+  "dragon_knight_dragon_tail": {
+    "aoe": "0"
+  },
+  "clinkz_wind_walk": {
+    "skeleton_count": "0"
+  },
+  "abyssal_underlord_pit_of_malice": {
+    "pit_interval": "99"
+  },
+  "spirit_breaker_charge_of_darkness": {
+    "windup_time": "0"
+  },
+  "undying_tombstone": {
+    "tombstone_health": "12 16 20 28"
+  },
+  "undying_tombstone_zombie_deathstrike": {
+    "bonus_move_speed": "50",
+    "bonus_attack_speed": "50"
   }
 }

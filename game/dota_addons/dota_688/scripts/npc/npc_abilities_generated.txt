@@ -238,6 +238,60 @@
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
 	}
+	"dota688_bane_nightmare"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ALLIES_NO"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
+		"AbilityCastRange"		"500 550 600 650"
+		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
+		"AbilityCooldown"		"22 19 16 13"
+		"AbilityDuration"		"4.0 5.0 6.0 7.0"
+		"AbilityDamage"		"20"
+		"AbilityManaCost"		"165 165 165 165"
+		"AbilityModifierSupportValue"		"0.5"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_bane_nightmare"
+		"AbilityTextureName"		"bane_nightmare"
+		"AbilityValues"
+		{
+			"nightmare_dot_interval"		"1.0"
+			"nightmare_invuln_time"		"1.0"
+			"duration"		"4.0 5.0 6.0 7.0"
+			"animation_rate"		"0.2 0.2 0.2 0.2"
+			"cast_range_tooltip"		"500 550 600 650"
+		}
+	}
+	"dota688_bane_nightmare_end"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+		"MaxLevel"		"1"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_bane_nightmare_end"
+		"AbilityTextureName"		"bane_nightmare_end"
+	}
+	"dota688_beastmaster_call_of_the_wild"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCastPoint"		"0.3"
+		"AbilityCooldown"		"42 38 34 30"
+		"AbilityManaCost"		"25"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_beastmaster_call_of_the_wild"
+		"AbilityTextureName"		"beastmaster_call_of_the_wild"
+		"AbilityValues"
+		{
+			"boar_duration"		"60 60 60 60"
+			"hawk_hp_tooltip"		"40 60 80 100"
+			"hawk_speed_tooltip"		"250 275 300 325"
+			"hawk_daysight_tooltip"		"500 750 1000 1250"
+			"hawk_nightsight_tooltip"		"500 650 800 950"
+			"hawk_duration"		"60 60 60 60"
+		}
+	}
 	"dota688_beastmaster_call_of_the_wild_boar"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -256,6 +310,19 @@
 			"boar_attackslow_tooltip"		"10 20 30 40"
 			"poison_duration_tooltip"		"3"
 			"boar_duration"		"60 60 60 60"
+		}
+	}
+	"dota688_beastmaster_inner_beast"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_beastmaster_inner_beast"
+		"AbilityTextureName"		"beastmaster_inner_beast"
+		"AbilityValues"
+		{
+			"radius"		"900"
+			"bonus_attack_speed"		"15 25 35 45"
 		}
 	}
 	"dota688_bloodseeker_bloodrage"
@@ -314,6 +381,23 @@
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
 	}
+	"dota688_bloodseeker_thirst"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_bloodseeker_thirst"
+		"AbilityTextureName"		"bloodseeker_thirst"
+		"AbilityValues"
+		{
+			"min_bonus_pct"		"75"
+			"bonus_movement_speed"		"16 24 32 40"
+			"bonus_damage"		"16 24 32 40"
+			"max_bonus_pct"		"25"
+			"visibility_threshold_pct"		"25"
+			"invis_threshold_pct"		"25"
+		}
+	}
 	"dota688_bounty_hunter_jinada"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -328,6 +412,58 @@
 			"bonus_attackspeed"		"-15 -20 -25 -30"
 			"duration"		"3.0 3.0 3.0 3.0"
 		}
+	}
+	"dota688_bounty_hunter_shuriken_toss"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"FightRecapLevel"		"1"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityCastRange"		"400"
+		"AbilityCastPoint"		"0.3 0.3 0.3 0.3"
+		"AbilityCooldown"		"10"
+		"AbilityManaCost"		"120 130 140 150"
+		"AbilityModifierSupportValue"		"0.1"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_bounty_hunter_shuriken_toss"
+		"AbilityTextureName"		"bounty_hunter_shuriken_toss"
+		"AbilityValues"
+		{
+			"bonus_damage"		"150 225 300 375"
+			"speed"		"1000 1000 1000 1000"
+			"bounce_aoe"		"1200"
+		}
+	}
+	"dota688_bounty_hunter_track"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+		"AbilityCastRange"		"1200"
+		"AbilityCastPoint"		"0.3 0.3 0.3"
+		"AbilityCooldown"		"4"
+		"AbilityManaCost"		"65"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_bounty_hunter_track"
+		"AbilityTextureName"		"bounty_hunter_track"
+		"AbilityValues"
+		{
+			"aura_radius"		"900 900 900"
+			"bonus_move_speed_pct"		"16 18 20"
+			"bonus_gold_radius"		"925 925 925"
+			"bonus_gold_self"		"150 250 350"
+			"bonus_gold"		"40 80 120"
+			"duration"		"30.0 30.0 30.0"
+			"cast_range_tooltip"		"1200"
+			"gold_steal"		"0.3 0.4 0.5"
+		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_bounty_hunter_wind_walk"
 	{
@@ -359,6 +495,29 @@
 			"crit_chance"		"10 15 20 25"
 			"crit_multiplier"		"200"
 			"last_proc"		"16 14 12 10"
+		}
+	}
+	"dota688_brewmaster_drunken_haze"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityCastRange"		"850 850 850 850"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"1"
+		"AbilityCastPoint"		"0.4 0.4 0.4"
+		"AbilityCooldown"		"8 7 6 5"
+		"AbilityManaCost"		"50"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_brewmaster_drunken_haze"
+		"AbilityTextureName"		"brewmaster_drunken_haze"
+		"AbilityValues"
+		{
+			"radius"		"200"
+			"duration"		"8.0 8.0 8.0 8.0"
+			"duration_creeps"		"12.0 12.0 12.0 12.0"
+			"movement_slow"		"14 18 22 26"
+			"miss_chance"		"45 55 65 75"
 		}
 	}
 	"dota688_bristleback_viscous_nasal_goo"
@@ -407,6 +566,40 @@
 		}
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
+	}
+	"dota688_broodmother_spin_web"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityCastRange"		"1000"
+		"AbilityCastPoint"		"0.4"
+		"AbilityCooldown"		"0.0"
+		"AbilityManaCost"		"50"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_broodmother_spin_web"
+		"AbilityTextureName"		"broodmother_spin_web"
+		"AbilityValues"
+		{
+			"radius"		"900"
+			"count"		"2 4 6 8"
+			"heath_regen"		"2 4 6 8"
+			"bonus_movespeed"		"20 25 30 35"
+			"invis_movespeed_tooltip"		"40 50 60 70"
+			"fade_delay"		"2.0"
+			"damage_time"		"6.0"
+			"max_charges"		"1 2 3 4"
+			"charge_restore_time"		"40.0"
+		}
+	}
+	"dota688_broodmother_spin_web_destroy"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"MaxLevel"		"1"
+		"AbilityCastPoint"		"0"
+		"AbilityCooldown"		"0"
+		"AbilityManaCost"		"0"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_broodmother_spin_web_destroy"
+		"AbilityTextureName"		"broodmother_spin_web_destroy"
 	}
 	"dota688_centaur_return"
 	{
@@ -531,6 +724,28 @@
 			"speed"		"2000 2000 2000 2000"
 			"bonus_movement_speed"		"-15 -20 -25 -30"
 			"bonus_damage_taken"		"15 20 25 30"
+		}
+	}
+	"dota688_chen_test_of_faith"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
+		"FightRecapLevel"		"1"
+		"AbilityCastPoint"		"0.3 0.3 0.3 0.3"
+		"AbilityCastRange"		"600 600 600 600"
+		"AbilityCooldown"		"16"
+		"AbilityManaCost"		"90 100 110 120"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_chen_test_of_faith"
+		"AbilityTextureName"		"chen_test_of_faith"
+		"AbilityValues"
+		{
+			"damage_min"		"50 100 150 200"
+			"damage_max"		"100 200 300 400"
 		}
 	}
 	"dota688_clinkz_death_pact"
@@ -921,6 +1136,113 @@
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
 	}
+	"dota688_enigma_demonic_conversion"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"AbilityCastRange"		"700"
+		"AbilityCastPoint"		"0.3 0.3 0.3 0.3"
+		"AbilityCooldown"		"35.0 35.0 35.0 35.0"
+		"AbilityDuration"		"35.0 35.0 35.0 35.0"
+		"AbilityManaCost"		"170 170 170 170"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_enigma_demonic_conversion"
+		"AbilityTextureName"		"enigma_demonic_conversion"
+		"AbilityValues"
+		{
+			"spawn_count"		"3 3 3 3"
+			"split_attack_count"		"6 6 6 6"
+			"eidolon_hp_tooltip"		"180 200 220 240"
+			"life_extension"		"2.0 2.0 2.0 2.0"
+			"eidolon_dmg_tooltip"		"20 28 38 47"
+			"duration_tooltip"		"35.0"
+		}
+	}
+	"dota688_enigma_midnight_pulse"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"		"1"
+		"AbilityCastRange"		"700"
+		"AbilityCastPoint"		"0.1"
+		"AbilityCooldown"		"35"
+		"AbilityManaCost"		"95 110 125 140"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_enigma_midnight_pulse"
+		"AbilityTextureName"		"enigma_midnight_pulse"
+		"AbilityValues"
+		{
+			"radius"		"550"
+			"damage_percent"		"3 3.75 4.5 5.25"
+			"duration"		"11"
+		}
+	}
+	"dota688_faceless_void_time_dilation"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCastPoint"		"0.1"
+		"AbilityCooldown"		"40 34 28 22"
+		"AbilityManaCost"		"75"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_faceless_void_time_dilation"
+		"AbilityTextureName"		"faceless_void_time_dilation"
+		"AbilityValues"
+		{
+			"radius"		"725"
+			"duration"		"6 8 10 12"
+			"slow"		"10"
+		}
+	}
+	"dota688_faceless_void_time_lock"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityModifierSupportBonus"		"25"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_faceless_void_time_lock"
+		"AbilityTextureName"		"faceless_void_time_lock"
+		"AbilityValues"
+		{
+			"duration"		"1.0"
+			"duration_creep"		"2.0"
+			"chance_pct"		"10 15 20 25"
+			"bonus_damage"		"50 75 100 125"
+		}
+	}
+	"dota688_gyrocopter_call_down"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastRange"		"1000"
+		"AbilityCastPoint"		"0.3 0.3 0.3"
+		"AbilityCooldown"		"55 50 45"
+		"AbilityManaCost"		"125 125 125"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_gyrocopter_call_down"
+		"AbilityTextureName"		"gyrocopter_call_down"
+		"AbilityValues"
+		{
+			"slow_duration_first"		"2"
+			"slow_duration_second"		"4"
+			"damage_first"		"200 275 350"
+			"damage_second"		"100 150 200"
+			"slow_first"		"30"
+			"slow_second"		"60"
+			"radius"		"600"
+			"range_scepter"		"0"
+			"damage_second_scepter"		"175 225 275"
+		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
+	}
 	"dota688_huskar_berserkers_blood"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -972,6 +1294,26 @@
 		}
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
+	}
+	"dota688_invoker_invoke"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"		"4"
+		"LevelsBetweenUpgrades"		"5"
+		"RequiredLevel"		"1"
+		"HasScepterUpgrade"		"1"
+		"AbilityCooldown"		"22 17 12 5"
+		"AbilityManaCost"		"20 40 60 80"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_invoker_invoke"
+		"AbilityTextureName"		"invoker_invoke"
+		"AbilityValues"
+		{
+			"max_invoked_spells"		"2 2 2 2"
+			"cooldown_scepter"		"16 8 4 2"
+			"mana_cost_scepter"		"0"
+		}
 	}
 	"dota688_jakiro_macropyre"
 	{
@@ -1057,6 +1399,27 @@
 			"knockback_distance"		"525"
 			"knockback_height"		"50 50 50"
 			"knockback_duration"		"0.4 0.4 0.4"
+		}
+	}
+	"dota688_keeper_of_the_light_chakra_magic"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ALLIES_YES"
+		"AbilityCastRange"		"900 900 900 900"
+		"AbilityCastPoint"		"0.3 0.3 0.3 0.3"
+		"AbilityCooldown"		"17 16 15 14"
+		"AbilityManaCost"		"25 35 45 55"
+		"AbilityModifierSupportValue"		"3.0"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_keeper_of_the_light_chakra_magic"
+		"AbilityTextureName"		"keeper_of_the_light_chakra_magic"
+		"AbilityValues"
+		{
+			"mana_restore"		"75 150 225 300"
+			"cooldown_reduction"		"3 4 5 6"
+			"duration"		"15"
 		}
 	}
 	"dota688_keeper_of_the_light_spirit_form"
@@ -1148,6 +1511,35 @@
 			"trigger_chance"		"25"
 			"buff_duration"		"1.0"
 			"hp_leech_percent"		"55 65 75 85"
+		}
+	}
+	"dota688_legion_commander_overwhelming_odds"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"1"
+		"AbilityCooldown"		"15"
+		"AbilityCastRange"		"1000"
+		"AbilityCastPoint"		"0.3 0.3 0.3 0.3"
+		"AbilityManaCost"		"100 100 100 100"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_legion_commander_overwhelming_odds"
+		"AbilityTextureName"		"legion_commander_overwhelming_odds"
+		"AbilityValues"
+		{
+			"damage"		"40 80 120 160"
+			"damage_per_unit"		"14 16 18 20"
+			"damage_per_hero"		"20 40 60 80"
+			"illusion_dmg_pct"
+			{
+				"value"		"25"
+				"CalculateSpellDamageTooltip"		"1"
+			}
+			"bonus_speed_creeps"		"3"
+			"bonus_speed_heroes"		"9"
+			"duration"		"7.0"
+			"radius"		"330"
 		}
 	}
 	"dota688_legion_commander_press_the_attack"
@@ -1253,6 +1645,18 @@
 			"health_conversion"		"30 50 70 90"
 		}
 	}
+	"dota688_life_stealer_feast"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_life_stealer_feast"
+		"AbilityTextureName"		"life_stealer_feast"
+		"AbilityValues"
+		{
+			"hp_leech_percent"		"4.5 5.5 6.5 7.5"
+		}
+	}
 	"dota688_life_stealer_rage"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -1339,6 +1743,127 @@
 			"damage_delay"		"0.25"
 			"cooldown_scepter"		"100.0 60.0 20.0"
 			"splash_radius_scepter"		"300"
+		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
+	}
+	"dota688_lone_druid_spirit_bear"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"DisplayAdditionalHeroes"		"1"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
+		"AbilityCooldown"		"120.0"
+		"AbilityManaCost"		"75 75 75 75"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_lone_druid_spirit_bear"
+		"AbilityTextureName"		"lone_druid_spirit_bear"
+		"AbilityValues"
+		{
+			"bear_hp"		"1400 1800 2300 2700"
+			"bear_regen_tooltip"		"2 3 4 5"
+			"bear_bat"		"1.75 1.65 1.55 1.45"
+			"bear_armor"		"3 4 5 6"
+			"backlash_damage"		"10.0"
+			"cooldown_scepter"		"120.0"
+		}
+	}
+	"dota688_lone_druid_spirit_bear_demolish"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_lone_druid_spirit_bear_demolish"
+		"AbilityTextureName"		"lone_druid_spirit_bear_demolish"
+		"AbilityValues"
+		{
+			"spell_resistance"		"33"
+			"bonus_building_damage"		"40"
+		}
+	}
+	"dota688_lone_druid_spirit_bear_entangle"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityDamage"		"60"
+		"AbilityCooldown"		"5.0"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_lone_druid_spirit_bear_entangle"
+		"AbilityTextureName"		"lone_druid_spirit_bear_entangle"
+		"AbilityValues"
+		{
+			"entangle_chance"		"20"
+			"hero_duration"		"3.0"
+			"creep_duration"		"9.0"
+		}
+	}
+	"dota688_lone_druid_spirit_bear_return"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCastPoint"		"0"
+		"AbilityCooldown"		"5.0"
+		"AbilityManaCost"		"0"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_lone_druid_spirit_bear_return"
+		"AbilityTextureName"		"lone_druid_spirit_bear_return"
+		"AbilityValues"
+		{
+			"return_damage_cooldown"		"3"
+		}
+	}
+	"dota688_lone_druid_true_form"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
+		"AbilityCooldown"		"0.0 0.0 0.0"
+		"AbilityCastPoint"		"0 0 0"
+		"AbilityManaCost"		"25 25 25"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_lone_druid_true_form"
+		"AbilityTextureName"		"lone_druid_true_form"
+		"AbilityValues"
+		{
+			"base_attack_time"		"1.5 1.5 1.5"
+			"bonus_armor"		"4 6 8"
+			"bonus_hp"		"300 600 900"
+			"speed_loss"		"45"
+			"transformation_time"		"1.933"
+		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
+	}
+	"dota688_lone_druid_true_form_battle_cry"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"		"3"
+		"AbilityCastPoint"		"0.5 0.5 0.5"
+		"AbilityCooldown"		"60.0"
+		"AbilityManaCost"		"50 50 50"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_lone_druid_true_form_battle_cry"
+		"AbilityTextureName"		"lone_druid_true_form_battle_cry"
+		"AbilityValues"
+		{
+			"bonus_damage"		"70 100 130"
+			"bonus_armor"		"10 15 20"
+			"cry_duration"		"6.0"
+			"range"		"1000"
+		}
+	}
+	"dota688_lone_druid_true_form_druid"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
+		"AbilityCastPoint"		"0 0 0"
+		"AbilityCooldown"		"0.0 0.0 0.0"
+		"AbilityManaCost"		"25 25 25"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_lone_druid_true_form_druid"
+		"AbilityTextureName"		"lone_druid_true_form_druid"
+		"HasScepterUpgrade"		"1"
+		"AbilityValues"
+		{
+			"transformation_time"		"1.933"
 		}
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
@@ -1446,6 +1971,19 @@
 			"aura_radius"		"900"
 		}
 	}
+	"dota688_medusa_mana_shield"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityCastPoint"		"0.4 0.4 0.4 0.4"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_medusa_mana_shield"
+		"AbilityTextureName"		"medusa_mana_shield"
+		"AbilityValues"
+		{
+			"damage_per_mana"		"1.6 1.9 2.2 2.5"
+			"absorption_tooltip"		"60"
+		}
+	}
 	"dota688_meepo_geostrike"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1461,6 +1999,27 @@
 		{
 			"slow"		"-5 -10 -15 -20"
 			"duration_tooltip"		"2.0"
+		}
+	}
+	"dota688_mirana_leap"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityCastRange"		"0"
+		"AbilityCastPoint"		"0.0 0.0 0.0 0.0"
+		"AbilityCooldown"		"30.0 26.0 22.0 18.0"
+		"AbilityDuration"		"10.0"
+		"AbilityManaCost"		"40 35 30 20"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_mirana_leap"
+		"AbilityTextureName"		"mirana_leap"
+		"AbilityValues"
+		{
+			"leap_distance"		"600 700 800 900"
+			"leap_speed"		"1600.0"
+			"leap_acceleration"		"7000.0"
+			"leap_radius"		"775"
+			"leap_speedbonus"		"4 8 12 16"
+			"leap_speedbonus_as"		"8 16 24 32"
 		}
 	}
 	"dota688_mirana_starfall"
@@ -1551,6 +2110,65 @@
 		"AbilityValues"
 		{
 			"bonus_attributes"		"3 4 5 6"
+		}
+	}
+	"dota688_morphling_morph_replicate"
+	{
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityManaCost"		"150 150 150"
+		"AbilityCastPoint"		"0.35"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_morphling_morph_replicate"
+		"AbilityTextureName"		"morphling_morph_replicate"
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
+	}
+	"dota688_morphling_replicate"
+	{
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_CUSTOM"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityCastRange"		"700 1100 1500"
+		"AbilityCastPoint"		"0.25"
+		"AbilityCooldown"		"80.0 80.0 80.0"
+		"AbilityManaCost"		"25 25 25"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_morphling_replicate"
+		"AbilityTextureName"		"morphling_replicate"
+		"AbilityValues"
+		{
+			"duration"		"30.0 45.0 60.0"
+			"illusion_damage_out_pct"		"-20"
+			"tooltip_illusion_damage_out_pct"		"80"
+			"illusion_incoming_dmg_pct_tooltip"		"100 100 100"
+			"illusion_damage_in_pct"		"0 0 0"
+			"tooltip_cast_range"		"700 1100 1500"
+			"illusion_damage_out_pct_scepter"		"-20"
+		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
+	}
+	"dota688_naga_siren_rip_tide"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"1"
+		"AbilityCastPoint"		"0 0 0 0"
+		"AbilityCooldown"		"10.0"
+		"AbilityManaCost"		"80 90 100 110"
+		"AbilityDamage"		"100 140 180 220"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_naga_siren_rip_tide"
+		"AbilityTextureName"		"naga_siren_rip_tide"
+		"AbilityValues"
+		{
+			"armor_reduction"		"-2 -3 -4 -5"
+			"radius"		"320"
+			"duration"		"8.0 8.0 8.0 8.0"
 		}
 	}
 	"dota688_naga_siren_song_of_the_siren"
@@ -1734,6 +2352,26 @@
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
 	}
+	"dota688_nyx_assassin_mana_burn"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"1"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+		"AbilityCastRange"		"600 600 600 600"
+		"AbilityCastPoint"		"0.4 0.4 0.4 0.4"
+		"AbilityCooldown"		"28.0 20.0 12.0 4.0"
+		"AbilityManaCost"		"100"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_nyx_assassin_mana_burn"
+		"AbilityTextureName"		"nyx_assassin_mana_burn"
+		"AbilityValues"
+		{
+			"float_multiplier"		"3.5 4 4.5 5"
+		}
+	}
 	"dota688_obsidian_destroyer_arcane_orb"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
@@ -1799,6 +2437,125 @@
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
 	}
+	"dota688_ogre_magi_bloodlust"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ALLIES_YES"
+		"AbilityCastRange"		"600"
+		"AbilityCastPoint"		"0.45"
+		"AbilityCooldown"		"20"
+		"AbilityManaCost"		"50"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_ogre_magi_bloodlust"
+		"AbilityTextureName"		"ogre_magi_bloodlust"
+		"AbilityValues"
+		{
+			"modelscale"		"25"
+			"bonus_movement_speed"		"10 12 14 16"
+			"bonus_attack_speed"		"30 40 50 60"
+			"duration"		"30"
+		}
+	}
+	"dota688_ogre_magi_fireblast"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"1"
+		"AbilityCastRange"		"475"
+		"AbilityCastPoint"		"0.45"
+		"AbilityCooldown"		"12"
+		"AbilityManaCost"		"75 85 95 105"
+		"AbilityDamage"		"55 110 165 220"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_ogre_magi_fireblast"
+		"AbilityTextureName"		"ogre_magi_fireblast"
+		"AbilityValues"
+		{
+			"stun_duration"		"1.5"
+			"multicast_delay"		"0.5"
+		}
+	}
+	"dota688_ogre_magi_ignite"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"1"
+		"AbilityCastRange"		"700"
+		"AbilityCastPoint"		"0.45"
+		"AbilityCooldown"		"15"
+		"AbilityManaCost"		"90"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_ogre_magi_ignite"
+		"AbilityTextureName"		"ogre_magi_ignite"
+		"AbilityValues"
+		{
+			"duration"		"5 6 7 8"
+			"burn_damage"		"26 34 42 50"
+			"slow_movement_speed_pct"		"-20 -22 -24 -26"
+			"projectile_speed"		"1000"
+			"multicast_delay"		"0.5"
+		}
+	}
+	"dota688_ogre_magi_multicast"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_ogre_magi_multicast"
+		"AbilityTextureName"		"ogre_magi_multicast"
+		"AbilityValues"
+		{
+			"multicast_2_times"		"0.4 0.5 0.6"
+			"multicast_3_times"		"0 0.2 0.25"
+			"multicast_4_times"		"0 0 0.125"
+			"fireblast_mana_cost"		"20 40 60"
+			"fireblast_cooldown"		"2 4 6"
+			"ignite_aoe"		"150 300 450"
+			"ignite_cast_range"		"150 300 450"
+			"bloodlust_aoe"		"575"
+			"bloodlust_cooldown"		"5 10 15"
+			"multicast_2_times_tooltip"		"40 50 60"
+			"multicast_3_times_tooltip"		"0 20 25"
+			"multicast_4_times_tooltip"		"0 0 12.5"
+		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
+	}
+	"dota688_ogre_magi_unrefined_fireblast"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"MaxLevel"		"1"
+		"FightRecapLevel"		"1"
+		"IsGrantedByScepter"		"0"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastRange"		"475"
+		"AbilityCastPoint"		"0.45"
+		"AbilityCooldown"		"6"
+		"AbilityManaCost"		"400"
+		"AbilityDamage"		"275"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_ogre_magi_unrefined_fireblast"
+		"AbilityTextureName"		"ogre_magi_unrefined_fireblast"
+		"AbilityValues"
+		{
+			"stun_duration"		"1.5"
+			"multicast_delay"		"0.5"
+			"scepter_mana"		"0.6"
+		}
+	}
 	"dota688_omniknight_degen_aura"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
@@ -1836,6 +2593,26 @@
 		}
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
+	}
+	"dota688_omniknight_repel"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ALLIES_NO"
+		"FightRecapLevel"		"1"
+		"AbilityCastRange"		"500"
+		"AbilityCastPoint"		"0.35"
+		"AbilityCooldown"		"20 18 16 14"
+		"AbilityManaCost"		"50 50 50 50"
+		"AbilityModifierSupportValue"		"3.0"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_omniknight_repel"
+		"AbilityTextureName"		"omniknight_repel"
+		"AbilityValues"
+		{
+			"duration"		"5 6 7 8"
+		}
 	}
 	"dota688_oracle_purifying_flames"
 	{
@@ -2200,6 +2977,18 @@
 			"jump_delay"		"0.25 0.25 0.25 0.25"
 		}
 	}
+	"dota688_rubick_null_field"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_rubick_null_field"
+		"AbilityTextureName"		"rubick_null_field"
+		"AbilityValues"
+		{
+			"magic_damage_reduction_pct"		"10 14 18 22"
+			"radius"		"900"
+		}
+	}
 	"dota688_sandking_burrowstrike"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -2246,6 +3035,29 @@
 			"caustic_finale_slow"		"-30"
 			"caustic_finale_slow_duration"		"3"
 			"caustic_finale_expire_dmg_pct_tooltip"		"50"
+		}
+	}
+	"dota688_sandking_sand_storm"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"1"
+		"AbilityCastRange"		"0"
+		"AbilityDuration"		"50"
+		"AbilityCooldown"		"34 26 18 10"
+		"AbilityChannelTime"		"50"
+		"AbilityCastPoint"		"0.0 0.0 0.0 0.0"
+		"AbilityDamage"		"25 50 75 100"
+		"AbilityManaCost"		"60 50 40 30"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_sandking_sand_storm"
+		"AbilityTextureName"		"sandking_sand_storm"
+		"AbilityValues"
+		{
+			"sand_storm_invis_delay"		"1.5"
+			"sand_storm_radius"		"525"
+			"AbilityDuration"		"50"
 		}
 	}
 	"dota688_shadow_demon_soul_catcher"
@@ -2331,6 +3143,35 @@
 			"spawn_duration"		"25 30 35 40"
 		}
 	}
+	"dota688_skeleton_king_reincarnation"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityManaCost"		"160"
+		"AbilityCooldown"		"260 160 60"
+		"AbilityModifierSupportValue"		"0.2"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_skeleton_king_reincarnation"
+		"AbilityTextureName"		"skeleton_king_reincarnation"
+		"AbilityValues"
+		{
+			"reincarnate_time"		"3.0 3.0 3.0"
+			"slow_radius"		"900"
+			"movespeed"		"-75"
+			"attackslow_tooltip"		"-75"
+			"slow_duration"		"5.0"
+			"scepter_duration"		"7"
+			"aura_radius"		"1200"
+			"aura_radius_tooltip_scepter"		"1200"
+		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
+	}
 	"dota688_skeleton_king_vampiric_aura"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_AURA"
@@ -2405,6 +3246,20 @@
 			"duration"		"12"
 		}
 	}
+	"dota688_slark_essence_shift"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_slark_essence_shift"
+		"AbilityTextureName"		"slark_essence_shift"
+		"AbilityValues"
+		{
+			"agi_gain"		"3"
+			"stat_loss"		"1"
+			"duration"		"15 30 60 120"
+		}
+	}
 	"dota688_slark_shadow_dance"
 	{
 		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
@@ -2425,6 +3280,35 @@
 			"neutral_disable"		"2.0 2.0 2.0"
 			"scepter_aoe"		"350"
 			"scepter_cooldown"		"35"
+		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
+	}
+	"dota688_sniper_assassinate"
+	{
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"FightRecapLevel"		"2"
+		"AbilityCastRange"		"2000 2500 3000"
+		"AbilityCastRangeBuffer"		"600"
+		"AbilityCastPoint"		"2.0 2.0 2.0"
+		"AbilityCooldown"		"20.0 15.0 10.0"
+		"AbilityDamage"		"320 485 650"
+		"AbilityManaCost"		"175 275 375"
+		"AbilityModifierSupportValue"		"0.0"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_sniper_assassinate"
+		"AbilityTextureName"		"sniper_assassinate"
+		"AbilityValues"
+		{
+			"projectile_speed"		"2500 2500 2500"
+			"tooltip_range"		"2000 2500 3000"
+			"total_cast_time_tooltip"		"2"
 		}
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
@@ -2667,6 +3551,48 @@
 			"respawn_time_percentage_tooltip"		"50"
 		}
 	}
+	"dota688_terrorblade_reflection"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"1"
+		"AbilityCooldown"		"22 20 18 16"
+		"AbilityCastPoint"		"0.3"
+		"AbilityManaCost"		"50"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_terrorblade_reflection"
+		"AbilityTextureName"		"terrorblade_reflection"
+		"AbilityValues"
+		{
+			"illusion_duration"		"2.5 3.5 4.5 5.5"
+			"illusion_outgoing_damage"		"-60.0 -40.0 -20.0 0.0"
+			"illusion_outgoing_tooltip"		"40.0 60.0 80.0 100.0"
+			"move_slow"		"25"
+			"attack_slow_tooltip"		"25"
+			"range"		"900"
+		}
+	}
+	"dota688_tidehunter_anchor_smash"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"		"1"
+		"AbilityCastRange"		"375"
+		"AbilityCastPoint"		"0.4"
+		"AbilityCooldown"		"7.0 6.0 5.0 4.0"
+		"AbilityDamage"		"75 125 175 225"
+		"AbilityManaCost"		"30 40 50 60"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_tidehunter_anchor_smash"
+		"AbilityTextureName"		"tidehunter_anchor_smash"
+		"AbilityValues"
+		{
+			"damage_reduction"		"-45 -50 -55 -60"
+			"reduction_duration"		"6.0 6.0 6.0 6.0"
+			"radius"		"375"
+		}
+	}
 	"dota688_tinker_heat_seeking_missile"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -2715,6 +3641,24 @@
 			"cast_range_tooltip"		"650"
 			"cast_range_scepter"		"650"
 		}
+	}
+	"dota688_tinker_rearm"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
+		"AbilityCastPoint"		"0.53 0.53 0.53 0.53"
+		"AbilityChannelTime"		"3.0 1.5 0.75"
+		"AbilityCooldown"		"0.0 0.0 0.0"
+		"AbilityManaCost"		"100 200 300"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_tinker_rearm"
+		"AbilityTextureName"		"tinker_rearm"
+		"AbilityValues"
+		{
+			"channel_tooltip"		"3.0 1.5 0.75"
+		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_tiny_craggy_exterior"
 	{
@@ -2806,6 +3750,31 @@
 			"damage"		"175"
 		}
 	}
+	"dota688_treant_leech_seed"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityCastRange"		"350"
+		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
+		"FightRecapLevel"		"1"
+		"AbilityCooldown"		"16 13 10 7"
+		"AbilityManaCost"		"80 95 110 125"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_treant_leech_seed"
+		"AbilityTextureName"		"treant_leech_seed"
+		"AbilityValues"
+		{
+			"damage_interval"		"0.75"
+			"leech_damage"		"15 30 45 60"
+			"movement_slow"		"-28"
+			"radius"		"500"
+			"duration"		"4.5"
+			"projectile_speed"		"400"
+		}
+	}
 	"dota688_treant_living_armor"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
@@ -2851,6 +3820,26 @@
 			"bonus_move_speed"		"14 16 18 20"
 			"grace_time"		"0.75"
 		}
+	}
+	"dota688_troll_warlord_battle_trance"
+	{
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"MaxLevel"		"3"
+		"FightRecapLevel"		"2"
+		"AbilityCastPoint"		"0.0 0.0 0.0"
+		"AbilityCooldown"		"30"
+		"AbilityManaCost"		"75 75 75"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_troll_warlord_battle_trance"
+		"AbilityTextureName"		"troll_warlord_battle_trance"
+		"AbilityValues"
+		{
+			"trance_duration"		"5.0"
+			"attack_speed"		"60 120 180"
+		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_troll_warlord_berserkers_rage"
 	{
@@ -3133,6 +4122,21 @@
 			"drain_interval"		"0.2 0.2 0.2 0.2"
 			"drain_pct"		"0.045 0.045 0.045 0.045"
 			"drain_pct_tooltip"		"4.5 4.5 4.5 4.5"
+		}
+	}
+	"dota688_zuus_static_field"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityCastRange"		"1200"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_zuus_static_field"
+		"AbilityTextureName"		"zuus_static_field"
+		"AbilityValues"
+		{
+			"radius"		"1200"
+			"damage_health_pct"		"4 6 8 10"
 		}
 	}
 	"dota688_zuus_thundergods_wrath"

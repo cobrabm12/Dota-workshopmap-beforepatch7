@@ -549,6 +549,33 @@
 			"cast_range_tooltip"		"600"
 		}
 	}
+	"item_dota688_dust"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"Model"		"models/props_gameplay/dust.vmdl"
+		"Effect"		"particles/generic_gameplay/dropped_dust.vpcf"
+		"AbilityCooldown"		"30.0"
+		"AbilityManaCost"		"5"
+		"ItemCost"		"180"
+		"ItemShopTags"		"consumable"
+		"ItemQuality"		"consumable"
+		"ItemAliases"		"dust of appearance"
+		"ItemStackable"		"1"
+		"ItemShareability"		"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"		"0"
+		"ItemInitialCharges"		"2"
+		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES"
+		"ItemSupport"		"1"
+		"BaseClass"		"item_lua"
+		"ScriptFile"		"items/item_dota688_dust"
+		"AbilityTextureName"		"item_dust"
+		"AbilityValues"
+		{
+			"duration"		"12"
+			"radius"		"1050"
+			"movespeed"		"-20"
+		}
+	}
 	"item_dota688_echo_sabre"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1258,6 +1285,53 @@
 			"bonus_damage"		"0"
 		}
 	}
+	"item_dota688_quelling_blade"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityCastRange"		"350"
+		"AbilityCastPoint"		"0.0"
+		"AbilityCooldown"		"4.0"
+		"Model"		"models/props_gameplay/quelling_blade.vmdl"
+		"AbilityManaCost"		"0"
+		"ItemCost"		"200"
+		"ItemShopTags"		"damage"
+		"ItemQuality"		"component"
+		"ItemAliases"		"quelling blade"
+		"SideShop"		"1"
+		"BaseClass"		"item_lua"
+		"ScriptFile"		"items/item_dota688_quelling_blade"
+		"AbilityTextureName"		"item_quelling_blade"
+		"AbilityValues"
+		{
+			"damage_bonus"		"140"
+			"damage_bonus_ranged"		"115"
+			"quelling_range_tooltip"		"350"
+			"cast_range_ward"		"450"
+		}
+	}
+	"item_dota688_rapier"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"		"models/props_gameplay/divine_rapier.vmdl"
+		"ItemCost"		"6200"
+		"ItemShopTags"		"damage"
+		"ItemQuality"		"epic"
+		"ItemAliases"		"divine rapier"
+		"ItemShareability"		"ITEM_NOT_SHAREABLE"
+		"ItemSellable"		"0"
+		"ItemKillable"		"0"
+		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
+		"ItemContributesToNetWorthWhenDropped"		"0"
+		"BaseClass"		"item_lua"
+		"ScriptFile"		"items/item_dota688_rapier"
+		"AbilityTextureName"		"item_rapier"
+		"AbilityValues"
+		{
+			"bonus_damage"		"330"
+		}
+	}
 	"item_dota688_ring_of_aquila"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
@@ -1635,6 +1709,144 @@
 			"block_cooldown"		"13.0"
 		}
 	}
+	"item_dota688_tango"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"Model"		"models/props_gameplay/tango.vmdl"
+		"Effect"		"particles/generic_gameplay/dropped_tango.vpcf"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityCastRange"		"165"
+		"AbilityCastPoint"		"0.0"
+		"ItemCost"		"125"
+		"ItemShopTags"		"consumable"
+		"ItemQuality"		"consumable"
+		"ItemAliases"		"tango"
+		"ItemStackable"		"1"
+		"ItemPermanent"		"0"
+		"ItemInitialCharges"		"4"
+		"SideShop"		"0"
+		"BaseClass"		"item_lua"
+		"ScriptFile"		"items/item_dota688_tango"
+		"AbilityTextureName"		"item_tango"
+		"AbilityValues"
+		{
+			"total_heal"		"115"
+			"total_heal_ward_tooltip"		"230"
+			"cast_range_ward"		"450"
+			"buff_duration"		"16.0"
+		}
+	}
+	"item_dota688_tango_single"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"Model"		"models/props_gameplay/tango.vmdl"
+		"Effect"		"particles/generic_gameplay/dropped_tango.vpcf"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityCastRange"		"165"
+		"AbilityCastPoint"		"0.0"
+		"AbilityCooldown"		"60.0"
+		"ItemCost"		"30"
+		"ItemShopTags"		"consumable"
+		"ItemQuality"		"consumable"
+		"ItemStackable"		"0"
+		"ItemPermanent"		"0"
+		"ItemInitialCharges"		"1"
+		"ItemPurchasable"		"0"
+		"ItemSellable"		"0"
+		"ItemShareability"		"ITEM_FULLY_SHAREABLE"
+		"BaseClass"		"item_lua"
+		"ScriptFile"		"items/item_dota688_tango_single"
+		"AbilityTextureName"		"item_tango_single"
+		"AbilityValues"
+		{
+			"total_heal"		"115"
+			"total_heal_ward_tooltip"		"230"
+			"cast_range_ward"		"450"
+			"buff_duration"		"16.0"
+		}
+	}
+	"item_dota688_tranquil_boots"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityCooldown"		"13.0"
+		"AbilityManaCost"		"0"
+		"ItemCost"		"900"
+		"ItemShopTags"		"move_speed;regen_health;armor"
+		"ItemQuality"		"rare"
+		"ItemAliases"		"tranquil boots"
+		"ItemHideCharges"		"1"
+		"ItemDeclarations"		"DECLARE_PURCHASES_TO_SPECTATORS"
+		"BaseClass"		"item_lua"
+		"ScriptFile"		"items/item_dota688_tranquil_boots"
+		"AbilityTextureName"		"item_tranquil_boots"
+		"AbilityValues"
+		{
+			"bonus_movement_speed"		"85"
+			"bonus_armor"		"3"
+			"bonus_health_regen"		"12"
+			"heal_duration"		"20.0"
+			"heal_amount"		"250"
+			"heal_interval"		"0.334"
+			"break_time"		"13"
+			"break_count"		"1"
+			"break_threshold"		"20"
+			"broken_movement_speed"		"55"
+		}
+	}
+	"item_dota688_travel_boots"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		"AbilityCooldown"		"45.0"
+		"AbilitySharedCooldown"		"teleport"
+		"AbilityChannelTime"		"3.0"
+		"AbilityManaCost"		"75"
+		"ItemCost"		"2400"
+		"ItemShopTags"		"teleport;move_speed"
+		"ItemQuality"		"common"
+		"ItemAliases"		"bot;boots of travel"
+		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"		"2"
+		"ItemBaseLevel"		"1"
+		"UpgradesItems"		"item_dota688_travel_boots"
+		"UpgradeRecipe"		"item_recipe_dota688_travel_boots"
+		"BaseClass"		"item_lua"
+		"ScriptFile"		"items/item_dota688_travel_boots"
+		"AbilityTextureName"		"item_travel_boots"
+		"AbilityValues"
+		{
+			"bonus_movement_speed"		"100"
+		}
+	}
+	"item_dota688_travel_boots_2"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		"AbilityCooldown"		"45.0"
+		"AbilitySharedCooldown"		"teleport"
+		"AbilityChannelTime"		"3.0"
+		"AbilityManaCost"		"75"
+		"ItemCost"		"4400"
+		"ItemShopTags"		"teleport;move_speed"
+		"ItemQuality"		"common"
+		"ItemAliases"		"bot;boots of travel"
+		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"		"2"
+		"ItemBaseLevel"		"2"
+		"BaseClass"		"item_lua"
+		"ScriptFile"		"items/item_dota688_travel_boots_2"
+		"AbilityTextureName"		"item_travel_boots_2"
+		"AbilityValues"
+		{
+			"bonus_movement_speed"		"100"
+		}
+	}
 	"item_dota688_ultimate_scepter"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -1783,6 +1995,32 @@
 			"bonus_intellect"		"3"
 			"bonus_damage"		"3"
 		}
+	}
+	"item_recipe_dota688_travel_boots"
+	{
+		"Model"		"models/props_gameplay/recipe.vmdl"
+		"ItemCost"		"2000"
+		"ItemShopTags"		""
+		"ItemRecipe"		"1"
+		"ItemResult"		"item_dota688_travel_boots"
+		"ItemRequirements"
+		{
+			"01"		"item_boots"
+		}
+		"AbilityTextureName"		"item_recipe"
+	}
+	"item_recipe_dota688_travel_boots_2"
+	{
+		"Model"		"models/props_gameplay/recipe.vmdl"
+		"ItemCost"		"0"
+		"ItemShopTags"		""
+		"ItemRecipe"		"1"
+		"ItemResult"		"item_dota688_travel_boots_2"
+		"ItemRequirements"
+		{
+			"01"		"item_dota688_travel_boots;item_recipe_dota688_travel_boots"
+		}
+		"AbilityTextureName"		"item_recipe"
 	}
 	"item_recipe_dota688_phase_boots"
 	{
@@ -2214,6 +2452,18 @@
 		}
 		"AbilityTextureName"		"item_recipe"
 	}
+	"item_recipe_dota688_rapier"
+	{
+		"ItemCost"		"0"
+		"ItemShopTags"		""
+		"ItemRecipe"		"1"
+		"ItemResult"		"item_dota688_rapier"
+		"ItemRequirements"
+		{
+			"01"		"item_relic;item_demon_edge"
+		}
+		"AbilityTextureName"		"item_recipe"
+	}
 	"item_recipe_dota688_monkey_king_bar"
 	{
 		"ItemCost"		"0"
@@ -2246,7 +2496,7 @@
 		"ItemResult"		"item_dota688_bfury"
 		"ItemRequirements"
 		{
-			"01"		"item_broadsword;item_claymore;item_dota688_pers;item_quelling_blade"
+			"01"		"item_broadsword;item_claymore;item_dota688_pers;item_dota688_quelling_blade"
 		}
 		"AbilityTextureName"		"item_recipe"
 	}
@@ -2513,7 +2763,7 @@
 		"ItemResult"		"item_dota688_iron_talon"
 		"ItemRequirements"
 		{
-			"01"		"item_quelling_blade;item_ring_of_protection"
+			"01"		"item_dota688_quelling_blade;item_ring_of_protection"
 		}
 		"AbilityTextureName"		"item_recipe"
 	}
@@ -2550,6 +2800,18 @@
 		"ItemRequirements"
 		{
 			"01"		"item_dota688_wraith_band;item_dota688_ring_of_basilius"
+		}
+		"AbilityTextureName"		"item_recipe"
+	}
+	"item_recipe_dota688_tranquil_boots"
+	{
+		"ItemCost"		"0"
+		"ItemShopTags"		""
+		"ItemRecipe"		"1"
+		"ItemResult"		"item_dota688_tranquil_boots"
+		"ItemRequirements"
+		{
+			"01"		"item_boots;item_ring_of_protection;item_ring_of_regen"
 		}
 		"AbilityTextureName"		"item_recipe"
 	}

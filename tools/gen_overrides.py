@@ -71,6 +71,12 @@ UNIT_PREFIXES = (
     "npc_dota_neutral_", "npc_dota_roshan", "npc_dota_courier", "npc_dota_flying_courier",
     "npc_dota_fort", "npc_dota_observer_wards", "npc_dota_sentry_wards",
     "npc_dota_dark_troll_warlord_skeleton_warrior", "dota_fountain",
+    # unitati invocate care exista si azi cu acelasi nume (statisticile si abilitatile lor 6.88)
+    "npc_dota_necronomicon_", "npc_dota_lycan_wolf", "npc_dota_broodmother_spider", "npc_dota_lesser_eidolon",
+    "npc_dota_eidolon", "npc_dota_greater_eidolon", "npc_dota_dire_eidolon", "npc_dota_furion_treant",
+    "npc_dota_shadow_shaman_ward", "npc_dota_invoker_forged_spirit", "npc_dota_witch_doctor_death_ward",
+    "npc_dota_brewmaster_", "npc_dota_unit_tombstone", "npc_dota_unit_undying_zombie", "npc_dota_visage_familiar",
+    "npc_dota_gyrocopter_homing_missile",
 )
 UNIT_STAT_KEYS = [
     "Level", "StatusHealth", "StatusHealthRegen", "StatusMana", "StatusManaRegen",
@@ -254,6 +260,111 @@ def slot_abilities(hero: kv.KV) -> list[tuple[int, str]]:
 # generare
 # ---------------------------------------------------------------------------
 
+# Chei 6.88 pe care codul C++ curent le citeste sub alt nume (valoarea 6.88 scrisa sub numele vechi era ignorata):
+# AbilityDamage/AbilityDuration de top au devenit valori numite, iar unitatile invocate isi iau statisticile din valori
+# care in 6.88 erau doar "_tooltip". Gasite de auditul din 2026-10-12 (docs/TEST_LOG.md, sectiunea 6).
+KEY_RENAME_688 = {
+    "lina_dragon_slave": {"AbilityDamage": ["dragon_slave_damage"]},
+    "lina_light_strike_array": {"AbilityDamage": ["light_strike_array_damage"]},
+    "kunkka_torrent": {"AbilityDamage": ["torrent_damage"]},
+    "lion_impale": {"AbilityDamage": ["damage"]},
+    "beastmaster_wild_axes": {"AbilityDamage": ["axe_damage"]},
+    "dragon_knight_breathe_fire": {"AbilityDamage": ["damage"]},
+    "dragon_knight_dragon_tail": {"AbilityDamage": ["damage"]},
+    "earthshaker_echo_slam": {"AbilityDamage": ["echo_slam_initial_damage"]},
+    "earthshaker_aftershock": {"AbilityDamage": ["aftershock_damage"]},
+    "juggernaut_blade_fury": {"AbilityDamage": ["blade_fury_damage"]},
+    "crystal_maiden_crystal_nova": {"AbilityDamage": ["nova_damage"]},
+    "axe_battle_hunger": {"AbilityDamage": ["damage_per_second"]},
+    "death_prophet_carrion_swarm": {"AbilityDamage": ["damage"]},
+    "leshrac_diabolic_edict": {"AbilityDamage": ["damage"]},
+    "gyrocopter_rocket_barrage": {"AbilityDamage": ["rocket_damage"]},
+    "disruptor_thunder_strike": {"AbilityDamage": ["strike_damage"]},
+    "dazzle_shallow_grave": {"AbilityDuration": ["duration"]},
+    "enchantress_enchant": {"AbilityDuration": ["slow_duration"]},
+    "enchantress_natures_attendants": {"AbilityDuration": ["heal_duration"]},
+    "huskar_burning_spear": {"AbilityDuration": ["duration"]},
+    "jakiro_ice_path": {"AbilityDuration": ["stun_duration", "path_duration"]},
+    "ancient_apparition_ice_vortex": {"AbilityDuration": ["vortex_duration"]},
+    "nevermore_shadowraze1": {"AbilityDamage": ["shadowraze_damage"]},
+    "nevermore_shadowraze2": {"AbilityDamage": ["shadowraze_damage"]},
+    "nevermore_shadowraze3": {"AbilityDamage": ["shadowraze_damage"]},
+    "puck_waning_rift": {"AbilityDamage": ["damage"]},
+    "windrunner_powershot": {"AbilityDamage": ["powershot_damage"]},
+    "shadow_demon_demonic_purge": {"AbilityDamage": ["purge_damage"]},
+    "shadow_demon_shadow_poison": {"AbilityDamage": ["hit_damage"]},
+    "zuus_arc_lightning": {"AbilityDamage": ["arc_damage"]},
+    "zuus_lightning_bolt": {"AbilityDamage": ["damage"]},
+    "meepo_poof": {"AbilityDamage": ["poof_damage"]},
+    "night_stalker_void": {"AbilityDamage": ["damage"]},
+    "phantom_lancer_spirit_lance": {"AbilityDamage": ["lance_damage"]},
+    "storm_spirit_overload": {"AbilityDamage": ["overload_damage"]},
+    "vengefulspirit_magic_missile": {"AbilityDamage": ["magic_missile_damage"]},
+    "vengefulspirit_wave_of_terror": {"AbilityDamage": ["damage"]},
+    "slardar_slithereen_crush": {"AbilityDamage": ["crush_damage"]},
+    "tidehunter_gush": {"AbilityDamage": ["gush_damage"]},
+    "sniper_shrapnel": {"AbilityDamage": ["shrapnel_damage"]},
+    "sniper_headshot": {"AbilityDamage": ["damage"]},
+    "queenofpain_scream_of_pain": {"AbilityDamage": ["damage"]},
+    "queenofpain_shadow_strike": {"AbilityDuration": ["duration"]},
+    "skeleton_king_hellfire_blast": {"AbilityDamage": ["damage"]},
+    "pugna_nether_blast": {"AbilityDamage": ["blast_damage"]},
+    "ogre_magi_fireblast": {"AbilityDamage": ["fireblast_damage"]},
+    "nyx_assassin_impale": {"AbilityDamage": ["impale_damage"]},
+    "winter_wyvern_splinter_blast": {"AbilityDamage": ["damage"]},
+    "tinker_march_of_the_machines": {"AbilityDamage": ["damage"]},
+    "templar_assassin_meld": {"AbilityDuration": ["debuff_duration"]},
+    "venomancer_plague_ward": {"ward_hp_tooltip": ["ward_max_health"], "ward_damage_tooltip": ["ward_base_damage"]},
+    "warlock_rain_of_chaos": {"golem_hp_tooltip": ["golem_hp"], "golem_dmg_tooltip": ["golem_dmg"],
+                              "golem_armor_tooltip": ["golem_armor", "tooltip_golem_armor"],
+                              "golem_regen_tooltip": ["golem_health_regen"]},
+    "visage_summon_familiars": {"familiar_speed": ["familiar_base_movespeed"]},
+}
+# valori 6.88 scrise ca fractie, citite acum ca procent
+FRACTION_TO_PERCENT = {
+    ("windrunner_powershot", "damage_reduction"), ("pugna_nether_blast", "structure_damage_mod"),
+    ("wisp_tether", "tether_heal_amp"), ("ogre_magi_unrefined_fireblast", "scepter_mana"),
+}
+# steaguri de comportament aparute dupa 6.88 care fac o abilitate de baza "innate"/ascunsa/neinvatabila
+MODERN_HIDE_FLAGS = {"DOTA_ABILITY_BEHAVIOR_HIDDEN", "DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE",
+                     "DOTA_ABILITY_BEHAVIOR_INNATE_UI", "DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"}
+# campuri de tintire/damage copiate din 6.88 cand difera (imunitate la vraji, tipul de damage)
+TARGETING_KEYS = ("SpellImmunityType", "AbilityUnitDamageType", "AbilityUnitTargetTeam", "AbilityUnitTargetType",
+                  "AbilityUnitTargetFlags")
+
+
+def _nums(v: str) -> list[float] | None:
+    try:
+        return [float(x) for x in norm_num_list(v)]
+    except ValueError:
+        return None
+
+
+def _fmt(x: float) -> str:
+    return str(int(x)) if x == int(x) else ("%g" % x)
+
+
+def sign_fixed(ov: str, cv: str) -> str:
+    """6.88 scria incetinirile ca valori negative; codul curent le vrea pozitive si le neaga singur (altfel o
+    incetinire devine accelerare, ex. Viper Strike, Battle Hunger)."""
+    o, c = _nums(ov), _nums(cv)
+    if not o or not c:
+        return ov
+    if all(x <= 0 for x in o) and any(x < 0 for x in o) and all(x >= 0 for x in c) and any(x > 0 for x in c):
+        return " ".join(_fmt(abs(x)) for x in o)
+    return ov
+
+
+def value_688(name: str, key: str, ov: str, cv: str | None) -> str:
+    if (name, key) in FRACTION_TO_PERCENT:
+        o = _nums(ov)
+        if o:
+            return " ".join(_fmt(round(x * 100, 4)) for x in o)
+    if cv is not None:
+        return sign_fixed(ov, cv)
+    return ov
+
+
 def build_ability_override(name: str, old: kv.KV, cur: kv.KV, top_keys: list[str], report: dict) -> kv.KV | None:
     """Întoarce blocul de override (sau None dacă nu e nimic de schimbat)."""
     out = kv.KV()
@@ -266,10 +377,15 @@ def build_ability_override(name: str, old: kv.KV, cur: kv.KV, top_keys: list[str
     cur_vals = kv.values_of(cur)
     cur_uses_values = cur.get_kv("AbilityValues") is not None
 
+    rename = KEY_RENAME_688.get(name, {})
     for key in top_keys:
         ov = old.get_str(key)
         if ov is None:
             continue
+        for nk in rename.get(key, []):
+            if nk in cur_vals and not same_value(ov, cur_vals[nk]):
+                values[nk] = ov
+                changed.append(nk)
         cv = cur_value(cur, key)
         if cv is not None and same_value(ov, cv):
             continue
@@ -294,7 +410,12 @@ def build_ability_override(name: str, old: kv.KV, cur: kv.KV, top_keys: list[str
             changed.append(key)
 
     for key, ov in old_vals.items():
+        for nk in rename.get(key, []):
+            if nk in cur_vals and not same_value(ov, cur_vals[nk]):
+                values[nk] = ov
+                changed.append(nk)
         if key in cur_vals:
+            ov = value_688(name, key, ov, cur_vals[key])
             if same_value(ov, cur_vals[key]):
                 continue
             if cur_uses_values:
@@ -319,6 +440,29 @@ def build_ability_override(name: str, old: kv.KV, cur: kv.KV, top_keys: list[str
             if creq is None or kv.dumps(oreq) != kv.dumps(creq):
                 out["ItemRequirements"] = oreq.copy()
                 changed.append("ItemRequirements")
+
+    # costuri aparute dupa 6.88: mana (ex. BKB 50, Liquid Fire 20); cooldown doar la pasive
+    passive_688 = "DOTA_ABILITY_BEHAVIOR_PASSIVE" in (old.get_str("AbilityBehavior") or "")
+    for key in ("AbilityManaCost", "AbilityCooldown"):
+        if key == "AbilityCooldown" and not passive_688:
+            continue
+        if old.get_str(key) is None and not any(k.lower() in ("mana_cost", "manacost", "cooldown") for k in old_vals):
+            cv = cur_value(cur, key)
+            if cv is not None and set(norm_num_list(cv)) - {"0", "0.0"}:
+                if where_defined(cur, key) == "values":
+                    values[key] = "0"
+                else:
+                    out[key] = "0"
+                changed.append(key)
+
+    for key in TARGETING_KEYS:
+        ov, cv = old.get_str(key), cur.get_str(key)
+        if ov is not None and cv is not None and ov.replace(" ", "") != cv.replace(" ", ""):
+            out[key] = ov
+            changed.append(key)
+        elif key == "AbilityUnitTargetFlags" and ov is None and cv and "MAGIC_IMMUNE" in cv:
+            out[key] = "DOTA_UNIT_TARGET_FLAG_NONE"
+            changed.append(key)
 
     ob = old.get_str("AbilityBehavior")
     cb = cur.get_str("AbilityBehavior")
@@ -376,11 +520,17 @@ def gen_heroes(H0, HN, A0, AN, custom: set[str], report: dict) -> tuple[kv.KV, l
         cur_real = [a for a in cur_real if a not in ("generic_hidden", "")]
         hero_rep = {"abilitati_ok": [], "abilitati_custom": [], "abilitati_lipsa": [], "fallback": {}}
         used_slots: list[str] = []
+        own_attribute_bonus = False
         for _, aname in old_slots:
             if aname == "":
                 continue
             if aname == "attribute_bonus":
                 continue  # îl adăugăm la final
+            if aname == "invoker_attribute_bonus":
+                # 6.88: Invoker nu avea Attribute Bonus-ul obisnuit (21 puncte in orbi + Invoke), ci acesta: +6 la nivelul 25
+                used_slots.append("dota688_invoker_attribute_bonus")
+                own_attribute_bonus = True
+                continue
             if aname in RENAME:
                 aname = RENAME[aname]
             if custom_name_for(aname) in custom:
@@ -404,7 +554,8 @@ def gen_heroes(H0, HN, A0, AN, custom: set[str], report: dict) -> tuple[kv.KV, l
                     used_slots.append(fb)
                 else:
                     used_slots.append("dota688_empty")
-        used_slots.append("dota688_attribute_bonus")  # Attribute Bonus clasic, implementat in Lua
+        if not own_attribute_bonus:
+            used_slots.append("dota688_attribute_bonus")  # Attribute Bonus clasic, implementat in Lua
         for i, aname in enumerate(used_slots, start=1):
             o[f"Ability{i}"] = aname
         for i in range(len(used_slots) + 1, MAX_ABILITY_SLOT + 1):
@@ -446,12 +597,44 @@ def gen_abilities(A0, AN, custom: set[str], report: dict) -> kv.KV:
         if old.get_str("AbilityType") == "DOTA_ABILITY_TYPE_ATTRIBUTES":
             continue
         blk = build_ability_override(name, old, cur, ABILITY_TOP_KEYS, report["abilitati"])
+        blk = abilities_flags_688(name, old, cur, blk if blk is not None else kv.KV())
         if old.get_str("AbilityType") == "DOTA_ABILITY_TYPE_ULTIMATE":
-            blk = blk if blk is not None else kv.KV()
             ultimate_levels_688(old, blk)
         if blk is not None and len(blk):
             out[name] = blk
     return out
+
+
+SCEPTER_688: set[str] = set()   # abilitati cu upgrade de Aghanim in 6.88 (din tooltip-urile 6.88), umplut in main()
+
+
+def abilities_flags_688(name: str, old: kv.KV, cur: kv.KV, blk: kv.KV) -> kv.KV:
+    """Tipul, nivelurile si vizibilitatea unei abilitati built-in ca in 6.88. Dupa 6.88 unele abilitati de baza au
+    devenit innate/ascunse cu un singur nivel (Mana Shield, Static Field, Essence Shift, Mana Leak...), ultimate-uri
+    au devenit de baza si invers (Wind Walk, Untouchable, Spawn Spiderlings), iar aproape toate au Shard/Scepter."""
+    ob = {x.strip() for x in (old.get_str("AbilityBehavior") or "").split("|") if x.strip()}
+    cb_raw = cur.get_str("AbilityBehavior") or ""
+    cb = [x.strip() for x in cb_raw.split("|") if x.strip()]
+    extra = [f for f in cb if f in MODERN_HIDE_FLAGS and f not in ob]
+    became_innate = cur.get_str("Innate") == "1" and old.get_str("Innate") != "1"
+    if extra:
+        blk["AbilityBehavior"] = " | ".join(f for f in cb if f not in extra)
+    if became_innate:
+        blk["Innate"] = "0"
+    old_type = (old.get_str("AbilityType") or "DOTA_ABILITY_TYPE_BASIC").replace("DOTA_ABILITY_TYPE", "ABILITY_TYPE")
+    cur_type = (cur.get_str("AbilityType") or "ABILITY_TYPE_BASIC").replace("DOTA_ABILITY_TYPE", "ABILITY_TYPE")
+    if old_type != cur_type and old_type != "ABILITY_TYPE_ATTRIBUTES":
+        blk["AbilityType"] = old_type
+    if extra or became_innate or old_type != cur_type:
+        default_max = "3" if old_type == "ABILITY_TYPE_ULTIMATE" else "4"
+        old_max = old.get_str("MaxLevel") or default_max
+        if (cur.get_str("MaxLevel") or default_max) != old_max:
+            blk["MaxLevel"] = old_max
+    if cur.get_str("HasShardUpgrade") == "1":
+        blk["HasShardUpgrade"] = "0"
+    if cur.get_str("HasScepterUpgrade") == "1" and name not in SCEPTER_688:
+        blk["HasScepterUpgrade"] = "0"
+    return blk
 
 
 def ultimate_levels_688(old: kv.KV, blk: kv.KV) -> None:
@@ -484,6 +667,11 @@ def resolve_item(name: str, custom: set[str]) -> str:
     return resolve(name, custom)
 
 
+# iteme built-in al caror comportament (tinta/flag-uri) s-a schimbat dupa 6.88: Gem a primit o activa, TP-ul e oprit
+# de root (ROOT_DISABLES), Refresher se poate folosi in timpul canalizarii
+ITEM_BEHAVIOR_688 = {"item_gem", "item_tpscroll", "item_refresher"}
+
+
 def gen_items(I0, IN, custom: set[str], report: dict) -> tuple[kv.KV, kv.KV]:
     override = kv.KV()
     recreate = kv.KV()
@@ -500,6 +688,13 @@ def gen_items(I0, IN, custom: set[str], report: dict) -> tuple[kv.KV, kv.KV]:
             # built-in-ul iese din shop; varianta Lua (și rețeta ei) sunt generate mai jos
             if cur is not None:
                 override[name] = kv.KV([("ItemPurchasable", "0"), ("ShouldBeSuggested", "0")])
+                if recipe_of_custom:
+                    # o rețetă built-in gratuită se combină singură (ex. Aghanim's Scepter din componente) înaintea
+                    # celei Lua: o facem să dea tot itemul Lua, cu componentele 6.88
+                    override[name]["ItemResult"] = resolve(old.get_str("ItemResult", ""), custom)
+                    req = item_requirements_resolved(old, custom)
+                    if req is not None:
+                        override[name]["ItemRequirements"] = req
             if recipe_of_custom:
                 blk = old.copy()
                 if "ID" in blk:
@@ -532,6 +727,18 @@ def gen_items(I0, IN, custom: set[str], report: dict) -> tuple[kv.KV, kv.KV]:
         # stocul: cheile adaugate dupa 6.88 raman active daca nu le suprascriem. In 6.88 lipsa lui ItemStockMax
         # insemna fara limita (tango, clarity, salve, mango, sentry; acum 10/5/5/4/8 cu refacere la 120/70 s), iar
         # lipsa lui ItemStockInitial insemna stoc plin la inceput (Smoke 3, Gem 1, curier 1). "0" = valoarea implicita.
+        # marcaje aparute dupa 6.88: Ring of Health / Void Stone au devenit iteme de secret shop, Poor Man's Shield
+        # item neutru (nevandabil), Vanguard/Radiance se pot dezasambla
+        for key, modern, value in (("SecretShop", "1", "0"), ("SideShop", "1", "0"), ("ItemIsNeutralDrop", "1", "0"),
+                                   ("ItemIsNeutralActiveDrop", "1", "0"), ("ItemIsNeutralPassiveDrop", "1", "0")):
+            if old.get_str(key) is None and cur.get_str(key) == modern:
+                blk[key] = value
+        if old.get_str("ItemSellable") is None and cur.get_str("ItemSellable") == "0":
+            blk["ItemSellable"] = "1"
+        if old.get_str("ItemDisassembleRule") is None and cur.get_str("ItemDisassembleRule") == "DOTA_ITEM_DISASSEMBLE_ALWAYS":
+            blk["ItemDisassembleRule"] = "DOTA_ITEM_DISASSEMBLE_NEVER"
+        if name in ITEM_BEHAVIOR_688 and old.get_str("AbilityBehavior") and old.get_str("AbilityBehavior") != cur.get_str("AbilityBehavior"):
+            blk["AbilityBehavior"] = old.get_str("AbilityBehavior")
         stock_max = old.get_str("ItemStockMax")
         if stock_max is None:
             if cur.get_str("ItemStockMax", "0") != "0":
@@ -577,6 +784,9 @@ CUSTOM_KV_PATCH = {
     # abilitate oferită de scepter în 6.88, deblocată din Lua (dota688/aghanim.lua), nu de motor
     "dota688_treant_eyes_in_the_forest": {"IsGrantedByScepter": "0"},
     "dota688_morphling_hybrid": {"IsGrantedByScepter": "0"},
+    "dota688_ogre_magi_unrefined_fireblast": {"IsGrantedByScepter": "0"},
+    # in KV-ul 6.88 Battle Cry avea DOTA_ABILITY_TYPE_ULTIMATE scris gresit in AbilityBehavior
+    "dota688_lone_druid_true_form_battle_cry": {"AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"},
     # Ice Blast 6.88 se țintește oriunde pe hartă (raza reală e dată de Lua)
     "dota688_ancient_apparition_ice_blast": {"AbilityCastRange": "0"},
 }
@@ -677,6 +887,8 @@ def gen_custom_defs(A0, I0, scripts: dict[str, str], custom: set[str]) -> tuple[
             blk["BaseClass"] = "ability_lua"
             blk["ScriptFile"] = script
             blk["AbilityTextureName"] = ICON_REMAP.get(orig, orig)
+            if orig in SCEPTER_688:
+                blk["HasScepterUpgrade"] = "1"   # HUD-ul arata textul de Aghanim doar cu acest flag
             modernize_block(blk)
             for k, v in CUSTOM_KV_PATCH.get(cname, {}).items():
                 blk[k] = v
@@ -747,6 +959,11 @@ def gen_localization_lang(lang: str, scripts: dict[str, str], hero_abilities: se
     # tooltip-urile 6.88 pentru abilitățile și itemele built-in pe care le suprascriem
     for n in sorted(hero_abilities | item_names):
         copy_tokens(n, n)
+    # textul 6.88 al upgrade-ului de Aghanim: HUD-ul curent citeste <abilitate>_scepter_description
+    for k, v in list(out.scalars()):
+        if k.lower().endswith("_aghanim_description"):
+            nk = k[: -len("_aghanim_description")] + "_scepter_description"
+            out[nk] = v
     kv.dump_file(kv.KV([("lang", kv.KV([("Language", lang.capitalize()), ("Tokens", out)]))]),
                  os.path.join(ADDON, "resource", f"addon_{lang}.txt"),
                  f"GENERAT de tools/gen_overrides.py din reference/6.88f/dota_{lang}.txt + addon_{lang}.base.txt. NU EDITA MANUAL.")
@@ -759,6 +976,11 @@ EXTRA_UNITS = [
 ]
 
 
+# Unitati 6.88 copiate integral chiar daca exista si azi (statisticile si nivelurile lor sunt in Lua):
+# ursul lui Lone Druid pe 4 niveluri (azi exista doar bear1, care creste cu eroul)
+FORCED_UNITS_688 = ["npc_dota_lone_druid_bear1", "npc_dota_lone_druid_bear2", "npc_dota_lone_druid_bear3", "npc_dota_lone_druid_bear4"]
+
+
 # Unități 6.88 copiate sub alt nume (pentru reimplementările Lua), fără abilitățile originale (logica e în Lua)
 RENAMED_UNITS = {
     "npc_dota688_techies_land_mine": "npc_dota_techies_land_mine",
@@ -766,6 +988,7 @@ RENAMED_UNITS = {
     "npc_dota688_techies_remote_mine": "npc_dota_techies_remote_mine",
     "npc_dota688_techies_minefield_sign": "npc_dota_techies_minefield_sign",
     "npc_dota688_treant_eyes": "npc_dota_treant_eyes",
+    "npc_dota688_broodmother_web": "npc_dota_broodmother_web",
 }
 
 # Unitati moderne pe care motorul le spawneaza in locul celor 6.88 -> unitatea 6.88 a carei statistici/abilitati le iau.
@@ -832,6 +1055,17 @@ def gen_units(U0, UN, report: dict, AN=None) -> kv.KV:
         if old is not None and UN.get_kv(name) is None:
             out[name] = old.copy()
             report["unitati"][name] = ["(copiat integral din 6.88)"]
+    for name in FORCED_UNITS_688:
+        old = U0.get_kv(name)
+        if old is None:
+            continue
+        blk = old.copy()
+        for k in list(blk.keys()):
+            if re.fullmatch(r"Ability\d+", k):
+                del blk[k]
+        blk["Ability1"] = ""   # abilitatile le pune Lua pe nivel (6.88 avea bear_empty, care nu mai exista)
+        out[name] = blk
+        report["unitati"][name] = ["(copiat integral din 6.88, abilitati din Lua)"]
     aliases = [(new, U0.get_kv(old_name)) for new, old_name in MODERN_UNIT_ALIASES.items() if U0.get_kv(old_name) is not None]
     for name, old in list(U0.blocks()) + aliases:
         if not name.startswith(UNIT_PREFIXES):
@@ -967,9 +1201,19 @@ def write_status(report: dict, hero_list: list[str]) -> None:
 
 # ---------------------------------------------------------------------------
 
+def load_scepter_688() -> set[str]:
+    """Abilitatile care aveau upgrade de Aghanim in 6.88 (au token-ul _aghanim_description in tooltip-urile 6.88)."""
+    out = set()
+    with open(os.path.join(REF_OLD, "dota_english.txt"), encoding="utf-8", errors="replace") as f:
+        for m in re.finditer(r'"DOTA_Tooltip_ability_(\w+?)_aghanim_description"', f.read(), re.IGNORECASE):
+            out.add(m.group(1))
+    return out
+
+
 def main() -> None:
     H0, A0, I0, U0 = load_old()
     HN, AN, IN, UN = load_now()
+    SCEPTER_688.update(load_scepter_688())
     scripts = lua_scripts()
     custom = load_custom_names() | set(scripts)
     report = {
