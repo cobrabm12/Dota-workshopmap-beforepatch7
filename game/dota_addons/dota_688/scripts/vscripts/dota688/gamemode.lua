@@ -11,6 +11,8 @@ require("dota688/neutrals")
 
 LinkLuaModifier("modifier_dota688_attributes", "modifiers/modifier_dota688_attributes", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_roshan", "modifiers/modifier_dota688_roshan", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_dota688_invoker_orbs", "modifiers/modifier_dota688_invoker_orbs", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_dota688_familiar", "modifiers/modifier_dota688_familiar", LUA_MODIFIER_MOTION_NONE)
 
 local C = DOTA688
 
@@ -99,6 +101,11 @@ function Dota688:OnNPCSpawned(ev)
 			unit:AddNewModifier(unit, nil, "modifier_dota688_attributes", {})
 		end
 		Dota688Respawn:OnHeroSpawned(unit)
+		if unit:GetUnitName() == "npc_dota_hero_invoker" and not unit:HasModifier("modifier_dota688_invoker_orbs") then
+			unit:AddNewModifier(unit, nil, "modifier_dota688_invoker_orbs", {})
+		end
+	elseif string.find(unit:GetUnitName(), "npc_dota_visage_familiar", 1, true) == 1 then
+		unit:AddNewModifier(unit, nil, "modifier_dota688_familiar", {})
 	elseif unit:GetUnitName() == "npc_dota_roshan" then
 		Dota688Roshan:OnRoshanSpawned(unit)
 	end

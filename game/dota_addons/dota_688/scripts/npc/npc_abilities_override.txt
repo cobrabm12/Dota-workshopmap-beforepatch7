@@ -70,8 +70,8 @@
 		"AbilityManaCost"		"60 120 180"
 		"AbilityValues"
 		{
-			"damage"		"150 250 300"
-			"speed_bonus"		"30"
+			"damage"		"250 325 400"
+			"speed_bonus"		"40 40 40"
 			"armor_bonus"		"0"
 			"armor_per_stack"		"0"
 		}
@@ -420,6 +420,7 @@
 		"AbilityValues"
 		{
 			"mana_cost"		"30 30 30 30"
+			"morph_rate"		"2 4 8 16"
 		}
 	}
 	"morphling_morph_str"
@@ -427,6 +428,7 @@
 		"AbilityValues"
 		{
 			"mana_cost"		"30 30 30 30"
+			"morph_rate"		"2 4 8 16"
 		}
 	}
 	"morphling_replicate"
@@ -707,7 +709,7 @@
 		{
 			"AbilityCooldown"		"260 160 60"
 			"AbilityManaCost"		"160"
-			"slow_radius"		"900"
+			"slow_radius"		"1200"
 			"slow_duration"		"5.0"
 		}
 	}
@@ -2606,6 +2608,7 @@
 		{
 			"max_level"		"7"
 			"hp_regen_per_instance"		"1 2 3 4 5 6 7"
+			"strength_bonus"		"0"
 		}
 	}
 	"invoker_wex"
@@ -2616,6 +2619,7 @@
 			"attack_speed_per_instance"		"2 4 6 8 10 12 14"
 			"move_speed_per_instance"		"1 2 3 4 5 6 7"
 			"max_level"		"7"
+			"agility_bonus"		"0"
 		}
 	}
 	"invoker_exort"
@@ -2625,6 +2629,7 @@
 		{
 			"bonus_damage_per_instance"		"3 6 9 12 15 18 21"
 			"max_level"		"7"
+			"intelligence_bonus"		"0"
 		}
 	}
 	"invoker_invoke"
@@ -3476,6 +3481,7 @@
 		{
 			"familiar_hp"		"300 450 600"
 			"familiar_armor"		"0 1 2"
+			"familiar_attack_damage"		"0 0 0"
 		}
 	}
 	"visage_summon_familiars_stone_form"

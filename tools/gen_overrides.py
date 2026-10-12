@@ -89,7 +89,6 @@ RENAME = {
     "wisp_empty1": "generic_hidden",
     "wisp_empty2": "generic_hidden",
     "phoenix_sun_ray_toggle_move_empty": "generic_hidden",
-    "morphling_morph": "generic_hidden",                              # doar urmărea nivelul perechii morph_agi/str
     "keeper_of_the_light_spirit_form_illuminate": "generic_hidden",     # motorul curent gestionează Illuminate în Spirit Form
     "keeper_of_the_light_spirit_form_illuminate_end": "generic_hidden",
 }

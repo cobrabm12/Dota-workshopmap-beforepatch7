@@ -1381,6 +1381,21 @@
 		"ScriptFile"		"abilities/heroes/dota688_morphling_adaptive_strike"
 		"AbilityTextureName"		"morphling_adaptive_strike"
 	}
+	"dota688_morphling_morph"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"bonus_attributes"		"3 4 5 6"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_morphling_morph"
+		"AbilityTextureName"		"morphling_morph"
+	}
 	"dota688_necrolyte_sadist"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"

@@ -689,7 +689,7 @@
 		"Ability4"		"morphling_morph_str"
 		"Ability5"		"morphling_hybrid"
 		"Ability6"		"morphling_replicate"
-		"Ability7"		"generic_hidden"
+		"Ability7"		"dota688_morphling_morph"
 		"Ability8"		"morphling_morph_replicate"
 		"Ability9"		"dota688_attribute_bonus"
 		"Ability10"		""

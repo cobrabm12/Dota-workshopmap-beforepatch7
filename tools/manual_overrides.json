@@ -36,8 +36,10 @@
     "bonus_movement_speed": "16 24 32 40"
   },
   "axe_culling_blade": {
+    "damage": "250 325 400",
     "armor_bonus": "0",
-    "armor_per_stack": "0"
+    "armor_per_stack": "0",
+    "speed_bonus": "40 40 40"
   },
   "lion_finger_of_death": {
     "damage_per_kill": "0"
@@ -159,13 +161,16 @@
   },
   "invoker_quas": {
     "max_level": "7",
-    "hp_regen_per_instance": "1 2 3 4 5 6 7"
+    "hp_regen_per_instance": "1 2 3 4 5 6 7",
+    "strength_bonus": "0"
   },
   "invoker_wex": {
-    "max_level": "7"
+    "max_level": "7",
+    "agility_bonus": "0"
   },
   "invoker_exort": {
-    "max_level": "7"
+    "max_level": "7",
+    "intelligence_bonus": "0"
   },
   "jakiro_dual_breath": {
     "AbilityCastRange": "750"
@@ -300,5 +305,17 @@
   "earth_spirit_stone_caller": {
     "AbilityCharges": "6",
     "AbilityChargeRestoreTime": "30"
+  },
+  "morphling_morph_agi": {
+    "morph_rate": "2 4 8 16"
+  },
+  "morphling_morph_str": {
+    "morph_rate": "2 4 8 16"
+  },
+  "skeleton_king_reincarnation": {
+    "slow_radius": "1200"
+  },
+  "visage_summon_familiars": {
+    "familiar_attack_damage": "0 0 0"
   }
 }
