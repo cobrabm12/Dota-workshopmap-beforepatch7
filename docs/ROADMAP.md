@@ -19,7 +19,7 @@
 - [x] Rescris în Lua abilitățile cu rework major (90+; lista în `docs/STATUS.md`)
 - [x] Iteme cu mecanica 6.88 (64) + shop-ul 6.88
 - [x] Override-uri manuale pentru mecanicile moderne ale abilităților păstrate built-in (`tools/manual_overrides.json`)
-- [ ] Trecut prin restul abilităților cu „valori speciale dispărute” (`docs/STATUS.md`) și decis: override manual sau Lua
+- [x] Trecut prin abilitățile cu „valori speciale dispărute”: 79 override-uri manuale + Lua; au rămas ~65 cu diferențe minore/Aghanim (`docs/STATUS.md`)
 - [ ] Scos upgrade‑urile de Aghanim adăugate după 6.88 (sunt în C++; de verificat per erou)
 - [ ] Invoker (Quas/Wex/Exort în 6.88 dădeau +2/4/…/14 pe instanță), Ogre Multicast, Medusa Split Shot – de verificat în joc
 
@@ -29,7 +29,7 @@
 
 ## Faza 5 – finisaje
 - [x] Panorama: ascuns UI‑ul de talente/backpack/iteme neutre (ID-urile HUD de verificat la fiecare patch)
-- [ ] Panorama: ecran cu regulile 6.88
-- [ ] Timing neutrali 0:30 + la fiecare minut
+- [x] Panorama: panou cu regulile 6.88 (buton „6.88” sus, apare automat la start)
+- [x] Timing neutrali 0:30 (încercare prin input pe `npc_dota_neutral_spawner`; de verificat în joc)
 - [ ] Durate rune (Haste 25 s), viteză maximă 522, bounty iluzii
 - [ ] Publicare în Workshop

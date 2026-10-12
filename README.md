@@ -23,7 +23,8 @@ din fișierele originale Valve de la 6.88f, iar regulile de joc sunt implementat
 | Iteme cu mecanica 6.88 rescrise în Lua (Heart, Skadi, S&Y, Halberd, Abyssal, Dagon, Veil, Medallion, Solar Crest, Octarine, Shiva, Scythe, Urn, Mek, Pipe, Greaves, Vlad, Basilius/Aquila, Soul Ring, Atos, E-Blade, Manta, Armlet, Battle Fury, Drums, Silver Edge, HotD, Bloodstone, Linken, MKB, Butterfly, Satanic, MoM, Phase, Treads, Diffusal, Midas, Iron Talon…) | ✅ 64 iteme + shop-ul cu layout-ul 6.88 (`shops.txt`) |
 | Abilități built-in cu mecanici noi dezactivate prin override manual (`tools/manual_overrides.json`) | ✅ parțial (Mana Break, Heartstopper, Necromastery, Psionic Trap, Divided We Stand…) |
 | Panorama: talente, backpack, slot neutru, slot TP ascunse | ✅ `content/.../panorama` – de verificat ID-urile la patch-uri noi |
-| Abilități rămase de verificat/rescris (ex. Invoker Quas/Wex/Exort, Ogre Multicast, Medusa Split Shot, Techies Minefield Sign) | 🔜 vezi secțiunea „valori speciale dispărute” din `docs/STATUS.md` |
+| Abilități rămase cu diferențe minore sau doar de Aghanim (Invoker orbs, Ogre Multicast, Medusa Split Shot, Visage familiars…) | 🔜 ~65, listate în `docs/STATUS.md` |
+| Panou cu regulile 6.88 în HUD, spawn neutrali la 0:30 | ✅ de verificat în joc |
 | Harta 6.88 (Hammer) | 🔜 plan în `docs/HARTA.md` |
 | Testare în Workshop Tools | 🔜 |
 
