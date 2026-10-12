@@ -1,3 +1,4 @@
+require("dota688/val")
 require("items/dota688_item_base")
 -- Urn of Shadows (6.88): +6 STR, +50% regen mana; incarcaturi la moartea eroilor inamici in 1400 (2 initial, +1); Soul Release: vindeca 400 / 8 s sau 150 daune pure / 8 s.
 LinkLuaModifier("modifier_dota688_urn_heal", "items/item_dota688_urn_of_shadows", LUA_MODIFIER_MOTION_NONE)
@@ -17,7 +18,7 @@ Dota688DefineItem("item_dota688_urn_of_shadows", "items/item_dota688_urn_of_shad
 			local parent = self:GetParent()
 			local unit = params.unit
 			if not unit or not unit:IsRealHero() or unit:IsIllusion() or unit:GetTeamNumber() == parent:GetTeamNumber() then return end
-			if (unit:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D() > self:GetAbility():GetSpecialValueFor("soul_radius") then return end
+			if (unit:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D() > Dota688Val(self, "soul_radius") then return end
 			local a = self:GetAbility()
 			a:SetCurrentCharges(a:GetCurrentCharges() + a:GetSpecialValueFor("soul_additional_charges"))
 		end,

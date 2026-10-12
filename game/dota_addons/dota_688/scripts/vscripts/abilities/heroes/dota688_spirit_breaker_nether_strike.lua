@@ -1,5 +1,6 @@
 -- Nether Strike (6.88): Spirit Breaker apare langa tinta (raza 700) si o loveste cu 150/250/350 daune magice + un Greater Bash de nivelul curent.
 -- Scepter: raza 850, cooldown 20, bash-ul loveste toti inamicii din 250 de tinta.
+require("dota688/val")
 require("dota688/aghanim")
 require("dota688/stun")
 LinkLuaModifier("modifier_dota688_nether_strike_haste", "abilities/heroes/dota688_spirit_breaker_nether_strike", LUA_MODIFIER_MOTION_NONE)
@@ -52,4 +53,4 @@ modifier_dota688_nether_strike_haste = class({})
 function modifier_dota688_nether_strike_haste:IsPurgable() return true end
 function modifier_dota688_nether_strike_haste:GetTexture() return "spirit_breaker_greater_bash" end
 function modifier_dota688_nether_strike_haste:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE } end
-function modifier_dota688_nether_strike_haste:GetModifierMoveSpeedBonus_Percentage() return self:GetAbility():GetSpecialValueFor("bonus_movespeed_pct") end
+function modifier_dota688_nether_strike_haste:GetModifierMoveSpeedBonus_Percentage() return Dota688Val(self, "bonus_movespeed_pct") end

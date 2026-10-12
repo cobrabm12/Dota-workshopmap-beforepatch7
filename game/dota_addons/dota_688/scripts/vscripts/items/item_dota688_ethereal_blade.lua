@@ -1,3 +1,4 @@
+require("dota688/val")
 require("items/dota688_item_base")
 -- Ethereal Blade (6.88): +40 AGI, +10 STR, +10 INT; Ether Blast: tinta devine eterica 3 s (4 s aliat), -80% MS, +40% daune magice primite; 75 + 2 x AGI daune magice.
 LinkLuaModifier("modifier_dota688_ethereal", "items/item_dota688_ethereal_blade", LUA_MODIFIER_MOTION_NONE)
@@ -33,6 +34,6 @@ function modifier_dota688_ethereal:CheckState() return { [MODIFIER_STATE_DISARME
 function modifier_dota688_ethereal:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS } end
 function modifier_dota688_ethereal:GetModifierMoveSpeedBonus_Percentage()
 	if self:GetParent():GetTeamNumber() == self:GetCaster():GetTeamNumber() then return 0 end
-	return self:GetAbility():GetSpecialValueFor("blast_movement_slow")
+	return Dota688Val(self, "blast_movement_slow")
 end
-function modifier_dota688_ethereal:GetModifierMagicalResistanceBonus() return self:GetAbility():GetSpecialValueFor("ethereal_damage_bonus") end
+function modifier_dota688_ethereal:GetModifierMagicalResistanceBonus() return Dota688Val(self, "ethereal_damage_bonus") end

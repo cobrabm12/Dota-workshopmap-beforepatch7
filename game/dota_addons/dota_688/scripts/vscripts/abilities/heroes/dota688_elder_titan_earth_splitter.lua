@@ -1,5 +1,6 @@
 -- Earth Splitter (6.88): crapatura de 2400 (latime 300) care dupa 3.14 s implodeaza: inamicii sunt trasi spre centru, iau 30/40/50% din HP maxim
 -- (jumatate magic, jumatate fizic) si sunt incetiniti 30/40/50% 3/4/5 s. Scepter: incetinire 4/5/6 s si dezarmare.
+require("dota688/val")
 require("dota688/aghanim")
 local F = "abilities/heroes/dota688_elder_titan_earth_splitter"
 LinkLuaModifier("modifier_dota688_earth_splitter_thinker", F, LUA_MODIFIER_MOTION_NONE)
@@ -57,5 +58,5 @@ function modifier_dota688_earth_splitter_slow:IsPurgable() return true end
 function modifier_dota688_earth_splitter_slow:GetTexture() return "elder_titan_earth_splitter" end
 function modifier_dota688_earth_splitter_slow:OnCreated(kv) self.scepter = kv.scepter == 1 end
 function modifier_dota688_earth_splitter_slow:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE } end
-function modifier_dota688_earth_splitter_slow:GetModifierMoveSpeedBonus_Percentage() return -self:GetAbility():GetSpecialValueFor("slow_pct") end
+function modifier_dota688_earth_splitter_slow:GetModifierMoveSpeedBonus_Percentage() return -Dota688Val(self, "slow_pct") end
 function modifier_dota688_earth_splitter_slow:CheckState() return { [MODIFIER_STATE_DISARMED] = self.scepter == true } end

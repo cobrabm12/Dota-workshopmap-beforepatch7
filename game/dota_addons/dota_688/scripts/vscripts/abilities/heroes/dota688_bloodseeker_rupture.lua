@@ -1,5 +1,6 @@
 -- Rupture (6.88): 12 s; tinta ia 30/45/60% din distanta parcursa ca daune pure (max 200 la fiecare 0.25 s); trece prin imunitate.
 -- Scepter: 2 incarcaturi care se refac la 40 s.
+require("dota688/val")
 require("dota688/aghanim")
 LinkLuaModifier("modifier_dota688_rupture", "abilities/heroes/dota688_bloodseeker_rupture", LUA_MODIFIER_MOTION_NONE)
 dota688_bloodseeker_rupture = class({})
@@ -38,7 +39,7 @@ function modifier_dota688_rupture:GetEffectAttachType() return PATTACH_ABSORIGIN
 function modifier_dota688_rupture:OnCreated()
 	if not IsServer() then return end
 	self.last = self:GetParent():GetAbsOrigin()
-	self.interval = self:GetAbility():GetSpecialValueFor("damage_cap_interval")
+	self.interval = Dota688Val(self, "damage_cap_interval")
 	self:StartIntervalThink(self.interval)
 end
 function modifier_dota688_rupture:OnIntervalThink()

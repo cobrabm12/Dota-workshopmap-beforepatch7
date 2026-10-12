@@ -1,6 +1,7 @@
 -- Culling Blade (6.88): omoara instant tinta sub 250/325/400 HP (si reseteaza cooldown-ul), altfel 150/250/300 daune magice.
 -- La kill, Axe si aliatii din 900 primesc +30% viteza de miscare si +30 viteza de atac 6 s. Trece prin imunitatea la magie.
 -- Scepter: cooldown 6, prag 300/425/550, bonusul de viteza dureaza 10 s.
+require("dota688/val")
 require("dota688/aghanim")
 local F = "abilities/heroes/dota688_axe_culling_blade"
 LinkLuaModifier("modifier_dota688_culling_blade_boost", F, LUA_MODIFIER_MOTION_NONE)
@@ -40,5 +41,5 @@ modifier_dota688_culling_blade_boost = class({})
 function modifier_dota688_culling_blade_boost:IsPurgable() return true end
 function modifier_dota688_culling_blade_boost:GetEffectName() return "particles/units/heroes/hero_axe/axe_culling_blade_boost.vpcf" end
 function modifier_dota688_culling_blade_boost:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT } end
-function modifier_dota688_culling_blade_boost:GetModifierMoveSpeedBonus_Percentage() return self:GetAbility():GetSpecialValueFor("speed_bonus") end
-function modifier_dota688_culling_blade_boost:GetModifierAttackSpeedBonus_Constant() return self:GetAbility():GetSpecialValueFor("speed_bonus") end
+function modifier_dota688_culling_blade_boost:GetModifierMoveSpeedBonus_Percentage() return Dota688Val(self, "speed_bonus") end
+function modifier_dota688_culling_blade_boost:GetModifierAttackSpeedBonus_Constant() return Dota688Val(self, "speed_bonus") end

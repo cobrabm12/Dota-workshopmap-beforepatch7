@@ -1,5 +1,6 @@
 -- Song of the Siren (6.88): toti inamicii din 1250 dorm (invulnerabili, nu pot actiona) 7 s; inamicii care intra in raza sunt si ei adormiti.
 -- A doua activare (Cancel) opreste cantecul. Scepter: aliatii din raza se vindeca cu 10% din HP maxim pe secunda.
+require("dota688/val")
 require("dota688/aghanim")
 local F = "abilities/heroes/dota688_naga_siren_song_of_the_siren"
 LinkLuaModifier("modifier_dota688_siren_song", F, LUA_MODIFIER_MOTION_NONE)
@@ -35,7 +36,7 @@ function modifier_dota688_siren_song:OnIntervalThink()
 	end
 end
 function modifier_dota688_siren_song:IsAura() return true end
-function modifier_dota688_siren_song:GetAuraRadius() return self:GetAbility():GetSpecialValueFor("radius") end
+function modifier_dota688_siren_song:GetAuraRadius() return Dota688Val(self, "radius") end
 function modifier_dota688_siren_song:GetAuraSearchTeam() return DOTA_UNIT_TARGET_TEAM_ENEMY end
 function modifier_dota688_siren_song:GetAuraSearchType() return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC end
 function modifier_dota688_siren_song:GetAuraSearchFlags() return DOTA_UNIT_TARGET_FLAG_NONE end

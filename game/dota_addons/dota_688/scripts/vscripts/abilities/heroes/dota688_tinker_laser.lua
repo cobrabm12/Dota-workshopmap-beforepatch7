@@ -1,4 +1,5 @@
 -- Laser (6.88): 80/160/240/320 daune pure + 100% miss 3/3.5/4/4.5 s (6 s pe creepi). Scepter: se refracta la toti inamicii vizibili din 650 (in lant).
+require("dota688/val")
 require("dota688/aghanim")
 LinkLuaModifier("modifier_dota688_laser_blind", "abilities/heroes/dota688_tinker_laser", LUA_MODIFIER_MOTION_NONE)
 dota688_tinker_laser = class({})
@@ -40,4 +41,4 @@ function modifier_dota688_laser_blind:IsDebuff() return true end
 function modifier_dota688_laser_blind:IsPurgable() return true end
 function modifier_dota688_laser_blind:GetTexture() return "tinker_laser" end
 function modifier_dota688_laser_blind:DeclareFunctions() return { MODIFIER_PROPERTY_MISS_PERCENTAGE } end
-function modifier_dota688_laser_blind:GetModifierMiss_Percentage() return self:GetAbility():GetSpecialValueFor("miss_rate") end
+function modifier_dota688_laser_blind:GetModifierMiss_Percentage() return Dota688Val(self, "miss_rate") end

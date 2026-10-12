@@ -1,4 +1,5 @@
 -- Warcry (6.88): Sven si aliatii din 900 primesc +12% MS si +5/10/15/20 armura pentru 8 s.
+require("dota688/val")
 LinkLuaModifier("modifier_dota688_sven_warcry", "abilities/heroes/dota688_sven_warcry", LUA_MODIFIER_MOTION_NONE)
 dota688_sven_warcry = class({})
 function dota688_sven_warcry:OnSpellStart()
@@ -14,5 +15,5 @@ modifier_dota688_sven_warcry = class({})
 function modifier_dota688_sven_warcry:IsPurgable() return true end
 function modifier_dota688_sven_warcry:GetEffectName() return "particles/units/heroes/hero_sven/sven_warcry_buff.vpcf" end
 function modifier_dota688_sven_warcry:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS } end
-function modifier_dota688_sven_warcry:GetModifierMoveSpeedBonus_Percentage() return self:GetAbility():GetSpecialValueFor("warcry_movespeed") end
-function modifier_dota688_sven_warcry:GetModifierPhysicalArmorBonus() return self:GetAbility():GetSpecialValueFor("warcry_armor") end
+function modifier_dota688_sven_warcry:GetModifierMoveSpeedBonus_Percentage() return Dota688Val(self, "warcry_movespeed") end
+function modifier_dota688_sven_warcry:GetModifierPhysicalArmorBonus() return Dota688Val(self, "warcry_armor") end

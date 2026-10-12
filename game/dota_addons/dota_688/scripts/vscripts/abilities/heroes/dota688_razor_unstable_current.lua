@@ -1,4 +1,5 @@
 -- Unstable Current (6.88): +4/8/12/16% MS; cand e tintit de o vraja inamica: 40/70/100/130 daune magice, purge si -100% MS 0.5-2 s pe caster.
+require("dota688/val")
 local F = "abilities/heroes/dota688_razor_unstable_current"
 LinkLuaModifier("modifier_dota688_razor_unstable_current", F, LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_razor_unstable_current_slow", F, LUA_MODIFIER_MOTION_NONE)
@@ -10,7 +11,7 @@ function modifier_dota688_razor_unstable_current:IsPurgable() return false end
 function modifier_dota688_razor_unstable_current:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_EVENT_ON_ABILITY_EXECUTED } end
 function modifier_dota688_razor_unstable_current:GetModifierMoveSpeedBonus_Percentage()
 	if self:GetParent():PassivesDisabled() then return 0 end
-	return self:GetAbility():GetSpecialValueFor("movement_speed_pct")
+	return Dota688Val(self, "movement_speed_pct")
 end
 function modifier_dota688_razor_unstable_current:OnAbilityExecuted(params)
 	if not IsServer() then return end
@@ -30,4 +31,4 @@ modifier_dota688_razor_unstable_current_slow = class({})
 function modifier_dota688_razor_unstable_current_slow:IsDebuff() return true end
 function modifier_dota688_razor_unstable_current_slow:IsPurgable() return true end
 function modifier_dota688_razor_unstable_current_slow:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE } end
-function modifier_dota688_razor_unstable_current_slow:GetModifierMoveSpeedBonus_Percentage() return self:GetAbility():GetSpecialValueFor("slow_amount") end
+function modifier_dota688_razor_unstable_current_slow:GetModifierMoveSpeedBonus_Percentage() return Dota688Val(self, "slow_amount") end

@@ -1,5 +1,6 @@
 -- Darkness (6.88): noapte 50 s; inamicii au viziunea redusa la 675 (ziua si noaptea).
 -- Scepter: Night Stalker are viziune neobstructionata (de zbor) pe timp de noapte, indiferent daca a folosit Darkness.
+require("dota688/val")
 require("dota688/aghanim")
 LinkLuaModifier("modifier_dota688_ns_darkness_blind", "abilities/heroes/dota688_night_stalker_darkness", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_ns_darkness_scepter", "abilities/heroes/dota688_night_stalker_darkness", LUA_MODIFIER_MOTION_NONE)
@@ -19,7 +20,7 @@ function modifier_dota688_ns_darkness_blind:IsHidden() return true end
 function modifier_dota688_ns_darkness_blind:IsPurgable() return false end
 function modifier_dota688_ns_darkness_blind:DeclareFunctions() return { MODIFIER_PROPERTY_FIXED_DAY_VISION, MODIFIER_PROPERTY_FIXED_NIGHT_VISION } end
 -- valoarea se memoreaza la creare: efectul dureaza 50 s si poate supravietui abilitatii (Rubick, iluzie)
-function modifier_dota688_ns_darkness_blind:OnCreated() self.vision = self:GetAbility() and self:GetAbility():GetSpecialValueFor("fixed_vision") or 675 end
+function modifier_dota688_ns_darkness_blind:OnCreated() self.vision = self:GetAbility() and Dota688Val(self, "fixed_vision") or 675 end
 function modifier_dota688_ns_darkness_blind:GetFixedDayVision() return self.vision end
 function modifier_dota688_ns_darkness_blind:GetFixedNightVision() return self.vision end
 

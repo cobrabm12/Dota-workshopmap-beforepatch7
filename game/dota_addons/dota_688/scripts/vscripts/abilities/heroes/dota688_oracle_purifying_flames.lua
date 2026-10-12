@@ -1,5 +1,6 @@
 -- Purifying Flames (6.88): 90/180/270/360 daune magice instant, apoi vindeca 11/22/33/44 HP/s timp de 9 s (aliat sau inamic).
 -- Scepter: cooldown 1, cast point 0.1.
+require("dota688/val")
 require("dota688/aghanim")
 LinkLuaModifier("modifier_dota688_purifying_flames", "abilities/heroes/dota688_oracle_purifying_flames", LUA_MODIFIER_MOTION_NONE)
 dota688_oracle_purifying_flames = class({})
@@ -25,7 +26,7 @@ end
 modifier_dota688_purifying_flames = class({})
 function modifier_dota688_purifying_flames:IsPurgable() return true end
 function modifier_dota688_purifying_flames:GetAttributes() return MODIFIER_ATTRIBUTE_MULTIPLE end
-function modifier_dota688_purifying_flames:OnCreated() if IsServer() then self:StartIntervalThink(self:GetAbility():GetSpecialValueFor("tick_rate")) end end
+function modifier_dota688_purifying_flames:OnCreated() if IsServer() then self:StartIntervalThink(Dota688Val(self, "tick_rate")) end end
 function modifier_dota688_purifying_flames:OnIntervalThink()
-	self:GetParent():Heal(self:GetAbility():GetSpecialValueFor("heal_per_second") * self:GetAbility():GetSpecialValueFor("tick_rate"), self:GetAbility())
+	self:GetParent():Heal(Dota688Val(self, "heal_per_second") * Dota688Val(self, "tick_rate"), self:GetAbility())
 end

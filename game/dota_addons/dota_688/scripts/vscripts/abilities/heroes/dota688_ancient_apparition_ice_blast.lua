@@ -2,6 +2,7 @@
 -- locul marcat (raza de atingere 275) si explodeaza cu raza 275 + 50 la fiecare 100 unitati parcurse de trasor (max 1000): 250/350/450 daune magice.
 -- Inamicii atinsi sau prinsi in explozie sunt Frostbitten 8/9/10 s: 12.5/20/32 daune/s, fara vindecare/regenerare, mor sub 10/11/12% HP.
 -- Scepter: Frostbite 17 s.
+require("dota688/val")
 require("dota688/aghanim")
 local F = "abilities/heroes/dota688_ancient_apparition_ice_blast"
 LinkLuaModifier("modifier_dota688_ice_blast_tracer", F, LUA_MODIFIER_MOTION_NONE)
@@ -48,7 +49,7 @@ function modifier_dota688_ice_blast_tracer:OnCreated(kv)
 	self.pos = self:GetParent():GetAbsOrigin()
 	self.travelled = 0
 	self.maxDist = kv.dist
-	self.speed = self:GetAbility():GetSpecialValueFor("speed")
+	self.speed = Dota688Val(self, "speed")
 	self.fx = ParticleManager:CreateParticle("particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_initial.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(self.fx, 0, self.pos)
 	self:StartIntervalThink(0.03)
@@ -71,7 +72,7 @@ function modifier_dota688_ice_blast_ball:OnCreated(kv)
 	self.pos = self:GetParent():GetAbsOrigin()
 	self.target = Vector(kv.tx, kv.ty, self.pos.z)
 	self.radius = kv.radius
-	self.speed = self:GetAbility():GetSpecialValueFor("speed")
+	self.speed = Dota688Val(self, "speed")
 	self.hit = {}
 	self.fx = ParticleManager:CreateParticle("particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_main.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(self.fx, 0, self.pos)

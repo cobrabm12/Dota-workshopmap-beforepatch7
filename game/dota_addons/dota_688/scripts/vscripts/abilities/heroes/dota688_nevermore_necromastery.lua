@@ -1,5 +1,6 @@
 -- Necromastery (6.88): +2 daune pentru fiecare suflet; +1 suflet la fiecare unitate omorata, +12 (1 + 11) la erou; max 18/24/30/36; la moarte pierde jumatate.
 -- Scepter: max 22/30/38/46.
+require("dota688/val")
 require("dota688/aghanim")
 LinkLuaModifier("modifier_dota688_necromastery", "abilities/heroes/dota688_nevermore_necromastery", LUA_MODIFIER_MOTION_NONE)
 dota688_nevermore_necromastery = class({})
@@ -28,7 +29,7 @@ function modifier_dota688_necromastery:OnDestroy() if IsServer() then ParticleMa
 function modifier_dota688_necromastery:DeclareFunctions() return { MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE, MODIFIER_EVENT_ON_DEATH } end
 function modifier_dota688_necromastery:GetModifierPreAttack_BonusDamage()
 	if self:GetParent():PassivesDisabled() then return 0 end
-	return self:GetStackCount() * self:GetAbility():GetSpecialValueFor("necromastery_damage_per_soul")
+	return self:GetStackCount() * Dota688Val(self, "necromastery_damage_per_soul")
 end
 function modifier_dota688_necromastery:OnDeath(params)
 	if not IsServer() then return end

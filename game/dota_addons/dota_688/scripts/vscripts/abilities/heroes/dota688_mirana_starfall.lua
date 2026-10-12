@@ -1,5 +1,6 @@
 -- Starstorm (6.88): 75/150/225/300 daune magice tuturor inamicilor din 650; dupa 0.5 s, un inamic aleator din 425 e lovit din nou.
 -- Scepter: se declanseaza pasiv la fiecare 10 s (doar daca Mirana e vizibila pentru inamici si are un inamic in raza).
+require("dota688/val")
 require("dota688/aghanim")
 LinkLuaModifier("modifier_dota688_starfall_passive", "abilities/heroes/dota688_mirana_starfall", LUA_MODIFIER_MOTION_NONE)
 dota688_mirana_starfall = class({})
@@ -33,7 +34,7 @@ modifier_dota688_starfall_passive = class({})
 function modifier_dota688_starfall_passive:IsHidden() return true end
 function modifier_dota688_starfall_passive:IsPurgable() return false end
 function modifier_dota688_starfall_passive:RemoveOnDeath() return false end
-function modifier_dota688_starfall_passive:OnCreated() if IsServer() then self:StartIntervalThink(self:GetAbility():GetSpecialValueFor("interval_scepter")) end end
+function modifier_dota688_starfall_passive:OnCreated() if IsServer() then self:StartIntervalThink(Dota688Val(self, "interval_scepter")) end end
 function modifier_dota688_starfall_passive:OnIntervalThink()
 	local p, a = self:GetParent(), self:GetAbility()
 	if not p:IsAlive() or a:GetLevel() < 1 or not Dota688HasScepter(p) or p:PassivesDisabled() or p:IsInvisible() then return end

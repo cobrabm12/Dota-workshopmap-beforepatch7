@@ -1,5 +1,6 @@
 -- Grow (6.88): +50/100/150 daune, -20/35/50 AS, +40/50/60 MS, model mai mare. (Bonusul la Toss ramane in abilitatea built-in Toss.)
 -- Scepter (copacul): +85 raza de atac, cleave 50% in raza 400, +75% daune la cladiri; Tiny tine un copac in mana.
+require("dota688/val")
 require("dota688/aghanim")
 LinkLuaModifier("modifier_dota688_tiny_grow", "abilities/heroes/dota688_tiny_grow", LUA_MODIFIER_MOTION_NONE)
 dota688_tiny_grow = class({})
@@ -33,17 +34,17 @@ function modifier_dota688_tiny_grow:DeclareFunctions()
 		MODIFIER_PROPERTY_ATTACK_RANGE_BONUS, MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE, MODIFIER_EVENT_ON_ATTACK_LANDED }
 end
 function modifier_dota688_tiny_grow:HasTree() return self:GetAbility():GetLevel() > 0 and Dota688HasScepter(self:GetParent()) end
-function modifier_dota688_tiny_grow:GetModifierPreAttack_BonusDamage() return self:GetAbility():GetSpecialValueFor("bonus_damage") end
-function modifier_dota688_tiny_grow:GetModifierAttackSpeedBonus_Constant() return self:GetAbility():GetSpecialValueFor("bonus_attack_speed") end
-function modifier_dota688_tiny_grow:GetModifierMoveSpeedBonus_Constant() return self:GetAbility():GetSpecialValueFor("bonus_movement_speed") end
+function modifier_dota688_tiny_grow:GetModifierPreAttack_BonusDamage() return Dota688Val(self, "bonus_damage") end
+function modifier_dota688_tiny_grow:GetModifierAttackSpeedBonus_Constant() return Dota688Val(self, "bonus_attack_speed") end
+function modifier_dota688_tiny_grow:GetModifierMoveSpeedBonus_Constant() return Dota688Val(self, "bonus_movement_speed") end
 function modifier_dota688_tiny_grow:GetModifierModelScale() return 20 * self:GetAbility():GetLevel() end
 function modifier_dota688_tiny_grow:GetModifierAttackRangeBonus()
-	if self:HasTree() then return self:GetAbility():GetSpecialValueFor("bonus_range_scepter") end
+	if self:HasTree() then return Dota688Val(self, "bonus_range_scepter") end
 	return 0
 end
 function modifier_dota688_tiny_grow:GetModifierDamageOutgoing_Percentage(params)
 	if self:HasTree() and params and params.target and params.target:IsBuilding() and params.inflictor == nil then
-		return self:GetAbility():GetSpecialValueFor("bonus_building_damage_scepter")
+		return Dota688Val(self, "bonus_building_damage_scepter")
 	end
 	return 0
 end

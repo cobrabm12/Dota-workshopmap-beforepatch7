@@ -1,5 +1,6 @@
 -- Eye of the Storm (6.88): 30 s, la fiecare 0.7/0.6/0.5 s loveste inamicul cu cel mai putin HP din 500: 40/55/70 daune fizice si -1 armura (cumulativ).
 -- Scepter: 0.6/0.5/0.4 s si loveste si cladiri (turnuri, baraci, Ancient).
+require("dota688/val")
 require("dota688/aghanim")
 local F = "abilities/heroes/dota688_razor_eye_of_the_storm"
 LinkLuaModifier("modifier_dota688_eye_of_the_storm", F, LUA_MODIFIER_MOTION_NONE)
@@ -52,4 +53,4 @@ function modifier_dota688_eye_of_the_storm_armor:IsDebuff() return true end
 function modifier_dota688_eye_of_the_storm_armor:IsPurgable() return true end
 function modifier_dota688_eye_of_the_storm_armor:GetTexture() return "razor_eye_of_the_storm" end
 function modifier_dota688_eye_of_the_storm_armor:DeclareFunctions() return { MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS } end
-function modifier_dota688_eye_of_the_storm_armor:GetModifierPhysicalArmorBonus() return -self:GetAbility():GetSpecialValueFor("armor_reduction") * self:GetStackCount() end
+function modifier_dota688_eye_of_the_storm_armor:GetModifierPhysicalArmorBonus() return -Dota688Val(self, "armor_reduction") * self:GetStackCount() end

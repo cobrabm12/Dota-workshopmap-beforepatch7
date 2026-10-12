@@ -1,4 +1,5 @@
 -- Poison Touch (6.88): proiectil; 10 s de daune fizice/s (14/20/26/36); incetinire in 3 trepte (33%/66%/100% dupa 1/2/3 s), la nivel 4 stun 1 s.
+require("dota688/val")
 LinkLuaModifier("modifier_dota688_dazzle_poison_touch", "abilities/heroes/dota688_dazzle_poison_touch", LUA_MODIFIER_MOTION_NONE)
 dota688_dazzle_poison_touch = class({})
 function dota688_dazzle_poison_touch:OnSpellStart()
@@ -36,5 +37,5 @@ function modifier_dota688_dazzle_poison_touch:DeclareFunctions() return { MODIFI
 function modifier_dota688_dazzle_poison_touch:GetModifierMoveSpeedBonus_Percentage()
 	local s = self:GetStackCount()
 	if s <= 0 then return 0 end
-	return self:GetAbility():GetSpecialValueFor("slow_" .. math.min(3, s))
+	return Dota688Val(self, "slow_" .. math.min(3, s))
 end

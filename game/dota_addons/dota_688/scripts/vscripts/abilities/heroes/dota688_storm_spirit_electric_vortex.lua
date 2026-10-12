@@ -1,5 +1,6 @@
 -- Electric Vortex (6.88): trage tinta spre Storm 1/1.5/2/2.5 s (100 unitati/s); Storm e incetinit 50% 3 s.
 -- Scepter: devine fara tinta si afecteaza toti inamicii din raza 475 in jurul lui Storm.
+require("dota688/val")
 require("dota688/aghanim")
 local F = "abilities/heroes/dota688_storm_spirit_electric_vortex"
 LinkLuaModifier("modifier_dota688_storm_vortex_pull", F, LUA_MODIFIER_MOTION_NONE)
@@ -33,7 +34,7 @@ function modifier_dota688_storm_vortex_pull:IsPurgable() return true end
 function modifier_dota688_storm_vortex_pull:IsStunDebuff() return true end
 function modifier_dota688_storm_vortex_pull:GetEffectName() return "particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf" end
 function modifier_dota688_storm_vortex_pull:OnCreated()
-	if IsServer() then self.speed = self:GetAbility():GetSpecialValueFor("electric_vortex_pull_units_per_second"); self:StartIntervalThink(0.03) end
+	if IsServer() then self.speed = Dota688Val(self, "electric_vortex_pull_units_per_second"); self:StartIntervalThink(0.03) end
 end
 function modifier_dota688_storm_vortex_pull:OnIntervalThink()
 	local caster, p = self:GetCaster(), self:GetParent()
@@ -46,4 +47,4 @@ function modifier_dota688_storm_vortex_pull:CheckState() return { [MODIFIER_STAT
 modifier_dota688_storm_vortex_self = class({})
 function modifier_dota688_storm_vortex_self:IsPurgable() return true end
 function modifier_dota688_storm_vortex_self:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE } end
-function modifier_dota688_storm_vortex_self:GetModifierMoveSpeedBonus_Percentage() return self:GetAbility():GetSpecialValueFor("electric_vortex_self_slow") end
+function modifier_dota688_storm_vortex_self:GetModifierMoveSpeedBonus_Percentage() return Dota688Val(self, "electric_vortex_self_slow") end

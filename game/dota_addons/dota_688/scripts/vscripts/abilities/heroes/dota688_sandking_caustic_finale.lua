@@ -1,4 +1,5 @@
 -- Caustic Finale (6.88): atacurile aplica un debuff 6 s; daca unitatea moare cu debuff explodeaza (90/130/170/220 daune magice, raza 400, -30% MS 3 s); la expirare 50% daune.
+require("dota688/val")
 local F = "abilities/heroes/dota688_sandking_caustic_finale"
 LinkLuaModifier("modifier_dota688_sandking_caustic_finale", F, LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_sandking_caustic_finale_debuff", F, LUA_MODIFIER_MOTION_NONE)
@@ -25,7 +26,7 @@ function modifier_dota688_sandking_caustic_finale:OnAttackLanded(params)
 	if not IsServer() or params.attacker ~= self:GetParent() or self:GetParent():PassivesDisabled() then return end
 	local t = params.target
 	if not t or t:IsBuilding() or t:IsOther() or t:IsMagicImmune() or t:GetTeamNumber() == self:GetParent():GetTeamNumber() then return end
-	t:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_dota688_sandking_caustic_finale_debuff", { duration = self:GetAbility():GetSpecialValueFor("caustic_finale_duration") })
+	t:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_dota688_sandking_caustic_finale_debuff", { duration = Dota688Val(self, "caustic_finale_duration") })
 end
 modifier_dota688_sandking_caustic_finale_debuff = class({})
 function modifier_dota688_sandking_caustic_finale_debuff:IsDebuff() return true end
@@ -37,11 +38,11 @@ function modifier_dota688_sandking_caustic_finale_debuff:OnDeath(params)
 end
 function modifier_dota688_sandking_caustic_finale_debuff:OnDestroy()
 	if IsServer() and not self.exploded and self:GetParent():IsAlive() and self:GetRemainingTime() <= 0.05 then
-		self:GetAbility():Explode(self:GetParent(), self:GetAbility():GetSpecialValueFor("caustic_finale_damage_reduced"))
+		self:GetAbility():Explode(self:GetParent(), Dota688Val(self, "caustic_finale_damage_reduced"))
 	end
 end
 modifier_dota688_sandking_caustic_finale_slow = class({})
 function modifier_dota688_sandking_caustic_finale_slow:IsDebuff() return true end
 function modifier_dota688_sandking_caustic_finale_slow:IsPurgable() return true end
 function modifier_dota688_sandking_caustic_finale_slow:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE } end
-function modifier_dota688_sandking_caustic_finale_slow:GetModifierMoveSpeedBonus_Percentage() return self:GetAbility():GetSpecialValueFor("caustic_finale_slow") end
+function modifier_dota688_sandking_caustic_finale_slow:GetModifierMoveSpeedBonus_Percentage() return Dota688Val(self, "caustic_finale_slow") end

@@ -1,4 +1,5 @@
 -- Flesh Golem (6.88): 30 s; aura 750: inamicii iau +1..20/25/30% daune si sunt incetiniti 1..20% (mai mult aproape de Undying); unitatile care mor sub aura vindeca 6% (2% creepi) din HP max.
+require("dota688/val")
 local F = "abilities/heroes/dota688_undying_flesh_golem"
 LinkLuaModifier("modifier_dota688_flesh_golem", F, LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_flesh_golem_plague", F, LUA_MODIFIER_MOTION_NONE)
@@ -10,7 +11,7 @@ end
 modifier_dota688_flesh_golem = class({})
 function modifier_dota688_flesh_golem:IsPurgable() return false end
 function modifier_dota688_flesh_golem:IsAura() return true end
-function modifier_dota688_flesh_golem:GetAuraRadius() return self:GetAbility():GetSpecialValueFor("radius") end
+function modifier_dota688_flesh_golem:GetAuraRadius() return Dota688Val(self, "radius") end
 function modifier_dota688_flesh_golem:GetAuraSearchTeam() return DOTA_UNIT_TARGET_TEAM_ENEMY end
 function modifier_dota688_flesh_golem:GetAuraSearchType() return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC end
 function modifier_dota688_flesh_golem:GetModifierAura() return "modifier_dota688_flesh_golem_plague" end

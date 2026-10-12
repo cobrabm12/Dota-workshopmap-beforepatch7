@@ -1,5 +1,6 @@
 -- Omnislash (6.88): 3/6/9 salturi la fiecare 0.4 s, 200-225 daune fizice fiecare, raza 425; invulnerabil pe durata.
 -- Scepter: 6/9/12 salturi, cooldown 70.
+require("dota688/val")
 require("dota688/aghanim")
 LinkLuaModifier("modifier_dota688_juggernaut_omni_slash", "abilities/heroes/dota688_juggernaut_omni_slash", LUA_MODIFIER_MOTION_NONE)
 dota688_juggernaut_omni_slash = class({})
@@ -23,7 +24,7 @@ function modifier_dota688_juggernaut_omni_slash:OnCreated(kv)
 	self.target = EntIndexToHScript(kv.target)
 	self.fx = ParticleManager:CreateParticle("particles/units/heroes/hero_juggernaut/juggernaut_omni_slash_trail.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	self:Slash(self.target)
-	self:StartIntervalThink(self:GetAbility():GetSpecialValueFor("omni_slash_bounce_tick"))
+	self:StartIntervalThink(Dota688Val(self, "omni_slash_bounce_tick"))
 end
 function modifier_dota688_juggernaut_omni_slash:Slash(target)
 	local parent, a = self:GetParent(), self:GetAbility()

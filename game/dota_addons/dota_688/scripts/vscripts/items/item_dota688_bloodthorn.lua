@@ -1,3 +1,4 @@
+require("dota688/val")
 require("items/dota688_item_base")
 -- Bloodthorn (6.88): +25 INT, +30 AS, +60 daune, +150% regen mana, 20% critic 175%; Soul Rend: silence 5 s, toate atacurile pe tinta sunt critice 145% si la final +30% din daunele primite.
 LinkLuaModifier("modifier_dota688_soul_rend", "items/item_dota688_bloodthorn", LUA_MODIFIER_MOTION_NONE)
@@ -7,9 +8,9 @@ Dota688DefineItem("item_dota688_bloodthorn", "items/item_dota688_bloodthorn", {
 		GetModifierPreAttack_CriticalStrike = function(self, params)
 			local target = params.target
 			if not target or target:IsBuilding() or target:IsOther() then return nil end
-			if target:HasModifier("modifier_dota688_soul_rend") then return self:GetAbility():GetSpecialValueFor("target_crit_multiplier") end
-			if RollPseudoRandomPercentage(self:GetAbility():GetSpecialValueFor("crit_chance"), DOTA_PSEUDO_RANDOM_ITEM_GREATERCRIT, self:GetParent()) then
-				return self:GetAbility():GetSpecialValueFor("crit_multiplier")
+			if target:HasModifier("modifier_dota688_soul_rend") then return Dota688Val(self, "target_crit_multiplier") end
+			if RollPseudoRandomPercentage(Dota688Val(self, "crit_chance"), DOTA_PSEUDO_RANDOM_ITEM_GREATERCRIT, self:GetParent()) then
+				return Dota688Val(self, "crit_multiplier")
 			end
 			return nil
 		end,
@@ -35,7 +36,7 @@ function modifier_dota688_soul_rend:OnTakeDamage(params)
 end
 function modifier_dota688_soul_rend:OnDestroy()
 	if not IsServer() or not self:GetParent():IsAlive() then return end
-	local dmg = (self.total or 0) * self:GetAbility():GetSpecialValueFor("silence_damage_percent") / 100
+	local dmg = (self.total or 0) * Dota688Val(self, "silence_damage_percent") / 100
 	if dmg > 0 then
 		ApplyDamage({ victim = self:GetParent(), attacker = self:GetCaster(), damage = dmg, damage_type = DAMAGE_TYPE_MAGICAL, ability = self:GetAbility() })
 	end

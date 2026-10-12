@@ -1,4 +1,5 @@
 -- Poison Attack (6.88, orb): 10/16/22/28 daune magice/s, -10/20/30/40% MS si AS, 2 s.
+require("dota688/val")
 LinkLuaModifier("modifier_dota688_viper_poison_attack", "abilities/heroes/dota688_viper_poison_attack", LUA_MODIFIER_MOTION_NONE)
 dota688_viper_poison_attack = class({})
 function dota688_viper_poison_attack:GetProjectileName() return "particles/units/heroes/hero_viper/viper_poison_attack.vpcf" end
@@ -22,9 +23,9 @@ function modifier_dota688_viper_poison_attack:OnCreated()
 end
 function modifier_dota688_viper_poison_attack:OnRefresh() end
 function modifier_dota688_viper_poison_attack:OnIntervalThink()
-	ApplyDamage({ victim = self:GetParent(), attacker = self:GetCaster(), damage = self:GetAbility():GetSpecialValueFor("damage") * self.tick,
+	ApplyDamage({ victim = self:GetParent(), attacker = self:GetCaster(), damage = Dota688Val(self, "damage") * self.tick,
 		damage_type = DAMAGE_TYPE_MAGICAL, ability = self:GetAbility() })
 end
 function modifier_dota688_viper_poison_attack:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT } end
-function modifier_dota688_viper_poison_attack:GetModifierMoveSpeedBonus_Percentage() return self:GetAbility():GetSpecialValueFor("bonus_movement_speed") end
-function modifier_dota688_viper_poison_attack:GetModifierAttackSpeedBonus_Constant() return self:GetAbility():GetSpecialValueFor("bonus_attack_speed") end
+function modifier_dota688_viper_poison_attack:GetModifierMoveSpeedBonus_Percentage() return Dota688Val(self, "bonus_movement_speed") end
+function modifier_dota688_viper_poison_attack:GetModifierAttackSpeedBonus_Constant() return Dota688Val(self, "bonus_attack_speed") end

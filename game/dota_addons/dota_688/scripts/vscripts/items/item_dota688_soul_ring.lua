@@ -1,3 +1,4 @@
+require("dota688/val")
 require("items/dota688_item_base")
 -- Soul Ring (6.88): +3 regen HP, +50% regen mana; activ: -150 HP, +150 mana temporara 10 s, cd 30.
 LinkLuaModifier("modifier_dota688_soul_ring_buff", "items/item_dota688_soul_ring", LUA_MODIFIER_MOTION_NONE)
@@ -17,4 +18,4 @@ Dota688DefineItem("item_dota688_soul_ring", "items/item_dota688_soul_ring", {
 modifier_dota688_soul_ring_buff = class({})
 function modifier_dota688_soul_ring_buff:IsPurgable() return false end
 function modifier_dota688_soul_ring_buff:DeclareFunctions() return { MODIFIER_PROPERTY_MANA_BONUS } end
-function modifier_dota688_soul_ring_buff:GetModifierManaBonus() return self:GetAbility():GetSpecialValueFor("mana_gain") end
+function modifier_dota688_soul_ring_buff:GetModifierManaBonus() return Dota688Val(self, "mana_gain") end

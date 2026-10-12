@@ -1,3 +1,4 @@
+require("dota688/val")
 require("items/dota688_item_base")
 -- Buckler (6.88): +5 armura, +2 la toate; activ: +2 armura aliatilor din 900 pentru 30 s (25 s eroi), cd 25, 10 mana.
 LinkLuaModifier("modifier_dota688_buckler_armor", "items/item_dota688_buckler", LUA_MODIFIER_MOTION_NONE)
@@ -18,4 +19,4 @@ Dota688DefineItem("item_dota688_buckler", "items/item_dota688_buckler", {
 modifier_dota688_buckler_armor = class({})
 function modifier_dota688_buckler_armor:IsPurgable() return true end
 function modifier_dota688_buckler_armor:DeclareFunctions() return { MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS } end
-function modifier_dota688_buckler_armor:GetModifierPhysicalArmorBonus() return self:GetAbility():GetSpecialValueFor("bonus_aoe_armor") end
+function modifier_dota688_buckler_armor:GetModifierPhysicalArmorBonus() return Dota688Val(self, "bonus_aoe_armor") end

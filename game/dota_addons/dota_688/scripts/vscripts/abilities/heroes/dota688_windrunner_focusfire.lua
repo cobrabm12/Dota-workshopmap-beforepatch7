@@ -1,5 +1,6 @@
 -- Focus Fire (6.88): 20 s, viteza de atac maxima (+500) pe tinta aleasa, cu -50/40/30% daune. Trece prin imunitate.
 -- Scepter: cooldown 15, reducere -30/15/0%, atacurile pe tinta nu mai au penalizare la efectele itemelor/UAM.
+require("dota688/val")
 require("dota688/aghanim")
 LinkLuaModifier("modifier_dota688_focusfire", "abilities/heroes/dota688_windrunner_focusfire", LUA_MODIFIER_MOTION_NONE)
 dota688_windrunner_focusfire = class({})
@@ -28,7 +29,7 @@ function modifier_dota688_focusfire:OnIntervalThink()
 end
 function modifier_dota688_focusfire:DeclareFunctions() return { MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT, MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE } end
 function modifier_dota688_focusfire:GetModifierAttackSpeedBonus_Constant()
-	if self:GetStackCount() == 1 then return self:GetAbility():GetSpecialValueFor("bonus_attack_speed") end
+	if self:GetStackCount() == 1 then return Dota688Val(self, "bonus_attack_speed") end
 	return 0
 end
 function modifier_dota688_focusfire:GetModifierDamageOutgoing_Percentage(params)

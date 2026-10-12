@@ -1,11 +1,12 @@
+require("dota688/val")
 require("items/dota688_item_base")
 -- Drum of Endurance (6.88): +9 INT, +6 STR, +3 AGI, +3 daune, +3 regen; aura 900: +5% AS si MS; Endurance (6 incarcaturi): +25% AS, +13% MS 6 s aliatilor din 900.
 Dota688DefineAura("modifier_dota688_janggo_aura", "items/item_dota688_ancient_janggo", {
-	radius = function(self) return self:GetAbility():GetSpecialValueFor("radius") end,
+	radius = function(self) return Dota688Val(self, "radius") end,
 	functions = { MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT, MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE },
 	effect = {
-		GetModifierAttackSpeedBonus_Constant = function(self) return self:GetAbility():GetSpecialValueFor("bonus_aura_attack_speed_pct") end,
-		GetModifierMoveSpeedBonus_Percentage = function(self) return self:GetAbility():GetSpecialValueFor("bonus_aura_movement_speed_pct") end,
+		GetModifierAttackSpeedBonus_Constant = function(self) return Dota688Val(self, "bonus_aura_attack_speed_pct") end,
+		GetModifierMoveSpeedBonus_Percentage = function(self) return Dota688Val(self, "bonus_aura_movement_speed_pct") end,
 	},
 })
 LinkLuaModifier("modifier_dota688_janggo_active", "items/item_dota688_ancient_janggo", LUA_MODIFIER_MOTION_NONE)
@@ -35,5 +36,5 @@ Dota688DefineItem("item_dota688_ancient_janggo", "items/item_dota688_ancient_jan
 modifier_dota688_janggo_active = class({})
 function modifier_dota688_janggo_active:IsPurgable() return true end
 function modifier_dota688_janggo_active:DeclareFunctions() return { MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT, MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE } end
-function modifier_dota688_janggo_active:GetModifierAttackSpeedBonus_Constant() return self:GetAbility():GetSpecialValueFor("bonus_attack_speed_pct") end
-function modifier_dota688_janggo_active:GetModifierMoveSpeedBonus_Percentage() return self:GetAbility():GetSpecialValueFor("bonus_movement_speed_pct") end
+function modifier_dota688_janggo_active:GetModifierAttackSpeedBonus_Constant() return Dota688Val(self, "bonus_attack_speed_pct") end
+function modifier_dota688_janggo_active:GetModifierMoveSpeedBonus_Percentage() return Dota688Val(self, "bonus_movement_speed_pct") end

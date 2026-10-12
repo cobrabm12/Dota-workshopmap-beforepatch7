@@ -1,5 +1,6 @@
 -- Stampede (6.88): toate unitatile aliate (global) primesc viteza maxima 4 s; inamicii atinsi (105) iau 1/2/3 x STR-ul lui Centaur daune magice si sunt incetiniti 100% 1.8 s (o data per unitate).
 -- Scepter: eroii afectati iau cu 60% mai putine daune si trec prin copaci/dealuri.
+require("dota688/val")
 require("dota688/aghanim")
 local F = "abilities/heroes/dota688_centaur_stampede"
 LinkLuaModifier("modifier_dota688_stampede", F, LUA_MODIFIER_MOTION_NONE)
@@ -35,7 +36,7 @@ end
 function modifier_dota688_stampede:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MIN, MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE } end
 function modifier_dota688_stampede:GetModifierMoveSpeed_AbsoluteMin() return 522 end
 function modifier_dota688_stampede:GetModifierIncomingDamage_Percentage()
-	if self:GetParent():IsHero() and Dota688HasScepter(self:GetCaster()) then return -self:GetAbility():GetSpecialValueFor("damage_reduction") end
+	if self:GetParent():IsHero() and Dota688HasScepter(self:GetCaster()) then return -Dota688Val(self, "damage_reduction") end
 	return 0
 end
 function modifier_dota688_stampede:CheckState()
@@ -47,4 +48,4 @@ function modifier_dota688_stampede_slow:IsDebuff() return true end
 function modifier_dota688_stampede_slow:IsPurgable() return true end
 function modifier_dota688_stampede_slow:GetTexture() return "centaur_stampede" end
 function modifier_dota688_stampede_slow:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE } end
-function modifier_dota688_stampede_slow:GetModifierMoveSpeedBonus_Percentage() return -self:GetAbility():GetSpecialValueFor("slow_movement_speed") end
+function modifier_dota688_stampede_slow:GetModifierMoveSpeedBonus_Percentage() return -Dota688Val(self, "slow_movement_speed") end

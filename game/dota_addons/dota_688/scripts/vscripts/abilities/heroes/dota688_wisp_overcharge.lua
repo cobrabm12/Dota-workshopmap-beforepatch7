@@ -1,5 +1,6 @@
 -- Overcharge (6.88): toggle: +40/50/60/70 AS si 5/10/15/20% reducere a daunelor primite, pentru Io si unitatea legata prin Tether;
 -- Io pierde 4.5% din viata si mana curenta pe secunda.
+require("dota688/val")
 local F = "abilities/heroes/dota688_wisp_overcharge"
 LinkLuaModifier("modifier_dota688_wisp_overcharge", F, LUA_MODIFIER_MOTION_NONE)
 dota688_wisp_overcharge = class({})
@@ -18,11 +19,11 @@ modifier_dota688_wisp_overcharge = class({})
 function modifier_dota688_wisp_overcharge:IsPurgable() return false end
 function modifier_dota688_wisp_overcharge:GetEffectName() return "particles/units/heroes/hero_wisp/wisp_overcharge.vpcf" end
 function modifier_dota688_wisp_overcharge:OnCreated()
-	if IsServer() and self:GetParent() == self:GetCaster() then self:StartIntervalThink(self:GetAbility():GetSpecialValueFor("drain_interval")) end
+	if IsServer() and self:GetParent() == self:GetCaster() then self:StartIntervalThink(Dota688Val(self, "drain_interval")) end
 end
 function modifier_dota688_wisp_overcharge:OnIntervalThink()
 	local caster = self:GetParent()
-	local pct = self:GetAbility():GetSpecialValueFor("drain_pct") * self:GetAbility():GetSpecialValueFor("drain_interval")
+	local pct = Dota688Val(self, "drain_pct") * Dota688Val(self, "drain_interval")
 	caster:SetHealth(math.max(1, caster:GetHealth() - caster:GetHealth() * pct))
 	caster:SetMana(math.max(0, caster:GetMana() - caster:GetMana() * pct))
 	-- aplicam si pe unitatea legata prin Tether (modifier-ul built-in al Tether-ului)
@@ -42,5 +43,5 @@ function modifier_dota688_wisp_overcharge:OnIntervalThink()
 	caster.dota688_overcharge_target = tethered
 end
 function modifier_dota688_wisp_overcharge:DeclareFunctions() return { MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT, MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE } end
-function modifier_dota688_wisp_overcharge:GetModifierAttackSpeedBonus_Constant() return self:GetAbility():GetSpecialValueFor("bonus_attack_speed") end
-function modifier_dota688_wisp_overcharge:GetModifierIncomingDamage_Percentage() return self:GetAbility():GetSpecialValueFor("bonus_damage_pct") end
+function modifier_dota688_wisp_overcharge:GetModifierAttackSpeedBonus_Constant() return Dota688Val(self, "bonus_attack_speed") end
+function modifier_dota688_wisp_overcharge:GetModifierIncomingDamage_Percentage() return Dota688Val(self, "bonus_damage_pct") end

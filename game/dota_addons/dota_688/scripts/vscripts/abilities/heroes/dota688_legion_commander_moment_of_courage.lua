@@ -1,4 +1,5 @@
 -- Moment of Courage (6.88): 25% sansa cand e atacata sa contraatace instant, cu 55/65/75/85% lifesteal pe acel atac. Cooldown 2.3-0.8 s.
+require("dota688/val")
 local F = "abilities/heroes/dota688_legion_commander_moment_of_courage"
 LinkLuaModifier("modifier_dota688_legion_commander_moment_of_courage", F, LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_legion_commander_moment_of_courage_lifesteal", F, LUA_MODIFIER_MOTION_NONE)
@@ -35,6 +36,6 @@ function modifier_dota688_legion_commander_moment_of_courage_lifesteal:OnAttackL
 	if not IsServer() or params.attacker ~= self:GetParent() then return end
 	local target = params.target
 	if not target or target:IsBuilding() or target:IsOther() then return end
-	self:GetParent():Heal(params.damage * self:GetAbility():GetSpecialValueFor("hp_leech_percent") / 100, self:GetAbility())
+	self:GetParent():Heal(params.damage * Dota688Val(self, "hp_leech_percent") / 100, self:GetAbility())
 	self:Destroy()
 end

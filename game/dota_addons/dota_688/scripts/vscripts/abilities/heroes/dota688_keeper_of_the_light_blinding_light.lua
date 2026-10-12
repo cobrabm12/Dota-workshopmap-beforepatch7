@@ -1,4 +1,5 @@
 -- Blinding Light (6.88, Aghanim): inamicii din 675 sunt impinsi 525 unitati si rateaza 80% din atacuri 4/5/6 s.
+require("dota688/val")
 LinkLuaModifier("modifier_dota688_kotl_blinding_light", "abilities/heroes/dota688_keeper_of_the_light_blinding_light", LUA_MODIFIER_MOTION_NONE)
 dota688_keeper_of_the_light_blinding_light = class({})
 function dota688_keeper_of_the_light_blinding_light:GetAOERadius() return self:GetSpecialValueFor("radius") end
@@ -18,4 +19,4 @@ modifier_dota688_kotl_blinding_light = class({})
 function modifier_dota688_kotl_blinding_light:IsDebuff() return true end
 function modifier_dota688_kotl_blinding_light:IsPurgable() return true end
 function modifier_dota688_kotl_blinding_light:DeclareFunctions() return { MODIFIER_PROPERTY_MISS_PERCENTAGE } end
-function modifier_dota688_kotl_blinding_light:GetModifierMiss_Percentage() return self:GetAbility():GetSpecialValueFor("miss_rate") end
+function modifier_dota688_kotl_blinding_light:GetModifierMiss_Percentage() return Dota688Val(self, "miss_rate") end

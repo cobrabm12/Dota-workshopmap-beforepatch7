@@ -1,4 +1,5 @@
 -- Geostrike (6.88): atacurile aplica un debuff de 2 s cu daune magice pe secunda si incetinire; fiecare Meepo are propriul debuff.
+require("dota688/val")
 LinkLuaModifier("modifier_dota688_meepo_geostrike", "abilities/heroes/dota688_meepo_geostrike", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_meepo_geostrike_debuff", "abilities/heroes/dota688_meepo_geostrike", LUA_MODIFIER_MOTION_NONE)
 
@@ -22,7 +23,7 @@ modifier_dota688_meepo_geostrike_debuff = class({})
 function modifier_dota688_meepo_geostrike_debuff:IsDebuff() return true end
 function modifier_dota688_meepo_geostrike_debuff:IsPurgable() return true end
 function modifier_dota688_meepo_geostrike_debuff:OnCreated()
-	self.slow = self:GetAbility():GetSpecialValueFor("slow")
+	self.slow = Dota688Val(self, "slow")
 	self.tick = 0.5
 	if IsServer() then   -- GetAbilityDamage exista doar pe server (OnCreated ruleaza si pe client)
 		self.dps = self:GetAbility():GetAbilityDamage()

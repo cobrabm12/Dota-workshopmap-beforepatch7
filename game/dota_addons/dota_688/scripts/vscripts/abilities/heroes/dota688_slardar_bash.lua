@@ -1,4 +1,5 @@
 -- Bash (6.88): 10/15/20/25% sansa (PRD) de stun 1 s (2 s pe creepi) si +60/80/100/120 daune fizice.
+require("dota688/val")
 LinkLuaModifier("modifier_dota688_slardar_bash", "abilities/heroes/dota688_slardar_bash", LUA_MODIFIER_MOTION_NONE)
 dota688_slardar_bash = class({})
 function dota688_slardar_bash:GetIntrinsicModifierName() return "modifier_dota688_slardar_bash" end
@@ -12,9 +13,9 @@ function modifier_dota688_slardar_bash:GetModifierProcAttack_BonusDamage_Physica
 	local parent = self:GetParent()
 	local target = params.target
 	if parent:PassivesDisabled() or not target or target:IsBuilding() or target:IsOther() then return 0 end
-	if RollPseudoRandomPercentage(self:GetAbility():GetSpecialValueFor("chance"), DOTA_PSEUDO_RANDOM_SLARDAR_BASH, parent) then
+	if RollPseudoRandomPercentage(Dota688Val(self, "chance"), DOTA_PSEUDO_RANDOM_SLARDAR_BASH, parent) then
 		self.bashTarget = target
-		return self:GetAbility():GetSpecialValueFor("bonus_damage")
+		return Dota688Val(self, "bonus_damage")
 	end
 	return 0
 end

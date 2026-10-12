@@ -1,6 +1,7 @@
 -- Requiem of Souls (6.88): o linie de energie (80/120/160 daune magice, 125->425 latime, 1000 raza, viteza 700) pentru fiecare 2 suflete;
 -- inamicii din 700 la lansare au -25% viteza si -50% daune 5 s. Se lanseaza automat la moartea lui Shadow Fiend (cu sufletele din acel moment).
 -- Scepter: liniile se intorc la Shadow Fiend cu 40% daune si il vindeca cu 100% din daunele facute la intoarcere; +4/6/8/10 suflete maxime (Necromastery).
+require("dota688/val")
 require("dota688/aghanim")
 local F = "abilities/heroes/dota688_nevermore_requiem"
 LinkLuaModifier("modifier_dota688_requiem_slow", F, LUA_MODIFIER_MOTION_NONE)
@@ -75,8 +76,8 @@ function modifier_dota688_requiem_slow:IsDebuff() return true end
 function modifier_dota688_requiem_slow:IsPurgable() return true end
 function modifier_dota688_requiem_slow:GetTexture() return "nevermore_requiem" end
 function modifier_dota688_requiem_slow:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE } end
-function modifier_dota688_requiem_slow:GetModifierMoveSpeedBonus_Percentage() return self:GetAbility():GetSpecialValueFor("requiem_reduction_ms") end
-function modifier_dota688_requiem_slow:GetModifierBaseDamageOutgoing_Percentage() return self:GetAbility():GetSpecialValueFor("requiem_reduction_damage") end
+function modifier_dota688_requiem_slow:GetModifierMoveSpeedBonus_Percentage() return Dota688Val(self, "requiem_reduction_ms") end
+function modifier_dota688_requiem_slow:GetModifierBaseDamageOutgoing_Percentage() return Dota688Val(self, "requiem_reduction_damage") end
 -- la moarte: Requiem automat
 modifier_dota688_requiem_passive = class({})
 function modifier_dota688_requiem_passive:IsHidden() return true end

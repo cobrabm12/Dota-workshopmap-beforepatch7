@@ -1,5 +1,6 @@
 -- Duel (6.88): Legion si tinta sunt fortati sa se atace 4/4.75/5.5 s, fara abilitati/iteme; trece prin imunitate.
 -- Daca unul moare, castigatorul primeste permanent +10/14/18 daune. Scepter: 6/7/8 s si cei doi iau daune doar unul de la celalalt.
+require("dota688/val")
 require("dota688/aghanim")
 local F = "abilities/heroes/dota688_legion_commander_duel"
 LinkLuaModifier("modifier_dota688_duel", F, LUA_MODIFIER_MOTION_NONE)
@@ -43,7 +44,7 @@ function modifier_dota688_duel:OnDeath(params)
 	if winner and not winner:IsNull() and winner:IsAlive() and winner:HasModifier("modifier_dota688_duel") then
 		local m = winner:FindModifierByName("modifier_dota688_duel_damage")
 		if not m then m = winner:AddNewModifier(winner, self:GetAbility(), "modifier_dota688_duel_damage", {}) end
-		if m then m:SetStackCount(m:GetStackCount() + self:GetAbility():GetSpecialValueFor("reward_damage")) end
+		if m then m:SetStackCount(m:GetStackCount() + Dota688Val(self, "reward_damage")) end
 		winner:EmitSound("Hero_LegionCommander.Duel.Victory")
 		local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_legion_commander/legion_commander_duel_victory.vpcf", PATTACH_OVERHEAD_FOLLOW, winner)
 		ParticleManager:ReleaseParticleIndex(fx)

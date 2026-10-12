@@ -1,5 +1,6 @@
 -- Doom (6.88): 15 s: 20/35/50 daune pure/s, tinta nu poate folosi abilitati sau iteme (silence + mute); trece prin imunitate; eroul poate fi deniat sub 25%.
 -- Scepter: 16 s; durata nu scade cat timp tinta e la mai putin de 900 de Doom; la cast scoate buff-urile; dezactiveaza pasivele (break).
+require("dota688/val")
 require("dota688/aghanim")
 LinkLuaModifier("modifier_dota688_doom", "abilities/heroes/dota688_doom_bringer_doom", LUA_MODIFIER_MOTION_NONE)
 dota688_doom_bringer_doom = class({})
@@ -20,7 +21,7 @@ function modifier_dota688_doom:OnCreated(kv)
 	if not IsServer() then return end
 	self.left = kv.total
 	self.scepter = kv.scepter == 1
-	self.dmg = Dota688HasScepter(self:GetCaster()) and self:GetAbility():GetSpecialValueFor("damage_scepter") or self:GetAbility():GetSpecialValueFor("damage")
+	self.dmg = Dota688HasScepter(self:GetCaster()) and Dota688Val(self, "damage_scepter") or Dota688Val(self, "damage")
 	self.acc = 0
 	self:StartIntervalThink(0.1)
 end

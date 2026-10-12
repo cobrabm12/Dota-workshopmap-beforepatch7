@@ -1,4 +1,5 @@
 -- Utilitare comune pentru minele Techies 6.88 (unitati invizibile create din KV-ul 6.88, logica in Lua).
+require("dota688/val")
 Dota688Techies = Dota688Techies or {}
 
 -- creeaza o mina/capcana: unitate invizibila, fara abilitati, controlata de Techies
@@ -40,7 +41,7 @@ function Dota688Techies.MineModifier(fadeTimeKey)
 			self:StartIntervalThink(0.1)
 		end
 	end
-	function m:Faded() return GameRules:GetGameTime() - (self.start or 0) >= self:GetAbility():GetSpecialValueFor(fadeTimeKey or "fade_time") end
+	function m:Faded() return GameRules:GetGameTime() - (self.start or 0) >= Dota688Val(self, fadeTimeKey or "fade_time") end
 	function m:CheckState()
 		return { [MODIFIER_STATE_INVISIBLE] = self:Faded(), [MODIFIER_STATE_ROOTED] = true, [MODIFIER_STATE_DISARMED] = true,
 			[MODIFIER_STATE_NO_UNIT_COLLISION] = true, [MODIFIER_STATE_NO_HEALTH_BAR] = true, [MODIFIER_STATE_MAGIC_IMMUNE] = true }

@@ -1,4 +1,5 @@
 -- Tricks of the Trade (6.88): Riki devine invulnerabil si ataca inamici aleatori din raza 500, de 4/5/6 ori in 3/4/5 s de channel.
+require("dota688/val")
 LinkLuaModifier("modifier_dota688_riki_tricks_of_the_trade", "abilities/heroes/dota688_riki_tricks_of_the_trade", LUA_MODIFIER_MOTION_NONE)
 dota688_riki_tricks_of_the_trade = class({})
 function dota688_riki_tricks_of_the_trade:OnSpellStart()
@@ -26,7 +27,7 @@ function modifier_dota688_riki_tricks_of_the_trade:OnDestroy()
 end
 function modifier_dota688_riki_tricks_of_the_trade:OnIntervalThink()
 	local parent = self:GetParent()
-	local enemies = FindUnitsInRadius(parent:GetTeamNumber(), parent:GetAbsOrigin(), nil, self:GetAbility():GetSpecialValueFor("range"),
+	local enemies = FindUnitsInRadius(parent:GetTeamNumber(), parent:GetAbsOrigin(), nil, Dota688Val(self, "range"),
 		DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 	if #enemies == 0 then return end
 	local target = enemies[RandomInt(1, #enemies)]

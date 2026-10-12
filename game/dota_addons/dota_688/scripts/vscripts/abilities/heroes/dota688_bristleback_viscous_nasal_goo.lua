@@ -1,5 +1,6 @@
 -- Viscous Nasal Goo (6.88): proiectil (1000); fiecare lovitura adauga un stack (max 4): -1/1.4/1.8/2.2 armura si -20% -3/6/9/12% viteza per stack, 5 s (10 s pe creepi).
 -- Scepter: devine fara tinta si loveste toti inamicii din 700.
+require("dota688/val")
 require("dota688/aghanim")
 local F = "abilities/heroes/dota688_bristleback_viscous_nasal_goo"
 LinkLuaModifier("modifier_dota688_nasal_goo", F, LUA_MODIFIER_MOTION_NONE)
@@ -48,7 +49,7 @@ function modifier_dota688_nasal_goo:IsDebuff() return true end
 function modifier_dota688_nasal_goo:IsPurgable() return true end
 function modifier_dota688_nasal_goo:GetEffectName() return "particles/units/heroes/hero_bristleback/bristleback_viscous_nasal_goo_debuff.vpcf" end
 function modifier_dota688_nasal_goo:DeclareFunctions() return { MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS, MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE } end
-function modifier_dota688_nasal_goo:GetModifierPhysicalArmorBonus() return -self:GetAbility():GetSpecialValueFor("armor_per_stack") * self:GetStackCount() end
+function modifier_dota688_nasal_goo:GetModifierPhysicalArmorBonus() return -Dota688Val(self, "armor_per_stack") * self:GetStackCount() end
 function modifier_dota688_nasal_goo:GetModifierMoveSpeedBonus_Percentage()
 	local a = self:GetAbility()
 	if not a or a:IsNull() then return 0 end

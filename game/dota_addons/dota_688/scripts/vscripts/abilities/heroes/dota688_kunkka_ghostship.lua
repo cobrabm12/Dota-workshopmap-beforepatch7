@@ -1,6 +1,7 @@
 -- Ghostship (6.88): corabia porneste de la 1000 in spatele punctului tintit si se sfarama la punct (viteza 650): 400/500/600 daune magice + stun 1.4 in 425.
 -- Aliatii atinsi de corabie primesc Rum: +10% viteza si 40/45/50% din daunele primite sunt amanate 10 s.
 -- Scepter: corabia (latime 200) trage inamicii atinsi pana la locul naufragiului (ei pot actiona in continuare).
+require("dota688/val")
 require("dota688/aghanim")
 require("dota688/stun")
 local F = "abilities/heroes/dota688_kunkka_ghostship"
@@ -90,9 +91,9 @@ function modifier_dota688_ghostship_rum:GetTexture() return "kunkka_ghostship" e
 function modifier_dota688_ghostship_rum:GetEffectName() return "particles/units/heroes/hero_kunkka/kunkka_admirals_rum.vpcf" end
 function modifier_dota688_ghostship_rum:OnCreated() self.delayed = 0 end
 function modifier_dota688_ghostship_rum:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE } end
-function modifier_dota688_ghostship_rum:GetModifierMoveSpeedBonus_Percentage() return self:GetAbility():GetSpecialValueFor("movespeed_bonus") end
+function modifier_dota688_ghostship_rum:GetModifierMoveSpeedBonus_Percentage() return Dota688Val(self, "movespeed_bonus") end
 function modifier_dota688_ghostship_rum:GetModifierIncomingDamage_Percentage(params)
-	local pct = self:GetAbility():GetSpecialValueFor("ghostship_absorb")
+	local pct = Dota688Val(self, "ghostship_absorb")
 	if IsServer() and params and params.damage and params.damage > 0 then self.delayed = (self.delayed or 0) + params.damage * pct / 100 end
 	return -pct
 end

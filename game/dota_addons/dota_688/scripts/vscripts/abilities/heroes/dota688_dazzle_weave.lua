@@ -1,5 +1,6 @@
 -- Weave (6.88): zona de 575 timp de 24 s; aliatii castiga, inamicii pierd 0.75/1/1.25 armura pe secunda (cumulativ).
 -- Scepter: raza 775, 1.25/1.5/1.75 armura pe secunda.
+require("dota688/val")
 require("dota688/aghanim")
 local F = "abilities/heroes/dota688_dazzle_weave"
 LinkLuaModifier("modifier_dota688_weave_thinker", F, LUA_MODIFIER_MOTION_NONE)
@@ -46,13 +47,13 @@ local function weave_mod(m, sign)
 	function m:GetTexture() return "dazzle_weave" end
 	function m:OnCreated()
 		if not IsServer() then return end
-		self.per = Dota688HasScepter(self:GetCaster()) and self:GetAbility():GetSpecialValueFor("armor_per_second_scepter") or self:GetAbility():GetSpecialValueFor("armor_per_second")
+		self.per = Dota688HasScepter(self:GetCaster()) and Dota688Val(self, "armor_per_second_scepter") or Dota688Val(self, "armor_per_second")
 		self:StartIntervalThink(1.0)
 	end
 	function m:OnIntervalThink() self:SetStackCount(self:GetStackCount() + 1) end
 	function m:DeclareFunctions() return { MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS } end
 	function m:GetModifierPhysicalArmorBonus()
-		local per = self.per or self:GetAbility():GetSpecialValueFor("armor_per_second")
+		local per = self.per or Dota688Val(self, "armor_per_second")
 		return sign * per * self:GetStackCount()
 	end
 end

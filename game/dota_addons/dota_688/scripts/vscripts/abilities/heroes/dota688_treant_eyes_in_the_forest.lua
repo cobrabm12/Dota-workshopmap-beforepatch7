@@ -1,5 +1,6 @@
 -- Eyes in the Forest (6.88, oferita de scepter): vrajeste un copac, care da viziune neobstructionata 800 in jur.
 -- Cand Treant foloseste Overgrowth, inamicii din 800 de fiecare copac vrajit sunt prinsi (Overgrowth) si iau 175 daune magice/s.
+require("dota688/val")
 require("dota688/aghanim")
 local F = "abilities/heroes/dota688_treant_eyes_in_the_forest"
 LinkLuaModifier("modifier_dota688_treant_eye", F, LUA_MODIFIER_MOTION_NONE)
@@ -29,8 +30,8 @@ function modifier_dota688_treant_eye:IsPurgable() return false end
 function modifier_dota688_treant_eye:OnCreated()
 	if not IsServer() then return end
 	local p = self:GetParent()
-	p:SetDayTimeVisionRange(self:GetAbility():GetSpecialValueFor("vision_aoe"))
-	p:SetNightTimeVisionRange(self:GetAbility():GetSpecialValueFor("vision_aoe"))
+	p:SetDayTimeVisionRange(Dota688Val(self, "vision_aoe"))
+	p:SetNightTimeVisionRange(Dota688Val(self, "vision_aoe"))
 	self.fx = ParticleManager:CreateParticle("particles/units/heroes/hero_treant/treant_eyesintheforest.vpcf", PATTACH_ABSORIGIN_FOLLOW, p)
 end
 function modifier_dota688_treant_eye:OnDestroy() if IsServer() then ParticleManager:DestroyParticle(self.fx, false) end end
@@ -62,5 +63,5 @@ function modifier_dota688_treant_eyes_burn:IsHidden() return true end
 function modifier_dota688_treant_eyes_burn:IsPurgable() return false end
 function modifier_dota688_treant_eyes_burn:OnCreated() if IsServer() then self:StartIntervalThink(0.5) end end
 function modifier_dota688_treant_eyes_burn:OnIntervalThink()
-	ApplyDamage({ victim = self:GetParent(), attacker = self:GetCaster(), damage = self:GetAbility():GetSpecialValueFor("damage") * 0.5, damage_type = DAMAGE_TYPE_MAGICAL, ability = self:GetAbility() })
+	ApplyDamage({ victim = self:GetParent(), attacker = self:GetCaster(), damage = Dota688Val(self, "damage") * 0.5, damage_type = DAMAGE_TYPE_MAGICAL, ability = self:GetAbility() })
 end

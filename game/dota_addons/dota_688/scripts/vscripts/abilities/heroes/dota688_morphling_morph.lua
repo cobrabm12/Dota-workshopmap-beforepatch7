@@ -1,4 +1,5 @@
 -- Morph (6.88, pasiv ascuns): Morphling primeste +3/4/5/6 STR si AGI permanent, in functie de nivelul lui Morph (Agi/Str).
+require("dota688/val")
 LinkLuaModifier("modifier_dota688_morphling_morph", "abilities/heroes/dota688_morphling_morph", LUA_MODIFIER_MOTION_NONE)
 dota688_morphling_morph = class({})
 function dota688_morphling_morph:GetIntrinsicModifierName() return "modifier_dota688_morphling_morph" end
@@ -18,7 +19,7 @@ function modifier_dota688_morphling_morph:OnIntervalThink()
 end
 function modifier_dota688_morphling_morph:Bonus()
 	if self:GetStackCount() == 0 then return 0 end
-	return self:GetAbility():GetSpecialValueFor("bonus_attributes")
+	return Dota688Val(self, "bonus_attributes")
 end
 function modifier_dota688_morphling_morph:DeclareFunctions() return { MODIFIER_PROPERTY_STATS_STRENGTH_BONUS, MODIFIER_PROPERTY_STATS_AGILITY_BONUS } end
 function modifier_dota688_morphling_morph:GetModifierBonusStats_Strength() return self:Bonus() end

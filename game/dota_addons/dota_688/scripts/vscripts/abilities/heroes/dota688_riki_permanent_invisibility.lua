@@ -1,5 +1,6 @@
 -- Permanent Invisibility (6.88, ultimate): Riki devine invizibil dupa 6/5/4/3 s fara sa atace/caste;
 -- Backstab: atacurile din spate (105 grade) fac +0.5/0.75/1.0/1.25 x AGI daune fizice.
+require("dota688/val")
 LinkLuaModifier("modifier_dota688_riki_permanent_invisibility", "abilities/heroes/dota688_riki_permanent_invisibility", LUA_MODIFIER_MOTION_NONE)
 dota688_riki_permanent_invisibility = class({})
 function dota688_riki_permanent_invisibility:GetIntrinsicModifierName() return "modifier_dota688_riki_permanent_invisibility" end
@@ -14,7 +15,7 @@ function modifier_dota688_riki_permanent_invisibility:OnCreated()
 end
 function modifier_dota688_riki_permanent_invisibility:OnIntervalThink()
 	local parent = self:GetParent()
-	local delay = self:GetAbility():GetSpecialValueFor("fade_delay")
+	local delay = Dota688Val(self, "fade_delay")
 	local shouldInvis = (GameRules:GetGameTime() - self.lastAction >= delay) and not parent:PassivesDisabled()
 	if shouldInvis ~= self.invis then
 		self.invis = shouldInvis
@@ -44,10 +45,10 @@ function modifier_dota688_riki_permanent_invisibility:GetModifierProcAttack_Bonu
 	local toTarget = (target:GetAbsOrigin() - parent:GetAbsOrigin()):Normalized()
 	local facing = target:GetForwardVector()
 	local angle = math.deg(math.acos(math.max(-1, math.min(1, toTarget:Dot(facing)))))
-	if angle <= self:GetAbility():GetSpecialValueFor("backstab_angle") / 2 then
+	if angle <= Dota688Val(self, "backstab_angle") / 2 then
 		local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_riki/riki_backstab.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 		ParticleManager:ReleaseParticleIndex(fx)
-		return parent:GetAgility() * self:GetAbility():GetSpecialValueFor("damage_multiplier")
+		return parent:GetAgility() * Dota688Val(self, "damage_multiplier")
 	end
 	return 0
 end

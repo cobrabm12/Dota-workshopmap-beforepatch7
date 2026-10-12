@@ -1,5 +1,6 @@
 -- Black Hole (6.88): channel 4 s; trage inamicii din raza 420; 50/100/150 daune pure/s (dublu in centrul de 200); stun pe durata; trece prin imunitate.
 -- Scepter: adauga nivelul curent de Midnight Pulse (daune magice % din HP max pe secunda) in Black Hole.
+require("dota688/val")
 require("dota688/aghanim")
 local F = "abilities/heroes/dota688_enigma_black_hole"
 LinkLuaModifier("modifier_dota688_enigma_black_hole_thinker", F, LUA_MODIFIER_MOTION_NONE)
@@ -60,7 +61,7 @@ function modifier_dota688_enigma_black_hole_pull:IsStunDebuff() return true end
 function modifier_dota688_enigma_black_hole_pull:OnCreated(kv)
 	if not IsServer() then return end
 	self.center = Vector(kv.x, kv.y, self:GetParent():GetAbsOrigin().z)
-	self.speed = self:GetAbility():GetSpecialValueFor("pull_speed")
+	self.speed = Dota688Val(self, "pull_speed")
 	self:StartIntervalThink(0.03)
 end
 function modifier_dota688_enigma_black_hole_pull:OnIntervalThink()

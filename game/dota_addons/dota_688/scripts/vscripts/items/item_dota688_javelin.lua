@@ -1,3 +1,4 @@
+require("dota688/val")
 require("items/dota688_item_base")
 -- Javelin (6.88): +10 daune, 25% sansa de +85 daune magice (Pierce) la atac
 Dota688DefineItem("item_dota688_javelin", "items/item_dota688_javelin", {
@@ -6,8 +7,8 @@ Dota688DefineItem("item_dota688_javelin", "items/item_dota688_javelin", {
 		GetModifierProcAttack_BonusDamage_Magical = function(self, params)
 			local target = params.target
 			if not target or target:IsBuilding() or target:IsOther() then return 0 end
-			if RollPseudoRandomPercentage(self:GetAbility():GetSpecialValueFor("bonus_chance"), DOTA_PSEUDO_RANDOM_ITEM_JAVELIN_ACCURACY, self:GetParent()) then
-				return self:GetAbility():GetSpecialValueFor("bonus_chance_damage")
+			if RollPseudoRandomPercentage(Dota688Val(self, "bonus_chance"), DOTA_PSEUDO_RANDOM_ITEM_JAVELIN_ACCURACY, self:GetParent()) then
+				return Dota688Val(self, "bonus_chance_damage")
 			end
 			return 0
 		end,

@@ -1,10 +1,11 @@
+require("dota688/val")
 require("items/dota688_item_base")
 -- Mekansm (6.88): +5 la toate, +5 armura; aura +4 regen (900); Restore: vindeca 250 si +2 armura 25 s aliatilor din 900, cd 65, 225 mana.
 require("items/dota688_item_base")
 Dota688DefineAura("modifier_dota688_mekansm_aura", "items/item_dota688_mekansm", {
-	radius = function(self) return self:GetAbility():GetSpecialValueFor("aura_radius") end,
+	radius = function(self) return Dota688Val(self, "aura_radius") end,
 	functions = { MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT },
-	effect = { GetModifierConstantHealthRegen = function(self) return self:GetAbility():GetSpecialValueFor("aura_health_regen") end },
+	effect = { GetModifierConstantHealthRegen = function(self) return Dota688Val(self, "aura_health_regen") end },
 })
 LinkLuaModifier("modifier_dota688_mekansm_armor", "items/item_dota688_mekansm", LUA_MODIFIER_MOTION_NONE)
 Dota688DefineItem("item_dota688_mekansm", "items/item_dota688_mekansm", {
@@ -36,4 +37,4 @@ Dota688DefineItem("item_dota688_mekansm", "items/item_dota688_mekansm", {
 modifier_dota688_mekansm_armor = class({})
 function modifier_dota688_mekansm_armor:IsPurgable() return true end
 function modifier_dota688_mekansm_armor:DeclareFunctions() return { MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS } end
-function modifier_dota688_mekansm_armor:GetModifierPhysicalArmorBonus() return self:GetAbility():GetSpecialValueFor("heal_bonus_armor") end
+function modifier_dota688_mekansm_armor:GetModifierPhysicalArmorBonus() return Dota688Val(self, "heal_bonus_armor") end

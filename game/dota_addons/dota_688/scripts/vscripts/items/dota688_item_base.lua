@@ -38,6 +38,22 @@ local STAT_MAP = {
 -- "bonus_mana_regen" / "mana_regen" (6.88) = procent din regenerarea de baza (0.01 + 0.04 x INT); "mana_regen_flat" = valoare fixa
 -- "lifesteal_percent" = lifesteal pe atacuri
 
+-- Cand itemul dispare (vandut, aruncat, combinat), efectele aurei/buff-urile lui mai raman putin pe unitati si
+-- GetAbility() intoarce nil (testat: zeci de "attempt to index a nil value" la Vladmir, Pipe, Drums, Shiva...).
+-- Callback-urile din configurarile itemelor sunt invelite: fara item, getter-ele dau 0, CheckState nimic.
+function Dota688GuardItemFn(key, fn)
+	if type(fn) ~= "function" then return fn end
+	return function(self, ...)
+		local a = self:GetAbility()
+		if a == nil or a:IsNull() then
+			if key == "CheckState" then return {} end
+			if string.sub(key, 1, 3) == "Get" then return 0 end
+			return nil
+		end
+		return fn(self, ...)
+	end
+end
+
 function Dota688ManaRegenFromPct(unit, pct)
 	-- regenerarea "de baza" din 6.88 la care se aplica procentele itemelor
 	local int = unit.GetIntellect and unit:GetIntellect(true) or 0
@@ -109,9 +125,9 @@ function Dota688DefineItem(itemName, scriptPath, opts)
 			local fx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
 			ParticleManager:ReleaseParticleIndex(fx)
 		end
-		if opts.onAttackLanded then opts.onAttackLanded(self, params) end
+		if opts.onAttackLanded and self:GetAbility() and not self:GetAbility():IsNull() then opts.onAttackLanded(self, params) end
 	end
-	if opts.modifier then for k, v in pairs(opts.modifier) do mod[k] = v end end
+	if opts.modifier then for k, v in pairs(opts.modifier) do mod[k] = Dota688GuardItemFn(k, v) end end
 	LinkLuaModifier(modName, scriptPath, LUA_MODIFIER_MOTION_NONE)
 	return item, mod
 end
@@ -124,7 +140,7 @@ function Dota688DefineAura(name, scriptPath, cfg)
 	function auraMod:IsPurgable() return false end
 	function auraMod:RemoveOnDeath() return false end
 	function auraMod:IsAura() return true end
-	function auraMod:GetAuraRadius() return cfg.radius(self) end
+	function auraMod:GetAuraRadius() local a = self:GetAbility(); if not a or a:IsNull() then return 0 end; return cfg.radius(self) end
 	function auraMod:GetAuraSearchTeam() return cfg.team or DOTA_UNIT_TARGET_TEAM_FRIENDLY end
 	function auraMod:GetAuraSearchType() return cfg.types or (DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC) end
 	function auraMod:GetModifierAura() return name .. "_effect" end
@@ -136,7 +152,7 @@ function Dota688DefineAura(name, scriptPath, cfg)
 	function eff:IsPurgable() return false end
 	function eff:IsDebuff() return cfg.debuff or false end
 	function eff:DeclareFunctions() return cfg.functions end
-	for k, v in pairs(cfg.effect) do eff[k] = v end
+	for k, v in pairs(cfg.effect) do eff[k] = Dota688GuardItemFn(k, v) end
 	LinkLuaModifier(name, scriptPath, LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier(name .. "_effect", scriptPath, LUA_MODIFIER_MOTION_NONE)
 	return auraMod, eff

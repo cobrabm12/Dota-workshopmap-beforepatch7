@@ -1,4 +1,5 @@
 -- Strafe (6.88): +130 AS pentru 4/6/8/10 s.
+require("dota688/val")
 LinkLuaModifier("modifier_dota688_clinkz_strafe", "abilities/heroes/dota688_clinkz_strafe", LUA_MODIFIER_MOTION_NONE)
 dota688_clinkz_strafe = class({})
 function dota688_clinkz_strafe:OnSpellStart()
@@ -9,4 +10,4 @@ modifier_dota688_clinkz_strafe = class({})
 function modifier_dota688_clinkz_strafe:IsPurgable() return true end
 function modifier_dota688_clinkz_strafe:GetEffectName() return "particles/units/heroes/hero_clinkz/clinkz_strafe.vpcf" end
 function modifier_dota688_clinkz_strafe:DeclareFunctions() return { MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT } end
-function modifier_dota688_clinkz_strafe:GetModifierAttackSpeedBonus_Constant() return self:GetAbility():GetSpecialValueFor("attack_speed_bonus_pct") end
+function modifier_dota688_clinkz_strafe:GetModifierAttackSpeedBonus_Constant() return Dota688Val(self, "attack_speed_bonus_pct") end

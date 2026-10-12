@@ -1,5 +1,6 @@
 -- Poison Nova (6.88): val de otrava (255 -> 830 raza, viteza 500); 30/55/80 daune magice/s 16 s, nu poate omori (lasa 1 HP).
 -- Scepter: 60/85/110 daune/s, cooldown 140/120/60.
+require("dota688/val")
 require("dota688/aghanim")
 local F = "abilities/heroes/dota688_venomancer_poison_nova"
 LinkLuaModifier("modifier_dota688_poison_nova_wave", F, LUA_MODIFIER_MOTION_NONE)
@@ -22,7 +23,7 @@ modifier_dota688_poison_nova_wave = class({})
 function modifier_dota688_poison_nova_wave:IsHidden() return true end
 function modifier_dota688_poison_nova_wave:OnCreated()
 	if not IsServer() then return end
-	self.r = self:GetAbility():GetSpecialValueFor("start_radius")
+	self.r = Dota688Val(self, "start_radius")
 	self.hit = {}
 	self:StartIntervalThink(0.1)
 end
@@ -48,7 +49,7 @@ function modifier_dota688_poison_nova:IsPurgable() return false end
 function modifier_dota688_poison_nova:GetEffectName() return "particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf" end
 function modifier_dota688_poison_nova:OnCreated()
 	if not IsServer() then return end
-	self.dmg = Dota688HasScepter(self:GetCaster()) and self:GetAbility():GetSpecialValueFor("damage_scepter") or self:GetAbility():GetSpecialValueFor("damage")
+	self.dmg = Dota688HasScepter(self:GetCaster()) and Dota688Val(self, "damage_scepter") or Dota688Val(self, "damage")
 	self:StartIntervalThink(1.0)
 end
 function modifier_dota688_poison_nova:OnIntervalThink()

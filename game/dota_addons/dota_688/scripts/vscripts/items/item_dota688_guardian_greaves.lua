@@ -1,7 +1,8 @@
+require("dota688/val")
 require("items/dota688_item_base")
 -- Guardian Greaves (6.88): +55 MS, +250 mana, +5 la toate, +5 armura; aura 900: +4 regen, +2 armura (x15/+15 sub 20% HP); Mend: purge + 250 HP / 160 mana aliatilor din 900, cd 40.
 Dota688DefineAura("modifier_dota688_greaves_aura", "items/item_dota688_guardian_greaves", {
-	radius = function(self) return self:GetAbility():GetSpecialValueFor("aura_radius") end,
+	radius = function(self) return Dota688Val(self, "aura_radius") end,
 	functions = { MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS },
 	effect = {
 		GetModifierConstantHealthRegen = function(self)

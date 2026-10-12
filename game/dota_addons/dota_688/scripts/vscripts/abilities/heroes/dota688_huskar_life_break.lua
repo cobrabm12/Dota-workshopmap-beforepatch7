@@ -1,5 +1,6 @@
 -- Life Break (6.88): Huskar sare spre tinta (1000), pierde 35% din HP-ul curent si ia tintei 35% din HP-ul curent (magic); tinta e incetinita 40/50/60% 4/5/6 s.
 -- Scepter: 65% din HP-ul tintei, cooldown 4.
+require("dota688/val")
 require("dota688/aghanim")
 local F = "abilities/heroes/dota688_huskar_life_break"
 LinkLuaModifier("modifier_dota688_life_break_charge", F, LUA_MODIFIER_MOTION_HORIZONTAL)
@@ -21,7 +22,7 @@ function modifier_dota688_life_break_charge:GetEffectName() return "particles/un
 function modifier_dota688_life_break_charge:OnCreated(kv)
 	if not IsServer() then return end
 	self.target = EntIndexToHScript(kv.target)
-	self.speed = self:GetAbility():GetSpecialValueFor("charge_speed")
+	self.speed = Dota688Val(self, "charge_speed")
 	if self:ApplyHorizontalMotionController() == false then self:Destroy() end
 end
 function modifier_dota688_life_break_charge:UpdateHorizontalMotion(me, dt)
@@ -54,4 +55,4 @@ function modifier_dota688_life_break_slow:IsDebuff() return true end
 function modifier_dota688_life_break_slow:IsPurgable() return true end
 function modifier_dota688_life_break_slow:GetTexture() return "huskar_life_break" end
 function modifier_dota688_life_break_slow:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE } end
-function modifier_dota688_life_break_slow:GetModifierMoveSpeedBonus_Percentage() return self:GetAbility():GetSpecialValueFor("movespeed") end
+function modifier_dota688_life_break_slow:GetModifierMoveSpeedBonus_Percentage() return Dota688Val(self, "movespeed") end

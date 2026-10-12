@@ -1,4 +1,5 @@
 -- Minefield Sign (6.88): planteaza un semn (una singura, 180 s). Scepter: minele si capcanele din 125 de semn nu sunt vazute de True Sight.
+require("dota688/val")
 require("dota688/aghanim")
 local F = "abilities/heroes/dota688_techies_minefield_sign"
 LinkLuaModifier("modifier_dota688_minefield_sign", F, LUA_MODIFIER_MOTION_NONE)
@@ -20,7 +21,7 @@ function modifier_dota688_minefield_sign:IsHidden() return true end
 function modifier_dota688_minefield_sign:IsPurgable() return false end
 function modifier_dota688_minefield_sign:CheckState() return { [MODIFIER_STATE_ROOTED] = true, [MODIFIER_STATE_DISARMED] = true, [MODIFIER_STATE_NO_UNIT_COLLISION] = true, [MODIFIER_STATE_NO_HEALTH_BAR] = true, [MODIFIER_STATE_INVULNERABLE] = true, [MODIFIER_STATE_UNSELECTABLE] = true } end
 function modifier_dota688_minefield_sign:IsAura() return Dota688HasScepter(self:GetCaster()) end
-function modifier_dota688_minefield_sign:GetAuraRadius() return self:GetAbility():GetSpecialValueFor("aura_radius") end
+function modifier_dota688_minefield_sign:GetAuraRadius() return Dota688Val(self, "aura_radius") end
 function modifier_dota688_minefield_sign:GetAuraSearchTeam() return DOTA_UNIT_TARGET_TEAM_FRIENDLY end
 function modifier_dota688_minefield_sign:GetAuraSearchType() return DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_OTHER end
 function modifier_dota688_minefield_sign:GetAuraSearchFlags() return DOTA_UNIT_TARGET_FLAG_INVULNERABLE end

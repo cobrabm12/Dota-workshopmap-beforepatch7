@@ -1,4 +1,5 @@
 -- Empowering Haste (6.88): aura 900: +6/10/14/18% MS; activ (cd 12): +3/5/7/9% in plus pentru 6 s, apoi aura e redusa la jumatate cat dureaza cooldown-ul... (simplificat: bonusul extra 6 s).
+require("dota688/val")
 local F = "abilities/heroes/dota688_spirit_breaker_empowering_haste"
 LinkLuaModifier("modifier_dota688_spirit_breaker_empowering_haste", F, LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_spirit_breaker_empowering_haste_effect", F, LUA_MODIFIER_MOTION_NONE)
@@ -16,7 +17,7 @@ modifier_dota688_spirit_breaker_empowering_haste = class({})
 function modifier_dota688_spirit_breaker_empowering_haste:IsHidden() return true end
 function modifier_dota688_spirit_breaker_empowering_haste:IsPurgable() return false end
 function modifier_dota688_spirit_breaker_empowering_haste:IsAura() return not self:GetParent():PassivesDisabled() end
-function modifier_dota688_spirit_breaker_empowering_haste:GetAuraRadius() return self:GetAbility():GetSpecialValueFor("aura_radius") end
+function modifier_dota688_spirit_breaker_empowering_haste:GetAuraRadius() return Dota688Val(self, "aura_radius") end
 function modifier_dota688_spirit_breaker_empowering_haste:GetAuraSearchTeam() return DOTA_UNIT_TARGET_TEAM_FRIENDLY end
 function modifier_dota688_spirit_breaker_empowering_haste:GetAuraSearchType() return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC end
 function modifier_dota688_spirit_breaker_empowering_haste:GetModifierAura() return "modifier_dota688_spirit_breaker_empowering_haste_effect" end

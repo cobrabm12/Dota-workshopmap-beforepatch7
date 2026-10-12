@@ -1,3 +1,4 @@
+require("dota688/val")
 require("items/dota688_item_base")
 -- Eye of Skadi (6.88): +25 la toate, +225 HP, +250 mana; Cold Attack: -35% MS, -45 AS, 5 s melee / 2.5 s ranged (orb, nu se stacheaza cu alte orb-uri).
 LinkLuaModifier("modifier_dota688_skadi_cold", "items/item_dota688_skadi", LUA_MODIFIER_MOTION_NONE)
@@ -14,5 +15,5 @@ modifier_dota688_skadi_cold = class({})
 function modifier_dota688_skadi_cold:IsDebuff() return true end
 function modifier_dota688_skadi_cold:IsPurgable() return true end
 function modifier_dota688_skadi_cold:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT } end
-function modifier_dota688_skadi_cold:GetModifierMoveSpeedBonus_Percentage() return self:GetAbility():GetSpecialValueFor("cold_movement_speed") end
-function modifier_dota688_skadi_cold:GetModifierAttackSpeedBonus_Constant() return self:GetAbility():GetSpecialValueFor("cold_attack_speed") end
+function modifier_dota688_skadi_cold:GetModifierMoveSpeedBonus_Percentage() return Dota688Val(self, "cold_movement_speed") end
+function modifier_dota688_skadi_cold:GetModifierAttackSpeedBonus_Constant() return Dota688Val(self, "cold_attack_speed") end

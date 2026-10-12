@@ -1,3 +1,4 @@
+require("dota688/val")
 require("items/dota688_item_base")
 -- Scythe of Vyse (6.88): +10 STR, +10 AGI, +35 INT, +150% regen mana; Hex 3.5 s (140 MS), cd 25.
 LinkLuaModifier("modifier_dota688_hex", "items/item_dota688_sheepstick", LUA_MODIFIER_MOTION_NONE)
@@ -25,4 +26,4 @@ function modifier_dota688_hex:CheckState()
 end
 function modifier_dota688_hex:DeclareFunctions() return { MODIFIER_PROPERTY_MODEL_CHANGE, MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE } end
 function modifier_dota688_hex:GetModifierModelChange() return "models/props_gameplay/pig.vmdl" end
-function modifier_dota688_hex:GetModifierMoveSpeed_Absolute() return self:GetAbility():GetSpecialValueFor("sheep_movement_speed") end
+function modifier_dota688_hex:GetModifierMoveSpeed_Absolute() return Dota688Val(self, "sheep_movement_speed") end
