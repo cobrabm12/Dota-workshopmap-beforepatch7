@@ -19,6 +19,7 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"12.0 9.0 7.0 5.0"
+			"AbilityCastRange"		"925 1000 1075 1150"
 		}
 	}
 	"antimage_spell_shield"
@@ -92,7 +93,7 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"100.0 100.0 100.0"
-			"AbilityChannelTime"		"5.0 5.0 5.0"
+			"AbilityChannelTime"		"5 5 5"
 			"fiend_grip_tick_interval"		"1.0"
 			"fiend_grip_damage"		"100 155 215"
 		}
@@ -103,7 +104,7 @@
 		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
 		"AbilityManaCost"		"165 165 165 165"
 		"AbilityDamage"		"20"
-		"AbilityDuration"		"4.0 5.0 6.0 7.0"
+		"AbilityDuration"		"4 5 6 7"
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"22 19 16 13"
@@ -137,6 +138,7 @@
 			"AbilityCooldown"		"60"
 			"duration"		"12.0"
 			"movement_damage_pct"		"30 45 60"
+			"hp_pct"		"0"
 		}
 	}
 	"drow_ranger_frost_arrows"
@@ -145,6 +147,7 @@
 		{
 			"AbilityManaCost"		"12 12 12 12"
 			"frost_arrows_movement_speed"		"-16 -32 -48 -64"
+			"damage"		"0"
 		}
 	}
 	"drow_ranger_wave_of_silence"
@@ -246,6 +249,8 @@
 		{
 			"damage_bonus"		"25 45 65 85"
 			"cleave_damage"		"100"
+			"cleave_ending_width"		"450 500 550 600"
+			"cleave_distance"		"675 750 825 900"
 			"cooldown_reduction_per_hero_hit"		"0"
 			"movespeed_slow"		"0"
 		}
@@ -257,6 +262,8 @@
 		"AbilityValues"
 		{
 			"duration"		"4.0"
+			"ghostship_absorb"		"40 45 50 50"
+			"movespeed_bonus"		"10"
 		}
 	}
 	"kunkka_return"
@@ -723,7 +730,9 @@
 		{
 			"damage"		"14"
 			"damage_pct"		"1.0 2.5 4.0 5.5"
+			"AbilityChargeRestoreTime"		"45"
 		}
+		"AbilityCharges"		"1 2 3 4"
 	}
 	"death_prophet_exorcism"
 	{
@@ -756,6 +765,8 @@
 		"AbilityValues"
 		{
 			"great_cleave_damage"		"30 42 54 66"
+			"cleave_ending_width"		"300"
+			"cleave_distance"		"550"
 		}
 	}
 	"sven_gods_strength"
@@ -821,6 +832,7 @@
 		{
 			"AbilityDuration"		"50"
 			"sand_storm_radius"		"525"
+			"fade_delay"		"1.5"
 		}
 	}
 	"sandking_epicenter"
@@ -834,6 +846,8 @@
 			"epicenter_damage"		"110 110 110"
 			"epicenter_slow"		"-30 -30 -30"
 			"epicenter_slow_as"		"-30"
+			"epicenter_radius_base"		"275"
+			"epicenter_radius_increment"		"47"
 		}
 	}
 	"tiny_avalanche"
@@ -847,6 +861,9 @@
 			"radius"		"275 275 275 275"
 			"tick_interval"		"0.25 0.25 0.25 0.25"
 			"stun_duration"		"1.0"
+			"tick_count"		"4"
+			"avalanche_damage"		"100 180 260 300"
+			"total_duration"		"1.0"
 		}
 	}
 	"tiny_toss"
@@ -1021,8 +1038,7 @@
 		{
 			"AbilityCastRange"		"525"
 			"AbilityManaCost"		"115 125 140 150"
-			"damage_per_second"		"50"
-			"creep_multiplier"		"1"
+			"damage_per_second"		"100"
 		}
 	}
 	"crystal_maiden_freezing_field"
@@ -1080,6 +1096,8 @@
 			"AbilityCooldown"		"8.0"
 			"slow_movement_speed"		"-30 -30 -30 -30"
 			"aoe_damage"		"75 100 125 150"
+			"slow_attack_speed_primary"		"-20 -20 -20 -20"
+			"damage"		"50 100 150 200"
 		}
 	}
 	"lich_frost_armor"
@@ -1119,6 +1137,9 @@
 			"bounces"		"3 5 7 9"
 			"speed"		"1000"
 			"bounce_delay"		"0.3"
+			"base_damage"		"50 50 50 50"
+			"creep_damage_pct"		"150 200 250 300"
+			"bounce_bonus_damage"		"0"
 		}
 	}
 	"witch_doctor_voodoo_restoration"
@@ -1221,6 +1242,7 @@
 		{
 			"slow_movement_speed"		"-15 -20 -25 -30"
 			"radius"		"450"
+			"AbilityChargeRestoreTime"		"55"
 		}
 	}
 	"sniper_headshot"
@@ -1302,6 +1324,9 @@
 			"aoe"		"650 650 650 650"
 			"duration"		"3.0"
 			"max_slow"		"84"
+			"slow_per_second"		"6.7 12.9 18.7 24"
+			"damage_per_second"		"0"
+			"max_damage"		"0"
 		}
 	}
 	"warlock_rain_of_chaos"
@@ -1385,7 +1410,7 @@
 	}
 	"queenofpain_blink"
 	{
-		"AbilityCastRange"		"0"
+		"AbilityCastRange"		"1300"
 		"AbilityManaCost"		"60 60 60 60"
 		"AbilityValues"
 		{
@@ -1441,6 +1466,8 @@
 			"radius"		"830"
 			"duration"		"16"
 			"speed"		"500"
+			"damage_base"		"30 55 80"
+			"hp_damage"		"0"
 		}
 	}
 	"faceless_void_time_walk"
@@ -1684,6 +1711,8 @@
 			"frost_bonus_movement_speed"		"-30"
 			"frost_bonus_attack_speed"		"-20"
 			"frost_duration"		"3.0 3.0 3.0"
+			"corrosive_damage_per_second"		"20 20 20 20"
+			"corrosive_duration"		"5 5 5 5"
 		}
 	}
 	"dazzle_shallow_grave"
@@ -1725,6 +1754,9 @@
 			"push_length"		"250"
 			"push_duration"		"0.85"
 			"trigger_distance"		"170"
+			"damage"		"80 120 160 200"
+			"mana_burn"		"80 120 160 200"
+			"mana_burn_as_damage_pct"		"0"
 		}
 	}
 	"rattletrap_rocket_flare"
@@ -1783,6 +1815,7 @@
 			"jump_count"		"4 5 6 7"
 			"radius"		"475"
 			"slow_duration"		"0.7 0.8 0.9 1.0"
+			"damage"		"50 100 150 200"
 		}
 	}
 	"leshrac_pulse_nova"
@@ -1818,6 +1851,11 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"37 37 37 37"
+			"treant_duration"		"60"
+			"treant_health"		"550"
+			"treant_damage"		"30 30 30 30"
+			"treant_bonus_hero_damage"		"0"
+			"treant_movespeed"		"300"
 		}
 	}
 	"furion_wrath_of_nature"
@@ -1858,6 +1896,10 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"100 75 50"
+			"bonus_health"		"0"
+			"bonus_movement_speed"		"0"
+			"self_regen"		"0"
+			"creep_max_hp_drain_pct_per_second"		"0"
 		}
 	}
 	"dark_seer_vacuum"
@@ -1904,6 +1946,8 @@
 			"replica_damage_incoming"		"300 300 300"
 			"tooltip_replica_total_damage_incoming"		"400 400 400"
 			"width"		"1000 1000 1000"
+			"wall_damage"		"150 150 150"
+			"movement_slow"		"0"
 		}
 	}
 	"clinkz_searing_arrows"
@@ -2086,7 +2130,10 @@
 			"radius"		"900"
 			"count"		"2 4 6 8"
 			"bonus_movespeed"		"20 25 30 35"
+			"AbilityChargeRestoreTime"		"40"
+			"health_regen"		"2 4 6 8"
 		}
+		"AbilityCharges"		"1 2 3 4"
 	}
 	"broodmother_incapacitating_bite"
 	{
@@ -2116,14 +2163,6 @@
 			"bonus_damage"		"150 225 300 375"
 		}
 	}
-	"bounty_hunter_wind_walk"
-	{
-		"AbilityManaCost"		"65"
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"15.0 15.0 15.0 15.0"
-		}
-	}
 	"bounty_hunter_track"
 	{
 		"AbilityCastRange"		"1200"
@@ -2134,6 +2173,7 @@
 			"bonus_gold_radius"		"925 925 925"
 			"bonus_gold_self"		"150 250 350"
 			"duration"		"30.0 30.0 30.0"
+			"target_damage_amp"		"0"
 		}
 	}
 	"weaver_the_swarm"
@@ -2193,6 +2233,7 @@
 		{
 			"AbilityCooldown"		"12.0 11.0 10.0 9.0"
 			"path_delay"		"0.5"
+			"stun_duration"		"1 1.5 2 2.5"
 		}
 	}
 	"jakiro_liquid_fire"
@@ -2212,6 +2253,7 @@
 		"AbilityValues"
 		{
 			"damage"		"100 140 180"
+			"path_width"		"480"
 		}
 	}
 	"batrider_sticky_napalm"
@@ -2239,6 +2281,8 @@
 			"explosion_radius"		"375 375 375 375"
 			"speed"		"900 900 900 900"
 			"knockback_duration"		"0.25 0.25 0.25 0.25"
+			"knockback_distance"		"400"
+			"slow"		"0"
 		}
 	}
 	"batrider_firefly"
@@ -2259,6 +2303,7 @@
 		"AbilityValues"
 		{
 			"duration"		"3.0 3.5 4.0"
+			"damage"		"0 0 0"
 		}
 	}
 	"chen_test_of_faith"
@@ -2504,6 +2549,8 @@
 		{
 			"AbilityCooldown"		"55 50 45"
 			"radius"		"600"
+			"total_strikes"		"2"
+			"damage"		"200 275 350"
 		}
 	}
 	"alchemist_acid_spray"
@@ -2553,6 +2600,11 @@
 	"invoker_quas"
 	{
 		"MaxLevel"		"7"
+		"AbilityValues"
+		{
+			"max_level"		"7"
+			"hp_regen_per_instance"		"1 2 3 4 5 6 7"
+		}
 	}
 	"invoker_wex"
 	{
@@ -2561,6 +2613,7 @@
 		{
 			"attack_speed_per_instance"		"2 4 6 8 10 12 14"
 			"move_speed_per_instance"		"1 2 3 4 5 6 7"
+			"max_level"		"7"
 		}
 	}
 	"invoker_exort"
@@ -2569,6 +2622,7 @@
 		"AbilityValues"
 		{
 			"bonus_damage_per_instance"		"3 6 9 12 15 18 21"
+			"max_level"		"7"
 		}
 	}
 	"invoker_invoke"
@@ -2728,6 +2782,8 @@
 			"AbilityCooldown"		"22 18 14 10"
 			"prison_duration"		"4.0"
 			"damage"		"100 175 250 325"
+			"has_mana_steal"		"0"
+			"mana_capacity_steal"		"0"
 		}
 	}
 	"obsidian_destroyer_sanity_eclipse"
@@ -2738,6 +2794,8 @@
 			"AbilityCooldown"		"160"
 			"damage_multiplier"		"8 9 10"
 			"radius"		"375 475 575"
+			"base_damage"		"0 0 0"
+			"percentage_damage"		"0"
 		}
 	}
 	"lycan_summon_wolves"
@@ -2845,11 +2903,6 @@
 	{
 		"AbilityCooldown"		"5.0"
 		"AbilityDamage"		"60"
-		"AbilityValues"
-		{
-			"entangle_duration"		"3.0"
-			"hits_required"		"0"
-		}
 	}
 	"lone_druid_spirit_bear_demolish"
 	{
@@ -2974,7 +3027,7 @@
 		"AbilityDamage"		"200 300 400"
 		"AbilityValues"
 		{
-			"AbilityCooldown"		"50.0 50.0 50.0"
+			"AbilityCooldown"		"40 40 40"
 		}
 	}
 	"chaos_knight_chaos_bolt"
@@ -2989,15 +3042,6 @@
 			"stun_max"		"2 3 4 4"
 			"damage_min"		"75 100 125 150"
 			"damage_max"		"200 225 250 275"
-		}
-	}
-	"chaos_knight_reality_rift"
-	{
-		"AbilityCastPoint"		"0.4 0.4 0.4 0.4"
-		"AbilityCooldown"		"24 18 12 6"
-		"AbilityValues"
-		{
-			"AbilityCastRange"		"550 600 650 700"
 		}
 	}
 	"chaos_knight_phantasm"
@@ -3065,6 +3109,7 @@
 		{
 			"AbilityCooldown"		"70"
 			"duration"		"3.0 3.75 4.5"
+			"damage"		"0"
 		}
 	}
 	"treant_eyes_in_the_forest"
@@ -3218,6 +3263,7 @@
 		"AbilityValues"
 		{
 			"radius"		"240 240 240 240"
+			"slow_amount"		"0"
 		}
 	}
 	"disruptor_glimpse"
@@ -3338,6 +3384,7 @@
 		{
 			"AbilityCooldown"		"180.0 120.0 60.0"
 			"radius"		"1250 1250 1250"
+			"heal_pct"		"0 0 0"
 		}
 	}
 	"keeper_of_the_light_illuminate"
@@ -3353,6 +3400,7 @@
 			"speed"		"1050.0"
 			"channel_vision_radius"		"375"
 			"channel_vision_step"		"150"
+			"total_damage"		"200 300 400 500"
 		}
 	}
 	"keeper_of_the_light_mana_leak"
@@ -3451,6 +3499,7 @@
 			"movespeed"		"13 14 15 16"
 			"tether_heal_amp"		"1.5"
 			"slow"		"-100"
+			"slow_duration"		"0.75 1.25 1.75 2.25"
 		}
 	}
 	"wisp_spirits"
@@ -3842,6 +3891,9 @@
 		"AbilityValues"
 		{
 			"self_damage"		"75 100 125 150"
+			"damage_heal"		"100 150 200 250"
+			"missile_speed"		"1250"
+			"self_damage_enemy_target"		"50"
 		}
 	}
 	"abaddon_aphotic_shield"
@@ -3927,6 +3979,8 @@
 			"damage_per_hero"		"20 40 60 80"
 			"duration"		"7.0"
 			"radius"		"330"
+			"bonus_attack_speed"		"0"
+			"movement_slow"		"0"
 		}
 	}
 	"legion_commander_duel"
@@ -3948,6 +4002,7 @@
 		{
 			"duration"		"1.0 2.0 2.0 3.0"
 			"tick_interval"		"1.0"
+			"damage_per_second"		"80 60 120 100"
 		}
 	}
 	"ember_spirit_sleight_of_fist"
@@ -4022,6 +4077,7 @@
 		{
 			"rock_damage"		"50 100 150 200"
 			"pull_units_per_second"		"1000"
+			"duration"		"2.5 3 3.5 4"
 		}
 	}
 	"earth_spirit_stone_caller"
@@ -4284,6 +4340,7 @@
 		"AbilityValues"
 		{
 			"radius"		"900"
+			"as_bonus"		"5 7 9"
 		}
 	}
 	"courier_shield"
@@ -4570,6 +4627,7 @@
 			"tick_rate"		"1.0"
 			"damage_duration"		"5.0"
 			"tree_destruction_radius"		"250"
+			"move_slow"		"19 26 33 40"
 		}
 	}
 	"winter_wyvern_splinter_blast"
@@ -4633,6 +4691,9 @@
 		{
 			"duration"		"50"
 			"ministun_duration"		"0.4 0.5 0.6 0.7"
+			"base_activation_delay"		"2.0"
+			"spark_damage_base"		"100 160 220 280"
+			"wraith_speed_base"		"400"
 		}
 	}
 	"arc_warden_tempest_double"

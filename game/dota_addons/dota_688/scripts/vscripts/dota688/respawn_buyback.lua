@@ -17,6 +17,11 @@ end
 function M:OnHeroKilled(hero, attacker)
 	local t = C.RespawnTime(hero:GetLevel())
 	-- Nota: 6.88 nu avea timp minim de 26 s pentru moartea la neutrali (adaugat in 7.00).
+	-- Reaper's Scythe (6.88): +10/20/30 s la respawn daca eroul moare sub efectul lui
+	local scythe = hero:FindModifierByName("modifier_necrolyte_reapers_scythe")
+	if scythe and scythe:GetAbility() then
+		t = t + scythe:GetAbility():GetSpecialValueFor("respawn_constant")
+	end
 	hero:SetTimeUntilRespawn(t)
 	self:UpdateBuybackCost(hero)
 end
