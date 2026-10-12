@@ -10,6 +10,8 @@ end
 function M:OnHorn()
 	if not C.EMULATE_DAY_NIGHT then return end
 	local full = C.DAY_NIGHT_HALF_CYCLE * 2
+	-- viteza ciclului motorului (10 min -> 8 min): HUD-ul prezice "timp pana la zi/noapte" cu ea
+	Dota688SafeCall(GameRules:GetGameModeEntity(), "SetDaynightCycleAdvanceRate", 600 / full)
 	Dota688Timers:Every(0.5, function()
 		if GameRules:IsNightstalkerNight() then return end   -- noaptea fortata de abilitati are prioritate
 		local t = GameRules:GetDOTATime(false, false)

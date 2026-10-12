@@ -105,3 +105,7 @@ C.MAX_ATTACK_SPEED     = 600             -- 6.88: 600 (azi 700)
 C.SCAN_COOLDOWN        = 270             -- scan (6.87): 270 s, o singura incarcare (7.34 -> 2 incarcari)
 C.SCAN_CHARGES         = 1
 C.NEUTRAL_FIRST_SPAWN_OFFSET = -30       -- motorul: primul spawn la 1:00 -> 0:30 (6.88)
+
+-- regenerare de mana procentuala a itemelor 6.88 (reference/6.88f/items.txt, bonus_mana_regen; vezi modifier_dota688_attributes)
+C.MANA_REGEN_PCT_ITEMS = { item_sobi_mask = 50, item_void_stone = 100, item_orchid = 150, item_cyclone = 150, item_refresher = 250 }
+C.RANDOM_BONUS_GOLD = 200                -- 6.88: +200 aur pentru random (reference/6.88f/dota_english.txt)

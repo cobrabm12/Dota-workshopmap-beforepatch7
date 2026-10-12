@@ -33,8 +33,24 @@ function modifier_dota688_attributes:OnCreated()
 	if math.abs(p:GetMaxHealth() - expectHpModern) < 2 then flags = flags + 1 end
 	local expectManaModern = C.ATTR_NOW.BASE_MANA_ENGINE + p:GetIntellect(true) * C.ATTR_NOW.MANA_PER_INT
 	if math.abs(p:GetMaxMana() - expectManaModern) < 2 then flags = flags + 2 end
+	self.flags = flags
 	self:SetStackCount(flags)
+	self:StartIntervalThink(0.25)
 	if flags > 0 then print("[dota688] " .. p:GetUnitName() .. ": StatusHealth/StatusMana din KV ignorate (flags=" .. flags .. "), compensez in Lua") end
+end
+
+-- Iteme cu regenerare de mana procentuala in 6.88 (% din regenerarea de baza 0.01 + 0.04 x INT). In motorul curent cheia
+-- lor e o valoare fixa (6.88 scria 50..250 -> +50..250 mana/s), deci e pusa pe 0 in tools/manual_overrides.json si
+-- procentul il dam aici. Suma procentelor (calculata pe server) ajunge pe client in stack count: flags + 4 x procent.
+function modifier_dota688_attributes:OnIntervalThink()
+	local p = self:GetParent()
+	local pct = 0
+	for slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+		local it = p:GetItemInSlot(slot)
+		if it then pct = pct + (C.MANA_REGEN_PCT_ITEMS[it:GetAbilityName()] or 0) end
+	end
+	local stack = (self.flags or 0) + 4 * pct
+	if stack ~= self:GetStackCount() then self:SetStackCount(stack) end
 end
 
 local function Stats(self)
@@ -45,13 +61,13 @@ end
 
 function modifier_dota688_attributes:GetModifierExtraHealthBonus()
 	local str = Stats(self)
-	local base = (self:GetStackCount() % 2 == 1) and (C.ATTR.BASE_HP - C.ATTR_NOW.BASE_HP_ENGINE) or 0
+	local base = (self:GetStackCount() % 4 % 2 == 1) and (C.ATTR.BASE_HP - C.ATTR_NOW.BASE_HP_ENGINE) or 0
 	return math.floor(str * (C.ATTR.HP_PER_STR - C.ATTR_NOW.HP_PER_STR)) + base
 end
 
 function modifier_dota688_attributes:GetModifierExtraManaBonus()
 	local _, _, int = Stats(self)
-	local base = (self:GetStackCount() >= 2) and (C.ATTR.BASE_MANA - C.ATTR_NOW.BASE_MANA_ENGINE) or 0
+	local base = (self:GetStackCount() % 4 >= 2) and (C.ATTR.BASE_MANA - C.ATTR_NOW.BASE_MANA_ENGINE) or 0
 	return math.floor(int * (C.ATTR.MANA_PER_INT - C.ATTR_NOW.MANA_PER_INT)) + base
 end
 
@@ -62,7 +78,8 @@ end
 
 function modifier_dota688_attributes:GetModifierConstantManaRegen()
 	local _, _, int = Stats(self)
-	return int * (C.ATTR.MANA_REGEN_PER_INT - C.ATTR_NOW.MANA_REGEN_PER_INT)
+	local pct = math.floor(self:GetStackCount() / 4)
+	return int * (C.ATTR.MANA_REGEN_PER_INT - C.ATTR_NOW.MANA_REGEN_PER_INT) + (0.01 + 0.04 * int) * pct / 100
 end
 
 function modifier_dota688_attributes:GetModifierPhysicalArmorBonus()

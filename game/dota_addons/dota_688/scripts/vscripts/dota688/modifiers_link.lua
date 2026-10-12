@@ -5,3 +5,7 @@ LinkLuaModifier("modifier_dota688_attributes", "modifiers/modifier_dota688_attri
 LinkLuaModifier("modifier_dota688_roshan", "modifiers/modifier_dota688_roshan", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_invoker_orbs", "modifiers/modifier_dota688_invoker_orbs", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_familiar", "modifiers/modifier_dota688_familiar", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_dota688_glyph", "modifiers/modifier_dota688_glyph", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_dota688_tower_aura", "modifiers/modifier_dota688_tower_aura", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_dota688_tower_aura_effect", "modifiers/modifier_dota688_tower_aura", LUA_MODIFIER_MOTION_NONE)
+require("dota688/runes_link")   -- modifierii runelor de putere 6.88 (si pe client)

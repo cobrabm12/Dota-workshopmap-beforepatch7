@@ -11,6 +11,8 @@ require("dota688/neutrals")
 require("dota688/aghanim")
 require("dota688/map_688")
 require("dota688/selection")
+require("dota688/buildings")
+require("dota688/creeps")
 
 require("dota688/modifiers_link")
 
@@ -80,12 +82,15 @@ function Dota688:Init()
 	Dota688SafeCall(gm, "SetInnateMeleeDamageBlockPerLevelAmount", 0)
 	Dota688SafeCall(GameRules, "SetSuggestAbilitiesEnabled", false)   -- procentele de skill-uri sugerate (7.x)
 	Dota688SafeCall(GameRules, "SetSuggestItemsEnabled", false)
+	Dota688SafeCall(gm, "SetRecommendedItemsDisabled", true)                               -- ghidurile/itemele recomandate (7.x)
+	Dota688SafeCall(gm, "SetHUDVisible", DOTA_HUD_VISIBILITY_SHOP_SUGGESTEDITEMS, false)  -- itemele sugerate din shop/quickbuy
 
 	-- Filtre ---------------------------------------------------------------
 	gm:SetModifyGoldFilter(Dynamic_Wrap(Dota688, "GoldFilter"), self)
 	gm:SetModifyExperienceFilter(Dynamic_Wrap(Dota688, "ExperienceFilter"), self)
 	gm:SetBountyRunePickupFilter(Dynamic_Wrap(Dota688, "BountyRuneFilter"), self)
 	gm:SetExecuteOrderFilter(Dynamic_Wrap(Dota688, "OrderFilter"), self)
+	gm:SetModifierGainedFilter(Dynamic_Wrap(Dota688, "ModifierGainedFilter"), self)
 	if C.DISABLE_BACKPACK then
 		gm:SetItemAddedToInventoryFilter(Dynamic_Wrap(Dota688, "ItemAddedToInventoryFilter"), self)
 	end
@@ -105,16 +110,27 @@ function Dota688:Init()
 	Dota688Neutrals:Init(self)
 	Dota688Backpack:Init()
 	Dota688Selection:Init()
+	Dota688Buildings:Init(self)
+	Dota688Creeps:Init(self)
 end
 
 function Dota688:OnGameRulesStateChange()
 	local state = GameRules:State_Get()
+	if state == DOTA_GAMERULES_STATE_PRE_GAME then
+		-- 6.88: +200 aur pentru random (7.x da iteme in loc de aur)
+		for pid = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+			if PlayerResource:IsValidPlayerID(pid) and PlayerResource:HasRandomed(pid) then
+				PlayerResource:ModifyGold(pid, C.RANDOM_BONUS_GOLD, false, DOTA_ModifyGold_Unspecified)
+			end
+		end
+	end
 	if state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		print("[dota688] joc inceput (0:00)")
 		Dota688GoldXP:OnHorn()
 		Dota688Runes:OnHorn()
 		Dota688DayNight:OnHorn()
 		Dota688Neutrals:OnHorn()
+		Dota688Buildings:OnHorn()
 	end
 end
 
@@ -158,6 +174,8 @@ function Dota688:OnNPCSpawned(ev)
 		end
 	end
 	if not unit:IsRealHero() then Dota688Aghanim.OnUnitSpawned(unit) end
+	Dota688Buildings:OnNPCSpawned(unit)
+	Dota688Creeps:OnNPCSpawned(unit)
 end
 
 function Dota688:OnEntityKilled(ev)
@@ -172,7 +190,11 @@ function Dota688:OnEntityKilled(ev)
 		Dota688GoldXP:OnHeroKilled(killed, attacker)
 	elseif killed:GetUnitName() == "npc_dota_roshan" then
 		Dota688Roshan:OnRoshanKilled(killed, attacker)
+		Dota688Buildings:OnRoshanKilled(killed, attacker)
+	elseif killed:IsBuilding() then
+		Dota688Buildings:OnBuildingKilled(killed, attacker)
 	end
+	if not killed:IsHero() then Dota688Creeps:OnUnitKilled(killed, attacker) end
 end
 
 function Dota688:OnBuyback(ev)
@@ -181,16 +203,32 @@ end
 
 -- Filtre --------------------------------------------------------------------
 function Dota688:GoldFilter(ev)
+	if not Dota688Runes:GoldFilter(ev) then return false end
+	if not Dota688Buildings:GoldFilter(ev) then return false end
 	return Dota688GoldXP:GoldFilter(ev)
 end
 
+-- ordine aparute dupa 6.88 (meniul de item: blocare combinare, lasat la fantana, marcat de vanzare)
+local MODERN_ORDERS = {}
+for _, o in ipairs({ "DOTA_UNIT_ORDER_SET_ITEM_COMBINE_LOCK", "DOTA_UNIT_ORDER_DROP_ITEM_AT_FOUNTAIN", "DOTA_UNIT_ORDER_SET_ITEM_MARK_FOR_SELL" }) do
+	if _G[o] then MODERN_ORDERS[_G[o]] = true end
+end
+
 function Dota688:OrderFilter(ev)
+	if MODERN_ORDERS[ev.order_type] then return false end
+	if not Dota688Buildings:OrderFilter(ev) then return false end
 	Dota688Selection:OrderFilter(ev)
 	return Dota688Aghanim.OrderFilter(ev)
 end
 
 function Dota688:ExperienceFilter(ev)
+	if not Dota688Creeps:ExperienceFilter(ev) then return false end
 	return Dota688GoldXP:ExperienceFilter(ev)
+end
+
+function Dota688:ModifierGainedFilter(ev)
+	if not Dota688Runes:ModifierGainedFilter(ev) then return false end
+	return Dota688Buildings:ModifierGainedFilter(ev)
 end
 
 function Dota688:BountyRuneFilter(ev)

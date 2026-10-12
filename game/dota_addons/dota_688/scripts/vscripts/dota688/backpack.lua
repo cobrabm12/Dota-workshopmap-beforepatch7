@@ -10,7 +10,44 @@ local function free_slot(unit, first, last)
 	return nil
 end
 
+-- Item built-in care are o reimplementare 6.88 (item_dota688_*): in mod normal nu se mai poate obtine (shop-ul si
+-- retetele dau versiunea Lua), dar daca ajunge totusi in inventar (combinare, drop) il inlocuim cu versiunea 6.88.
+local function lua_version(name)
+	if string.sub(name, 1, 5) ~= "item_" or string.find(name, "item_dota688_", 1, true) == 1
+		or string.find(name, "item_recipe_", 1, true) == 1 then return nil end
+	local custom = "item_dota688_" .. string.sub(name, 6)
+	if GetAbilityKeyValuesByName(custom) == nil then return nil end
+	return custom
+end
+
+local function replace_with_lua(unit, item, custom)
+	if unit:IsNull() or item:IsNull() then return end
+	for s = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
+		if unit:GetItemInSlot(s) == item then
+			local purchaser, charges, old = item:GetPurchaser(), item:GetCurrentCharges(), item:GetAbilityName()
+			unit:RemoveItem(item)
+			local new = CreateItem(custom, purchaser, purchaser)
+			if charges > 0 then new:SetCurrentCharges(charges) end
+			unit:AddItem(new)
+			for t = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
+				if unit:GetItemInSlot(t) == new then
+					if t ~= s then unit:SwapItems(t, s) end
+					break
+				end
+			end
+			print("[dota688] " .. old .. " (built-in) inlocuit cu " .. custom)
+			return
+		end
+	end
+end
+
 function M:ItemAddedToInventoryFilter(ev)
+	local item = ev.item_entindex_const and EntIndexToHScript(ev.item_entindex_const)
+	local unit = ev.inventory_parent_entindex_const and EntIndexToHScript(ev.inventory_parent_entindex_const)
+	if item and unit and unit.GetItemInSlot then
+		local custom = lua_version(item:GetAbilityName())
+		if custom then Dota688Timers:After(0, function() replace_with_lua(unit, item, custom) end) end
+	end
 	local slot = ev.suggested_slot
 	if slot == nil then return true end
 	if slot >= DOTA_ITEM_SLOT_7 and slot <= DOTA_ITEM_SLOT_9 then
