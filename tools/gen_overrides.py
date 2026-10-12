@@ -590,7 +590,7 @@ def gen_shops(custom: set[str]) -> None:
 
 
 def gen_localization(scripts: dict[str, str], hero_abilities: set[str], item_names: set[str]) -> None:
-    for lang in ("english", "romanian"):
+    for lang in ("english",):   # doar engleza in joc (decizia proiectului)
         if os.path.exists(os.path.join(REF_OLD, f"dota_{lang}.txt")):
             gen_localization_lang(lang, scripts, hero_abilities, item_names)
 

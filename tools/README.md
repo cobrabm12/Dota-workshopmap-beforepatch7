@@ -30,4 +30,4 @@ build‑ul 6.88f dinaintea lui 7.00 (12 dec 2016).
 Numele evenimentelor de sunet (`EmitSound`) nu pot fi verificate offline (fișierele `.vsndevts` sunt compilate); un nume
 greșit produce doar un avertisment în consolă, nu o eroare.
 
-Localizarea se generează pentru engleză și română din `reference/6.88f/dota_<limba>.txt` + `resource/addon_<limba>.base.txt`.
+Localizarea se generează doar în engleză (jocul rămâne în engleză), din `reference/6.88f/dota_english.txt` + `resource/addon_english.base.txt`.

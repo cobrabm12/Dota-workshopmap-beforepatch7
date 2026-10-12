@@ -24,7 +24,7 @@ din fișierele originale Valve de la 6.88f, iar regulile de joc sunt implementat
 | Abilități built-in cu mecanici noi dezactivate prin override manual (`tools/manual_overrides.json`) | ✅ 83 abilități/iteme (Mana Break, Heartstopper, Necromastery, Psionic Trap, Culling Blade, Invoker, consumabile…) |
 | Panorama: talente, backpack, slot neutru, slot TP ascunse | ✅ `content/.../panorama` – de verificat ID-urile la patch-uri noi |
 | Abilități rămase cu diferențe minore sau doar de Aghanim (Ogre Multicast, Medusa Split Shot, Requiem, zombii lui Undying…) | 🔜 ~65, listate în `docs/STATUS.md`; nimic blocant |
-| Localizare | ✅ engleză și română generate din textele 6.88 |
+| Localizare | ✅ engleză, generată din textele 6.88 (jocul rămâne în engleză) |
 | Resurse (particule/modele) verificate față de clientul curent | ✅ |
 | Panou cu regulile 6.88 în HUD, spawn neutrali la 0:30 | ✅ de verificat în joc |
 | Harta 6.88 (Hammer) | 🔜 plan în `docs/HARTA.md` |
