@@ -1,6 +1,7 @@
 -- Compenseaza diferentele dintre bonusurile per punct de atribut din 6.88 si cele ale motorului curent.
 -- (valorile in dota688/constants.lua: C.ATTR vs C.ATTR_NOW)
 modifier_dota688_attributes = class({})
+require("dota688/constants")   -- si pe client (proprietatile modifier-ului se evalueaza si acolo)
 local C = DOTA688
 
 function modifier_dota688_attributes:IsHidden() return true end

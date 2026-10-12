@@ -1,4 +1,5 @@
 -- Attribute Bonus clasic (6.88): +2 STR/AGI/INT pe nivel, 10 niveluri.
+require("dota688/modifiers_link")   -- toti eroii au abilitatea, deci leaga modifierii globali si pe client
 LinkLuaModifier("modifier_dota688_attribute_bonus", "abilities/dota688_attribute_bonus", LUA_MODIFIER_MOTION_NONE)
 
 dota688_attribute_bonus = class({})

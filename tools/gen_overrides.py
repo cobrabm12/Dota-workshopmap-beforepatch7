@@ -359,6 +359,8 @@ def gen_heroes(H0, HN, A0, AN, custom: set[str], report: dict) -> tuple[kv.KV, l
             v = effective(h, base0, key)
             if v is not None:
                 o[key] = v
+        # 6.88 nu avea viteză de atac de bază per erou (toți 100); motorul curent are 85-125 (ex. Techies 90)
+        o["BaseAttackSpeed"] = "100"
 
         # --- abilități -----------------------------------------------------
         old_slots = slot_abilities(h)
@@ -439,9 +441,19 @@ def gen_abilities(A0, AN, custom: set[str], report: dict) -> kv.KV:
         if old.get_str("AbilityType") == "DOTA_ABILITY_TYPE_ATTRIBUTES":
             continue
         blk = build_ability_override(name, old, cur, ABILITY_TOP_KEYS, report["abilitati"])
-        if blk is not None:
+        if old.get_str("AbilityType") == "DOTA_ABILITY_TYPE_ULTIMATE":
+            blk = blk if blk is not None else kv.KV()
+            ultimate_levels_688(old, blk)
+        if blk is not None and len(blk):
             out[name] = blk
     return out
+
+
+def ultimate_levels_688(old: kv.KV, blk: kv.KV) -> None:
+    """Ultimate-urile 6.88 se invatau la nivelurile 6/11/16 (implicit: RequiredLevel 6, pas 5); motorul curent
+    are implicit pasul 6 (6/12/18). Punem explicit valorile 6.88 cand KV-ul 6.88 nu le specifica."""
+    blk["RequiredLevel"] = old.get_str("RequiredLevel") or "6"
+    blk["LevelsBetweenUpgrades"] = old.get_str("LevelsBetweenUpgrades") or "5"
 
 
 def item_requirements_resolved(blk: kv.KV, custom: set[str]) -> kv.KV | None:
@@ -582,6 +594,18 @@ def specials_to_values(blk: kv.KV) -> None:
     blk["AbilityValues"] = values
 
 
+def modernize_block(blk: kv.KV) -> None:
+    """Formatul KV 6.88 -> cel citit de motorul curent (blocurile copiate pentru reimplementarile Lua)."""
+    specials_to_values(blk)
+    # 6.88: DOTA_ABILITY_TYPE_ULTIMATE; motorul curent recunoaste doar ABILITY_TYPE_ULTIMATE, altfel ultimate-ul
+    # devine abilitate de baza (4 niveluri, invatabila de la nivelul 1) - verificat in joc pe Remote Mines
+    t = blk.get_str("AbilityType")
+    if t and t.startswith("DOTA_ABILITY_TYPE_"):
+        blk["AbilityType"] = t[len("DOTA_"):]
+    if t == "DOTA_ABILITY_TYPE_ULTIMATE":
+        ultimate_levels_688(blk, blk)
+
+
 def gen_custom_defs(A0, I0, scripts: dict[str, str], custom: set[str]) -> tuple[kv.KV, kv.KV]:
     """Blocurile KV de bază (din 6.88) pentru reimplementările Lua: BaseClass + ScriptFile + textura originală."""
     abilities = kv.KV()
@@ -599,7 +623,7 @@ def gen_custom_defs(A0, I0, scripts: dict[str, str], custom: set[str]) -> tuple[
             blk["BaseClass"] = "item_lua"
             blk["ScriptFile"] = script
             blk["AbilityTextureName"] = orig
-            specials_to_values(blk)
+            modernize_block(blk)
             req = item_requirements_resolved(src, custom)
             if req is not None:
                 blk["ItemRequirements"] = req
@@ -625,7 +649,7 @@ def gen_custom_defs(A0, I0, scripts: dict[str, str], custom: set[str]) -> tuple[
             blk["BaseClass"] = "ability_lua"
             blk["ScriptFile"] = script
             blk["AbilityTextureName"] = orig
-            specials_to_values(blk)
+            modernize_block(blk)
             for k, v in CUSTOM_KV_PATCH.get(cname, {}).items():
                 blk[k] = v
             abilities[cname] = blk

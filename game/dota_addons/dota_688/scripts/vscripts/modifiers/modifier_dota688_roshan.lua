@@ -1,5 +1,6 @@
 -- Crestere Roshan ca in 6.88 (+700 HP / +10 dmg / +0.7 armura la fiecare 4 min), compensand cresterea moderna pe minut.
 modifier_dota688_roshan = class({})
+require("dota688/constants")   -- si pe client (proprietatile modifier-ului se evalueaza si acolo)
 local C = DOTA688
 
 function modifier_dota688_roshan:IsHidden() return true end

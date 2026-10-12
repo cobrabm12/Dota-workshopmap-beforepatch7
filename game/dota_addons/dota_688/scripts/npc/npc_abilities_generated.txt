@@ -6,7 +6,7 @@
 	"dota688_abaddon_borrowed_time"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"FightRecapLevel"		"2"
 		"HasScepterUpgrade"		"1"
 		"AbilityCooldown"		"60.0 50.0 40.0"
@@ -23,6 +23,8 @@
 			"redirect_pct_tooltip_scepter"		"50"
 			"redirect_range_tooltip_scepter"		"900"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_abaddon_frostmourne"
 	{
@@ -80,7 +82,7 @@
 	"dota688_ancient_apparition_ice_blast"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"		"2"
@@ -106,21 +108,25 @@
 			"target_sight_radius"		"500 500 500"
 			"frostbite_duration_scepter"		"17"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_ancient_apparition_ice_blast_release"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"MaxLevel"		"1"
 		"AbilityCastPoint"		"0 0 0"
 		"AbilityCooldown"		"1.0 1.0 1.0"
 		"BaseClass"		"ability_lua"
 		"ScriptFile"		"abilities/heroes/dota688_ancient_apparition_ice_blast_release"
 		"AbilityTextureName"		"ancient_apparition_ice_blast_release"
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_attribute_bonus"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"		"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"		"ability_lua"
 		"ScriptFile"		"abilities/dota688_attribute_bonus"
@@ -149,7 +155,7 @@
 	}
 	"dota688_axe_culling_blade"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -177,6 +183,8 @@
 			"kill_threshold_scepter"		"300 425 550"
 			"speed_duration_scepter"		"10"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_bane_enfeeble"
 	{
@@ -200,7 +208,7 @@
 	}
 	"dota688_bane_fiends_grip"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -227,6 +235,8 @@
 			"fiend_grip_duration_scepter"		"7"
 			"fiend_grip_damage_scepter"		"155 215 270"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_beastmaster_call_of_the_wild_boar"
 	{
@@ -277,7 +287,7 @@
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
@@ -301,6 +311,8 @@
 			"max_charges_scepter"		"2"
 			"charge_restore_time_scepter"		"40"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_bounty_hunter_jinada"
 	{
@@ -378,7 +390,7 @@
 	}
 	"dota688_bristleback_warpath"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityDuration"		"10.0 10.0 10.0"
 		"BaseClass"		"ability_lua"
@@ -393,6 +405,8 @@
 			"stack_duration"		"14.0"
 			"max_stacks"		"5 6 7"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_centaur_return"
 	{
@@ -415,7 +429,7 @@
 	"dota688_centaur_stampede"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"FightRecapLevel"		"2"
@@ -442,6 +456,8 @@
 			"damage_reduction"		"60"
 			"damage_reduction_tooltip_scepter"		"60"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_chaos_knight_chaos_strike"
 	{
@@ -523,7 +539,7 @@
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityCastRange"		"400"
 		"AbilityCastPoint"		"0.5 0.5 0.5"
 		"AbilityCooldown"		"45.0 35.0 25.0"
@@ -537,6 +553,8 @@
 			"health_gain_pct"		"50 65 80"
 			"damage_gain_pct"		"5.0 6.5 8.0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_clinkz_strafe"
 	{
@@ -570,7 +588,7 @@
 	}
 	"dota688_crystal_maiden_freezing_field"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
@@ -601,11 +619,13 @@
 			"attack_slow_scepter"		"-50"
 			"duration_tooltip"		"10"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_dark_seer_wall_of_replica"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"		"2"
@@ -635,6 +655,8 @@
 			"replica_damage_outgoing_scepter"		"0 20 40"
 			"tooltip_outgoing_scepter"		"100 120 140"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_dazzle_poison_touch"
 	{
@@ -669,7 +691,7 @@
 	"dota688_dazzle_weave"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"		"2"
 		"HasScepterUpgrade"		"1"
@@ -690,6 +712,8 @@
 			"duration_scepter"		"24"
 			"armor_per_second_scepter"		"1.25 1.5 1.75"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_death_prophet_silence"
 	{
@@ -729,7 +753,7 @@
 	}
 	"dota688_disruptor_static_storm"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
@@ -751,6 +775,8 @@
 			"duration_scepter"		"7.0"
 			"pulses_scepter"		"28"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_doom_bringer_doom"
 	{
@@ -759,7 +785,7 @@
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
 		"FightRecapLevel"		"2"
 		"HasScepterUpgrade"		"1"
@@ -778,6 +804,8 @@
 			"damage_scepter"		"20 35 50"
 			"deniable_pct"		"25 25 25"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_dragon_knight_dragon_blood"
 	{
@@ -794,7 +822,7 @@
 	"dota688_drow_ranger_marksmanship"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"HasScepterUpgrade"		"1"
 		"BaseClass"		"ability_lua"
 		"ScriptFile"		"abilities/heroes/dota688_drow_ranger_marksmanship"
@@ -807,6 +835,8 @@
 			"scepter_range"		"375"
 			"damage_reduction_scepter"		"50"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_drow_ranger_trueshot"
 	{
@@ -829,7 +859,7 @@
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"		"2"
@@ -857,11 +887,13 @@
 			"total_steps"		"12"
 			"slow_duration_scepter"		"4.0 5.0 6.0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_enigma_black_hole"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"		"2"
@@ -886,6 +918,8 @@
 			"duration"		"4.0 4.0 4.0"
 			"vision_radius"		"800 800 800"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_huskar_berserkers_blood"
 	{
@@ -902,7 +936,7 @@
 	}
 	"dota688_huskar_life_break"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
@@ -936,10 +970,12 @@
 			"tooltip_health_damage_scepter"		"65"
 			"cooldown_scepter"		"4"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_jakiro_macropyre"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -966,10 +1002,12 @@
 			"cast_range_scepter"		"1800"
 			"duration_scepter"		"30"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_juggernaut_omni_slash"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -995,6 +1033,8 @@
 			"omni_slash_jumps_scepter"		"6 9 12"
 			"omni_slash_cooldown_scepter"		"70"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_keeper_of_the_light_blinding_light"
 	{
@@ -1022,7 +1062,7 @@
 	"dota688_keeper_of_the_light_spirit_form"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"HasScepterUpgrade"		"1"
 		"AbilityCooldown"		"80.0 70.0 60.0"
 		"AbilityManaCost"		"100 100 100"
@@ -1034,10 +1074,12 @@
 		{
 			"duration"		"40.0 40.0 40.0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_kunkka_ghostship"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
@@ -1064,13 +1106,15 @@
 			"ghostship_width_scepter"		"200"
 			"ghostship_absorb"		"40 45 50"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_legion_commander_duel"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"		"2"
@@ -1089,6 +1133,8 @@
 			"duration_scepter"		"6 7 8"
 			"reward_damage"		"10 14 18"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_legion_commander_moment_of_courage"
 	{
@@ -1131,7 +1177,7 @@
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"		"1"
@@ -1149,10 +1195,12 @@
 			"damage"		"100 130 160"
 			"damage_scepter"		"160 190 220"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_lich_chain_frost"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -1184,6 +1232,8 @@
 			"slow_movement_speed_scepter"		"-50"
 			"slow_attack_speed_scepter"		"-50"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_lich_dark_ritual"
 	{
@@ -1237,7 +1287,7 @@
 	}
 	"dota688_lina_laguna_blade"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -1260,10 +1310,12 @@
 			"cast_range_scepter"		"600"
 			"damage_delay"		"0.25"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_lion_finger_of_death"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -1288,11 +1340,13 @@
 			"cooldown_scepter"		"100.0 60.0 20.0"
 			"splash_radius_scepter"		"300"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_luna_eclipse"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
@@ -1319,6 +1373,8 @@
 			"duration_tooltip_scepter"		"1.8 3.6 5.4"
 			"cast_range_tooltip_scepter"		"2500"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_luna_lunar_blessing"
 	{
@@ -1499,7 +1555,7 @@
 	}
 	"dota688_naga_siren_song_of_the_siren"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"		"2"
@@ -1520,21 +1576,25 @@
 			"regen_rate_self"		"10.0"
 			"regen_rate_tooltip_scepter"		"10"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_naga_siren_song_of_the_siren_cancel"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"MaxLevel"		"1"
 		"AbilityCastPoint"		"0 0 0"
 		"AbilityCooldown"		"1.0 1.0 1.0"
 		"BaseClass"		"ability_lua"
 		"ScriptFile"		"abilities/heroes/dota688_naga_siren_song_of_the_siren_cancel"
 		"AbilityTextureName"		"naga_siren_song_of_the_siren_cancel"
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_necrolyte_reapers_scythe"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
@@ -1561,6 +1621,8 @@
 			"respawn"		"0.0"
 			"respawn_constant"		"10 20 30"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_necrolyte_sadist"
 	{
@@ -1595,7 +1657,7 @@
 	}
 	"dota688_nevermore_requiem"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -1627,6 +1689,8 @@
 			"requiem_heal_pct_scepter"		"100"
 			"requiem_damage_pct_scepter"		"40"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_night_stalker_crippling_fear"
 	{
@@ -1653,7 +1717,7 @@
 	"dota688_night_stalker_darkness"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"HasScepterUpgrade"		"1"
 		"AbilityCastPoint"		"0.3 0.3 0.3"
 		"AbilityCooldown"		"160 120 80"
@@ -1667,6 +1731,8 @@
 			"blind_percentage"		"-25 -30 -35"
 			"fixed_vision"		"675"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_obsidian_destroyer_arcane_orb"
 	{
@@ -1710,7 +1776,7 @@
 	"dota688_obsidian_destroyer_sanity_eclipse"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityCastRange"		"700"
 		"AbilityCastPoint"		"0.25 0.25 0.25"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
@@ -1730,6 +1796,8 @@
 			"cast_range"		"700"
 			"damage_multiplier_scepter"		"8 9 10"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_omniknight_degen_aura"
 	{
@@ -1750,7 +1818,7 @@
 	"dota688_omniknight_guardian_angel"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ALLIES_YES"
 		"FightRecapLevel"		"2"
 		"HasScepterUpgrade"		"1"
@@ -1766,6 +1834,8 @@
 			"radius"		"600 600 600"
 			"duration_scepter"		"8.0 9.0 10.0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_oracle_purifying_flames"
 	{
@@ -1811,7 +1881,7 @@
 	"dota688_puck_dream_coil"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"		"2"
@@ -1837,6 +1907,8 @@
 			"coil_break_damage_scepter"		"200 250 300"
 			"coil_stun_duration_scepter"		"1.5 3 4.5"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_pudge_flesh_heap"
 	{
@@ -1902,7 +1974,7 @@
 	}
 	"dota688_pugna_life_drain"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -1937,10 +2009,12 @@
 			"scepter_cooldown"		"0.0 0.0 0.0"
 			"tick_rate"		"0.25 0.25 0.25"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_queenofpain_sonic_wave"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
@@ -1963,11 +2037,13 @@
 			"cooldown_scepter"		"40"
 			"damage_scepter"		"325 440 555"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_razor_eye_of_the_storm"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"		"1"
@@ -1988,6 +2064,8 @@
 			"damage"		"40 55 70"
 			"strike_interval_scepter"		"0.6 0.5 0.4"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_razor_unstable_current"
 	{
@@ -2067,7 +2145,7 @@
 	"dota688_riki_tricks_of_the_trade"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityCastPoint"		"0.3"
 		"AbilityChannelTime"		"3 4 5"
 		"AbilityCooldown"		"40 35 30"
@@ -2080,6 +2158,8 @@
 			"range"		"500"
 			"attack_count"		"4 5 6"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_rubick_fade_bolt"
 	{
@@ -2269,7 +2349,7 @@
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"		"2"
 		"HasScepterUpgrade"		"1"
@@ -2289,6 +2369,8 @@
 			"cooldown_scepter"		"20 10 5"
 			"duration_scepter"		"12"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_slardar_bash"
 	{
@@ -2325,7 +2407,7 @@
 	}
 	"dota688_slark_shadow_dance"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"		"2"
 		"AbilityCooldown"		"60.0"
@@ -2344,6 +2426,8 @@
 			"scepter_aoe"		"350"
 			"scepter_cooldown"		"35"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_sniper_take_aim"
 	{
@@ -2379,7 +2463,7 @@
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"FightRecapLevel"		"2"
 		"HasScepterUpgrade"		"1"
@@ -2400,6 +2484,8 @@
 			"bash_radius_scepter"		"250 250 250"
 			"cooldown_scepter"		"20.0 20.0 20.0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_storm_spirit_electric_vortex"
 	{
@@ -2506,7 +2592,7 @@
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
 		"HasScepterUpgrade"		"1"
 		"AbilityCastRange"		"500"
@@ -2531,6 +2617,8 @@
 			"vision_duration"		"3.0"
 			"model_scale"		"0 10 20"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_techies_stasis_trap"
 	{
@@ -2648,7 +2736,7 @@
 	"dota688_tiny_grow"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"HasScepterUpgrade"		"1"
 		"BaseClass"		"ability_lua"
 		"ScriptFile"		"abilities/heroes/dota688_tiny_grow"
@@ -2665,6 +2753,8 @@
 			"bonus_building_damage_scepter"		"75"
 			"grow_bonus_damage_pct_scepter"		"50 65 80"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_tiny_toss"
 	{
@@ -2788,7 +2878,7 @@
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"FightRecapLevel"		"1"
 		"AbilityCastPoint"		"0"
 		"AbilityCastRange"		"128"
@@ -2806,11 +2896,13 @@
 			"push_length"		"1000"
 			"cooldown_scepter"		"20 16 12"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_undying_flesh_golem"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"		"2"
 		"AbilityCooldown"		"75.0 75.0 75.0"
@@ -2830,11 +2922,13 @@
 			"death_heal"		"6"
 			"death_heal_creep"		"2"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_ursa_enrage"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"		"1"
 		"HasScepterUpgrade"		"1"
@@ -2851,6 +2945,8 @@
 			"duration"		"4.0"
 			"cooldown_scepter"		"30 24 18"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_vengefulspirit_command_aura"
 	{
@@ -2868,7 +2964,7 @@
 	}
 	"dota688_vengefulspirit_nether_swap"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_CUSTOM"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_CUSTOM"
@@ -2889,10 +2985,12 @@
 			"illusion_damage_out_pct_scepter"		"50"
 			"illusion_damage_in_pct_scepter"		"150"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_venomancer_poison_nova"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
@@ -2916,6 +3014,8 @@
 			"damage_scepter"		"60 85 110"
 			"speed"		"500"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_viper_nethertoxin"
 	{
@@ -2971,7 +3071,7 @@
 	}
 	"dota688_windrunner_focusfire"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
@@ -2994,6 +3094,8 @@
 			"cooldown_scepter"		"15.0 15.0 15.0"
 			"focusfire_damage_reduction_scepter"		"-30 -15 -0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_windrunner_windrun"
 	{
@@ -3035,7 +3137,7 @@
 	}
 	"dota688_zuus_thundergods_wrath"
 	{
-		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
@@ -3057,5 +3159,7 @@
 			"damage"		"225 325 425"
 			"damage_scepter"		"440 540 640"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 }

@@ -38,6 +38,8 @@
 			"mana_void_damage_per_mana"		"0.6 0.85 1.1"
 			"mana_void_aoe_radius"		"500"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"axe_berserkers_call"
 	{
@@ -163,6 +165,8 @@
 			"echo_slam_echo_range"		"600"
 			"echo_slam_echo_damage"		"40 55 70"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"juggernaut_blade_dance"
 	{
@@ -312,6 +316,8 @@
 			"AbilityCooldown"		"140.0 120.0 100.0"
 			"duration"		"15.0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"mirana_leap"
 	{
@@ -364,11 +370,15 @@
 		{
 			"duration"		"30.0 45.0 60.0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"morphling_morph_replicate"
 	{
 		"AbilityCastPoint"		"0.35"
 		"AbilityManaCost"		"150 150 150"
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"nevermore_shadowraze1"
 	{
@@ -444,6 +454,8 @@
 			"illusion_damage_in_pct"		"400"
 			"tooltip_total_illusion_damage_in_pct"		"500"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"phantom_lancer_phantom_edge"
 	{
@@ -502,6 +514,8 @@
 			"dismember_damage"		"60 90 120"
 			"strength_damage"		"0.3 0.45 0.6"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"shadow_shaman_ether_shock"
 	{
@@ -540,6 +554,8 @@
 	{
 		"AbilityCooldown"		"120"
 		"AbilityManaCost"		"200 350 600"
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"razor_plasma_field"
 	{
@@ -585,6 +601,8 @@
 			"slow_radius"		"1200"
 			"slow_duration"		"5.0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"death_prophet_carrion_swarm"
 	{
@@ -622,6 +640,8 @@
 			"average_damage"		"55 55 55"
 			"ghost_spawn_rate"		"0.3"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"sven_storm_bolt"
 	{
@@ -653,6 +673,8 @@
 			"AbilityCooldown"		"80.0 80.0 80.0"
 			"gods_strength_damage"		"100 150 200"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"storm_spirit_static_remnant"
 	{
@@ -685,6 +707,8 @@
 			"ball_lightning_travel_cost_base"		"12"
 			"ball_lightning_travel_cost_percent"		"0.7"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"sandking_sand_storm"
 	{
@@ -713,6 +737,8 @@
 			"epicenter_radius_base"		"275"
 			"epicenter_radius_increment"		"47"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"tiny_avalanche"
 	{
@@ -788,6 +814,8 @@
 			"armor_reduction"		"-10 -15 -20"
 			"duration"		"25.0 25.0 25.0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"tidehunter_gush"
 	{
@@ -829,6 +857,8 @@
 			"speed"		"775"
 			"duration"		"2.0 2.4 2.8"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"vengefulspirit_magic_missile"
 	{
@@ -965,6 +995,8 @@
 		{
 			"damage"		"60 105 150"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"enigma_malefice"
 	{
@@ -1010,6 +1042,8 @@
 		{
 			"AbilityChannelTime"		"3.0 1.5 0.75"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"sniper_shrapnel"
 	{
@@ -1035,6 +1069,8 @@
 		"AbilityCastRange"		"2000 2500 3000"
 		"AbilityManaCost"		"175 275 375"
 		"AbilityDamage"		"320 485 650"
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"necrolyte_death_pulse"
 	{
@@ -1104,6 +1140,8 @@
 		{
 			"stun_duration"		"1.0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"warlock_golem_permanent_immolation"
 	{
@@ -1160,6 +1198,8 @@
 			"push_duration"		"0.6"
 			"slow_duration"		"2.0 3.0 4.0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"queenofpain_shadow_strike"
 	{
@@ -1261,6 +1301,8 @@
 			"radius"		"425"
 			"duration"		"4.0 4.5 5.0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"pugna_nether_blast"
 	{
@@ -1322,6 +1364,8 @@
 			"crit_bonus"		"230 340 450"
 			"crit_chance"		"15"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"templar_assassin_refraction"
 	{
@@ -1350,6 +1394,8 @@
 	"templar_assassin_psionic_trap"
 	{
 		"AbilityCastRange"		"2000"
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 		"AbilityValues"
 		{
 			"movement_speed_min"		"30"
@@ -1388,6 +1434,8 @@
 			"bonus_attack_speed"		"-40 -60 -80"
 			"projectile_speed"		"1200"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"luna_lucent_beam"
 	{
@@ -1442,6 +1490,8 @@
 			"corrosive_damage_per_second"		"20 20 20 20"
 			"corrosive_duration"		"5 5 5 5"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dazzle_shallow_grave"
 	{
@@ -1507,6 +1557,8 @@
 			"duration"		"1.0 1.5 2.0"
 			"damage"		"100 200 300"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"leshrac_split_earth"
 	{
@@ -1588,6 +1640,8 @@
 			"damage_percent_add"		"7"
 			"jump_delay"		"0.25"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"life_stealer_feast"
 	{
@@ -1621,6 +1675,13 @@
 			"self_regen"		"0"
 			"creep_max_hp_drain_pct_per_second"		"0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
+	}
+	"life_stealer_consume"
+	{
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dark_seer_vacuum"
 	{
@@ -1731,6 +1792,8 @@
 		{
 			"distance_damage_pct"		"14.0 18.0 22.0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"huskar_inner_vitality"
 	{
@@ -1831,6 +1894,8 @@
 			"lifesteal_pct"		"60 80 100"
 			"duration"		"14.0 14.0 14.0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"bounty_hunter_shuriken_toss"
 	{
@@ -1854,6 +1919,8 @@
 			"duration"		"30.0 30.0 30.0"
 			"target_damage_amp"		"0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"weaver_the_swarm"
 	{
@@ -1887,6 +1954,8 @@
 		{
 			"AbilityCooldown"		"60 50 40"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"jakiro_dual_breath"
 	{
@@ -1973,6 +2042,8 @@
 			"duration"		"3.0 3.5 4.0"
 			"damage"		"0 0 0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"chen_test_of_faith"
 	{
@@ -1984,6 +2055,8 @@
 		{
 			"AbilityCooldown"		"160 140 120"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"spectre_spectral_dagger"
 	{
@@ -2025,6 +2098,8 @@
 			"tooltip_outgoing"		"30"
 			"attack_delay"		"1.0 1.0 1.0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"spectre_reality"
 	{
@@ -2184,6 +2259,8 @@
 			"total_strikes"		"2"
 			"damage"		"200 275 350"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"alchemist_acid_spray"
 	{
@@ -2228,6 +2305,8 @@
 			"bonus_mana_regen"		"3.0 7.5 12.0"
 			"bonus_movespeed"		"30 40 60"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"invoker_quas"
 	{
@@ -2406,6 +2485,8 @@
 			"AbilityCooldown"		"130.0"
 			"AbilityDuration"		"4.0 5.0 6.0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"obsidian_destroyer_astral_imprisonment"
 	{
@@ -2443,6 +2524,8 @@
 			"transformation_time"		"1.5"
 			"crit_multiplier"		"140 160 180"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"lycan_summon_wolves_critical_strike"
 	{
@@ -2507,6 +2590,13 @@
 			"bonus_armor"		"4 6 8"
 			"bonus_hp"		"300 600 900"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
+	}
+	"lone_druid_true_form_druid"
+	{
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"lone_druid_true_form_battle_cry"
 	{
@@ -2569,6 +2659,8 @@
 			"AbilityCooldown"		"140 120 100"
 			"duration"		"16 18 20"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"brewmaster_earth_hurl_boulder"
 	{
@@ -2655,6 +2747,8 @@
 		{
 			"AbilityCooldown"		"40 40 40"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"chaos_knight_chaos_bolt"
 	{
@@ -2683,6 +2777,8 @@
 			"incoming_damage"		"100"
 			"incoming_damage_tooltip"		"200"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"meepo_earthbind"
 	{
@@ -2712,6 +2808,7 @@
 			"dps_penalty_pct"		"0 0 0"
 			"attribute_penalty_pct"		"0"
 		}
+		"LevelsBetweenUpgrades"		"7"
 	}
 	"treant_leech_seed"
 	{
@@ -2737,6 +2834,8 @@
 			"duration"		"3.0 3.75 4.5"
 			"damage"		"0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"ogre_magi_fireblast"
 	{
@@ -2795,6 +2894,8 @@
 			"multicast_3_times"		"0 0.2 0.25"
 			"multicast_4_times"		"0 0 0.125"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"undying_decay"
 	{
@@ -2874,6 +2975,8 @@
 		{
 			"projectile_speed"		"900"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"disruptor_thunder_strike"
 	{
@@ -2941,6 +3044,8 @@
 			"duration"		"40 50 60"
 			"bonus_damage"		"250 400 550"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"nyx_assassin_burrow"
 	{
@@ -3070,6 +3175,8 @@
 			"familiar_armor"		"0 1 2"
 			"familiar_attack_damage"		"0 0 0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"visage_summon_familiars_stone_form"
 	{
@@ -3122,6 +3229,8 @@
 			"AbilityCooldown"		"90.0 75.0 60.0"
 			"cast_delay"		"2.7 2.35 2.0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"wisp_tether_break"
 	{
@@ -3200,6 +3309,8 @@
 			"stone_duration"		"3.0"
 			"bonus_physical_damage"		"50"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"troll_warlord_whirling_axes_ranged"
 	{
@@ -3238,6 +3349,8 @@
 			"trance_duration"		"5.0"
 			"attack_speed"		"60 120 180"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"centaur_hoof_stomp"
 	{
@@ -3296,6 +3409,8 @@
 			"polarity_damage"		"50 125 200"
 			"hero_stun_duration"		"2.25 3.0 3.75"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"shredder_whirling_death"
 	{
@@ -3338,6 +3453,8 @@
 			"pass_damage"		"100 140 180"
 			"mana_per_second"		"20.0 25.0 30.0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"shredder_chakram_2"
 	{
@@ -3348,6 +3465,11 @@
 			"pass_damage"		"100 140 180"
 			"mana_per_second"		"20.0 25.0 30.0"
 		}
+	}
+	"shredder_return_chakram"
+	{
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"bristleback_quill_spray"
 	{
@@ -3571,6 +3693,8 @@
 			"damage"		"100 150 200"
 			"AbilityChargeRestoreTime"		"35"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 		"AbilityCharges"		"3"
 	}
 	"ember_spirit_activate_fire_remnant"
@@ -3644,6 +3768,8 @@
 			"damage_per_second"		"50 75 100"
 			"rock_search_radius"		"400"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"abyssal_underlord_firestorm"
 	{
@@ -3691,6 +3817,13 @@
 			"radius"		"450"
 			"teleport_delay"		"5.0 4.0 3.0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
+	}
+	"abyssal_underlord_cancel_dark_rift"
+	{
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"terrorblade_reflection"
 	{
@@ -3737,6 +3870,8 @@
 			"AbilityCooldown"		"120.0 80.0 40.0"
 			"hit_point_minimum_pct"		"25"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"phoenix_icarus_dive"
 	{
@@ -3791,6 +3926,8 @@
 			"stun_duration"		"1.5 2.0 2.5"
 			"max_hero_attacks"		"5 8 11"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"phoenix_launch_fire_spirit"
 	{
@@ -3838,6 +3975,8 @@
 			"AbilityCooldown"		"100 65 30"
 			"duration"		"7 8 9"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"necronomicon_warrior_last_will"
 	{
@@ -3873,6 +4012,8 @@
 		{
 			"duration"		"7.0"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"courier_burst"
 	{
@@ -4117,6 +4258,36 @@
 			"radius"		"900"
 		}
 	}
+	"greevil_laguna_blade"
+	{
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
+	}
+	"greevil_poison_nova"
+	{
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
+	}
+	"greevil_echo_slam"
+	{
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
+	}
+	"greevil_flesh_golem"
+	{
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
+	}
+	"greevil_black_hole"
+	{
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
+	}
+	"greevil_miniboss_green_overgrowth"
+	{
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
+	}
 	"greevil_miniboss_orange_light_strike_array"
 	{
 		"AbilityCooldown"		"11"
@@ -4127,6 +4298,21 @@
 		{
 			"heal_amount"		"5"
 		}
+	}
+	"cny2015_sonic_wave"
+	{
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
+	}
+	"cny2015_black_hole"
+	{
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
+	}
+	"cny2015_chronosphere"
+	{
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"winter_wyvern_arctic_burn"
 	{
@@ -4177,6 +4363,8 @@
 			"bonus_attack_speed"		"70"
 			"duration"		"3.25 4 4.75"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"arc_warden_flux"
 	{
@@ -4216,6 +4404,8 @@
 			"AbilityCooldown"		"40 35 30"
 			"duration"		"12 14 16"
 		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"item_blink"
 	{

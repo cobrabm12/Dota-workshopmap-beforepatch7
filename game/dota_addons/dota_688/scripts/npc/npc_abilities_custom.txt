@@ -21,7 +21,7 @@
 	{
 		"BaseClass"				"ability_lua"
 		"ScriptFile"			"abilities/dota688_attribute_bonus"
-		"AbilityType"			"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"			"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	"attribute_bonus"
 		"MaxLevel"				"10"

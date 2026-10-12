@@ -1,0 +1,7 @@
+-- Modifierii globali ai addon-ului. Fisierul se incarca si pe client (din abilities/dota688_attribute_bonus.lua,
+-- pe care o au toti eroii): LinkLuaModifier facut doar pe server lasa clientul fara clasa modifier-ului
+-- ("Attempted to create unknown modifier type"), deci fara stari/proprietati/tooltip pe client.
+LinkLuaModifier("modifier_dota688_attributes", "modifiers/modifier_dota688_attributes", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_dota688_roshan", "modifiers/modifier_dota688_roshan", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_dota688_invoker_orbs", "modifiers/modifier_dota688_invoker_orbs", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_dota688_familiar", "modifiers/modifier_dota688_familiar", LUA_MODIFIER_MOTION_NONE)

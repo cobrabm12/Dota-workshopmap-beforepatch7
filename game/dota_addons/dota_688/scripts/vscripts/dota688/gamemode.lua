@@ -10,10 +10,7 @@ require("dota688/backpack")
 require("dota688/neutrals")
 require("dota688/aghanim")
 
-LinkLuaModifier("modifier_dota688_attributes", "modifiers/modifier_dota688_attributes", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_dota688_roshan", "modifiers/modifier_dota688_roshan", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_dota688_invoker_orbs", "modifiers/modifier_dota688_invoker_orbs", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_dota688_familiar", "modifiers/modifier_dota688_familiar", LUA_MODIFIER_MOTION_NONE)
+require("dota688/modifiers_link")
 
 local C = DOTA688
 
@@ -56,6 +53,12 @@ function Dota688:Init()
 	Dota688SafeCall(gm, "SetFreeCourierModeEnabled", false)        -- curierul se cumpara (item_courier, 7.23 l-a facut gratuit)
 	Dota688SafeCall(gm, "SetAllowNeutralItemDrops", false)         -- fara iteme neutre (7.23)
 	Dota688SafeCall(gm, "SetUseDefaultDOTARuneSpawnLogic", false)  -- rune dupa logica 6.88 (vezi runes.lua)
+	-- SetUseDefaultDOTARuneSpawnLogic(false) nu opreste spawner-ele hartii (testat: Shield, Bounty in jungla, power
+	-- rune peste cele 6.88). Cu toate tipurile dezactivate motorul nu mai creeaza rune; CreateRune din Lua merge in continuare.
+	for _, rune in ipairs({ DOTA_RUNE_DOUBLEDAMAGE, DOTA_RUNE_HASTE, DOTA_RUNE_ILLUSION, DOTA_RUNE_INVISIBILITY, DOTA_RUNE_REGENERATION,
+		DOTA_RUNE_BOUNTY, DOTA_RUNE_ARCANE, DOTA_RUNE_WATER, DOTA_RUNE_XP, DOTA_RUNE_SHIELD }) do
+		gm:SetRuneEnabled(rune, false)
+	end
 	Dota688SafeCall(gm, "SetDaynightCycleDisabled", false)
 	Dota688SafeCall(gm, "SetTowerBackdoorProtectionEnabled", true)
 	Dota688SafeCall(gm, "SetStashPurchasingDisabled", false)
