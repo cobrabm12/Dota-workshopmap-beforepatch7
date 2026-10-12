@@ -26,10 +26,13 @@ Dota688DefineItem("item_dota688_mekansm", "items/item_dota688_mekansm", {
 			local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, self:GetSpecialValueFor("heal_radius"), DOTA_UNIT_TARGET_TEAM_FRIENDLY,
 				DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 			for _, u in ipairs(allies) do
-				u:Heal(self:GetSpecialValueFor("heal_amount"), self)
-				u:AddNewModifier(caster, self, "modifier_dota688_mekansm_armor", { duration = self:GetSpecialValueFor("heal_armor_duration") })
-				local fx = ParticleManager:CreateParticle("particles/items2_fx/mekanism.vpcf", PATTACH_ABSORIGIN_FOLLOW, u)
-				ParticleManager:ReleaseParticleIndex(fx)
+				if not u:HasModifier("modifier_dota688_restore_lockout") then   -- 6.88: nu afecteaza unitatile vindecate de Restore/Mend in ultimele 25 s
+					u:Heal(self:GetSpecialValueFor("heal_amount"), self)
+					u:AddNewModifier(caster, self, "modifier_dota688_mekansm_armor", { duration = self:GetSpecialValueFor("heal_armor_duration") })
+					u:AddNewModifier(caster, self, "modifier_dota688_restore_lockout", { duration = Dota688RESTORE_LOCKOUT })
+					local fx = ParticleManager:CreateParticle("particles/items2_fx/mekanism.vpcf", PATTACH_ABSORIGIN_FOLLOW, u)
+					ParticleManager:ReleaseParticleIndex(fx)
+				end
 			end
 		end,
 	},

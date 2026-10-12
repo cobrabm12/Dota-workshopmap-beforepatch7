@@ -21,7 +21,7 @@ function dota688_luna_eclipse:OnSpellStart()
 	if scepter then target = self:GetCursorTarget() end   -- nil = aruncat pe o zona
 	local pos = (not target) and self:GetCursorPosition() or nil
 	caster:EmitSound("Hero_Luna.Eclipse.Cast")
-	GameRules:BeginTemporaryNight(10)
+	GameRules:BeginTemporaryNight(10, 0)   -- al doilea argument e cerut de motorul curent (0)
 	local beams = scepter and self:GetSpecialValueFor("beams_scepter") or self:GetSpecialValueFor("beams")
 	local interval = scepter and self:GetSpecialValueFor("beam_interval_scepter") or self:GetSpecialValueFor("beam_interval")
 	local kv = { duration = beams * interval + 0.1, beams = beams, interval = interval, hits = scepter and 9999 or self:GetSpecialValueFor("hit_count") }

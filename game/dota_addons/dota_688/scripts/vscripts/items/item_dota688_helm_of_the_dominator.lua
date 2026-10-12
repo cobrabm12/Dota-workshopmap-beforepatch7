@@ -1,6 +1,17 @@
 require("items/dota688_item_base")
 -- Helm of the Dominator (6.88): +20 daune, +5 armura, +3 regen, 15% lifesteal; Dominate: preia controlul unui creep (min 1400 HP, 350 MS), cd 60, 75 mana.
 Dota688DefineItem("item_dota688_helm_of_the_dominator", "items/item_dota688_helm_of_the_dominator", {
+	modifier = {
+		OnDestroy = function(self)
+			-- 6.88: "Selling or upgrading Helm of the Dominator will cause dominated units to die"
+			if not IsServer() then return end
+			local p = self:GetParent()
+			if p:HasItemInInventory("item_dota688_helm_of_the_dominator") then return end
+			local u = p.dota688_dominated
+			if u and not u:IsNull() and u:IsAlive() then u:ForceKill(false) end
+			p.dota688_dominated = nil
+		end,
+	},
 	item = {
 		OnSpellStart = function(self)
 			local caster, target = self:GetCaster(), self:GetCursorTarget()

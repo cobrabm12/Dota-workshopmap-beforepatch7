@@ -7,12 +7,12 @@ Dota688DefineAura("modifier_dota688_greaves_aura", "items/item_dota688_guardian_
 	effect = {
 		GetModifierConstantHealthRegen = function(self)
 			local a = self:GetAbility(); local p = self:GetParent()
-			local low = p:GetHealth() / math.max(1, p:GetMaxHealth()) * 100 < a:GetSpecialValueFor("aura_bonus_threshold")
+			local low = p:IsHero() and p:GetHealth() / math.max(1, p:GetMaxHealth()) * 100 < a:GetSpecialValueFor("aura_bonus_threshold")   -- bonusul doar pe eroi
 			return low and a:GetSpecialValueFor("aura_health_regen_bonus") or a:GetSpecialValueFor("aura_health_regen")
 		end,
 		GetModifierPhysicalArmorBonus = function(self)
 			local a = self:GetAbility(); local p = self:GetParent()
-			local low = p:GetHealth() / math.max(1, p:GetMaxHealth()) * 100 < a:GetSpecialValueFor("aura_bonus_threshold")
+			local low = p:IsHero() and p:GetHealth() / math.max(1, p:GetMaxHealth()) * 100 < a:GetSpecialValueFor("aura_bonus_threshold")
 			return low and a:GetSpecialValueFor("aura_armor_bonus") or a:GetSpecialValueFor("aura_armor")
 		end,
 	},
@@ -36,9 +36,12 @@ Dota688DefineItem("item_dota688_guardian_greaves", "items/item_dota688_guardian_
 			local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, self:GetSpecialValueFor("replenish_radius"), DOTA_UNIT_TARGET_TEAM_FRIENDLY,
 				DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 			for _, u in ipairs(allies) do
+				if u == caster then u:Purge(false, true, false, false, false) end
+				if not u:HasModifier("modifier_dota688_restore_lockout") then   -- 6.88: nu afecteaza unitatile vindecate de Restore/Mend in ultimele 25 s
 				u:Heal(self:GetSpecialValueFor("replenish_health"), self)
 				u:GiveMana(self:GetSpecialValueFor("replenish_mana"))
-				if u == caster then u:Purge(false, true, false, false, false) end
+				u:AddNewModifier(caster, self, "modifier_dota688_restore_lockout", { duration = Dota688RESTORE_LOCKOUT })
+				end
 				local fx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, u)
 				ParticleManager:ReleaseParticleIndex(fx)
 			end

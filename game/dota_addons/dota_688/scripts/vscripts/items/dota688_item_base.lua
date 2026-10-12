@@ -22,6 +22,7 @@ local STAT_MAP = {
 	bonus_mana       = { MODIFIER_PROPERTY_MANA_BONUS, "GetModifierManaBonus" },
 	bonus_health_regen = { MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, "GetModifierConstantHealthRegen" },
 	hp_regen         = { MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, "GetModifierConstantHealthRegen" },
+	bonus_regen      = { MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, "GetModifierConstantHealthRegen" },   -- Helm of the Dominator
 	health_regen     = { MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, "GetModifierConstantHealthRegen" },
 	bonus_movement_speed = { MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT, "GetModifierMoveSpeedBonus_Constant" },
 	bonus_movement   = { MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT, "GetModifierMoveSpeedBonus_Constant" },
@@ -60,6 +61,57 @@ function Dota688ManaRegenFromPct(unit, pct)
 	return (0.01 + 0.04 * int) * pct / 100
 end
 
+-- itemul cu cel mai mare lifesteal_percent din inventar (6.88: "does not stack with other Unique Attack Modifiers")
+function Dota688BestLifesteal(unit)
+	local best, bestV
+	for s = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+		local it = unit:GetItemInSlot(s)
+		if it then
+			local v = it:GetSpecialValueFor("lifesteal_percent")
+			if v > 0 and (not bestV or v > bestV) then best, bestV = it, v end
+		end
+	end
+	return best
+end
+
+-- Damage block (6.88): doar pe atacuri, iar sursele nu se cumuleaza (se aplica cea mai mare). Sursele Lua: Crimson Guard activ (55),
+-- Abyssal Blade (40/20), Crimson Guard pasiv (32/16). Stout Shield / PMS / Vanguard sunt built-in si nu pot fi coordonate de aici.
+local BLOCK_SOURCES = {
+	{ mod = "modifier_dota688_crimson_active", melee = "block_damage_melee_active", ranged = "block_damage_ranged_active" },
+	{ item = "item_dota688_abyssal_blade", melee = "block_damage_melee", ranged = "block_damage_ranged" },
+	{ item = "item_dota688_crimson_guard", melee = "block_damage_melee", ranged = "block_damage_ranged" },
+}
+function Dota688DamageBlock(parent, params, sourceKey, mine)
+	if not IsServer() or params.damage_type ~= DAMAGE_TYPE_PHYSICAL or params.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK then return 0 end
+	if bit.band(params.damage_flags or 0, DOTA_DAMAGE_FLAG_HPLOSS) ~= 0 then return 0 end
+	local ranged = parent:IsRangedAttacker()
+	local bestKey, bestV
+	for _, src in ipairs(BLOCK_SOURCES) do
+		local a
+		if src.mod then
+			local m = parent:FindModifierByName(src.mod)
+			a = m and m:GetAbility()
+		else
+			a = parent:FindItemInInventory(src.item)
+		end
+		if a and not a:IsNull() then
+			local v = a:GetSpecialValueFor(ranged and src.ranged or src.melee)
+			if not bestV or v > bestV then bestKey, bestV = src.mod or src.item, v end
+		end
+	end
+	if bestKey ~= sourceKey then return 0 end
+	return -math.min(mine, params.damage)
+end
+
+-- Restore (Mekansm) si Mend (Guardian Greaves): o unitate vindecata recent nu mai e afectata 25 s (6.88)
+LinkLuaModifier("modifier_dota688_restore_lockout", "items/dota688_item_base", LUA_MODIFIER_MOTION_NONE)
+modifier_dota688_restore_lockout = class({})
+function modifier_dota688_restore_lockout:IsHidden() return false end
+function modifier_dota688_restore_lockout:IsDebuff() return true end
+function modifier_dota688_restore_lockout:IsPurgable() return false end
+function modifier_dota688_restore_lockout:GetTexture() return "item_mekansm" end
+Dota688RESTORE_LOCKOUT = 25
+
 function Dota688DefineItem(itemName, scriptPath, opts)
 	opts = opts or {}
 	local modName = "modifier_" .. itemName
@@ -93,7 +145,7 @@ function Dota688DefineItem(itemName, scriptPath, opts)
 				self.stats[f] = (self.stats[f] or 0) + all
 			end
 		end
-		self.manaRegenPct = a:GetSpecialValueFor("bonus_mana_regen") + a:GetSpecialValueFor("mana_regen")
+		self.manaRegenPct = a:GetSpecialValueFor("bonus_mana_regen") + a:GetSpecialValueFor("mana_regen") + a:GetSpecialValueFor("bonus_mana_regen_pct")
 		self.manaRegenFlat = a:GetSpecialValueFor("mana_regen_flat")
 		self.lifesteal = a:GetSpecialValueFor("lifesteal_percent")
 	end
@@ -127,7 +179,8 @@ function Dota688DefineItem(itemName, scriptPath, opts)
 		local parent = self:GetParent()
 		if params.attacker ~= parent then return end
 		local target = params.target
-		if self.lifesteal and self.lifesteal > 0 and target and not target:IsBuilding() and not target:IsOther() then
+		-- lifesteal-ul itemelor e Unique Attack Modifier in 6.88: se aplica doar cel mai mare (primul din inventar la egalitate)
+		if self.lifesteal and self.lifesteal > 0 and target and not target:IsBuilding() and not target:IsOther() and Dota688BestLifesteal(parent) == self:GetAbility() then
 			parent:Heal(params.damage * self.lifesteal / 100, self:GetAbility())
 			local fx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
 			ParticleManager:ReleaseParticleIndex(fx)

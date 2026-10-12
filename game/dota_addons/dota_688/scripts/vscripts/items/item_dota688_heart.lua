@@ -7,7 +7,7 @@ Dota688DefineItem("item_dota688_heart", "items/item_dota688_heart", {
 		OnTakeDamage = function(self, params)
 			if not IsServer() or params.unit ~= self:GetParent() then return end
 			local attacker = params.attacker
-			if attacker and (attacker:IsControllableByAnyPlayer() or attacker:GetUnitName() == "npc_dota_roshan") and attacker:GetTeamNumber() ~= self:GetParent():GetTeamNumber() then
+			if attacker and (attacker:IsHero() or attacker:GetUnitName() == "npc_dota_roshan") and attacker:GetTeamNumber() ~= self:GetParent():GetTeamNumber() then   -- "enemy hero or Roshan"
 				self.lastHit = GameRules:GetGameTime()
 			end
 		end,
