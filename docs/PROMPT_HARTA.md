@@ -57,3 +57,47 @@ Pașii:
   modelele lipsă și compilează; rezultatul este `game/dota_addons/dota_688/maps/dota_688.vpk`.
 * Dacă Source2Viewer-CLI nu scrie `.vmap` pe Linux, fă exportul din GUI-ul Source 2 Viewer pe Windows (click dreapta pe
   `maps/dota.vmap_c` → Decompile & Export → vmap).
+
+---
+
+# Varianta Windows (recomandată: aici merg toate uneltele, inclusiv Hammer)
+
+Pe Windows: instalează Dota 2 cu DLC-ul **Dota 2 Workshop Tools** (Steam → Dota 2 → Proprietăți → DLC), clonează repo-ul
+(de ex. în `C:\dota688`) și deschide Claude Code în acel folder (PowerShell). Înlocuiește `<DEPOT>`, `<MANIFEST>` și `<CONT>`.
+
+---
+
+Lucrez la proiectul din acest repo (addon Dota 2 „Dota 6.88 Classic”). Vreau să recuperăm harta 6.88 din clientul
+Dota 2 de pe 7 decembrie 2016 (build 1805, ultimul înainte de 7.00), să o decompilăm în `.vmap` și să o pregătim pentru Hammer.
+Citește mai întâi `docs/HARTA.md` și `tools/map_files_688.py`. Sunt pe Windows, am Steam, Dota 2 și Workshop Tools instalate.
+
+Reguli:
+* NU îmi cere parola de Steam și nu o pune în comenzi sau fișiere. Când DepotDownloader cere parola sau codul Steam Guard,
+  lasă-mă pe mine să le tastez (rulează comanda în foreground).
+* Nu modifica nimic în instalarea Steam/Dota 2. Descarcă totul în `C:\dota688_depot\`.
+* Confirmă cu mine înainte de descărcări mai mari de 1 GB.
+
+Pașii:
+1. Unelte, în `C:\dota688_tools\`: DepotDownloader (release windows-x64, https://github.com/SteamRE/DepotDownloader/releases)
+   și Source 2 Viewer, atât GUI-ul cât și CLI-ul (https://github.com/ValveResourceFormat/ValveResourceFormat/releases). Verifică-le.
+2. Manifest: depot `<DEPOT>`, manifest `<MANIFEST>` (7 dec 2016, de pe https://steamdb.info/app/570/depots/). Verifică cu
+   `-manifest-only` că manifestul conține `game/dota/pak01_dir.vpk`; dacă nu, încearcă celelalte depoturi de conținut (373301–373306).
+3. Descărcare: `DepotDownloader -app 570 -depot <DEPOT> -manifest <MANIFEST> -username <CONT> -remember-password
+   -filelist pak01.txt -dir C:\dota688_depot`, cu `pak01.txt` conținând `regex:game/dota/pak01_.*\.vpk`. Spune-mi dimensiunea înainte.
+4. Decompilare: încearcă întâi CLI-ul (`Source2Viewer-CLI -i C:\dota688_depot\game\dota\pak01_dir.vpk -f maps/dota.vmap_c -d -o C:\dota688_depot\export`).
+   Dacă nu produce `.vmap`, deschide GUI-ul Source 2 Viewer, deschide `pak01_dir.vpk`, mergi la `maps/dota.vmap_c`, click dreapta →
+   Decompile & Export → vmap, și ghidează-mă pas cu pas (spune-mi exact unde să salvez). Rezultatul trebuie să ajungă în
+   `content\dota_addons\dota_688\maps\dota_688.vmap` din repo, cu folderul `maps\dota_688\` lângă (redenumit din `dota`).
+5. Instalare addon pentru test: creează link-uri (mklink /J) din `game\dota_addons\dota_688` și `content\dota_addons\dota_688`
+   ale repo-ului către folderele corespunzătoare din `...\steamapps\common\dota 2 beta\game\dota_addons\` și
+   `...\content\dota_addons\`. Nu copia, ca să rămână sincronizate cu repo-ul.
+6. Analiză: scrie `docs/HARTA_ENTITATI.md` cu entitățile hărții (spawner-e de creepi și neutrali, Roshan, shop-uri, rune, turnuri,
+   barăci, fântâni, efigii) și pozițiile lor, plus modelele/materialele referite care nu mai există în clientul curent
+   (caută în VPK-urile din `dota 2 beta\game\dota\`, doar citire). Nu modifica `.vmap`-ul.
+7. Hammer: pornește Workshop Tools pentru addon-ul `dota_688`, deschide `dota_688.vmap` și ajută-mă să rezolv erorile de la încărcare
+   și compilare (modele lipsă → echivalente actuale; entități lipsă din lista din `docs/HARTA.md`; adaugă `info_target`
+   `dota688_rune_top` și `dota688_rune_bot` la cele două rune din râu). Compilează; rezultatul e `game\dota_addons\dota_688\maps\dota_688.vpk`.
+8. Test: în consola Dota (Workshop Tools) rulează `dota_launch_custom_game dota_688 dota_688` și notează erorile din consolă
+   (în special cele cu `dota688`, `ScriptFile`, `AbilityValues`, `npc_heroes_custom`). Scrie-le în `docs/TEST_LOG.md`.
+9. La final: `git add` pentru fișierele mici (rapoarte, `.vmap` dacă are sub 50 MB; `maps\dota_688\` și `.vpk`-ul sunt în
+   `.gitignore`), commit, și întreabă-mă înainte de push.
