@@ -159,3 +159,18 @@ declanșau crash‑ul driverului AMD la pornirea următoare).
 | Atribute | OK – +10 STR = +200 HP, +10 INT = +120 mana, +10 AGI = +1,43 armură; rezistență magică 25 % (10000 magic → 7500); regen mana 0,01 + 0,04·INT; nivel maxim 25, Attribute Bonus 0/10 |
 | Regen HP | REPARAT – motorul dă acum 0,1 HP/s pe STR (compensam 0,09): CM 1,50 → 1,19 (0,25 + 0,03·31), Axe 4,43 |
 | Respawn / buyback / XP | OK – 5 + 3,8·nivel (100 s la 25), buyback 100 + 1,5·nivel² + 0,25·timp (400 la nivel 10 / 10 min), tabelul de XP 6.88 (2000 / 6000 / 13500 / 32400) |
+
+## 9. Audit cu agenți: iteme și abilități Lua față de KV‑ul și tooltip‑urile 6.88 (2026‑10‑13, noaptea)
+
+Patru agenți au comparat fiecare `GetSpecialValueFor` și fiecare mecanică din tooltip‑urile 6.88 cu codul Lua (76 de iteme, 190 de
+abilități). Toate cheile citite există în KV‑ul încărcat; problemele erau semantice. Corectate (verificate în joc unde scrie „testat”):
+
+| Zonă | Corecții |
+|---|---|
+| Iteme, impact mare | Hurricane Pike (+100 AS doar în activă), Echo Sabre (atacul dublu lipsea), Ethereal Blade (atributul principal), Bloodthorn (145 % pentru orice atacator), Urn (goală la început, +2/+1, doar cea mai apropiată, se rupe la eroi/turnuri), Linken (Transfer Spellblock lipsea), Lotus Orb (Echo Shell reflectă – testat cu Hex de la Lion) |
+| Iteme, impact mediu | Damage block doar pe atacuri și fără cumulare; lifesteal‑ul itemelor UAM; aurele de armură Basilius/Aquila/Vlad unice; Vlad +3 regen în aură; Crimson Guard doar eroi + lockout 50 s; Mek/Greaves lockout 25 s; Manta +10 % (unic); Medallion/Solar +regen mana; HotD +3 regen și unitatea moare la vânzare; Abyssal fără bash pe SB/Void/Slardar/Troll și Linken pe activă; Flutter scoate evaziunea; Scythe distruge iluziile și nu face dispel; Silver Edge/Glimmer/Heart după note |
+| Eroi, impact mare | Toss, Tricks of the Trade, Essence Aura, Meat Hook, Eclipse (fără stun, noapte 10 s – testat), Necromastery/Requiem, Omnislash (200‑225, creepii mor – testat), Starstorm, Howl, Drunken Brawler, Black Hole, Poison Touch (testat), Ice Blast, Marksmanship, Curse of Avernus, Bloodrage (vindecarea ucigașului), Life Break, Berserker's Blood liniar |
+| Eroi, imunitate la vraji după KV | Eye of the Storm, Land Mines (+clădiri), Poison Nova, Plague Aura, Windrun, Counter Helix, Ice Blast, Weave, Earth Splitter; Reaper's Scythe nu mai dă daune prin imunitate |
+| Eroi, restul | Sanity's Eclipse pe imprisonați, TGW nu lovește invizibili, Nether Strike în spate, Mystic Flare fără iluzii, Blink Strike fără atac gratuit, Enrage dispel, Life Drain, Stasis Trap, Chain Frost (mini‑stun, fără zombii), Sadist/Necromastery la deny, KotL heal cu scepter, Hybrid fără ultimate, Enfeeble nepurgabil, Shadow Walk/Stampede/Sprint prin unități, Reality Rift cu iluzii, Chilling Touch pe AA, Return pe turnuri, Fiend's Grip, Wall of Replica, Thirst, Gravekeeper's Cloak > 15, Nethertoxin pe clădiri, Unstable Current, Arcane Orb pe invocați, Suicide/Nether Swap distrug copaci, Electric Vortex fără ancienți, Duel la 2000, Living Armor pe minimap, Nature's Guise la cast, Flesh Heap la kill‑uri, Witchcraft pe Silence, Vengeance Aura negativă pe ucigaș |
+| Verificate și corecte | Formula armurii (0,06 cu \|A\| și în 6.88), Decrepify pe aliați (KV ambiguu, lăsat ca −25 % daune), pasivele neînvățate nu au efect (modifier‑ul nu există la nivel 0) |
+| Rămase (documentate) | Bloodthorn True Strike pentru toți atacatorii (nu există proprietate pe țintă), Lotus nu reflectă itemele, Carrion Swarm/Exorcism built‑in nu primesc reducerile Witchcraft, Ghostship (întârzierea 2,7 s vs 1000/650 din KV – incert), Omnislash nu permite iteme |

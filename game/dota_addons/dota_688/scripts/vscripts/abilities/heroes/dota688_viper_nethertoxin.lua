@@ -10,7 +10,7 @@ function modifier_dota688_viper_nethertoxin:DeclareFunctions() return { MODIFIER
 function modifier_dota688_viper_nethertoxin:GetModifierProcAttack_BonusDamage_Physical(params)
 	local parent = self:GetParent()
 	local target = params.target
-	if parent:PassivesDisabled() or not target or target:IsBuilding() or target:IsOther() then return 0 end
+	if parent:PassivesDisabled() or not target or target:IsOther() then return 0 end   -- 6.88: "half damage to creeps and buildings"
 	local missing = 1 - target:GetHealth() / math.max(1, target:GetMaxHealth())
 	local step = math.min(4, math.floor(missing / 0.2))
 	local dmg = Dota688Val(self, "bonus_damage") * (2 ^ step)

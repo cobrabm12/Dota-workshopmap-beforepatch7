@@ -4,7 +4,13 @@ LinkLuaModifier("modifier_dota688_treant_living_armor", "abilities/heroes/dota68
 dota688_treant_living_armor = class({})
 function dota688_treant_living_armor:GetCastRange() return 60000 end
 function dota688_treant_living_armor:OnSpellStart()
-	local target = self:GetCursorTarget() or self:GetCaster()
+	local target = self:GetCursorTarget()
+	if not target then   -- 6.88: "Can be cast through the minimap": cel mai apropiat erou sau cladire aliata de punct
+		local caster, pos = self:GetCaster(), self:GetCursorPosition()
+		local near = FindUnitsInRadius(caster:GetTeamNumber(), pos, nil, 1200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BUILDING,
+			DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_CLOSEST, false)
+		target = near[1] or caster
+	end
 	target:AddNewModifier(self:GetCaster(), self, "modifier_dota688_treant_living_armor", { duration = self:GetSpecialValueFor("duration") })
 	target:EmitSound("Hero_Treant.LivingArmor.Target")
 end

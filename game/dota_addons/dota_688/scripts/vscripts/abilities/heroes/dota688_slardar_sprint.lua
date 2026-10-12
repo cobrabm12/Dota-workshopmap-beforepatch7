@@ -12,3 +12,4 @@ function modifier_dota688_slardar_sprint:GetEffectName() return "particles/units
 function modifier_dota688_slardar_sprint:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE } end
 function modifier_dota688_slardar_sprint:GetModifierMoveSpeedBonus_Percentage() return Dota688Val(self, "bonus_speed") end
 function modifier_dota688_slardar_sprint:GetModifierIncomingDamage_Percentage() return Dota688Val(self, "bonus_damage") end
+function modifier_dota688_slardar_sprint:CheckState() return { [MODIFIER_STATE_NO_UNIT_COLLISION] = true } end   -- "passing through units"

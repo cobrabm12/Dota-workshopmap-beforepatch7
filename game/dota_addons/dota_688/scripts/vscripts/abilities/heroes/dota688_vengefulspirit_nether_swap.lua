@@ -30,6 +30,7 @@ function dota688_vengefulspirit_nether_swap:OnSpellStart()
 		ParticleManager:ReleaseParticleIndex(fx)
 	end
 	caster:Stop(); target:Stop()
+	GridNav:DestroyTreesAroundPoint(a, 100, false); GridNav:DestroyTreesAroundPoint(b, 100, false)   -- 6.88: "destroys trees"
 	FindClearSpaceForUnit(caster, b, true)
 	FindClearSpaceForUnit(target, a, true)
 end

@@ -8,6 +8,7 @@ function dota688_techies_suicide:OnSpellStart()
 	local small, big = self:GetSpecialValueFor("small_radius"), self:GetSpecialValueFor("big_radius")
 	local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_suicide.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(fx, 0, pos); ParticleManager:ReleaseParticleIndex(fx)
+	GridNav:DestroyTreesAroundPoint(pos, big, false)   -- "This ability destroys trees"
 	for _, e in ipairs(FindUnitsInRadius(caster:GetTeamNumber(), pos, nil, big, DOTA_UNIT_TARGET_TEAM_ENEMY,
 		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)) do
 		local dmg = ((e:GetAbsOrigin() - pos):Length2D() <= small) and self:GetSpecialValueFor("damage") or self:GetSpecialValueFor("partial_damage")

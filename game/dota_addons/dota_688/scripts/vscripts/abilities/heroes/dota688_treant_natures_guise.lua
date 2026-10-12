@@ -27,4 +27,5 @@ function modifier_dota688_treant_natures_guise:DeclareFunctions() return { MODIF
 function modifier_dota688_treant_natures_guise:GetModifierInvisibilityLevel() return self:Faded() and 1 or 0 end
 function modifier_dota688_treant_natures_guise:GetModifierMoveSpeedBonus_Percentage() return Dota688Val(self, "bonus_move_speed") end
 function modifier_dota688_treant_natures_guise:OnAttack(params) if IsServer() and params.attacker == self:GetParent() then self:Destroy() end end
-function modifier_dota688_treant_natures_guise:OnAbilityExecuted(params) if IsServer() and params.unit == self:GetParent() then self:Destroy() end end
+-- 6.88: "Treant Protector can cast spells and remain invisible" (doar atacul o rupe)
+function modifier_dota688_treant_natures_guise:OnAbilityExecuted(params) end

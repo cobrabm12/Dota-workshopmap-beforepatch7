@@ -17,7 +17,7 @@ function dota688_storm_spirit_electric_vortex:OnSpellStart()
 	local targets = {}
 	if Dota688HasScepter(caster) then
 		targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, self:GetSpecialValueFor("radius_scepter"), DOTA_UNIT_TARGET_TEAM_ENEMY,
-			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS, FIND_ANY_ORDER, false)
 	else
 		local target = self:GetCursorTarget()
 		if target:TriggerSpellAbsorb(self) then return end

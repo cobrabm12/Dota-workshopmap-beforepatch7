@@ -2,6 +2,20 @@
 LinkLuaModifier("modifier_dota688_death_prophet_silence", "abilities/heroes/dota688_death_prophet_silence", LUA_MODIFIER_MOTION_NONE)
 dota688_death_prophet_silence = class({})
 function dota688_death_prophet_silence:GetAOERadius() return self:GetSpecialValueFor("radius") end
+-- Witchcraft (6.88): -10/15/20/25 mana si -1/2/3/4 s cooldown la Silence
+local function Witchcraft(self)
+	local w = self:GetCaster():FindAbilityByName("dota688_death_prophet_witchcraft")
+	if w and w:GetLevel() > 0 then return w end
+	return nil
+end
+function dota688_death_prophet_silence:GetManaCost(level)
+	local w = Witchcraft(self)
+	return math.max(0, self.BaseClass.GetManaCost(self, level) + (w and w:GetSpecialValueFor("silence_mana_cost_adjust") or 0))
+end
+function dota688_death_prophet_silence:GetCooldown(level)
+	local w = Witchcraft(self)
+	return math.max(0, self.BaseClass.GetCooldown(self, level) + (w and w:GetSpecialValueFor("silence_cooldown_adjust") or 0))
+end
 function dota688_death_prophet_silence:OnSpellStart()
 	local caster, pos = self:GetCaster(), self:GetCursorPosition()
 	EmitSoundOnLocationWithCaster(pos, "Hero_DeathProphet.Silence", caster)

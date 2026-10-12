@@ -30,6 +30,7 @@ end
 function modifier_dota688_duel:OnIntervalThink()
 	local p = self:GetParent()
 	if not self.other or self.other:IsNull() or not self.other:IsAlive() then self:Destroy() return end
+	if (p:GetAbsOrigin() - self.other:GetAbsOrigin()):Length2D() > 2000 then self:Destroy() return end   -- "Duels will end if the units are pushed 2000 units apart"
 	if p:GetAttackTarget() ~= self.other then p:MoveToTargetToAttack(self.other) end
 end
 function modifier_dota688_duel:CheckState() return { [MODIFIER_STATE_SILENCED] = true, [MODIFIER_STATE_MUTED] = true, [MODIFIER_STATE_COMMAND_RESTRICTED] = true } end

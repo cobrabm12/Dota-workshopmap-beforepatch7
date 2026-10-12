@@ -20,7 +20,7 @@ function modifier_dota688_visage_gravekeepers_cloak:OnIntervalThink()
 end
 function modifier_dota688_visage_gravekeepers_cloak:DeclareFunctions() return { MODIFIER_EVENT_ON_TAKEDAMAGE, MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS, MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS } end
 function modifier_dota688_visage_gravekeepers_cloak:OnTakeDamage(params)
-	if not IsServer() or params.unit ~= self:GetParent() or params.damage <= 0 then return end
+	if not IsServer() or params.unit ~= self:GetParent() or params.damage <= 15 then return end   -- 6.88: "damage greater than 15"
 	local attacker = params.attacker
 	if not attacker or not attacker:IsControllableByAnyPlayer() or attacker:GetTeamNumber() == self:GetParent():GetTeamNumber() then return end
 	if self:GetStackCount() > 0 then self:DecrementStackCount() end

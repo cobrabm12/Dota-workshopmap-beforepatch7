@@ -18,7 +18,7 @@ function modifier_dota688_razor_unstable_current:OnAbilityExecuted(params)
 	local parent = self:GetParent()
 	if params.target ~= parent or parent:PassivesDisabled() then return end
 	local caster = params.unit
-	if not caster or caster:GetTeamNumber() == parent:GetTeamNumber() or caster:IsMagicImmune() then return end
+	if not caster or caster:GetTeamNumber() == parent:GetTeamNumber() or caster:IsMagicImmune() or not caster:IsHero() then return end   -- "Only activates if the caster is a hero unit"
 	local a = self:GetAbility()
 	if not a or a:IsNull() then return end
 	ApplyDamage({ victim = caster, attacker = parent, damage = a:GetAbilityDamage(), damage_type = a:GetAbilityDamageType(), ability = a })
