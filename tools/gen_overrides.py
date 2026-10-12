@@ -84,6 +84,21 @@ UNIT_STAT_KEYS = [
 # Sloturi de abilitate pe care le golim (talente 10‑17, inate, etc.)
 MAX_ABILITY_SLOT = 24
 
+# Abilități din 6.88 care nu mai există, dar care erau doar placeholder-e sau au echivalent direct
+RENAME = {
+    "wisp_empty1": "generic_hidden",
+    "wisp_empty2": "generic_hidden",
+    "phoenix_sun_ray_toggle_move_empty": "generic_hidden",
+    "morphling_morph": "generic_hidden",                              # doar urmărea nivelul perechii morph_agi/str
+    "keeper_of_the_light_spirit_form_illuminate": "generic_hidden",     # motorul curent gestionează Illuminate în Spirit Form
+    "keeper_of_the_light_spirit_form_illuminate_end": "generic_hidden",
+}
+# Ordinea sloturilor pentru eroii ale căror sub-abilități ascunse s-au reorganizat (6.88 -> acum)
+SLOT_OVERRIDES = {
+    "npc_dota_hero_wisp": ["wisp_tether", "wisp_spirits", "wisp_overcharge", "wisp_spirits_in", "wisp_spirits_out", "wisp_relocate", "wisp_tether_break"],
+    "npc_dota_hero_phoenix": ["phoenix_icarus_dive", "phoenix_fire_spirits", "phoenix_sun_ray", "phoenix_sun_ray_toggle_move", "phoenix_supernova", "phoenix_launch_fire_spirit", "phoenix_icarus_dive_stop", "phoenix_sun_ray_stop"],
+}
+
 
 # ---------------------------------------------------------------------------
 # încărcare
@@ -115,6 +130,23 @@ def load_now():
     items = kv.load(os.path.join(REF_NOW, "items.txt"))["DOTAAbilities"]
     units = kv.load(os.path.join(REF_NOW, "npc_units.txt"))["DOTAUnits"]
     return heroes, abilities, items, units
+
+
+CUSTOM_ABILITY_PREFIX = "dota688_"
+CUSTOM_ITEM_PREFIX = "item_dota688_"
+
+
+def custom_name_for(name: str) -> str:
+    """Numele reimplementării Lua pentru o abilitate/un item built-in."""
+    if name.startswith("item_"):
+        return CUSTOM_ITEM_PREFIX + name[len("item_"):]
+    return CUSTOM_ABILITY_PREFIX + name
+
+
+def resolve(name: str, custom: set[str]) -> str:
+    """Dacă există o reimplementare Lua pentru `name`, întoarce numele ei; altfel `name`."""
+    c = custom_name_for(name)
+    return c if c in custom else name
 
 
 def load_custom_names() -> set[str]:
@@ -320,6 +352,8 @@ def gen_heroes(H0, HN, A0, AN, custom: set[str], report: dict) -> tuple[kv.KV, l
 
         # --- abilități -----------------------------------------------------
         old_slots = slot_abilities(h)
+        if name in SLOT_OVERRIDES:
+            old_slots = list(enumerate(SLOT_OVERRIDES[name], start=1))
         cur_slots = [(i, a) for i, a in slot_abilities(cur) if a and not a.startswith("special_bonus")]
         cur_real = [a for _, a in cur_slots if a not in ("generic_hidden", "") and not AN.get_kv(a) or (AN.get_kv(a) and AN.get_kv(a).get_str("Innate") != "1")]
         cur_real = [a for a in cur_real if a not in ("generic_hidden", "")]
@@ -330,7 +364,12 @@ def gen_heroes(H0, HN, A0, AN, custom: set[str], report: dict) -> tuple[kv.KV, l
                 continue
             if aname == "attribute_bonus":
                 continue  # îl adăugăm la final
-            if aname in custom:
+            if aname in RENAME:
+                aname = RENAME[aname]
+            if custom_name_for(aname) in custom:
+                hero_rep["abilitati_custom"].append(aname)
+                used_slots.append(custom_name_for(aname))
+            elif aname in custom:
                 hero_rep["abilitati_custom"].append(aname)
                 used_slots.append(aname)
             elif aname in AN:
@@ -380,7 +419,8 @@ def gen_abilities(A0, AN, custom: set[str], report: dict) -> kv.KV:
     for name, old in A0.blocks():
         if name.startswith("special_bonus") or name in ("Version",):
             continue
-        if name in custom:
+        if name in custom or custom_name_for(name) in custom:
+            report["abilitati"][name] = {"schimbate": [], "speciale_lipsa": [], "comportament": None, "lua": True}
             continue
         cur = AN.get_kv(name)
         if cur is None:
@@ -394,6 +434,29 @@ def gen_abilities(A0, AN, custom: set[str], report: dict) -> kv.KV:
     return out
 
 
+def item_requirements_resolved(blk: kv.KV, custom: set[str]) -> kv.KV | None:
+    """Copie a blocului ItemRequirements cu componentele înlocuite de reimplementările Lua."""
+    req = blk.get_kv("ItemRequirements")
+    if req is None:
+        return None
+    out = kv.KV()
+    for idx, line in req.scalars():
+        parts = [p.strip() for p in line.split(";") if p.strip()]
+        parts = [resolve_item(x, custom) for x in parts]
+        out[idx] = ";".join(parts)
+    return out
+
+
+def resolve_item(name: str, custom: set[str]) -> str:
+    """Un item built-in -> reimplementarea lui Lua (dacă există); rețeta lui -> rețeta custom."""
+    if name.startswith("item_recipe_"):
+        base = "item_" + name[len("item_recipe_"):]
+        if custom_name_for(base) in custom:
+            return "item_recipe_dota688_" + name[len("item_recipe_"):]
+        return name
+    return resolve(name, custom)
+
+
 def gen_items(I0, IN, custom: set[str], report: dict) -> tuple[kv.KV, kv.KV]:
     override = kv.KV()
     recreate = kv.KV()
@@ -401,25 +464,41 @@ def gen_items(I0, IN, custom: set[str], report: dict) -> tuple[kv.KV, kv.KV]:
     for name, old in I0.blocks():
         if name == "Version" or name in custom:
             continue
+        has_custom = custom_name_for(name) in custom
+        is_recipe = name.startswith("item_recipe_")
+        recipe_of_custom = is_recipe and custom_name_for("item_" + name[len("item_recipe_"):]) in custom
         cur = IN.get_kv(name)
+
+        if has_custom or recipe_of_custom:
+            # built-in-ul iese din shop; varianta Lua (și rețeta ei) sunt generate mai jos
+            if cur is not None:
+                override[name] = kv.KV([("ItemPurchasable", "0"), ("ShouldBeSuggested", "0")])
+            if recipe_of_custom:
+                blk = old.copy()
+                if "ID" in blk:
+                    del blk["ID"]
+                blk["ItemResult"] = resolve(old.get_str("ItemResult", ""), custom)
+                req = item_requirements_resolved(old, custom)
+                if req is not None:
+                    blk["ItemRequirements"] = req
+                blk["AbilityTextureName"] = "item_recipe"
+                recreate[resolve_item(name, custom)] = blk
+            report["iteme"][name] = {"schimbate": [], "speciale_lipsa": [], "comportament": None, "lua": True}
+            continue
+
         if cur is None:
             if re.search(r"halloween|winter|mystery|greevil|present|banana|candy|diretide|frostivus", name):
                 continue  # iteme de eveniment, irelevante pentru joc
-            # item dispărut: trebuie reimplementat în Lua
-            blk = old.copy()
-            if "ID" in blk:
-                del blk["ID"]
-            if not name.startswith("item_recipe_"):
-                blk["BaseClass"] = "item_lua"
-                blk["ScriptFile"] = f"items/{name}"
-            blk["ItemPurchasable"] = "0"   # devine 1 când scriptul Lua există (vezi docs/STATUS.md)
-            blk["_TODO"] = "reimplementare Lua necesara"
-            recreate[name] = blk
             report["iteme_disparute"].append(name)
             continue
+
         blk = build_ability_override(name, old, cur, ITEM_TOP_KEYS, report["iteme"])
         if blk is None:
             blk = kv.KV()
+        # rețetele care folosesc componente reimplementate în Lua
+        req = item_requirements_resolved(old, custom)
+        if req is not None and (kv.dumps(req) != kv.dumps(old.get_kv("ItemRequirements")) or "ItemRequirements" in blk):
+            blk["ItemRequirements"] = req
         # itemele din 6.88 trebuie să fie cumpărabile (unele au fost scoase din shop între timp)
         if old.get_str("ItemCost") and old.get_str("ItemPurchasable", "1") != "0" and cur.get_str("ItemPurchasable", "1") == "0":
             blk["ItemPurchasable"] = "1"
@@ -438,9 +517,115 @@ def gen_items(I0, IN, custom: set[str], report: dict) -> tuple[kv.KV, kv.KV]:
     return override, recreate
 
 
+def lua_scripts() -> dict[str, str]:
+    """{nume_custom: cale ScriptFile} pentru fiecare fișier Lua dota688_* / item_dota688_* din vscripts."""
+    out: dict[str, str] = {}
+    base = os.path.join(ADDON, "scripts", "vscripts")
+    for p in glob.glob(os.path.join(base, "abilities", "**", "*.lua"), recursive=True) + \
+             glob.glob(os.path.join(base, "items", "**", "*.lua"), recursive=True):
+        n = os.path.splitext(os.path.basename(p))[0]
+        if n.startswith(CUSTOM_ABILITY_PREFIX) or n.startswith(CUSTOM_ITEM_PREFIX):
+            out[n] = os.path.relpath(p, base).replace(os.sep, "/")[:-4]
+    return out
+
+
+def gen_custom_defs(A0, I0, scripts: dict[str, str], custom: set[str]) -> tuple[kv.KV, kv.KV]:
+    """Blocurile KV de bază (din 6.88) pentru reimplementările Lua: BaseClass + ScriptFile + textura originală."""
+    abilities = kv.KV()
+    items = kv.KV()
+    for cname, script in sorted(scripts.items()):
+        if cname.startswith(CUSTOM_ITEM_PREFIX):
+            orig = "item_" + cname[len(CUSTOM_ITEM_PREFIX):]
+            src = I0.get_kv(orig)
+            if src is None:
+                print(f"[gen] avertisment: {cname} nu are corespondent în items.txt 6.88 ({orig})")
+                continue
+            blk = src.copy()
+            if "ID" in blk:
+                del blk["ID"]
+            blk["BaseClass"] = "item_lua"
+            blk["ScriptFile"] = script
+            blk["AbilityTextureName"] = orig
+            req = item_requirements_resolved(src, custom)
+            if req is not None:
+                blk["ItemRequirements"] = req
+            items[cname] = blk
+        else:
+            orig = cname[len(CUSTOM_ABILITY_PREFIX):]
+            src = A0.get_kv(orig)
+            if src is None:
+                # abilitate complet nouă (nu are KV în 6.88) – se definește manual în npc_abilities_custom.txt
+                continue
+            blk = src.copy()
+            if "ID" in blk:
+                del blk["ID"]
+            blk["BaseClass"] = "ability_lua"
+            blk["ScriptFile"] = script
+            blk["AbilityTextureName"] = orig
+            abilities[cname] = blk
+    return abilities, items
+
+
+def gen_localization(scripts: dict[str, str], hero_abilities: set[str], item_names: set[str]) -> None:
+    """Scrie resource/addon_english.txt: tokenii manuali (addon_english.base.txt) + tooltip-urile 6.88."""
+    src = kv.load(os.path.join(REF_OLD, "dota_english.txt"))
+    tokens = src["lang"]["Tokens"]
+    by_lower: dict[str, list[tuple[str, str]]] = {}
+    for k, v in tokens.scalars():
+        kl = k.lower()
+        for pref in ("dota_tooltip_ability_", "dota_tooltip_modifier_"):
+            if kl.startswith(pref):
+                rest = kl[len(pref):]
+                # numele abilității = cel mai lung prefix urmat de _Description / _Note0 / nimic
+                by_lower.setdefault(rest, []).append((k, v))
+    out = kv.KV()
+    base_path = os.path.join(ADDON, "resource", "addon_english.base.txt")
+    if os.path.exists(base_path):
+        for k, v in kv.load(base_path)["lang"]["Tokens"].scalars():
+            out[k] = v
+
+    def copy_tokens(orig: str, target: str) -> None:
+        ol = orig.lower()
+        for rest, pairs in by_lower.items():
+            if rest == ol or rest.startswith(ol + "_"):
+                for k, v in pairs:
+                    nk = k[: len(k) - len(rest)] + target + k[len(k) - len(rest) + len(orig):]
+                    if nk not in out:
+                        out[nk] = v
+
+    for cname in sorted(scripts):
+        if cname.startswith(CUSTOM_ITEM_PREFIX):
+            copy_tokens("item_" + cname[len(CUSTOM_ITEM_PREFIX):], cname)
+        else:
+            copy_tokens(cname[len(CUSTOM_ABILITY_PREFIX):], cname)
+    # rețetele custom
+    for cname in sorted(scripts):
+        if cname.startswith(CUSTOM_ITEM_PREFIX):
+            r = "item_recipe_" + cname[len("item_"):]
+            copy_tokens("item_recipe_" + cname[len(CUSTOM_ITEM_PREFIX):], r)
+    # tooltip-urile 6.88 pentru abilitățile și itemele built-in pe care le suprascriem
+    for n in sorted(hero_abilities | item_names):
+        copy_tokens(n, n)
+    kv.dump_file(kv.KV([("lang", kv.KV([("Language", "English"), ("Tokens", out)]))]),
+                 os.path.join(ADDON, "resource", "addon_english.txt"),
+                 "GENERAT de tools/gen_overrides.py din reference/6.88f/dota_english.txt + addon_english.base.txt. NU EDITA MANUAL.")
+
+
+# Unități din 6.88 care nu mai există, dar de care au nevoie reimplementările Lua (copiate integral din 6.88)
+EXTRA_UNITS = [
+    "npc_dota_beastmaster_boar_1", "npc_dota_beastmaster_boar_2", "npc_dota_beastmaster_boar_3", "npc_dota_beastmaster_boar_4",
+    "npc_dota_beastmaster_hawk_1", "npc_dota_beastmaster_hawk_2", "npc_dota_beastmaster_hawk_3", "npc_dota_beastmaster_hawk_4",
+]
+
+
 def gen_units(U0, UN, report: dict) -> kv.KV:
     out = kv.KV()
     base0 = U0.get_kv("npc_dota_units_base")
+    for name in EXTRA_UNITS:
+        old = U0.get_kv(name)
+        if old is not None and UN.get_kv(name) is None:
+            out[name] = old.copy()
+            report["unitati"][name] = ["(copiat integral din 6.88)"]
     for name, old in U0.blocks():
         if not name.startswith(UNIT_PREFIXES):
             continue
@@ -496,6 +681,12 @@ def write_status(report: dict, hero_list: list[str]) -> None:
         fb = ", ".join(f"`{a}` → `{h['fallback'].get(a, '—')}`" for a in h["abilitati_lipsa"]) or "—"
         L.append(f"| {name.replace('npc_dota_hero_', '')} | {len(h['abilitati_ok'])} | {len(h['abilitati_custom'])} | {fb} |")
     L.append("")
+    lua_ab = sorted(n for n, d in report["abilitati"].items() if d.get("lua"))
+    lua_it = sorted(n for n, d in report["iteme"].items() if d.get("lua"))
+    L.append("## Reimplementate în Lua (6.88 fidel)\n")
+    L.append(f"* Abilități de erou: **{len(lua_ab)}** – " + ", ".join(f"`{n}`" for n in lua_ab))
+    L.append(f"* Iteme: **{len(lua_it)}** – " + ", ".join(f"`{n}`" for n in lua_it))
+    L.append("")
     L.append("## Abilități de erou care nu mai există în joc (trebuie rescrise în Lua)\n")
     missing_by_hero = [(n.replace("npc_dota_hero_", ""), a) for n, h in heroes.items() for a in h["abilitati_lipsa"]]
     L.append(f"Total: **{len(missing_by_hero)}**\n")
@@ -505,7 +696,7 @@ def write_status(report: dict, hero_list: list[str]) -> None:
     L.append("## Abilități existente, dar cu valori speciale dispărute (comportament probabil schimbat)\n")
     L.append("Aceste abilități există încă, însă unele valori din 6.88 nu mai au corespondent; ")
     L.append("de verificat în joc dacă mecanica s‑a schimbat și, dacă da, de rescris în Lua.\n")
-    rows = [(n, d) for n, d in report["abilitati"].items() if d["speciale_lipsa"]]
+    rows = [(n, d) for n, d in report["abilitati"].items() if d["speciale_lipsa"] and not d.get("lua")]
     L.append(f"Total: **{len(rows)}**\n")
     for n, d in sorted(rows):
         L.append(f"* `{n}`: " + ", ".join(d["speciale_lipsa"]))
@@ -540,7 +731,8 @@ def write_status(report: dict, hero_list: list[str]) -> None:
 def main() -> None:
     H0, A0, I0, U0 = load_old()
     HN, AN, IN, UN = load_now()
-    custom = load_custom_names()
+    scripts = lua_scripts()
+    custom = load_custom_names() | set(scripts)
     report = {
         "eroi": {}, "eroi_noi_dezactivati": [], "erou_disparut": [],
         "abilitati": {}, "abilitati_inexistente": [],
@@ -571,8 +763,15 @@ def main() -> None:
         merged[k] = v
     kv.dump_file(kv.KV([("DOTAAbilities", merged)]), os.path.join(NPC, "npc_abilities_override.txt"), HEADER)
 
-    kv.dump_file(kv.KV([("DOTAAbilities", item_recreate)]), os.path.join(NPC, "npc_items_generated.txt"),
-                 HEADER + "\nIteme din 6.88 care nu mai exista in joc. Inclus din npc_items_custom.txt prin #base.")
+    custom_abilities, custom_items = gen_custom_defs(A0, I0, scripts, custom)
+    for k, v in item_recreate.items:
+        custom_items[k] = v
+    kv.dump_file(kv.KV([("DOTAAbilities", custom_items)]), os.path.join(NPC, "npc_items_generated.txt"),
+                 HEADER + "\nBlocurile de baza (KV 6.88) ale itemelor reimplementate in Lua + retetele lor. Inclus din npc_items_custom.txt prin #base.")
+    kv.dump_file(kv.KV([("DOTAAbilities", custom_abilities)]), os.path.join(NPC, "npc_abilities_generated.txt"),
+                 HEADER + "\nBlocurile de baza (KV 6.88) ale abilitatilor reimplementate in Lua. Inclus din npc_abilities_custom.txt prin #base.")
+    hero_abils = {a for h in report["eroi"].values() for a in h["abilitati_ok"]}
+    gen_localization(scripts, hero_abils, {n for n, _ in I0.blocks() if IN.get_kv(n) is not None})
     kv.dump_file(kv.KV([("DOTAUnits", units)]), os.path.join(NPC, "npc_units_custom.txt"), HEADER)
 
     wl = kv.KV([(n, "1") for n in hero_list])
@@ -581,7 +780,8 @@ def main() -> None:
     write_status(report, hero_list)
     print(f"eroi: {len(hero_list)} activi, {len(report['eroi_noi_dezactivati'])} dezactivați")
     print(f"abilități override: {len(abilities)}; inexistente: {len(report['abilitati_inexistente'])}")
-    print(f"iteme override: {len(item_over)}; de reimplementat: {len(report['iteme_disparute'])}; noi dezactivate: {len(report['iteme_noi_dezactivate'])}")
+    print(f"iteme override: {len(item_over)}; disparute: {len(report['iteme_disparute'])}; noi dezactivate: {len(report['iteme_noi_dezactivate'])}")
+    print(f"reimplementari Lua: {len(scripts)} ({sum(1 for n in scripts if n.startswith(CUSTOM_ITEM_PREFIX))} iteme)")
     print(f"unități: {len(units)}; inexistente: {len(report['unitati_inexistente'])}")
 
 

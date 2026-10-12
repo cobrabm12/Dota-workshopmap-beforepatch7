@@ -1,5 +1,6 @@
 // Iteme proprii addon-ului Dota 6.88.
-// npc_items_generated.txt este produs de tools/gen_overrides.py (iteme din 6.88 care nu mai exista in joc).
+// Reimplementarile Lua se numesc item_dota688_<nume> (fisier in vscripts/items/); blocul KV de baza (din 6.88)
+// si reteta lor sunt generate in npc_items_generated.txt de tools/gen_overrides.py.
 #base "npc_items_generated.txt"
 "DOTAAbilities"
 {

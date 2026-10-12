@@ -1,0 +1,9 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/hud_688.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/hud_688.js" />
+	</scripts>
+	<Panel class="Dota688Hud" hittest="false" />
+</root>

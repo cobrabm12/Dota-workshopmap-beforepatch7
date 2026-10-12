@@ -1,6 +1,8 @@
 // Abilitati proprii addon-ului Dota 6.88.
-// Abilitatile de erou din 6.88 care nu mai exista in joc se rescriu aici (BaseClass ability_lua);
-// generatorul (tools/gen_overrides.py) le detecteaza automat dupa nume si le pune in sloturile eroului.
+// Reimplementarile Lua ale abilitatilor de erou se numesc dota688_<nume_original> (fisier in vscripts/abilities/);
+// blocul lor KV de baza (din 6.88) este generat in npc_abilities_generated.txt de tools/gen_overrides.py.
+// Aici se definesc doar abilitatile noi (fara corespondent in 6.88) si eventuale corectii peste cele generate.
+#base "npc_abilities_generated.txt"
 "DOTAAbilities"
 {
 	"Version"		"1"

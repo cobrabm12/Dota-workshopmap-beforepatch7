@@ -1,0 +1,12 @@
+"lang"
+{
+	"Language"		"English"
+	"Tokens"
+	{
+		"addon_game_name"							"Dota 6.88 Classic"
+		"DOTA_Tooltip_ability_dota688_attribute_bonus"				"Attribute Bonus"
+		"DOTA_Tooltip_ability_dota688_attribute_bonus_Description"	"Increases Strength, Agility and Intelligence by 2 per level (pre-7.00 stats)."
+		"DOTA_Tooltip_ability_dota688_empty"						""
+		"dota688_rules_title"						"Dota 6.88 rules"
+	}
+}
