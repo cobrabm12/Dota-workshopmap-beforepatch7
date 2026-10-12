@@ -591,8 +591,14 @@ def gen_shops(custom: set[str]) -> None:
 
 
 def gen_localization(scripts: dict[str, str], hero_abilities: set[str], item_names: set[str]) -> None:
-    """Scrie resource/addon_english.txt: tokenii manuali (addon_english.base.txt) + tooltip-urile 6.88."""
-    src = kv.load(os.path.join(REF_OLD, "dota_english.txt"))
+    for lang in ("english", "romanian"):
+        if os.path.exists(os.path.join(REF_OLD, f"dota_{lang}.txt")):
+            gen_localization_lang(lang, scripts, hero_abilities, item_names)
+
+
+def gen_localization_lang(lang: str, scripts: dict[str, str], hero_abilities: set[str], item_names: set[str]) -> None:
+    """Scrie resource/addon_<lang>.txt: tokenii manuali (addon_<lang>.base.txt) + tooltip-urile 6.88 în limba respectivă."""
+    src = kv.load(os.path.join(REF_OLD, f"dota_{lang}.txt"))
     tokens = src["lang"]["Tokens"]
     by_lower: dict[str, list[tuple[str, str]]] = {}
     for k, v in tokens.scalars():
@@ -603,7 +609,7 @@ def gen_localization(scripts: dict[str, str], hero_abilities: set[str], item_nam
                 # numele abilității = cel mai lung prefix urmat de _Description / _Note0 / nimic
                 by_lower.setdefault(rest, []).append((k, v))
     out = kv.KV()
-    base_path = os.path.join(ADDON, "resource", "addon_english.base.txt")
+    base_path = os.path.join(ADDON, "resource", f"addon_{lang}.base.txt")
     if os.path.exists(base_path):
         for k, v in kv.load(base_path)["lang"]["Tokens"].scalars():
             out[k] = v
@@ -630,9 +636,9 @@ def gen_localization(scripts: dict[str, str], hero_abilities: set[str], item_nam
     # tooltip-urile 6.88 pentru abilitățile și itemele built-in pe care le suprascriem
     for n in sorted(hero_abilities | item_names):
         copy_tokens(n, n)
-    kv.dump_file(kv.KV([("lang", kv.KV([("Language", "English"), ("Tokens", out)]))]),
-                 os.path.join(ADDON, "resource", "addon_english.txt"),
-                 "GENERAT de tools/gen_overrides.py din reference/6.88f/dota_english.txt + addon_english.base.txt. NU EDITA MANUAL.")
+    kv.dump_file(kv.KV([("lang", kv.KV([("Language", lang.capitalize()), ("Tokens", out)]))]),
+                 os.path.join(ADDON, "resource", f"addon_{lang}.txt"),
+                 f"GENERAT de tools/gen_overrides.py din reference/6.88f/dota_{lang}.txt + addon_{lang}.base.txt. NU EDITA MANUAL.")
 
 
 # Unități din 6.88 care nu mai există, dar de care au nevoie reimplementările Lua (copiate integral din 6.88)

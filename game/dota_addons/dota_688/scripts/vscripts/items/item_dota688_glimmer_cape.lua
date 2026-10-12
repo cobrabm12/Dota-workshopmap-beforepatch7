@@ -12,7 +12,7 @@ Dota688DefineItem("item_dota688_glimmer_cape", "items/item_dota688_glimmer_cape"
 })
 modifier_dota688_glimmer = class({})
 function modifier_dota688_glimmer:IsPurgable() return true end
-function modifier_dota688_glimmer:GetEffectName() return "particles/items_fx/glimmer_cape_initial_flash.vpcf" end
+function modifier_dota688_glimmer:GetEffectName() return "particles/items3_fx/glimmer_cape_initial_flash.vpcf" end
 function modifier_dota688_glimmer:OnCreated() self.start = GameRules:GetGameTime() end
 function modifier_dota688_glimmer:Faded() return GameRules:GetGameTime() - (self.start or 0) >= self:GetAbility():GetSpecialValueFor("fade_delay") end
 function modifier_dota688_glimmer:CheckState() return { [MODIFIER_STATE_INVISIBLE] = self:Faded() } end

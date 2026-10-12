@@ -21,7 +21,6 @@ end
 modifier_dota688_meepo_geostrike_debuff = class({})
 function modifier_dota688_meepo_geostrike_debuff:IsDebuff() return true end
 function modifier_dota688_meepo_geostrike_debuff:IsPurgable() return true end
-function modifier_dota688_meepo_geostrike_debuff:GetEffectName() return "particles/units/heroes/hero_meepo/meepo_geostrike_debuff.vpcf" end
 function modifier_dota688_meepo_geostrike_debuff:OnCreated()
 	self.slow = self:GetAbility():GetSpecialValueFor("slow")
 	self.tick = 0.5

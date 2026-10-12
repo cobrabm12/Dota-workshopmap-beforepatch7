@@ -37,7 +37,7 @@ Dota688DefineItem("item_dota688_guardian_greaves", "items/item_dota688_guardian_
 				u:Heal(self:GetSpecialValueFor("replenish_health"), self)
 				u:GiveMana(self:GetSpecialValueFor("replenish_mana"))
 				if u == caster then u:Purge(false, true, false, false, false) end
-				local fx = ParticleManager:CreateParticle("particles/items4_fx/guardian_greaves.vpcf", PATTACH_ABSORIGIN_FOLLOW, u)
+				local fx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, u)
 				ParticleManager:ReleaseParticleIndex(fx)
 			end
 		end,

@@ -46,7 +46,7 @@ end
 
 modifier_dota688_abaddon_frostmourne_buff = class({})
 function modifier_dota688_abaddon_frostmourne_buff:IsPurgable() return true end
-function modifier_dota688_abaddon_frostmourne_buff:GetEffectName() return "particles/units/heroes/hero_abaddon/abaddon_frost_speed.vpcf" end
+function modifier_dota688_abaddon_frostmourne_buff:GetEffectName() return "particles/units/heroes/hero_abaddon/abaddon_frost_buff.vpcf" end
 function modifier_dota688_abaddon_frostmourne_buff:OnCreated()
 	local a = self:GetAbility()
 	self.ms = a:GetSpecialValueFor("move_speed_pct")

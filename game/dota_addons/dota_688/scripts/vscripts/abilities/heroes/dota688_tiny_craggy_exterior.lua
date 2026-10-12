@@ -24,6 +24,6 @@ function modifier_dota688_tiny_craggy_exterior:OnAttackLanded(params)
 	attacker:AddNewModifier(parent, a, "modifier_stunned", { duration = a:GetSpecialValueFor("stun_duration") })
 	ApplyDamage({ victim = attacker, attacker = parent, damage = a:GetAbilityDamage(), damage_type = a:GetAbilityDamageType(), ability = a })
 	attacker:EmitSound("Hero_Tiny.CraggyExterior")
-	local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_tiny/tiny_craggy_exterior.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
+	local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_tiny/tiny_craggy_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
 	ParticleManager:ReleaseParticleIndex(fx)
 end

@@ -22,7 +22,7 @@ function modifier_dota688_legion_commander_moment_of_courage:OnAttacked(params)
 	ability:UseResources(false, false, false, true)
 	parent:AddNewModifier(parent, ability, "modifier_dota688_legion_commander_moment_of_courage_lifesteal", { duration = ability:GetSpecialValueFor("buff_duration") })
 	parent:EmitSound("Hero_LegionCommander.Courage")
-	local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_legion_commander/legion_commander_courage.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+	local fx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
 	ParticleManager:ReleaseParticleIndex(fx)
 	parent:PerformAttack(attacker, true, true, true, false, false, false, false)
 end

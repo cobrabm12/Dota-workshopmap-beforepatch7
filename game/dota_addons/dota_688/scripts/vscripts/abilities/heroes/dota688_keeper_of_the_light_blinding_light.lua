@@ -5,7 +5,7 @@ function dota688_keeper_of_the_light_blinding_light:GetAOERadius() return self:G
 function dota688_keeper_of_the_light_blinding_light:OnSpellStart()
 	local caster, pos = self:GetCaster(), self:GetCursorPosition()
 	EmitSoundOnLocationWithCaster(pos, "Hero_KeeperOfTheLight.BlindingLight", caster)
-	local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_blinding_light.vpcf", PATTACH_WORLDORIGIN, nil)
+	local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_blinding_light_aoe.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(fx, 0, pos); ParticleManager:ReleaseParticleIndex(fx)
 	for _, e in ipairs(FindUnitsInRadius(caster:GetTeamNumber(), pos, nil, self:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY,
 		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do

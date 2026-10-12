@@ -22,3 +22,12 @@ git log -1 --format='%H %ad' > ../reference/current/SOURCE_COMMIT.txt
 
 Referința 6.88f vine din commit‑ul `6aa033b2` (11 dec 2016) al aceluiași repo – primul commit, exact
 build‑ul 6.88f dinaintea lui 7.00 (12 dec 2016).
+
+## Verificarea resurselor (particule/modele) și a localizării
+
+`tools/check_addon.py` verifică și căile de particule/modele din Lua dacă există `build/pak01_listing.txt`
+(nu este comis; se obține cu `git show HEAD:game/dota/pak01_dir.txt > build/pak01_listing.txt` din clona GameTracking-Dota2).
+Numele evenimentelor de sunet (`EmitSound`) nu pot fi verificate offline (fișierele `.vsndevts` sunt compilate); un nume
+greșit produce doar un avertisment în consolă, nu o eroare.
+
+Localizarea se generează pentru engleză și română din `reference/6.88f/dota_<limba>.txt` + `resource/addon_<limba>.base.txt`.

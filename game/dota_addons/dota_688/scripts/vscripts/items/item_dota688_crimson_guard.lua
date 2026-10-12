@@ -26,7 +26,6 @@ Dota688DefineItem("item_dota688_crimson_guard", "items/item_dota688_crimson_guar
 })
 modifier_dota688_crimson_active = class({})
 function modifier_dota688_crimson_active:IsPurgable() return false end
-function modifier_dota688_crimson_active:GetEffectName() return "particles/items2_fx/crimson_guard_active.vpcf" end
 function modifier_dota688_crimson_active:DeclareFunctions() return { MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT, MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS } end
 function modifier_dota688_crimson_active:GetModifierPhysicalArmorBonus() return self:GetAbility():GetSpecialValueFor("bonus_aoe_armor") end
 function modifier_dota688_crimson_active:GetModifierIncomingDamageConstant(params)

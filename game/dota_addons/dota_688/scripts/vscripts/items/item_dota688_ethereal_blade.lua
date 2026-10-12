@@ -28,7 +28,6 @@ Dota688DefineItem("item_dota688_ethereal_blade", "items/item_dota688_ethereal_bl
 modifier_dota688_ethereal = class({})
 function modifier_dota688_ethereal:IsPurgable() return true end
 function modifier_dota688_ethereal:IsDebuff() return self:GetParent():GetTeamNumber() ~= self:GetCaster():GetTeamNumber() end
-function modifier_dota688_ethereal:GetEffectName() return "particles/items_fx/ethereal_blade_slow.vpcf" end
 function modifier_dota688_ethereal:GetStatusEffectName() return "particles/status_fx/status_effect_ghost.vpcf" end
 function modifier_dota688_ethereal:CheckState() return { [MODIFIER_STATE_DISARMED] = true, [MODIFIER_STATE_ATTACK_IMMUNE] = true } end
 function modifier_dota688_ethereal:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS } end

@@ -14,7 +14,6 @@ Dota688DefineItem("item_dota688_sheepstick", "items/item_dota688_sheepstick", {
 modifier_dota688_hex = class({})
 function modifier_dota688_hex:IsDebuff() return true end
 function modifier_dota688_hex:IsPurgable() return true end
-function modifier_dota688_hex:GetEffectName() return "particles/generic_gameplay/generic_hex.vpcf" end
 function modifier_dota688_hex:OnCreated()
 	if IsServer() then
 		self:GetParent():Purge(true, false, false, false, false)   -- scoate buff-urile (ca hex-ul standard)

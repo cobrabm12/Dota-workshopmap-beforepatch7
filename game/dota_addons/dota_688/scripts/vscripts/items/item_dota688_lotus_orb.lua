@@ -13,7 +13,6 @@ Dota688DefineItem("item_dota688_lotus_orb", "items/item_dota688_lotus_orb", {
 })
 modifier_dota688_echo_shell = class({})
 function modifier_dota688_echo_shell:IsPurgable() return false end
-function modifier_dota688_echo_shell:GetEffectName() return "particles/items2_fx/lotus_orb_shield.vpcf" end
 function modifier_dota688_echo_shell:DeclareFunctions() return { MODIFIER_PROPERTY_REFLECT_SPELL } end
 function modifier_dota688_echo_shell:GetReflectSpell(params)
 	-- Reflectarea completa a vrajilor necesita copierea abilitatii pe tinta (ca in C++); TODO.

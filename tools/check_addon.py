@@ -123,6 +123,18 @@ def main():
             elif name not in known_units:
                 err(f"{path}.lua: unitatea {name} nu există")
 
+    # particule/modele referite din Lua (opțional: build/pak01_listing.txt = `git show HEAD:game/dota/pak01_dir.txt` din GameTracking-Dota2)
+    listing = os.path.join(ROOT, "build", "pak01_listing.txt")
+    if os.path.exists(listing):
+        files = set(re.findall(r"^(\S+)", open(listing, encoding="utf-8", errors="replace").read().lower(), re.M))
+        for path, text in lua_text.items():
+            for m in re.finditer(r'"((?:particles|models)/[^"]+\.(?:vpcf|vmdl))"', text):
+                r = m.group(1).lower()
+                if r not in files and (r + "_c") not in files:
+                    err(f"{path}.lua: resursa {m.group(1)} nu există în clientul curent")
+    else:
+        warn("build/pak01_listing.txt lipsă: particulele/modelele referite din Lua nu au fost verificate")
+
     # sintaxă Lua
     try:
         from luaparser import ast  # type: ignore

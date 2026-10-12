@@ -13,7 +13,6 @@ Dota688DefineItem("item_dota688_skadi", "items/item_dota688_skadi", {
 modifier_dota688_skadi_cold = class({})
 function modifier_dota688_skadi_cold:IsDebuff() return true end
 function modifier_dota688_skadi_cold:IsPurgable() return true end
-function modifier_dota688_skadi_cold:GetEffectName() return "particles/items2_fx/skadi_slow.vpcf" end
 function modifier_dota688_skadi_cold:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT } end
 function modifier_dota688_skadi_cold:GetModifierMoveSpeedBonus_Percentage() return self:GetAbility():GetSpecialValueFor("cold_movement_speed") end
 function modifier_dota688_skadi_cold:GetModifierAttackSpeedBonus_Constant() return self:GetAbility():GetSpecialValueFor("cold_attack_speed") end

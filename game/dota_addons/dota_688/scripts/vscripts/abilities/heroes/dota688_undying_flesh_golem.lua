@@ -19,7 +19,6 @@ function modifier_dota688_flesh_golem:GetModifierModelChange() return "models/he
 modifier_dota688_flesh_golem_plague = class({})
 function modifier_dota688_flesh_golem_plague:IsDebuff() return true end
 function modifier_dota688_flesh_golem_plague:IsPurgable() return false end
-function modifier_dota688_flesh_golem_plague:GetEffectName() return "particles/units/heroes/hero_undying/undying_fg_debuff.vpcf" end
 function modifier_dota688_flesh_golem_plague:Factor()
 	local a, c = self:GetAbility(), self:GetCaster()
 	if not c or c:IsNull() then return 0 end

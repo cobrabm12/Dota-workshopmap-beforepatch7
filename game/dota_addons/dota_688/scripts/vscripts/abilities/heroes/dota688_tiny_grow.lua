@@ -5,7 +5,7 @@ function dota688_tiny_grow:GetIntrinsicModifierName() return "modifier_dota688_t
 function dota688_tiny_grow:OnUpgrade()
 	local caster = self:GetCaster()
 	caster:EmitSound("Hero_Tiny.Grow")
-	local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_tiny/tiny_grow.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_tiny/tiny_grow_hero_effect.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:ReleaseParticleIndex(fx)
 end
 

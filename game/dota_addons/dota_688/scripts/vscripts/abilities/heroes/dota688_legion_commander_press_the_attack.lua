@@ -9,7 +9,7 @@ function dota688_legion_commander_press_the_attack:OnSpellStart()
 end
 modifier_dota688_legion_commander_press_the_attack = class({})
 function modifier_dota688_legion_commander_press_the_attack:IsPurgable() return true end
-function modifier_dota688_legion_commander_press_the_attack:GetEffectName() return "particles/units/heroes/hero_legion_commander/legion_commander_presstheattack.vpcf" end
+function modifier_dota688_legion_commander_press_the_attack:GetEffectName() return "particles/units/heroes/hero_legion_commander/legion_commander_press.vpcf" end
 function modifier_dota688_legion_commander_press_the_attack:DeclareFunctions() return { MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT, MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT } end
 function modifier_dota688_legion_commander_press_the_attack:GetModifierAttackSpeedBonus_Constant() return self:GetAbility():GetSpecialValueFor("attack_speed") end
 function modifier_dota688_legion_commander_press_the_attack:GetModifierConstantHealthRegen() return self:GetAbility():GetSpecialValueFor("hp_regen") end

@@ -38,7 +38,6 @@ Dota688DefineItem("item_dota688_pipe", "items/item_dota688_pipe", {
 })
 modifier_dota688_pipe_barrier = class({})
 function modifier_dota688_pipe_barrier:IsPurgable() return false end
-function modifier_dota688_pipe_barrier:GetEffectName() return "particles/items_fx/pipe_of_insight.vpcf" end
 function modifier_dota688_pipe_barrier:OnCreated()
 	local a = self:GetAbility()
 	self.left = self:GetParent():IsHero() and a:GetSpecialValueFor("barrier_block") or a:GetSpecialValueFor("barrier_block_creep")

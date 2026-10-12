@@ -21,7 +21,7 @@ function modifier_dota688_od_essence_aura_effect:OnAbilityExecuted(params)
 	local a = self:GetAbility()
 	if RollPseudoRandomPercentage(a:GetSpecialValueFor("restore_chance"), DOTA_PSEUDO_RANDOM_NONE, self:GetParent()) then
 		self:GetParent():GiveMana(self:GetParent():GetMaxMana() * a:GetSpecialValueFor("restore_amount") / 100)
-		local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_essence_aura.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local fx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:ReleaseParticleIndex(fx)
 	end
 end
