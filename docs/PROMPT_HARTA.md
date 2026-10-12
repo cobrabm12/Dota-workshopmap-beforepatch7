@@ -80,9 +80,11 @@ Reguli:
 Pașii:
 1. Unelte, în `C:\dota688_tools\`: DepotDownloader (release windows-x64, https://github.com/SteamRE/DepotDownloader/releases)
    și Source 2 Viewer, atât GUI-ul cât și CLI-ul (https://github.com/ValveResourceFormat/ValveResourceFormat/releases). Verifică-le.
-2. Manifest: depot `<DEPOT>`, manifest `<MANIFEST>` (7 dec 2016, de pe https://steamdb.info/app/570/depots/). Verifică cu
+2. Manifest: depot `373301` (Dota 2 Content), manifest candidat `6583592615927321343` (de pe
+   https://steamdb.info/depot/373301/history/?changeid=M:6583592615927321343 – verifică pe pagină că data este 7 dec 2016,
+   înainte de 7.00 din 12 dec 2016; dacă nu, ia manifestul corect din tab-ul Manifests). Verifică cu
    `-manifest-only` că manifestul conține `game/dota/pak01_dir.vpk`; dacă nu, încearcă celelalte depoturi de conținut (373301–373306).
-3. Descărcare: `DepotDownloader -app 570 -depot <DEPOT> -manifest <MANIFEST> -username <CONT> -remember-password
+3. Descărcare: `DepotDownloader -app 570 -depot 373301 -manifest 6583592615927321343 -username <CONT> -remember-password
    -filelist pak01.txt -dir C:\dota688_depot`, cu `pak01.txt` conținând `regex:game/dota/pak01_.*\.vpk`. Spune-mi dimensiunea înainte.
 4. Decompilare: încearcă întâi CLI-ul (`Source2Viewer-CLI -i C:\dota688_depot\game\dota\pak01_dir.vpk -f maps/dota.vmap_c -d -o C:\dota688_depot\export`).
    Dacă nu produce `.vmap`, deschide GUI-ul Source 2 Viewer, deschide `pak01_dir.vpk`, mergi la `maps/dota.vmap_c`, click dreapta →
