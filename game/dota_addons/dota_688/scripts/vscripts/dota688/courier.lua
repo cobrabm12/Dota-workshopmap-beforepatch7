@@ -35,6 +35,7 @@ function M:Deploy(item)
 	local team = caster:GetTeamNumber()
 	local c = CreateUnitByName("npc_dota_courier", caster:GetAbsOrigin() + caster:GetForwardVector() * 100, true, nil, nil, team)
 	if not c then return end
+	if caster:IsRealHero() then c:SetOwner(caster) end
 	for _, pid in ipairs(team_players(team)) do c:SetControllableByPlayer(pid, true) end
 	for _, name in ipairs(self.MODERN_ABILITIES) do
 		local a = c:FindAbilityByName(name)
@@ -50,6 +51,22 @@ function M:Deploy(item)
 	local burst = c:FindAbilityByName("courier_burst")
 	if burst then burst:SetLevel(0) end   -- doar curierul zburator are burst
 	caster:RemoveItem(item)
+end
+
+-- Proprietarul curierului echipei = jucatorul care ii da ultima comanda. Fara proprietar, clientul nu vede itemele
+-- cumparate prin curier (ex. la secret shop) ca fiind ale jucatorului, iar quickbuy-ul ("mark for buy") le cumpara
+-- in bucla (testat: 6 Point Booster). SetOwner nu leaga nivelul curierului de erou (testat: ramane la nivelul 1).
+function M:OrderFilter(ev)
+	local pid = ev.issuer_player_id_const
+	if pid == nil or pid < 0 then return end
+	local hero = PlayerResource:GetSelectedHeroEntity(pid)
+	if not hero then return end
+	for _, idx in pairs(ev.units or {}) do
+		local u = EntIndexToHScript(idx)
+		if u and not u:IsNull() and u.IsCourier and u:IsCourier() and u:GetTeamNumber() == hero:GetTeamNumber() and u:GetOwner() ~= hero then
+			u:SetOwner(hero)
+		end
+	end
 end
 
 -- item_dota688_flying_courier (pasiv in 6.88): transforma Animal Courier-ul echipei in Flying Courier

@@ -13,6 +13,7 @@ require("dota688/map_688")
 require("dota688/selection")
 require("dota688/buildings")
 require("dota688/creeps")
+require("dota688/courier")
 
 require("dota688/modifiers_link")
 
@@ -217,6 +218,7 @@ end
 function Dota688:OrderFilter(ev)
 	if MODERN_ORDERS[ev.order_type] then return false end
 	if not Dota688Buildings:OrderFilter(ev) then return false end
+	Dota688Courier:OrderFilter(ev)
 	Dota688Selection:OrderFilter(ev)
 	return Dota688Aghanim.OrderFilter(ev)
 end
