@@ -138,229 +138,147 @@ Total: **0**
 Aceste abilități există încă, însă unele valori din 6.88 nu mai au corespondent; 
 de verificat în joc dacă mecanica s‑a schimbat și, dacă da, de rescris în Lua.
 
-Total: **221**
+Total cu valori reale lipsă: **139** (alte 82 au doar chei de tooltip/Aghanim lipsă – irelevante)
 
-* `abaddon_borrowed_time`: duration_scepter, redirect, redirect_pct_tooltip_scepter, redirect_range_tooltip_scepter
+* `abaddon_borrowed_time`: redirect
 * `abaddon_death_coil`: heal_amount, projectile_speed, target_damage
 * `abyssal_underlord_firestorm`: first_wave_delay
 * `alchemist_unstable_concoction_throw`: movement_speed, vision_range
-* `ancient_apparition_cold_feet`: cast_range_tooltip, damage
-* `ancient_apparition_ice_blast`: dot_damage, frostbite_duration_scepter
+* `ancient_apparition_cold_feet`: damage
+* `ancient_apparition_ice_blast`: dot_damage
 * `antimage_blink`: blink_range
 * `antimage_mana_break`: damage_per_burn
-* `arc_warden_flux`: cast_range_tooltip
 * `arc_warden_spark_wraith`: activation_delay, spark_damage, wraith_speed
-* `axe_culling_blade`: atk_speed_bonus_tooltip, cooldown_scepter, kill_threshold, kill_threshold_scepter, speed_duration_scepter
-* `bane_brain_sap`: tooltip_brain_sap_heal_amt
-* `bane_fiends_grip`: fiend_grip_damage_scepter, fiend_grip_duration, fiend_grip_duration_scepter, fiend_grip_mana_drain_scepter
-* `bane_nightmare`: cast_range_tooltip, duration, nightmare_dot_interval
-* `batrider_flamebreak`: damage_total_tooltip, knockback_max_distance
-* `batrider_flaming_lasso`: damage_scepter, grab_radius, grab_radius_scepter
-* `beastmaster_call_of_the_wild`: boar_duration, hawk_daysight_tooltip, hawk_duration, hawk_hp_tooltip, hawk_nightsight_tooltip, hawk_speed_tooltip
-* `beastmaster_hawk_invisibility`: fade_tooltip, idle_invis_delay
-* `beastmaster_primal_roar`: cast_range_scepter, cooldown_scepter
+* `axe_culling_blade`: kill_threshold
+* `bane_fiends_grip`: fiend_grip_duration
+* `bane_nightmare`: duration, nightmare_dot_interval
+* `batrider_flamebreak`: knockback_max_distance
+* `batrider_flaming_lasso`: grab_radius
+* `beastmaster_call_of_the_wild`: boar_duration, hawk_duration
+* `beastmaster_hawk_invisibility`: idle_invis_delay
 * `big_thunder_lizard_wardrums_aura`: damage_bonus
 * `black_dragon_splash_attack`: damage_percent_close, damage_percent_far, damage_percent_mid, range_close, range_far, range_mid
-* `bloodseeker_rupture`: cast_range_tooltip, charge_restore_time_scepter, damage_cap_interval, max_charges_scepter
+* `bloodseeker_rupture`: damage_cap_interval
 * `bloodseeker_thirst`: bonus_damage
-* `bounty_hunter_track`: aura_radius, bonus_move_speed_pct, cast_range_tooltip
+* `bounty_hunter_track`: aura_radius, bonus_move_speed_pct
 * `bounty_hunter_wind_walk`: bonus_damage
 * `brewmaster_drunken_haze`: duration_creeps, radius
 * `brewmaster_thunder_clap`: duration_creeps
-* `bristleback_viscous_nasal_goo`: goo_duration_creep, radius_scepter
+* `bristleback_viscous_nasal_goo`: goo_duration_creep
 * `broodmother_poison_sting`: damage_per_second
-* `broodmother_spin_web`: charge_restore_time, damage_time, fade_delay, heath_regen, invis_movespeed_tooltip, max_charges
-* `centaur_stampede`: cooldown_scepter, damage_reduction_tooltip_scepter
-* `chaos_knight_phantasm`: extra_phantasm_chance_pct_tooltip
+* `broodmother_spin_web`: charge_restore_time, damage_time, fade_delay, heath_regen, max_charges
 * `chaos_knight_reality_rift`: bonus_damage, bonus_duration, cast_range
-* `chen_hand_of_god`: ancient_creeps_scepter
 * `courier_burst`: damage_absorb
 * `courier_take_stash_and_transfer_items`: handoff_distance
 * `courier_take_stash_items`: stash_pickup_distance
 * `courier_transfer_items`: handoff_distance
-* `crystal_maiden_freezing_field`: attack_slow_scepter, damage_scepter, duration_tooltip, explosion_interval, movespeed_slow_scepter
-* `crystal_maiden_frostbite`: creep_damage_tooltip, creep_duration, damage, damage_per_second_tooltip, hero_damage_tooltip
-* `dark_seer_wall_of_replica`: damage, range_tooltip, replica_damage_outgoing_scepter, tooltip_outgoing_scepter
-* `dazzle_shallow_grave`: duration_tooltip, range_tooltip
-* `dazzle_weave`: armor_per_second_scepter, duration_scepter, radius_scepter
+* `crystal_maiden_freezing_field`: explosion_interval
+* `crystal_maiden_frostbite`: creep_duration, damage
+* `dark_seer_wall_of_replica`: damage
 * `death_prophet_spirit_siphon`: charge_restore_time, max_charges, movement_slow
-* `disruptor_static_storm`: duration_scepter, pulses_scepter
 * `disruptor_thunder_strike`: duration
 * `doom_bringer_devour`: health_per_second
-* `doom_bringer_doom`: damage_scepter, duration_scepter
 * `dragon_knight_elder_dragon_form`: corrosive_breath_damage, corrosive_breath_duration, frost_aoe, splash_damage_percent, splash_radius
-* `drow_ranger_frost_arrows`: frost_arrows_creep_duration, frost_arrows_hero_duration_tooltip
+* `drow_ranger_frost_arrows`: frost_arrows_creep_duration
 * `drow_ranger_silence`: duration
-* `drow_ranger_wave_of_silence`: wave_range_tooltip
 * `earth_spirit_geomagnetic_grip`: miss_duration, miss_rate
 * `earth_spirit_rolling_boulder`: move_slow, rock_distance, slow_duration
 * `earth_spirit_stone_caller`: charge_restore_time, max_charges
-* `earthshaker_aftershock`: tooltip_duration
-* `earthshaker_enchant_totem`: aftershock_range, distance_scepter, duration, tooltip_duration
+* `earthshaker_enchant_totem`: aftershock_range, duration
 * `earthshaker_fissure`: fissure_range
-* `elder_titan_earth_splitter`: slow_duration_scepter
 * `ember_spirit_fire_remnant`: charge_restore_time, max_charges
-* `ember_spirit_searing_chains`: chains_damage, total_damage_tooltip
-* `enchantress_enchant`: tooltip_duration
-* `enchantress_impetus`: bonus_attack_range_scepter
-* `enigma_demonic_conversion`: duration_tooltip, eidolon_dmg_tooltip, eidolon_hp_tooltip
-* `enigma_malefice`: duration, tooltip_stuns
-* `faceless_void_chronosphere`: cooldown_scepter, duration_scepter
+* `ember_spirit_searing_chains`: chains_damage
+* `enigma_malefice`: duration
 * `faceless_void_time_walk`: radius
-* `furion_force_of_nature`: duration, treant_health_tooltip, treant_max_dmg_tooltip, treant_min_dmg_tooltip
-* `furion_sprout`: cast_range_tooltip
-* `furion_wrath_of_nature`: buffer_tooltip_scepter, damage_scepter, max_targets_scepter, scepter_buffer
+* `furion_force_of_nature`: duration
 * `greevil_miniboss_black_nightmare`: nightmare_dot_interval
-* `greevil_phantom_strike`: tooltip_range
-* `gyrocopter_call_down`: damage_first, damage_second, damage_second_scepter, range_scepter, slow_duration_first, slow_duration_second, slow_first, slow_second
-* `gyrocopter_flak_cannon`: fire_rate, scepter_radius
+* `gyrocopter_call_down`: damage_first, damage_second, slow_duration_first, slow_duration_second, slow_first, slow_second
+* `gyrocopter_flak_cannon`: fire_rate
 * `gyrocopter_homing_missile`: min_damage
 * `huskar_burning_spear`: health_cost
-* `huskar_life_break`: cooldown_scepter, health_damage_scepter, slow_durtion_tooltip, tooltip_health_damage_scepter
 * `invoker_exort`: bonus_intelligence
 * `invoker_ice_wall`: num_wall_elements, wall_element_radius, wall_element_spacing
-* `invoker_invoke`: cooldown_scepter, mana_cost_scepter
 * `invoker_quas`: bonus_strength, health_regen_per_instance
 * `invoker_wex`: bonus_agility
-* `jakiro_dual_breath`: range, tooltip_duration
+* `jakiro_dual_breath`: range
 * `jakiro_ice_path`: duration
-* `jakiro_liquid_fire`: tooltip_duration
-* `jakiro_macropyre`: cast_range, cast_range_scepter, damage_scepter, duration_scepter, path_radius, tooltip_duration
-* `juggernaut_healing_ward`: healing_ward_duration_tooltip
+* `jakiro_macropyre`: cast_range, path_radius
 * `keeper_of_the_light_illuminate`: damage_per_second
-* `keeper_of_the_light_mana_leak`: cast_range_tooltip
-* `kunkka_ghostship`: buff_duration, ghostship_absorb, ghostship_speed_scepter, ghostship_width_scepter, movespeed_bonus
+* `kunkka_ghostship`: buff_duration, ghostship_absorb, movespeed_bonus
 * `kunkka_tidebringer`: radius
-* `kunkka_x_marks_the_spot`: allied_duration_tooltip, tooltip_range
-* `legion_commander_duel`: duration_scepter
 * `legion_commander_overwhelming_odds`: bonus_speed_creeps, bonus_speed_heroes, illusion_dmg_pct
-* `leshrac_diabolic_edict`: duration_tooltip
 * `leshrac_lightning_storm`: slow_movement_speed
-* `leshrac_pulse_nova`: damage_scepter
-* `lich_chain_frost`: cast_range_scepter, damage_scepter, slow_attack_speed_scepter, slow_movement_speed_scepter
 * `lich_frost_nova`: slow_attack_speed
 * `life_stealer_assimilate`: damage, order_lock_duration, radius
-* `life_stealer_infest`: cast_range_scepter, cooldown_scepter, damage_increase_pct, infest_scepter_duration
-* `life_stealer_open_wounds`: tooltip_range
-* `lina_laguna_blade`: cast_range_scepter
-* `lion_finger_of_death`: cooldown_scepter, damage_scepter, mana_cost_scepter, splash_radius_scepter
-* `lone_druid_spirit_bear`: cooldown_scepter
+* `life_stealer_infest`: damage_increase_pct
 * `lone_druid_spirit_bear_demolish`: spell_resistance
 * `lone_druid_spirit_bear_entangle`: creep_duration, entangle_chance, hero_duration
 * `lone_druid_spirit_bear_return`: return_damage_cooldown
 * `lone_druid_true_form`: base_attack_time, speed_loss
-* `luna_eclipse`: beams_scepter, cast_range_tooltip_scepter, duration_tooltip, duration_tooltip_scepter, hit_count_scepter
 * `magnataur_reverse_polarity`: creep_stun_duration
-* `medusa_mana_shield`: absorption_tooltip
 * `medusa_split_shot`: projectile_speed, range, total_arrow_count
-* `meepo_divided_we_stand`: respawn, tooltip_respawn, tooltip_share_percentage, tooltip_share_percentage_scepter
-* `meepo_earthbind`: tooltip_range
+* `meepo_divided_we_stand`: respawn
 * `mirana_leap`: leap_radius
-* `mirana_starfall`: interval_scepter
-* `morphling_hybrid`: tooltip_cast_range
 * `morphling_morph_agi`: bonus_attributes, morph_cooldown
 * `morphling_morph_str`: bonus_attributes, morph_cooldown
-* `morphling_replicate`: illusion_damage_in_pct, illusion_damage_out_pct, illusion_damage_out_pct_scepter, illusion_incoming_dmg_pct_tooltip, tooltip_cast_range, tooltip_illusion_damage_out_pct
-* `mud_golem_rock_destroy`: shard_damage_tooltip, shard_duration_tooltip, shard_health_tooltip
-* `naga_siren_song_of_the_siren`: regen_rate, regen_rate_self, regen_rate_tooltip_scepter
-* `necrolyte_reapers_scythe`: cooldown_scepter, damage_per_health_scepter, mana_cost_scepter, respawn, respawn_constant
+* `morphling_replicate`: illusion_damage_in_pct, illusion_damage_out_pct
+* `naga_siren_song_of_the_siren`: regen_rate, regen_rate_self
+* `necrolyte_reapers_scythe`: respawn, respawn_constant
 * `necronomicon_archer_aoe`: speed_bonus
-* `necronomicon_archer_mana_burn`: cast_range_tooltip
-* `nevermore_necromastery`: necromastery_max_souls_scepter, necromastery_souls_hero_bonus
-* `nevermore_requiem`: cast_time_tooltip, requiem_damage_pct_scepter, requiem_heal_pct_scepter, requiem_reduction_damage, requiem_reduction_radius, requiem_reduction_tooltip
-* `nyx_assassin_burrow`: carapace_burrow_range_tooltip, impale_burn_range_increase_pct_tooltip, impale_burrow_cooldown_tooltip, impale_burrow_range_tooltip, mana_burn_burrow_range_tooltip
+* `nevermore_necromastery`: necromastery_souls_hero_bonus
+* `nevermore_requiem`: requiem_reduction_damage, requiem_reduction_radius
 * `nyx_assassin_impale`: cooldown_upgrade
 * `nyx_assassin_mana_burn`: float_multiplier
 * `nyx_assassin_spiked_carapace`: bonus_armor, bonus_damage, bonus_intellect, burrow_aoe
-* `nyx_assassin_vendetta`: cooldown_scepter
-* `obsidian_destroyer_astral_imprisonment`: cast_range_tooltip, radius
-* `obsidian_destroyer_sanity_eclipse`: damage_multiplier_scepter, mana_drain
-* `ogre_magi_multicast`: bloodlust_aoe, bloodlust_cooldown, fireblast_cooldown, fireblast_mana_cost, ignite_aoe, ignite_cast_range, multicast_2_times_tooltip, multicast_3_times_tooltip, multicast_4_times_tooltip
-* `omniknight_guardian_angel`: duration_scepter
-* `oracle_fortunes_end`: max_channel_time_tooltip
-* `oracle_purifying_flames`: castpoint_scepter, cooldown_scepter
-* `phantom_assassin_phantom_strike`: bonus_max_attack_count, tooltip_range
-* `phoenix_sun_ray`: beam_range, tooltip_duration
-* `phoenix_supernova`: cast_range_tooltip_scepter, max_hero_attacks_scepter, tooltip_duration
-* `puck_dream_coil`: coil_break_damage_scepter, coil_duration_scepter, coil_init_damage_tooltip, coil_stun_duration_scepter
-* `pudge_meat_hook`: cooldown_scepter, damage_scepter, hook_distance
-* `pugna_life_drain`: cast_range_tooltip, duration_tooltip, health_drain_scepter, scepter_cooldown
-* `pugna_nether_ward`: attacks_to_destroy_tooltip, ward_duration_tooltip
+* `obsidian_destroyer_astral_imprisonment`: radius
+* `obsidian_destroyer_sanity_eclipse`: mana_drain
+* `ogre_magi_multicast`: bloodlust_aoe, bloodlust_cooldown, fireblast_cooldown, fireblast_mana_cost, ignite_aoe, ignite_cast_range
+* `phantom_assassin_phantom_strike`: bonus_max_attack_count
+* `phoenix_sun_ray`: beam_range
+* `pudge_meat_hook`: hook_distance
 * `queenofpain_blink`: blink_range
-* `queenofpain_shadow_strike`: cast_range_tooltip, duration_tooltip
-* `queenofpain_sonic_wave`: cooldown_scepter, damage_scepter
-* `rattletrap_hookshot`: cooldown_scepter, tooltip_range
 * `rattletrap_power_cogs`: drain_amount
 * `rattletrap_rocket_flare`: vision_radius
-* `razor_eye_of_the_storm`: strike_interval_scepter
 * `razor_plasma_field`: speed
 * `razor_static_link`: vision_radius
-* `roshan_halloween_toss`: tooltip_range
 * `roshan_slam`: slow_duration_hero, slow_duration_unit
-* `rubick_spell_steal`: cast_range_scepter, cooldown_scepter
-* `rubick_telekinesis`: cast_range_tooltip, max_land_distance_allied
-* `sandking_burrowstrike`: burrow_speed_scepter, cast_range_scepter, tooltip_range
-* `sandking_epicenter`: epicenter_radius, epicenter_slow_duration_tooltip
+* `rubick_telekinesis`: max_land_distance_allied
+* `sandking_epicenter`: epicenter_radius
 * `sandking_sand_storm`: sand_storm_invis_delay
-* `shadow_demon_demonic_purge`: charge_restore_time, charge_restore_time_tooltip_scepter, creep_root_duration, max_charges, slow_rate, tooltip_duration
-* `shadow_demon_shadow_poison`: tooltip_duration
-* `shadow_shaman_mass_serpent_ward`: damage_max, damage_max_scepter, damage_min, damage_min_scepter, splash_damage, splash_radius
+* `shadow_demon_demonic_purge`: charge_restore_time, creep_root_duration, max_charges, slow_rate
+* `shadow_shaman_mass_serpent_ward`: damage_max, damage_min, splash_damage, splash_radius
 * `shredder_timber_chain`: range
-* `silencer_global_silence`: tooltip_duration
-* `skeleton_king_hellfire_blast`: tooltip_slow_duration
-* `skeleton_king_reincarnation`: attackslow_tooltip, aura_radius, aura_radius_tooltip_scepter, scepter_duration
-* `skywrath_mage_mystic_flare`: cooldown_scepter, duration_scepter
-* `sniper_assassinate`: tooltip_range, total_cast_time_tooltip
+* `skeleton_king_reincarnation`: aura_radius
 * `sniper_shrapnel`: building_damage, charge_restore_time, max_charges
-* `spirit_breaker_nether_strike`: bash_radius_scepter, cast_range_scepter, cooldown_scepter, tooltip_range
-* `storm_spirit_overload`: tooltip_duration
-* `sven_gods_strength`: gods_strength_damage_scepter, radius_scepter
 * `sven_great_cleave`: great_cleave_radius
-* `templar_assassin_meld`: armor_reduction_duration_tooltip
-* `templar_assassin_psionic_trap`: movement_speed_max_tooltip, movement_speed_min_tooltip, trap_duration_tooltip
 * `templar_assassin_refraction`: damage_threshold
 * `templar_assassin_self_trap`: movement_speed_bonus, movement_speed_bonus_stage, trap_duration, trap_radius
 * `templar_assassin_trap`: movement_speed_bonus, movement_speed_bonus_stage, trap_duration, trap_radius
-* `terrorblade_reflection`: attack_slow_tooltip
 * `tidehunter_anchor_smash`: radius
-* `tidehunter_gush`: aoe_scepter, armor_bonus, cast_range_scepter, cooldown_scepter, speed_scepter
-* `tinker_heat_seeking_missile`: targets_scepter
-* `tinker_laser`: cast_range_scepter, cast_range_tooltip, duration_creep, duration_hero
-* `tinker_march_of_the_machines`: distance_scepter
-* `tinker_rearm`: channel_tooltip
+* `tidehunter_gush`: armor_bonus
+* `tinker_laser`: duration_creep, duration_hero
 * `tiny_avalanche`: num_ticks, projectile_duration
-* `tiny_toss`: bonus_damage_pct, grow_bonus_damage_pct, tooltip_range
+* `tiny_toss`: bonus_damage_pct, grow_bonus_damage_pct
 * `treant_eyes_in_the_forest`: damage, overgrowth_aoe
 * `treant_leech_seed`: damage_interval
 * `treant_overgrowth`: eyes_radius
-* `tusk_ice_shards`: cast_range_tooltip
-* `tusk_walrus_kick`: cooldown_scepter, crit_multiplier
-* `undying_decay`: str_steal_scepter
+* `tusk_walrus_kick`: crit_multiplier
 * `undying_tombstone`: health_threshold
 * `undying_tombstone_zombie_aura`: bonus_speed
 * `undying_tombstone_zombie_deathstrike`: bonus_speed, health_threshold
-* `ursa_overpower`: duration_tooltip
-* `vengefulspirit_nether_swap`: illusion_damage_in_pct_scepter, illusion_damage_out_pct_scepter, nether_swap_cooldown_scepter, tooltip_range
-* `vengefulspirit_wave_of_terror`: tooltip_duration
-* `venomancer_plague_ward`: ward_damage_tooltip, ward_hp_tooltip
-* `venomancer_poison_nova`: cooldown_scepter, damage, damage_scepter, duration_scepter
-* `viper_corrosive_skin`: bonus_movement_speed, max_range_tooltip
-* `viper_viper_strike`: cast_range_scepter, cooldown_scepter, mana_cost_scepter
-* `visage_summon_familiars`: damage_charge_time, damage_per_charge, familiar_attacks_to_destroy_creeps_tooltip, familiar_attacks_to_destroy_tooltip, familiar_attacks_to_destroy_tower_tooltip, familiar_max_damage, familiar_speed, max_damage_charges
+* `venomancer_poison_nova`: damage
+* `viper_corrosive_skin`: bonus_movement_speed
+* `visage_summon_familiars`: damage_charge_time, damage_per_charge, familiar_max_damage, familiar_speed, max_damage_charges
 * `visage_summon_familiars_stone_form`: max_damage_charges
-* `warlock_rain_of_chaos`: bounty_reduction_scepter, golem_armor_tooltip, golem_dmg_tooltip, golem_dmg_tooltip_scepter, golem_hp_tooltip, golem_hp_tooltip_scepter, golem_regen_tooltip, hp_dmg_reduction_scepter, number_of_golems_scepter
 * `warlock_upheaval`: slow_rate_duration
-* `weaver_time_lapse`: cast_range_tooltip_scepter, cooldown_scepter
-* `windrunner_focusfire`: cooldown_scepter, focusfire_damage_reduction_scepter, focusfire_duration_tooltip
-* `winter_wyvern_arctic_burn`: bonus_movespeed, mana_cost_scepter, night_vision_bonus
+* `winter_wyvern_arctic_burn`: bonus_movespeed, night_vision_bonus
 * `winter_wyvern_splinter_blast`: duration
 * `winter_wyvern_winters_curse`: damage_amplification
-* `wisp_tether`: attackslow_tooltip, stun_duration, tether_duration
-* `witch_doctor_death_ward`: bounce_radius, bounces, bounces_scepter
-* `witch_doctor_maledict`: duration_tooltip
-* `witch_doctor_paralyzing_cask`: bounces_tooltip, hero_damage
+* `wisp_tether`: stun_duration, tether_duration
+* `witch_doctor_death_ward`: bounce_radius, bounces
+* `witch_doctor_paralyzing_cask`: hero_damage
 * `zuus_static_field`: radius
-* `zuus_thundergods_wrath`: damage_scepter, true_sight_radius, true_sight_radius_tooltip
+* `zuus_thundergods_wrath`: true_sight_radius
 
 ## Abilități cu comportament (AbilityBehavior) diferit
 

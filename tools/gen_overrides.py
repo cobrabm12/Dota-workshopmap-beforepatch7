@@ -742,10 +742,13 @@ def write_status(report: dict, hero_list: list[str]) -> None:
     L.append("## Abilități existente, dar cu valori speciale dispărute (comportament probabil schimbat)\n")
     L.append("Aceste abilități există încă, însă unele valori din 6.88 nu mai au corespondent; ")
     L.append("de verificat în joc dacă mecanica s‑a schimbat și, dacă da, de rescris în Lua.\n")
-    rows = [(n, d) for n, d in report["abilitati"].items() if d["speciale_lipsa"] and not d.get("lua")]
-    L.append(f"Total: **{len(rows)}**\n")
+    def real_keys(keys):
+        return [k for k in keys if "tooltip" not in k and not k.endswith("_scepter") and "scepter" not in k]
+    rows = [(n, d) for n, d in report["abilitati"].items() if real_keys(d["speciale_lipsa"]) and not d.get("lua")]
+    only_cosmetic = [n for n, d in report["abilitati"].items() if d["speciale_lipsa"] and not real_keys(d["speciale_lipsa"]) and not d.get("lua")]
+    L.append(f"Total cu valori reale lipsă: **{len(rows)}** (alte {len(only_cosmetic)} au doar chei de tooltip/Aghanim lipsă – irelevante)\n")
     for n, d in sorted(rows):
-        L.append(f"* `{n}`: " + ", ".join(d["speciale_lipsa"]))
+        L.append(f"* `{n}`: " + ", ".join(real_keys(d["speciale_lipsa"])))
     L.append("")
     L.append("## Abilități cu comportament (AbilityBehavior) diferit\n")
     rows = [(n, d["comportament"]) for n, d in report["abilitati"].items() if d["comportament"]]
