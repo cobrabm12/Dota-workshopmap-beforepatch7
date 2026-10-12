@@ -155,3 +155,7 @@ declanșau crash‑ul driverului AMD la pornirea următoare).
 | Curier – butoanele din HUD | REPARAT – Deliver Items, F3, burst, meniul de click dreapta (fântână / secret shop) și Select Courier căutau curierul personal 7.x și nu trimiteau niciun ordin; acum merg prin server pentru orice jucător al echipei (testat cu click‑uri reale și cu un coechipier simulat) |
 | Curier – statistici | REPARAT – motorul punea magic immune, phased și +10 viteză/nivel; burst‑ul dădea +800 % (3420 viteză) în loc de 800; în fântână curierul avea 550. Acum 350 (sol și zburător), burst 800 timp de 4 s, cooldown 90 |
 | Curier – moarte | REPARAT – motorul îl reînvia după 50–66 s; acum 120 s / 180 s (zburător), cu itemele, în fântână |
+| Formula armurii | OK – măsurat 1000 daune fizice la 6,6 armură = 715 (0,06·A/(1+0,06·\|A\|)); la armură negativă motorul folosește aceeași formulă, identică cu Dota 2 6.88 (formula cu 0,94 era doar în WC3 DotA) |
+| Atribute | OK – +10 STR = +200 HP, +10 INT = +120 mana, +10 AGI = +1,43 armură; rezistență magică 25 % (10000 magic → 7500); regen mana 0,01 + 0,04·INT; nivel maxim 25, Attribute Bonus 0/10 |
+| Regen HP | REPARAT – motorul dă acum 0,1 HP/s pe STR (compensam 0,09): CM 1,50 → 1,19 (0,25 + 0,03·31), Axe 4,43 |
+| Respawn / buyback / XP | OK – 5 + 3,8·nivel (100 s la 25), buyback 100 + 1,5·nivel² + 0,25·timp (400 la nivel 10 / 10 min), tabelul de XP 6.88 (2000 / 6000 / 13500 / 32400) |
