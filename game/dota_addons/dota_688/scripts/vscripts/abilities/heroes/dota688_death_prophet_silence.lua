@@ -2,7 +2,7 @@
 LinkLuaModifier("modifier_dota688_death_prophet_silence", "abilities/heroes/dota688_death_prophet_silence", LUA_MODIFIER_MOTION_NONE)
 dota688_death_prophet_silence = class({})
 function dota688_death_prophet_silence:GetAOERadius() return self:GetSpecialValueFor("radius") end
--- Witchcraft (6.88): -10/15/20/25 mana si -1/2/3/4 s cooldown la Silence
+-- Witchcraft (6.87, nu mai e pe erou in 6.88f): -10/15/20/25 mana si -1/2/3/4 s cooldown la Silence, daca ar exista
 local function Witchcraft(self)
 	local w = self:GetCaster():FindAbilityByName("dota688_death_prophet_witchcraft")
 	if w and w:GetLevel() > 0 then return w end

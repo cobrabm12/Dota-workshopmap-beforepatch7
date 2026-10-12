@@ -2,7 +2,8 @@ require("items/dota688_item_base")
 -- Lotus Orb (6.88): +10 daune, +10 armura, +6 regen, +125% regen mana, +250 mana; Echo Shell (cd 15, 75 mana, raza 900): 6 s
 -- vrajile tintite pe unitate sunt re-lansate pe cel care le-a aruncat (unitatea le primeste si ea); dispel la aplicare.
 -- MODIFIER_PROPERTY_REFLECT_SPELL e apelata de motor dar nu reflecta nimic pentru modifierii Lua (testat), deci copiem
--- abilitatea pe purtator (ascunsa, la nivelul originalului) si o lansam cu OnSpellStart pe caster. Itemele nu se reflecta.
+-- abilitatea pe purtator (ascunsa, la nivelul originalului) si o lansam cu OnSpellStart pe caster. Itemele: o copie temporara in
+-- inventar (sloturile 6-8, ascunse in 6.88, sunt de obicei libere), scoasa dupa 3 s ca proiectilele ei sa ajunga.
 LinkLuaModifier("modifier_dota688_echo_shell", "items/item_dota688_lotus_orb", LUA_MODIFIER_MOTION_NONE)
 Dota688DefineItem("item_dota688_lotus_orb", "items/item_dota688_lotus_orb", {
 	item = {
@@ -24,10 +25,23 @@ function modifier_dota688_echo_shell:OnCreated() self.copies = {} end
 function modifier_dota688_echo_shell:GetReflectSpell(params)
 	if not IsServer() then return 0 end
 	local parent, ability = self:GetParent(), params.ability
-	if not ability or ability:IsNull() or ability:IsItem() or ability.dota688_reflected then return 0 end
+	if not ability or ability:IsNull() or ability.dota688_reflected then return 0 end
 	local caster = ability:GetCaster()
 	if not caster or caster:IsNull() or caster == parent or caster:GetTeamNumber() == parent:GetTeamNumber() then return 0 end
 	local name = ability:GetAbilityName()
+	if ability:IsItem() then
+		local item = CreateItem(name, parent, parent)
+		if not item then return 0 end
+		if not parent:AddItem(item) then UTIL_Remove(item); return 0 end
+		item:SetLevel(math.max(1, ability:GetLevel()))
+		item.dota688_reflected = true
+		parent:SetCursorCastTarget(caster)
+		local ok, err = pcall(function() item:OnSpellStart() end)
+		if not ok then print("[dota688] Lotus: " .. tostring(err)) end
+		parent:EmitSound("Item.LotusOrb.Activate")
+		Dota688Timers:After(3, function() if not item:IsNull() then parent:RemoveItem(item) end end)
+		return 0
+	end
 	local copy = self.copies[name]
 	if not copy or copy:IsNull() then
 		copy = parent:FindAbilityByName(name)

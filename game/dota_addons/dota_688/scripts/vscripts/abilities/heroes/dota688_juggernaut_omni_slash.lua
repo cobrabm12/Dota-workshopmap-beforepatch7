@@ -55,4 +55,8 @@ end
 function modifier_dota688_juggernaut_omni_slash:OnDestroy()
 	if IsServer() then ParticleManager:DestroyParticle(self.fx, false); self:GetParent():RemoveGesture(ACT_DOTA_OVERRIDE_ABILITY_4) end
 end
-function modifier_dota688_juggernaut_omni_slash:CheckState() return { [MODIFIER_STATE_INVULNERABLE] = true, [MODIFIER_STATE_NO_UNIT_COLLISION] = true, [MODIFIER_STATE_STUNNED] = true } end
+-- 6.88: "You can use items during Omnislash" -> fara stun; vrajile sunt blocate (silence), miscarea/atacul de catre saltul insusi
+function modifier_dota688_juggernaut_omni_slash:CheckState()
+	return { [MODIFIER_STATE_INVULNERABLE] = true, [MODIFIER_STATE_NO_UNIT_COLLISION] = true, [MODIFIER_STATE_ROOTED] = true,
+		[MODIFIER_STATE_DISARMED] = true, [MODIFIER_STATE_SILENCED] = true }
+end

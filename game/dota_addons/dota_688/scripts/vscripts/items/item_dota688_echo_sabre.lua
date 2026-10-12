@@ -14,8 +14,11 @@ Dota688DefineItem("item_dota688_echo_sabre", "items/item_dota688_echo_sabre", {
 			target:AddNewModifier(parent, a, "modifier_dota688_echo_slow", { duration = a:GetSpecialValueFor("slow_duration") })
 			return
 		end
-		if not a:IsCooldownReady() then return end
-		a:UseResources(false, false, false, true)
+		-- cooldown propriu (UseResources nu porneste cooldown-ul unui item pasiv; testat: bucla de ecouri)
+		local now = GameRules:GetGameTime()
+		if now < (self.nextEcho or 0) then return end
+		self.nextEcho = now + a:GetCooldown(a:GetLevel())
+		a:StartCooldown(a:GetCooldown(a:GetLevel()))
 		target:AddNewModifier(parent, a, "modifier_dota688_echo_slow", { duration = a:GetSpecialValueFor("slow_duration") })
 		self.echoing = true
 		Dota688Timers:After(0, function()
