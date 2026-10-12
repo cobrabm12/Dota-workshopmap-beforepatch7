@@ -1,0 +1,304 @@
+{
+  "_comentariu": "Valori aplicate peste override-urile generate, pentru abilitatile built-in pe care le pastram: dezactiveaza mecanici adaugate dupa 6.88 sau corecteaza semne/semantici schimbate. Cheile sunt cele din KV-ul CURENT.",
+  "antimage_mana_break": {
+    "mana_per_hit": "28 40 52 64",
+    "mana_per_hit_pct": "0",
+    "percent_damage_per_burn": "60",
+    "illusion_percentage": "50"
+  },
+  "necrolyte_heartstopper_aura": {
+    "aura_damage": "0.6 1.0 1.4 1.8",
+    "aura_radius": "900",
+    "heal_reduction_pct": "0"
+  },
+  "nevermore_necromastery": {
+    "necromastery_damage_per_soul": "2",
+    "necromastery_max_souls": "18 24 30 36",
+    "souls_per_kill": "1",
+    "souls_per_hero_kill": "12",
+    "necromastery_soul_release": "0.5"
+  },
+  "templar_assassin_psionic_trap": {
+    "movement_speed_min": "30",
+    "movement_speed_max": "60",
+    "trap_bonus_damage": "0",
+    "instant_trap_damage": "0",
+    "extra_damage": "0"
+  },
+  "meepo_divided_we_stand": {
+    "max_level": "3",
+    "tooltip_clones": "1 2 3",
+    "dps_penalty_pct": "0 0 0",
+    "attribute_penalty_pct": "0"
+  },
+  "bloodseeker_thirst": {
+    "min_bonus_pct": "75",
+    "bonus_movement_speed": "16 24 32 40"
+  },
+  "axe_culling_blade": {
+    "armor_bonus": "0",
+    "armor_per_stack": "0"
+  },
+  "lion_finger_of_death": {
+    "damage_per_kill": "0"
+  },
+  "pudge_meat_hook": {
+    "damage": "90 180 270 360",
+    "AbilityCastRange": "1000 1100 1200 1300"
+  },
+  "kunkka_tidebringer": {
+    "cleave_ending_width": "450 500 550 600",
+    "cleave_distance": "675 750 825 900",
+    "cooldown_reduction_per_hero_hit": "0",
+    "movespeed_slow": "0"
+  },
+  "gyrocopter_homing_missile": {
+    "hit_damage": "125 250 375 500"
+  },
+  "slark_essence_shift": {},
+  "juggernaut_healing_ward": {
+    "healing_ward_bonus_health": "0"
+  },
+  "huskar_burning_spear": {
+    "max_health_cost": "0",
+    "burn_damage": "5 10 15 20"
+  },
+  "crystal_maiden_frostbite": {
+    "damage_per_second": "100"
+  },
+  "doom_bringer_devour": {
+    "hero_ability_steal_time": "99999"
+  },
+  "earthshaker_fissure": {
+    "AbilityCastRange": "1400",
+    "fissure_damage": "125 175 225 275"
+  },
+  "pugna_nether_ward": {
+    "base_damage": "0",
+    "health_restore_pct": "0",
+    "mana_restore_pct": "0"
+  },
+  "tidehunter_anchor_smash": {
+    "attack_damage": "0"
+  },
+  "item_quelling_blade": {
+    "damage_bonus": "140",
+    "damage_bonus_ranged": "115"
+  },
+  "abaddon_death_coil": {
+    "damage_heal": "100 150 200 250",
+    "missile_speed": "1250",
+    "self_damage_enemy_target": "50"
+  },
+  "antimage_blink": {
+    "AbilityCastRange": "925 1000 1075 1150"
+  },
+  "arc_warden_spark_wraith": {
+    "base_activation_delay": "2.0",
+    "spark_damage_base": "100 160 220 280",
+    "wraith_speed_base": "400"
+  },
+  "bane_fiends_grip": {
+    "AbilityChannelTime": "5 5 5"
+  },
+  "bane_nightmare": {
+    "AbilityDuration": "4 5 6 7"
+  },
+  "batrider_flamebreak": {
+    "knockback_distance": "400",
+    "slow": "0"
+  },
+  "batrider_flaming_lasso": {
+    "damage": "0 0 0"
+  },
+  "bloodseeker_rupture": {
+    "hp_pct": "0"
+  },
+  "bounty_hunter_track": {
+    "target_damage_amp": "0"
+  },
+  "broodmother_spin_web": {
+    "AbilityCharges": "1 2 3 4",
+    "AbilityChargeRestoreTime": "40",
+    "health_regen": "2 4 6 8"
+  },
+  "dark_seer_wall_of_replica": {
+    "wall_damage": "150 150 150",
+    "movement_slow": "0"
+  },
+  "death_prophet_spirit_siphon": {
+    "AbilityCharges": "1 2 3 4",
+    "AbilityChargeRestoreTime": "45"
+  },
+  "disruptor_thunder_strike": {
+    "slow_amount": "0"
+  },
+  "dragon_knight_elder_dragon_form": {
+    "corrosive_damage_per_second": "20 20 20 20",
+    "corrosive_duration": "5 5 5 5"
+  },
+  "drow_ranger_frost_arrows": {
+    "damage": "0"
+  },
+  "earth_spirit_geomagnetic_grip": {
+    "duration": "2.5 3 3.5 4"
+  },
+  "ember_spirit_searing_chains": {
+    "damage_per_second": "80 60 120 100"
+  },
+  "furion_force_of_nature": {
+    "treant_duration": "60",
+    "treant_health": "550",
+    "treant_damage": "30 30 30 30",
+    "treant_bonus_hero_damage": "0",
+    "treant_movespeed": "300"
+  },
+  "gyrocopter_call_down": {
+    "total_strikes": "2",
+    "damage": "200 275 350"
+  },
+  "invoker_quas": {
+    "max_level": "7",
+    "hp_regen_per_instance": "1 2 3 4 5 6 7"
+  },
+  "invoker_wex": {
+    "max_level": "7"
+  },
+  "invoker_exort": {
+    "max_level": "7"
+  },
+  "jakiro_dual_breath": {
+    "AbilityCastRange": "750"
+  },
+  "jakiro_ice_path": {
+    "stun_duration": "1 1.5 2 2.5"
+  },
+  "jakiro_macropyre": {
+    "path_width": "480"
+  },
+  "keeper_of_the_light_illuminate": {
+    "total_damage": "200 300 400 500"
+  },
+  "kunkka_x_marks_the_spot": {
+    "ghostship_absorb": "40 45 50 50",
+    "movespeed_bonus": "10"
+  },
+  "legion_commander_overwhelming_odds": {
+    "bonus_attack_speed": "0",
+    "movement_slow": "0"
+  },
+  "leshrac_lightning_storm": {
+    "damage": "50 100 150 200"
+  },
+  "lich_frost_nova": {
+    "slow_attack_speed_primary": "-20 -20 -20 -20",
+    "damage": "50 100 150 200"
+  },
+  "life_stealer_infest": {
+    "bonus_health": "0",
+    "bonus_movement_speed": "0",
+    "self_regen": "0",
+    "creep_max_hp_drain_pct_per_second": "0"
+  },
+  "naga_siren_song_of_the_siren": {
+    "heal_pct": "0 0 0"
+  },
+  "necronomicon_archer_aoe": {
+    "as_bonus": "5 7 9"
+  },
+  "obsidian_destroyer_astral_imprisonment": {
+    "has_mana_steal": "0",
+    "mana_capacity_steal": "0",
+    "AbilityCastRange": "225 350 475 600"
+  },
+  "obsidian_destroyer_sanity_eclipse": {
+    "base_damage": "0 0 0",
+    "percentage_damage": "0"
+  },
+  "queenofpain_blink": {
+    "AbilityCastRange": "1300"
+  },
+  "rattletrap_power_cogs": {
+    "damage": "80 120 160 200",
+    "mana_burn": "80 120 160 200",
+    "mana_burn_as_damage_pct": "0"
+  },
+  "sandking_epicenter": {
+    "epicenter_radius_base": "275",
+    "epicenter_radius_increment": "47"
+  },
+  "sandking_sand_storm": {
+    "fade_delay": "1.5"
+  },
+  "shadow_demon_demonic_purge": {
+    "AbilityCooldown": "40 40 40"
+  },
+  "shredder_timber_chain": {
+    "AbilityCastRange": "850 1050 1250 1450"
+  },
+  "sniper_shrapnel": {
+    "AbilityChargeRestoreTime": "55"
+  },
+  "sven_great_cleave": {
+    "cleave_ending_width": "300",
+    "cleave_distance": "550"
+  },
+  "tiny_avalanche": {
+    "tick_count": "4",
+    "avalanche_damage": "100 180 260 300",
+    "total_duration": "1.0"
+  },
+  "treant_overgrowth": {
+    "damage": "0"
+  },
+  "venomancer_poison_nova": {
+    "damage_base": "30 55 80",
+    "hp_damage": "0"
+  },
+  "warlock_upheaval": {
+    "slow_per_second": "6.7 12.9 18.7 24",
+    "damage_per_second": "0",
+    "max_damage": "0"
+  },
+  "winter_wyvern_arctic_burn": {
+    "move_slow": "19 26 33 40"
+  },
+  "wisp_tether": {
+    "slow_duration": "0.75 1.25 1.75 2.25"
+  },
+  "witch_doctor_paralyzing_cask": {
+    "base_damage": "50 50 50 50",
+    "creep_damage_pct": "150 200 250 300",
+    "bounce_bonus_damage": "0"
+  },
+  "item_clarity": {
+    "mana_regen": "3.8",
+    "AbilityDuration": "50"
+  },
+  "item_flask": {
+    "health_regen": "50",
+    "AbilityDuration": "8"
+  },
+  "item_tango": {
+    "health_regen": "7.2",
+    "AbilityDuration": "16"
+  },
+  "item_tango_single": {
+    "health_regen": "7.2",
+    "AbilityDuration": "16"
+  },
+  "ancient_apparition_cold_feet": {
+    "damage_per_second": "37.5 50 62.5 75"
+  },
+  "ancient_apparition_ice_blast": {
+    "damage_per_second": "12.5 20 32"
+  },
+  "ember_spirit_fire_remnant": {
+    "AbilityCharges": "3",
+    "AbilityChargeRestoreTime": "35"
+  },
+  "earth_spirit_stone_caller": {
+    "AbilityCharges": "6",
+    "AbilityChargeRestoreTime": "30"
+  }
+}

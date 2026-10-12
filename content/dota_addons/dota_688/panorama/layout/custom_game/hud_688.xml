@@ -1,0 +1,16 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/hud_688.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/hud_688.js" />
+	</scripts>
+	<Panel class="Dota688Hud" hittest="false">
+		<Panel id="Dota688Rules" class="Dota688Rules" hittest="true">
+			<Label class="Dota688RulesTitle" text="#dota688_rules_title" />
+			<Label class="Dota688RulesBody" html="true" text="#dota688_rules_body" />
+			<Button id="Dota688RulesClose" class="Dota688RulesClose" onactivate="Dota688ToggleRules()"><Label text="OK" /></Button>
+		</Panel>
+		<Button id="Dota688RulesButton" class="Dota688RulesButton" hittest="true" onactivate="Dota688ToggleRules()"><Label text="6.88" /></Button>
+	</Panel>
+</root>

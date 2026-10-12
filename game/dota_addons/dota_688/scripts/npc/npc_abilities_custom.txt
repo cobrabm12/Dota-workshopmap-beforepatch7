@@ -1,0 +1,48 @@
+// Abilitati proprii addon-ului Dota 6.88.
+// Reimplementarile Lua ale abilitatilor de erou se numesc dota688_<nume_original> (fisier in vscripts/abilities/);
+// blocul lor KV de baza (din 6.88) este generat in npc_abilities_generated.txt de tools/gen_overrides.py.
+// Aici se definesc doar abilitatile noi (fara corespondent in 6.88) si eventuale corectii peste cele generate.
+#base "npc_abilities_generated.txt"
+"DOTAAbilities"
+{
+	"Version"		"1"
+
+	// Placeholder invizibil pentru sloturile goale.
+	"dota688_empty"
+	{
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"abilities/dota688_empty"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"				"1"
+	}
+
+	// Attribute Bonus clasic (pre-7.00): +2 la toate atributele, 10 niveluri, de la nivelul 1.
+	"dota688_attribute_bonus"
+	{
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"abilities/dota688_attribute_bonus"
+		"AbilityType"			"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"	"attribute_bonus"
+		"MaxLevel"				"10"
+		"RequiredLevel"			"1"
+		"LevelsBetweenUpgrades"	"1"
+		"AbilityValues"
+		{
+			"attribute_bonus_per_level"		"2"
+		}
+	}
+
+	// Detonarea individuala a unei Remote Mine (6.88) – abilitate pe unitatea-mina.
+	"dota688_techies_remote_mine_detonate"
+	{
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"abilities/heroes/dota688_techies_remote_mines"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"	"techies_remote_mines_self_detonate"
+		"MaxLevel"				"1"
+		"AbilityCastPoint"		"0"
+		"AbilityCooldown"		"0"
+		"AbilityManaCost"		"0"
+	}
+}

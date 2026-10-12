@@ -1,0 +1,6706 @@
+// GENERAT AUTOMAT de tools/gen_overrides.py – NU EDITA MANUAL.
+// Sursa: reference/6.88f (Valve, 6.88f) vs reference/current.
+"DOTAAbilities"
+{
+	"Version"		"1"
+	"antimage_mana_break"
+	{
+		"AbilityValues"
+		{
+			"mana_per_hit"		"28 40 52 64"
+			"mana_per_hit_pct"		"0"
+			"percent_damage_per_burn"		"60"
+			"illusion_percentage"		"50"
+		}
+	}
+	"antimage_blink"
+	{
+		"AbilityManaCost"		"60 60 60 60"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"12.0 9.0 7.0 5.0"
+			"AbilityCastRange"		"925 1000 1075 1150"
+		}
+	}
+	"antimage_spell_shield"
+	{
+		"AbilityValues"
+		{
+			"spell_shield_resistance"		"26 34 42 50"
+		}
+	}
+	"antimage_mana_void"
+	{
+		"AbilityManaCost"		"125 200 275"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"70.0 70.0 70.0"
+			"mana_void_damage_per_mana"		"0.6 0.85 1.1"
+			"mana_void_aoe_radius"		"500"
+		}
+	}
+	"axe_berserkers_call"
+	{
+		"AbilityCastPoint"		"0.4"
+		"AbilityCooldown"		"16 14 12 10"
+		"AbilityManaCost"		"80 90 100 110"
+		"AbilityValues"
+		{
+			"radius"		"300"
+			"bonus_armor"		"40"
+			"duration"		"2.0 2.4 2.8 3.2"
+		}
+	}
+	"axe_battle_hunger"
+	{
+		"AbilityCastRange"		"750"
+		"AbilityManaCost"		"75"
+		"AbilityDamage"		"16 24 32 40"
+		"AbilityValues"
+		{
+			"duration"		"10.0"
+			"slow"		"-12"
+			"speed_bonus"		"12"
+		}
+	}
+	"axe_culling_blade"
+	{
+		"AbilityCastRange"		"150"
+		"AbilityCooldown"		"75.0 65.0 55.0"
+		"AbilityManaCost"		"60 120 180"
+		"AbilityValues"
+		{
+			"damage"		"150 250 300"
+			"speed_bonus"		"30"
+			"armor_bonus"		"0"
+			"armor_per_stack"		"0"
+		}
+	}
+	"bane_brain_sap"
+	{
+		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
+		"AbilityManaCost"		"70 100 130 160"
+		"AbilityDamage"		"90 160 230 300"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"600"
+			"AbilityCooldown"		"14 13 12 11"
+		}
+	}
+	"bane_fiends_grip"
+	{
+		"AbilityCastPoint"		"0.5 0.5 0.5"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"100.0 100.0 100.0"
+			"AbilityChannelTime"		"5 5 5"
+			"fiend_grip_tick_interval"		"1.0"
+			"fiend_grip_damage"		"100 155 215"
+		}
+	}
+	"bane_nightmare"
+	{
+		"AbilityCastRange"		"500 550 600 650"
+		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
+		"AbilityManaCost"		"165 165 165 165"
+		"AbilityDamage"		"20"
+		"AbilityDuration"		"4 5 6 7"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"22 19 16 13"
+		}
+	}
+	"bloodseeker_blood_bath"
+	{
+		"AbilityCastPoint"		"0.4"
+		"AbilityManaCost"		"100"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"25 21 17 13"
+			"damage"		"120 160 200 240"
+			"delay_plus_castpoint_tooltip"		"3.0"
+		}
+	}
+	"bloodseeker_thirst"
+	{
+		"AbilityValues"
+		{
+			"min_bonus_pct"		"75"
+			"bonus_movement_speed"		"16 24 32 40"
+		}
+	}
+	"bloodseeker_rupture"
+	{
+		"AbilityManaCost"		"150 200 250"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"1000"
+			"AbilityCooldown"		"60"
+			"duration"		"12.0"
+			"movement_damage_pct"		"30 45 60"
+			"hp_pct"		"0"
+		}
+	}
+	"drow_ranger_frost_arrows"
+	{
+		"AbilityValues"
+		{
+			"AbilityManaCost"		"12 12 12 12"
+			"frost_arrows_movement_speed"		"-16 -32 -48 -64"
+			"damage"		"0"
+		}
+	}
+	"drow_ranger_wave_of_silence"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"16 15 14 13"
+			"AbilityManaCost"		"90"
+			"knockback_distance_max"		"350"
+		}
+	}
+	"earthshaker_fissure"
+	{
+		"AbilityManaCost"		"125 140 155 170"
+		"AbilityDamage"		"110 160 210 260"
+		"AbilityDuration"		"1.0 1.25 1.5 1.75"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"1400"
+			"AbilityCooldown"		"15.0 15.0 15.0 15.0"
+			"fissure_duration"		"8.0"
+			"stun_duration"		"1.0 1.25 1.5 1.75"
+			"fissure_damage"		"125 175 225 275"
+		}
+	}
+	"earthshaker_enchant_totem"
+	{
+		"AbilityCastPoint"		"0.69 0.69 0.69 0.69"
+		"AbilityManaCost"		"20 30 40 50"
+	}
+	"earthshaker_aftershock"
+	{
+		"AbilityDamage"		"50 75 100 125"
+		"AbilityDuration"		"0.6 0.9 1.2 1.5"
+		"AbilityValues"
+		{
+			"aftershock_range"		"300"
+		}
+	}
+	"earthshaker_echo_slam"
+	{
+		"AbilityManaCost"		"145 205 265"
+		"AbilityDamage"		"160 210 270"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"150.0 130.0 110.0"
+			"echo_slam_damage_range"		"600"
+			"echo_slam_echo_search_range"		"600"
+			"echo_slam_echo_range"		"600"
+			"echo_slam_echo_damage"		"40 55 70"
+		}
+	}
+	"juggernaut_blade_dance"
+	{
+		"AbilityValues"
+		{
+			"blade_dance_crit_mult"		"200"
+			"blade_dance_crit_chance"		"20 25 30 35"
+		}
+	}
+	"juggernaut_blade_fury"
+	{
+		"AbilityManaCost"		"120 110 100 90"
+		"AbilityDamage"		"80 105 130 155"
+		"AbilityDuration"		"5.0 5.0 5.0 5.0"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"42 34 26 18"
+			"blade_fury_radius"		"250"
+		}
+	}
+	"juggernaut_healing_ward"
+	{
+		"AbilityManaCost"		"140"
+		"AbilityDuration"		"25.0 25.0 25.0 25.0"
+		"AbilityValues"
+		{
+			"healing_ward_aura_radius"		"500"
+			"healing_ward_movespeed_tooltip"		"420"
+			"healing_ward_bonus_health"		"0"
+		}
+	}
+	"kunkka_torrent"
+	{
+		"AbilityCastRange"		"1500"
+		"AbilityManaCost"		"90 100 110 120"
+		"AbilityDamage"		"75 150 225 300"
+		"AbilityValues"
+		{
+			"radius"		"225"
+			"movespeed_bonus"		"-35"
+			"slow_duration"		"1.75 2.5 3.25 4.0"
+			"stun_duration"		"1.6"
+		}
+	}
+	"kunkka_tidebringer"
+	{
+		"AbilityValues"
+		{
+			"damage_bonus"		"25 45 65 85"
+			"cleave_damage"		"100"
+			"cleave_ending_width"		"450 500 550 600"
+			"cleave_distance"		"675 750 825 900"
+			"cooldown_reduction_per_hero_hit"		"0"
+			"movespeed_slow"		"0"
+		}
+	}
+	"kunkka_x_marks_the_spot"
+	{
+		"AbilityCastRange"		"400 600 800 1000"
+		"AbilityCooldown"		"26 20 14 8"
+		"AbilityValues"
+		{
+			"duration"		"4.0"
+			"ghostship_absorb"		"40 45 50 50"
+			"movespeed_bonus"		"10"
+		}
+	}
+	"kunkka_return"
+	{
+		"AbilityCastPoint"		"0.4 0.4 0.4 0.4"
+	}
+	"kunkka_ghostship"
+	{
+		"AbilityDamage"		"400 500 600"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"60 50 40"
+			"tooltip_delay"		"2.7"
+			"ghostship_distance"		"1000 1000 1000"
+			"ghostship_width"		"425 425 425"
+			"stun_duration"		"1.4 1.4 1.4"
+		}
+	}
+	"lina_dragon_slave"
+	{
+		"AbilityCastPoint"		"0.45 0.45 0.45 0.45"
+		"AbilityManaCost"		"100 115 130 145"
+		"AbilityDamage"		"110 180 250 320"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"8.0"
+		}
+	}
+	"lina_light_strike_array"
+	{
+		"AbilityCastRange"		"625"
+		"AbilityCooldown"		"7.0 7.0 7.0 7.0"
+		"AbilityDamage"		"80 120 160 200"
+		"AbilityDuration"		"1.6 1.9 2.2 2.5"
+		"AbilityValues"
+		{
+			"light_strike_array_aoe"		"225"
+			"light_strike_array_stun_duration"		"1.6 1.9 2.2 2.5"
+		}
+	}
+	"lina_laguna_blade"
+	{
+		"AbilityCastRange"		"600"
+		"AbilityCastPoint"		"0.45 0.45 0.45"
+		"AbilityManaCost"		"280 420 680"
+		"AbilityValues"
+		{
+			"damage"		"450 650 850"
+		}
+	}
+	"lion_impale"
+	{
+		"AbilityManaCost"		"100 120 140 160"
+		"AbilityDamage"		"80 140 200 260"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"500"
+			"AbilityCooldown"		"12.0 12.0 12.0 12.0"
+			"width"		"125 125 125 125"
+			"duration"		"1.1 1.6 2.1 2.6"
+			"length_buffer"		"325"
+			"speed"		"1600 1600 1600 1600"
+		}
+	}
+	"lion_voodoo"
+	{
+		"AbilityCastRange"		"500"
+		"AbilityManaCost"		"125 150 175 200"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"30.0 24.0 18.0 12.0"
+			"duration"		"2.5 3 3.5 4"
+			"movespeed"		"140"
+		}
+	}
+	"lion_mana_drain"
+	{
+		"AbilityCooldown"		"16 12 8 4"
+		"AbilityManaCost"		"10 10 10 10"
+		"AbilityValues"
+		{
+			"break_distance"		"1200"
+		}
+	}
+	"lion_finger_of_death"
+	{
+		"AbilityCooldown"		"160.0 100.0 40.0"
+		"AbilityManaCost"		"200 420 650"
+		"AbilityValues"
+		{
+			"damage_per_kill"		"0"
+		}
+	}
+	"mirana_arrow"
+	{
+		"AbilityManaCost"		"100 100 100 100"
+		"AbilityDamage"		"50 140 230 320"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"17.0"
+			"arrow_speed"		"857.0"
+			"arrow_max_stun"		"5.0"
+			"arrow_bonus_damage"		"140"
+			"arrow_vision"		"650"
+		}
+	}
+	"mirana_invis"
+	{
+		"AbilityCastRange"		"600"
+		"AbilityManaCost"		"75"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"140.0 120.0 100.0"
+			"duration"		"15.0"
+		}
+	}
+	"mirana_leap"
+	{
+		"AbilityCooldown"		"30.0 26.0 22.0 18.0"
+		"AbilityManaCost"		"40 35 30 20"
+		"AbilityDuration"		"10.0"
+		"AbilityValues"
+		{
+			"leap_distance"		"600 700 800 900"
+			"leap_speed"		"1600.0"
+			"leap_acceleration"		"7000.0"
+			"leap_speedbonus"		"4 8 12 16"
+			"leap_speedbonus_as"		"8 16 24 32"
+		}
+	}
+	"mirana_starfall"
+	{
+		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
+		"AbilityManaCost"		"100 120 140 160"
+		"AbilityDamage"		"75 150 225 300"
+		"AbilityValues"
+		{
+			"starfall_radius"		"650"
+			"starfall_secondary_radius"		"425"
+		}
+	}
+	"morphling_waveform"
+	{
+		"AbilityManaCost"		"140 155 160 165"
+		"AbilityDamage"		"100 175 250 325"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"1000"
+			"AbilityCooldown"		"11.0 11.0 11.0 11.0"
+		}
+	}
+	"morphling_morph_agi"
+	{
+		"AbilityValues"
+		{
+			"mana_cost"		"30 30 30 30"
+		}
+	}
+	"morphling_morph_str"
+	{
+		"AbilityValues"
+		{
+			"mana_cost"		"30 30 30 30"
+		}
+	}
+	"morphling_replicate"
+	{
+		"AbilityCastRange"		"700 1100 1500"
+		"AbilityCooldown"		"80.0 80.0 80.0"
+		"AbilityManaCost"		"25 25 25"
+		"AbilityValues"
+		{
+			"duration"		"30.0 45.0 60.0"
+		}
+	}
+	"morphling_morph_replicate"
+	{
+		"AbilityCastPoint"		"0.35"
+		"AbilityManaCost"		"150 150 150"
+	}
+	"nevermore_shadowraze1"
+	{
+		"AbilityCastPoint"		"0.67"
+		"AbilityManaCost"		"90"
+		"AbilityDamage"		"100 175 250 325"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"10"
+		}
+	}
+	"nevermore_shadowraze2"
+	{
+		"AbilityCastPoint"		"0.67"
+		"AbilityManaCost"		"90"
+		"AbilityDamage"		"100 175 250 325"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"10"
+		}
+	}
+	"nevermore_shadowraze3"
+	{
+		"AbilityCastPoint"		"0.67"
+		"AbilityManaCost"		"90"
+		"AbilityDamage"		"100 175 250 325"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"10"
+		}
+	}
+	"nevermore_necromastery"
+	{
+		"AbilityValues"
+		{
+			"necromastery_damage_per_soul"		"2"
+			"necromastery_max_souls"		"18 24 30 36"
+			"necromastery_soul_release"		"0.5"
+			"souls_per_kill"		"1"
+			"souls_per_hero_kill"		"12"
+		}
+	}
+	"nevermore_dark_lord"
+	{
+		"AbilityCastRange"		"900"
+		"AbilityValues"
+		{
+			"presence_armor_reduction"		"-3 -4 -5 -6"
+			"presence_radius"		"900"
+		}
+	}
+	"nevermore_requiem"
+	{
+		"AbilityDuration"		"5.0 5.0 5.0"
+		"AbilityValues"
+		{
+			"requiem_reduction_ms"		"-25"
+			"requiem_slow_duration"		"5.0"
+			"requiem_soul_conversion"		"2 2 2"
+			"requiem_line_width_end"		"425"
+		}
+	}
+	"phantom_lancer_spirit_lance"
+	{
+		"AbilityCastRange"		"750"
+		"AbilityManaCost"		"125 130 135 140"
+		"AbilityDamage"		"100 150 200 250"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"7.0 7.0 7.0 7.0"
+			"duration"		"3.25"
+			"movement_speed_pct"		"-10 -20 -30 -40"
+			"illusion_duration"		"2.0 4.0 6.0 8.0"
+			"illusion_damage_out_pct"		"-80 -80 -80 -80"
+			"tooltip_illusion_damage"		"20 20 20 20"
+		}
+	}
+	"phantom_lancer_doppelwalk"
+	{
+		"AbilityManaCost"		"50"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"600"
+			"AbilityCooldown"		"25 20 15 10"
+		}
+	}
+	"phantom_lancer_juxtapose"
+	{
+		"AbilityValues"
+		{
+			"max_illusions"		"5 7 9"
+			"illusion_proc_chance_pct"		"8"
+			"illusion_damage_out_pct"		"-84"
+			"tooltip_illusion_damage"		"16"
+			"illusion_damage_in_pct"		"400"
+			"tooltip_total_illusion_damage_in_pct"		"500"
+		}
+	}
+	"phantom_lancer_phantom_edge"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"16 12 8 4"
+			"min_distance"		"300"
+			"max_distance"		"600 700 800 900"
+		}
+	}
+	"puck_illusory_orb"
+	{
+		"AbilityCastRange"		"3000"
+		"AbilityManaCost"		"80 100 120 140"
+		"AbilityDamage"		"70 140 210 280"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"14 13 12 11"
+			"orb_speed"		"651"
+			"orb_vision"		"800 800 800 800"
+			"vision_duration"		"3.34 3.34 3.34 3.34"
+		}
+	}
+	"puck_waning_rift"
+	{
+		"AbilityDamage"		"100 160 220 280"
+		"AbilityValues"
+		{
+			"silence_duration"		"0.75 1.5 2.25 3.0"
+		}
+	}
+	"puck_phase_shift"
+	{
+		"AbilityCastPoint"		"0 0 0 0"
+		"AbilityChannelTime"		"0.75 1.50 2.25 3.25"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"6.0 6.0 6.0 6.0"
+			"duration"		"0.75 1.50 2.25 3.25"
+		}
+	}
+	"puck_dream_coil"
+	{
+		"AbilityManaCost"		"100 150 200"
+		"AbilityValues"
+		{
+			"coil_duration"		"6.0 6.0 6.0"
+			"coil_stun_duration"		"1.5 2.25 3.0"
+			"coil_break_damage"		"100 150 200"
+		}
+	}
+	"pudge_meat_hook"
+	{
+		"AbilityManaCost"		"110 120 130 140"
+		"AbilityDamage"		"90 180 270 360"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"1000 1100 1200 1300"
+			"AbilityCooldown"		"14 13 12 11"
+			"damage"		"90 180 270 360"
+		}
+	}
+	"pudge_rot"
+	{
+		"AbilityDamage"		"30 60 90 120"
+		"AbilityValues"
+		{
+			"rot_slow"		"-30"
+		}
+	}
+	"pudge_dismember"
+	{
+		"AbilityCastRange"		"160"
+		"AbilityValues"
+		{
+			"AbilityChannelTime"		"3.0 3.0 3.0"
+			"dismember_damage"		"60 90 120"
+			"strength_damage"		"0.3 0.45 0.6"
+		}
+	}
+	"shadow_shaman_ether_shock"
+	{
+		"AbilityCooldown"		"8.0 8.0 8.0 8.0"
+		"AbilityManaCost"		"95 105 135 160"
+		"AbilityValues"
+		{
+			"end_distance"		"500 500 500 500"
+			"targets"		"1 3 5 7"
+			"damage"		"140 200 260 320"
+		}
+	}
+	"shadow_shaman_voodoo"
+	{
+		"AbilityCastRange"		"500"
+		"AbilityCooldown"		"13"
+		"AbilityManaCost"		"110 140 170 200"
+		"AbilityValues"
+		{
+			"duration"		"1.25 2.0 2.75 3.5"
+		}
+	}
+	"shadow_shaman_shackles"
+	{
+		"AbilityCooldown"		"10"
+		"AbilityManaCost"		"140 150 160 170"
+		"AbilityChannelTime"		"2.75 3.5 4.25 5.0"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"400"
+			"total_damage"		"120 200 280 360"
+			"channel_time"		"2.75 3.5 4.25 5.0"
+		}
+	}
+	"shadow_shaman_mass_serpent_ward"
+	{
+		"AbilityCooldown"		"120"
+		"AbilityManaCost"		"200 350 600"
+	}
+	"razor_plasma_field"
+	{
+		"AbilityCooldown"		"14"
+		"AbilityValues"
+		{
+			"damage_min"		"30 50 70 90"
+			"damage_max"		"160 230 300 370"
+		}
+	}
+	"razor_static_link"
+	{
+		"AbilityCooldown"		"32 30 28 26"
+		"AbilityManaCost"		"50"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"600"
+			"drain_length"		"8"
+			"drain_duration"		"18.0 18.0 18.0 18.0"
+			"drain_rate"		"7 14 21 28"
+			"drain_range_buffer"		"200"
+		}
+	}
+	"razor_eye_of_the_storm"
+	{
+		"AbilityCastPoint"		"0.3 0.3 0.3"
+		"AbilityValues"
+		{
+			"damage"		"40 55 70"
+		}
+	}
+	"skeleton_king_hellfire_blast"
+	{
+		"AbilityCooldown"		"8.0 8.0 8.0 8.0"
+		"AbilityManaCost"		"140"
+		"AbilityDamage"		"50 100 150 200"
+		"AbilityValues"
+		{
+			"blast_speed"		"1000"
+			"blast_stun_duration"		"2.0"
+			"blast_dot_duration"		"4"
+			"blast_dot_damage"		"20 35 50 65"
+		}
+	}
+	"skeleton_king_reincarnation"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"260 160 60"
+			"AbilityManaCost"		"160"
+			"slow_radius"		"900"
+			"slow_duration"		"5.0"
+		}
+	}
+	"death_prophet_carrion_swarm"
+	{
+		"AbilityCastRange"		"600"
+		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
+		"AbilityManaCost"		"105 120 140 165"
+		"AbilityDamage"		"75 150 225 300"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"8 7 6 5"
+			"range"		"810 810 810 810"
+		}
+	}
+	"death_prophet_spirit_siphon"
+	{
+		"AbilityManaCost"		"70 65 60 55"
+		"AbilityValues"
+		{
+			"damage"		"14"
+			"damage_pct"		"1.0 2.5 4.0 5.5"
+			"AbilityChargeRestoreTime"		"45"
+		}
+		"AbilityCharges"		"1 2 3 4"
+	}
+	"death_prophet_exorcism"
+	{
+		"AbilityCooldown"		"145.0"
+		"AbilityDuration"		"35"
+		"AbilityValues"
+		{
+			"spirits"		"8 16 24"
+			"spirit_speed"		"500 500 500"
+			"min_damage"		"53"
+			"max_damage"		"58"
+			"average_damage"		"55 55 55"
+			"ghost_spawn_rate"		"0.3"
+		}
+	}
+	"sven_storm_bolt"
+	{
+		"AbilityCastPoint"		"0.3 0.3 0.3 0.3"
+		"AbilityDamage"		"100 175 250 325"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"13.0"
+			"AbilityManaCost"		"140"
+			"bolt_stun_duration"		"2.0"
+			"bolt_aoe"		"255"
+		}
+	}
+	"sven_great_cleave"
+	{
+		"AbilityValues"
+		{
+			"great_cleave_damage"		"30 42 54 66"
+			"cleave_ending_width"		"300"
+			"cleave_distance"		"550"
+		}
+	}
+	"sven_gods_strength"
+	{
+		"AbilityManaCost"		"100 150 200"
+		"AbilityDuration"		"25.0 25.0 25.0"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"80.0 80.0 80.0"
+			"gods_strength_damage"		"100 150 200"
+		}
+	}
+	"storm_spirit_static_remnant"
+	{
+		"AbilityManaCost"		"100"
+		"AbilityValues"
+		{
+			"static_remnant_damage_radius"		"260"
+			"static_remnant_delay"		"1.0"
+			"static_remnant_damage"		"140 180 220 260"
+		}
+	}
+	"storm_spirit_overload"
+	{
+		"AbilityDamage"		"40 60 80 100"
+		"AbilityDuration"		"0.6 0.6 0.6 0.6"
+		"AbilityValues"
+		{
+			"overload_attack_slow"		"-50"
+		}
+	}
+	"storm_spirit_ball_lightning"
+	{
+		"AbilityDamage"		"8 12 16"
+		"AbilityValues"
+		{
+			"ball_lightning_initial_mana_percentage"		"8"
+			"ball_lightning_initial_mana_base"		"30"
+			"ball_lightning_move_speed"		"1250 1875 2500"
+			"ball_lightning_aoe"		"125 200 275"
+			"ball_lightning_travel_cost_base"		"12"
+			"ball_lightning_travel_cost_percent"		"0.7"
+		}
+	}
+	"sandking_burrowstrike"
+	{
+		"AbilityManaCost"		"110 120 130 140"
+		"AbilityDamage"		"100 160 220 280"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"350 450 550 650"
+			"AbilityCooldown"		"11.0 11.0 11.0 11.0"
+			"burrow_duration"		"2.17"
+		}
+	}
+	"sandking_sand_storm"
+	{
+		"AbilityCooldown"		"34 26 18 10"
+		"AbilityManaCost"		"60 50 40 30"
+		"AbilityDamage"		"25 50 75 100"
+		"AbilityChannelTime"		"50"
+		"AbilityValues"
+		{
+			"AbilityDuration"		"50"
+			"sand_storm_radius"		"525"
+			"fade_delay"		"1.5"
+		}
+	}
+	"sandking_epicenter"
+	{
+		"AbilityCastPoint"		"0.0 0.0 0.0 0.0"
+		"AbilityDuration"		"3.0 3.0 3.0"
+		"AbilityChannelTime"		"2.0 2.0 2.0"
+		"AbilityValues"
+		{
+			"epicenter_pulses"		"6 8 10"
+			"epicenter_damage"		"110 110 110"
+			"epicenter_slow"		"-30 -30 -30"
+			"epicenter_slow_as"		"-30"
+			"epicenter_radius_base"		"275"
+			"epicenter_radius_increment"		"47"
+		}
+	}
+	"tiny_avalanche"
+	{
+		"AbilityManaCost"		"120 120 120 120"
+		"AbilityDamage"		"100 180 260 300"
+		"AbilityDuration"		"2.0 2.0 2.0 2.0"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"17.0 17.0 17.0 17.0"
+			"radius"		"275 275 275 275"
+			"tick_interval"		"0.25 0.25 0.25 0.25"
+			"stun_duration"		"1.0"
+			"tick_count"		"4"
+			"avalanche_damage"		"100 180 260 300"
+			"total_duration"		"1.0"
+		}
+	}
+	"tiny_toss"
+	{
+		"AbilityCastRange"		"1300"
+		"AbilityCooldown"		"8"
+		"AbilityManaCost"		"120 120 120 120"
+		"AbilityValues"
+		{
+			"duration"		"1.3"
+			"grab_radius"		"275"
+			"toss_damage"		"75 150 225 300"
+		}
+	}
+	"zuus_arc_lightning"
+	{
+		"AbilityCastRange"		"850"
+		"AbilityDamage"		"85 100 115 145"
+		"AbilityValues"
+		{
+			"AbilityManaCost"		"65 70 75 80"
+			"radius"		"500 500 500 500"
+			"jump_count"		"5 7 9 15"
+		}
+	}
+	"zuus_lightning_bolt"
+	{
+		"AbilityCastRange"		"700"
+		"AbilityCastPoint"		"0.4 0.4 0.4 0.4"
+		"AbilityManaCost"		"75 95 115 135"
+		"AbilityDamage"		"100 175 275 350"
+		"AbilityValues"
+		{
+			"true_sight_radius"		"750"
+			"sight_radius_day"		"750"
+			"sight_radius_night"		"750"
+			"sight_duration"		"4.5"
+		}
+	}
+	"zuus_static_field"
+	{
+		"AbilityCastRange"		"1200"
+		"AbilityValues"
+		{
+			"damage_health_pct"		"4 6 8 10"
+		}
+	}
+	"zuus_thundergods_wrath"
+	{
+		"AbilityCooldown"		"90.0"
+		"AbilityManaCost"		"225 325 450"
+		"AbilityValues"
+		{
+			"sight_radius_day"		"500"
+			"sight_radius_night"		"500"
+			"damage"		"225 325 425"
+		}
+	}
+	"slardar_slithereen_crush"
+	{
+		"AbilityCastPoint"		"0.35 0.35 0.35 0.35"
+		"AbilityManaCost"		"80 95 105 115"
+		"AbilityDamage"		"75 125 175 225"
+		"AbilityDuration"		"1.6 1.9 2.2 2.5"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"8"
+			"crush_radius"		"350"
+			"crush_extra_slow"		"-20"
+			"crush_attack_slow_tooltip"		"-20"
+			"crush_extra_slow_duration"		"2.0"
+			"stun_duration"		"1.6 1.9 2.2 2.5"
+		}
+	}
+	"slardar_amplify_damage"
+	{
+		"AbilityCastRange"		"700"
+		"AbilityCastPoint"		"0.35 0.35 0.35"
+		"AbilityValues"
+		{
+			"armor_reduction"		"-10 -15 -20"
+			"duration"		"25.0 25.0 25.0"
+		}
+	}
+	"tidehunter_gush"
+	{
+		"AbilityManaCost"		"120 120 120 120"
+		"AbilityDamage"		"110 160 210 260"
+		"AbilityDuration"		"4.0 4.0 4.0 4.0"
+		"AbilityValues"
+		{
+			"projectile_speed"		"4000 4000 4000 4000"
+		}
+	}
+	"tidehunter_kraken_shell"
+	{
+		"AbilityValues"
+		{
+			"damage_reduction"		"12 24 36 48"
+			"damage_reset_interval"		"6.0 6.0 6.0 6.0"
+		}
+	}
+	"tidehunter_anchor_smash"
+	{
+		"AbilityCastRange"		"375"
+		"AbilityManaCost"		"30 40 50 60"
+		"AbilityDamage"		"75 125 175 225"
+		"AbilityValues"
+		{
+			"damage_reduction"		"-45 -50 -55 -60"
+			"attack_damage"		"0"
+		}
+	}
+	"tidehunter_ravage"
+	{
+		"AbilityManaCost"		"150 225 325"
+		"AbilityDamage"		"200 290 380"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"150.0 150.0 150.0"
+			"radius"		"1025"
+			"speed"		"775"
+			"duration"		"2.0 2.4 2.8"
+		}
+	}
+	"vengefulspirit_magic_missile"
+	{
+		"AbilityManaCost"		"110 120 130 140"
+		"AbilityDamage"		"100 175 250 325"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"500"
+			"AbilityCooldown"		"13 12 11 10"
+			"magic_missile_speed"		"1250"
+		}
+	}
+	"vengefulspirit_wave_of_terror"
+	{
+		"AbilityCooldown"		"20"
+		"AbilityDamage"		"30 50 70 90"
+		"AbilityDuration"		"15"
+		"AbilityValues"
+		{
+			"wave_width"		"300"
+			"vision_aoe"		"500 500 500 500"
+			"vision_duration"		"3.0 3.0 3.0 3.0"
+		}
+	}
+	"vengefulspirit_nether_swap"
+	{
+		"AbilityCastRange"		"700 950 1200"
+		"AbilityCastPoint"		"0.3 0.3 0.3"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"45.0"
+		}
+	}
+	"crystal_maiden_crystal_nova"
+	{
+		"AbilityDamage"		"100 150 200 250"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"12 11 10 9"
+			"AbilityManaCost"		"100 120 140 160"
+			"attackspeed_slow"		"-20 -30 -40 -50"
+			"duration"		"4.5"
+		}
+	}
+	"crystal_maiden_frostbite"
+	{
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"525"
+			"AbilityManaCost"		"115 125 140 150"
+			"damage_per_second"		"100"
+		}
+	}
+	"crystal_maiden_freezing_field"
+	{
+		"AbilityValues"
+		{
+			"AbilityCastPoint"		"0.3 0.3 0.3"
+			"AbilityCooldown"		"90"
+			"radius"		"835"
+			"explosion_radius"		"300"
+			"movespeed_slow"		"-30"
+			"attack_slow"		"-30"
+			"damage"		"105 170 250"
+		}
+	}
+	"windrunner_shackleshot"
+	{
+		"AbilityManaCost"		"90 100 110 120"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"12.0 12.0 12.0 12.0"
+			"fail_stun_duration"		"0.75 0.75 0.75 0.75"
+			"stun_duration"		"1.5 2.25 3.0 3.75"
+		}
+	}
+	"windrunner_powershot"
+	{
+		"AbilityCastRange"		"2600"
+		"AbilityCooldown"		"9.0 9.0 9.0 9.0"
+		"AbilityDamage"		"120 200 280 360"
+		"AbilityValues"
+		{
+			"damage_reduction"		"0.1 0.1 0.1 0.1"
+			"arrow_range"		"2600"
+			"tree_width"		"75 75 75 75"
+		}
+	}
+	"windrunner_focusfire"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"60.0 60.0 60.0"
+			"bonus_attack_speed"		"500"
+			"focusfire_damage_reduction"		"-50 -40 -30"
+		}
+	}
+	"lich_frost_nova"
+	{
+		"AbilityCastRange"		"600"
+		"AbilityCastPoint"		"0.4 0.4 0.4 0.4"
+		"AbilityManaCost"		"125 150 170 190"
+		"AbilityDamage"		"50 100 150 200"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"8.0"
+			"slow_movement_speed"		"-30 -30 -30 -30"
+			"aoe_damage"		"75 100 125 150"
+			"slow_attack_speed_primary"		"-20 -20 -20 -20"
+			"damage"		"50 100 150 200"
+		}
+	}
+	"lich_frost_armor"
+	{
+		"AbilityValues"
+		{
+			"armor_bonus"		"3 5 7 9"
+			"slow_movement_speed"		"-30 -30 -30 -30"
+			"slow_attack_speed"		"-30"
+		}
+	}
+	"lich_chain_frost"
+	{
+		"AbilityCastPoint"		"0.4 0.4 0.4 0.4"
+		"AbilityCooldown"		"120.0 90.0 60.0"
+		"AbilityManaCost"		"200 325 500"
+		"AbilityValues"
+		{
+			"damage"		"280 370 460"
+			"jump_range"		"575 575 575"
+			"slow_movement_speed"		"-30"
+			"slow_attack_speed"		"-30"
+			"slow_duration"		"4.0 4.0 4.0"
+			"vision_radius"		"1000 1000 1000"
+		}
+	}
+	"witch_doctor_paralyzing_cask"
+	{
+		"AbilityCastRange"		"700"
+		"AbilityCastPoint"		"0.35 0.35 0.35 0.35"
+		"AbilityManaCost"		"110 120 130 140"
+		"AbilityDamage"		"75 100 125 150"
+		"AbilityValues"
+		{
+			"hero_duration"		"1.0 1.0 1.0 1.0"
+			"creep_duration"		"5.0 5.0 5.0 5.0"
+			"bounces"		"3 5 7 9"
+			"speed"		"1000"
+			"bounce_delay"		"0.3"
+			"base_damage"		"50 50 50 50"
+			"creep_damage_pct"		"150 200 250 300"
+			"bounce_bonus_damage"		"0"
+		}
+	}
+	"witch_doctor_voodoo_restoration"
+	{
+		"AbilityManaCost"		"20 30 40 50"
+		"AbilityValues"
+		{
+			"mana_per_second"		"8 12 16 20"
+			"radius"		"500"
+			"heal"		"16 24 32 40"
+		}
+	}
+	"witch_doctor_maledict"
+	{
+		"AbilityCastRange"		"575"
+		"AbilityCooldown"		"20.0"
+		"AbilityDamage"		"5 10 15 20"
+		"AbilityValues"
+		{
+			"radius"		"180"
+		}
+	}
+	"witch_doctor_death_ward"
+	{
+		"AbilityCastRange"		"600"
+		"AbilityCooldown"		"80.0"
+		"AbilityValues"
+		{
+			"damage"		"60 105 150"
+		}
+	}
+	"enigma_malefice"
+	{
+		"AbilityCastRange"		"600"
+		"AbilityCooldown"		"15.0 15.0 15.0 15.0"
+		"AbilityManaCost"		"110 130 150 160"
+		"AbilityValues"
+		{
+			"stun_duration"		"0.25 0.5 0.75 1.0"
+			"damage"		"30 50 70 90"
+		}
+	}
+	"enigma_demonic_conversion"
+	{
+		"AbilityCastRange"		"700"
+		"AbilityCooldown"		"35.0 35.0 35.0 35.0"
+		"AbilityManaCost"		"170 170 170 170"
+		"AbilityDuration"		"35.0 35.0 35.0 35.0"
+	}
+	"enigma_midnight_pulse"
+	{
+		"AbilityCooldown"		"35"
+		"AbilityManaCost"		"95 110 125 140"
+		"AbilityValues"
+		{
+			"radius"		"550"
+			"damage_percent"		"3 3.75 4.5 5.25"
+			"duration"		"11"
+		}
+	}
+	"tinker_laser"
+	{
+		"AbilityCastRange"		"650"
+		"AbilityCooldown"		"14.0 14.0 14.0 14.0"
+		"AbilityManaCost"		"95 120 145 170"
+		"AbilityDamage"		"80 160 240 320"
+	}
+	"tinker_heat_seeking_missile"
+	{
+		"AbilityCooldown"		"25.0 25.0 25.0 25.0"
+		"AbilityManaCost"		"120 140 160 180"
+		"AbilityDamage"		"125 200 275 350"
+		"AbilityValues"
+		{
+			"radius"		"2500 2500 2500 2500"
+			"speed"		"900 900 900 900"
+		}
+	}
+	"tinker_march_of_the_machines"
+	{
+		"AbilityCooldown"		"35.0 35.0 35.0 35.0"
+		"AbilityManaCost"		"145 150 165 190"
+		"AbilityDamage"		"16 24 32 40"
+	}
+	"tinker_rearm"
+	{
+		"AbilityCastPoint"		"0.53 0.53 0.53 0.53"
+		"AbilityCooldown"		"0.0 0.0 0.0"
+		"AbilityManaCost"		"100 200 300"
+		"AbilityValues"
+		{
+			"AbilityChannelTime"		"3.0 1.5 0.75"
+		}
+	}
+	"sniper_shrapnel"
+	{
+		"AbilityManaCost"		"50"
+		"AbilityDamage"		"15 35 55 75"
+		"AbilityValues"
+		{
+			"slow_movement_speed"		"-15 -20 -25 -30"
+			"radius"		"450"
+			"AbilityChargeRestoreTime"		"55"
+		}
+	}
+	"sniper_headshot"
+	{
+		"AbilityDamage"		"15 40 65 90"
+		"AbilityValues"
+		{
+			"slow_duration"		"0.5"
+		}
+	}
+	"sniper_assassinate"
+	{
+		"AbilityCastRange"		"2000 2500 3000"
+		"AbilityManaCost"		"175 275 375"
+		"AbilityDamage"		"320 485 650"
+	}
+	"necrolyte_death_pulse"
+	{
+		"AbilityManaCost"		"125 145 165 185"
+		"AbilityDamage"		"125 175 225 275"
+		"AbilityValues"
+		{
+			"area_of_effect"		"475"
+		}
+	}
+	"necrolyte_heartstopper_aura"
+	{
+		"AbilityCastRange"		"900"
+		"AbilityValues"
+		{
+			"aura_radius"		"900"
+			"aura_damage"		"0.6 1.0 1.4 1.8"
+			"heal_reduction_pct"		"0"
+		}
+	}
+	"necrolyte_reapers_scythe"
+	{
+		"AbilityCastPoint"		"0.5 0.5 0.5"
+		"AbilityCooldown"		"100 85 70"
+		"AbilityManaCost"		"175 340 500"
+		"AbilityValues"
+		{
+			"damage_per_health"		"0.6 0.75 0.9"
+		}
+	}
+	"warlock_fatal_bonds"
+	{
+		"AbilityCooldown"		"24 22 20 18"
+		"AbilityManaCost"		"120 120 120 120"
+		"AbilityValues"
+		{
+			"count"		"3 4 5 6"
+			"damage_share_percentage"		"25"
+			"duration"		"25.0"
+		}
+	}
+	"warlock_shadow_word"
+	{
+		"AbilityCastRange"		"525 600 675 750"
+		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
+		"AbilityManaCost"		"90 110 130 150"
+		"AbilityDamage"		"15 25 35 45"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"16"
+			"duration"		"12.0"
+			"tick_interval"		"1.0"
+		}
+	}
+	"warlock_upheaval"
+	{
+		"AbilityCastRange"		"1200"
+		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
+		"AbilityManaCost"		"100 110 120 130"
+		"AbilityChannelTime"		"16.0"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"50 46 42 38"
+			"aoe"		"650 650 650 650"
+			"duration"		"3.0"
+			"max_slow"		"84"
+			"slow_per_second"		"6.7 12.9 18.7 24"
+			"damage_per_second"		"0"
+			"max_damage"		"0"
+		}
+	}
+	"warlock_rain_of_chaos"
+	{
+		"AbilityCastRange"		"1200"
+		"AbilityManaCost"		"200 300 400"
+		"AbilityValues"
+		{
+			"stun_duration"		"1.0"
+		}
+	}
+	"warlock_golem_permanent_immolation"
+	{
+		"AbilityValues"
+		{
+			"aura_damage"		"30 40 50"
+		}
+	}
+	"beastmaster_wild_axes"
+	{
+		"AbilityCastRange"		"1300"
+		"AbilityCastPoint"		"0.4"
+		"AbilityManaCost"		"120"
+		"AbilityDamage"		"70 100 130 160"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"13"
+			"radius"		"140"
+			"spread"		"353 353 353 353"
+			"range"		"1300 1300 1300 1300"
+		}
+	}
+	"beastmaster_call_of_the_wild"
+	{
+		"AbilityCastPoint"		"0.3"
+		"AbilityCooldown"		"42 38 34 30"
+		"AbilityManaCost"		"25"
+	}
+	"beastmaster_boar_poison"
+	{
+		"AbilityValues"
+		{
+			"attack_speed"		"-10 -20 -30 -40"
+			"movement_speed"		"-10 -20 -30 -40"
+		}
+	}
+	"beastmaster_inner_beast"
+	{
+		"AbilityValues"
+		{
+			"radius"		"900"
+			"bonus_attack_speed"		"15 25 35 45"
+		}
+	}
+	"beastmaster_primal_roar"
+	{
+		"AbilityManaCost"		"150 175 200"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"80.0 75.0 70.0"
+			"slow_movement_speed_pct"		"-50 -50 -50"
+			"slow_attack_speed_pct"		"-50 -50 -50"
+			"push_distance"		"300"
+			"push_duration"		"0.6"
+			"slow_duration"		"2.0 3.0 4.0"
+		}
+	}
+	"queenofpain_shadow_strike"
+	{
+		"AbilityCastRange"		"450 475 500 525"
+		"AbilityCastPoint"		"0.452 0.452 0.452 0.452"
+		"AbilityCooldown"		"16.0 12.0 8.0 4.0"
+		"AbilityManaCost"		"110"
+		"AbilityDuration"		"15.0 15.0 15.0 15.0"
+		"AbilityValues"
+		{
+			"strike_damage"		"50 75 100 125"
+			"duration_damage"		"30 40 50 60"
+			"movement_slow"		"-20 -30 -40 -50"
+		}
+	}
+	"queenofpain_blink"
+	{
+		"AbilityCastRange"		"1300"
+		"AbilityManaCost"		"60 60 60 60"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"15.0 12.0 9.0 6.0"
+		}
+	}
+	"queenofpain_scream_of_pain"
+	{
+		"AbilityManaCost"		"110 120 130 140"
+		"AbilityDamage"		"75 150 225 300"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"7.0 7.0 7.0 7.0"
+			"area_of_effect"		"475"
+		}
+	}
+	"queenofpain_sonic_wave"
+	{
+		"AbilityManaCost"		"250 360 500"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"135 135 135"
+			"damage"		"290 380 470"
+		}
+	}
+	"venomancer_venomous_gale"
+	{
+		"AbilityManaCost"		"125"
+		"AbilityValues"
+		{
+			"movement_slow"		"-50 -50 -50 -50"
+		}
+	}
+	"venomancer_poison_sting"
+	{
+		"AbilityValues"
+		{
+			"duration"		"6.0 9.0 12.0 15.0"
+			"damage"		"6 12 18 24"
+			"movement_speed"		"-11 -12 -13 -14"
+		}
+	}
+	"venomancer_plague_ward"
+	{
+		"AbilityManaCost"		"20 20 20 20"
+	}
+	"venomancer_poison_nova"
+	{
+		"AbilityCooldown"		"140.0 120.0 100.0"
+		"AbilityModifierSupportValue"		"0.0"
+		"AbilityValues"
+		{
+			"radius"		"830"
+			"duration"		"16"
+			"speed"		"500"
+			"damage_base"		"30 55 80"
+			"hp_damage"		"0"
+		}
+	}
+	"faceless_void_time_walk"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"24 18 12 6"
+			"range"		"675"
+		}
+	}
+	"faceless_void_backtrack"
+	{
+		"AbilityValues"
+		{
+			"dodge_chance_pct"		"10 15 20 25"
+		}
+	}
+	"faceless_void_time_lock"
+	{
+		"AbilityValues"
+		{
+			"duration"		"1.0"
+			"duration_creep"		"2.0"
+			"chance_pct"		"10 15 20 25"
+			"bonus_damage"		"50 75 100 125"
+		}
+	}
+	"faceless_void_time_dilation"
+	{
+		"AbilityCooldown"		"40 34 28 22"
+		"AbilityManaCost"		"75"
+		"AbilityValues"
+		{
+			"radius"		"725"
+			"duration"		"6 8 10 12"
+			"slow"		"10"
+		}
+	}
+	"faceless_void_chronosphere"
+	{
+		"AbilityCastRange"		"600"
+		"AbilityCooldown"		"140.0 125.0 110.0"
+		"AbilityManaCost"		"150 225 300"
+		"AbilityValues"
+		{
+			"radius"		"425"
+			"duration"		"4.0 4.5 5.0"
+		}
+	}
+	"pugna_nether_blast"
+	{
+		"AbilityCastRange"		"400"
+		"AbilityManaCost"		"85 105 125 145"
+		"AbilityDamage"		"100 175 250 325"
+		"AbilityValues"
+		{
+			"structure_damage_mod"		"0.5"
+			"delay"		"0.9 0.9 0.9 0.9"
+		}
+	}
+	"pugna_nether_ward"
+	{
+		"AbilityCooldown"		"35.0 35.0 35.0 35.0"
+		"AbilityDuration"		"30.0"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"150"
+			"radius"		"1600"
+			"mana_multiplier"		"1.00 1.25 1.50 1.75"
+			"mana_regen"		"-1.5 -3.0 -4.5 -6.0"
+			"base_damage"		"0"
+			"health_restore_pct"		"0"
+			"mana_restore_pct"		"0"
+		}
+	}
+	"pugna_life_drain"
+	{
+		"AbilityCastRange"		"900 1050 1200"
+		"AbilityManaCost"		"125 175 225"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"22.0 22.0 22.0"
+			"health_drain"		"150 200 250"
+		}
+	}
+	"phantom_assassin_stifling_dagger"
+	{
+		"AbilityCastRange"		"525 750 975 1200"
+		"AbilityManaCost"		"30 25 20 15"
+		"AbilityDuration"		"1 2 3 4"
+		"AbilityValues"
+		{
+			"duration"		"1 2 3 4"
+			"base_damage"		"75"
+			"attack_factor"		"-75 -60 -45 -30"
+			"attack_factor_tooltip"		"25 40 55 70"
+		}
+	}
+	"phantom_assassin_phantom_strike"
+	{
+		"AbilityCastPoint"		"0.3 0.3 0.3 0.3"
+		"AbilityCooldown"		"14 11 8 5"
+		"AbilityManaCost"		"50 50 50 50"
+		"AbilityDuration"		"3 3 3 3"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"1000 1000 1000 1000"
+			"bonus_attack_speed"		"130"
+		}
+	}
+	"phantom_assassin_coup_de_grace"
+	{
+		"AbilityValues"
+		{
+			"crit_bonus"		"230 340 450"
+			"crit_chance"		"15"
+		}
+	}
+	"templar_assassin_refraction"
+	{
+		"AbilityCooldown"		"17.0 17.0 17.0 17.0"
+		"AbilityManaCost"		"100"
+		"AbilityValues"
+		{
+			"bonus_damage"		"20 40 60 80"
+		}
+	}
+	"templar_assassin_meld"
+	{
+		"AbilityCooldown"		"6"
+		"AbilityManaCost"		"50 50 50 50"
+		"AbilityDuration"		"10.0 10.0 10.0 10.0"
+	}
+	"templar_assassin_psi_blades"
+	{
+		"AbilityValues"
+		{
+			"bonus_attack_range"		"60 120 180 240"
+			"attack_spill_range"		"590 630 670 710"
+			"attack_spill_width"		"75"
+		}
+	}
+	"templar_assassin_psionic_trap"
+	{
+		"AbilityCastRange"		"2000"
+		"AbilityValues"
+		{
+			"movement_speed_min"		"30"
+			"movement_speed_max"		"60"
+			"trap_bonus_damage"		"0"
+			"instant_trap_damage"		"0"
+			"extra_damage"		"0"
+		}
+	}
+	"templar_assassin_trap"
+	{
+		"MaxLevel"		"1"
+	}
+	"templar_assassin_self_trap"
+	{
+		"MaxLevel"		"1"
+	}
+	"viper_corrosive_skin"
+	{
+		"AbilityValues"
+		{
+			"bonus_attack_speed"		"-10 -15 -20 -25"
+		}
+	}
+	"viper_viper_strike"
+	{
+		"AbilityCastRange"		"500"
+		"AbilityCastPoint"		"0.3 0.3 0.3"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"70.0 50.0 30.0"
+			"AbilityManaCost"		"125 175 250"
+			"duration"		"5.1 5.1 5.1"
+			"damage"		"60 100 145"
+			"bonus_movement_speed"		"-40 -60 -80"
+			"bonus_attack_speed"		"-40 -60 -80"
+			"projectile_speed"		"1200"
+		}
+	}
+	"luna_lucent_beam"
+	{
+		"AbilityCastPoint"		"0.6"
+		"AbilityDamage"		"75 150 225 300"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"6.0 6.0 6.0 6.0"
+			"stun_duration"		"0.8"
+		}
+	}
+	"luna_moon_glaive"
+	{
+		"AbilityValues"
+		{
+			"bounces"		"1 2 3 6"
+			"damage_reduction_percent"		"35"
+		}
+	}
+	"luna_eclipse"
+	{
+		"AbilityCastPoint"		"0.6 0.6 0.6"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"140.0"
+			"beams"		"5 8 11"
+		}
+	}
+	"dragon_knight_breathe_fire"
+	{
+		"AbilityCastPoint"		"0.0 0.0 0.0 0.0"
+		"AbilityManaCost"		"100 110 120 130"
+		"AbilityDamage"		"90 170 240 300"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"500"
+			"range"		"650 650 650 650"
+			"reduction"		"-35"
+		}
+	}
+	"dragon_knight_dragon_tail"
+	{
+		"AbilityCooldown"		"12 11 10 9"
+		"AbilityManaCost"		"100 100 100 100"
+		"AbilityDamage"		"25 50 75 100"
+		"AbilityValues"
+		{
+			"stun_duration"		"2.5 2.75 3.0 3.25"
+			"dragon_cast_range"		"400"
+		}
+	}
+	"dragon_knight_elder_dragon_form"
+	{
+		"AbilityCooldown"		"115.0 115.0 115.0"
+		"AbilityValues"
+		{
+			"bonus_movement_speed"		"25 25 25"
+			"frost_bonus_movement_speed"		"-30"
+			"frost_bonus_attack_speed"		"-20"
+			"frost_duration"		"3.0 3.0 3.0"
+			"corrosive_damage_per_second"		"20 20 20 20"
+			"corrosive_duration"		"5 5 5 5"
+		}
+	}
+	"dazzle_shallow_grave"
+	{
+		"AbilityCastRange"		"550 700 850 1000"
+		"AbilityCastPoint"		"0.4"
+		"AbilityManaCost"		"150"
+		"AbilityDuration"		"5 5 5 5"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"60 45 30 15"
+		}
+	}
+	"dazzle_shadow_wave"
+	{
+		"AbilityCooldown"		"12 10 8 6"
+		"AbilityManaCost"		"90 100 110 120"
+		"AbilityDamage"		"80 100 120 140"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"900"
+			"damage"		"80 100 120 140"
+		}
+	}
+	"rattletrap_battery_assault"
+	{
+		"AbilityCastPoint"		"0.3 0.3 0.3 0.3"
+		"AbilityCooldown"		"32.0 28.0 24.0 20.0"
+		"AbilityManaCost"		"75 75 75 75"
+		"AbilityDamage"		"20 45 70 95"
+	}
+	"rattletrap_power_cogs"
+	{
+		"AbilityManaCost"		"50 60 70 80"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"15"
+			"attacks_to_destroy"		"2 2 2 3"
+			"push_length"		"250"
+			"push_duration"		"0.85"
+			"trigger_distance"		"170"
+			"damage"		"80 120 160 200"
+			"mana_burn"		"80 120 160 200"
+			"mana_burn_as_damage_pct"		"0"
+		}
+	}
+	"rattletrap_rocket_flare"
+	{
+		"AbilityManaCost"		"50 50 50 50"
+		"AbilityDamage"		"80 120 160 200"
+		"AbilityValues"
+		{
+			"duration"		"10.0 10.0 10.0 10.0"
+			"speed"		"1750"
+		}
+	}
+	"rattletrap_hookshot"
+	{
+		"AbilityManaCost"		"150 150 150"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"70.0 55.0 40.0"
+			"duration"		"1.0 1.5 2.0"
+			"damage"		"100 200 300"
+		}
+	}
+	"leshrac_split_earth"
+	{
+		"AbilityCastRange"		"750"
+		"AbilityCooldown"		"9 9 9 9"
+		"AbilityManaCost"		"100 125 140 160"
+		"AbilityDamage"		"120 180 240 300"
+		"AbilityDuration"		"2 2 2 2"
+		"AbilityValues"
+		{
+			"radius"		"150 175 200 225"
+			"duration"		"2"
+		}
+	}
+	"leshrac_diabolic_edict"
+	{
+		"AbilityCooldown"		"22 22 22 22"
+		"AbilityManaCost"		"95 120 135 155"
+		"AbilityDamage"		"9 18 27 36"
+		"AbilityValues"
+		{
+			"AbilityDuration"		"10"
+			"radius"		"500"
+			"tower_bonus"		"40"
+		}
+	}
+	"leshrac_lightning_storm"
+	{
+		"AbilityCastRange"		"800"
+		"AbilityCastPoint"		"0.6"
+		"AbilityManaCost"		"90 100 110 120"
+		"AbilityDamage"		"50 100 150 200"
+		"AbilityValues"
+		{
+			"jump_count"		"4 5 6 7"
+			"radius"		"475"
+			"slow_duration"		"0.7 0.8 0.9 1.0"
+			"damage"		"50 100 150 200"
+		}
+	}
+	"leshrac_pulse_nova"
+	{
+		"AbilityManaCost"		"70 90 110"
+		"AbilityValues"
+		{
+			"radius"		"450"
+			"damage"		"100 130 160"
+		}
+	}
+	"furion_sprout"
+	{
+		"AbilityCooldown"		"11 10 9 8"
+		"AbilityManaCost"		"70 90 110 130"
+		"AbilityValues"
+		{
+			"vision_range"		"1000"
+			"duration"		"3 4 5 6"
+		}
+	}
+	"furion_teleportation"
+	{
+		"AbilityManaCost"		"50 50 50 50"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"50 40 30 20"
+		}
+	}
+	"furion_force_of_nature"
+	{
+		"AbilityManaCost"		"160 160 160 160"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"37 37 37 37"
+			"treant_duration"		"60"
+			"treant_health"		"550"
+			"treant_damage"		"30 30 30 30"
+			"treant_bonus_hero_damage"		"0"
+			"treant_movespeed"		"300"
+		}
+	}
+	"furion_wrath_of_nature"
+	{
+		"AbilityManaCost"		"175 225 275"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"90 75 60"
+			"damage"		"140 180 225"
+			"damage_percent_add"		"7"
+			"jump_delay"		"0.25"
+		}
+	}
+	"life_stealer_feast"
+	{
+		"AbilityValues"
+		{
+			"hp_leech_percent"		"4.5 5.5 6.5 7.5"
+		}
+	}
+	"life_stealer_open_wounds"
+	{
+		"AbilityCastRange"		"200 300 400 500"
+		"AbilityCooldown"		"24 20 16 12"
+		"AbilityManaCost"		"110 110 110 110"
+		"AbilityDuration"		"8 8 8 8"
+		"AbilityValues"
+		{
+			"slow_steps"		"-70 -70 -60 -50 -30 -10 -10 -10"
+			"heal_percent"		"50"
+			"slow_tooltip"		"70"
+			"duration"		"8"
+		}
+	}
+	"life_stealer_infest"
+	{
+		"AbilityManaCost"		"50 50 50"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"100 75 50"
+			"bonus_health"		"0"
+			"bonus_movement_speed"		"0"
+			"self_regen"		"0"
+			"creep_max_hp_drain_pct_per_second"		"0"
+		}
+	}
+	"dark_seer_vacuum"
+	{
+		"AbilityCastRange"		"500"
+		"AbilityCooldown"		"28"
+		"AbilityManaCost"		"100 130 160 190"
+		"AbilityValues"
+		{
+			"radius"		"250 350 450 550"
+			"duration"		"0.5"
+			"damage"		"40 80 120 160"
+			"radius_tree"		"275"
+		}
+	}
+	"dark_seer_ion_shell"
+	{
+		"AbilityCastRange"		"600"
+		"AbilityCastPoint"		"0.4 0.4 0.4 0.4"
+		"AbilityManaCost"		"70 90 110 130"
+		"AbilityValues"
+		{
+			"radius"		"250"
+			"duration"		"25"
+		}
+	}
+	"dark_seer_surge"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"12.0 11.0 10.0 9.0"
+			"duration"		"3.0 4.5 6.0 7.5"
+		}
+	}
+	"dark_seer_wall_of_replica"
+	{
+		"AbilityCastRange"		"500 900 1300"
+		"AbilityCastPoint"		"0.4 0.4 0.4"
+		"AbilityValues"
+		{
+			"duration"		"45.0"
+			"replica_damage_outgoing"		"-40 -25 -10"
+			"tooltip_outgoing"		"60 75 90"
+			"replica_damage_incoming"		"300 300 300"
+			"tooltip_replica_total_damage_incoming"		"400 400 400"
+			"width"		"1000 1000 1000"
+			"wall_damage"		"150 150 150"
+			"movement_slow"		"0"
+		}
+	}
+	"clinkz_searing_arrows"
+	{
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"640"
+			"damage_bonus"		"30 40 50 60"
+		}
+	}
+	"clinkz_wind_walk"
+	{
+		"AbilityManaCost"		"75 75 75 75"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"20 19 18 17"
+			"duration"		"20.0 25.0 30.0 35.0"
+			"move_speed_bonus_pct"		"11 22 33 44"
+		}
+	}
+	"omniknight_purification"
+	{
+		"AbilityCastRange"		"575"
+		"AbilityManaCost"		"100 120 140 160"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"9"
+			"heal"		"90 180 270 360"
+		}
+	}
+	"omniknight_repel"
+	{
+		"AbilityCastPoint"		"0.35"
+		"AbilityCooldown"		"20 18 16 14"
+		"AbilityManaCost"		"50 50 50 50"
+		"AbilityValues"
+		{
+			"duration"		"5 6 7 8"
+		}
+	}
+	"omniknight_guardian_angel"
+	{
+		"AbilityCastPoint"		"0.5 0.5 0.5"
+		"AbilityManaCost"		"125 175 250"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"150"
+			"duration"		"6.0 7.0 8.0"
+			"radius"		"600 600 600"
+		}
+	}
+	"enchantress_untouchable"
+	{
+		"AbilityValues"
+		{
+			"slow_attack_speed"		"-40 -70 -100 -130"
+		}
+	}
+	"enchantress_enchant"
+	{
+		"AbilityCastRange"		"700"
+		"AbilityManaCost"		"65 65 65 65"
+		"AbilityDuration"		"5.5 5.5 5.5 5.5"
+		"AbilityValues"
+		{
+			"dominate_duration"		"80.0"
+			"slow_movement_speed"		"-20 -30 -40 -50"
+		}
+	}
+	"enchantress_natures_attendants"
+	{
+		"AbilityCooldown"		"45.0 45.0 45.0 45.0"
+		"AbilityManaCost"		"125 140 155 170"
+		"AbilityDuration"		"11.0"
+		"AbilityValues"
+		{
+			"heal_interval"		"1.0"
+			"heal"		"10.0 10.0 10.0 10.0"
+			"wisp_count"		"4 6 8 10"
+		}
+	}
+	"enchantress_impetus"
+	{
+		"AbilityCastRange"		"550"
+		"AbilityCooldown"		"0.0 0.0 0.0"
+		"AbilityManaCost"		"55 60 65"
+		"AbilityValues"
+		{
+			"distance_damage_pct"		"14.0 18.0 22.0"
+		}
+	}
+	"huskar_inner_vitality"
+	{
+		"AbilityManaCost"		"170 170 170 170"
+		"AbilityValues"
+		{
+			"heal"		"10"
+			"tooltip_attrib_bonus"		"5 10 15 20"
+			"tooltip_hurt_attrib_bonus"		"20 40 60 80"
+		}
+	}
+	"huskar_burning_spear"
+	{
+		"AbilityDamage"		"5 10 15 20"
+		"AbilityDuration"		"8"
+		"AbilityValues"
+		{
+			"max_health_cost"		"0"
+			"burn_damage"		"5 10 15 20"
+		}
+	}
+	"huskar_life_break"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"12"
+			"AbilityDuration"		"4 5 6"
+			"health_cost_percent"		".35"
+			"health_damage"		"0.35"
+			"charge_speed"		"1000"
+			"tooltip_health_damage"		"35"
+			"tooltip_health_cost_percent"		"35"
+			"movespeed"		"-40 -50 -60"
+		}
+	}
+	"night_stalker_void"
+	{
+		"AbilityManaCost"		"80 90 100 110"
+		"AbilityDamage"		"90 160 255 335"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"8 8 8 8"
+			"duration_day"		"2.0 2.0 2.0 2.0"
+			"duration_night"		"2.5 3 3.5 4"
+			"movespeed_slow"		"-50 -50 -50 -50"
+			"attackspeed_slow"		"-50 -50 -50 -50"
+		}
+	}
+	"night_stalker_hunter_in_the_night"
+	{
+		"AbilityValues"
+		{
+			"bonus_movement_speed_pct_night"		"20 25 30 35"
+			"bonus_attack_speed_night"		"45 60 75 90"
+		}
+	}
+	"broodmother_spawn_spiderlings"
+	{
+		"AbilityCastRange"		"700"
+		"AbilityCooldown"		"10.0 10.0 10.0 10.0"
+		"AbilityManaCost"		"120 120 120 120"
+		"AbilityValues"
+		{
+			"buff_duration"		"2.0 2.0 2.0 2.0"
+			"spiderling_duration"		"60.0 60.0 60.0 60.0"
+			"damage"		"70 140 210 280"
+			"count"		"1 2 3 4"
+		}
+	}
+	"broodmother_poison_sting"
+	{
+		"AbilityValues"
+		{
+			"movement_speed"		"-8"
+		}
+	}
+	"broodmother_spawn_spiderite"
+	{
+		"AbilityValues"
+		{
+			"spiderite_duration"		"60.0"
+		}
+	}
+	"broodmother_spin_web"
+	{
+		"AbilityCastRange"		"1000"
+		"AbilityManaCost"		"50"
+		"AbilityValues"
+		{
+			"radius"		"900"
+			"count"		"2 4 6 8"
+			"bonus_movespeed"		"20 25 30 35"
+			"AbilityChargeRestoreTime"		"40"
+			"health_regen"		"2 4 6 8"
+		}
+		"AbilityCharges"		"1 2 3 4"
+	}
+	"broodmother_incapacitating_bite"
+	{
+		"AbilityValues"
+		{
+			"bonus_movespeed"		"-10 -20 -30 -40"
+		}
+	}
+	"broodmother_insatiable_hunger"
+	{
+		"AbilityCooldown"		"45.0 45.0 45.0"
+		"AbilityManaCost"		"100 100 100"
+		"AbilityValues"
+		{
+			"bonus_damage"		"60 90 120"
+			"lifesteal_pct"		"60 80 100"
+			"duration"		"14.0 14.0 14.0"
+		}
+	}
+	"bounty_hunter_shuriken_toss"
+	{
+		"AbilityCooldown"		"10"
+		"AbilityManaCost"		"120 130 140 150"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"400"
+			"bonus_damage"		"150 225 300 375"
+		}
+	}
+	"bounty_hunter_track"
+	{
+		"AbilityCastRange"		"1200"
+		"AbilityCooldown"		"4"
+		"AbilityManaCost"		"65"
+		"AbilityValues"
+		{
+			"bonus_gold_radius"		"925 925 925"
+			"bonus_gold_self"		"150 250 350"
+			"duration"		"30.0 30.0 30.0"
+			"target_damage_amp"		"0"
+		}
+	}
+	"weaver_the_swarm"
+	{
+		"AbilityCooldown"		"35 30 25 20"
+		"AbilityManaCost"		"70 80 90 100"
+		"AbilityValues"
+		{
+			"damage"		"20"
+			"attack_rate"		"1.25 1.1 0.95 0.8"
+			"destroy_attacks"		"8 8 8 8"
+			"speed"		"600 600 600 600"
+		}
+	}
+	"weaver_shukuchi"
+	{
+		"AbilityManaCost"		"60 60 60 60"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"12.0 10.0 8.0 6.0"
+			"damage"		"75 100 125 150"
+		}
+	}
+	"weaver_geminate_attack"
+	{
+		"AbilityCooldown"		"6.0 5.0 4.0 3.0"
+	}
+	"weaver_time_lapse"
+	{
+		"AbilityCastRange"		"1000"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"60 50 40"
+		}
+	}
+	"jakiro_dual_breath"
+	{
+		"AbilityCastPoint"		"0.65 0.65 0.65 0.65"
+		"AbilityManaCost"		"135 140 155 170"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"750"
+			"AbilityCooldown"		"10.0 10.0 10.0 10.0"
+			"start_radius"		"200 200 200 200"
+			"end_radius"		"250 250 250 250"
+			"fire_delay"		"0.3 0.3 0.3 0.3"
+			"slow_movement_speed_pct"		"-28 -32 -36 -40"
+			"slow_attack_speed_pct"		"-28 -32 -36 -40"
+		}
+	}
+	"jakiro_ice_path"
+	{
+		"AbilityCastRange"		"1200"
+		"AbilityManaCost"		"90"
+		"AbilityDuration"		"1.0 1.33 1.66 2.0"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"12.0 11.0 10.0 9.0"
+			"path_delay"		"0.5"
+			"stun_duration"		"1 1.5 2 2.5"
+		}
+	}
+	"jakiro_liquid_fire"
+	{
+		"AbilityCooldown"		"20 15 10 4"
+		"AbilityValues"
+		{
+			"slow_attack_speed_pct"		"-20 -30 -40 -50"
+			"damage"		"12 16 20 24"
+		}
+	}
+	"jakiro_macropyre"
+	{
+		"AbilityCastPoint"		"0.65 0.65 0.65 0.65"
+		"AbilityCooldown"		"60 60 60"
+		"AbilityManaCost"		"220 330 440"
+		"AbilityValues"
+		{
+			"damage"		"100 140 180"
+			"path_width"		"480"
+		}
+	}
+	"batrider_sticky_napalm"
+	{
+		"AbilityCastPoint"		"0.2 0.2 0.2 0.2"
+		"AbilityManaCost"		"20 20 20 20"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"700"
+			"damage"		"10 15 20 25"
+			"duration"		"8.0 8.0 8.0 8.0"
+			"movement_speed_pct"		"-3 -5 -7 -9"
+			"turn_rate_pct"		"-70 -70 -70 -70"
+			"max_stacks"		"10 10 10 10"
+		}
+	}
+	"batrider_flamebreak"
+	{
+		"AbilityCastRange"		"1500"
+		"AbilityManaCost"		"110 120 130 140"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"17.0"
+			"damage_duration"		"4 5 6 7"
+			"explosion_radius"		"375 375 375 375"
+			"speed"		"900 900 900 900"
+			"knockback_duration"		"0.25 0.25 0.25 0.25"
+			"knockback_distance"		"400"
+			"slow"		"0"
+		}
+	}
+	"batrider_firefly"
+	{
+		"AbilityCooldown"		"40.0 40.0 40.0 40.0"
+		"AbilityValues"
+		{
+			"damage_per_second"		"10 30 50 70"
+			"radius"		"200 200 200 200"
+			"duration"		"18.0 18.0 18.0 18.0"
+		}
+	}
+	"batrider_flaming_lasso"
+	{
+		"AbilityCastRange"		"100"
+		"AbilityCastPoint"		"0.2 0.2 0.2 0.2"
+		"AbilityManaCost"		"225"
+		"AbilityValues"
+		{
+			"duration"		"3.0 3.5 4.0"
+			"damage"		"0 0 0"
+		}
+	}
+	"chen_test_of_faith"
+	{
+		"AbilityManaCost"		"90 100 110 120"
+	}
+	"chen_holy_persuasion"
+	{
+		"AbilityCastRange"		"900 900 900 900"
+		"AbilityCooldown"		"30.0 26.0 22.0 18.0"
+		"AbilityManaCost"		"100 100 100 100"
+		"AbilityValues"
+		{
+			"health_min"		"700 800 900 1000"
+		}
+	}
+	"chen_hand_of_god"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"160 140 120"
+		}
+	}
+	"spectre_spectral_dagger"
+	{
+		"AbilityCastRange"		"2000 2000 2000 2000"
+		"AbilityManaCost"		"130 140 150 160"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"16.0 16.0 16.0 16.0"
+			"damage"		"50 100 150 200"
+			"bonus_movespeed"		"8 12 16 20"
+			"dagger_grace_period"		"2.0"
+		}
+	}
+	"spectre_desolate"
+	{
+		"AbilityValues"
+		{
+			"bonus_damage"		"20 35 50 65"
+			"radius"		"325"
+		}
+	}
+	"spectre_dispersion"
+	{
+		"AbilityValues"
+		{
+			"damage_reflection_pct"		"10 14 18 22"
+			"min_radius"		"300 300 300 300"
+			"max_radius"		"1000 1000 1000 1000"
+		}
+	}
+	"spectre_haunt"
+	{
+		"AbilityManaCost"		"150 150 150"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"140 130 120"
+			"duration"		"5.0 6.0 7.0"
+			"illusion_damage_outgoing"		"-70"
+			"tooltip_outgoing"		"30"
+			"attack_delay"		"1.0 1.0 1.0"
+		}
+	}
+	"spectre_reality"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"0"
+		}
+	}
+	"doom_bringer_devour"
+	{
+		"AbilityManaCost"		"60"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"70.0 60.0 50.0 40.0"
+			"bonus_gold"		"25 50 75 100"
+			"hero_ability_steal_time"		"99999"
+		}
+	}
+	"doom_bringer_scorched_earth"
+	{
+		"AbilityCastRange"		"600 600 600 600"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"55"
+			"AbilityManaCost"		"60 65 70 75"
+			"damage_per_second"		"10 20 30 40"
+			"radius"		"600 600 600 600"
+			"bonus_movement_speed_pct"		"14"
+		}
+	}
+	"doom_bringer_infernal_blade"
+	{
+		"AbilityCastRange"		"150"
+		"AbilityCooldown"		"16 12 8 4"
+		"AbilityManaCost"		"40"
+		"AbilityValues"
+		{
+			"burn_damage"		"25 30 35 40"
+			"burn_damage_pct"		"1.25 2.5 3.75 5"
+			"ministun_duration"		"0.3"
+		}
+	}
+	"doom_bringer_doom"
+	{
+		"AbilityCastRange"		"550 550 550"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"145.0"
+			"duration"		"15.0"
+			"damage"		"20 35 50"
+		}
+	}
+	"ancient_apparition_cold_feet"
+	{
+		"AbilityCooldown"		"13 11 9 7"
+		"AbilityManaCost"		"150 150 150 150"
+		"AbilityValues"
+		{
+			"break_distance"		"740 740 740 740"
+			"stun_duration"		"1.25 2.0 2.75 3.5"
+			"damage_per_second"		"37.5 50 62.5 75"
+		}
+	}
+	"ancient_apparition_ice_vortex"
+	{
+		"AbilityCastRange"		"1500 1500 1500 1500"
+		"AbilityManaCost"		"80 90 100 110"
+		"AbilityDuration"		"16"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"4.0"
+			"movement_speed_pct"		"-15 -20 -25 -30"
+			"spell_resist_pct"		"-15 -20 -25 -30"
+			"vision_aoe"		"200 200 200 200"
+		}
+	}
+	"ancient_apparition_ice_blast"
+	{
+		"AbilityCooldown"		"40.0"
+		"AbilityManaCost"		"100 125 150"
+		"AbilityDamage"		"250 350 450"
+		"AbilityValues"
+		{
+			"radius_min"		"275 275 275"
+			"path_radius"		"275 275 275"
+			"frostbite_duration"		"8.0 9.0 10.0"
+			"kill_pct"		"10.0 11.0 12.0"
+			"damage_per_second"		"12.5 20 32"
+		}
+	}
+	"spirit_breaker_charge_of_darkness"
+	{
+		"AbilityCastPoint"		"0.47 0.47 0.47 0.47"
+		"AbilityManaCost"		"100 100 100 100"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"12"
+			"movement_speed"		"600 650 700 750"
+			"stun_duration"		"1.2 1.6 2.0 2.4"
+		}
+	}
+	"spirit_breaker_greater_bash"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"1.5 1.5 1.5 1.5"
+			"damage"		"22 30 38 46"
+			"duration"		"1.0 1.2 1.4 1.6"
+			"bonus_movespeed_pct"		"15 15 15 15"
+		}
+	}
+	"spirit_breaker_nether_strike"
+	{
+		"AbilityCastPoint"		"1.2"
+		"AbilityCooldown"		"80 70 60"
+	}
+	"ursa_earthshock"
+	{
+		"AbilityCastPoint"		"0.3 0.3 0.3 0.3"
+		"AbilityManaCost"		"75 75 75 75"
+		"AbilityDamage"		"90 140 190 240"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"5"
+			"movement_slow"		"-25 -35 -45 -55"
+		}
+	}
+	"ursa_overpower"
+	{
+		"AbilityCooldown"		"10.0 10.0 10.0 10.0"
+		"AbilityManaCost"		"45 55 65 75"
+		"AbilityDuration"		"15.0 15.0 15.0 15.0"
+	}
+	"ursa_fury_swipes"
+	{
+		"AbilityValues"
+		{
+			"bonus_reset_time"		"20"
+			"bonus_reset_time_roshan"		"6"
+			"damage_per_stack"		"15 20 25 30"
+		}
+	}
+	"gyrocopter_rocket_barrage"
+	{
+		"AbilityManaCost"		"90 90 90 90"
+		"AbilityDamage"		"7 12 17 22"
+		"AbilityDuration"		"3 3 3 3"
+	}
+	"gyrocopter_homing_missile"
+	{
+		"AbilityCastPoint"		"0.3 0.3 0.3 0.3"
+		"AbilityCooldown"		"20 17 14 11"
+		"AbilityManaCost"		"120 130 140 150"
+		"AbilityDamage"		"125 250 375 500"
+		"AbilityValues"
+		{
+			"hits_to_kill_tooltip"		"3 3 4 5"
+			"tower_hits_to_kill_tooltip"		"6 6 8 10"
+			"stun_duration"		"2.2 2.4 2.6 2.8"
+			"pre_flight_time"		"3"
+			"hero_damage"		"34 34 26 21"
+			"speed"		"340"
+			"acceleration"		"20"
+			"hit_damage"		"125 250 375 500"
+		}
+	}
+	"gyrocopter_flak_cannon"
+	{
+		"AbilityManaCost"		"50 50 50 50"
+		"AbilityDuration"		"15 15 15 15"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"30 30 30 30"
+			"radius"		"1000"
+			"max_attacks"		"3 4 5 6"
+		}
+	}
+	"gyrocopter_call_down"
+	{
+		"AbilityManaCost"		"125 125 125"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"55 50 45"
+			"radius"		"600"
+			"total_strikes"		"2"
+			"damage"		"200 275 350"
+		}
+	}
+	"alchemist_acid_spray"
+	{
+		"AbilityCastPoint"		"0.2"
+		"AbilityCooldown"		"22.0"
+		"AbilityManaCost"		"130 140 150 160"
+		"AbilityValues"
+		{
+			"radius"		"625"
+			"duration"		"16.0"
+			"damage"		"15 20 25 30"
+			"armor_reduction"		"4 5 6 7"
+		}
+	}
+	"alchemist_unstable_concoction"
+	{
+		"AbilityCooldown"		"16.0"
+		"AbilityManaCost"		"120"
+		"AbilityValues"
+		{
+			"max_stun"		"1.75 2.5 3.25 4.0"
+			"radius"		"175"
+		}
+	}
+	"alchemist_unstable_concoction_throw"
+	{
+		"AbilityValues"
+		{
+			"max_stun"		"1.75 2.5 3.25 4.0"
+			"midair_explosion_radius"		"175"
+		}
+	}
+	"alchemist_chemical_rage"
+	{
+		"AbilityCooldown"		"45.0"
+		"AbilityManaCost"		"50 100 150"
+		"AbilityValues"
+		{
+			"duration"		"25.0"
+			"base_attack_time"		"1.4 1.2 1.0"
+			"bonus_health_regen"		"50 75 100"
+			"bonus_mana_regen"		"3.0 7.5 12.0"
+			"bonus_movespeed"		"30 40 60"
+		}
+	}
+	"invoker_quas"
+	{
+		"MaxLevel"		"7"
+		"AbilityValues"
+		{
+			"max_level"		"7"
+			"hp_regen_per_instance"		"1 2 3 4 5 6 7"
+		}
+	}
+	"invoker_wex"
+	{
+		"MaxLevel"		"7"
+		"AbilityValues"
+		{
+			"attack_speed_per_instance"		"2 4 6 8 10 12 14"
+			"move_speed_per_instance"		"1 2 3 4 5 6 7"
+			"max_level"		"7"
+		}
+	}
+	"invoker_exort"
+	{
+		"MaxLevel"		"7"
+		"AbilityValues"
+		{
+			"bonus_damage_per_instance"		"3 6 9 12 15 18 21"
+			"max_level"		"7"
+		}
+	}
+	"invoker_invoke"
+	{
+		"AbilityCooldown"		"22 17 12 5"
+		"AbilityManaCost"		"20 40 60 80"
+		"RequiredLevel"		"1"
+		"LevelsBetweenUpgrades"		"5"
+		"MaxLevel"		"4"
+	}
+	"invoker_cold_snap"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"20"
+			"duration"		"3.0 3.5 4.0 4.5 5.0 5.5 6.0 6.5"
+			"freeze_cooldown"		"0.77 0.74 0.71 0.69 0.66 0.63 0.60 0.57"
+			"freeze_damage"		"7 14 21 28 35 42 49 56"
+		}
+	}
+	"invoker_ghost_walk"
+	{
+		"AbilityManaCost"		"200"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"45"
+			"duration"		"100.0"
+			"area_of_effect"		"400"
+			"enemy_slow"		"-20 -25 -30 -35 -40 -45 -50 -55"
+			"self_slow"		"-30 -20 -10 0 10 20 30 40"
+		}
+	}
+	"invoker_tornado"
+	{
+		"AbilityManaCost"		"150"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"30"
+			"travel_distance"		"800 1200 1600 2000 2400 2800 3200 3600"
+			"lift_duration"		"0.8 1.1 1.4 1.7 2.0 2.3 2.6 2.9"
+			"base_damage"		"70"
+			"wex_damage"		"45 90 135 180 225 270 315 360"
+		}
+	}
+	"invoker_emp"
+	{
+		"AbilityCooldown"		"30"
+		"AbilityValues"
+		{
+			"mana_burned"		"100 175 250 325 400 475 550 625"
+			"damage_per_mana_pct"		"50"
+		}
+	}
+	"invoker_alacrity"
+	{
+		"AbilityCastRange"		"650"
+		"AbilityManaCost"		"45"
+		"AbilityValues"
+		{
+			"bonus_attack_speed"		"10 25 40 55 70 85 100 115"
+			"bonus_damage"		"10 25 40 55 70 85 100 115"
+		}
+	}
+	"invoker_chaos_meteor"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"55"
+			"travel_distance"		"465 615 780 930 1095 1245 1410 1575"
+			"main_damage"		"57.5 75 92.5 110 127.5 145 162.5 180"
+			"burn_dps"		"11.5 15 18.5 22 25.5 29 32.5 36"
+		}
+	}
+	"invoker_sun_strike"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"25"
+			"damage"		"100 162.5 225 287.5 350 412.5 475 537.5"
+		}
+	}
+	"invoker_forge_spirit"
+	{
+		"AbilityCooldown"		"30"
+		"AbilityValues"
+		{
+			"spirit_damage"		"22 32 42 52 62 72 82 92"
+			"spirit_mana"		"100 150 200 250 300 350 400 450"
+			"spirit_armor"		"0 1 2 3 4 5 6 7"
+			"spirit_attack_range"		"300 365 430 495 560 625 690 755"
+			"spirit_hp"		"300 400 500 600 700 800 900 1000"
+			"spirit_duration"		"20 30 40 50 60 70 80 90"
+		}
+	}
+	"forged_spirit_melting_strike"
+	{
+		"AbilityManaCost"		"40"
+		"MaxLevel"		"1"
+		"AbilityValues"
+		{
+			"armor_removed"		"1"
+			"max_armor_removed"		"10"
+		}
+	}
+	"invoker_ice_wall"
+	{
+		"AbilityCooldown"		"25"
+		"AbilityManaCost"		"175"
+		"AbilityValues"
+		{
+			"duration"		"3.0 4.5 6.0 7.5 9.0 10.5 12.0 13.5"
+			"slow"		"-20 -40 -60 -80 -100 -120 -140 -160"
+			"damage_per_second"		"6 12 18 24 30 36 42 48"
+		}
+	}
+	"invoker_deafening_blast"
+	{
+		"AbilityCooldown"		"40"
+		"AbilityManaCost"		"300"
+		"AbilityValues"
+		{
+			"damage"		"40 80 120 160 200 240 280 320"
+			"knockback_duration"		"0.25 0.5 0.75 1.0 1.25 1.5 1.75 2.0"
+			"disarm_duration"		"1.25 2.0 2.75 3.5 4.25 5.0 5.75 6.5"
+		}
+	}
+	"silencer_curse_of_the_silent"
+	{
+		"AbilityCastRange"		"1000"
+		"AbilityManaCost"		"75 95 115 135"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"20 18 16 14"
+			"damage"		"14 22 30 38"
+			"radius"		"425"
+			"penalty_duration"		"4"
+			"movespeed"		"-9 -12 -15 -18"
+		}
+	}
+	"silencer_global_silence"
+	{
+		"AbilityManaCost"		"250 375 500"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"130.0"
+			"AbilityDuration"		"4.0 5.0 6.0"
+		}
+	}
+	"obsidian_destroyer_astral_imprisonment"
+	{
+		"AbilityCastPoint"		"0.25 0.25 0.25 0.25"
+		"AbilityManaCost"		"120 140 160 180"
+		"AbilityDuration"		"4.0"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"225 350 475 600"
+			"AbilityCooldown"		"22 18 14 10"
+			"prison_duration"		"4.0"
+			"damage"		"100 175 250 325"
+			"has_mana_steal"		"0"
+			"mana_capacity_steal"		"0"
+		}
+	}
+	"obsidian_destroyer_sanity_eclipse"
+	{
+		"AbilityManaCost"		"175 250 325"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"160"
+			"damage_multiplier"		"8 9 10"
+			"radius"		"375 475 575"
+			"base_damage"		"0 0 0"
+			"percentage_damage"		"0"
+		}
+	}
+	"lycan_summon_wolves"
+	{
+		"AbilityValues"
+		{
+			"AbilityManaCost"		"145"
+			"wolf_duration"		"55.0 55.0 55.0 55.0"
+			"wolf_bat"		"1.25 1.2 1.15 1.1"
+			"wolf_damage"		"18 29 37 46"
+			"wolf_hp"		"200 240 280 320"
+		}
+	}
+	"lycan_shapeshift"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"120 90 60"
+			"duration"		"18"
+			"speed"		"650"
+			"transformation_time"		"1.5"
+			"crit_multiplier"		"140 160 180"
+		}
+	}
+	"lycan_summon_wolves_critical_strike"
+	{
+		"AbilityValues"
+		{
+			"maim_movement_speed"		"0"
+			"maim_attack_speed"		"40"
+		}
+	}
+	"lycan_summon_wolves_invisibility"
+	{
+		"AbilityValues"
+		{
+			"fade_delay"		"1.7"
+		}
+	}
+	"lone_druid_spirit_bear"
+	{
+		"AbilityManaCost"		"75 75 75 75"
+		"AbilityValues"
+		{
+			"bear_hp"		"1400 1800 2300 2700"
+			"bear_regen_tooltip"		"2 3 4 5"
+			"bear_bat"		"1.75 1.65 1.55 1.45"
+			"bear_armor"		"3 4 5 6"
+			"backlash_damage"		"10.0"
+		}
+	}
+	"lone_druid_rabid"
+	{
+		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
+		"AbilityCooldown"		"30"
+		"AbilityValues"
+		{
+			"bonus_attack_speed"		"10 20 30 40"
+			"rabid_duration"		"18 22 26 30"
+		}
+	}
+	"lone_druid_savage_roar"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"38 32 26 20"
+			"radius"		"325"
+			"duration"		"1.2 1.6 2.0 2.4"
+		}
+	}
+	"lone_druid_savage_roar_bear"
+	{
+		"AbilityValues"
+		{
+			"radius"		"325"
+			"duration"		"1.2 1.6 2.0 2.4"
+		}
+	}
+	"lone_druid_true_form"
+	{
+		"AbilityManaCost"		"25 25 25"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"0.0 0.0 0.0"
+			"bonus_armor"		"4 6 8"
+			"bonus_hp"		"300 600 900"
+		}
+	}
+	"lone_druid_true_form_battle_cry"
+	{
+		"AbilityCooldown"		"60.0"
+		"AbilityValues"
+		{
+			"cry_duration"		"6.0"
+		}
+	}
+	"lone_druid_spirit_bear_return"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"5.0"
+		}
+	}
+	"lone_druid_spirit_bear_entangle"
+	{
+		"AbilityCooldown"		"5.0"
+		"AbilityDamage"		"60"
+	}
+	"lone_druid_spirit_bear_demolish"
+	{
+		"AbilityValues"
+		{
+			"bonus_building_damage"		"40"
+		}
+	}
+	"brewmaster_thunder_clap"
+	{
+		"AbilityCastPoint"		"0.4 0.4 0.4"
+		"AbilityManaCost"		"90 105 130 150"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"13"
+			"damage"		"100 175 250 300"
+			"movement_slow"		"25 35 45 55"
+			"attack_speed_slow"		"25 35 45 55"
+			"duration"		"4.0"
+		}
+	}
+	"brewmaster_drunken_haze"
+	{
+		"AbilityCastPoint"		"0.4 0.4 0.4"
+		"AbilityCooldown"		"8 7 6 5"
+		"AbilityManaCost"		"50"
+		"AbilityValues"
+		{
+			"duration"		"8.0 8.0 8.0 8.0"
+			"movement_slow"		"14 18 22 26"
+			"miss_chance"		"45 55 65 75"
+		}
+	}
+	"brewmaster_primal_split"
+	{
+		"AbilityCastPoint"		"0.65"
+		"AbilityManaCost"		"125 150 175"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"140 120 100"
+			"duration"		"16 18 20"
+		}
+	}
+	"brewmaster_earth_hurl_boulder"
+	{
+		"AbilityCastPoint"		"0.4"
+		"AbilityValues"
+		{
+			"damage"		"50 100 150"
+			"duration"		"2.0 2.0 2.0 2.0"
+		}
+	}
+	"brewmaster_earth_pulverize"
+	{
+		"AbilityValues"
+		{
+			"bonus_building_damage"		"150"
+		}
+	}
+	"brewmaster_storm_dispel_magic"
+	{
+		"AbilityValues"
+		{
+			"damage"		"850"
+		}
+	}
+	"brewmaster_storm_cyclone"
+	{
+		"AbilityValues"
+		{
+			"duration_hero"		"6.0"
+			"duration_unit"		"20.0 20.0 20.0 20.0"
+		}
+	}
+	"brewmaster_storm_wind_walk"
+	{
+		"AbilityCooldown"		"5"
+		"AbilityValues"
+		{
+			"bonus_damage"		"100 160 220"
+			"bonus_movement_speeed"		"50 50 50 50"
+		}
+	}
+	"brewmaster_fire_permanent_immolation"
+	{
+		"AbilityValues"
+		{
+			"damage"		"15 30 45"
+			"radius"		"220 220 220"
+		}
+	}
+	"shadow_demon_disruption"
+	{
+		"AbilityCastRange"		"600"
+		"AbilityDuration"		"2.5 2.5 2.5 2.5"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"27.0 24.0 21.0 18.0"
+			"disruption_duration"		"2.5 2.5 2.5 2.5"
+			"illusion_outgoing_damage"		"-70.0 -55.0 -40.0 -25.0"
+			"illusion_outgoing_tooltip"		"30.0 45.0 60.0 75.0"
+			"illusion_incoming_damage"		"100"
+			"tooltip_total_illusion_incoming_damage"		"200"
+		}
+	}
+	"shadow_demon_shadow_poison"
+	{
+		"AbilityCastPoint"		"0.3 0.3 0.3 0.3"
+		"AbilityManaCost"		"55"
+		"AbilityDamage"		"26 34 42 50"
+		"AbilityValues"
+		{
+			"stack_damage"		"20 35 50 65"
+			"bonus_stack_damage"		"50"
+			"radius"		"190"
+			"speed"		"1000 1000 1000 1000"
+		}
+	}
+	"shadow_demon_demonic_purge"
+	{
+		"AbilityManaCost"		"200 200 200"
+		"AbilityDamage"		"200 300 400"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"40 40 40"
+		}
+	}
+	"chaos_knight_chaos_bolt"
+	{
+		"AbilityManaCost"		"140 140 140 140"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"500"
+			"AbilityCooldown"		"10.0 10.0 10.0 10.0"
+			"chaos_bolt_speed"		"1000"
+			"stun_min"		"1 1 1 2"
+			"stun_max"		"2 3 4 4"
+			"damage_min"		"75 100 125 150"
+			"damage_max"		"200 225 250 275"
+		}
+	}
+	"chaos_knight_phantasm"
+	{
+		"AbilityCooldown"		"130"
+		"AbilityManaCost"		"125 200 275"
+		"AbilityValues"
+		{
+			"images_count"		"1 2 3"
+			"illusion_duration"		"42"
+			"outgoing_damage"		"0 0 0"
+			"outgoing_damage_tooltip"		"100 100 100"
+			"incoming_damage"		"100"
+			"incoming_damage_tooltip"		"200"
+		}
+	}
+	"meepo_earthbind"
+	{
+		"AbilityCastRange"		"500 750 1000 1250"
+		"AbilityManaCost"		"100"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"20 16 12 8"
+			"speed"		"857"
+		}
+	}
+	"meepo_poof"
+	{
+		"AbilityDamage"		"80 100 120 140"
+		"AbilityValues"
+		{
+			"radius"		"375"
+		}
+	}
+	"meepo_divided_we_stand"
+	{
+		"RequiredLevel"		"3"
+		"AbilityValues"
+		{
+			"tooltip_clones"		"1 2 3"
+			"max_level"		"3"
+			"dps_penalty_pct"		"0 0 0"
+			"attribute_penalty_pct"		"0"
+		}
+	}
+	"treant_leech_seed"
+	{
+		"AbilityCastRange"		"350"
+		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
+		"AbilityManaCost"		"80 95 110 125"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"16 13 10 7"
+			"leech_damage"		"15 30 45 60"
+			"movement_slow"		"-28"
+			"radius"		"500"
+			"duration"		"4.5"
+			"projectile_speed"		"400"
+		}
+	}
+	"treant_overgrowth"
+	{
+		"AbilityManaCost"		"150 175 200"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"70"
+			"duration"		"3.0 3.75 4.5"
+			"damage"		"0"
+		}
+	}
+	"treant_eyes_in_the_forest"
+	{
+		"AbilityCastRange"		"160"
+		"AbilityCooldown"		"25"
+		"AbilityManaCost"		"100"
+	}
+	"ogre_magi_fireblast"
+	{
+		"AbilityCastRange"		"475"
+		"AbilityManaCost"		"75 85 95 105"
+		"AbilityDamage"		"55 110 165 220"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"12"
+			"stun_duration"		"1.5"
+			"multicast_delay"		"0.5"
+		}
+	}
+	"ogre_magi_unrefined_fireblast"
+	{
+		"AbilityCastRange"		"475"
+		"AbilityDamage"		"275"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"6"
+			"stun_duration"		"1.5"
+			"multicast_delay"		"0.5"
+			"scepter_mana"		"0.6"
+		}
+	}
+	"ogre_magi_ignite"
+	{
+		"AbilityCastRange"		"700"
+		"AbilityCastPoint"		"0.45"
+		"AbilityCooldown"		"15"
+		"AbilityManaCost"		"90"
+		"AbilityValues"
+		{
+			"burn_damage"		"26 34 42 50"
+			"slow_movement_speed_pct"		"-20 -22 -24 -26"
+			"multicast_delay"		"0.5"
+		}
+	}
+	"ogre_magi_bloodlust"
+	{
+		"AbilityCastRange"		"600"
+		"AbilityCooldown"		"20"
+		"AbilityManaCost"		"50"
+		"AbilityValues"
+		{
+			"bonus_movement_speed"		"10 12 14 16"
+			"bonus_attack_speed"		"30 40 50 60"
+		}
+	}
+	"ogre_magi_multicast"
+	{
+		"AbilityValues"
+		{
+			"multicast_2_times"		"0.4 0.5 0.6"
+			"multicast_3_times"		"0 0.2 0.25"
+			"multicast_4_times"		"0 0 0.125"
+		}
+	}
+	"undying_decay"
+	{
+		"AbilityCastPoint"		"0.45 0.45 0.45 0.45"
+		"AbilityManaCost"		"70 90 110 130"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"10.0 8.0 6.0 4.0"
+			"decay_duration"		"45"
+		}
+	}
+	"undying_soul_rip"
+	{
+		"AbilityCastPoint"		"0.45 0.45 0.45 0.45"
+		"AbilityCooldown"		"24.0 18.0 12.0 6.0"
+		"AbilityManaCost"		"100 110 120 130"
+		"AbilityValues"
+		{
+			"damage_per_unit"		"18 22 26 30"
+			"max_units"		"10 12 14 16"
+			"tombstone_heal"		"2 4 6 8"
+		}
+	}
+	"undying_tombstone"
+	{
+		"AbilityCastRange"		"600"
+		"AbilityCastPoint"		"0.45 0.45 0.45 0.45"
+		"AbilityManaCost"		"120 130 140 150"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"70"
+			"tombstone_health"		"6 8 10 14"
+			"hits_to_destroy_tooltip"		"3 4 5 7"
+			"duration"		"15.0 20.0 25.0 30.0"
+			"radius"		"600 800 1000 1200"
+			"health_threshold_pct_tooltip"		"20 25 30 35"
+			"zombie_interval"		"3.0"
+		}
+	}
+	"undying_tombstone_zombie_deathstrike"
+	{
+		"AbilityValues"
+		{
+			"slow"		"-7"
+			"health_threshold_pct"		"20 25 30 35"
+		}
+	}
+	"rubick_telekinesis"
+	{
+		"AbilityManaCost"		"120 120 120 120"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"22"
+			"lift_duration"		"1.5 1.75 2.0 2.25"
+			"stun_duration"		"1.0 1.25 1.5 1.75"
+			"radius"		"325 325 325 325"
+		}
+	}
+	"rubick_telekinesis_land"
+	{
+		"AbilityValues"
+		{
+			"radius"		"325 325 325 325"
+		}
+	}
+	"rubick_null_field"
+	{
+		"AbilityValues"
+		{
+			"radius"		"900"
+		}
+	}
+	"rubick_spell_steal"
+	{
+		"AbilityCooldown"		"20.0 18.0 16.0"
+		"AbilityValues"
+		{
+			"projectile_speed"		"900"
+		}
+	}
+	"disruptor_thunder_strike"
+	{
+		"AbilityCooldown"		"12 11 10 9"
+		"AbilityManaCost"		"130 130 130 130"
+		"AbilityDamage"		"40 60 80 100"
+		"AbilityDuration"		"6.0 6.0 6.0 6.0"
+		"AbilityValues"
+		{
+			"radius"		"240 240 240 240"
+			"slow_amount"		"0"
+		}
+	}
+	"disruptor_glimpse"
+	{
+		"AbilityManaCost"		"100"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"60.0 46.0 32.0 18.0"
+		}
+	}
+	"disruptor_kinetic_field"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"13 12 11 10"
+			"radius"		"340"
+			"formation_time"		"1.2 1.2 1.2 1.2"
+		}
+	}
+	"disruptor_static_storm"
+	{
+		"AbilityCooldown"		"90 80 70"
+		"AbilityValues"
+		{
+			"radius"		"450"
+			"damage_max"		"200 250 300"
+			"duration"		"5.0"
+		}
+	}
+	"nyx_assassin_impale"
+	{
+		"AbilityCastRange"		"700"
+		"AbilityCastPoint"		"0.4"
+		"AbilityCooldown"		"13.0"
+		"AbilityManaCost"		"95 115 135 155"
+		"AbilityDamage"		"80 140 200 260"
+		"AbilityValues"
+		{
+			"width"		"125 125 125 125"
+			"duration"		"1.6 2.0 2.4 2.8"
+			"length"		"700"
+		}
+	}
+	"nyx_assassin_mana_burn"
+	{
+		"AbilityCooldown"		"28.0 20.0 12.0 4.0"
+		"AbilityManaCost"		"100"
+	}
+	"nyx_assassin_spiked_carapace"
+	{
+		"AbilityCooldown"		"22 18 14 10"
+		"AbilityValues"
+		{
+			"reflect_duration"		"2.25"
+			"stun_duration"		"0.6 1.2 1.8 2.4"
+		}
+	}
+	"nyx_assassin_vendetta"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"70.0 60.0 50.0"
+			"AbilityManaCost"		"160 210 260"
+			"duration"		"40 50 60"
+			"bonus_damage"		"250 400 550"
+		}
+	}
+	"nyx_assassin_burrow"
+	{
+		"AbilityValues"
+		{
+			"health_regen_rate"		"1.5"
+			"mana_regen_rate"		"1.5"
+		}
+	}
+	"naga_siren_mirror_image"
+	{
+		"AbilityCastPoint"		"0.65"
+		"AbilityManaCost"		"70 80 90 100"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"40.0 40.0 40.0 40.0"
+			"illusion_duration"		"30.0 30.0 30.0 30.0"
+			"incoming_damage"		"500 400 300 200"
+			"tooltip_incoming_damage_total_pct"		"600 500 400 300"
+			"invuln_duration"		"0.3"
+		}
+	}
+	"naga_siren_ensnare"
+	{
+		"AbilityCastPoint"		"0.65"
+		"AbilityManaCost"		"90 100 110 120"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"650 650 650 650"
+			"AbilityCooldown"		"12"
+			"duration"		"2.0 3.0 4.0 5.0"
+		}
+	}
+	"naga_siren_rip_tide"
+	{
+		"AbilityCooldown"		"10.0"
+		"AbilityManaCost"		"80 90 100 110"
+		"AbilityDamage"		"100 140 180 220"
+		"AbilityValues"
+		{
+			"armor_reduction"		"-2 -3 -4 -5"
+			"radius"		"320"
+			"duration"		"8.0 8.0 8.0 8.0"
+		}
+	}
+	"naga_siren_song_of_the_siren"
+	{
+		"AbilityCastRange"		"1250 1250 1250"
+		"AbilityCastPoint"		"0.8"
+		"AbilityManaCost"		"100 100 100"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"180.0 120.0 60.0"
+			"radius"		"1250 1250 1250"
+			"heal_pct"		"0 0 0"
+		}
+	}
+	"keeper_of_the_light_illuminate"
+	{
+		"AbilityCastPoint"		"0.3 0.3 0.3 0.3"
+		"AbilityManaCost"		"150 160 170 180"
+		"AbilityChannelTime"		"2.0 3.0 4.0 5.0"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"10.0 10.0 10.0 10.0"
+			"max_channel_time"		"2.0 3.0 4.0 5.0"
+			"radius"		"375"
+			"speed"		"1050.0"
+			"channel_vision_radius"		"375"
+			"channel_vision_step"		"150"
+			"total_damage"		"200 300 400 500"
+		}
+	}
+	"keeper_of_the_light_mana_leak"
+	{
+		"AbilityCastRange"		"550 700 850 1000"
+		"AbilityCooldown"		"16 14 12 10"
+		"AbilityManaCost"		"150"
+		"AbilityValues"
+		{
+			"duration"		"5.0 6.0 7.0 8.0"
+			"mana_leak_pct"		"5.0"
+			"stun_duration"		"1.5 2.0 2.5 3.0"
+		}
+	}
+	"keeper_of_the_light_chakra_magic"
+	{
+		"AbilityManaCost"		"25 35 45 55"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"17 16 15 14"
+			"mana_restore"		"75 150 225 300"
+			"cooldown_reduction"		"3 4 5 6"
+			"duration"		"15"
+		}
+	}
+	"keeper_of_the_light_spirit_form"
+	{
+		"AbilityCooldown"		"80.0 70.0 60.0"
+		"AbilityManaCost"		"100 100 100"
+		"AbilityValues"
+		{
+			"duration"		"40.0 40.0 40.0"
+		}
+	}
+	"keeper_of_the_light_recall"
+	{
+		"AbilityManaCost"		"100 100 100"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"15"
+			"teleport_delay"		"5.0 4.0 3.0"
+		}
+	}
+	"visage_grave_chill"
+	{
+		"AbilityCastRange"		"650"
+		"AbilityManaCost"		"100"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"16.0 14.0 12.0 10.0"
+			"chill_duration"		"3.0 4.0 5.0 6.0"
+			"movespeed_bonus"		"32 32 32 32"
+			"attackspeed_bonus"		"64 64 64 64"
+		}
+	}
+	"visage_soul_assumption"
+	{
+		"AbilityCastRange"		"900 900 900 900"
+		"AbilityManaCost"		"170 160 150 140"
+		"AbilityValues"
+		{
+			"soul_charge_damage"		"65"
+			"damage_limit"		"110"
+			"radius"		"1375"
+		}
+	}
+	"visage_summon_familiars"
+	{
+		"AbilityCooldown"		"180 160 140"
+		"AbilityValues"
+		{
+			"familiar_hp"		"300 450 600"
+			"familiar_armor"		"0 1 2"
+		}
+	}
+	"visage_summon_familiars_stone_form"
+	{
+		"AbilityCastRange"		"160"
+		"AbilityCooldown"		"20.0"
+		"AbilityValues"
+		{
+			"stun_radius"		"350"
+			"stun_duration"		"1.0 1.25 1.5"
+			"stone_duration"		"8.0"
+			"hp_regen"		"50.0 68.7 87.5"
+		}
+	}
+	"wisp_tether"
+	{
+		"AbilityCastRange"		"1800 1800 1800 1800"
+		"AbilityCastPoint"		"0.001 0.001 0.001 0.001"
+		"AbilityDuration"		"12.0 12.0 12.0 12.0"
+		"AbilityValues"
+		{
+			"radius"		"900 900 900 900"
+			"movespeed"		"13 14 15 16"
+			"tether_heal_amp"		"1.5"
+			"slow"		"-100"
+			"slow_duration"		"0.75 1.25 1.75 2.25"
+		}
+	}
+	"wisp_spirits"
+	{
+		"AbilityDuration"		"19.0 19.0 19.0 19.0"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"20.0 18.0 16.0 14.0"
+			"AbilityManaCost"		"120 130 140 150"
+			"creep_damage"		"8 14 20 26"
+			"hero_damage"		"25 50 75 100"
+			"min_range"		"100 100 100 100"
+			"max_range"		"875 875 875 875"
+			"hero_hit_radius"		"70 70 70 70"
+			"explode_radius"		"300 300 300 300"
+			"default_radius"		"150"
+			"spirit_duration"		"19.0 19.0 19.0 19.0"
+		}
+	}
+	"wisp_relocate"
+	{
+		"AbilityManaCost"		"100 100 100"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"90.0 75.0 60.0"
+			"cast_delay"		"2.7 2.35 2.0"
+		}
+	}
+	"wisp_tether_break"
+	{
+		"MaxLevel"		"1"
+	}
+	"wisp_spirits_in"
+	{
+		"MaxLevel"		"1"
+	}
+	"wisp_spirits_out"
+	{
+		"MaxLevel"		"1"
+	}
+	"slark_dark_pact"
+	{
+		"AbilityCastRange"		"325"
+		"AbilityManaCost"		"55 50 45 40"
+	}
+	"slark_pounce"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"20.0 16.0 12.0 8.0"
+			"pounce_radius"		"95"
+			"pounce_damage"		"40 80 120 160"
+			"leash_duration"		"3.5"
+			"leash_radius"		"325"
+		}
+	}
+	"slark_essence_shift"
+	{
+		"AbilityValues"
+		{
+			"duration"		"15 30 60 120"
+		}
+	}
+	"medusa_split_shot"
+	{
+		"AbilityValues"
+		{
+			"damage_modifier"		"-20"
+			"damage_modifier_tooltip"		"80"
+			"arrow_count"		"1 2 3 4"
+		}
+	}
+	"medusa_mystic_snake"
+	{
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"800"
+			"AbilityCastPoint"		"0.4 0.4 0.4 0.4"
+			"AbilityCooldown"		"11"
+			"AbilityManaCost"		"140 150 160 170"
+			"radius"		"475 475 475 475"
+			"snake_damage"		"80 120 160 200"
+			"snake_mana_steal"		"11 14 17 20"
+			"snake_scale"		"35"
+		}
+	}
+	"medusa_mana_shield"
+	{
+		"AbilityCastPoint"		"0.4 0.4 0.4 0.4"
+		"AbilityValues"
+		{
+			"damage_per_mana"		"1.6 1.9 2.2 2.5"
+		}
+	}
+	"medusa_stone_gaze"
+	{
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"1000 1000 1000"
+			"AbilityManaCost"		"200 200 200"
+			"radius"		"1000 1000 1000"
+			"duration"		"5 6 7"
+			"stone_duration"		"3.0"
+			"bonus_physical_damage"		"50"
+		}
+	}
+	"troll_warlord_whirling_axes_ranged"
+	{
+		"AbilityCastRange"		"1000"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"19 16 13 10"
+			"axe_range"		"1000.0"
+			"axe_damage"		"75"
+			"axe_slow_duration"		"3.0 3.75 4.5 5.25"
+			"movement_speed"		"30"
+		}
+	}
+	"troll_warlord_whirling_axes_melee"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"12.0 12.0 12.0 12.0"
+			"damage"		"75 125 175 225"
+			"blind_duration"		"4 5 6 7"
+		}
+	}
+	"troll_warlord_fervor"
+	{
+		"AbilityValues"
+		{
+			"max_stacks"		"7"
+		}
+	}
+	"troll_warlord_battle_trance"
+	{
+		"AbilityManaCost"		"75 75 75"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"30"
+			"trance_duration"		"5.0"
+			"attack_speed"		"60 120 180"
+		}
+	}
+	"centaur_hoof_stomp"
+	{
+		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
+		"AbilityCooldown"		"13.0 13.0 13.0 13.0"
+		"AbilityManaCost"		"130"
+		"AbilityValues"
+		{
+			"radius"		"315"
+			"stun_duration"		"2.0 2.25 2.5 2.75"
+			"stomp_damage"		"100 150 200 250"
+		}
+	}
+	"centaur_double_edge"
+	{
+		"AbilityCastRange"		"150 150 150 150"
+		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
+		"AbilityCooldown"		"5.0"
+		"AbilityValues"
+		{
+			"edge_damage"		"175 250 325 400"
+			"radius"		"190"
+		}
+	}
+	"centaur_stampede"
+	{
+		"AbilityManaCost"		"100"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"90.0 75.0 60.0"
+			"duration"		"4.0"
+			"strength_damage"		"1.0 2.0 3.0"
+			"slow_duration"		"1.8"
+			"damage_reduction"		"60"
+		}
+	}
+	"magnataur_shockwave"
+	{
+		"AbilityCooldown"		"10.0 9.0 8.0 7.0"
+		"AbilityManaCost"		"90 90 90 90"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"1150"
+			"shock_speed"		"1050"
+			"shock_width"		"150"
+		}
+	}
+	"magnataur_skewer"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"30.0 30.0 30.0 30.0"
+			"skewer_speed"		"950"
+			"range"		"900 1000 1100 1200"
+			"slow_pct"		"25 30 35 40"
+			"skewer_radius"		"125"
+			"slow_duration"		"2.5 2.75 3 3.25"
+			"skewer_damage"		"70 140 210 280"
+		}
+	}
+	"magnataur_reverse_polarity"
+	{
+		"AbilityManaCost"		"200 250 300"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"120 110 100"
+			"pull_radius"		"410"
+			"polarity_damage"		"50 125 200"
+			"hero_stun_duration"		"2.25 3.0 3.75"
+		}
+	}
+	"shredder_whirling_death"
+	{
+		"AbilityCastRange"		"300"
+		"AbilityCooldown"		"6"
+		"AbilityManaCost"		"70"
+		"AbilityValues"
+		{
+			"whirling_radius"		"300"
+			"whirling_damage"		"100 150 200 250"
+			"stat_loss_pct"		"15"
+			"duration"		"14.0"
+		}
+	}
+	"shredder_timber_chain"
+	{
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"850 1050 1250 1450"
+			"speed"		"1600 2000 2400 2800"
+			"damage"		"100 140 180 220"
+		}
+	}
+	"shredder_reactive_armor"
+	{
+		"AbilityValues"
+		{
+			"bonus_armor"		"1 1.2 1.4 1.6"
+			"bonus_hp_regen"		"1 1.2 1.4 1.6"
+			"stack_limit"		"5 10 15 20"
+			"stack_duration"		"10 13 16 19"
+		}
+	}
+	"shredder_chakram"
+	{
+		"AbilityCastPoint"		"0.3 0.3 0.3"
+		"AbilityManaCost"		"100 150 200"
+		"AbilityValues"
+		{
+			"pass_damage"		"100 140 180"
+			"mana_per_second"		"20.0 25.0 30.0"
+		}
+	}
+	"shredder_chakram_2"
+	{
+		"AbilityCastPoint"		"0.3 0.3 0.3"
+		"AbilityManaCost"		"100 150 200"
+		"AbilityValues"
+		{
+			"pass_damage"		"100 140 180"
+			"mana_per_second"		"20.0 25.0 30.0"
+		}
+	}
+	"bristleback_viscous_nasal_goo"
+	{
+		"AbilityCooldown"		"1.5 1.5 1.5 1.5"
+		"AbilityManaCost"		"25"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"600"
+			"armor_per_stack"		"1 1.4 1.8 2.2"
+			"base_move_slow"		"20"
+			"stack_limit"		"4"
+		}
+	}
+	"bristleback_quill_spray"
+	{
+		"AbilityCastRange"		"625"
+		"AbilityValues"
+		{
+			"radius"		"625"
+			"quill_base_damage"		"20.0 40.0 60.0 80.0"
+			"quill_stack_damage"		"30.0 32.0 34.0 36.0"
+			"max_damage"		"450.0"
+		}
+	}
+	"bristleback_bristleback"
+	{
+		"AbilityValues"
+		{
+			"quill_release_threshold"		"210"
+		}
+	}
+	"tusk_ice_shards"
+	{
+		"AbilityCastRange"		"1800"
+		"AbilityManaCost"		"100 105 110 115"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"19.0 16.0 13.0 10.0"
+			"shard_damage"		"60 120 180 240"
+			"shard_speed"		"1100.0"
+			"shard_duration"		"7.0"
+		}
+	}
+	"tusk_snowball"
+	{
+		"AbilityCastRange"		"1250"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"21 20 19 18"
+			"snowball_damage"		"80 120 160 200"
+			"snowball_speed"		"675"
+			"snowball_damage_bonus"		"20 30 40 50"
+			"stun_duration"		"0.5 0.75 1.0 1.25"
+			"snowball_grab_radius"		"350"
+		}
+	}
+	"tusk_frozen_sigil"
+	{
+		"AbilityCooldown"		"50.0 50.0 50.0 50.0"
+		"AbilityManaCost"		"75 75 75 75"
+		"AbilityValues"
+		{
+			"sigil_radius"		"600"
+			"sigil_duration"		"30.0"
+			"move_slow"		"10 15 20 25"
+			"attack_slow"		"30 40 50 60"
+		}
+	}
+	"tusk_walrus_kick"
+	{
+		"AbilityCastRange"		"128"
+		"AbilityCooldown"		"8"
+		"AbilityValues"
+		{
+			"push_length"		"900"
+			"slow_duration"		"4"
+			"damage"		"350"
+		}
+	}
+	"skywrath_mage_arcane_bolt"
+	{
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"800"
+			"bolt_damage"		"60 80 100 120"
+			"int_multiplier"		"1.6"
+		}
+	}
+	"skywrath_mage_concussive_shot"
+	{
+		"AbilityCooldown"		"18.0 16.0 14.0 12.0"
+		"AbilityManaCost"		"95"
+		"AbilityValues"
+		{
+			"damage"		"60 120 180 240"
+			"movement_speed_pct"		"30 35 40 45"
+			"shot_vision"		"400"
+		}
+	}
+	"skywrath_mage_ancient_seal"
+	{
+		"AbilityCastRange"		"700"
+		"AbilityValues"
+		{
+			"resist_debuff"		"-30 -35 -40 -45"
+		}
+	}
+	"skywrath_mage_mystic_flare"
+	{
+		"AbilityCooldown"		"60.0 40.0 20.0"
+		"AbilityManaCost"		"350 575 800"
+		"AbilityValues"
+		{
+			"duration"		"2.4"
+			"damage"		"600 1000 1400"
+		}
+	}
+	"abaddon_death_coil"
+	{
+		"AbilityCastRange"		"800"
+		"AbilityCastPoint"		"0.35"
+		"AbilityCooldown"		"4.5"
+		"AbilityManaCost"		"50 60 70 80"
+		"AbilityValues"
+		{
+			"self_damage"		"75 100 125 150"
+			"damage_heal"		"100 150 200 250"
+			"missile_speed"		"1250"
+			"self_damage_enemy_target"		"50"
+		}
+	}
+	"abaddon_aphotic_shield"
+	{
+		"AbilityCastRange"		"500"
+		"AbilityCastPoint"		"0.452 0.452 0.452 0.452"
+		"AbilityManaCost"		"100 105 110 115"
+		"AbilityValues"
+		{
+			"duration"		"15.0"
+			"damage_absorb"		"110 140 170 200"
+		}
+	}
+	"abaddon_borrowed_time"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"60.0 50.0 40.0"
+		}
+	}
+	"elder_titan_echo_stomp"
+	{
+		"AbilityValues"
+		{
+			"radius"		"500"
+			"sleep_duration"		"2.0 3.0 4.0 5.0"
+			"stomp_damage"		"70 100 130 160"
+			"initial_stun_duration"		"0.8"
+		}
+	}
+	"elder_titan_echo_stomp_spirit"
+	{
+		"AbilityValues"
+		{
+			"radius"		"500"
+			"stomp_damage"		"70 100 130 160"
+		}
+	}
+	"elder_titan_ancestral_spirit"
+	{
+		"AbilityCooldown"		"16.0"
+		"AbilityValues"
+		{
+			"pass_damage"		"60 90 120 150"
+			"spirit_duration"		"8.0"
+			"buff_duration"		"9.0"
+			"speed"		"600"
+			"move_pct_creeps"		"1"
+			"move_pct_heroes"		"5"
+			"damage_creeps"		"6 9 12 15"
+			"damage_heroes"		"10 20 30 40"
+			"move_pct_cap"		"30"
+		}
+	}
+	"elder_titan_natural_order"
+	{
+		"AbilityValues"
+		{
+			"radius"		"275 275 275 275"
+			"magic_resistance_pct"		"12 19 26 33"
+		}
+	}
+	"elder_titan_earth_splitter"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"100.0 100.0 100.0"
+			"crack_time"		"3.14"
+			"crack_width"		"300"
+			"slow_pct"		"30 40 50"
+			"speed"		"910"
+			"damage_pct"		"30 40 50"
+		}
+	}
+	"legion_commander_overwhelming_odds"
+	{
+		"AbilityCastRange"		"1000"
+		"AbilityManaCost"		"100 100 100 100"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"15"
+			"damage"		"40 80 120 160"
+			"damage_per_hero"		"20 40 60 80"
+			"duration"		"7.0"
+			"radius"		"330"
+			"bonus_attack_speed"		"0"
+			"movement_slow"		"0"
+		}
+	}
+	"legion_commander_duel"
+	{
+		"AbilityManaCost"		"75 75 75"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"150"
+			"AbilityCooldown"		"50.0 50.0 50.0"
+			"duration"		"4.0 4.75 5.5"
+			"reward_damage"		"10 14 18"
+		}
+	}
+	"ember_spirit_searing_chains"
+	{
+		"AbilityCooldown"		"14.0 12.0 10.0 8.0"
+		"AbilityManaCost"		"110"
+		"AbilityValues"
+		{
+			"duration"		"1.0 2.0 2.0 3.0"
+			"tick_interval"		"1.0"
+			"damage_per_second"		"80 60 120 100"
+		}
+	}
+	"ember_spirit_sleight_of_fist"
+	{
+		"AbilityCastRange"		"700"
+		"AbilityManaCost"		"50"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"30.0 22.0 14.0 6.0"
+			"bonus_hero_damage"		"20 40 60 80"
+			"attack_interval"		"0.2"
+			"creep_damage_penalty"		"-50"
+		}
+	}
+	"ember_spirit_flame_guard"
+	{
+		"AbilityCooldown"		"35.0"
+		"AbilityManaCost"		"80 90 100 110"
+		"AbilityValues"
+		{
+			"duration"		"8.0 12.0 16.0 20.0"
+			"radius"		"400"
+			"absorb_amount"		"50 200 350 500"
+			"damage_per_second"		"30 40 50 60"
+		}
+	}
+	"ember_spirit_fire_remnant"
+	{
+		"AbilityCastRange"		"1500"
+		"AbilityCooldown"		"0.0"
+		"AbilityValues"
+		{
+			"damage"		"100 150 200"
+			"AbilityChargeRestoreTime"		"35"
+		}
+		"AbilityCharges"		"3"
+	}
+	"ember_spirit_activate_fire_remnant"
+	{
+		"AbilityCastPoint"		"0.0"
+		"AbilityManaCost"		"150"
+		"AbilityValues"
+		{
+			"damage"		"100 150 200"
+		}
+	}
+	"earth_spirit_boulder_smash"
+	{
+		"AbilityCastPoint"		"0.01"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"22.0 18.0 14.0 10.0"
+			"radius"		"160"
+			"rock_damage"		"50 100 150 200"
+			"stun_duration"		"0.75 1.25 1.75 2.25"
+		}
+	}
+	"earth_spirit_rolling_boulder"
+	{
+		"AbilityCastPoint"		"0.01"
+		"AbilityValues"
+		{
+			"radius"		"150"
+			"speed"		"800"
+			"damage"		"100"
+		}
+	}
+	"earth_spirit_geomagnetic_grip"
+	{
+		"AbilityCastRange"		"1100"
+		"AbilityCastPoint"		"0.01"
+		"AbilityManaCost"		"100"
+		"AbilityValues"
+		{
+			"rock_damage"		"50 100 150 200"
+			"pull_units_per_second"		"1000"
+			"duration"		"2.5 3 3.5 4"
+		}
+	}
+	"earth_spirit_stone_caller"
+	{
+		"AbilityValues"
+		{
+			"duration"		"120.0"
+			"AbilityCharges"		"6"
+			"AbilityChargeRestoreTime"		"30"
+		}
+	}
+	"earth_spirit_petrify"
+	{
+		"AbilityCastRange"		"125"
+		"AbilityValues"
+		{
+			"duration"		"3"
+			"damage"		"300"
+			"aoe"		"300"
+		}
+	}
+	"earth_spirit_magnetize"
+	{
+		"AbilityCastRange"		"300"
+		"AbilityCastPoint"		"0.01"
+		"AbilityValues"
+		{
+			"cast_radius"		"300"
+			"damage_per_second"		"50 75 100"
+			"rock_search_radius"		"400"
+		}
+	}
+	"abyssal_underlord_firestorm"
+	{
+		"AbilityCastRange"		"750"
+		"AbilityCastPoint"		"0.6"
+		"AbilityManaCost"		"100 110 120 130"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"12.0"
+			"radius"		"400"
+			"wave_damage"		"25 40 55 70"
+			"burn_damage"		"0.75 1.5 2.25 3"
+		}
+	}
+	"abyssal_underlord_pit_of_malice"
+	{
+		"AbilityCastRange"		"750"
+		"AbilityCastPoint"		"0.6"
+		"AbilityCooldown"		"21 18 15 12"
+		"AbilityManaCost"		"100 115 130 145"
+		"AbilityValues"
+		{
+			"radius"		"275"
+			"pit_duration"		"7.0"
+			"pit_interval"		"0.5"
+			"pit_damage"		"100"
+			"ensnare_duration"		"1.0 1.5 2.0 2.5"
+		}
+	}
+	"abyssal_underlord_atrophy_aura"
+	{
+		"AbilityCastRange"		"900"
+		"AbilityValues"
+		{
+			"damage_reduction_pct"		"10 20 30 40"
+			"bonus_damage_from_creep"		"5"
+		}
+	}
+	"abyssal_underlord_dark_rift"
+	{
+		"AbilityCooldown"		"130 120 110"
+		"AbilityManaCost"		"75 150 225"
+		"AbilityValues"
+		{
+			"radius"		"450"
+			"teleport_delay"		"5.0 4.0 3.0"
+		}
+	}
+	"terrorblade_reflection"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"22 20 18 16"
+			"AbilityManaCost"		"50"
+			"illusion_duration"		"2.5 3.5 4.5 5.5"
+			"illusion_outgoing_damage"		"-60.0 -40.0 -20.0 0.0"
+			"illusion_outgoing_tooltip"		"40.0 60.0 80.0 100.0"
+			"move_slow"		"25"
+			"range"		"900"
+		}
+	}
+	"terrorblade_conjure_image"
+	{
+		"AbilityValues"
+		{
+			"AbilityManaCost"		"70"
+			"illusion_outgoing_damage"		"-70 -60 -50 -40"
+			"illusion_outgoing_tooltip"		"30 40 50 60"
+			"illusion_incoming_damage"		"300.0"
+			"illusion_incoming_damage_total_tooltip"		"400.0"
+		}
+	}
+	"terrorblade_metamorphosis"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"140.0"
+			"duration"		"40 44 48 52"
+			"bonus_range"		"400"
+			"tooltip_attack_range"		"550"
+			"speed_loss"		"25"
+			"metamorph_aura_tooltip"		"900"
+		}
+	}
+	"terrorblade_sunder"
+	{
+		"AbilityCastRange"		"550"
+		"AbilityManaCost"		"200 100 0"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"120.0 80.0 40.0"
+			"hit_point_minimum_pct"		"25"
+		}
+	}
+	"phoenix_icarus_dive"
+	{
+		"AbilityCooldown"		"36"
+		"AbilityDuration"		"2.0"
+		"AbilityValues"
+		{
+			"dash_length"		"1400"
+			"damage_per_second"		"10 30 50 70"
+			"burn_tick_interval"		"1.0"
+			"slow_movement_speed_pct"		"-25"
+		}
+	}
+	"phoenix_fire_spirits"
+	{
+		"AbilityCastPoint"		"0.01 0.01 0.01 0.01"
+		"AbilityCooldown"		"45 40 35 30"
+		"AbilityManaCost"		"80 90 100 110"
+		"AbilityValues"
+		{
+			"spirit_duration"		"16.0 16.0 16.0 16.0"
+			"spirit_speed"		"900 900 900 900"
+			"radius"		"175 175 175 175"
+			"attackspeed_slow"		"-80 -100 -120 -140"
+			"damage_per_second"		"10 30 50 70"
+			"spirit_count"		"4"
+			"tick_interval"		"1.0"
+		}
+	}
+	"phoenix_sun_ray"
+	{
+		"AbilityCastRange"		"1300"
+		"AbilityCooldown"		"26"
+		"AbilityManaCost"		"100"
+		"AbilityValues"
+		{
+			"hp_cost_perc_per_second"		"6"
+			"base_damage"		"10 15 20 25"
+			"hp_perc_damage"		"1.25 2.5 3.75 5.0"
+			"hp_perc_heal"		"0.625 1.25 1.875 2.5"
+		}
+	}
+	"phoenix_supernova"
+	{
+		"AbilityCastRange"		"500"
+		"AbilityCooldown"		"110.0 110.0 110.0"
+		"AbilityManaCost"		"200 200 200"
+		"AbilityValues"
+		{
+			"aura_radius"		"1000 1000 1000"
+			"damage_per_sec"		"60 90 120"
+			"stun_duration"		"1.5 2.0 2.5"
+			"max_hero_attacks"		"5 8 11"
+		}
+	}
+	"phoenix_launch_fire_spirit"
+	{
+		"AbilityCastPoint"		"0.01 0.01 0.01 0.01"
+		"AbilityValues"
+		{
+			"spirit_duration"		"16.0 16.0 16.0 16.0"
+			"spirit_speed"		"900 900 900 900"
+			"radius"		"175 175 175 175"
+			"attackspeed_slow"		"-80 -100 -120 -140"
+			"damage_per_second"		"10 30 50 70"
+			"spirit_count"		"4"
+			"tick_interval"		"1.0"
+		}
+	}
+	"oracle_fortunes_end"
+	{
+		"AbilityCooldown"		"15 12 9 6"
+		"AbilityManaCost"		"110"
+		"AbilityChannelTime"		"2.5"
+		"AbilityValues"
+		{
+			"damage"		"90 120 150 180"
+			"minimum_purge_duration"		"0.5"
+			"maximum_purge_duration"		"2.5"
+			"radius"		"300"
+		}
+	}
+	"oracle_fates_edict"
+	{
+		"AbilityCastRange"		"500 600 700 800"
+		"AbilityCooldown"		"16 13 10 7"
+		"AbilityManaCost"		"50"
+		"AbilityValues"
+		{
+			"duration"		"3.0 3.5 4.0 4.5"
+		}
+	}
+	"oracle_purifying_flames"
+	{
+		"AbilityCastRange"		"800"
+		"AbilityCastPoint"		"0.3"
+		"AbilityManaCost"		"80 85 90 95"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"2.25"
+			"heal_per_second"		"11.0 22.0 33.0 44.0"
+			"total_heal_tooltip"		"99 198 297 396"
+			"duration"		"9.0"
+			"tick_rate"		"1.0"
+		}
+	}
+	"oracle_false_promise"
+	{
+		"AbilityCastRange"		"1000"
+		"AbilityManaCost"		"100"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"100 65 30"
+			"duration"		"7 8 9"
+		}
+	}
+	"necronomicon_warrior_last_will"
+	{
+		"AbilityValues"
+		{
+			"explosion"		"550 675 800"
+		}
+	}
+	"necronomicon_warrior_mana_burn"
+	{
+		"AbilityValues"
+		{
+			"burn_amount"		"25 50 75"
+			"burn_damage_conversion"		"60"
+		}
+	}
+	"necronomicon_archer_mana_burn"
+	{
+		"AbilityCooldown"		"20"
+	}
+	"necronomicon_archer_aoe"
+	{
+		"AbilityValues"
+		{
+			"radius"		"900"
+			"as_bonus"		"5 7 9"
+		}
+	}
+	"courier_shield"
+	{
+		"AbilityCooldown"		"20.0"
+		"AbilityValues"
+		{
+			"duration"		"7.0"
+		}
+	}
+	"courier_burst"
+	{
+		"AbilityCooldown"		"90.0"
+		"AbilityValues"
+		{
+			"duration"		"4.0"
+			"movement_speed"		"800"
+		}
+	}
+	"kobold_taskmaster_speed_aura"
+	{
+		"AbilityValues"
+		{
+			"bonus_movement_speed"		"12"
+			"radius"		"900"
+		}
+	}
+	"centaur_khan_endurance_aura"
+	{
+		"AbilityValues"
+		{
+			"bonus_attack_speed"		"15"
+			"radius"		"900"
+		}
+	}
+	"centaur_khan_war_stomp"
+	{
+		"AbilityCastPoint"		"0.5"
+		"AbilityCooldown"		"20.0"
+		"AbilityManaCost"		"100"
+		"AbilityDamage"		"25"
+		"AbilityValues"
+		{
+			"hero_stun_duration"		"2.0"
+		}
+	}
+	"gnoll_assassin_envenomed_weapon"
+	{
+		"AbilityValues"
+		{
+			"damage_per_second"		"2"
+			"hero_duration"		"10.0"
+		}
+	}
+	"ghost_frost_attack"
+	{
+		"AbilityValues"
+		{
+			"movespeed_slow"		"-20"
+			"attackspeed_slow"		"-20"
+		}
+	}
+	"polar_furbolg_ursa_warrior_thunder_clap"
+	{
+		"AbilityCastPoint"		"0.5"
+		"AbilityCooldown"		"12.0"
+		"AbilityManaCost"		"100"
+		"AbilityDamage"		"150"
+	}
+	"ogre_magi_frost_armor"
+	{
+		"AbilityValues"
+		{
+			"armor_bonus"		"8"
+			"movespeed_slow"		"-30"
+			"attackspeed_slow"		"-20"
+		}
+	}
+	"dark_troll_warlord_ensnare"
+	{
+		"AbilityCastRange"		"550"
+		"AbilityCastPoint"		"0.5"
+		"AbilityCooldown"		"20.0"
+		"AbilityManaCost"		"150"
+	}
+	"dark_troll_warlord_raise_dead"
+	{
+		"AbilityCastPoint"		"0.5"
+		"AbilityCooldown"		"25.0"
+		"AbilityValues"
+		{
+			"duration"		"40.0"
+		}
+	}
+	"mud_golem_hurl_boulder"
+	{
+		"AbilityValues"
+		{
+			"damage"		"125"
+			"duration"		"0.6"
+		}
+	}
+	"alpha_wolf_critical_strike"
+	{
+		"AbilityValues"
+		{
+			"crit_mult"		"200"
+		}
+	}
+	"alpha_wolf_command_aura"
+	{
+		"AbilityValues"
+		{
+			"bonus_damage_pct"		"30"
+			"radius"		"900"
+		}
+	}
+	"enraged_wildkin_tornado"
+	{
+		"AbilityCastPoint"		"0.75"
+		"AbilityCooldown"		"70.0"
+		"AbilityManaCost"		"200"
+		"AbilityChannelTime"		"40.0"
+		"AbilityValues"
+		{
+			"duration"		"40.0"
+		}
+	}
+	"enraged_wildkin_toughness_aura"
+	{
+		"AbilityValues"
+		{
+			"radius"		"900"
+		}
+	}
+	"granite_golem_hp_aura"
+	{
+		"AbilityValues"
+		{
+			"bonus_hp"		"15"
+			"radius"		"900"
+		}
+	}
+	"satyr_trickster_purge"
+	{
+		"AbilityCastRange"		"350"
+		"AbilityManaCost"		"120"
+	}
+	"satyr_soulstealer_mana_burn"
+	{
+		"AbilityCastPoint"		"0.5"
+		"AbilityValues"
+		{
+			"burn_amount"		"100"
+		}
+	}
+	"satyr_hellcaller_shockwave"
+	{
+		"AbilityDamage"		"160"
+	}
+	"satyr_hellcaller_unholy_aura"
+	{
+		"AbilityValues"
+		{
+			"health_regen"		"6"
+			"radius"		"900"
+		}
+	}
+	"forest_troll_high_priest_heal"
+	{
+		"AbilityCastRange"		"350"
+		"AbilityCooldown"		"0.5"
+		"AbilityManaCost"		"5"
+		"AbilityValues"
+		{
+			"health"		"15"
+		}
+	}
+	"harpy_storm_chain_lightning"
+	{
+		"AbilityCastPoint"		"0.5"
+		"AbilityManaCost"		"50"
+		"AbilityValues"
+		{
+			"initial_damage"		"140"
+			"damage_percent_loss"		"25.0"
+		}
+	}
+	"big_thunder_lizard_wardrums_aura"
+	{
+		"AbilityValues"
+		{
+			"speed_bonus"		"15"
+			"radius"		"900"
+		}
+	}
+	"black_dragon_dragonhide_aura"
+	{
+		"AbilityValues"
+		{
+			"radius"		"900"
+		}
+	}
+	"black_dragon_fireball"
+	{
+		"AbilityCooldown"		"10"
+		"AbilityManaCost"		"100"
+		"AbilityValues"
+		{
+			"duration"		"10.0"
+		}
+	}
+	"mudgolem_cloak_aura"
+	{
+		"AbilityValues"
+		{
+			"bonus_magical_armor"		"5"
+			"bonus_magical_armor_creeps"		"20"
+			"radius"		"900"
+		}
+	}
+	"blue_dragonspawn_overseer_devotion_aura"
+	{
+		"AbilityValues"
+		{
+			"radius"		"900"
+		}
+	}
+	"big_thunder_lizard_slam"
+	{
+		"AbilityCastPoint"		"0.0"
+		"AbilityManaCost"		"90"
+		"AbilityDamage"		"70"
+		"AbilityValues"
+		{
+			"radius"		"250"
+			"movespeed_slow"		"-25"
+			"attack_slow_tooltip"		"-25"
+			"hero_duration"		"2.0"
+		}
+	}
+	"big_thunder_lizard_frenzy"
+	{
+		"AbilityManaCost"		"50"
+	}
+	"forest_troll_high_priest_mana_aura"
+	{
+		"AbilityValues"
+		{
+			"mana_regen"		"3"
+			"radius"		"900"
+		}
+	}
+	"greevil_miniboss_orange_light_strike_array"
+	{
+		"AbilityCooldown"		"11"
+	}
+	"healing_campfire"
+	{
+		"AbilityValues"
+		{
+			"heal_amount"		"5"
+		}
+	}
+	"techies_minefield_sign"
+	{
+		"AbilityCastPoint"		"0.0 0.0 0.0 0.0"
+		"AbilityCooldown"		"360.0"
+		"AbilityValues"
+		{
+			"aura_radius"		"125"
+			"lifetime"		"180"
+		}
+	}
+	"winter_wyvern_arctic_burn"
+	{
+		"AbilityCooldown"		"50.0 40.0 30.0 20.0"
+		"AbilityManaCost"		"120 110 100 90"
+		"AbilityValues"
+		{
+			"duration"		"6.0"
+			"attack_range_bonus"		"275 375 475 575"
+			"percent_damage"		"8"
+			"tick_rate"		"1.0"
+			"damage_duration"		"5.0"
+			"tree_destruction_radius"		"250"
+			"move_slow"		"19 26 33 40"
+		}
+	}
+	"winter_wyvern_splinter_blast"
+	{
+		"AbilityCastRange"		"1200"
+		"AbilityCooldown"		"7.0"
+		"AbilityManaCost"		"120 130 140 150"
+		"AbilityDamage"		"100 180 260 340"
+		"AbilityValues"
+		{
+			"projectile_speed"		"650"
+			"bonus_movespeed"		"-25"
+			"movespeed_slow_tooltip"		"25"
+			"secondary_projectile_speed"		"650"
+		}
+	}
+	"winter_wyvern_cold_embrace"
+	{
+		"AbilityCastRange"		"1000"
+		"AbilityManaCost"		"75 75 75 75"
+		"AbilityValues"
+		{
+			"heal_additive"		"20"
+			"heal_percentage"		"3.0 4.0 5.0 6.0"
+		}
+	}
+	"winter_wyvern_winters_curse"
+	{
+		"AbilityCooldown"		"80"
+		"AbilityManaCost"		"250"
+		"AbilityValues"
+		{
+			"radius"		"500"
+			"bonus_attack_speed"		"70"
+			"duration"		"3.25 4 4.75"
+		}
+	}
+	"arc_warden_flux"
+	{
+		"AbilityCooldown"		"18.0"
+		"AbilityValues"
+		{
+			"AbilityCastRange"		"600 700 800 900"
+			"move_speed_slow_pct"		"20 30 40 50"
+		}
+	}
+	"arc_warden_magnetic_field"
+	{
+		"AbilityManaCost"		"110"
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"35 30 25 20"
+			"radius"		"275"
+			"duration"		"3.5 4.5 5.5 6.5"
+			"attack_speed_bonus"		"50 60 70 80"
+		}
+	}
+	"arc_warden_spark_wraith"
+	{
+		"AbilityValues"
+		{
+			"duration"		"50"
+			"ministun_duration"		"0.4 0.5 0.6 0.7"
+			"base_activation_delay"		"2.0"
+			"spark_damage_base"		"100 160 220 280"
+			"wraith_speed_base"		"400"
+		}
+	}
+	"arc_warden_tempest_double"
+	{
+		"AbilityValues"
+		{
+			"AbilityCooldown"		"40 35 30"
+			"duration"		"12 14 16"
+		}
+	}
+	"item_blink"
+	{
+		"AbilityCastRange"		"0"
+		"AbilityCooldown"		"12.0"
+		"SideShop"		"1"
+		"ItemShopTags"		"teleport"
+	}
+	"item_blades_of_attack"
+	{
+		"ItemCost"		"420"
+		"SideShop"		"1"
+	}
+	"item_broadsword"
+	{
+		"ItemCost"		"1200"
+		"SideShop"		"1"
+		"AbilityValues"
+		{
+			"bonus_damage"		"18"
+		}
+	}
+	"item_chainmail"
+	{
+		"ItemCost"		"550"
+		"SideShop"		"1"
+		"AbilityValues"
+		{
+			"bonus_armor"		"5"
+		}
+	}
+	"item_claymore"
+	{
+		"ItemCost"		"1400"
+		"AbilityValues"
+		{
+			"bonus_damage"		"21"
+		}
+	}
+	"item_helm_of_iron_will"
+	{
+		"ItemCost"		"900"
+		"SideShop"		"1"
+		"AbilityValues"
+		{
+			"bonus_armor"		"5"
+			"bonus_regen"		"3"
+		}
+	}
+	"item_javelin"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_quarterstaff"
+	{
+		"SideShop"		"1"
+	}
+	"item_quelling_blade"
+	{
+		"ItemCost"		"200"
+		"SideShop"		"1"
+		"AbilityValues"
+		{
+			"damage_bonus"		"140"
+			"damage_bonus_ranged"		"115"
+		}
+	}
+	"item_faerie_fire"
+	{
+		"ItemCost"		"75"
+		"SideShop"		"0"
+		"ItemShopTags"		"armor"
+		"AbilityValues"
+		{
+			"hp_restore"		"75"
+		}
+	}
+	"item_infused_raindrop"
+	{
+		"AbilityCooldown"		"6.0"
+		"ItemInitialCharges"		"5"
+		"SideShop"		"0"
+		"ItemShopTags"		"armor"
+		"AbilityValues"
+		{
+			"mana_regen"		"0.85"
+			"min_damage"		"50"
+			"initial_charges"		"5"
+		}
+	}
+	"item_wind_lace"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_ring_of_protection"
+	{
+		"SideShop"		"0"
+	}
+	"item_stout_shield"
+	{
+		"ItemCost"		"200"
+		"SideShop"		"1"
+		"AbilityValues"
+		{
+			"damage_block_melee"		"16"
+		}
+		"ItemPurchasable"		"1"
+	}
+	"item_moon_shard"
+	{
+		"ItemQuality"		"common"
+		"SideShop"		"0"
+		"AbilityValues"
+		{
+			"bonus_attack_speed"		"120"
+			"bonus_night_vision"		"250"
+		}
+	}
+	"item_gauntlets"
+	{
+		"ItemCost"		"150"
+	}
+	"item_slippers"
+	{
+		"ItemCost"		"150"
+		"SideShop"		"1"
+	}
+	"item_mantle"
+	{
+		"ItemCost"		"150"
+	}
+	"item_branches"
+	{
+		"AbilityCastRange"		"200"
+		"ItemCost"		"50"
+		"ItemQuality"		"component"
+	}
+	"item_belt_of_strength"
+	{
+		"SideShop"		"1"
+	}
+	"item_boots_of_elves"
+	{
+		"SideShop"		"1"
+	}
+	"item_robe"
+	{
+		"SideShop"		"1"
+	}
+	"item_circlet"
+	{
+		"ItemCost"		"165"
+	}
+	"item_ultimate_orb"
+	{
+		"ItemCost"		"2100"
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"10"
+		}
+	}
+	"item_gloves"
+	{
+		"ItemCost"		"500"
+		"SideShop"		"1"
+	}
+	"item_lifesteal"
+	{
+		"SideShop"		"1"
+		"AbilityValues"
+		{
+			"lifesteal_percent"		"15"
+		}
+	}
+	"item_ring_of_regen"
+	{
+		"ItemCost"		"325"
+		"ItemShareability"		"ITEM_PARTIALLY_SHAREABLE"
+		"SideShop"		"1"
+		"AbilityValues"
+		{
+			"bonus_health_regen"		"2"
+		}
+	}
+	"item_sobi_mask"
+	{
+		"ItemCost"		"325"
+		"ItemShareability"		"ITEM_PARTIALLY_SHAREABLE"
+		"SideShop"		"1"
+		"AbilityValues"
+		{
+			"bonus_mana_regen"		"50"
+		}
+	}
+	"item_boots"
+	{
+		"ItemCost"		"400"
+		"SideShop"		"1"
+		"ItemShopTags"		"move_speed"
+	}
+	"item_cloak"
+	{
+		"ItemCost"		"550"
+		"SideShop"		"1"
+		"AbilityValues"
+		{
+			"bonus_magical_armor"		"15"
+			"tooltip_resist"		"15"
+		}
+	}
+	"item_talisman_of_evasion"
+	{
+		"ItemCost"		"1700"
+		"AbilityValues"
+		{
+			"bonus_evasion"		"25"
+		}
+	}
+	"item_cheese"
+	{
+		"ItemQuality"		"epic"
+		"AbilityValues"
+		{
+			"mana_restore"		"1000"
+		}
+	}
+	"item_magic_stick"
+	{
+		"AbilityCooldown"		"13.0"
+		"SideShop"		"1"
+		"ItemShopTags"		"regen_health;regen_mana;boost_health;boost_mana"
+	}
+	"item_recipe_magic_wand"
+	{
+		"ItemCost"		"0"
+		"ItemRequirements"
+		{
+			"01"		"item_circlet;item_branches;item_branches;item_magic_stick"
+		}
+	}
+	"item_magic_wand"
+	{
+		"AbilityCooldown"		"13.0"
+		"ItemCost"		"465"
+		"ItemShopTags"		"regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
+		"AbilityValues"
+		{
+			"max_charges"		"17"
+			"bonus_all_stats"		"4"
+		}
+	}
+	"item_ghost"
+	{
+		"AbilityCooldown"		"25.0"
+		"ItemShopTags"		"int;agi;str;hard_to_tag"
+		"AbilityValues"
+		{
+			"extra_spell_damage_percent"		"-40"
+		}
+	}
+	"item_clarity"
+	{
+		"ItemCost"		"50"
+		"SideShop"		"0"
+		"ItemShopTags"		"consumable"
+		"AbilityValues"
+		{
+			"buff_duration"		"50"
+			"mana_regen"		"3.8"
+		}
+		"AbilityDuration"		"50"
+	}
+	"item_enchanted_mango"
+	{
+		"ItemCost"		"125"
+		"ItemStackable"		"0"
+		"SideShop"		"0"
+		"AbilityValues"
+		{
+			"hp_regen"		"1.0"
+			"replenish_amount"		"150"
+		}
+	}
+	"item_flask"
+	{
+		"ItemCost"		"110"
+		"ItemShopTags"		"consumable"
+		"AbilityValues"
+		{
+			"buff_duration"		"8"
+			"health_regen"		"50"
+		}
+		"AbilityDuration"		"8"
+	}
+	"item_dust"
+	{
+		"AbilityManaCost"		"5"
+		"ItemCost"		"180"
+		"ItemInitialCharges"		"2"
+		"ItemShopTags"		"consumable"
+	}
+	"item_bottle"
+	{
+		"ItemCost"		"660"
+		"ItemQuality"		"consumable"
+		"SideShop"		"1"
+		"ItemShopTags"		"consumable"
+		"AbilityValues"
+		{
+			"health_restore"		"90"
+			"restore_time"		"2.5"
+		}
+	}
+	"item_ward_observer"
+	{
+		"ItemCost"		"65"
+		"ItemStockTime"		"150.0"
+		"ItemShareability"		"ITEM_FULLY_SHAREABLE_STACKING"
+		"ItemShopTags"		"consumable"
+	}
+	"item_ward_sentry"
+	{
+		"ItemCost"		"200"
+		"ItemInitialCharges"		"2"
+		"ItemShareability"		"ITEM_FULLY_SHAREABLE_STACKING"
+		"ItemShopTags"		"consumable"
+		"AbilityValues"
+		{
+			"lifetime"		"240"
+			"true_sight_range"		"850"
+			"duration_minutes_tooltip"		"4"
+		}
+	}
+	"item_recipe_ward_dispenser"
+	{
+		"ItemRequirements"
+		{
+			"01"		"item_ward_sentry;item_ward_observer"
+			"02"		"item_ward_sentry;item_ward_dispenser"
+			"03"		"item_ward_dispenser;item_ward_observer"
+			"04"		"item_ward_dispenser;item_ward_dispenser"
+		}
+	}
+	"item_ward_dispenser"
+	{
+		"ItemCost"		"265"
+		"ItemShareability"		"ITEM_FULLY_SHAREABLE_STACKING"
+		"ItemQuality"		"common"
+		"AbilityValues"
+		{
+			"bonus_health"		"100"
+			"lifetime_sentry"		"240"
+			"true_sight_range"		"850"
+			"sentry_duration_minutes_tooltip"		"4"
+		}
+	}
+	"item_tango"
+	{
+		"ItemCost"		"125"
+		"ItemInitialCharges"		"4"
+		"SideShop"		"0"
+		"ItemShopTags"		"consumable"
+		"AbilityValues"
+		{
+			"health_regen"		"7.2"
+		}
+		"AbilityDuration"		"16"
+	}
+	"item_tango_single"
+	{
+		"AbilityCooldown"		"60.0"
+		"ItemShopTags"		"consumable"
+		"AbilityValues"
+		{
+			"health_regen"		"7.2"
+		}
+		"AbilityDuration"		"16"
+	}
+	"item_courier"
+	{
+		"ItemCost"		"100"
+		"ItemStockTime"		"120.0"
+		"ItemPurchasable"		"1"
+	}
+	"item_tpscroll"
+	{
+		"AbilityCooldown"		"70.0"
+		"ItemCost"		"50"
+		"SideShop"		"1"
+		"ItemShopTags"		"consumable;tutorial"
+		"AbilityValues"
+		{
+			"maximum_distance"		"575"
+		}
+	}
+	"item_recipe_travel_boots"
+	{
+		"ItemRequirements"
+		{
+			"01"		"item_boots"
+		}
+	}
+	"item_recipe_travel_boots_2"
+	{
+		"ItemRequirements"
+		{
+			"01"		"item_travel_boots;item_recipe_travel_boots"
+		}
+	}
+	"item_travel_boots"
+	{
+		"AbilityCooldown"		"45.0"
+		"AbilityManaCost"		"75"
+		"AbilityChannelTime"		"3.0"
+		"ItemCost"		"2400"
+		"ItemShopTags"		"teleport;move_speed"
+		"AbilityValues"
+		{
+			"bonus_movement_speed"		"100"
+		}
+	}
+	"item_travel_boots_2"
+	{
+		"AbilityCooldown"		"45.0"
+		"AbilityManaCost"		"75"
+		"AbilityChannelTime"		"3.0"
+		"ItemCost"		"4400"
+		"ItemShopTags"		"teleport;move_speed"
+		"AbilityValues"
+		{
+			"bonus_movement_speed"		"100"
+		}
+	}
+	"item_recipe_phase_boots"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_phase_boots"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_demon_edge"
+	{
+		"ItemCost"		"2400"
+		"AbilityValues"
+		{
+			"bonus_damage"		"46"
+		}
+	}
+	"item_eagle"
+	{
+		"ItemCost"		"3200"
+	}
+	"item_reaver"
+	{
+		"ItemCost"		"3000"
+	}
+	"item_relic"
+	{
+		"ItemCost"		"3800"
+		"AbilityValues"
+		{
+			"bonus_damage"		"60"
+		}
+	}
+	"item_hyperstone"
+	{
+		"AbilityValues"
+		{
+			"bonus_attack_speed"		"55"
+		}
+	}
+	"item_ring_of_health"
+	{
+		"ItemCost"		"850"
+		"ItemShareability"		"ITEM_PARTIALLY_SHAREABLE"
+		"SideShop"		"1"
+		"AbilityValues"
+		{
+			"bonus_health_regen"		"6"
+		}
+	}
+	"item_void_stone"
+	{
+		"ItemCost"		"850"
+		"ItemShareability"		"ITEM_PARTIALLY_SHAREABLE"
+		"SideShop"		"1"
+		"AbilityValues"
+		{
+			"bonus_mana_regen"		"100"
+		}
+	}
+	"item_mystic_staff"
+	{
+		"ItemCost"		"2700"
+	}
+	"item_energy_booster"
+	{
+		"ItemCost"		"900"
+		"SideShop"		"1"
+	}
+	"item_vitality_booster"
+	{
+		"ItemCost"		"1100"
+		"SideShop"		"1"
+	}
+	"item_recipe_power_treads"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_power_treads"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_hand_of_midas"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_hand_of_midas"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_oblivion_staff"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_oblivion_staff"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_pers"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_pers"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_poor_mans_shield"
+	{
+		"ItemRequirements"
+		{
+			"01"		"item_slippers;item_slippers;item_stout_shield"
+		}
+		"ItemPurchasable"		"1"
+	}
+	"item_poor_mans_shield"
+	{
+		"ItemCost"		"500"
+		"AbilityValues"
+		{
+			"bonus_agility"		"6"
+			"damage_block_melee"		"20"
+			"damage_block_ranged"		"10"
+			"block_chance"		"53"
+		}
+		"ItemPurchasable"		"1"
+	}
+	"item_bracer"
+	{
+		"ItemCost"		"525"
+		"AbilityValues"
+		{
+			"bonus_strength"		"6"
+			"bonus_agility"		"3"
+			"bonus_intellect"		"3"
+			"bonus_damage"		"3"
+		}
+	}
+	"item_recipe_wraith_band"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_wraith_band"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_null_talisman"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_null_talisman"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_mekansm"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_mekansm"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_vladmir"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_vladmir"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_flying_courier"
+	{
+		"ItemCost"		"150"
+		"ItemStockTime"		"270.0"
+		"ItemShareability"		"ITEM_FULLY_SHAREABLE"
+		"ItemPurchasable"		"1"
+	}
+	"item_recipe_buckler"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_buckler"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_ring_of_basilius"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_ring_of_basilius"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_pipe"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_pipe"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_urn_of_shadows"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_urn_of_shadows"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_headdress"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_headdress"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_sheepstick"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_sheepstick"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_orchid"
+	{
+		"ItemCost"		"775"
+		"ItemRequirements"
+		{
+			"01"		"item_dota688_oblivion_staff;item_dota688_oblivion_staff"
+		}
+	}
+	"item_orchid"
+	{
+		"AbilityManaCost"		"100"
+		"ItemCost"		"4075"
+		"ItemShopTags"		"int;attack_speed;damage;regen_mana;damage;hard_to_tag"
+		"AbilityValues"
+		{
+			"bonus_intellect"		"25"
+			"bonus_attack_speed"		"30"
+			"bonus_damage"		"30"
+			"bonus_mana_regen"		"150"
+		}
+	}
+	"item_recipe_bloodthorn"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_bloodthorn"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_echo_sabre"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_echo_sabre"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_cyclone"
+	{
+		"ItemCost"		"650"
+		"ItemRequirements"
+		{
+			"01"		"item_staff_of_wizardry;item_void_stone;item_dota688_wind_lace"
+		}
+	}
+	"item_cyclone"
+	{
+		"AbilityCastRange"		"575"
+		"ItemCost"		"2735"
+		"ItemShopTags"		"int;regen_mana;move_speed;hard_to_tag"
+		"AbilityValues"
+		{
+			"bonus_mana_regen"		"150"
+			"bonus_movement_speed"		"40"
+		}
+	}
+	"item_recipe_aether_lens"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_aether_lens"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_force_staff"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_force_staff"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_hurricane_pike"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_hurricane_pike"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_dagon"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_dagon_2"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_dagon_3"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_dagon_4"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_dagon_5"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_dagon"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_dagon_2"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_dagon_3"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_dagon_4"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_dagon_5"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_necronomicon"
+	{
+		"ItemCost"		"1200"
+		"ItemPurchasable"		"1"
+	}
+	"item_recipe_necronomicon_2"
+	{
+		"ItemRequirements"
+		{
+			"01"		"item_necronomicon;item_recipe_necronomicon"
+		}
+		"ItemPurchasable"		"1"
+	}
+	"item_recipe_necronomicon_3"
+	{
+		"ItemRequirements"
+		{
+			"01"		"item_necronomicon_2;item_recipe_necronomicon"
+		}
+		"ItemPurchasable"		"1"
+	}
+	"item_necronomicon"
+	{
+		"AbilityCooldown"		"95.0"
+		"AbilityManaCost"		"50"
+		"ItemCost"		"2650"
+		"AbilityValues"
+		{
+			"bonus_intellect"		"15 21 24"
+			"bonus_strength"		"8 12 16"
+			"summon_duration"		"40"
+			"warrior_health_tooltip"		"700 800 900"
+			"warrior_damage_tooltip"		"45 60 75"
+			"warrior_mana_feedback"		"20 50 75"
+			"warrior_mana_break_tooltip"		"25 50 75"
+			"explosion"		"550 675 800"
+			"warrior_truesight"		"1000"
+			"archer_health_tooltip"		"700 800 900"
+			"archer_damage_tooltip"		"60 90 120"
+			"archer_aura_radius_tooltip"		"900"
+		}
+		"ItemPurchasable"		"1"
+	}
+	"item_necronomicon_2"
+	{
+		"AbilityCooldown"		"95.0"
+		"AbilityManaCost"		"50"
+		"ItemCost"		"3850"
+		"AbilityValues"
+		{
+			"bonus_intellect"		"15 21 24"
+			"bonus_strength"		"8 12 16"
+			"summon_duration"		"40"
+			"warrior_health_tooltip"		"700 800 900"
+			"warrior_damage_tooltip"		"45 60 75"
+			"warrior_mana_feedback"		"20 50 75"
+			"warrior_mana_break_tooltip"		"25 50 75"
+			"explosion"		"550 675 800"
+			"warrior_truesight"		"1000"
+			"archer_health_tooltip"		"700 800 900"
+			"archer_damage_tooltip"		"60 90 120"
+			"archer_aura_radius_tooltip"		"900"
+		}
+		"ItemPurchasable"		"1"
+	}
+	"item_necronomicon_3"
+	{
+		"AbilityCooldown"		"95.0"
+		"AbilityManaCost"		"50"
+		"ItemCost"		"5050"
+		"AbilityValues"
+		{
+			"bonus_intellect"		"15 21 24"
+			"bonus_strength"		"8 12 16"
+			"summon_duration"		"40"
+			"warrior_health_tooltip"		"700 800 900"
+			"warrior_damage_tooltip"		"45 60 75"
+			"warrior_mana_feedback"		"20 50 75"
+			"warrior_mana_break_tooltip"		"25 50 75"
+			"explosion"		"550 675 800"
+			"warrior_truesight"		"1000"
+			"archer_health_tooltip"		"700 800 900"
+			"archer_damage_tooltip"		"60 90 120"
+			"archer_aura_radius_tooltip"		"900"
+		}
+		"ItemPurchasable"		"1"
+	}
+	"item_ultimate_scepter"
+	{
+		"AbilityCastRange"		"600"
+	}
+	"item_recipe_refresher"
+	{
+		"ItemCost"		"1800"
+		"ItemRequirements"
+		{
+			"01"		"item_dota688_pers;item_dota688_pers"
+		}
+	}
+	"item_refresher"
+	{
+		"AbilityCooldown"		"195.0"
+		"AbilityManaCost"		"375"
+		"ItemCost"		"5200"
+		"ItemShopTags"		"regen_health;regen_mana;hard_to_tag"
+		"AbilityValues"
+		{
+			"bonus_health_regen"		"12"
+			"bonus_mana_regen"		"250"
+			"bonus_damage"		"20"
+		}
+	}
+	"item_recipe_assault"
+	{
+		"ItemRequirements"
+		{
+			"01"		"item_platemail;item_hyperstone;item_chainmail"
+		}
+	}
+	"item_assault"
+	{
+		"ItemCost"		"5250"
+		"ItemShopTags"		"attack_speed;armor;hard_to_tag"
+		"AbilityValues"
+		{
+			"bonus_attack_speed"		"35"
+			"aura_radius"		"900"
+			"aura_attack_speed"		"20"
+		}
+	}
+	"item_recipe_heart"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_heart"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_black_king_bar"
+	{
+		"ItemCost"		"1375"
+		"ItemRequirements"
+		{
+			"01"		"item_ogre_axe;item_mithril_hammer"
+		}
+	}
+	"item_black_king_bar"
+	{
+		"AbilityCooldown"		"80 75 70 65 60 55"
+		"ItemCost"		"3975"
+		"ItemShopTags"		"str;damage;hard_to_tag"
+		"AbilityValues"
+		{
+			"duration"		"10.0 9.0 8.0 7.0 6.0 5.0"
+			"max_level"		"6"
+		}
+	}
+	"item_recipe_shivas_guard"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_shivas_guard"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_bloodstone"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_bloodstone"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_sphere"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_sphere"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_lotus_orb"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_lotus_orb"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_vanguard"
+	{
+		"ItemRequirements"
+		{
+			"01"		"item_ring_of_health;item_vitality_booster;item_stout_shield"
+		}
+	}
+	"item_vanguard"
+	{
+		"ItemCost"		"2150"
+		"ItemShopTags"		"regen_health;block;health_pool"
+		"AbilityValues"
+		{
+			"bonus_health_regen"		"8"
+			"block_damage_melee"		"32"
+			"block_damage_ranged"		"16"
+		}
+	}
+	"item_recipe_crimson_guard"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_crimson_guard"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_blade_mail"
+	{
+		"ItemCost"		"0"
+		"ItemRequirements"
+		{
+			"01"		"item_broadsword;item_chainmail;item_robe"
+		}
+	}
+	"item_blade_mail"
+	{
+		"AbilityCooldown"		"18.0"
+		"ItemCost"		"2200"
+		"ItemShopTags"		"damage;armor;int;hard_to_tag"
+		"AbilityValues"
+		{
+			"bonus_damage"		"22"
+			"bonus_armor"		"6"
+			"bonus_intellect"		"10"
+			"duration"		"4.5"
+		}
+	}
+	"item_recipe_soul_booster"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_soul_booster"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_hood_of_defiance"
+	{
+		"ItemRequirements"
+		{
+			"01"		"item_ring_of_health;item_cloak;item_ring_of_regen"
+		}
+		"ItemPurchasable"		"1"
+	}
+	"item_hood_of_defiance"
+	{
+		"AbilityManaCost"		"75"
+		"ItemCost"		"1725"
+		"ItemShopTags"		"regen_health;magic_resist"
+		"AbilityValues"
+		{
+			"bonus_spell_resist"		"30"
+			"bonus_health_regen"		"8"
+			"tooltip_resist"		"30"
+			"barrier_block"		"325"
+		}
+		"ItemPurchasable"		"1"
+	}
+	"item_rapier"
+	{
+		"ItemCost"		"6200"
+		"ItemShopTags"		"damage"
+		"AbilityValues"
+		{
+			"bonus_damage"		"330"
+		}
+	}
+	"item_recipe_monkey_king_bar"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_monkey_king_bar"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_radiance"
+	{
+		"ItemCost"		"1350"
+		"ItemRequirements"
+		{
+			"01"		"item_relic"
+		}
+	}
+	"item_radiance"
+	{
+		"ItemCost"		"5150"
+		"ItemShopTags"		"damage"
+		"AbilityValues"
+		{
+			"bonus_damage"		"65"
+			"aura_damage"		"50"
+			"blind_pct"		"17"
+			"aura_radius"		"700"
+		}
+	}
+	"item_recipe_butterfly"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_butterfly"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_greater_crit"
+	{
+		"ItemCost"		"5520"
+		"ItemShopTags"		"damage;crit"
+		"AbilityValues"
+		{
+			"bonus_damage"		"81"
+			"crit_multiplier"		"220"
+		}
+	}
+	"item_recipe_basher"
+	{
+		"ItemCost"		"750"
+		"ItemRequirements"
+		{
+			"01"		"item_belt_of_strength;item_dota688_javelin"
+		}
+	}
+	"item_basher"
+	{
+		"ItemCost"		"2700"
+		"AbilityValues"
+		{
+			"bonus_damage"		"10"
+			"bash_duration"		"1.4"
+			"bonus_chance_damage"		"85"
+		}
+	}
+	"item_recipe_bfury"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_bfury"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_manta"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_manta"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_lesser_crit"
+	{
+		"ItemCost"		"500"
+		"ItemRequirements"
+		{
+			"01"		"item_broadsword;item_blades_of_attack"
+		}
+	}
+	"item_lesser_crit"
+	{
+		"ItemCost"		"2120"
+		"ItemShopTags"		"damage;crit"
+		"AbilityValues"
+		{
+			"bonus_damage"		"30"
+			"crit_chance"		"20"
+			"crit_multiplier"		"175"
+		}
+	}
+	"item_recipe_dragon_lance"
+	{
+		"ItemCost"		"0"
+		"ItemRequirements"
+		{
+			"01"		"item_ogre_axe;item_boots_of_elves;item_boots_of_elves"
+		}
+	}
+	"item_dragon_lance"
+	{
+		"ItemCost"		"1900"
+		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityValues"
+		{
+			"bonus_agility"		"14"
+			"bonus_strength"		"13"
+			"base_attack_range"		"140"
+		}
+	}
+	"item_recipe_armlet"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_armlet"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_invis_sword"
+	{
+		"ItemRequirements"
+		{
+			"01"		"item_dota688_shadow_amulet;item_claymore"
+		}
+	}
+	"item_invis_sword"
+	{
+		"AbilityCooldown"		"28.0"
+		"ItemCost"		"2700"
+		"ItemShopTags"		"damage;attack_speed;movespeed;hard_to_tag"
+		"AbilityValues"
+		{
+			"bonus_damage"		"22"
+			"bonus_attack_speed"		"30"
+			"windwalk_duration"		"14.0"
+		}
+	}
+	"item_recipe_silver_edge"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_silver_edge"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_sange_and_yasha"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_sange_and_yasha"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_satanic"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_satanic"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_mjollnir"
+	{
+		"ItemCost"		"900"
+		"ItemRequirements"
+		{
+			"01"		"item_maelstrom;item_hyperstone"
+		}
+	}
+	"item_mjollnir"
+	{
+		"ItemCost"		"5700"
+		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"ItemShopTags"		"damage;attack_speed;unique"
+		"AbilityValues"
+		{
+			"bonus_damage"		"24"
+			"bonus_attack_speed"		"80"
+			"static_duration"		"15.0"
+			"static_damage"		"200"
+			"chain_damage"		"150"
+			"chain_radius"		"900"
+			"chain_cooldown"		"0"
+		}
+	}
+	"item_recipe_skadi"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_skadi"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_sange"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_sange"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_helm_of_the_dominator"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_helm_of_the_dominator"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_maelstrom"
+	{
+		"ItemCost"		"700"
+		"ItemShopTags"		""
+		"ItemRequirements"
+		{
+			"01"		"item_mithril_hammer;item_gloves"
+		}
+	}
+	"item_maelstrom"
+	{
+		"ItemCost"		"2800"
+		"ItemShopTags"		"damage;attack_speed;unique"
+		"AbilityValues"
+		{
+			"bonus_damage"		"24"
+			"chain_damage"		"120"
+			"chain_radius"		"900"
+			"chain_cooldown"		"0"
+		}
+	}
+	"item_desolator"
+	{
+		"ItemShopTags"		"damage;unique"
+		"AbilityValues"
+		{
+			"bonus_damage"		"50"
+			"corruption_armor"		"-7"
+			"corruption_duration"		"15.0"
+		}
+	}
+	"item_recipe_yasha"
+	{
+		"ItemCost"		"600"
+	}
+	"item_yasha"
+	{
+		"ItemCost"		"2050"
+		"AbilityValues"
+		{
+			"movement_speed_percent_bonus"		"8"
+		}
+	}
+	"item_recipe_mask_of_madness"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_mask_of_madness"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_diffusal_blade"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_diffusal_blade"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_ethereal_blade"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_ethereal_blade"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_soul_ring"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_soul_ring"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_arcane_boots"
+	{
+		"ItemCost"		"0"
+		"ItemRequirements"
+		{
+			"01"		"item_boots;item_energy_booster"
+		}
+	}
+	"item_arcane_boots"
+	{
+		"ItemCost"		"1300"
+		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"ItemShopTags"		"move_speed;boost_mana;mana_pool"
+		"AbilityValues"
+		{
+			"bonus_movement"		"50"
+			"bonus_mana"		"250"
+			"replenish_amount"		"135"
+			"replenish_radius"		"900"
+		}
+	}
+	"item_recipe_octarine_core"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_octarine_core"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_orb_of_venom"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_blight_stone"
+	{
+		"SideShop"		"1"
+		"AbilityValues"
+		{
+			"corruption_duration"		"8.0"
+		}
+	}
+	"item_recipe_ancient_janggo"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_ancient_janggo"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_medallion_of_courage"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_medallion_of_courage"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_solar_crest"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_solar_crest"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_smoke_of_deceit"
+	{
+		"ItemStockTime"		"660.0"
+		"ItemShopTags"		"consumable"
+		"AbilityValues"
+		{
+			"duration"		"35.0"
+		}
+	}
+	"item_tome_of_knowledge"
+	{
+		"ItemCost"		"150"
+		"ItemStackable"		"1"
+		"AbilityValues"
+		{
+			"xp_bonus"		"425"
+		}
+		"ItemPurchasable"		"1"
+	}
+	"item_recipe_veil_of_discord"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_veil_of_discord"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_guardian_greaves"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_guardian_greaves"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_rod_of_atos"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_rod_of_atos"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_iron_talon"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_iron_talon"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_abyssal_blade"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_abyssal_blade"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_heavens_halberd"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_heavens_halberd"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_ring_of_aquila"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_ring_of_aquila"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_tranquil_boots"
+	{
+		"ItemRequirements"
+		{
+			"01"		"item_boots;item_ring_of_protection;item_ring_of_regen"
+		}
+	}
+	"item_tranquil_boots"
+	{
+		"AbilityValues"
+		{
+			"bonus_movement_speed"		"85"
+			"bonus_armor"		"3"
+			"bonus_health_regen"		"12"
+			"broken_movement_speed"		"55"
+		}
+	}
+	"item_shadow_amulet"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_glimmer_cape"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_glimmer_cape"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_overwhelming_blink"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_swift_blink"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_arcane_blink"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_arcane_blink"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_swift_blink"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_overwhelming_blink"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_splintmail"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_crown"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_diadem"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_blitz_knuckles"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_voodoo_mask"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_shawl"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_blood_grenade"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_ring_of_tarrasque"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_tiara_of_selemene"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_fluffy_hat"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_wizard_hat"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_phylactery"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_phylactery"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_angels_demise"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_witch_blade"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_witch_blade"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_holy_locket"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_holy_locket"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_caster_rapier"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_wind_waker"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_wind_waker"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_ultimate_scepter_2"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_ultimate_scepter_2"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_aghanims_shard"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_meteor_hammer"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_meteor_hammer"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_nullifier"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_aeon_disk"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_aeon_disk"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_kaya"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_kaya"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_spirit_vessel"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_spirit_vessel"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_essence_distiller"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_essence_distiller"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_consecrated_wraps"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_consecrated_wraps"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_crellas_crozier"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_crellas_crozier"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_kaya_and_sange"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_yasha_and_kaya"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_helm_of_the_overlord"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_helm_of_the_overlord"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_gungir"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_gungir"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_disperser"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_disperser"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_orb_of_corrosion"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_orb_of_frost"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_falcon_blade"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_falcon_blade"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_mage_slayer"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_boots_of_bearing"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_pavise"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_pavise"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_revenants_brooch"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_revenants_brooch"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_devastator"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_devastator"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_harpoon"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_harpoon"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_specialists_array"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_specialists_array"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_hydras_breath"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_hydras_breath"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_chasm_stone"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+}
