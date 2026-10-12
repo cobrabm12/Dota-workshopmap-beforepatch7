@@ -4807,10 +4807,8 @@
 	}
 	"item_courier"
 	{
-		"ItemCost"		"100"
-		"ItemStockTime"		"120.0"
-		"ItemPurchasable"		"1"
-		"ItemStockInitial"		"1"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_tpscroll"
 	{
@@ -5049,10 +5047,8 @@
 	}
 	"item_flying_courier"
 	{
-		"ItemCost"		"150"
-		"ItemStockTime"		"270.0"
-		"ItemShareability"		"ITEM_FULLY_SHAREABLE"
-		"ItemPurchasable"		"1"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_buckler"
 	{

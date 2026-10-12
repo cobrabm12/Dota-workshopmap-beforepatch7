@@ -255,6 +255,22 @@
 			"duration"		"4"
 		}
 	}
+	"item_dota688_courier"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES"
+		"ItemCost"		"100"
+		"ItemShopTags"		"consumable"
+		"ItemQuality"		"consumable"
+		"ItemAliases"		"donkey;chicken;animal courier"
+		"ItemShareability"		"ITEM_FULLY_SHAREABLE"
+		"ItemStockMax"		"1"
+		"ItemStockTime"		"120.0"
+		"ItemSupport"		"1"
+		"BaseClass"		"item_lua"
+		"ScriptFile"		"items/item_dota688_courier"
+		"AbilityTextureName"		"item_courier"
+	}
 	"item_dota688_crimson_guard"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -595,6 +611,23 @@
 			"ethereal_damage_bonus"		"-40"
 			"projectile_speed"		"1200"
 		}
+	}
+	"item_dota688_flying_courier"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES"
+		"ItemCost"		"150"
+		"ItemShopTags"		"consumable"
+		"ItemQuality"		"consumable"
+		"ItemAliases"		"crow;flying courier"
+		"ItemShareability"		"ITEM_FULLY_SHAREABLE"
+		"ItemStockMax"		"1"
+		"ItemStockInitial"		"0"
+		"ItemStockTime"		"270.0"
+		"ItemSupport"		"1"
+		"BaseClass"		"item_lua"
+		"ScriptFile"		"items/item_dota688_flying_courier"
+		"AbilityTextureName"		"item_flying_courier"
 	}
 	"item_dota688_force_staff"
 	{
