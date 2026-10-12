@@ -29,6 +29,7 @@ end
 function dota688_chen_holy_persuasion:GetCustomCastErrorTarget(target) return self.err or "#dota_hud_error_cant_cast_on_other" end
 function dota688_chen_holy_persuasion:OnSpellStart()
 	local caster, target = self:GetCaster(), self:GetCursorTarget()
+	caster:EmitSound("Hero_Chen.HolyPersuasionCast")
 	if target:TriggerSpellAbsorb(self) then return end
 	local units = self:Units()
 	while #units >= self:GetSpecialValueFor("max_units") do

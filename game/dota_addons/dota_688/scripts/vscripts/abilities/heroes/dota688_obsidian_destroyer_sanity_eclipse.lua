@@ -10,13 +10,13 @@ function dota688_obsidian_destroyer_sanity_eclipse:OnSpellStart()
 	local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(fx, 0, pos); ParticleManager:SetParticleControl(fx, 1, Vector(radius, radius, radius))
 	ParticleManager:ReleaseParticleIndex(fx)
+	EmitSoundOnLocationWithCaster(pos, "Hero_ObsidianDestroyer.SanityEclipse.Target", caster)   -- explozia, o data, in centru
 	local scepter = Dota688HasScepter(caster)
 	local astral = caster:FindAbilityByName("obsidian_destroyer_astral_imprisonment")
 	local mult = scepter and self:GetSpecialValueFor("damage_multiplier_scepter") or self:GetSpecialValueFor("damage_multiplier")
 	for _, e in ipairs(FindUnitsInRadius(caster:GetTeamNumber(), pos, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
 		if not e:IsMagicImmune() then
 			local diff = math.max(0, caster:GetIntellect(true) - (e.GetIntellect and e:GetIntellect(true) or 0))
-			e:EmitSound("Hero_ObsidianDestroyer.SanityEclipse.Target")
 			ApplyDamage({ victim = e, attacker = caster, damage = diff * mult, damage_type = DAMAGE_TYPE_MAGICAL, ability = self })
 			e:Script_ReduceMana(e:GetMaxMana() * self:GetSpecialValueFor("mana_drain") / 100, self)
 			if scepter and astral and astral:GetLevel() > 0 and e:IsAlive() then
