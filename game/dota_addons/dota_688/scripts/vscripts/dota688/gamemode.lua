@@ -222,7 +222,7 @@ end
 function Dota688:OrderFilter(ev)
 	if MODERN_ORDERS[ev.order_type] then return false end
 	if not Dota688Buildings:OrderFilter(ev) then return false end
-	Dota688Courier:OrderFilter(ev)
+	if not Dota688Courier:OrderFilter(ev) then return false end
 	Dota688Selection:OrderFilter(ev)
 	return Dota688Aghanim.OrderFilter(ev)
 end
