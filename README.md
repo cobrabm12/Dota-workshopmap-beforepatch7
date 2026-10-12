@@ -28,11 +28,11 @@ din fișierele originale Valve de la 6.88f, iar regulile de joc sunt implementat
 | Localizare | ✅ engleză, generată din textele 6.88 (jocul rămâne în engleză) |
 | Resurse (particule/modele) verificate față de clientul curent | ✅ |
 | Panou cu regulile 6.88 în HUD, spawn neutrali la 0:30 | ✅ de verificat în joc |
-| Harta 6.88 (Hammer) | 🔜 plan în `docs/HARTA.md` |
+| Harta 6.88: harta 6.88f originală, sursă Hammer în repo, compilată de noi în formatul curent (trigger‑e de shop/camp‑uri refăcute ca mesh‑uri, world layer‑ele bazei) | ✅ `docs/HARTA.md` – testată în joc |
 | Testare în Workshop Tools | 🔜 |
 
 Detalii: `docs/REGULI_6.88.md` (toate regulile și sursa lor), `docs/STATUS.md` (raport generat), `docs/AGHANIM.md` (scepter per erou),
-`docs/HARTA.md` (ce trebuie construit în Hammer), `docs/ROADMAP.md`.
+`docs/HARTA.md` (harta 6.88: import, compilare, teste), `docs/ROADMAP.md`.
 
 ## Structura repo‑ului
 
@@ -56,9 +56,10 @@ docs/                             <- documentație (română)
    * `game/dota_addons/dota_688` → `...\dota 2 beta\game\dota_addons\dota_688`
    * `content/dota_addons/dota_688` → `...\dota 2 beta\content\dota_addons\dota_688`
 3. Pornește `dota2cfg.exe` / Workshop Tools, alege addon‑ul `dota_688`.
-4. Copiază harta 6.88 (recompilată de Valve, livrată cu clientul) în addon: `python tools/import_harta_688.py`
-   (vezi `docs/HARTA.md`), apoi în consolă `dota_launch_custom_game dota_688 dota`. Fără pasul acesta se încarcă harta 7.x
-   a jocului (eroii/itemele/regulile rămân 6.88).
+4. Construiește harta 6.88 (`docs/HARTA.md`): `python tools/import_harta_688.py` (are nevoie de `maps/dota.vpk` din
+   clientul 6.88f, descărcat o dată cu DepotDownloader, și de Source2Viewer‑CLI; scrie sursa Hammer
+   `content/dota_addons/dota_688/maps/dota_688.vmap` și fișierele ei), apoi `python tools/compile_harta_688.py`
+   și în consolă `dota_launch_custom_game dota_688 dota_688`.
 
 ## Cum adaugi o reimplementare 6.88
 

@@ -2,24 +2,54 @@
 
 ## Starea actuală (harta folosită în joc)
 
-Clientul curent Dota 2 conține `game/dota/maps/dota_688.vpk`: harta 6.88 **recompilată de Valve** pentru motorul
-actual (aceleași entități ca harta din decembrie 2016, cu trigger‑ele de shop / no‑wards / camp‑uri și fizica în formatul
-nou). `python tools/import_harta_688.py` o copiază în addon ca `game/dota_addons/dota_688/maps/dota.vpk` (în .gitignore).
-Căile din interior sunt `maps/dota/...`, deci harta se pornește cu numele `dota`, iar cea din addon are prioritate
-față de harta 7.x a jocului:
+Harta jocului este **harta noastră** `dota_688`, compilată de noi în formatul curent al motorului
+(`game/dota_addons/dota_688/maps/dota_688.vpk`, în .gitignore) din sursa Hammer
+`content/dota_addons/dota_688/maps/dota_688.vmap` (în repo). Se pornește cu:
 
-    dota_launch_custom_game dota_688 dota
+    dota_launch_custom_game dota_688 dota_688
 
-Motorul curent cere câteva entități care nu existau în 2016; `scripts/vscripts/dota688/map_688.lua` le adaugă la pornire:
-`info_courier_spawn_radiant_1..5` / `dire_1..5` (fără ele jocul cade la PRE_GAME), `info_player_start_dota`
-`roshan_location_1/2` (ambele în groapa 6.88, ca Roshan să nu se mute) și `info_target` `dota688_rune_top/bot`.
+și este singura hartă din `addoninfo.txt`. Nu mai conține date compilate vechi: Workshop Tools nu mai afișează
+„Legacy Compiled Data”, iar assert‑ul „obsolete HoldAnimation key” nu mai apare.
 
-Testat (TEST_LOG, secțiunea 5): 11 `trigger_shop` (side și secret shop funcționează), 14 volume de camp (fără stack‑uri
-singure: 7 minute fără eroi în jungla, numărul de neutrali rămâne constant), Roshan în groapa 6.88 cu 8000 HP.
+Refacerea completă, dintr‑o singură rulare (are nevoie de Workshop Tools, de Source2Viewer‑CLI în
+`C:\dota688_tools\S2V-CLI` și de `maps/dota.vpk` din clientul 6.88f în `C:\dota688_depot\game\dota\maps`, vezi mai jos):
 
-Vmap‑ul decompilat (`content/dota_addons/dota_688/maps/dota_688.vmap`, cu `tools/compile_harta_688.py`) rămâne sursa
-pentru editare în Hammer. Decompilarea nu recuperează geometria trigger‑elor, deci harta compilată din el **nu** are
-shop‑uri, volume de camp și no‑wards; pentru joc se folosește harta de mai sus.
+    python tools/import_harta_688.py      # decompilează harta 2016 (dacă lipsește C:\dota688_depot\export) și scrie vmap-ul
+    python tools/compile_harta_688.py     # resourcecompiler: texturi flow/fog, world node-uri, harta
+
+Ce face `tools/import_harta_688.py` peste harta decompilată de Source 2 Viewer:
+
+* **Trigger‑ele** (11 `trigger_shop`, 22 `trigger_multiple` = 14 volume de camp + `roshan_location` + 7
+  `bad_result_position`, 6 `trigger_no_wards`, 1 `trigger_boss_attackable`): decompilarea păstrează doar entitatea, fără
+  geometrie, iar compilatorul aruncă entitățile brush fără mesh. Modelele lor compilate (`maps/dota/entities/*.vmdl_c`)
+  au însă hull‑urile de fizică: le decompilăm, iar fiecare hull devine un mesh convex cu `materials/tools/toolstrigger.vmat`,
+  copil al entității (`tools/vmap_mesh.py`, structura half‑edge a lui Hammer). În Hammer apar ca trigger‑e obișnuite,
+  iar compilatorul face `maps/dota_688/entities/*.vmdl` cu fizica în formatul curent. Geometria e identică în harta
+  2016 și în `maps/dota_688.vpk` al lui Valve (verificat hull cu hull, și după compilare).
+* **World layer‑ele** bazelor (`radiant_base`, `radiant_destruction`, `dire_base`, `dire_destruction`): Source 2 Viewer
+  scotea entitățile lor în lumea principală, deci baza distrusă apărea de la început (2491 de copaci în loc de 2371).
+  Le mutăm înapoi în layer‑ul lor (313 entități), cu numele și `childSpawnGroup` ca în harta lui Valve; Ancient‑ul
+  comută layer‑ele la distrugere.
+* Spawner‑ele de rune 2016 → `info_target` `dota688_rune_top` / `dota688_rune_bot` (căutate de `runes.lua`);
+  cheia `holdanimation` scoasă de pe `prop_dynamic*`; `info_courier_spawn_radiant_1..5` / `dire_1..5` (fără ele jocul
+  cade la PRE_GAME) și `info_player_start_dota` `roshan_location_1/2` (ambele în groapa 6.88) adăugate.
+* Texturile `water_flow_map` / `fog_flow_map` / `fog_opacity_map` (cerute de motor pentru orice hartă) luate din harta
+  curentă a jocului.
+
+`scripts/vscripts/dota688/map_688.lua` verifică la pornire entitățile de mai sus (le adaugă doar dacă lipsesc) și
+scrie un avertisment în consolă dacă harta nu are toate trigger‑ele 6.88.
+
+Testat în joc (harta compilată, 12 oct 2026): pornire fără crash în PRE_GAME; la runtime exact aceleași entități server
+ca harta 6.88 a lui Valve (2831 față de 2833: diferă doar cele 2 `dota_item_rune_spawner`, la noi `info_target`),
+inclusiv 2371 `ent_dota_tree`; 11 `trigger_shop`: shop‑ul de bază (Radiant și Dire), cele 4 secret shop‑uri și cele 4
+side shop‑uri funcționează când eroul intră mergând; 14 volume de camp: 43 de neutrali constant 9 minute fără eroi în
+junglă (fără stack‑uri singure), camp ocupat de erou la minut = nu apare, liber la minutul următor = apare; Roshan în
+groapa 6.88; runele în cele două locuri din râu.
+
+Rezervă, doar pentru comparații: `python tools/import_harta_688.py --harta-valve` copiază și `maps/dota_688.vpk` din
+client (harta 6.88 recompilată de Valve, cu căile `maps/dota/...`) în addon ca `maps/dota.vpk`, pornită cu
+`dota_launch_custom_game dota_688 dota`. Are date compilate vechi (dialogul „Legacy Compiled Data” revine), deci o
+rulare fără opțiune o șterge; nu o lăsați în addon la publicare.
 
 ## Istoric: recuperarea hărții din clientul 2016
 
@@ -36,23 +66,22 @@ Se pierd doar prefab‑urile, numele grupurilor, parametrii overlay‑urilor și
 Nu pot descărca eu fișierele: depoturile vechi Steam cer un cont Steam (Dota 2 trebuie să fie în bibliotecă).
 Pașii, pe PC‑ul tău:
 
-1. **Descarcă clientul 6.88f** cu [DepotDownloader](https://github.com/SteamRE/DepotDownloader):
-   * pe [SteamDB, app 570 → Depots](https://steamdb.info/app/570/depots/) ia ID‑ul depotului de conținut („Dota 2 Content”)
-     și, din pagina lui de *Manifests*, ID‑ul manifestului din **7 decembrie 2016** (înainte de cel din 12 decembrie = 7.00);
-   * `DepotDownloader -app 570 -depot <depot> -manifest <manifest> -username <cont> -filelist pak01.txt`,
-     unde `pak01.txt` conține `regex:game/dota/pak01_.*\.vpk` (harta era în `pak01`, nu într‑un VPK separat; sunt câțiva GB).
-2. **Decompilează**: în Source 2 Viewer deschide `game/dota/pak01_dir.vpk`, mergi la `maps/dota.vmap_c`, click dreapta →
-   *Decompile & Export* → *vmap*, salvează ca `content/dota_addons/dota_688/maps/dota_688.vmap` (cu folderul `maps/dota_688/` lângă).
+1. **Descarcă harta clientului 6.88f** cu [DepotDownloader](https://github.com/SteamRE/DepotDownloader) (contul Steam îl
+   introduci tu, în DepotDownloader):
+   * pe [SteamDB, app 570 → Depots](https://steamdb.info/app/570/depots/) ia ID‑ul depotului de conținut („Dota 2 Content”,
+     373301) și, din pagina lui de *Manifests*, ID‑ul manifestului din **7 decembrie 2016** (6583592615927321343);
+   * `DepotDownloader -app 570 -depot 373301 -manifest <manifest> -username <cont> -filelist harta.txt -dir C:\dota688_depot`,
+     unde `harta.txt` conține `regex:game/dota/maps/dota\.vpk` (în 6.88f harta era un VPK separat, 21 MB).
+2. **Import + compilare**: `python tools/import_harta_688.py` (decompilează `maps/dota.vmap_c` cu Source2Viewer‑CLI în
+   `C:\dota688_depot\export`, apoi aplică modificările de mai sus) și `python tools/compile_harta_688.py`.
    Lista celor 140 de fișiere ale hărții este în `reference/6.88f/maps_dota_manifest.txt` (`python3 tools/map_files_688.py`).
-3. **Hammer**: deschide `dota_688.vmap`, verifică lista de entități de mai jos (spawner‑ele de creepi, neutrali, Roshan,
-   shop‑urile, runele – adaugă `info_target` `dota688_rune_top`/`dota688_rune_bot` sau păstrează spawner‑ele de rune),
-   redenumește și compilează. Modelele/texturile din 2016 care nu mai există în joc apar ca erori la compilare: înlocuiește‑le
-   cu echivalentele actuale.
+3. **Hammer** (opțional): `dota_688.vmap` se deschide și se editează în Hammer; după editare, compilează din Hammer sau cu
+   `tools/compile_harta_688.py`. Atenție: o nouă rulare a importului rescrie vmap‑ul din harta 2016.
 
 Alternativa, dacă nu vrei să descarci clientul vechi: pornește de la harta curentă (`dota.vmap`, dacă e livrată cu Tools)
 și refă layout‑ul după lista de diferențe de mai jos.
 
-## Diferențe 6.88 față de harta curentă (de refăcut)
+## Diferențe 6.88 față de harta curentă (referință; harta noastră este cea 6.88 originală)
 
 * **Roshan**: groapa în râu, pe partea Dire, lângă runa de jos (7.00 l‑a mutat la runa de sus; 7.33 a făcut două gropi).
 * **Rune**: doar două locuri, în râu (sus și jos). Fără rune în jungle. Fără Wisdom/Water/Shield rune.

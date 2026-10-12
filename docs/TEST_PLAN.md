@@ -1,7 +1,7 @@
 # Plan de testare în joc (Workshop Tools)
 
-Tot ce este aici nu se poate verifica offline. Se testează cu `dota_launch_custom_game dota_688 dota_688` (sau pe harta
-`dota` a jocului dacă `dota_688.vpk` nu există încă: `dota_launch_custom_game dota_688 dota`), cu `sv_cheats 1`,
+Tot ce este aici nu se poate verifica offline. Se testează cu `dota_launch_custom_game dota_688 dota_688` (harta 6.88
+compilată de `tools/import_harta_688.py` + `tools/compile_harta_688.py`, vezi `docs/HARTA.md`), cu `sv_cheats 1`,
 `dota_bot_populate`/`-cheats` după nevoie. Comenzi utile: `-lvlmax`, `-gold 99999`, `-item item_dota688_ultimate_scepter`,
 `-createhero npc_dota_hero_x enemy`, `dota_ability_debug 1`, `script_reload`.
 

@@ -15,7 +15,7 @@
 	}
 	"maps"
 	{
-		"dota"
+		"dota_688"
 		{
 			"MaxPlayers"	"10"
 			"TeamCount"		"2"

@@ -2,7 +2,11 @@
 
 Ordinea conteaza: texturile flow/fog si world node-urile (modele folosite ca prop-uri) se compileaza intai,
 altfel compilarea hartii (-fshallow) nu le gaseste ("Failed to load model for prop maps/dota_688/worldnodes/...").
-Rezultat: game/dota_addons/dota_688/maps/dota_688.vpk (in .gitignore).
+Rezultat: game/dota_addons/dota_688/maps/dota_688.vpk (in .gitignore), cu entitatile, trigger-ele compilate din
+mesh-urile vmap-ului (maps/dota_688/entities/*.vmdl, fizica in formatul curent) si world layer-ele bazelor; world
+node-urile si texturile flow/fog raman fisiere separate in game/dota_addons/dota_688/maps/dota_688/.
+Sursa (content/dota_addons/dota_688/maps/dota_688.vmap + maps/dota_688/) o scrie tools/import_harta_688.py.
+Avertismentul "Duplicate Bone" la world node-uri este inofensiv.
 
     python tools/compile_harta_688.py
 """

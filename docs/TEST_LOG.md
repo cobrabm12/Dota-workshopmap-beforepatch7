@@ -2,7 +2,8 @@
 
 Testat pe 2026‑10‑12 în Dota 2 Workshop Tools (client build 25845666), cu `-condebug -netconport 29000`.
 Secțiunile 1–4 pe harta standard `dota`; secțiunile 5–6 pe harta 6.88 (harta Valve din client copiată în addon ca
-`maps/dota.vpk`, vezi `docs/HARTA.md`), ambele cu `dota_launch_custom_game dota_688 dota`.
+`maps/dota.vpk`, vezi `docs/HARTA.md`), ambele cu `dota_launch_custom_game dota_688 dota`. De la secțiunea 7: harta 6.88
+compilată de noi (`dota_launch_custom_game dota_688 dota_688`).
 
 **Metodă.** Consola jocului e comandată prin portul VConsole. Scenariile de test sunt scripturi Lua rulate cu
 `script_reload_code dota688_test/<scenariu>` (folderul `scripts/vscripts/dota688_test/` nu se comite). Fiecare

@@ -19,3 +19,5 @@ game/dota_addons/dota_688/tools_thumbnail_cache.sqlite3*
 game/dota_addons/dota_688/scripts/vscripts/dota688_test/
 # fisiere compilate ale hartii (se regenereaza cu resourcecompiler)
 game/dota_addons/dota_688/maps/dota_688/
+# sunetele compilate din content/.../soundevents (se regenereaza cu resourcecompiler / Workshop Tools)
+game/dota_addons/dota_688/soundevents/

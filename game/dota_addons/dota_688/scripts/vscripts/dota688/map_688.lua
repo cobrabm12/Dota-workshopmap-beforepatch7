@@ -1,13 +1,16 @@
--- Entitatile pe care motorul curent le cere si care lipsesc din harta 6.88.
--- Harta folosita este maps/dota_688.vpk din clientul curent (harta 6.88 recompilata de Valve pentru motorul actual,
--- cu trigger-ele de shop / no-wards / camp-uri intacte), copiata in addon ca maps/dota.vpk de tools/import_harta_688.py.
--- Ea are entitatile din 2016, deci aici se adauga (o singura data, la Activate):
+-- Verificarea hartii la pornire si entitatile cerute de motorul curent.
+-- Harta addon-ului este maps/dota_688.vpk, compilata de noi din content/dota_addons/dota_688/maps/dota_688.vmap
+-- (tools/import_harta_688.py + tools/compile_harta_688.py, vezi docs/HARTA.md). Vmap-ul contine deja:
 --   * info_courier_spawn_radiant_1..5 / dire_1..5: motorul curent pune cate un curier pe jucator si cade la PRE_GAME
 --     fara ele (testat); toate in punctul de curier al echipei;
 --   * info_player_start_dota "roshan_location_1/2": pozitiile intre care Roshan se muta din 7.33; ambele in groapa
 --     6.88, ca Roshan sa ramana pe loc;
 --   * info_target "dota688_rune_top/bot": punctele de rune 6.88 (dota_item_rune_spawner din 2016 nu mai exista ca
---     clasa), cautate de runes.lua.
+--     clasa), cautate de runes.lua;
+--   * trigger-ele 6.88 (shop-uri, volumele camp-urilor, no-wards, groapa lui Roshan) ca mesh-uri.
+-- Ensure le adauga doar daca lipsesc, adica pe harta de rezerva "dota" (maps/dota_688.vpk al lui Valve copiat cu
+-- tools/import_harta_688.py --harta-valve), care are entitatile din 2016. Trigger-ele nu se pot crea din Lua
+-- (modelele brush din 2016 nu declanseaza touch, testat): daca lipsesc, doar le semnalam in consola.
 Dota688Map = Dota688Map or {}
 local M = Dota688Map
 
@@ -17,6 +20,8 @@ M.RUNE_SPOTS = {
 	dota688_rune_bot = "2812.585693 -2241.033203 176",
 }
 M.ROSHAN_PIT = "4320 -1824 168"
+-- numarul de trigger-e din harta 6.88 (11 shop-uri, 14 camp-uri + Roshan + 7 bad_result_position, 6 no-wards)
+M.TRIGGERS = { trigger_shop = 11, trigger_multiple = 22, trigger_no_wards = 6, trigger_boss_attackable = 1 }
 
 local function vec_str(v)
 	return string.format("%f %f %f", v.x, v.y, v.z)
@@ -47,5 +52,16 @@ function M:Ensure()
 			added = added + 1
 		end
 	end
+	local missing = {}
+	for cls, n in pairs(self.TRIGGERS) do
+		local have = #Entities:FindAllByClassname(cls)
+		if have < n then
+			missing[#missing + 1] = string.format("%s %d/%d", cls, have, n)
+		end
+	end
 	print(string.format("[dota688] harta %s: %d entitati adaugate (curieri, pozitii Roshan, puncte de rune)", GetMapName(), added))
+	if #missing > 0 then
+		table.sort(missing)
+		print("[dota688] AVERTISMENT: harta nu are toate trigger-ele 6.88 (shop-uri / camp-uri): " .. table.concat(missing, ", "))
+	end
 end

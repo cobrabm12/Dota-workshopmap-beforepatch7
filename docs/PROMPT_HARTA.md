@@ -131,8 +131,8 @@ Reguli:
   Întreabă‑mă doar dacă trebuie o decizie de gameplay.
 
 Pașii:
-1. Leagă addon‑ul (mklink), pornește Workshop Tools pentru `dota_688`, apoi în consolă `dota_launch_custom_game dota_688 dota`
-   (harta standard a jocului; `dota_688` doar dacă există `game\dota_addons\dota_688\maps\dota_688.vpk`).
+1. Leagă addon‑ul (mklink), pornește Workshop Tools pentru `dota_688`, apoi în consolă `dota_launch_custom_game dota_688 dota_688`
+   (harta 6.88 compilată; vezi `docs/HARTA.md`).
 2. Treci prin `docs/TEST_PLAN.md` în ordine. Pentru fiecare punct notează în `docs/TEST_LOG.md`: OK sau eroarea exactă din consolă.
 3. Repară erorile pe măsură ce apar (KV, Lua, API lipsă, particule/sunete lipsă, ID‑uri Panorama), re‑testează, commit, push.
 4. Testează secțiunea Aghanim pentru fiecare erou din tabelul din `docs/AGHANIM.md` (cumpără `item_dota688_ultimate_scepter`

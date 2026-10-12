@@ -8,7 +8,7 @@
 - [x] Documentație
 
 ## Faza 2 – testare în joc
-- [ ] Instalare în Workshop Tools și pornire pe harta standard (`dota_launch_custom_game dota_688 dota`)
+- [x] Instalare în Workshop Tools și pornire pe harta 6.88 (`dota_launch_custom_game dota_688 dota_688`)
 - [ ] Verificat: sloturile golite scot talentele/inatele; fațeta unică funcționează (7.36+); Attribute Bonus apare în HUD
 - [ ] Verificat: filtrele de aur/XP, respawn, buyback, rune
 - [ ] Verificat: itemele scoase din shop, curierul cumpărat, fără backpack
