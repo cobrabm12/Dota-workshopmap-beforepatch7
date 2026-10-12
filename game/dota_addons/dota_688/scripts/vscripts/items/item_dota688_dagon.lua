@@ -11,6 +11,8 @@ local function Blast(self)
 	ParticleManager:ReleaseParticleIndex(fx)
 	ApplyDamage({ victim = target, attacker = caster, damage = self:GetSpecialValueFor("damage"), damage_type = DAMAGE_TYPE_MAGICAL, ability = self })
 end
-for _, suffix in ipairs({ "", "_2", "_3", "_4", "_5" }) do
-	Dota688DefineItem("item_dota688_dagon" .. suffix, "items/item_dota688_dagon", { item = { OnSpellStart = Blast } })
-end
+Dota688DefineItem("item_dota688_dagon", "items/item_dota688_dagon", { item = { OnSpellStart = Blast } })
+Dota688DefineItem("item_dota688_dagon_2", "items/item_dota688_dagon", { item = { OnSpellStart = Blast } })
+Dota688DefineItem("item_dota688_dagon_3", "items/item_dota688_dagon", { item = { OnSpellStart = Blast } })
+Dota688DefineItem("item_dota688_dagon_4", "items/item_dota688_dagon", { item = { OnSpellStart = Blast } })
+Dota688DefineItem("item_dota688_dagon_5", "items/item_dota688_dagon", { item = { OnSpellStart = Blast } })

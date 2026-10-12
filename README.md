@@ -66,10 +66,11 @@ docs/                             <- documentație (română)
    * copiază tooltip-urile 6.88 în `resource/addon_english.txt`.
 3. Valorile se citesc în Lua cu `self:GetSpecialValueFor("cheie_din_6.88")`.
 
-## Regenerarea fișierelor KV
+## Regenerarea fișierelor KV și verificările
 
 ```
-python3 tools/gen_overrides.py
+python3 tools/gen_overrides.py     # regenerează KV, shop, tooltip-uri, docs/STATUS.md
+python3 tools/check_addon.py      # verificări de consistență (sloturi, scripturi Lua, rețete, shop, sintaxă)
 ```
 
 Citește `reference/6.88f` și `reference/current`, scrie fișierele din `scripts/npc/` și `docs/STATUS.md`.
