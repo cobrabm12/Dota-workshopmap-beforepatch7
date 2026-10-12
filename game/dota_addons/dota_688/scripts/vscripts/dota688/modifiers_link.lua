@@ -10,4 +10,7 @@ LinkLuaModifier("modifier_dota688_tower_aura", "modifiers/modifier_dota688_tower
 LinkLuaModifier("modifier_dota688_tower_aura_effect", "modifiers/modifier_dota688_tower_aura", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_fountain", "modifiers/modifier_dota688_fountain", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_fountain_effect", "modifiers/modifier_dota688_fountain", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_dota688_courier", "modifiers/modifier_dota688_courier", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_dota688_courier_burst", "modifiers/modifier_dota688_courier_burst", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_dota688_courier_dead", "modifiers/modifier_dota688_courier_dead", LUA_MODIFIER_MOTION_NONE)
 require("dota688/runes_link")   -- modifierii runelor de putere 6.88 (si pe client)

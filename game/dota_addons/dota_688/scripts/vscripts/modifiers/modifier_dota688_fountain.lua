@@ -16,7 +16,7 @@ function modifier_dota688_fountain:GetAttributes() return MODIFIER_ATTRIBUTE_PER
 function modifier_dota688_fountain:IsAura() return true end
 function modifier_dota688_fountain:GetAuraRadius() return RADIUS end
 function modifier_dota688_fountain:GetAuraSearchTeam() return DOTA_UNIT_TARGET_TEAM_FRIENDLY end
-function modifier_dota688_fountain:GetAuraSearchType() return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + (DOTA_UNIT_TARGET_COURIER or 0) end
+function modifier_dota688_fountain:GetAuraSearchType() return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC end
 function modifier_dota688_fountain:GetAuraSearchFlags() return DOTA_UNIT_TARGET_FLAG_INVULNERABLE end
 function modifier_dota688_fountain:GetModifierAura() return EFFECT end
 function modifier_dota688_fountain:GetAuraDuration() return 0 end

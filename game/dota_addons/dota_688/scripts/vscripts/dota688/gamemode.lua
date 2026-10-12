@@ -118,6 +118,7 @@ function Dota688:Init()
 	Dota688Neutrals:Init(self)
 	Dota688Backpack:Init()
 	Dota688Selection:Init()
+	Dota688Courier:Init()
 	Dota688Buildings:Init(self)
 	Dota688Creeps:Init(self)
 end
@@ -160,6 +161,7 @@ function Dota688:OnNPCSpawned(ev)
 			end)
 		end
 		Dota688Respawn:OnHeroSpawned(unit)
+		Dota688Courier:GrantControl(unit)
 		Dota688Aghanim.OnHeroSpawned(unit)
 		if unit:GetUnitName() == "npc_dota_hero_invoker" and not unit:HasModifier("modifier_dota688_invoker_orbs") then
 			unit:AddNewModifier(unit, nil, "modifier_dota688_invoker_orbs", {})
@@ -184,6 +186,7 @@ function Dota688:OnNPCSpawned(ev)
 	if not unit:IsRealHero() then Dota688Aghanim.OnUnitSpawned(unit) end
 	Dota688Buildings:OnNPCSpawned(unit)
 	Dota688Creeps:OnNPCSpawned(unit)
+	Dota688Courier:OnNPCSpawned(unit)
 end
 
 function Dota688:OnEntityKilled(ev)
@@ -202,7 +205,10 @@ function Dota688:OnEntityKilled(ev)
 	elseif killed:IsBuilding() then
 		Dota688Buildings:OnBuildingKilled(killed, attacker)
 	end
-	if not killed:IsHero() then Dota688Creeps:OnUnitKilled(killed, attacker) end
+	if not killed:IsHero() then
+		Dota688Creeps:OnUnitKilled(killed, attacker)
+		Dota688Courier:OnKilled(killed)
+	end
 end
 
 function Dota688:OnBuyback(ev)
