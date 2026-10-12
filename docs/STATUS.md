@@ -126,7 +126,7 @@ _Generat automat de `tools/gen_overrides.py`. Nu edita manual._
 ## Reimplementate în Lua (6.88 fidel)
 
 * Abilități de erou: **46** – `abaddon_frostmourne`, `attribute_bonus`, `axe_counter_helix`, `beastmaster_call_of_the_wild_boar`, `bounty_hunter_jinada`, `chaos_knight_chaos_strike`, `crystal_maiden_brilliance_aura`, `dragon_knight_dragon_blood`, `drow_ranger_marksmanship`, `drow_ranger_trueshot`, `huskar_berserkers_blood`, `legion_commander_moment_of_courage`, `legion_commander_press_the_attack`, `lich_dark_ritual`, `life_stealer_rage`, `luna_lunar_blessing`, `lycan_feral_impulse`, `lycan_howl`, `meepo_geostrike`, `morphling_adaptive_strike`, `necrolyte_sadist`, `night_stalker_crippling_fear`, `omniknight_degen_aura`, `phantom_assassin_blur`, `pudge_flesh_heap`, `riki_blink_strike`, `riki_permanent_invisibility`, `riki_smoke_screen`, `riki_tricks_of_the_trade`, `silencer_glaives_of_wisdom`, `skeleton_king_vampiric_aura`, `slardar_bash`, `slardar_sprint`, `spirit_breaker_empowering_haste`, `sven_warcry`, `tiny_craggy_exterior`, `tiny_grow`, `treant_living_armor`, `troll_warlord_berserkers_rage`, `ursa_enrage`, `vengefulspirit_command_aura`, `viper_nethertoxin`, `viper_poison_attack`, `visage_gravekeepers_cloak`, `windrunner_windrun`, `wisp_overcharge`
-* Iteme: **0** – 
+* Iteme: **124** – `item_abyssal_blade`, `item_aether_lens`, `item_ancient_janggo`, `item_armlet`, `item_bfury`, `item_bloodstone`, `item_bloodthorn`, `item_buckler`, `item_butterfly`, `item_crimson_guard`, `item_dagon`, `item_dagon_2`, `item_dagon_3`, `item_dagon_4`, `item_dagon_5`, `item_diffusal_blade`, `item_diffusal_blade_2`, `item_echo_sabre`, `item_ethereal_blade`, `item_force_staff`, `item_glimmer_cape`, `item_guardian_greaves`, `item_hand_of_midas`, `item_headdress`, `item_heart`, `item_heavens_halberd`, `item_helm_of_the_dominator`, `item_hurricane_pike`, `item_iron_talon`, `item_javelin`, `item_lotus_orb`, `item_manta`, `item_mask_of_madness`, `item_medallion_of_courage`, `item_mekansm`, `item_monkey_king_bar`, `item_null_talisman`, `item_oblivion_staff`, `item_octarine_core`, `item_orb_of_venom`, `item_pers`, `item_phase_boots`, `item_pipe`, `item_power_treads`, `item_recipe_abyssal_blade`, `item_recipe_aether_lens`, `item_recipe_ancient_janggo`, `item_recipe_armlet`, `item_recipe_bfury`, `item_recipe_bloodstone`, `item_recipe_bloodthorn`, `item_recipe_buckler`, `item_recipe_butterfly`, `item_recipe_crimson_guard`, `item_recipe_dagon`, `item_recipe_dagon_2`, `item_recipe_dagon_3`, `item_recipe_dagon_4`, `item_recipe_dagon_5`, `item_recipe_diffusal_blade`, `item_recipe_diffusal_blade_2`, `item_recipe_echo_sabre`, `item_recipe_ethereal_blade`, `item_recipe_force_staff`, `item_recipe_glimmer_cape`, `item_recipe_guardian_greaves`, `item_recipe_hand_of_midas`, `item_recipe_headdress`, `item_recipe_heart`, `item_recipe_heavens_halberd`, `item_recipe_helm_of_the_dominator`, `item_recipe_hurricane_pike`, `item_recipe_iron_talon`, `item_recipe_lotus_orb`, `item_recipe_manta`, `item_recipe_mask_of_madness`, `item_recipe_medallion_of_courage`, `item_recipe_mekansm`, `item_recipe_monkey_king_bar`, `item_recipe_null_talisman`, `item_recipe_oblivion_staff`, `item_recipe_octarine_core`, `item_recipe_pers`, `item_recipe_phase_boots`, `item_recipe_pipe`, `item_recipe_power_treads`, `item_recipe_ring_of_aquila`, `item_recipe_ring_of_basilius`, `item_recipe_rod_of_atos`, `item_recipe_sange`, `item_recipe_sange_and_yasha`, `item_recipe_satanic`, `item_recipe_sheepstick`, `item_recipe_shivas_guard`, `item_recipe_silver_edge`, `item_recipe_skadi`, `item_recipe_solar_crest`, `item_recipe_soul_booster`, `item_recipe_soul_ring`, `item_recipe_sphere`, `item_recipe_urn_of_shadows`, `item_recipe_veil_of_discord`, `item_recipe_vladmir`, `item_recipe_wraith_band`, `item_ring_of_aquila`, `item_ring_of_basilius`, `item_rod_of_atos`, `item_sange`, `item_sange_and_yasha`, `item_satanic`, `item_shadow_amulet`, `item_sheepstick`, `item_shivas_guard`, `item_silver_edge`, `item_skadi`, `item_solar_crest`, `item_soul_booster`, `item_soul_ring`, `item_sphere`, `item_urn_of_shadows`, `item_veil_of_discord`, `item_vladmir`, `item_wind_lace`, `item_wraith_band`
 
 ## Abilități de erou care nu mai există în joc (trebuie rescrise în Lua)
 
@@ -546,89 +546,24 @@ Total: **141** (doar informativ; nu suprascriem comportamentul automat)
 
 ## Iteme
 
-* Iteme din 6.88 care nu mai există (de reimplementat în Lua, generate în `npc_items_generated.txt` cu `ItemPurchasable 0`): **2**
-  * `item_recipe_diffusal_blade_2`
-  * `item_diffusal_blade_2`
+* Iteme din 6.88 care nu mai există (de reimplementat în Lua, generate în `npc_items_generated.txt` cu `ItemPurchasable 0`): **0**
 * Iteme noi (apărute după 6.88) scoase din shop: **72**
   * `item_overwhelming_blink`, `item_swift_blink`, `item_arcane_blink`, `item_recipe_arcane_blink`, `item_recipe_swift_blink`, `item_recipe_overwhelming_blink`, `item_splintmail`, `item_crown`, `item_diadem`, `item_blitz_knuckles`, `item_voodoo_mask`, `item_shawl`, `item_blood_grenade`, `item_ring_of_tarrasque`, `item_tiara_of_selemene`, `item_fluffy_hat`, `item_wizard_hat`, `item_recipe_phylactery`, `item_phylactery`, `item_angels_demise`, `item_recipe_witch_blade`, `item_witch_blade`, `item_recipe_holy_locket`, `item_holy_locket`, `item_caster_rapier`, `item_recipe_wind_waker`, `item_wind_waker`, `item_recipe_ultimate_scepter_2`, `item_ultimate_scepter_2`, `item_aghanims_shard`, `item_recipe_meteor_hammer`, `item_meteor_hammer`, `item_nullifier`, `item_recipe_aeon_disk`, `item_aeon_disk`, `item_recipe_kaya`, `item_kaya`, `item_recipe_spirit_vessel`, `item_spirit_vessel`, `item_recipe_essence_distiller`, `item_essence_distiller`, `item_recipe_consecrated_wraps`, `item_consecrated_wraps`, `item_recipe_crellas_crozier`, `item_crellas_crozier`, `item_kaya_and_sange`, `item_yasha_and_kaya`, `item_recipe_helm_of_the_overlord`, `item_helm_of_the_overlord`, `item_recipe_gungir`, `item_gungir`, `item_recipe_disperser`, `item_disperser`, `item_orb_of_corrosion`, `item_orb_of_frost`, `item_recipe_falcon_blade`, `item_falcon_blade`, `item_mage_slayer`, `item_boots_of_bearing`, `item_recipe_pavise`, `item_pavise`, `item_recipe_revenants_brooch`, `item_revenants_brooch`, `item_recipe_devastator`, `item_devastator`, `item_recipe_harpoon`, `item_harpoon`, `item_recipe_specialists_array`, `item_specialists_array`, `item_recipe_hydras_breath`, `item_hydras_breath`, `item_chasm_stone`
-* Iteme existente cu valori speciale dispărute: **77**
-  * `item_abyssal_blade`: block_damage_melee, block_damage_ranged, bonus_health, bonus_health_regen
-  * `item_aether_lens`: bonus_health_regen, spell_amp
-  * `item_ancient_janggo`: bonus_agi, bonus_aura_attack_speed_pct, bonus_aura_movement_speed_pct, bonus_damage, bonus_health_regen
-  * `item_armlet`: unholy_bonus_attack_speed, unholy_health_drain_per_second_tooltip, unholy_health_drain_per_tick
-  * `item_bfury`: cast_range_tooltip, cast_range_ward, cleave_radius
-  * `item_bloodstone`: bonus_damage, bonus_health_regen, bonus_mana_regen, charge_range, death_gold_reduction, heal_on_death_base, heal_on_death_per_charge, heal_on_death_range, on_death_removal, respawn_time_reduction
-  * `item_bloodthorn`: crit_chance, crit_multiplier, target_crit_multiplier
+* Iteme existente cu valori speciale dispărute: **14**
   * `item_bottle`: movement_speed_percent_bonus
-  * `item_buckler`: bonus_all_stats, bonus_aoe_duration, bonus_aoe_duration_hero, bonus_armor
-  * `item_butterfly`: bonus_attack_speed, bonus_move_speed, duration
   * `item_clarity`: total_mana
-  * `item_crimson_guard`: block_damage_melee_active, block_damage_ranged_active, bonus_all_stats, bonus_aoe_armor
   * `item_cyclone`: cast_range_tooltip
-  * `item_dagon`: bonus_damage, bonus_intellect, range_tooltip
-  * `item_dagon_2`: bonus_damage, bonus_intellect, range_tooltip
-  * `item_dagon_3`: bonus_damage, bonus_intellect, range_tooltip
-  * `item_dagon_4`: bonus_damage, bonus_intellect, range_tooltip
-  * `item_dagon_5`: bonus_damage, bonus_intellect, range_tooltip
-  * `item_diffusal_blade`: cast_range_tooltip, initial_charges, purge_summoned_damage
-  * `item_echo_sabre`: attack_speed_slow, bonus_attack_speed, bonus_intellect, proc_damage
-  * `item_ethereal_blade`: blast_agility_multiplier
   * `item_flask`: total_health
-  * `item_force_staff`: bonus_health_regen
-  * `item_glimmer_cape`: active_magical_armor, bonus_attack_speed, fade_delay
-  * `item_guardian_greaves`: aura_armor, aura_armor_bonus, bonus_all_stats
-  * `item_hand_of_midas`: transmute_cast_range_tooltip, xp_multiplier
-  * `item_headdress`: bonus_all_stats
-  * `item_heart`: bonus_health, cooldown_melee, cooldown_ranged_tooltip, health_regen_rate
-  * `item_heavens_halberd`: bonus_damage, bonus_strength, disarm_cast_range_tooltip, maim_chance, maim_duration, maim_slow_attack, maim_slow_attack_range, maim_slow_movement, maim_slow_movement_range
-  * `item_helm_of_the_dominator`: bonus_damage, dominate_duration, lifesteal_percent
-  * `item_hurricane_pike`: bonus_health_regen
   * `item_infused_raindrop`: bonus_armor, bonus_magical_armor
-  * `item_iron_talon`: damage_bonus, damage_bonus_ranged
-  * `item_javelin`: bonus_damage
-  * `item_lotus_orb`: bonus_damage, cast_range_tooltip
-  * `item_manta`: cooldown_melee, cooldown_ranged_tooltip, images_take_damage_percent_melee, images_take_damage_percent_ranged, tooltip_damage_incoming_melee_total_pct, tooltip_damage_incoming_ranged_total_pct, tooltip_illusion_duration
-  * `item_mask_of_madness`: berserk_extra_damage
-  * `item_medallion_of_courage`: armor_reduction, bonus_armor, bonus_mana_regen_pct, valor_cast_range_tooltip
-  * `item_mekansm`: bonus_all_stats, heal_armor_duration, heal_bonus_armor
-  * `item_monkey_king_bar`: bash_chance, bash_damage, bash_stun
   * `item_necronomicon`: archer_attack_speed, archer_attack_speed_radius
   * `item_necronomicon_2`: archer_attack_speed, archer_attack_speed_radius
   * `item_necronomicon_3`: archer_attack_speed, archer_attack_speed_radius
-  * `item_null_talisman`: bonus_damage
-  * `item_oblivion_staff`: bonus_damage
-  * `item_octarine_core`: active_duration, bonus_intelligence, creep_lifesteal, hero_lifesteal
-  * `item_orb_of_venom`: poison_damage, poison_movement_speed_melee, poison_movement_speed_range
-  * `item_pers`: bonus_damage
-  * `item_phase_boots`: block_chance, bonus_damage, damage_block_melee, damage_block_ranged
-  * `item_pipe`: barrier_debuff_duration, tooltip_resist
-  * `item_power_treads`: bonus_movement_speed
   * `item_quelling_blade`: cast_range_ward
-  * `item_ring_of_aquila`: bonus_armor
-  * `item_ring_of_basilius`: aura_bonus_armor, bonus_armor, bonus_damage
-  * `item_rod_of_atos`: bonus_health, slow
-  * `item_sange`: bonus_damage, maim_chance, maim_duration, maim_slow_attack, maim_slow_attack_range, maim_slow_movement, maim_slow_movement_range
-  * `item_sange_and_yasha`: bonus_damage, maim_chance, maim_duration, maim_slow_attack, maim_slow_attack_range, maim_slow_movement, maim_slow_movement_range
-  * `item_satanic`: bonus_armor
-  * `item_shadow_amulet`: bonus_attack_speed
-  * `item_sheepstick`: bonus_agility, bonus_strength
-  * `item_shivas_guard`: bonus_intellect
-  * `item_silver_edge`: backstab_reduction, bonus_all_stats
-  * `item_skadi`: cold_attack_speed, cold_duration_melee, cold_duration_ranged, cold_movement_speed
-  * `item_solar_crest`: allied_armor, allied_evasion, armor_reduction, bonus_evasion, bonus_mana_regen_pct, enemy_armor_reduction_tooltip, miss_chance, valor_cast_range_tooltip
-  * `item_soul_booster`: bonus_health_regen, bonus_mana_regen
-  * `item_soul_ring`: health_regen, health_sacrifice, mana_regen
-  * `item_sphere`: bonus_damage
   * `item_tango`: cast_range_ward, total_heal, total_heal_ward_tooltip
   * `item_tango_single`: cast_range_ward, total_heal, total_heal_ward_tooltip
   * `item_tpscroll`: minimun_distance
-  * `item_urn_of_shadows`: bonus_strength, soul_damage_duration, soul_heal_duration, soul_heal_interval, soul_release_range_tooltip
-  * `item_veil_of_discord`: bonus_agi, bonus_armor, bonus_damage, bonus_health_regen, bonus_int, bonus_str, resist_debuff
-  * `item_vladmir`: bonus_all_stats, hp_regen, vampiric_aura, vampiric_aura_ranged
   * `item_ward_dispenser`: creation_delay
   * `item_ward_observer`: vision_range
-  * `item_wind_lace`: bonus_speed, duration
-  * `item_wraith_band`: bonus_damage
 
 ## Unități (turnuri, creepi, neutrali, Roshan, curieri)
 

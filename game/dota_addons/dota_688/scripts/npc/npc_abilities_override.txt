@@ -4978,11 +4978,8 @@
 	}
 	"item_javelin"
 	{
-		"ItemCost"		"1500"
-		"AbilityValues"
-		{
-			"bonus_chance_damage"		"85"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_quarterstaff"
 	{
@@ -5023,12 +5020,8 @@
 	}
 	"item_wind_lace"
 	{
-		"ItemCost"		"235"
-		"ItemShopTags"		"armor"
-		"AbilityValues"
-		{
-			"movement_speed"		"20"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_ring_of_protection"
 	{
@@ -5357,23 +5350,13 @@
 	}
 	"item_recipe_phase_boots"
 	{
-		"ItemRequirements"
-		{
-			"01"		"item_boots;item_blades_of_attack;item_blades_of_attack"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_phase_boots"
 	{
-		"ItemCost"		"1240"
-		"ItemShopTags"		"damage;move_speed;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_movement_speed"		"45"
-			"phase_movement_speed"		"24"
-			"phase_movement_speed_range"		"20"
-			"phase_duration"		"2.5"
-			"bonus_armor"		"0"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_demon_edge"
 	{
@@ -5442,67 +5425,43 @@
 	}
 	"item_recipe_power_treads"
 	{
-		"ItemRequirements"
-		{
-			"01"		"item_boots;item_gloves;item_belt_of_strength"
-			"02"		"item_boots;item_gloves;item_robe"
-			"03"		"item_boots;item_gloves;item_boots_of_elves"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_power_treads"
 	{
-		"ItemCost"		"1350"
-		"ItemShopTags"		"attack_speed;move_speed;int;agi;str"
-		"AbilityValues"
-		{
-			"bonus_stat"		"9"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_hand_of_midas"
 	{
-		"ItemCost"		"1550"
-		"ItemRequirements"
-		{
-			"01"		"item_gloves"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_hand_of_midas"
 	{
-		"AbilityCooldown"		"100.0"
-		"ItemCost"		"2050"
-		"ItemShopTags"		"attack_speed;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_attack_speed"		"30"
-			"bonus_gold"		"190"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_oblivion_staff"
 	{
-		"ItemRequirements"
-		{
-			"01"		"item_quarterstaff;item_sobi_mask;item_robe"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_oblivion_staff"
 	{
-		"ItemCost"		"1650"
-		"AbilityValues"
-		{
-			"bonus_intellect"		"6"
-			"bonus_attack_speed"		"10"
-			"bonus_mana_regen"		"75"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_pers"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_pers"
 	{
-		"ItemCost"		"1700"
-		"ItemShareability"		"ITEM_PARTIALLY_SHAREABLE"
-		"AbilityValues"
-		{
-			"bonus_health_regen"		"6"
-			"bonus_mana_regen"		"125"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_poor_mans_shield"
 	{
@@ -5537,72 +5496,43 @@
 	}
 	"item_recipe_wraith_band"
 	{
-		"ItemCost"		"170"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_wraith_band"
 	{
-		"ItemCost"		"485"
-		"AbilityValues"
-		{
-			"bonus_strength"		"3"
-			"bonus_agility"		"6"
-			"bonus_intellect"		"3"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_null_talisman"
 	{
-		"ItemCost"		"155"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_null_talisman"
 	{
-		"ItemCost"		"470"
-		"AbilityValues"
-		{
-			"bonus_strength"		"3"
-			"bonus_agility"		"3"
-			"bonus_intellect"		"6"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_mekansm"
 	{
-		"ItemCost"		"900"
-		"ItemRequirements"
-		{
-			"01"		"item_headdress;item_buckler"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_mekansm"
 	{
-		"AbilityCooldown"		"65.0"
-		"AbilityManaCost"		"225"
-		"ItemCost"		"2275"
-		"ItemShopTags"		"agi;int;str;armor;boost_health"
-		"AbilityValues"
-		{
-			"aura_radius"		"900"
-			"aura_health_regen"		"4"
-			"heal_radius"		"900"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_vladmir"
 	{
-		"ItemCost"		"300"
-		"ItemRequirements"
-		{
-			"01"		"item_headdress;item_ring_of_basilius;item_lifesteal"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_vladmir"
 	{
-		"ItemCost"		"2275"
-		"ItemShopTags"		"lifesteal;damage;armor;regen_mana"
-		"AbilityValues"
-		{
-			"mana_regen_aura"		"0.8"
-			"armor_aura"		"4"
-			"damage_aura"		"15"
-			"aura_radius"		"900"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_flying_courier"
 	{
@@ -5613,133 +5543,70 @@
 	}
 	"item_recipe_buckler"
 	{
-		"ItemCost"		"200"
-		"ItemRequirements"
-		{
-			"01"		"item_chainmail;item_branches"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_buckler"
 	{
-		"AbilityCooldown"		"25.0"
-		"AbilityManaCost"		"10"
-		"ItemCost"		"800"
-		"AbilityValues"
-		{
-			"bonus_aoe_radius"		"900"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_ring_of_basilius"
 	{
-		"ItemCost"		"0"
-		"ItemRequirements"
-		{
-			"01"		"item_sobi_mask;item_ring_of_protection"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_ring_of_basilius"
 	{
-		"ItemCost"		"500"
-		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemShopTags"		"damage;regen_mana;armor"
-		"AbilityValues"
-		{
-			"aura_radius"		"900"
-			"aura_mana_regen"		"0.65"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_pipe"
 	{
-		"ItemCost"		"800"
-		"ItemRequirements"
-		{
-			"01"		"item_hood_of_defiance;item_headdress"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_pipe"
 	{
-		"AbilityManaCost"		"100"
-		"ItemCost"		"3100"
-		"ItemShopTags"		"regen_health;boost_magic_resist"
-		"AbilityValues"
-		{
-			"health_regen"		"8"
-			"magic_resistance"		"30"
-			"aura_health_regen"		"4"
-			"magic_resistance_aura"		"10"
-			"aura_radius"		"900"
-			"barrier_block"		"400"
-			"barrier_duration"		"12.0"
-			"barrier_radius"		"900"
-			"barrier_block_creep"		"400"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_urn_of_shadows"
 	{
-		"ItemCost"		"250"
-		"ItemRequirements"
-		{
-			"01"		"item_sobi_mask;item_gauntlets;item_gauntlets"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_urn_of_shadows"
 	{
-		"AbilityCastRange"		"950"
-		"AbilityCooldown"		"7.0"
-		"ItemCost"		"875"
-		"ItemShopTags"		"regen_mana;str;boost_health"
-		"AbilityValues"
-		{
-			"mana_regen"		"50"
-			"soul_radius"		"1400"
-			"soul_heal_amount"		"400"
-			"soul_damage_amount"		"150"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_headdress"
 	{
-		"ItemCost"		"200"
-		"ItemRequirements"
-		{
-			"01"		"item_ring_of_regen;item_branches"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_headdress"
 	{
-		"ItemCost"		"575"
-		"AbilityValues"
-		{
-			"aura_health_regen"		"3"
-			"aura_radius"		"900"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_sheepstick"
 	{
-		"ItemCost"		"0"
-		"ItemRequirements"
-		{
-			"01"		"item_mystic_staff;item_ultimate_orb;item_void_stone"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_sheepstick"
 	{
-		"AbilityCooldown"		"25.0"
-		"AbilityManaCost"		"100"
-		"ItemCost"		"5650"
-		"ItemShopTags"		"int;regen_mana;agi;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_intellect"		"35"
-			"bonus_mana_regen"		"150"
-			"sheep_duration"		"3.5"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_orchid"
 	{
 		"ItemCost"		"775"
 		"ItemRequirements"
 		{
-			"01"		"item_oblivion_staff;item_oblivion_staff"
+			"01"		"item_dota688_oblivion_staff;item_dota688_oblivion_staff"
 		}
 	}
 	"item_orchid"
@@ -5757,48 +5624,31 @@
 	}
 	"item_recipe_bloodthorn"
 	{
-		"ItemCost"		"1000"
-		"ItemRequirements"
-		{
-			"01"		"item_orchid;item_lesser_crit"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_bloodthorn"
 	{
-		"AbilityCooldown"		"11.0"
-		"AbilityManaCost"		"100"
-		"ItemCost"		"7195"
-		"ItemShopTags"		"int;attack_speed;damage;regen_mana;damage;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_attack_speed"		"30"
-			"bonus_damage"		"60"
-			"bonus_mana_regen"		"150"
-			"silence_damage_percent"		"30"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_echo_sabre"
 	{
-		"ItemRequirements"
-		{
-			"01"		"item_ogre_axe;item_oblivion_staff"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_echo_sabre"
 	{
-		"ItemCost"		"2650"
-		"ItemShopTags"		"int;attack_speed;damage;regen_mana;damage;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_strength"		"10"
-			"bonus_damage"		"15"
-			"bonus_mana_regen"		"75"
-			"slow_duration"		"0.6"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_cyclone"
 	{
 		"ItemCost"		"650"
+		"ItemRequirements"
+		{
+			"01"		"item_staff_of_wizardry;item_void_stone;item_dota688_wind_lace"
+		}
 	}
 	"item_cyclone"
 	{
@@ -5813,129 +5663,83 @@
 	}
 	"item_recipe_aether_lens"
 	{
-		"ItemCost"		"550"
-		"ItemRequirements"
-		{
-			"01"		"item_energy_booster;item_ring_of_health"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_aether_lens"
 	{
-		"ItemCost"		"2300"
-		"ItemShopTags"		"int;regen_mana;move_speed;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_mana"		"250"
-			"cast_range_bonus"		"200"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_force_staff"
 	{
-		"ItemCost"		"900"
-		"ItemRequirements"
-		{
-			"01"		"item_staff_of_wizardry;item_ring_of_regen"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_force_staff"
 	{
-		"AbilityCastRange"		"800"
-		"AbilityCooldown"		"20.0"
-		"AbilityManaCost"		"25"
-		"ItemCost"		"2225"
-		"ItemShopTags"		"int;damage;attack_speed;hard_to_tag"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_hurricane_pike"
 	{
-		"ItemCost"		"250"
-		"ItemRequirements"
-		{
-			"01"		"item_force_staff;item_dragon_lance"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_hurricane_pike"
 	{
-		"AbilityCastRange"		"800"
-		"AbilityCooldown"		"14.0"
-		"AbilityManaCost"		"25"
-		"ItemCost"		"4375"
-		"ItemShopTags"		"int;damage;attack_speed;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_intellect"		"10"
-			"base_attack_range"		"140"
-			"enemy_length"		"450"
-			"cast_range_enemy"		"400"
-			"max_attacks"		"4"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_dagon"
 	{
-		"ItemCost"		"1250"
-		"ItemRequirements"
-		{
-			"01"		"item_staff_of_wizardry;item_null_talisman"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_dagon_2"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_dagon_3"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_dagon_4"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
+	"item_recipe_dagon_5"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_dagon"
 	{
-		"AbilityCastRange"		"600 650 700 750 800"
-		"AbilityCooldown"		"35.0 30.0 25.0 20.0 15.0"
-		"AbilityManaCost"		"180"
-		"ItemCost"		"2720"
-		"ItemShopTags"		"damage;int;str;agi;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_all_stats"		"3"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_dagon_2"
 	{
-		"AbilityCastRange"		"600 650 700 750 800"
-		"AbilityCooldown"		"35.0 30.0 25.0 20.0 15.0"
-		"AbilityManaCost"		"180"
-		"ItemCost"		"3970"
-		"ItemShopTags"		"damage;int;str;agi;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_all_stats"		"3"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_dagon_3"
 	{
-		"AbilityCastRange"		"600 650 700 750 800"
-		"AbilityCooldown"		"35.0 30.0 25.0 20.0 15.0"
-		"AbilityManaCost"		"180"
-		"ItemCost"		"5220"
-		"ItemShopTags"		"damage;int;str;agi;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_all_stats"		"3"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_dagon_4"
 	{
-		"AbilityCastRange"		"600 650 700 750 800"
-		"AbilityCooldown"		"35.0 30.0 25.0 20.0 15.0"
-		"AbilityManaCost"		"180"
-		"ItemCost"		"6470"
-		"ItemShopTags"		"damage;int;str;agi;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_all_stats"		"3"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_dagon_5"
 	{
-		"AbilityCastRange"		"600 650 700 750 800"
-		"AbilityCooldown"		"35.0 30.0 25.0 20.0 15.0"
-		"AbilityManaCost"		"180"
-		"ItemCost"		"7720"
-		"ItemShopTags"		"damage;int;str;agi;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_all_stats"		"3"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_necronomicon"
 	{
@@ -6033,7 +5837,7 @@
 		"ItemCost"		"1800"
 		"ItemRequirements"
 		{
-			"01"		"item_pers;item_pers"
+			"01"		"item_dota688_pers;item_dota688_pers"
 		}
 	}
 	"item_refresher"
@@ -6069,21 +5873,13 @@
 	}
 	"item_recipe_heart"
 	{
-		"ItemCost"		"1400"
-		"ItemRequirements"
-		{
-			"01"		"item_reaver;item_vitality_booster"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_heart"
 	{
-		"AbilityCooldown"		"7.0"
-		"ItemCost"		"5500"
-		"ItemShopTags"		"str;regen_health;health_pool"
-		"AbilityValues"
-		{
-			"bonus_strength"		"45"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_black_king_bar"
 	{
@@ -6106,86 +5902,43 @@
 	}
 	"item_recipe_shivas_guard"
 	{
-		"ItemCost"		"600"
-		"ItemRequirements"
-		{
-			"01"		"item_platemail;item_mystic_staff"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_shivas_guard"
 	{
-		"AbilityCooldown"		"30"
-		"AbilityManaCost"		"100"
-		"ItemCost"		"4700"
-		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemShopTags"		"int;armor;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_armor"		"15"
-			"aura_radius"		"900"
-			"aura_attack_speed"		"-45"
-			"blast_damage"		"200"
-			"blast_radius"		"900"
-			"blast_speed"		"350"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_bloodstone"
 	{
-		"ItemCost"		"900"
-		"ItemRequirements"
-		{
-			"01"		"item_soul_ring;item_soul_booster"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_bloodstone"
 	{
-		"AbilityCastRange"		"150"
-		"AbilityCooldown"		"300.0"
-		"ItemCost"		"4875"
-		"ItemInitialCharges"		"12"
-		"ItemShopTags"		"regen_health;regen_mana;mana_pool;health_pool"
-		"AbilityValues"
-		{
-			"bonus_health"		"475"
-			"bonus_mana"		"425"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_sphere"
 	{
-		"ItemCost"		"1000"
-		"ItemRequirements"
-		{
-			"01"		"item_ultimate_orb;item_pers"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_sphere"
 	{
-		"AbilityCooldown"		"13.0"
-		"ItemShopTags"		"regen_health;regen_mana;str;agi;int;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_all_stats"		"15"
-			"bonus_health_regen"		"6"
-			"bonus_mana_regen"		"150"
-			"block_cooldown"		"13.0"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_lotus_orb"
 	{
-		"ItemCost"		"0"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_lotus_orb"
 	{
-		"AbilityManaCost"		"75"
-		"ItemCost"		"4000"
-		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemShopTags"		"regen_health;regen_mana;str;agi;int;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_health_regen"		"6"
-			"bonus_mana_regen"		"125"
-			"active_duration"		"6"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_vanguard"
 	{
@@ -6207,26 +5960,13 @@
 	}
 	"item_recipe_crimson_guard"
 	{
-		"ItemCost"		"600"
-		"ItemRequirements"
-		{
-			"01"		"item_vanguard;item_buckler"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_crimson_guard"
 	{
-		"AbilityCooldown"		"46.0"
-		"ItemCost"		"3550"
-		"ItemShopTags"		"armor;boost_armor;regen_health;block;health_pool"
-		"AbilityValues"
-		{
-			"bonus_health_regen"		"8"
-			"bonus_armor"		"5"
-			"block_damage_melee"		"32"
-			"block_damage_ranged"		"16"
-			"duration"		"10"
-			"bonus_aoe_radius"		"900"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_blade_mail"
 	{
@@ -6251,14 +5991,13 @@
 	}
 	"item_recipe_soul_booster"
 	{
-		"ItemRequirements"
-		{
-			"01"		"item_vitality_booster;item_energy_booster;item_point_booster"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_soul_booster"
 	{
-		"ItemCost"		"3200"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_hood_of_defiance"
 	{
@@ -6293,21 +6032,13 @@
 	}
 	"item_recipe_monkey_king_bar"
 	{
-		"ItemCost"		"0"
-		"ItemRequirements"
-		{
-			"01"		"item_demon_edge;item_javelin;item_javelin"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_monkey_king_bar"
 	{
-		"ItemCost"		"5400"
-		"ItemShopTags"		"damage;attack_speed;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_damage"		"66"
-			"bonus_attack_speed"		"15"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_radiance"
 	{
@@ -6331,20 +6062,13 @@
 	}
 	"item_recipe_butterfly"
 	{
-		"ItemRequirements"
-		{
-			"01"		"item_eagle;item_talisman_of_evasion;item_quarterstaff"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_butterfly"
 	{
-		"AbilityCooldown"		"25.0"
-		"ItemCost"		"5775"
-		"ItemShopTags"		"agi;damage;evasion;attack_speed"
-		"AbilityValues"
-		{
-			"bonus_agility"		"35"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_greater_crit"
 	{
@@ -6361,7 +6085,7 @@
 		"ItemCost"		"750"
 		"ItemRequirements"
 		{
-			"01"		"item_belt_of_strength;item_javelin"
+			"01"		"item_belt_of_strength;item_dota688_javelin"
 		}
 	}
 	"item_basher"
@@ -6376,46 +6100,23 @@
 	}
 	"item_recipe_bfury"
 	{
-		"ItemCost"		"0"
-		"ItemRequirements"
-		{
-			"01"		"item_broadsword;item_claymore;item_pers;item_quelling_blade"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_bfury"
 	{
-		"AbilityCooldown"		"4.0"
-		"ItemCost"		"4500"
-		"ItemShopTags"		"damage;health_regen;mana_regen;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_damage"		"55"
-			"bonus_health_regen"		"6"
-			"bonus_mana_regen"		"150"
-			"cleave_damage_percent"		"35"
-			"quelling_bonus"		"160"
-			"quelling_bonus_ranged"		"125"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_manta"
 	{
-		"ItemCost"		"800"
-		"ItemRequirements"
-		{
-			"01"		"item_yasha;item_ultimate_orb"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_manta"
 	{
-		"AbilityCooldown"		"45.0"
-		"ItemCost"		"4950"
-		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemShopTags"		"agi;str;int;attack_speed;move_speed;hard_to_tag"
-		"AbilityValues"
-		{
-			"images_do_damage_percent_ranged"		"-72"
-			"tooltip_damage_outgoing_ranged"		"28"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_lesser_crit"
 	{
@@ -6457,26 +6158,19 @@
 	}
 	"item_recipe_armlet"
 	{
-		"ItemCost"		"550"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_armlet"
 	{
-		"ItemCost"		"2370"
-		"ItemShopTags"		"damage;attack_speed;armor;regen_health;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_damage"		"9"
-			"bonus_armor"		"5"
-			"bonus_health_regen"		"7"
-			"unholy_bonus_damage"		"31"
-			"toggle_cooldown"		"0.036f"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_invis_sword"
 	{
 		"ItemRequirements"
 		{
-			"01"		"item_shadow_amulet;item_claymore"
+			"01"		"item_dota688_shadow_amulet;item_claymore"
 		}
 	}
 	"item_invis_sword"
@@ -6493,63 +6187,33 @@
 	}
 	"item_recipe_silver_edge"
 	{
-		"ItemCost"		"300"
-		"ItemRequirements"
-		{
-			"01"		"item_invis_sword;item_ultimate_orb"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_silver_edge"
 	{
-		"AbilityCooldown"		"24.0"
-		"ItemCost"		"5100"
-		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemShopTags"		"damage;attack_speed;movespeed;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_damage"		"30"
-			"bonus_attack_speed"		"30"
-			"windwalk_duration"		"14.0"
-			"windwalk_bonus_damage"		"225"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_sange_and_yasha"
 	{
-		"ItemRequirements"
-		{
-			"01"		"item_yasha;item_sange"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_sange_and_yasha"
 	{
-		"ItemCost"		"4100"
-		"ItemShopTags"		"damage;str;agi;attack_speed;unique"
-		"AbilityValues"
-		{
-			"bonus_attack_speed"		"16"
-			"movement_speed_percent_bonus"		"16"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_satanic"
 	{
-		"ItemCost"		"1100"
-		"ItemRequirements"
-		{
-			"01"		"item_reaver;item_helm_of_the_dominator"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_satanic"
 	{
-		"AbilityCooldown"		"35.0"
-		"ItemCost"		"5900"
-		"ItemShopTags"		"damage;str;armor;unique;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_damage"		"20"
-			"unholy_lifesteal_percent"		"175"
-			"unholy_lifesteal_total_tooltip"		"200"
-			"unholy_duration"		"4.5"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_mjollnir"
 	{
@@ -6577,51 +6241,33 @@
 	}
 	"item_recipe_skadi"
 	{
-		"ItemRequirements"
-		{
-			"01"		"item_ultimate_orb;item_ultimate_orb;item_point_booster;item_orb_of_venom"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_skadi"
 	{
-		"ItemCost"		"5675"
-		"ItemShopTags"		"agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
-		"AbilityValues"
-		{
-			"bonus_all_stats"		"25"
-			"bonus_health"		"225"
-			"bonus_mana"		"250"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_sange"
 	{
-		"ItemCost"		"600"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_sange"
 	{
-		"ItemCost"		"2050"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_helm_of_the_dominator"
 	{
-		"ItemCost"		"0"
-		"ItemRequirements"
-		{
-			"01"		"item_lifesteal;item_helm_of_iron_will"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_helm_of_the_dominator"
 	{
-		"AbilityCooldown"		"60.0"
-		"AbilityManaCost"		"75"
-		"ItemCost"		"1800"
-		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityValues"
-		{
-			"bonus_armor"		"5"
-			"bonus_regen"		"3"
-			"health_min"		"1400"
-			"speed_base"		"350"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_maelstrom"
 	{
@@ -6668,88 +6314,43 @@
 	}
 	"item_recipe_mask_of_madness"
 	{
-		"ItemCost"		"900"
-		"ItemRequirements"
-		{
-			"01"		"item_lifesteal"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_mask_of_madness"
 	{
-		"AbilityCooldown"		"25.0"
-		"ItemCost"		"1800"
-		"ItemShopTags"		"unique;hard_to_tag"
-		"AbilityValues"
-		{
-			"lifesteal_percent"		"20"
-			"berserk_bonus_movement_speed"		"17"
-			"berserk_duration"		"12.0"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_diffusal_blade"
 	{
-		"ItemCost"		"700"
-		"ItemRequirements"
-		{
-			"01"		"item_blade_of_alacrity;item_blade_of_alacrity;item_robe"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_diffusal_blade"
 	{
-		"AbilityCooldown"		"4.0"
-		"AbilityManaCost"		"0"
-		"ItemCost"		"3150"
-		"ItemInitialCharges"		"8"
-		"ItemRequiresCharges"		"1"
-		"AbilityValues"
-		{
-			"bonus_agility"		"25 35"
-			"bonus_intellect"		"10 15"
-			"feedback_mana_burn_illusion_melee"		"20"
-			"feedback_mana_burn_illusion_ranged"		"10"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_ethereal_blade"
 	{
-		"ItemCost"		"0"
-		"ItemRequirements"
-		{
-			"01"		"item_eagle;item_ghost"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_ethereal_blade"
 	{
-		"AbilityCooldown"		"20.0"
-		"ItemCost"		"4700"
-		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemShopTags"		"agi;str;int;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_agility"		"40"
-			"bonus_strength"		"10"
-			"bonus_intellect"		"10"
-			"duration"		"3.0"
-			"blast_damage_base"		"75"
-			"ethereal_damage_bonus"		"-40"
-			"projectile_speed"		"1200"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_soul_ring"
 	{
-		"ItemCost"		"125"
-		"ItemRequirements"
-		{
-			"01"		"item_ring_of_regen;item_sobi_mask"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_soul_ring"
 	{
-		"ItemCost"		"775"
-		"ItemShopTags"		"regen_health;boost_mana"
-		"AbilityValues"
-		{
-			"mana_gain"		"150"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_arcane_boots"
 	{
@@ -6774,32 +6375,18 @@
 	}
 	"item_recipe_octarine_core"
 	{
-		"ItemCost"		"0"
-		"ItemRequirements"
-		{
-			"01"		"item_mystic_staff;item_soul_booster"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_octarine_core"
 	{
-		"ItemCost"		"5900"
-		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemShopTags"		"move_speed;boost_mana;mana_pool"
-		"AbilityValues"
-		{
-			"bonus_health"		"425"
-			"bonus_mana"		"425"
-			"bonus_mana_regen"		"50"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_orb_of_venom"
 	{
-		"ItemCost"		"275"
-		"SideShop"		"1"
-		"AbilityValues"
-		{
-			"poison_duration"		"4.0"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_blight_stone"
 	{
@@ -6811,62 +6398,33 @@
 	}
 	"item_recipe_ancient_janggo"
 	{
-		"ItemCost"		"700"
-		"ItemRequirements"
-		{
-			"01"		"item_ring_of_regen;item_bracer;item_wind_lace"
-			"02"		"item_ancient_janggo"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_ancient_janggo"
 	{
-		"AbilityCooldown"		"30.0"
-		"ItemCost"		"1785"
-		"ItemInitialCharges"		"6"
-		"ItemRequiresCharges"		"1"
-		"ItemShopTags"		"str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_int"		"9"
-			"bonus_str"		"6"
-			"bonus_attack_speed_pct"		"25"
-			"radius"		"900"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_medallion_of_courage"
 	{
-		"ItemPurchasable"		"1"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_medallion_of_courage"
 	{
-		"AbilityCooldown"		"7.0"
-		"ItemCost"		"1175"
-		"ItemQuality"		"rare"
-		"ItemShopTags"		"armor;regen_mana;hard_to_tag"
-		"AbilityValues"
-		{
-			"duration"		"7"
-		}
-		"ItemPurchasable"		"1"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_solar_crest"
 	{
-		"ItemCost"		"0"
-		"ItemRequirements"
-		{
-			"01"		"item_medallion_of_courage;item_talisman_of_evasion"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_solar_crest"
 	{
-		"AbilityCooldown"		"7.0"
-		"ItemCost"		"2875"
-		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemShopTags"		"armor;regen_mana;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_armor"		"10"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_smoke_of_deceit"
 	{
@@ -6889,156 +6447,73 @@
 	}
 	"item_recipe_veil_of_discord"
 	{
-		"ItemCost"		"400"
-		"ItemRequirements"
-		{
-			"01"		"item_helm_of_iron_will;item_null_talisman;item_null_talisman"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_veil_of_discord"
 	{
-		"AbilityCastRange"		"1000"
-		"AbilityCooldown"		"20"
-		"AbilityManaCost"		"50"
-		"ItemCost"		"2240"
-		"ItemShopTags"		"int;armor;regen_health;hard_to_tag"
-		"AbilityValues"
-		{
-			"debuff_radius"		"600"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_guardian_greaves"
 	{
-		"ItemCost"		"1700"
-		"ItemRequirements"
-		{
-			"01"		"item_mekansm;item_arcane_boots"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_guardian_greaves"
 	{
-		"AbilityCooldown"		"40"
-		"ItemCost"		"5275"
-		"ItemShopTags"		"int;armor;regen_health;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_movement"		"55"
-			"bonus_mana"		"250"
-			"aura_health_regen"		"4"
-			"aura_health_regen_bonus"		"15"
-			"aura_bonus_threshold"		"20"
-			"aura_radius"		"900"
-			"replenish_health"		"250"
-			"replenish_mana"		"160"
-			"replenish_radius"		"900"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_rod_of_atos"
 	{
-		"ItemCost"		"0"
-		"ItemRequirements"
-		{
-			"01"		"item_vitality_booster;item_staff_of_wizardry;item_staff_of_wizardry"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_rod_of_atos"
 	{
-		"AbilityCastRange"		"1200"
-		"AbilityCooldown"		"10"
-		"AbilityManaCost"		"50"
-		"ItemCost"		"3100"
-		"ItemShopTags"		"int;regen_health"
-		"AbilityValues"
-		{
-			"bonus_intellect"		"30"
-			"duration"		"4.0"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_iron_talon"
 	{
-		"ItemCost"		"125"
-		"ItemRequirements"
-		{
-			"01"		"item_quelling_blade;item_ring_of_protection"
-		}
-		"ItemPurchasable"		"1"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_iron_talon"
 	{
-		"AbilityCooldown"		"14.0"
-		"ItemCost"		"500"
-		"AbilityValues"
-		{
-			"creep_damage_pct"		"40"
-			"bonus_armor"		"2"
-		}
-		"ItemPurchasable"		"1"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_abyssal_blade"
 	{
-		"ItemCost"		"1550"
-		"ItemRequirements"
-		{
-			"01"		"item_basher;item_vanguard"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_abyssal_blade"
 	{
-		"AbilityCastRange"		"140"
-		"ItemCost"		"6400"
-		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemShopTags"		"damage;str;hard_to_tag"
-		"AbilityValues"
-		{
-			"bonus_damage"		"10"
-			"bonus_strength"		"10"
-			"bash_duration"		"1.4"
-			"bonus_chance_damage"		"85"
-			"stun_duration"		"2"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_heavens_halberd"
 	{
-		"ItemCost"		"0"
-		"ItemRequirements"
-		{
-			"01"		"item_sange;item_talisman_of_evasion"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_heavens_halberd"
 	{
-		"AbilityCastRange"		"600"
-		"AbilityCooldown"		"30"
-		"AbilityManaCost"		"100"
-		"ItemCost"		"3750"
-		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemShopTags"		"str;damage;evasion"
-		"AbilityValues"
-		{
-			"disarm_range"		"5.5"
-			"disarm_melee"		"3.0"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_ring_of_aquila"
 	{
-		"ItemRequirements"
-		{
-			"01"		"item_wraith_band;item_ring_of_basilius"
-		}
-		"ItemPurchasable"		"1"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_ring_of_aquila"
 	{
-		"ItemCost"		"985"
-		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemQuality"		"rare"
-		"AbilityValues"
-		{
-			"bonus_damage"		"10"
-			"aura_radius"		"900"
-			"aura_mana_regen"		"0.65"
-		}
-		"ItemPurchasable"		"1"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_tranquil_boots"
 	{
@@ -7059,33 +6534,18 @@
 	}
 	"item_shadow_amulet"
 	{
-		"AbilityCooldown"		"10.0"
-		"ItemCost"		"1300"
-		"AbilityValues"
-		{
-			"fade_time"		"1.5"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_glimmer_cape"
 	{
-		"ItemCost"		"0"
-		"ItemRequirements"
-		{
-			"01"		"item_shadow_amulet;item_cloak"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_glimmer_cape"
 	{
-		"AbilityCastRange"		"800"
-		"AbilityCooldown"		"16.0"
-		"AbilityManaCost"		"90"
-		"ItemCost"		"1850"
-		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemShopTags"		""
-		"AbilityValues"
-		{
-			"bonus_magical_armor"		"15"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_overwhelming_blink"
 	{

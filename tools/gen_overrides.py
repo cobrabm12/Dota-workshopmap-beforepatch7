@@ -549,6 +549,13 @@ def gen_custom_defs(A0, I0, scripts: dict[str, str], custom: set[str]) -> tuple[
             req = item_requirements_resolved(src, custom)
             if req is not None:
                 blk["ItemRequirements"] = req
+            for key in ("UpgradesItems",):
+                v = blk.get_str(key)
+                if v:
+                    blk[key] = ";".join(resolve(x.strip(), custom) for x in v.split(";") if x.strip())
+            v = blk.get_str("UpgradeRecipe")
+            if v:
+                blk["UpgradeRecipe"] = resolve_item(v, custom)
             items[cname] = blk
         else:
             orig = cname[len(CUSTOM_ABILITY_PREFIX):]
@@ -564,6 +571,23 @@ def gen_custom_defs(A0, I0, scripts: dict[str, str], custom: set[str]) -> tuple[
             blk["AbilityTextureName"] = orig
             abilities[cname] = blk
     return abilities, items
+
+
+def gen_shops(custom: set[str]) -> None:
+    """scripts/shops.txt: layout-ul shop-ului din 6.88, cu itemele reimplementate in Lua in locul celor built-in."""
+    src = os.path.join(REF_OLD, "shops.txt")
+    if not os.path.exists(src):
+        return
+    doc = kv.load(src)
+    shops = doc.get_kv("dota_shops")
+    out = kv.KV()
+    for cat, items in shops.blocks():
+        blk = kv.KV()
+        for k, v in items.scalars():
+            blk.items.append((k, resolve_item(v, custom)))
+        out[cat] = blk
+    kv.dump_file(kv.KV([("dota_shops", out)]), os.path.join(ADDON, "scripts", "shops.txt"),
+                 HEADER + "\nLayout-ul shop-ului din 6.88 (reference/6.88f/shops.txt).")
 
 
 def gen_localization(scripts: dict[str, str], hero_abilities: set[str], item_names: set[str]) -> None:
@@ -771,6 +795,7 @@ def main() -> None:
     kv.dump_file(kv.KV([("DOTAAbilities", custom_abilities)]), os.path.join(NPC, "npc_abilities_generated.txt"),
                  HEADER + "\nBlocurile de baza (KV 6.88) ale abilitatilor reimplementate in Lua. Inclus din npc_abilities_custom.txt prin #base.")
     hero_abils = {a for h in report["eroi"].values() for a in h["abilitati_ok"]}
+    gen_shops(custom)
     gen_localization(scripts, hero_abils, {n for n, _ in I0.blocks() if IN.get_kv(n) is not None})
     kv.dump_file(kv.KV([("DOTAUnits", units)]), os.path.join(NPC, "npc_units_custom.txt"), HEADER)
 
