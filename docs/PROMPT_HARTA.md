@@ -106,3 +106,36 @@ Pașii:
    (în special cele cu `dota688`, `ScriptFile`, `AbilityValues`, `npc_heroes_custom`). Scrie-le în `docs/TEST_LOG.md`.
 9. La final: `git add` pentru fișierele mici (rapoarte, `.vmap` dacă are sub 50 MB; `maps\dota_688\` și `.vpk`-ul sunt în
    `.gitignore`), commit, și întreabă-mă înainte de push.
+
+---
+
+# Varianta Windows – doar testare și corecții (fără hartă, cu PR-ul deja deschis)
+
+Dacă harta se face separat, acesta este promptul pentru Claude Code pe Windows ca să testeze addon‑ul și să repare ce nu merge.
+Repo‑ul clonat în `C:\dota688`, Claude Code deschis acolo, pe branch‑ul PR‑ului (`git checkout ccr-88272384-095yrh`).
+
+---
+
+Lucrez la addon‑ul Dota 2 „Dota 6.88 Classic” din acest repo (branch‑ul curent are PR deschis pe GitHub). Codul este scris
+și verificat offline; vreau să îl testezi în joc și să repari tot ce nu merge. Sunt pe Windows, am Steam, Dota 2 și
+Dota 2 Workshop Tools instalate. Citește mai întâi `README.md`, `docs/TEST_PLAN.md`, `docs/AGHANIM.md` și `tools/README.md`.
+
+Reguli:
+* Nu modifica nimic în instalarea Steam/Dota 2; addon‑ul se leagă cu `mklink /J` din repo în
+  `...\steamapps\common\dota 2 beta\game\dota_addons\dota_688` și `...\content\dota_addons\dota_688`.
+* Nu îmi cere parola de Steam. Nu schimba regulile 6.88 (`docs/REGULI_6.88.md`) și nu „moderniza” abilitățile: scopul este
+  fidelitatea față de 6.88; dacă un API nu există, caută echivalentul, nu scoate funcționalitatea.
+* Generatorul este sursa adevărului: nu edita manual fișierele marcate GENERAT; schimbă `tools/` sau Lua și rulează
+  `python tools/gen_overrides.py` apoi `python tools/check_addon.py` (trebuie 0 erori).
+* Commit‑uri mici, cu mesaj clar, pe acest branch; `git push` după fiecare grup de corecții (PR‑ul se actualizează singur).
+  Întreabă‑mă doar dacă trebuie o decizie de gameplay.
+
+Pașii:
+1. Leagă addon‑ul (mklink), pornește Workshop Tools pentru `dota_688`, apoi în consolă `dota_launch_custom_game dota_688 dota`
+   (harta standard a jocului; `dota_688` doar dacă există `game\dota_addons\dota_688\maps\dota_688.vpk`).
+2. Treci prin `docs/TEST_PLAN.md` în ordine. Pentru fiecare punct notează în `docs/TEST_LOG.md`: OK sau eroarea exactă din consolă.
+3. Repară erorile pe măsură ce apar (KV, Lua, API lipsă, particule/sunete lipsă, ID‑uri Panorama), re‑testează, commit, push.
+4. Testează secțiunea Aghanim pentru fiecare erou din tabelul din `docs/AGHANIM.md` (cumpără `item_dota688_ultimate_scepter`
+   cu `-item`), cu și fără scepter; corectează și notează.
+5. La final scrie în `docs/TEST_LOG.md` un rezumat: ce merge, ce a fost reparat, ce rămâne (dacă rămâne ceva) și de ce, și
+   lasă un comentariu scurt pe PR cu același rezumat.
