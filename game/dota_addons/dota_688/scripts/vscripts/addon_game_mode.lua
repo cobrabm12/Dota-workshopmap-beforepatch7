@@ -5,6 +5,8 @@ require("dota688/gamemode")
 
 function Precache(context)
 	-- Eroii si abilitatile built-in se precache-uiesc singure. Aici doar ce e specific addon-ului.
+	-- sunete 6.88 al caror eveniment nu mai exista in clientul curent (content/.../soundevents/dota688_sounds.vsndevts)
+	PrecacheResource("soundfile", "soundevents/dota688_sounds.vsndevts", context)
 end
 
 function Activate()

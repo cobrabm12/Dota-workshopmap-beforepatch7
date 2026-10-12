@@ -5,8 +5,20 @@
   * fiecare ScriptFile al abilităților/itemelor Lua există și definește clasa cu numele respectiv
   * fiecare LinkLuaModifier arată către un fișier existent care definește modifierul
   * itemele din shops.txt și din rețete există
+  * particulele/modelele din Lua și particulele din KV-urile npc/ există în clientul curent (build/pak01_listing.txt)
+  * evenimentele de sunet din Lua (EmitSound*, StopSound, StartSoundEvent*, EmitGlobalSound, PrecacheScriptSound...
+    și orice alt literal "Prefix.Nume" din cod) există în clientul curent (build/sound_events.txt) sau în
+    content/dota_addons/dota_688/soundevents/*.vsndevts; fișierele .vsndevts ale addon-ului: precache în Lua,
+    compilate (.vsndevts_c), fișierele audio (vsnd_files) și straturile (soundevent_layerN) există
   * sintaxa Lua (dacă modulul luaparser este instalat)
 Rulare: python3 tools/check_addon.py
+
+Fișiere opționale din build/ (în .gitignore; fără ele verificările respective dau doar un avertisment):
+  build/pak01_listing.txt   – lista fișierelor din game/dota/pak01_dir.vpk (vezi tools/README.md)
+  build/sound_events.txt    – evenimentele de sunet ale clientului: python tools/dump_sound_events.py
+                              (extrage soundevents/*.vsndevts_c din pak01_dir.vpk cu Source2Viewer-CLI;
+                              de regenerat după fiecare patch Dota)
+  build/vscript_api_*.txt   – ieșirea script_help2 / cl_script_help2
 """
 import glob
 import os
@@ -15,12 +27,21 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import kv  # noqa: E402
+from dump_sound_events import top_level_keys  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ADDON = os.path.join(ROOT, "game", "dota_addons", "dota_688")
+CONTENT = os.path.join(ROOT, "content", "dota_addons", "dota_688")
 NPC = os.path.join(ADDON, "scripts", "npc")
 VS = os.path.join(ADDON, "scripts", "vscripts")
 REF_NOW = os.path.join(ROOT, "reference", "current")
+
+# funcțiile VScript care primesc un nume de eveniment de sunet
+SOUND_CALL = re.compile(r"\b(EmitSound\w*|StopSound\w*|StartSoundEvent\w*|StopGlobalSound|EmitGlobalSound|"
+                        r"EmitAnnouncerSound\w*|PrecacheScriptSound)\s*\(")
+# literal care arată ca un nume de eveniment ("Hero_Axe.Culling_Blade_Success"), nu ca un fișier
+SOUND_LIT = re.compile(r'"([A-Za-z_][\w\-]*(?:\.[\w\-]+)+)"')
+FILE_EXT = (".lua", ".vpcf", ".vmdl", ".vtex", ".vsndevts", ".vsnd", ".txt", ".png", ".xml", ".js", ".css", ".kv3")
 
 errors: list[str] = []
 warnings: list[str] = []
@@ -130,10 +151,27 @@ def main():
     if os.path.exists(listing):
         files = set(re.findall(r"^(\S+)", open(listing, encoding="utf-8", errors="replace").read().lower(), re.M))
         for path, text in lua_text.items():
-            for m in re.finditer(r'"((?:particles|models)/[^"]+\.(?:vpcf|vmdl))"', text):
-                r = m.group(1).lower()
+            for m in re.finditer(r'"((?:particles|models)/[^"]+\.(?:vpcf|vmdl))"|\'((?:particles|models)/[^\']+\.(?:vpcf|vmdl))\'', text):
+                res = m.group(1) or m.group(2)
+                r = res.lower()
                 if r not in files and (r + "_c") not in files:
-                    err(f"{path}.lua: resursa {m.group(1)} nu există în clientul curent")
+                    err(f"{path}.lua: resursa {res} nu există în clientul curent")
+            # cale construită dinamic: "particles/.../prefix_" .. x
+            for m in re.finditer(r'"((?:particles|models)/[^"]*)"\s*\.\.', text):
+                pre = m.group(1).lower()
+                if not any(f.startswith(pre) for f in files):
+                    err(f"{path}.lua: nicio resursă din clientul curent nu începe cu {m.group(1)}")
+        # particulele din KV-urile addon-ului (proiectile, precache, ambient)
+        for p in sorted(glob.glob(os.path.join(NPC, "*.txt"))):
+            t = open(p, encoding="utf-8", errors="replace").read()
+            name = os.path.basename(p)
+            for res in sorted(set(re.findall(r'"(particles/[^"]+\.vpcf)"', t))):
+                if res.lower() + "_c" not in files and res.lower() not in files:
+                    err(f"{name}: particula {res} nu există în clientul curent")
+            for folder in sorted(set(re.findall(r'"particle_folder"\s+"([^"]+)"', t))):
+                pre = folder.lower().rstrip("/") + "/"
+                if not any(f.startswith(pre) for f in files):
+                    warn(f"{name}: particle_folder {folder} nu există în clientul curent")
         # iconitele abilitatilor/itemelor custom (AbilityTextureName)
         for kind, defs in (("abilitate", custom_ab), ("item", custom_it)):
             for name, blk in defs.blocks():
@@ -148,7 +186,11 @@ def main():
                 if not any(c in files for c in cands):
                     warn(f"{kind} {name}: iconita {tex} nu există în clientul curent ({cands[0]})")
     else:
+        files = None
         warn("build/pak01_listing.txt lipsă: particulele/modelele referite din Lua nu au fost verificate")
+
+    # evenimentele de sunet (Lua + soundevents/*.vsndevts ale addon-ului)
+    check_sounds(lua_text, files)
 
     # API VScript (opțional: build/vscript_api_server.txt / _client.txt = ieșirea comenzilor script_help2 /
     # cl_script_help2 din consola jocului). Fiecare apel :Metoda(, funcție globală Majuscula( și constantă
@@ -265,12 +307,174 @@ def main():
     except ImportError:
         warn("luaparser nu este instalat: sintaxa Lua nu a fost verificată (pip install luaparser)")
 
+    if hasattr(sys.stdout, "reconfigure"):   # consola Windows cp1252: diacriticele nu opresc scriptul
+        sys.stdout.reconfigure(errors="replace")
     for w in warnings:
         print("AVERTISMENT:", w)
     for e in errors:
         print("EROARE:", e)
     print(f"{len(errors)} erori, {len(warnings)} avertismente")
     sys.exit(1 if errors else 0)
+
+
+def lua_strip_comments(text):
+    """Codul Lua fără comentarii (-- și --[[ ]]); șirurile rămân neatinse, liniile își păstrează numerotarea."""
+    out, i, n = [], 0, len(text)
+    while i < n:
+        c = text[i]
+        if c in "\"'":
+            j = i + 1
+            while j < n and text[j] != c and text[j] != "\n":
+                j += 2 if text[j] == "\\" else 1
+            out.append(text[i:j + 1])
+            i = j + 1
+        elif c == "[" and re.match(r"\[=*\[", text[i:i + 64]):
+            eq = re.match(r"\[(=*)\[", text[i:]).group(1)
+            j = text.find("]" + eq + "]", i)
+            j = n if j < 0 else j + len(eq) + 2
+            out.append(text[i:j])
+            i = j
+        elif text.startswith("--", i):
+            m = re.match(r"--\[(=*)\[", text[i:i + 64])
+            if m:
+                j = text.find("]" + m.group(1) + "]", i)
+                j = n if j < 0 else j + len(m.group(1)) + 2
+            else:
+                j = text.find("\n", i)
+                j = n if j < 0 else j
+            out.append("\n" * text.count("\n", i, j))
+            i = j
+        else:
+            out.append(c)
+            i += 1
+    return "".join(out)
+
+
+def call_args(code, start):
+    """Argumentele unui apel (de la poziția de după '(' până la ')' corespunzătoare), fără apelurile imbricate:
+    în EmitSound(self:GetSpecialValueFor("x")) literalul "x" nu este un nume de sunet."""
+    depth, i, n, top = 1, start, len(code), []
+    while i < n and depth:
+        c = code[i]
+        if c in "\"'":
+            j = i + 1
+            while j < n and code[j] != c and code[j] != "\n":
+                j += 2 if code[j] == "\\" else 1
+            if depth == 1:
+                top.append(code[i:j + 1])
+            i = j + 1
+            continue
+        if c == "(":
+            depth += 1
+        elif c == ")":
+            depth -= 1
+        if depth == 1 and c != ")":
+            top.append(c)
+        i += 1
+    return "".join(top)
+
+
+def check_sounds(lua_text, files):
+    """Evenimentele de sunet folosite în Lua trebuie să existe în client (build/sound_events.txt) sau în
+    content/dota_addons/dota_688/soundevents/*.vsndevts (compilate și precache-uite)."""
+    client: set[str] = set()
+    path_events = os.path.join(ROOT, "build", "sound_events.txt")
+    if os.path.exists(path_events):
+        for line in open(path_events, encoding="utf-8", errors="replace"):
+            if line.strip() and not line.startswith("#"):
+                client.add(line.split("\t", 1)[0].strip())
+
+    # evenimentele addon-ului
+    ours: dict[str, str] = {}          # nume -> fișier .vsndevts
+    bodies: list[tuple[str, str]] = []  # (fișier, text)
+    all_lua = "\n".join(lua_text.values())
+    for p in sorted(glob.glob(os.path.join(CONTENT, "soundevents", "**", "*.vsndevts"), recursive=True)):
+        rel = os.path.relpath(p, CONTENT).replace(os.sep, "/")
+        text = open(p, encoding="utf-8", errors="replace").read()
+        bodies.append((rel, text))
+        for k in top_level_keys(text):
+            if k in ours:
+                err(f"{rel}: evenimentul {k} este definit de două ori (și în {ours[k]})")
+            elif k in client:
+                warn(f"{rel}: evenimentul {k} redefinește un eveniment existent în client")
+            ours.setdefault(k, rel)
+        if not re.search(r'PrecacheResource\(\s*"soundfile"\s*,\s*"' + re.escape(rel) + '"', all_lua):
+            err(f"{rel}: lipsește PrecacheResource(\"soundfile\", \"{rel}\", context) în Lua – evenimentele nu se încarcă")
+        compiled = os.path.join(ADDON, rel + "_c")
+        if not os.path.exists(compiled):
+            err(f"{rel}: nu este compilat ({os.path.relpath(compiled, ROOT)} lipsă) – resourcecompiler -nop4 -i <fișier>")
+        elif os.path.getmtime(compiled) + 1 < os.path.getmtime(p):
+            warn(f"{rel}: compilatul {os.path.basename(compiled)} este mai vechi decât sursa – recompilează-l")
+
+    if not client:
+        warn("build/sound_events.txt lipsă: evenimentele de sunet din Lua nu au fost verificate "
+             "(python tools/dump_sound_events.py)")
+        return
+    known = client | set(ours)
+    known_lower = {k.lower(): k for k in known}
+
+    # fișierele audio și straturile referite de evenimentele addon-ului
+    for rel, text in bodies:
+        for v in sorted(set(re.findall(r'"(sounds/[^"]+\.vsnd)"', text))):
+            in_addon = any(os.path.exists(os.path.join(d, v + s)) for d in (CONTENT, ADDON) for s in ("", "_c"))
+            if not in_addon and files is not None and v.lower() + "_c" not in files:
+                err(f"{rel}: fișierul audio {v} nu există nici în client, nici în addon")
+        for layer in sorted(set(re.findall(r'soundevent_layer\d*\s*=\s*"([^"]+)"', text))):
+            if layer not in known:
+                err(f"{rel}: stratul soundevent_layer {layer} nu există")
+
+    used: set[str] = set()
+    missing: dict[tuple[str, bool], set[str]] = {}   # (nume, eroare?) -> fișiere Lua
+    case_only: dict[tuple[str, str], set[str]] = {}
+    for path, text in lua_text.items():
+        code = lua_strip_comments(text)
+        hard = path.startswith(("abilities/", "items/"))
+        direct: set[str] = set()
+        for m in SOUND_CALL.finditer(code):
+            args = call_args(code, m.end())
+            for lm in re.finditer(r'(?:"([^"\\\n]*)"|\'([^\'\\\n]*)\')(\s*\.\.)?', args):
+                s = lm.group(1) if lm.group(1) is not None else lm.group(2)
+                if not s or "/" in s or " " in s or s.lower().endswith(FILE_EXT):
+                    continue
+                direct.add(s)
+                if lm.group(3):   # nume construit: "Hero_OgreMagi.Fireblast.x" .. n
+                    used.update(k for k in known if k.lower().startswith(s.lower()))
+                    if not any(k.startswith(s.lower()) for k in known_lower):
+                        missing.setdefault((s + "…", True), set()).add(path)
+                    continue
+                used.add(known_lower.get(s.lower(), s))
+                if s not in known:
+                    if s.lower() in known_lower:
+                        case_only.setdefault((s, known_lower[s.lower()]), set()).add(path)
+                    else:
+                        missing.setdefault((s, True), set()).add(path)
+        # literali "Prefix.Nume" transmiși indirect (ex. Dota688Techies.Explode(..., "Hero_Techies.RemoteMine.Detonate"))
+        for lm in SOUND_LIT.finditer(code):
+            s = lm.group(1)
+            if s in direct or s.lower().endswith(FILE_EXT):
+                continue
+            if code[lm.end():lm.end() + 8].lstrip().startswith(".."):
+                continue
+            used.add(known_lower.get(s.lower(), s))
+            if s not in known:
+                if s.lower() in known_lower:
+                    case_only.setdefault((s, known_lower[s.lower()]), set()).add(path)
+                else:
+                    missing.setdefault((s, hard), set()).add(path)
+
+    def where(paths):
+        paths = sorted(paths)
+        return ", ".join(p + ".lua" for p in paths[:4]) + ("…" if len(paths) > 4 else "")
+    for (s, hard), paths in sorted(missing.items()):
+        msg = (f"sunetul {s} nu există în clientul curent și nici în soundevents/*.vsndevts ale addon-ului "
+               f"(în {where(paths)}) – definește-l în content/dota_addons/dota_688/soundevents/dota688_sounds.vsndevts")
+        (err if hard else warn)(msg)
+    for (s, real), paths in sorted(case_only.items()):
+        warn(f"sunetul {s} există în client doar ca {real} (în {where(paths)})")
+    used_lower = {u.lower() for u in used}
+    for k, rel in sorted(ours.items()):
+        if k.lower() not in used_lower:
+            warn(f"{rel}: evenimentul {k} nu este folosit în Lua")
 
 
 def class_defined(name, path, lua_text, seen):

@@ -16,10 +16,10 @@ function modifier_dota688_techies_stasis_trap:OnIntervalThink()
 		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 	if #near == 0 then return end
 	self.exploding = true
-	mine:EmitSound("Hero_Techies.StasisTrap.Priming")
+	mine:EmitSound("Dota688.Techies.StasisTrap.Priming")
 	Dota688Timers:After(a:GetSpecialValueFor("explode_delay"), function()
 		if mine:IsNull() or not mine:IsAlive() then return end
-		EmitSoundOnLocationWithCaster(mine:GetAbsOrigin(), "Hero_Techies.StasisTrap.Stun", caster)
+		EmitSoundOnLocationWithCaster(mine:GetAbsOrigin(), "Dota688.Techies.StasisTrap.Stun", caster)
 		local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_stasis_trap_explode.vpcf", PATTACH_WORLDORIGIN, nil)
 		ParticleManager:SetParticleControl(fx, 0, mine:GetAbsOrigin()); ParticleManager:ReleaseParticleIndex(fx)
 		for _, e in ipairs(FindUnitsInRadius(caster:GetTeamNumber(), mine:GetAbsOrigin(), nil, a:GetSpecialValueFor("stun_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY,
