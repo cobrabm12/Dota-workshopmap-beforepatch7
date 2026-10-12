@@ -12,28 +12,28 @@ _Generat automat de `tools/gen_overrides.py`. Nu edita manual._
 |---|---|---|---|
 | antimage | 4 | 0 | — |
 | axe | 3 | 1 | — |
-| bane | 5 | 0 | — |
-| bloodseeker | 4 | 0 | — |
+| bane | 4 | 1 | — |
+| bloodseeker | 3 | 1 | — |
 | crystal_maiden | 3 | 1 | — |
 | drow_ranger | 2 | 2 | — |
 | earthshaker | 4 | 0 | — |
-| juggernaut | 4 | 0 | — |
+| juggernaut | 3 | 1 | — |
 | mirana | 4 | 0 | — |
 | nevermore | 6 | 0 | — |
 | morphling | 7 | 1 | — |
 | phantom_lancer | 4 | 0 | — |
 | puck | 5 | 0 | — |
 | pudge | 3 | 1 | — |
-| razor | 4 | 0 | — |
-| sand_king | 4 | 0 | — |
-| storm_spirit | 4 | 0 | — |
+| razor | 3 | 1 | — |
+| sand_king | 3 | 1 | — |
+| storm_spirit | 3 | 1 | — |
 | sven | 3 | 1 | — |
 | tiny | 2 | 2 | — |
 | vengefulspirit | 3 | 1 | — |
 | windrunner | 3 | 1 | — |
 | zuus | 4 | 0 | — |
 | kunkka | 5 | 0 | — |
-| lina | 4 | 0 | — |
+| lina | 3 | 1 | — |
 | lich | 3 | 1 | — |
 | lion | 4 | 0 | — |
 | shadow_shaman | 4 | 0 | — |
@@ -41,74 +41,74 @@ _Generat automat de `tools/gen_overrides.py`. Nu edita manual._
 | tidehunter | 4 | 0 | — |
 | witch_doctor | 4 | 0 | — |
 | riki | 0 | 4 | — |
-| enigma | 4 | 0 | — |
+| enigma | 3 | 1 | — |
 | tinker | 4 | 0 | — |
-| sniper | 4 | 0 | — |
+| sniper | 3 | 1 | — |
 | necrolyte | 3 | 1 | — |
 | warlock | 4 | 0 | — |
 | beastmaster | 4 | 1 | — |
 | queenofpain | 4 | 0 | — |
 | venomancer | 4 | 0 | — |
 | faceless_void | 4 | 0 | — |
-| skeleton_king | 3 | 1 | — |
-| death_prophet | 4 | 0 | — |
+| skeleton_king | 2 | 2 | — |
+| death_prophet | 3 | 1 | — |
 | phantom_assassin | 3 | 1 | — |
-| pugna | 4 | 0 | — |
+| pugna | 3 | 1 | — |
 | templar_assassin | 5 | 0 | — |
 | viper | 2 | 2 | — |
 | luna | 3 | 1 | — |
 | dragon_knight | 3 | 1 | — |
-| dazzle | 4 | 0 | — |
+| dazzle | 3 | 1 | — |
 | rattletrap | 4 | 0 | — |
 | leshrac | 4 | 0 | — |
 | furion | 4 | 0 | — |
 | life_stealer | 7 | 1 | — |
 | dark_seer | 4 | 0 | — |
-| clinkz | 4 | 0 | — |
+| clinkz | 2 | 2 | — |
 | omniknight | 3 | 1 | — |
 | enchantress | 4 | 0 | — |
 | huskar | 3 | 1 | — |
-| night_stalker | 3 | 1 | — |
+| night_stalker | 2 | 2 | — |
 | broodmother | 4 | 0 | — |
 | bounty_hunter | 3 | 1 | — |
 | weaver | 4 | 0 | — |
 | jakiro | 4 | 0 | — |
 | batrider | 4 | 0 | — |
-| chen | 5 | 0 | — |
+| chen | 4 | 1 | — |
 | spectre | 5 | 0 | — |
 | doom_bringer | 6 | 0 | — |
-| ancient_apparition | 5 | 0 | — |
+| ancient_apparition | 4 | 1 | — |
 | ursa | 3 | 1 | — |
 | spirit_breaker | 3 | 1 | — |
 | gyrocopter | 4 | 0 | — |
-| alchemist | 5 | 0 | — |
+| alchemist | 4 | 1 | — |
 | invoker | 17 | 0 | — |
 | silencer | 3 | 1 | — |
-| obsidian_destroyer | 4 | 0 | — |
+| obsidian_destroyer | 2 | 2 | — |
 | lycan | 2 | 2 | — |
-| brewmaster | 4 | 0 | — |
-| shadow_demon | 5 | 0 | — |
+| brewmaster | 3 | 1 | — |
+| shadow_demon | 4 | 1 | — |
 | lone_druid | 6 | 0 | — |
 | chaos_knight | 3 | 1 | — |
 | meepo | 3 | 1 | — |
-| treant | 4 | 1 | — |
+| treant | 3 | 2 | — |
 | ogre_magi | 5 | 0 | — |
-| undying | 4 | 0 | — |
-| rubick | 10 | 0 | — |
+| undying | 3 | 1 | — |
+| rubick | 9 | 1 | — |
 | disruptor | 4 | 0 | — |
 | nyx_assassin | 6 | 0 | — |
 | naga_siren | 5 | 0 | — |
-| keeper_of_the_light | 9 | 0 | — |
+| keeper_of_the_light | 8 | 1 | — |
 | wisp | 6 | 1 | — |
 | visage | 3 | 1 | — |
-| slark | 4 | 0 | — |
+| slark | 3 | 1 | — |
 | medusa | 4 | 0 | — |
 | troll_warlord | 4 | 1 | — |
-| centaur | 4 | 0 | — |
-| magnataur | 4 | 0 | — |
+| centaur | 3 | 1 | — |
+| magnataur | 3 | 1 | — |
 | shredder | 7 | 0 | — |
-| bristleback | 4 | 0 | — |
-| tusk | 6 | 0 | — |
+| bristleback | 3 | 1 | — |
+| tusk | 5 | 1 | — |
 | skywrath_mage | 4 | 0 | — |
 | abaddon | 3 | 1 | — |
 | elder_titan | 5 | 0 | — |
@@ -125,7 +125,7 @@ _Generat automat de `tools/gen_overrides.py`. Nu edita manual._
 
 ## Reimplementate în Lua (6.88 fidel)
 
-* Abilități de erou: **46** – `abaddon_frostmourne`, `attribute_bonus`, `axe_counter_helix`, `beastmaster_call_of_the_wild_boar`, `bounty_hunter_jinada`, `chaos_knight_chaos_strike`, `crystal_maiden_brilliance_aura`, `dragon_knight_dragon_blood`, `drow_ranger_marksmanship`, `drow_ranger_trueshot`, `huskar_berserkers_blood`, `legion_commander_moment_of_courage`, `legion_commander_press_the_attack`, `lich_dark_ritual`, `life_stealer_rage`, `luna_lunar_blessing`, `lycan_feral_impulse`, `lycan_howl`, `meepo_geostrike`, `morphling_adaptive_strike`, `necrolyte_sadist`, `night_stalker_crippling_fear`, `omniknight_degen_aura`, `phantom_assassin_blur`, `pudge_flesh_heap`, `riki_blink_strike`, `riki_permanent_invisibility`, `riki_smoke_screen`, `riki_tricks_of_the_trade`, `silencer_glaives_of_wisdom`, `skeleton_king_vampiric_aura`, `slardar_bash`, `slardar_sprint`, `spirit_breaker_empowering_haste`, `sven_warcry`, `tiny_craggy_exterior`, `tiny_grow`, `treant_living_armor`, `troll_warlord_berserkers_rage`, `ursa_enrage`, `vengefulspirit_command_aura`, `viper_nethertoxin`, `viper_poison_attack`, `visage_gravekeepers_cloak`, `windrunner_windrun`, `wisp_overcharge`
+* Abilități de erou: **79** – `abaddon_frostmourne`, `alchemist_goblins_greed`, `ancient_apparition_chilling_touch`, `attribute_bonus`, `axe_counter_helix`, `bane_enfeeble`, `beastmaster_call_of_the_wild_boar`, `bloodseeker_bloodrage`, `bounty_hunter_jinada`, `brewmaster_drunken_brawler`, `bristleback_warpath`, `centaur_return`, `chaos_knight_chaos_strike`, `chen_penitence`, `clinkz_death_pact`, `clinkz_strafe`, `crystal_maiden_brilliance_aura`, `dazzle_poison_touch`, `death_prophet_silence`, `death_prophet_witchcraft`, `dragon_knight_dragon_blood`, `drow_ranger_marksmanship`, `drow_ranger_trueshot`, `enigma_black_hole`, `huskar_berserkers_blood`, `juggernaut_omni_slash`, `keeper_of_the_light_blinding_light`, `legion_commander_moment_of_courage`, `legion_commander_press_the_attack`, `lich_dark_ritual`, `life_stealer_rage`, `lina_fiery_soul`, `luna_lunar_blessing`, `lycan_feral_impulse`, `lycan_howl`, `magnataur_empower`, `meepo_geostrike`, `morphling_adaptive_strike`, `necrolyte_sadist`, `night_stalker_crippling_fear`, `night_stalker_darkness`, `obsidian_destroyer_arcane_orb`, `obsidian_destroyer_essence_aura`, `omniknight_degen_aura`, `phantom_assassin_blur`, `pudge_flesh_heap`, `pugna_decrepify`, `razor_unstable_current`, `riki_blink_strike`, `riki_permanent_invisibility`, `riki_smoke_screen`, `riki_tricks_of_the_trade`, `rubick_fade_bolt`, `sandking_caustic_finale`, `shadow_demon_soul_catcher`, `silencer_glaives_of_wisdom`, `skeleton_king_mortal_strike`, `skeleton_king_vampiric_aura`, `slardar_bash`, `slardar_sprint`, `slark_shadow_dance`, `sniper_take_aim`, `spirit_breaker_empowering_haste`, `storm_spirit_electric_vortex`, `sven_warcry`, `tiny_craggy_exterior`, `tiny_grow`, `treant_living_armor`, `treant_natures_guise`, `troll_warlord_berserkers_rage`, `tusk_walrus_punch`, `undying_flesh_golem`, `ursa_enrage`, `vengefulspirit_command_aura`, `viper_nethertoxin`, `viper_poison_attack`, `visage_gravekeepers_cloak`, `windrunner_windrun`, `wisp_overcharge`
 * Iteme: **124** – `item_abyssal_blade`, `item_aether_lens`, `item_ancient_janggo`, `item_armlet`, `item_bfury`, `item_bloodstone`, `item_bloodthorn`, `item_buckler`, `item_butterfly`, `item_crimson_guard`, `item_dagon`, `item_dagon_2`, `item_dagon_3`, `item_dagon_4`, `item_dagon_5`, `item_diffusal_blade`, `item_diffusal_blade_2`, `item_echo_sabre`, `item_ethereal_blade`, `item_force_staff`, `item_glimmer_cape`, `item_guardian_greaves`, `item_hand_of_midas`, `item_headdress`, `item_heart`, `item_heavens_halberd`, `item_helm_of_the_dominator`, `item_hurricane_pike`, `item_iron_talon`, `item_javelin`, `item_lotus_orb`, `item_manta`, `item_mask_of_madness`, `item_medallion_of_courage`, `item_mekansm`, `item_monkey_king_bar`, `item_null_talisman`, `item_oblivion_staff`, `item_octarine_core`, `item_orb_of_venom`, `item_pers`, `item_phase_boots`, `item_pipe`, `item_power_treads`, `item_recipe_abyssal_blade`, `item_recipe_aether_lens`, `item_recipe_ancient_janggo`, `item_recipe_armlet`, `item_recipe_bfury`, `item_recipe_bloodstone`, `item_recipe_bloodthorn`, `item_recipe_buckler`, `item_recipe_butterfly`, `item_recipe_crimson_guard`, `item_recipe_dagon`, `item_recipe_dagon_2`, `item_recipe_dagon_3`, `item_recipe_dagon_4`, `item_recipe_dagon_5`, `item_recipe_diffusal_blade`, `item_recipe_diffusal_blade_2`, `item_recipe_echo_sabre`, `item_recipe_ethereal_blade`, `item_recipe_force_staff`, `item_recipe_glimmer_cape`, `item_recipe_guardian_greaves`, `item_recipe_hand_of_midas`, `item_recipe_headdress`, `item_recipe_heart`, `item_recipe_heavens_halberd`, `item_recipe_helm_of_the_dominator`, `item_recipe_hurricane_pike`, `item_recipe_iron_talon`, `item_recipe_lotus_orb`, `item_recipe_manta`, `item_recipe_mask_of_madness`, `item_recipe_medallion_of_courage`, `item_recipe_mekansm`, `item_recipe_monkey_king_bar`, `item_recipe_null_talisman`, `item_recipe_oblivion_staff`, `item_recipe_octarine_core`, `item_recipe_pers`, `item_recipe_phase_boots`, `item_recipe_pipe`, `item_recipe_power_treads`, `item_recipe_ring_of_aquila`, `item_recipe_ring_of_basilius`, `item_recipe_rod_of_atos`, `item_recipe_sange`, `item_recipe_sange_and_yasha`, `item_recipe_satanic`, `item_recipe_sheepstick`, `item_recipe_shivas_guard`, `item_recipe_silver_edge`, `item_recipe_skadi`, `item_recipe_solar_crest`, `item_recipe_soul_booster`, `item_recipe_soul_ring`, `item_recipe_sphere`, `item_recipe_urn_of_shadows`, `item_recipe_veil_of_discord`, `item_recipe_vladmir`, `item_recipe_wraith_band`, `item_ring_of_aquila`, `item_ring_of_basilius`, `item_rod_of_atos`, `item_sange`, `item_sange_and_yasha`, `item_satanic`, `item_shadow_amulet`, `item_sheepstick`, `item_shivas_guard`, `item_silver_edge`, `item_skadi`, `item_solar_crest`, `item_soul_booster`, `item_soul_ring`, `item_sphere`, `item_urn_of_shadows`, `item_veil_of_discord`, `item_vladmir`, `item_wind_lace`, `item_wraith_band`
 
 ## Abilități de erou care nu mai există în joc (trebuie rescrise în Lua)
@@ -138,14 +138,12 @@ Total: **0**
 Aceste abilități există încă, însă unele valori din 6.88 nu mai au corespondent; 
 de verificat în joc dacă mecanica s‑a schimbat și, dacă da, de rescris în Lua.
 
-Total: **257**
+Total: **224**
 
 * `abaddon_borrowed_time`: duration_scepter, redirect, redirect_pct_tooltip_scepter, redirect_range_tooltip_scepter
 * `abaddon_death_coil`: heal_amount, projectile_speed, target_damage
 * `abyssal_underlord_firestorm`: first_wave_delay
-* `alchemist_goblins_greed`: bounty_multiplier_tooltip
 * `alchemist_unstable_concoction_throw`: movement_speed, vision_range
-* `ancient_apparition_chilling_touch`: attack_speed_pct, bonus_damage, max_attacks, radius
 * `ancient_apparition_cold_feet`: cast_range_tooltip, damage
 * `ancient_apparition_ice_blast`: dot_damage, frostbite_duration_scepter
 * `antimage_blink`: blink_range
@@ -154,7 +152,6 @@ Total: **257**
 * `arc_warden_spark_wraith`: activation_delay, spark_damage, wraith_speed
 * `axe_culling_blade`: atk_speed_bonus_tooltip, cooldown_scepter, kill_threshold, kill_threshold_scepter, speed_duration_scepter
 * `bane_brain_sap`: tooltip_brain_sap_heal_amt
-* `bane_enfeeble`: enfeeble_attack_reduction
 * `bane_fiends_grip`: fiend_grip_damage_scepter, fiend_grip_duration, fiend_grip_duration_scepter, fiend_grip_mana_drain_scepter
 * `bane_nightmare`: cast_range_tooltip, duration, nightmare_dot_interval
 * `batrider_flamebreak`: damage_total_tooltip, knockback_max_distance
@@ -164,26 +161,19 @@ Total: **257**
 * `beastmaster_primal_roar`: cast_range_scepter, cooldown_scepter
 * `big_thunder_lizard_wardrums_aura`: damage_bonus
 * `black_dragon_splash_attack`: damage_percent_close, damage_percent_far, damage_percent_mid, range_close, range_far, range_mid
-* `bloodseeker_bloodrage`: damage_increase_pct, health_bonus_creep_pct, health_bonus_pct
 * `bloodseeker_rupture`: cast_range_tooltip, charge_restore_time_scepter, damage_cap_interval, max_charges_scepter
 * `bloodseeker_thirst`: bonus_damage
 * `bounty_hunter_track`: aura_radius, bonus_move_speed_pct, cast_range_tooltip
 * `bounty_hunter_wind_walk`: bonus_damage
-* `brewmaster_drunken_brawler`: last_proc
 * `brewmaster_drunken_haze`: duration_creeps, radius
 * `brewmaster_thunder_clap`: duration_creeps
 * `bristleback_viscous_nasal_goo`: goo_duration_creep, radius_scepter
-* `bristleback_warpath`: base_damage, base_move_speed
 * `broodmother_poison_sting`: damage_per_second
 * `broodmother_spin_web`: charge_restore_time, damage_time, fade_delay, heath_regen, invis_movespeed_tooltip, max_charges
-* `centaur_return`: strength_pct
 * `centaur_stampede`: cooldown_scepter, damage_reduction_tooltip_scepter
 * `chaos_knight_phantasm`: extra_phantasm_chance_pct_tooltip
 * `chaos_knight_reality_rift`: bonus_damage, bonus_duration, cast_range
 * `chen_hand_of_god`: ancient_creeps_scepter
-* `chen_penitence`: bonus_damage_taken
-* `clinkz_death_pact`: damage_gain_pct, health_gain_pct
-* `clinkz_strafe`: attack_speed_bonus_pct
 * `courier_burst`: damage_absorb
 * `courier_take_stash_and_transfer_items`: handoff_distance
 * `courier_take_stash_items`: stash_pickup_distance
@@ -191,12 +181,9 @@ Total: **257**
 * `crystal_maiden_freezing_field`: attack_slow_scepter, damage_scepter, duration_tooltip, explosion_interval, movespeed_slow_scepter
 * `crystal_maiden_frostbite`: creep_damage_tooltip, creep_duration, damage, damage_per_second_tooltip, hero_damage_tooltip
 * `dark_seer_wall_of_replica`: damage, range_tooltip, replica_damage_outgoing_scepter, tooltip_outgoing_scepter
-* `dazzle_poison_touch`: duration_tooltip, set_time, should_stun, slow_1, slow_2, slow_3, stun_duration
 * `dazzle_shallow_grave`: duration_tooltip, range_tooltip
 * `dazzle_weave`: armor_per_second_scepter, duration_scepter, radius_scepter
-* `death_prophet_silence`: duration
 * `death_prophet_spirit_siphon`: charge_restore_time, max_charges, movement_slow
-* `death_prophet_witchcraft`: bonus_movement_speed, carrion_swarm_cooldown_adjust, carrion_swarm_mana_cost_adjust, exorcism_1_extra_spirits, exorcism_2_extra_spirits, exorcism_3_extra_spirits, silence_cooldown_adjust, silence_mana_cost_adjust
 * `disruptor_static_storm`: duration_scepter, pulses_scepter
 * `disruptor_thunder_strike`: duration
 * `doom_bringer_devour`: health_per_second
@@ -216,7 +203,6 @@ Total: **257**
 * `ember_spirit_searing_chains`: chains_damage, total_damage_tooltip
 * `enchantress_enchant`: tooltip_duration
 * `enchantress_impetus`: bonus_attack_range_scepter
-* `enigma_black_hole`: far_damage, far_radius, near_damage, near_radius, pull_radius
 * `enigma_demonic_conversion`: duration_tooltip, eidolon_dmg_tooltip, eidolon_hp_tooltip
 * `enigma_malefice`: duration, tooltip_stuns
 * `faceless_void_chronosphere`: cooldown_scepter, duration_scepter
@@ -241,8 +227,6 @@ Total: **257**
 * `jakiro_liquid_fire`: tooltip_duration
 * `jakiro_macropyre`: cast_range, cast_range_scepter, damage_scepter, duration_scepter, path_radius, tooltip_duration
 * `juggernaut_healing_ward`: healing_ward_duration_tooltip
-* `juggernaut_omni_slash`: omni_slash_bounce_tick, omni_slash_cooldown_scepter, omni_slash_damage, omni_slash_jumps, omni_slash_jumps_scepter
-* `keeper_of_the_light_blinding_light`: knockback_height, miss_duration
 * `keeper_of_the_light_illuminate`: damage_per_second
 * `keeper_of_the_light_mana_leak`: cast_range_tooltip
 * `kunkka_ghostship`: buff_duration, ghostship_absorb, ghostship_speed_scepter, ghostship_width_scepter, movespeed_bonus
@@ -258,7 +242,6 @@ Total: **257**
 * `life_stealer_assimilate`: damage, order_lock_duration, radius
 * `life_stealer_infest`: cast_range_scepter, cooldown_scepter, damage_increase_pct, infest_scepter_duration
 * `life_stealer_open_wounds`: tooltip_range
-* `lina_fiery_soul`: duration_tooltip
 * `lina_laguna_blade`: cast_range_scepter
 * `lion_finger_of_death`: cooldown_scepter, damage_scepter, mana_cost_scepter, splash_radius_scepter
 * `lone_druid_spirit_bear`: cooldown_scepter
@@ -267,7 +250,6 @@ Total: **257**
 * `lone_druid_spirit_bear_return`: return_damage_cooldown
 * `lone_druid_true_form`: base_attack_time, speed_loss
 * `luna_eclipse`: beams_scepter, cast_range_tooltip_scepter, duration_tooltip, duration_tooltip_scepter, hit_count_scepter
-* `magnataur_empower`: aura_radius, cleave_radius, splash_damage_pct, splash_radius
 * `magnataur_reverse_polarity`: creep_stun_duration
 * `medusa_mana_shield`: absorption_tooltip
 * `medusa_split_shot`: projectile_speed, range, total_arrow_count
@@ -286,15 +268,12 @@ Total: **257**
 * `necronomicon_archer_mana_burn`: cast_range_tooltip
 * `nevermore_necromastery`: necromastery_max_souls_scepter, necromastery_souls_hero_bonus
 * `nevermore_requiem`: cast_time_tooltip, requiem_damage_pct_scepter, requiem_heal_pct_scepter, requiem_reduction_damage, requiem_reduction_radius, requiem_reduction_tooltip
-* `night_stalker_darkness`: blind_percentage, fixed_vision
 * `nyx_assassin_burrow`: carapace_burrow_range_tooltip, impale_burn_range_increase_pct_tooltip, impale_burrow_cooldown_tooltip, impale_burrow_range_tooltip, mana_burn_burrow_range_tooltip
 * `nyx_assassin_impale`: cooldown_upgrade
 * `nyx_assassin_mana_burn`: float_multiplier
 * `nyx_assassin_spiked_carapace`: bonus_armor, bonus_damage, bonus_intellect, burrow_aoe
 * `nyx_assassin_vendetta`: cooldown_scepter
-* `obsidian_destroyer_arcane_orb`: illusion_damage, int_steal, int_steal_duration
 * `obsidian_destroyer_astral_imprisonment`: cast_range_tooltip, radius
-* `obsidian_destroyer_essence_aura`: bonus_mana, intelligence_bonus, intelligence_duration, radius, restore_amount, restore_chance
 * `obsidian_destroyer_sanity_eclipse`: damage_multiplier_scepter, mana_drain
 * `ogre_magi_multicast`: bloodlust_aoe, bloodlust_cooldown, fireblast_cooldown, fireblast_mana_cost, ignite_aoe, ignite_cast_range, multicast_2_times_tooltip, multicast_3_times_tooltip, multicast_4_times_tooltip
 * `omniknight_guardian_angel`: duration_scepter
@@ -305,7 +284,6 @@ Total: **257**
 * `phoenix_supernova`: cast_range_tooltip_scepter, max_hero_attacks_scepter, tooltip_duration
 * `puck_dream_coil`: coil_break_damage_scepter, coil_duration_scepter, coil_init_damage_tooltip, coil_stun_duration_scepter
 * `pudge_meat_hook`: cooldown_scepter, damage_scepter, hook_distance
-* `pugna_decrepify`: bonus_spell_damage_pct_allies, tooltip_duration
 * `pugna_life_drain`: cast_range_tooltip, duration_tooltip, health_drain_scepter, scepter_cooldown
 * `pugna_nether_ward`: attacks_to_destroy_tooltip, ward_duration_tooltip
 * `queenofpain_blink`: blink_range
@@ -317,32 +295,24 @@ Total: **257**
 * `razor_eye_of_the_storm`: strike_interval_scepter
 * `razor_plasma_field`: speed
 * `razor_static_link`: vision_radius
-* `razor_unstable_current`: movement_speed_pct, pause_duration, purge_frequency, slow_amount, slow_duration
 * `roshan_halloween_toss`: tooltip_range
 * `roshan_slam`: slow_duration_hero, slow_duration_unit
-* `rubick_fade_bolt`: creep_attack_damage_reduction, hero_attack_damage_reduction
 * `rubick_spell_steal`: cast_range_scepter, cooldown_scepter
 * `rubick_telekinesis`: cast_range_tooltip, max_land_distance_allied
 * `sandking_burrowstrike`: burrow_speed_scepter, cast_range_scepter, tooltip_range
-* `sandking_caustic_finale`: caustic_finale_damage, caustic_finale_damage_expire_tooltip, caustic_finale_damage_reduced, caustic_finale_expire_dmg_pct_tooltip, caustic_finale_slow, caustic_finale_slow_duration
 * `sandking_epicenter`: epicenter_radius, epicenter_slow_duration_tooltip
 * `sandking_sand_storm`: sand_storm_invis_delay
 * `shadow_demon_demonic_purge`: charge_restore_time, charge_restore_time_tooltip_scepter, creep_root_duration, max_charges, slow_rate, tooltip_duration
 * `shadow_demon_shadow_poison`: tooltip_duration
-* `shadow_demon_soul_catcher`: bonus_damage_taken, tooltip_duration
 * `shadow_shaman_mass_serpent_ward`: damage_max, damage_max_scepter, damage_min, damage_min_scepter, splash_damage, splash_radius
 * `shredder_timber_chain`: range
 * `silencer_global_silence`: tooltip_duration
 * `skeleton_king_hellfire_blast`: tooltip_slow_duration
-* `skeleton_king_mortal_strike`: crit_chance, crit_mult_creeps, death_buffer, drain_duration, hp_drain, spawn_duration
 * `skeleton_king_reincarnation`: attackslow_tooltip, aura_radius, aura_radius_tooltip_scepter, scepter_duration
 * `skywrath_mage_mystic_flare`: cooldown_scepter, duration_scepter
-* `slark_shadow_dance`: bonus_regen_pct, scepter_aoe, scepter_cooldown
 * `sniper_assassinate`: tooltip_range, total_cast_time_tooltip
 * `sniper_shrapnel`: building_damage, charge_restore_time, max_charges
-* `sniper_take_aim`: bonus_attack_range
 * `spirit_breaker_nether_strike`: bash_radius_scepter, cast_range_scepter, cooldown_scepter, tooltip_range
-* `storm_spirit_electric_vortex`: duration, electric_vortex_pull_units_per_second, radius_scepter
 * `storm_spirit_overload`: tooltip_duration
 * `sven_gods_strength`: gods_strength_damage_scepter, radius_scepter
 * `sven_great_cleave`: great_cleave_radius
@@ -365,13 +335,10 @@ Total: **257**
 * `tiny_toss`: bonus_damage_pct, grow_bonus_damage_pct, tooltip_range
 * `treant_eyes_in_the_forest`: damage, overgrowth_aoe
 * `treant_leech_seed`: damage_interval
-* `treant_natures_guise`: bonus_move_speed, duration, fade_time, search_interval
 * `treant_overgrowth`: eyes_radius
 * `tusk_ice_shards`: cast_range_tooltip
 * `tusk_walrus_kick`: cooldown_scepter, crit_multiplier
-* `tusk_walrus_punch`: cooldown_scepter, move_slow, slow_duration
 * `undying_decay`: str_steal_scepter
-* `undying_flesh_golem`: death_heal, death_heal_creep, full_power_radius, max_damage_amp, max_speed_slow, min_damage_amp, min_speed_slow, radius
 * `undying_tombstone`: health_threshold
 * `undying_tombstone_zombie_aura`: bonus_speed
 * `undying_tombstone_zombie_deathstrike`: bonus_speed, health_threshold
@@ -400,26 +367,20 @@ Total: **257**
 
 ## Abilități cu comportament (AbilityBehavior) diferit
 
-Total: **141** (doar informativ; nu suprascriem comportamentul automat)
+Total: **129** (doar informativ; nu suprascriem comportamentul automat)
 
-* `alchemist_goblins_greed`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI', 'DOTA_ABILITY_BEHAVIOR_HIDDEN']
-* `ancient_apparition_chilling_touch`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_AOE', 'DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING', 'DOTA_ABILITY_BEHAVIOR_POINT']; acum are în plus ['DOTA_ABILITY_BEHAVIOR_ATTACK', 'DOTA_ABILITY_BEHAVIOR_AUTOCAST', 'DOTA_ABILITY_BEHAVIOR_UNIT_TARGET']
 * `ancient_apparition_ice_blast_release`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE']
 * `antimage_blink`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_OVERSHOOT']
 * `arc_warden_magnetic_field`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST']
 * `arc_warden_tempest_double`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_NO_TARGET']; acum are în plus ['DOTA_ABILITY_BEHAVIOR_POINT']
-* `bane_enfeeble`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING']; acum are în plus —
 * `bane_nightmare`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE']
 * `batrider_sticky_napalm`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_DONT_PROC_OTHER_ABILITIES']
 * `beastmaster_inner_beast`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_AURA']; acum are în plus ['DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI', 'DOTA_ABILITY_BEHAVIOR_HIDDEN']
-* `bloodseeker_bloodrage`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_UNIT_TARGET']; acum are în plus ['DOTA_ABILITY_BEHAVIOR_IMMEDIATE', 'DOTA_ABILITY_BEHAVIOR_NO_TARGET']
-* `brewmaster_drunken_brawler`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_PASSIVE']; acum are în plus ['DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL', 'DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE', 'DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE', 'DOTA_ABILITY_BEHAVIOR_IMMEDIATE', 'DOTA_ABILITY_BEHAVIOR_NO_TARGET']
 * `brewmaster_drunken_haze`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_AOE']; acum are în plus —
 * `bristleback_quill_spray`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_AUTOCAST']
 * `centaur_double_edge`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_AOE']
 * `centaur_hoof_stomp`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_IMMEDIATE']
 * `chaos_knight_reality_rift`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES']
-* `clinkz_strafe`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL']; acum are în plus ['DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING']
 * `courier_go_to_secretshop`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE', 'DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE']
 * `courier_return_stash_items`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE']
 * `courier_return_to_base`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE']
@@ -427,7 +388,6 @@ Total: **141** (doar informativ; nu suprascriem comportamentul automat)
 * `courier_take_stash_items`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE']
 * `courier_transfer_items`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE']
 * `dark_seer_wall_of_replica`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING']
-* `death_prophet_witchcraft`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI', 'DOTA_ABILITY_BEHAVIOR_HIDDEN', 'DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS']
 * `doom_bringer_devour`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE']
 * `earth_spirit_petrify`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES']
 * `earth_spirit_rolling_boulder`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES']
@@ -458,7 +418,6 @@ Total: **141** (doar informativ; nu suprascriem comportamentul automat)
 * `invoker_tornado`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_DIRECT_KEYBIND', 'DOTA_ABILITY_BEHAVIOR_OVERSHOOT', 'DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES']
 * `invoker_wex`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL', 'DOTA_ABILITY_BEHAVIOR_IGNORE_INVISIBLE']
 * `jakiro_liquid_fire`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_AOE']
-* `keeper_of_the_light_blinding_light`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE']; acum are în plus —
 * `keeper_of_the_light_mana_leak`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_HIDDEN', 'DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES']
 * `keeper_of_the_light_recall`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_CHANNELLED']; acum are în plus ['DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE', 'DOTA_ABILITY_BEHAVIOR_HIDDEN', 'DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES']
 * `legion_commander_overwhelming_odds`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_POINT']; acum are în plus ['DOTA_ABILITY_BEHAVIOR_NO_TARGET']
@@ -497,12 +456,10 @@ Total: **141** (doar informativ; nu suprascriem comportamentul automat)
 * `queenofpain_blink`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_OVERSHOOT']
 * `rattletrap_battery_assault`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_IMMEDIATE']
 * `razor_eye_of_the_storm`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_IMMEDIATE']
-* `razor_unstable_current`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_INNATE_UI']
 * `rubick_null_field`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_PASSIVE']; acum are în plus ['DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL', 'DOTA_ABILITY_BEHAVIOR_IMMEDIATE', 'DOTA_ABILITY_BEHAVIOR_NO_TARGET']
 * `rubick_telekinesis`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING']
 * `rubick_telekinesis_land`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL', 'DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT', 'DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL', 'DOTA_ABILITY_BEHAVIOR_IMMEDIATE']
 * `sandking_burrowstrike`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_UNIT_TARGET']; acum are în plus ['DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE', 'DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES']
-* `sandking_caustic_finale`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI', 'DOTA_ABILITY_BEHAVIOR_HIDDEN', 'DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE', 'DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS']
 * `sandking_epicenter`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_CHANNELLED']; acum are în plus —
 * `sandking_sand_storm`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_CHANNELLED']; acum are în plus —
 * `shadow_shaman_mass_serpent_ward`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_AOE']
@@ -512,7 +469,6 @@ Total: **141** (doar informativ; nu suprascriem comportamentul automat)
 * `skeleton_king_reincarnation`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_PASSIVE']; acum are în plus ['DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST', 'DOTA_ABILITY_BEHAVIOR_UNIT_TARGET']
 * `slark_essence_shift`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_AURA', 'DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI', 'DOTA_ABILITY_BEHAVIOR_HIDDEN', 'DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE']
 * `slark_pounce`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES']
-* `sniper_take_aim`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_PASSIVE']; acum are în plus ['DOTA_ABILITY_BEHAVIOR_NO_TARGET']
 * `spectre_desolate`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI', 'DOTA_ABILITY_BEHAVIOR_HIDDEN']
 * `spectre_reality`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES']
 * `spirit_breaker_nether_strike`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES']
@@ -528,7 +484,6 @@ Total: **141** (doar informativ; nu suprascriem comportamentul automat)
 * `tinker_heat_seeking_missile`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_HIDDEN', 'DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE']
 * `treant_eyes_in_the_forest`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_AOE', 'DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES']
 * `treant_leech_seed`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_ATTACK', 'DOTA_ABILITY_BEHAVIOR_AUTOCAST']
-* `treant_natures_guise`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK', 'DOTA_ABILITY_BEHAVIOR_UNIT_TARGET']; acum are în plus ['DOTA_ABILITY_BEHAVIOR_FORCE_KEYBIND', 'DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI', 'DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE', 'DOTA_ABILITY_BEHAVIOR_PASSIVE', 'DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES']
 * `troll_warlord_whirling_axes_melee`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_HIDDEN']; acum are în plus —
 * `tusk_frozen_sigil`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_HIDDEN', 'DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES']
 * `tusk_snowball`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES']

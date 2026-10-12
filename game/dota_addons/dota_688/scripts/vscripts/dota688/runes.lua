@@ -78,5 +78,14 @@ function M:BountyRuneFilter(ev)
 		ev.gold_bounty = C.RUNE_BOUNTY_GOLD_BASE + C.RUNE_BOUNTY_GOLD_PER_MIN * minutes
 		ev.xp_bounty = C.RUNE_BOUNTY_XP_BASE + C.RUNE_BOUNTY_XP_PER_MIN * minutes
 	end
+	-- Greevil's Greed (Alchemist, 6.88): runele Bounty valoreaza x3/4/5/6
+	local pid = ev.player_id_const
+	if pid and pid >= 0 and PlayerResource:HasSelectedHero(pid) then
+		local hero = PlayerResource:GetSelectedHeroEntity(pid)
+		local greed = hero and hero:FindAbilityByName("dota688_alchemist_goblins_greed")
+		if greed and greed:GetLevel() > 0 then
+			ev.gold_bounty = ev.gold_bounty * (2 + greed:GetLevel())
+		end
+	end
 	return true
 end

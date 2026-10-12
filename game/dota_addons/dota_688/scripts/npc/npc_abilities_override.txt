@@ -70,14 +70,6 @@
 			"speed_bonus"		"30"
 		}
 	}
-	"bane_enfeeble"
-	{
-		"AbilityCastRange"		"1000"
-		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
-		"AbilityCooldown"		"8.0"
-		"AbilityManaCost"		"95"
-		"AbilityDuration"		"20.0 20.0 20.0 20.0"
-	}
 	"bane_brain_sap"
 	{
 		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
@@ -110,16 +102,6 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"22 19 16 13"
-		}
-	}
-	"bloodseeker_bloodrage"
-	{
-		"AbilityCastRange"		"800"
-		"AbilityCastPoint"		"0.2"
-		"AbilityCooldown"		"12 10 8 6"
-		"AbilityValues"
-		{
-			"duration"		"9 10 11 12"
 		}
 	}
 	"bloodseeker_blood_bath"
@@ -238,14 +220,6 @@
 			"healing_ward_movespeed_tooltip"		"420"
 		}
 	}
-	"juggernaut_omni_slash"
-	{
-		"AbilityValues"
-		{
-			"AbilityCastRange"		"350"
-			"AbilityCooldown"		"130.0 120.0 110.0"
-		}
-	}
 	"kunkka_torrent"
 	{
 		"AbilityCastRange"		"1500"
@@ -312,16 +286,6 @@
 		{
 			"light_strike_array_aoe"		"225"
 			"light_strike_array_stun_duration"		"1.6 1.9 2.2 2.5"
-		}
-	}
-	"lina_fiery_soul"
-	{
-		"AbilityDuration"		"10"
-		"AbilityValues"
-		{
-			"fiery_soul_attack_speed_bonus"		"40 55 70 85"
-			"fiery_soul_move_speed_bonus"		"5 6 7 8"
-			"fiery_soul_max_stacks"		"3"
 		}
 	}
 	"lina_laguna_blade"
@@ -693,10 +657,6 @@
 			"drain_range_buffer"		"200"
 		}
 	}
-	"razor_unstable_current"
-	{
-		"AbilityDamage"		"40 70 100 130"
-	}
 	"razor_eye_of_the_storm"
 	{
 		"AbilityCastPoint"		"0.3 0.3 0.3"
@@ -716,13 +676,6 @@
 			"blast_stun_duration"		"2.0"
 			"blast_dot_duration"		"4"
 			"blast_dot_damage"		"20 35 50 65"
-		}
-	}
-	"skeleton_king_mortal_strike"
-	{
-		"AbilityValues"
-		{
-			"crit_mult"		"150 200 250 300"
 		}
 	}
 	"skeleton_king_reincarnation"
@@ -745,16 +698,6 @@
 		{
 			"AbilityCooldown"		"8 7 6 5"
 			"range"		"810 810 810 810"
-		}
-	}
-	"death_prophet_silence"
-	{
-		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
-		"AbilityManaCost"		"80 80 80 80"
-		"AbilityDuration"		"3.0 4.0 5.0 6.0"
-		"AbilityValues"
-		{
-			"radius"		"425"
 		}
 	}
 	"death_prophet_spirit_siphon"
@@ -819,15 +762,6 @@
 			"static_remnant_damage"		"140 180 220 260"
 		}
 	}
-	"storm_spirit_electric_vortex"
-	{
-		"AbilityCooldown"		"21 20 19 18"
-		"AbilityManaCost"		"85"
-		"AbilityValues"
-		{
-			"AbilityDuration"		"1.0 1.5 2.0 2.5"
-		}
-	}
 	"storm_spirit_overload"
 	{
 		"AbilityDamage"		"40 60 80 100"
@@ -871,13 +805,6 @@
 		{
 			"AbilityDuration"		"50"
 			"sand_storm_radius"		"525"
-		}
-	}
-	"sandking_caustic_finale"
-	{
-		"AbilityValues"
-		{
-			"caustic_finale_duration"		"6"
 		}
 	}
 	"sandking_epicenter"
@@ -1233,15 +1160,6 @@
 			"duration"		"11"
 		}
 	}
-	"enigma_black_hole"
-	{
-		"AbilityCooldown"		"200.0 180.0 160.0"
-		"AbilityManaCost"		"275 325 375"
-		"AbilityValues"
-		{
-			"pull_speed"		"40 40 40"
-		}
-	}
 	"tinker_laser"
 	{
 		"AbilityCastRange"		"650"
@@ -1563,17 +1481,6 @@
 			"delay"		"0.9 0.9 0.9 0.9"
 		}
 	}
-	"pugna_decrepify"
-	{
-		"AbilityCastRange"		"700 700 700 700"
-		"AbilityCooldown"		"15.0 12.0 9.0 6.0"
-		"AbilityManaCost"		"60"
-		"AbilityValues"
-		{
-			"bonus_spell_damage_pct"		"-30 -40 -50 -60"
-			"bonus_movement_speed"		"-30 -40 -50 -60"
-		}
-	}
 	"pugna_nether_ward"
 	{
 		"AbilityCooldown"		"35.0 35.0 35.0 35.0"
@@ -1747,14 +1654,6 @@
 			"frost_bonus_attack_speed"		"-20"
 			"frost_duration"		"3.0 3.0 3.0"
 		}
-	}
-	"dazzle_poison_touch"
-	{
-		"AbilityCastRange"		"600 650 700 750"
-		"AbilityCooldown"		"15 13 11 7"
-		"AbilityManaCost"		"70"
-		"AbilityDamage"		"14 20 26 36"
-		"AbilityDuration"		"10"
 	}
 	"dazzle_shallow_grave"
 	{
@@ -1976,15 +1875,6 @@
 			"width"		"1000 1000 1000"
 		}
 	}
-	"clinkz_strafe"
-	{
-		"AbilityManaCost"		"90 90 90 90"
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"40 35 30 25"
-			"duration"		"4.0 6.0 8.0 10.0"
-		}
-	}
 	"clinkz_searing_arrows"
 	{
 		"AbilityValues"
@@ -2001,17 +1891,6 @@
 			"AbilityCooldown"		"20 19 18 17"
 			"duration"		"20.0 25.0 30.0 35.0"
 			"move_speed_bonus_pct"		"11 22 33 44"
-		}
-	}
-	"clinkz_death_pact"
-	{
-		"AbilityCastRange"		"400"
-		"AbilityCastPoint"		"0.5 0.5 0.5"
-		"AbilityCooldown"		"45.0 35.0 25.0"
-		"AbilityManaCost"		"100 100 100"
-		"AbilityValues"
-		{
-			"duration"		"35"
 		}
 	}
 	"omniknight_purification"
@@ -2133,15 +2012,6 @@
 		{
 			"bonus_movement_speed_pct_night"		"20 25 30 35"
 			"bonus_attack_speed_night"		"45 60 75 90"
-		}
-	}
-	"night_stalker_darkness"
-	{
-		"AbilityManaCost"		"0 0 0"
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"160 120 80"
-			"duration"		"50.0"
 		}
 	}
 	"broodmother_spawn_spiderlings"
@@ -2355,17 +2225,6 @@
 			"duration"		"3.0 3.5 4.0"
 		}
 	}
-	"chen_penitence"
-	{
-		"AbilityCooldown"		"14.0 13.0 12.0 11.0"
-		"AbilityManaCost"		"70"
-		"AbilityValues"
-		{
-			"duration"		"8"
-			"speed"		"2000 2000 2000 2000"
-			"bonus_movement_speed"		"-15 -20 -25 -30"
-		}
-	}
 	"chen_test_of_faith"
 	{
 		"AbilityManaCost"		"90 100 110 120"
@@ -2499,17 +2358,6 @@
 			"movement_speed_pct"		"-15 -20 -25 -30"
 			"spell_resist_pct"		"-15 -20 -25 -30"
 			"vision_aoe"		"200 200 200 200"
-		}
-	}
-	"ancient_apparition_chilling_touch"
-	{
-		"AbilityCastRange"		"800 800 800 800"
-		"AbilityCastPoint"		"0.01 0.01 0.01 0.01"
-		"AbilityDuration"		"30.0"
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"50.0 42.0 34.0 26.0"
-			"AbilityManaCost"		"110 120 130 140"
 		}
 	}
 	"ancient_apparition_ice_blast"
@@ -2649,16 +2497,6 @@
 		{
 			"max_stun"		"1.75 2.5 3.25 4.0"
 			"midair_explosion_radius"		"175"
-		}
-	}
-	"alchemist_goblins_greed"
-	{
-		"AbilityValues"
-		{
-			"duration"		"30"
-			"bonus_gold"		"6 8 10 12"
-			"bonus_bonus_gold"		"3"
-			"bonus_gold_cap"		"12 20 28 36"
 		}
 	}
 	"alchemist_chemical_rage"
@@ -2850,15 +2688,6 @@
 			"AbilityDuration"		"4.0 5.0 6.0"
 		}
 	}
-	"obsidian_destroyer_arcane_orb"
-	{
-		"AbilityCooldown"		"0"
-		"AbilityManaCost"		"100 120 140 160"
-		"AbilityValues"
-		{
-			"mana_pool_damage_pct"		"6 7 8 9"
-		}
-	}
 	"obsidian_destroyer_astral_imprisonment"
 	{
 		"AbilityCastPoint"		"0.25 0.25 0.25 0.25"
@@ -3020,15 +2849,6 @@
 			"miss_chance"		"45 55 65 75"
 		}
 	}
-	"brewmaster_drunken_brawler"
-	{
-		"AbilityValues"
-		{
-			"dodge_chance"		"10 15 20 25"
-			"crit_chance"		"10 15 20 25"
-			"crit_multiplier"		"200"
-		}
-	}
 	"brewmaster_primal_split"
 	{
 		"AbilityCastPoint"		"0.65"
@@ -3099,17 +2919,6 @@
 			"illusion_outgoing_tooltip"		"30.0 45.0 60.0 75.0"
 			"illusion_incoming_damage"		"100"
 			"tooltip_total_illusion_incoming_damage"		"200"
-		}
-	}
-	"shadow_demon_soul_catcher"
-	{
-		"AbilityCastRange"		"600"
-		"AbilityCooldown"		"13 12 11 10"
-		"AbilityManaCost"		"50 60 70 80"
-		"AbilityDuration"		"12.0 12.0 12.0 12.0"
-		"AbilityValues"
-		{
-			"radius"		"450 450 450 450"
 		}
 	}
 	"shadow_demon_shadow_poison"
@@ -3195,18 +3004,6 @@
 		"AbilityValues"
 		{
 			"tooltip_clones"		"1 2 3"
-		}
-	}
-	"treant_natures_guise"
-	{
-		"AbilityCastRange"		"600"
-		"AbilityCastPoint"		"0.3"
-		"AbilityManaCost"		"60"
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"10.0 8.0 6.0 4.0"
-			"radius"		"350"
-			"grace_time"		"0.75"
 		}
 	}
 	"treant_leech_seed"
@@ -3342,15 +3139,6 @@
 			"health_threshold_pct"		"20 25 30 35"
 		}
 	}
-	"undying_flesh_golem"
-	{
-		"AbilityManaCost"		"100 100 100"
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"75.0 75.0 75.0"
-			"duration"		"30"
-		}
-	}
 	"rubick_telekinesis"
 	{
 		"AbilityManaCost"		"120 120 120 120"
@@ -3367,16 +3155,6 @@
 		"AbilityValues"
 		{
 			"radius"		"325 325 325 325"
-		}
-	}
-	"rubick_fade_bolt"
-	{
-		"AbilityManaCost"		"120 130 140 150"
-		"AbilityValues"
-		{
-			"damage"		"75 150 225 300"
-			"jump_damage_reduction_pct"		"4 4 4 4"
-			"duration"		"10.0 10.0 10.0 10.0"
 		}
 	}
 	"rubick_null_field"
@@ -3581,20 +3359,6 @@
 			"teleport_delay"		"5.0 4.0 3.0"
 		}
 	}
-	"keeper_of_the_light_blinding_light"
-	{
-		"AbilityCastRange"		"900 900 900"
-		"AbilityManaCost"		"50 50 50"
-		"MaxLevel"		"3"
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"20 16 12"
-			"radius"		"675 675 675"
-			"miss_rate"		"80 80 80"
-			"knockback_distance"		"525"
-			"knockback_duration"		"0.4 0.4 0.4"
-		}
-	}
 	"visage_grave_chill"
 	{
 		"AbilityCastRange"		"650"
@@ -3713,16 +3477,6 @@
 			"duration"		"15 30 60 120"
 		}
 	}
-	"slark_shadow_dance"
-	{
-		"AbilityCooldown"		"60.0"
-		"AbilityManaCost"		"120 120 120"
-		"AbilityValues"
-		{
-			"duration"		"4.0"
-			"bonus_movement_speed"		"30 35 40"
-		}
-	}
 	"medusa_split_shot"
 	{
 		"AbilityValues"
@@ -3827,13 +3581,6 @@
 			"radius"		"190"
 		}
 	}
-	"centaur_return"
-	{
-		"AbilityValues"
-		{
-			"return_damage"		"16 18 20 22"
-		}
-	}
 	"centaur_stampede"
 	{
 		"AbilityManaCost"		"100"
@@ -3855,16 +3602,6 @@
 			"AbilityCastRange"		"1150"
 			"shock_speed"		"1050"
 			"shock_width"		"150"
-		}
-	}
-	"magnataur_empower"
-	{
-		"AbilityManaCost"		"30 40 50 60"
-		"AbilityValues"
-		{
-			"empower_duration"		"40.0 40.0 40.0 40.0"
-			"bonus_damage_pct"		"20 30 40 50"
-			"cleave_damage_pct"		"20 30 40 50"
 		}
 	}
 	"magnataur_skewer"
@@ -3973,17 +3710,6 @@
 			"quill_release_threshold"		"210"
 		}
 	}
-	"bristleback_warpath"
-	{
-		"AbilityDuration"		"10.0 10.0 10.0"
-		"AbilityValues"
-		{
-			"damage_per_stack"		"20 25 30"
-			"move_speed_per_stack"		"3 4 5"
-			"stack_duration"		"14.0"
-			"max_stacks"		"5 6 7"
-		}
-	}
 	"tusk_ice_shards"
 	{
 		"AbilityCastRange"		"1800"
@@ -4019,16 +3745,6 @@
 			"sigil_duration"		"30.0"
 			"move_slow"		"10 15 20 25"
 			"attack_slow"		"30 40 50 60"
-		}
-	}
-	"tusk_walrus_punch"
-	{
-		"AbilityCastRange"		"128"
-		"AbilityCooldown"		"36 24 12"
-		"AbilityManaCost"		"50 75 100"
-		"AbilityValues"
-		{
-			"crit_multiplier"		"350"
 		}
 	}
 	"tusk_walrus_kick"
