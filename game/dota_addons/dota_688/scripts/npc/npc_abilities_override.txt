@@ -4608,6 +4608,10 @@
 		"SideShop"		"1"
 		"ItemShopTags"		"move_speed"
 	}
+	"item_gem"
+	{
+		"ItemStockInitial"		"1"
+	}
 	"item_cloak"
 	{
 		"ItemCost"		"550"
@@ -4678,6 +4682,9 @@
 			"buff_duration"		"50"
 			"mana_regen"		"3.8"
 		}
+		"ItemStockMax"		"0"
+		"ItemStockInitial"		"0"
+		"ItemStockTime"		"0"
 		"AbilityDuration"		"50"
 	}
 	"item_enchanted_mango"
@@ -4690,6 +4697,9 @@
 			"hp_regen"		"1.0"
 			"replenish_amount"		"150"
 		}
+		"ItemStockMax"		"0"
+		"ItemStockInitial"		"0"
+		"ItemStockTime"		"0"
 	}
 	"item_flask"
 	{
@@ -4700,6 +4710,9 @@
 			"buff_duration"		"8"
 			"health_regen"		"50"
 		}
+		"ItemStockMax"		"0"
+		"ItemStockInitial"		"0"
+		"ItemStockTime"		"0"
 		"AbilityDuration"		"8"
 	}
 	"item_dust"
@@ -4740,6 +4753,9 @@
 			"true_sight_range"		"850"
 			"duration_minutes_tooltip"		"4"
 		}
+		"ItemStockMax"		"0"
+		"ItemStockInitial"		"0"
+		"ItemStockTime"		"0"
 	}
 	"item_recipe_ward_dispenser"
 	{
@@ -4770,6 +4786,9 @@
 		"ItemInitialCharges"		"4"
 		"SideShop"		"0"
 		"ItemShopTags"		"consumable"
+		"ItemStockMax"		"0"
+		"ItemStockInitial"		"0"
+		"ItemStockTime"		"0"
 		"AbilityValues"
 		{
 			"health_regen"		"7.2"
@@ -4791,6 +4810,7 @@
 		"ItemCost"		"100"
 		"ItemStockTime"		"120.0"
 		"ItemPurchasable"		"1"
+		"ItemStockInitial"		"1"
 	}
 	"item_tpscroll"
 	{
@@ -5933,6 +5953,7 @@
 		{
 			"duration"		"35.0"
 		}
+		"ItemStockInitial"		"3"
 	}
 	"item_tome_of_knowledge"
 	{

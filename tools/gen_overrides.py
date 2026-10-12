@@ -70,6 +70,7 @@ UNIT_PREFIXES = (
     "npc_dota_creep_goodguys_", "npc_dota_creep_badguys_",
     "npc_dota_neutral_", "npc_dota_roshan", "npc_dota_courier", "npc_dota_flying_courier",
     "npc_dota_fort", "npc_dota_observer_wards", "npc_dota_sentry_wards",
+    "npc_dota_dark_troll_warlord_skeleton_warrior", "dota_fountain",
 )
 UNIT_STAT_KEYS = [
     "Level", "StatusHealth", "StatusHealthRegen", "StatusMana", "StatusManaRegen",
@@ -79,7 +80,11 @@ UNIT_STAT_KEYS = [
     "BountyXP", "BountyGoldMin", "BountyGoldMax",
     "MovementSpeed", "MovementTurnRate",
     "VisionDaytimeRange", "VisionNighttimeRange",
+    "BaseAttackSpeed", "CanBeDominated",
 ]
+# 6.88 nu avea BaseAttackSpeed (viteza de atac de baza era 100 pentru toate unitatile); 7.31 a dat neutralilor
+# BaseAttackSpeed 110-200 (si AttackRate 2) -> cu AttackRate-ul 6.88 atacau de 1.25-2x mai repede (turnurile 1.1x)
+UNIT_DEFAULTS_688 = {"BaseAttackSpeed": "100"}
 
 # Sloturi de abilitate pe care le golim (talente 10‑17, inate, etc.)
 MAX_ABILITY_SLOT = 24
@@ -524,6 +529,16 @@ def gen_items(I0, IN, custom: set[str], report: dict) -> tuple[kv.KV, kv.KV]:
         # itemele din 6.88 trebuie să fie cumpărabile (unele au fost scoase din shop între timp)
         if old.get_str("ItemCost") and old.get_str("ItemPurchasable", "1") != "0" and cur.get_str("ItemPurchasable", "1") == "0":
             blk["ItemPurchasable"] = "1"
+        # stocul: cheile adaugate dupa 6.88 raman active daca nu le suprascriem. In 6.88 lipsa lui ItemStockMax
+        # insemna fara limita (tango, clarity, salve, mango, sentry; acum 10/5/5/4/8 cu refacere la 120/70 s), iar
+        # lipsa lui ItemStockInitial insemna stoc plin la inceput (Smoke 3, Gem 1, curier 1). "0" = valoarea implicita.
+        stock_max = old.get_str("ItemStockMax")
+        if stock_max is None:
+            if cur.get_str("ItemStockMax", "0") != "0":
+                for key in ("ItemStockMax", "ItemStockInitial", "ItemStockTime"):
+                    blk[key] = "0"
+        elif old.get_str("ItemStockInitial") is None and cur.get_str("ItemStockInitial") != stock_max:
+            blk["ItemStockInitial"] = stock_max
         if len(blk):
             override[name] = blk
     for name, cur in IN.blocks():
@@ -753,6 +768,14 @@ RENAMED_UNITS = {
     "npc_dota688_treant_eyes": "npc_dota_treant_eyes",
 }
 
+# Unitati moderne pe care motorul le spawneaza in locul celor 6.88 -> unitatea 6.88 a carei statistici/abilitati le iau.
+# Flagbearer (7.34): un creep melee din fiecare val, cu aura care da aur in plus inamicilor din jur la moarte
+# ("aurul de 2 ori" la last hit) si bounty 7.x.
+MODERN_UNIT_ALIASES = {
+    f"npc_dota_creep_{team}_flagbearer{sfx}": f"npc_dota_creep_{team}_melee{sfx}"
+    for team in ("goodguys", "badguys") for sfx in ("", "_upgraded", "_upgraded_mega")
+}
+
 
 # abilitati moderne care emuleaza tabelul de tipuri de atac/armura scos din motor (6.88 il avea in C++): raman
 UNIT_DAMAGE_TYPE_ABILITIES = {"creep_piercing", "creep_irresolute", "creep_siege"}
@@ -760,9 +783,17 @@ UNIT_DAMAGE_TYPE_ABILITIES = {"creep_piercing", "creep_irresolute", "creep_siege
 #   roshan_inherent_buffs - in 6.88 pasiv fara valori; acum impune HP 6000 + 130/min la fiecare frame (testat) ->
 #   cresterea 6.88 o face modifiers/modifier_dota688_roshan.lua
 UNIT_ABILITIES_REPLACED = {"roshan_inherent_buffs"}
+# 7.31 a facut toti neutralii "standard" (fara tip de atac) si le-a rescalat damage-ul; noi readucem damage-ul 6.88,
+# deci si tipul de atac 6.88 trebuie emulat (Basic 75% si Pierce 50% damage in eroi), ca la creepii de lane
+ATTACK_CLASS_ABILITY = {
+    "DOTA_COMBAT_CLASS_ATTACK_BASIC": "creep_irresolute",
+    "DOTA_COMBAT_CLASS_ATTACK_PIERCE": "creep_piercing",
+    "DOTA_COMBAT_CLASS_ATTACK_SIEGE": "creep_siege",
+}
+ATTACK_CLASS_EMULATED = ("npc_dota_neutral_", "npc_dota_dark_troll_warlord_skeleton_warrior")
 
 
-def unit_abilities_688(old: kv.KV, cur: kv.KV, AN) -> tuple[list[str], list[str], list[str], list[str]]:
+def unit_abilities_688(old: kv.KV, cur: kv.KV, AN, attack_class: str = "") -> tuple[list[str], list[str], list[str], list[str]]:
     """Abilitatile unei unitati ca in 6.88: cele din KV-ul 6.88 care mai exista in joc + emularile tipurilor de
     atac/armura. Intoarce (lista finala, scoase, lipsa, lista curenta)."""
     def slots(b):
@@ -772,6 +803,9 @@ def unit_abilities_688(old: kv.KV, cur: kv.KV, AN) -> tuple[list[str], list[str]
     keep = [a for a in old_ab if (AN.get_kv(a) is not None or a in cur_ab) and a not in UNIT_ABILITIES_REPLACED]
     missing = [a for a in old_ab if a not in keep]
     keep += [a for a in cur_ab if a in UNIT_DAMAGE_TYPE_ABILITIES and a not in keep]
+    emul = ATTACK_CLASS_ABILITY.get(attack_class)
+    if emul and emul not in keep and AN.get_kv(emul) is not None:
+        keep.append(emul)
     removed = [a for a in cur_ab if a not in keep]
     return keep, removed, missing, cur_ab
 
@@ -798,7 +832,8 @@ def gen_units(U0, UN, report: dict, AN=None) -> kv.KV:
         if old is not None and UN.get_kv(name) is None:
             out[name] = old.copy()
             report["unitati"][name] = ["(copiat integral din 6.88)"]
-    for name, old in U0.blocks():
+    aliases = [(new, U0.get_kv(old_name)) for new, old_name in MODERN_UNIT_ALIASES.items() if U0.get_kv(old_name) is not None]
+    for name, old in list(U0.blocks()) + aliases:
         if not name.startswith(UNIT_PREFIXES):
             continue
         cur = UN.get_kv(name)
@@ -807,8 +842,16 @@ def gen_units(U0, UN, report: dict, AN=None) -> kv.KV:
             continue
         blk = cur.copy()
         changed = []
+        if name in MODERN_UNIT_ALIASES and old.get_str("Model") and old.get_str("Model") != cur.get_str("Model"):
+            blk["Model"] = old.get_str("Model")   # creep melee obisnuit, fara steag
+            changed.append("Model")
         for key in UNIT_STAT_KEYS:
+            # valorile lipsa din bloc se mostenesc din npc_dota_units_base al lui 6.88 (ex. MovementTurnRate 0.5)
             ov = old.get(key)
+            if ov is None and base0 is not None:
+                ov = base0.get(key)
+            if ov is None:
+                ov = UNIT_DEFAULTS_688.get(key)
             if ov is None:
                 continue
             cv = blk.get(key)
@@ -821,7 +864,10 @@ def gen_units(U0, UN, report: dict, AN=None) -> kv.KV:
                     blk[key] = ov
                     changed.append(key)
         if AN is not None:
-            keep, removed, missing, cur_ab = unit_abilities_688(old, cur, AN)
+            attack_class = ""
+            if name.startswith(ATTACK_CLASS_EMULATED):
+                attack_class = old.get_str("CombatClassAttack") or (base0.get_str("CombatClassAttack", "") if base0 else "")
+            keep, removed, missing, cur_ab = unit_abilities_688(old, cur, AN, attack_class)
             if keep != cur_ab:
                 for k in list(blk.keys()):
                     if re.fullmatch(r"Ability\d+", k):
