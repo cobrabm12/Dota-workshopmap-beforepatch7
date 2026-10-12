@@ -8,6 +8,9 @@
 		"AbilityValues"
 		{
 			"mana_per_hit"		"28 40 52 64"
+			"mana_per_hit_pct"		"0"
+			"percent_damage_per_burn"		"60"
+			"illusion_percentage"		"50"
 		}
 	}
 	"antimage_blink"
@@ -68,6 +71,8 @@
 		{
 			"damage"		"150 250 300"
 			"speed_bonus"		"30"
+			"armor_bonus"		"0"
+			"armor_per_stack"		"0"
 		}
 	}
 	"bane_brain_sap"
@@ -162,6 +167,7 @@
 			"AbilityCooldown"		"15.0 15.0 15.0 15.0"
 			"fissure_duration"		"8.0"
 			"stun_duration"		"1.0 1.25 1.5 1.75"
+			"fissure_damage"		"125 175 225 275"
 		}
 	}
 	"earthshaker_enchant_totem"
@@ -218,6 +224,7 @@
 		{
 			"healing_ward_aura_radius"		"500"
 			"healing_ward_movespeed_tooltip"		"420"
+			"healing_ward_bonus_health"		"0"
 		}
 	}
 	"kunkka_torrent"
@@ -239,6 +246,8 @@
 		{
 			"damage_bonus"		"25 45 65 85"
 			"cleave_damage"		"100"
+			"cooldown_reduction_per_hero_hit"		"0"
+			"movespeed_slow"		"0"
 		}
 	}
 	"kunkka_x_marks_the_spot"
@@ -336,6 +345,10 @@
 	{
 		"AbilityCooldown"		"160.0 100.0 40.0"
 		"AbilityManaCost"		"200 420 650"
+		"AbilityValues"
+		{
+			"damage_per_kill"		"0"
+		}
 	}
 	"mirana_arrow"
 	{
@@ -461,6 +474,8 @@
 			"necromastery_damage_per_soul"		"2"
 			"necromastery_max_souls"		"18 24 30 36"
 			"necromastery_soul_release"		"0.5"
+			"souls_per_kill"		"1"
+			"souls_per_hero_kill"		"12"
 		}
 	}
 	"nevermore_dark_lord"
@@ -577,6 +592,7 @@
 		{
 			"AbilityCastRange"		"1000 1100 1200 1300"
 			"AbilityCooldown"		"14 13 12 11"
+			"damage"		"90 180 270 360"
 		}
 	}
 	"pudge_rot"
@@ -941,6 +957,7 @@
 		"AbilityValues"
 		{
 			"damage_reduction"		"-45 -50 -55 -60"
+			"attack_damage"		"0"
 		}
 	}
 	"tidehunter_ravage"
@@ -1004,6 +1021,8 @@
 		{
 			"AbilityCastRange"		"525"
 			"AbilityManaCost"		"115 125 140 150"
+			"damage_per_second"		"50"
+			"creep_multiplier"		"1"
 		}
 	}
 	"crystal_maiden_freezing_field"
@@ -1233,7 +1252,8 @@
 		"AbilityValues"
 		{
 			"aura_radius"		"900"
-			"aura_damage"		"-0.6 -1.0 -1.4 -1.8"
+			"aura_damage"		"0.6 1.0 1.4 1.8"
+			"heal_reduction_pct"		"0"
 		}
 	}
 	"necrolyte_reapers_scythe"
@@ -1491,6 +1511,9 @@
 			"radius"		"1600"
 			"mana_multiplier"		"1.00 1.25 1.50 1.75"
 			"mana_regen"		"-1.5 -3.0 -4.5 -6.0"
+			"base_damage"		"0"
+			"health_restore_pct"		"0"
+			"mana_restore_pct"		"0"
 		}
 	}
 	"pugna_life_drain"
@@ -1563,6 +1586,14 @@
 	"templar_assassin_psionic_trap"
 	{
 		"AbilityCastRange"		"2000"
+		"AbilityValues"
+		{
+			"movement_speed_min"		"30"
+			"movement_speed_max"		"60"
+			"trap_bonus_damage"		"0"
+			"instant_trap_damage"		"0"
+			"extra_damage"		"0"
+		}
 	}
 	"templar_assassin_trap"
 	{
@@ -1978,6 +2009,11 @@
 	{
 		"AbilityDamage"		"5 10 15 20"
 		"AbilityDuration"		"8"
+		"AbilityValues"
+		{
+			"max_health_cost"		"0"
+			"burn_damage"		"5 10 15 20"
+		}
 	}
 	"huskar_life_break"
 	{
@@ -2301,6 +2337,7 @@
 		{
 			"AbilityCooldown"		"70.0 60.0 50.0 40.0"
 			"bonus_gold"		"25 50 75 100"
+			"hero_ability_steal_time"		"99999"
 		}
 	}
 	"doom_bringer_scorched_earth"
@@ -2446,6 +2483,7 @@
 			"hero_damage"		"34 34 26 21"
 			"speed"		"340"
 			"acceleration"		"20"
+			"hit_damage"		"125 250 375 500"
 		}
 	}
 	"gyrocopter_flak_cannon"
@@ -2670,15 +2708,6 @@
 			"movespeed"		"-9 -12 -15 -18"
 		}
 	}
-	"silencer_last_word"
-	{
-		"AbilityCooldown"		"30 24 18 12"
-		"AbilityManaCost"		"115"
-		"AbilityValues"
-		{
-			"damage"		"150 200 250 300"
-		}
-	}
 	"silencer_global_silence"
 	{
 		"AbilityManaCost"		"250 375 500"
@@ -2816,6 +2845,11 @@
 	{
 		"AbilityCooldown"		"5.0"
 		"AbilityDamage"		"60"
+		"AbilityValues"
+		{
+			"entangle_duration"		"3.0"
+			"hits_required"		"0"
+		}
 	}
 	"lone_druid_spirit_bear_demolish"
 	{
@@ -3004,6 +3038,9 @@
 		"AbilityValues"
 		{
 			"tooltip_clones"		"1 2 3"
+			"max_level"		"3"
+			"dps_penalty_pct"		"0 0 0"
+			"attribute_penalty_pct"		"0"
 		}
 	}
 	"treant_leech_seed"
@@ -4510,44 +4547,6 @@
 		{
 			"heal_amount"		"5"
 		}
-	}
-	"techies_land_mines"
-	{
-		"AbilityCastRange"		"100"
-		"AbilityCooldown"		"9 8 7 5"
-		"AbilityManaCost"		"60 75 85 100"
-		"AbilityValues"
-		{
-			"damage"		"150 190 225 260"
-		}
-	}
-	"techies_stasis_trap"
-	{
-		"AbilityValues"
-		{
-			"activation_radius"		"450"
-			"explode_delay"		"1.5"
-			"stun_radius"		"450"
-			"stun_duration"		"2.5 3 3.5 4"
-			"activation_time"		"1.5"
-			"duration"		"360.0"
-		}
-	}
-	"techies_suicide"
-	{
-		"AbilityCastRange"		"100"
-		"AbilityCastPoint"		"0.0 0.0 0.0 0.0"
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"160 140 120 100"
-			"damage"		"500 650 850 1150"
-		}
-	}
-	"techies_remote_mines"
-	{
-		"AbilityCastPoint"		"1.5 1.5 1.5"
-		"AbilityCooldown"		"10.0 10.0 10.0"
-		"AbilityManaCost"		"200 240 300"
 	}
 	"techies_minefield_sign"
 	{

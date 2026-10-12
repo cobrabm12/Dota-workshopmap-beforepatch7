@@ -642,9 +642,28 @@ EXTRA_UNITS = [
 ]
 
 
+# Unități 6.88 copiate sub alt nume (pentru reimplementările Lua), fără abilitățile originale (logica e în Lua)
+RENAMED_UNITS = {
+    "npc_dota688_techies_land_mine": "npc_dota_techies_land_mine",
+    "npc_dota688_techies_stasis_trap": "npc_dota_techies_stasis_trap",
+    "npc_dota688_techies_remote_mine": "npc_dota_techies_remote_mine",
+}
+
+
 def gen_units(U0, UN, report: dict) -> kv.KV:
     out = kv.KV()
     base0 = U0.get_kv("npc_dota_units_base")
+    for new, old_name in RENAMED_UNITS.items():
+        old = U0.get_kv(old_name)
+        if old is None:
+            continue
+        blk = old.copy()
+        for k in list(blk.keys()):
+            if re.fullmatch(r"Ability\d+", k):
+                del blk[k]
+        blk["Ability1"] = ""
+        out[new] = blk
+        report["unitati"][new] = [f"(copiat din 6.88: {old_name}, fara abilitati)"]
     for name in EXTRA_UNITS:
         old = U0.get_kv(name)
         if old is not None and UN.get_kv(name) is None:
@@ -785,6 +804,28 @@ def main() -> None:
         merged[k] = v
     for k, v in item_over.items:
         merged[k] = v
+    # corecții manuale (tools/manual_overrides.json): mecanici moderne de dezactivat / valori cu semn schimbat
+    manual_path = os.path.join(ROOT, "tools", "manual_overrides.json")
+    if os.path.exists(manual_path):
+        with open(manual_path, encoding="utf-8") as f:
+            manual = json.load(f)
+        for name, vals in manual.items():
+            if name.startswith("_"):
+                continue
+            blk = merged.get_kv(name)
+            if blk is None:
+                blk = kv.KV()
+                merged[name] = blk
+            cur = AN.get_kv(name) or IN.get_kv(name)
+            for key, val in vals.items():
+                if cur is not None and where_defined(cur, key) == "values":
+                    av = blk.get_kv("AbilityValues")
+                    if av is None:
+                        av = kv.KV()
+                        blk["AbilityValues"] = av
+                    av[key] = str(val)
+                else:
+                    blk[key] = str(val)
     kv.dump_file(kv.KV([("DOTAAbilities", merged)]), os.path.join(NPC, "npc_abilities_override.txt"), HEADER)
 
     custom_abilities, custom_items = gen_custom_defs(A0, I0, scripts, custom)

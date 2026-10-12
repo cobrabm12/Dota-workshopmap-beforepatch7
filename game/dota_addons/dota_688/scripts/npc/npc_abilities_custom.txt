@@ -32,4 +32,17 @@
 			"attribute_bonus_per_level"		"2"
 		}
 	}
+
+	// Detonarea individuala a unei Remote Mine (6.88) – abilitate pe unitatea-mina.
+	"dota688_techies_remote_mine_detonate"
+	{
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"abilities/heroes/dota688_techies_remote_mines"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"	"techies_remote_mines_self_detonate"
+		"MaxLevel"				"1"
+		"AbilityCastPoint"		"0"
+		"AbilityCooldown"		"0"
+		"AbilityManaCost"		"0"
+	}
 }

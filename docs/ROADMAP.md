@@ -15,18 +15,21 @@
 - [ ] Corectat ce nu merge (API‑urile marcate `Dota688SafeCall` pot lipsi)
 
 ## Faza 3 – abilități
-- [ ] Rescris în Lua cele 11 abilități dispărute (`docs/STATUS.md`)
-- [ ] Trecut prin cele ~300 de abilități cu valori fără corespondent și rescris cele cu mecanici schimbate
-  (prioritate: eroii reworkați după 6.88 – Techies, Lycan, Necrophos, Treant, Viper, Io, Lifestealer, Doom, Riki, Sniper…)
-- [ ] Scos upgrade‑urile de Aghanim adăugate după 6.88
-- [ ] Diffusal Blade nivel 2, Necronomicon, Poor Man's Shield, Iron Talon, Ring of Aquila – verificat că mai funcționează built‑in
+- [x] Rescris în Lua cele 11 abilități dispărute (`docs/STATUS.md`)
+- [x] Rescris în Lua abilitățile cu rework major (90+; lista în `docs/STATUS.md`)
+- [x] Iteme cu mecanica 6.88 (64) + shop-ul 6.88
+- [x] Override-uri manuale pentru mecanicile moderne ale abilităților păstrate built-in (`tools/manual_overrides.json`)
+- [ ] Trecut prin restul abilităților cu „valori speciale dispărute” (`docs/STATUS.md`) și decis: override manual sau Lua
+- [ ] Scos upgrade‑urile de Aghanim adăugate după 6.88 (sunt în C++; de verificat per erou)
+- [ ] Invoker (Quas/Wex/Exort în 6.88 dădeau +2/4/…/14 pe instanță), Ogre Multicast, Medusa Split Shot – de verificat în joc
 
 ## Faza 4 – harta
 - [ ] Construit `dota_688.vmap` în Hammer după `docs/HARTA.md`
 - [ ] Side shop‑uri, secret shop‑uri, Roshan, rune, jungle, efigii
 
 ## Faza 5 – finisaje
-- [ ] Panorama: ascuns UI‑ul de talente/backpack/iteme neutre, ecran cu regulile
+- [x] Panorama: ascuns UI‑ul de talente/backpack/iteme neutre (ID-urile HUD de verificat la fiecare patch)
+- [ ] Panorama: ecran cu regulile 6.88
 - [ ] Timing neutrali 0:30 + la fiecare minut
 - [ ] Durate rune (Haste 25 s), viteză maximă 522, bounty iluzii
 - [ ] Publicare în Workshop
