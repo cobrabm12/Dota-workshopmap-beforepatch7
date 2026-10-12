@@ -10,7 +10,8 @@ function M:Init(gamemode)
 end
 
 function M:OnHeroSpawned(hero)
-	hero:SetBuybackCooldownTime(0)
+	-- cooldown-ul de buyback (7 min) continua peste respawn-uri; motorul il pune la 0 la respawn
+	hero:SetBuybackCooldownTime(math.max(0, (hero.dota688_bb_until or 0) - GameRules:GetGameTime()))
 	self:UpdateBuybackCost(hero)
 end
 
@@ -58,5 +59,6 @@ function M:OnBuyback(ev)
 	if remaining and remaining > 0 then
 		Dota688GoldXP:SetBuybackPenalty(pid, remaining)
 	end
+	hero.dota688_bb_until = GameRules:GetGameTime() + C.BUYBACK_COOLDOWN
 	hero:SetBuybackCooldownTime(C.BUYBACK_COOLDOWN)
 end

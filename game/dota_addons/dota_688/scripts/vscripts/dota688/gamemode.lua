@@ -10,6 +10,7 @@ require("dota688/backpack")
 require("dota688/neutrals")
 require("dota688/aghanim")
 require("dota688/map_688")
+require("dota688/selection")
 
 require("dota688/modifiers_link")
 
@@ -47,6 +48,7 @@ function Dota688:Init()
 	gm:SetLoseGoldOnDeath(false)                   -- pierderea de aur o calculam noi (30 x nivel)
 	gm:SetBuybackEnabled(true)
 	gm:SetCustomBuybackCostEnabled(true)            -- costul 6.88 vine din respawn_buyback.lua (PlayerResource:SetCustomBuybackCost)
+	gm:SetCustomBuybackCooldownEnabled(true)        -- 7 min, pastrat peste respawn-uri (respawn_buyback.lua)
 	gm:SetFixedRespawnTime(-1)
 	gm:SetRespawnTimeScale(1.0)
 	Dota688SafeCall(gm, "SetKillingSpreeAnnouncerDisabled", false)
@@ -66,6 +68,18 @@ function Dota688:Init()
 	Dota688SafeCall(gm, "SetStashPurchasingDisabled", false)
 	Dota688SafeCall(gm, "SetCustomBackpackSwapCooldown", 0)
 	Dota688SafeCall(gm, "SetCustomBackpackCooldownPercent", 0)
+	Dota688SafeCall(gm, "SetNeutralStashEnabled", false)              -- fara iteme neutre (7.23)
+	Dota688SafeCall(gm, "SetGiveFreeTPOnDeath", false)                -- TP gratuit la moarte (7.x)
+	Dota688SafeCall(gm, "SetRandomHeroBonusItemGrantDisabled", true)  -- iteme bonus la random (7.x)
+	Dota688SafeCall(gm, "SetCustomScanCooldown", C.SCAN_COOLDOWN)
+	Dota688SafeCall(gm, "SetCustomScanMaxCharges", C.SCAN_CHARGES)
+	Dota688SafeCall(gm, "SetMaximumAttackSpeed", C.MAX_ATTACK_SPEED)
+	-- blocul innascut al eroilor melee (7.23, 50% sansa sa blocheze 16 damage): in 6.88 doar Stout Shield/PMS/Vanguard
+	Dota688SafeCall(gm, "SetInnateMeleeDamageBlockAmount", 0)
+	Dota688SafeCall(gm, "SetInnateMeleeDamageBlockPercent", 0)
+	Dota688SafeCall(gm, "SetInnateMeleeDamageBlockPerLevelAmount", 0)
+	Dota688SafeCall(GameRules, "SetSuggestAbilitiesEnabled", false)   -- procentele de skill-uri sugerate (7.x)
+	Dota688SafeCall(GameRules, "SetSuggestItemsEnabled", false)
 
 	-- Filtre ---------------------------------------------------------------
 	gm:SetModifyGoldFilter(Dynamic_Wrap(Dota688, "GoldFilter"), self)
@@ -89,6 +103,8 @@ function Dota688:Init()
 	Dota688Roshan:Init(self)
 	Dota688DayNight:Init(self)
 	Dota688Neutrals:Init(self)
+	Dota688Backpack:Init()
+	Dota688Selection:Init()
 end
 
 function Dota688:OnGameRulesStateChange()
@@ -113,6 +129,12 @@ function Dota688:OnNPCSpawned(ev)
 		if not unit:HasModifier("modifier_dota688_attributes") then
 			unit:AddNewModifier(unit, nil, "modifier_dota688_attributes", {})
 		end
+		if not unit.dota688_spawned then
+			unit.dota688_spawned = true
+			Dota688Timers:After(0.1, function()
+				if not unit:IsNull() then Dota688Backpack:OnHeroFirstSpawn(unit) end
+			end)
+		end
 		Dota688Respawn:OnHeroSpawned(unit)
 		Dota688Aghanim.OnHeroSpawned(unit)
 		if unit:GetUnitName() == "npc_dota_hero_invoker" and not unit:HasModifier("modifier_dota688_invoker_orbs") then
@@ -123,12 +145,16 @@ function Dota688:OnNPCSpawned(ev)
 	elseif unit:GetUnitName() == "npc_dota_roshan" then
 		Dota688Roshan:OnRoshanSpawned(unit)
 	end
-	if unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
-		-- motorul adauga singur neutralilor "neutral_upgrade" (cresterea lor in timp, 7.x), chiar daca nu e in KV
-		local up = unit:FindAbilityByName("neutral_upgrade")
-		if up then
-			unit:RemoveModifierByName("modifier_neutral_upgrade")
-			unit:RemoveAbilityByHandle(up)
+	if not unit:IsHero() then
+		-- abilitati 7.x pe care motorul le adauga singur unitatilor, chiar daca nu sunt in KV (testat):
+		-- neutral_upgrade (cresterea neutralilor in timp), twin_gate_portal_warp (creepii de lane),
+		-- flagbearer_creep_aura_effect (aur in plus la moartea creep-ului cu steag)
+		for ability, modifiers in pairs(C.MODERN_UNIT_ABILITIES) do
+			local a = unit:FindAbilityByName(ability)
+			if a then
+				for _, m in ipairs(modifiers) do unit:RemoveModifierByName(m) end
+				unit:RemoveAbilityByHandle(a)
+			end
 		end
 	end
 	if not unit:IsRealHero() then Dota688Aghanim.OnUnitSpawned(unit) end
@@ -159,6 +185,7 @@ function Dota688:GoldFilter(ev)
 end
 
 function Dota688:OrderFilter(ev)
+	Dota688Selection:OrderFilter(ev)
 	return Dota688Aghanim.OrderFilter(ev)
 end
 

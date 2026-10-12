@@ -22,6 +22,10 @@ var BAR_HIDE_IDS = [ "StatBranch", "AghsStatusContainer" ];
 var BAR_HIDE_TYPES = [ "DOTAHUDLevelStatsFrame", "DOTAHudTalentDisplay" ];
 // panoul extins cu talentele (dota_hud_stat_branch)
 HIDE_IDS.push("DOTAStatBranch", "StatBranchOuter");
+// iteme neutre (7.23) si crafting-ul cu Madstone ("0/6" langa slotul neutru, hud_reborn.xml), plus ajutoarele 7.x
+// de pe harta: timpii de pull ai camp-urilor si aurul neutralilor
+HIDE_IDS.push("inventory_neutral_slot_container", "inventory_neutral_craft_holder", "inventory_neutral_level_up",
+	"neutral_item_picker", "NeutralCampPullTimes", "NeutralCreepGoldBounty");
 
 function HudRoot() {
 	var p = $.GetContextPanel();
@@ -70,6 +74,14 @@ function HideKnownPanels() {
 	$.Schedule(1.0, HideKnownPanels);
 }
 
+// selectia curenta -> server (scripts/vscripts/dota688/selection.lua): cu mai multe Remote Mines selectate, clientul
+// trimite ordinul de detonare doar pentru unitatea principala; serverul le detoneaza si pe celelalte, ca in 6.88
+function SendSelection() {
+	var pid = Players.GetLocalPlayer();
+	if (pid < 0) { return; }
+	GameEvents.SendCustomGameEventToServer("dota688_selection", { units: Players.GetSelectedEntities(pid) });
+}
+
 function Dota688ToggleRules() {
 	var panel = $("#Dota688Rules");
 	if (panel !== null) { panel.ToggleClass("Visible"); }
@@ -77,6 +89,8 @@ function Dota688ToggleRules() {
 
 (function () {
 	HideKnownPanels();
+	GameEvents.Subscribe("dota_player_update_selected_unit", SendSelection);
+	GameEvents.Subscribe("dota_player_update_query_unit", SendSelection);
 	// panoul cu reguli apare singur la inceput si dispare dupa 25 s
 	var panel = $("#Dota688Rules");
 	if (panel !== null) {

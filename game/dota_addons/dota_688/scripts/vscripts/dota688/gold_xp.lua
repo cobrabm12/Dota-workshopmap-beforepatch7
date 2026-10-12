@@ -134,6 +134,10 @@ function M:ExperienceFilter(ev)
 	if ev.reason_const == DOTA_ModifyXP_HeroKill and not self.awarding then
 		return false
 	end
+	-- XP de recuperare pentru eroii in urma si XP de la outpost-uri: aparute dupa 6.88
+	if ev.reason_const == DOTA_ModifyXP_CatchUp or ev.reason_const == DOTA_ModifyXP_Outpost then
+		return false
+	end
 	return true
 end
 

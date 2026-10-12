@@ -92,3 +92,16 @@ C.DISABLE_BACKPACK     = true            -- 7.00 a adaugat backpack-ul; refuzam 
 C.PREGAME_TIME         = 90
 C.TREE_REGROW_TIME     = 300
 C.ILLUSION_BOUNTY      = false           -- 7.00 a adaugat bounty pentru iluzii (TODO: filtrare)
+
+-- Abilitati 7.x pe care motorul le adauga singur unitatilor (nu sunt in KV) -> {ability = {modifieri de scos}}
+C.MODERN_UNIT_ABILITIES = {
+	neutral_upgrade = { "modifier_neutral_upgrade" },                 -- cresterea neutralilor in timp (7.x)
+	twin_gate_portal_warp = {},                                        -- Twin Gates (7.33)
+	flagbearer_creep_aura_effect = { "modifier_flagbearer_creep_aura_effect", "modifier_creep_bonus_xp" },  -- 7.32
+}
+
+-- Mecanici fara KV --------------------------------------------------------
+C.MAX_ATTACK_SPEED     = 600             -- 6.88: 600 (azi 700)
+C.SCAN_COOLDOWN        = 270             -- scan (6.87): 270 s, o singura incarcare (7.34 -> 2 incarcari)
+C.SCAN_CHARGES         = 1
+C.NEUTRAL_FIRST_SPAWN_OFFSET = -30       -- motorul: primul spawn la 1:00 -> 0:30 (6.88)

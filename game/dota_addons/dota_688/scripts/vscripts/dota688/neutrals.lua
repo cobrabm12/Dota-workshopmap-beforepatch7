@@ -1,22 +1,19 @@
--- Neutrali (6.88): primul spawn la 0:30, apoi la fiecare minut. Motorul curent face primul spawn la 1:00.
--- Incercam sa fortam un spawn suplimentar la 0:30 prin input-ul entitatilor npc_dota_neutral_spawner.
+-- Neutrali (6.88): primul spawn la 0:30, apoi verificare la fiecare minut (x:00); un camp reapare doar daca volumul
+-- lui (trigger_multiple neutralcamp_*, din harta) e gol. Motorul curent face primul spawn la 1:00:
+-- GameRules:SetNeutralInitialSpawnOffset muta doar primul spawn.
+local C = DOTA688
 Dota688Neutrals = Dota688Neutrals or {}
 local M = Dota688Neutrals
 
 function M:Init(gamemode)
 	self.gamemode = gamemode
+	Dota688SafeCall(GameRules, "SetNeutralInitialSpawnOffset", C.NEUTRAL_FIRST_SPAWN_OFFSET)
 end
 
 function M:OnHorn()
-	Dota688Timers:After(30, function()
-		local spawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
-		local ok = 0
-		for _, s in ipairs(spawners) do
-			-- numele input-ului nu este documentat oficial; incercam variantele cunoscute
-			for _, input in ipairs({ "SpawnNow", "ForceSpawn", "Spawn" }) do
-				if pcall(DoEntFireByInstanceHandle, s, input, "", 0, nil, nil) then ok = ok + 1; break end
-			end
-		end
-		print("[dota688] neutrali 0:30: " .. ok .. "/" .. #spawners .. " spawnere notificate")
+	-- verificare in consola: cati neutrali exista dupa primul spawn
+	Dota688Timers:After(31, function()
+		local n = #Entities:FindAllByClassname("npc_dota_creep_neutral")
+		print(string.format("[dota688] neutrali la 0:31: %d (spawnere: %d)", n, #Entities:FindAllByClassname("npc_dota_neutral_spawner")))
 	end)
 end

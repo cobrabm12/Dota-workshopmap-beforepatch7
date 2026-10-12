@@ -7,6 +7,10 @@ Dota688DefineItem("item_dota688_hand_of_midas", "items/item_dota688_hand_of_mida
 			if not target or not target:IsAlive() then return end
 			local xp = target:GetDeathXP() * self:GetSpecialValueFor("xp_multiplier")
 			caster:EmitSound("DOTA_Item.Hand_Of_Midas")
+			-- 6.88: fara bounty-ul normal al creep-ului si fara XP impartit (doar 190 aur + 2.5x XP pentru caster)
+			target:SetMinimumGoldBounty(0)
+			target:SetMaximumGoldBounty(0)
+			target:SetDeathXP(0)
 			target:Kill(self, caster)
 			local pid = caster:GetPlayerOwnerID()
 			if pid >= 0 then PlayerResource:ModifyGold(pid, self:GetSpecialValueFor("bonus_gold"), true, DOTA_ModifyGold_AbilityGold) end
