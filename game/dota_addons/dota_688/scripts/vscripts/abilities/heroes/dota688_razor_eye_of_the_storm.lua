@@ -23,6 +23,7 @@ function modifier_dota688_eye_of_the_storm:OnCreated()
 end
 function modifier_dota688_eye_of_the_storm:OnIntervalThink()
 	local p, a = self:GetParent(), self:GetAbility()
+	if not a or a:IsNull() then self:Destroy() return end   -- abilitatea a disparut (Rubick)
 	local radius = a:GetSpecialValueFor("radius")
 	local units = FindUnitsInRadius(p:GetTeamNumber(), p:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY,
 		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)

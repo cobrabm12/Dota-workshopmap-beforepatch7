@@ -23,7 +23,7 @@ function modifier_dota688_flesh_golem_plague:IsDebuff() return true end
 function modifier_dota688_flesh_golem_plague:IsPurgable() return false end
 function modifier_dota688_flesh_golem_plague:Factor()
 	local a, c = self:GetAbility(), self:GetCaster()
-	if not c or c:IsNull() then return 0 end
+	if not a or a:IsNull() or not c or c:IsNull() then return 0 end   -- aura ramasa fara abilitate (Undying disparut, Rubick)
 	local d = (self:GetParent():GetAbsOrigin() - c:GetAbsOrigin()):Length2D()
 	local full, r = a:GetSpecialValueFor("full_power_radius"), a:GetSpecialValueFor("radius")
 	if d <= full then return 1 end
@@ -32,16 +32,18 @@ end
 function modifier_dota688_flesh_golem_plague:DeclareFunctions() return { MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE, MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_EVENT_ON_DEATH } end
 function modifier_dota688_flesh_golem_plague:GetModifierIncomingDamage_Percentage()
 	local a = self:GetAbility(); local f = self:Factor()
+	if not a or a:IsNull() then return 0 end
 	return a:GetSpecialValueFor("min_damage_amp") + (a:GetSpecialValueFor("max_damage_amp") - a:GetSpecialValueFor("min_damage_amp")) * f
 end
 function modifier_dota688_flesh_golem_plague:GetModifierMoveSpeedBonus_Percentage()
 	local a = self:GetAbility(); local f = self:Factor()
+	if not a or a:IsNull() then return 0 end
 	return -(a:GetSpecialValueFor("min_speed_slow") + (a:GetSpecialValueFor("max_speed_slow") - a:GetSpecialValueFor("min_speed_slow")) * f)
 end
 function modifier_dota688_flesh_golem_plague:OnDeath(params)
 	if not IsServer() or params.unit ~= self:GetParent() or self:GetParent():IsIllusion() then return end   -- iluziile nu vindeca (6.88)
 	local c, a = self:GetCaster(), self:GetAbility()
-	if not c or c:IsNull() or not c:IsAlive() then return end
+	if not c or c:IsNull() or not c:IsAlive() or not a or a:IsNull() then return end
 	local pct = self:GetParent():IsHero() and a:GetSpecialValueFor("death_heal") or a:GetSpecialValueFor("death_heal_creep")
 	c:Heal(c:GetMaxHealth() * pct / 100, a)
 end

@@ -48,6 +48,7 @@ function modifier_dota688_dream_coil:OnCreated(kv)
 end
 function modifier_dota688_dream_coil:OnIntervalThink()
 	local p, a, caster = self:GetParent(), self:GetAbility(), self:GetCaster()
+	if not a or a:IsNull() or not caster or caster:IsNull() then self:Destroy() return end   -- abilitatea/caster-ul au disparut (Rubick)
 	if (p:GetAbsOrigin() - self.center):Length2D() > a:GetSpecialValueFor("coil_break_radius") then
 		if self.scepter or not p:IsMagicImmune() then
 			local dmg = self.scepter and a:GetSpecialValueFor("coil_break_damage_scepter") or a:GetSpecialValueFor("coil_break_damage")
