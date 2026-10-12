@@ -7,3 +7,6 @@ game/dota_addons/dota_688/maps/*.vpk
 game/dota_addons/dota_688/panorama/
 content/dota_addons/dota_688/maps/*.vmap_c
 content/dota_addons/dota_688/maps/*.bak
+
+# fisierele binare ale hartii decompilate (mari); se regenereaza din clientul 6.88f
+content/dota_addons/dota_688/maps/dota_688/
