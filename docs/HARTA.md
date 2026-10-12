@@ -1,6 +1,29 @@
-# Harta 6.88 (de construit în Hammer)
+# Harta 6.88
 
-Harta 7.00 a schimbat terenul; harta noastră trebuie să reproducă layout‑ul 6.88. Fișierul sursă va fi
+## Starea actuală (harta folosită în joc)
+
+Clientul curent Dota 2 conține `game/dota/maps/dota_688.vpk`: harta 6.88 **recompilată de Valve** pentru motorul
+actual (aceleași entități ca harta din decembrie 2016, cu trigger‑ele de shop / no‑wards / camp‑uri și fizica în formatul
+nou). `python tools/import_harta_688.py` o copiază în addon ca `game/dota_addons/dota_688/maps/dota.vpk` (în .gitignore).
+Căile din interior sunt `maps/dota/...`, deci harta se pornește cu numele `dota`, iar cea din addon are prioritate
+față de harta 7.x a jocului:
+
+    dota_launch_custom_game dota_688 dota
+
+Motorul curent cere câteva entități care nu existau în 2016; `scripts/vscripts/dota688/map_688.lua` le adaugă la pornire:
+`info_courier_spawn_radiant_1..5` / `dire_1..5` (fără ele jocul cade la PRE_GAME), `info_player_start_dota`
+`roshan_location_1/2` (ambele în groapa 6.88, ca Roshan să nu se mute) și `info_target` `dota688_rune_top/bot`.
+
+Testat (TEST_LOG, secțiunea 5): 11 `trigger_shop` (side și secret shop funcționează), 14 volume de camp (fără stack‑uri
+singure: 7 minute fără eroi în jungla, numărul de neutrali rămâne constant), Roshan în groapa 6.88 cu 8000 HP.
+
+Vmap‑ul decompilat (`content/dota_addons/dota_688/maps/dota_688.vmap`, cu `tools/compile_harta_688.py`) rămâne sursa
+pentru editare în Hammer. Decompilarea nu recuperează geometria trigger‑elor, deci harta compilată din el **nu** are
+shop‑uri, volume de camp și no‑wards; pentru joc se folosește harta de mai sus.
+
+## Istoric: recuperarea hărții din clientul 2016
+
+Harta 7.00 a schimbat terenul; harta noastră trebuie să reproducă layout‑ul 6.88. Fișierul sursă este
 `content/dota_addons/dota_688/maps/dota_688.vmap`, compilat în `game/dota_addons/dota_688/maps/dota_688.vpk`.
 
 ## Punct de plecare: recuperarea hărții 6.88 din clientul vechi (recomandat)

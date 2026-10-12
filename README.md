@@ -56,9 +56,9 @@ docs/                             <- documentație (română)
    * `game/dota_addons/dota_688` → `...\dota 2 beta\game\dota_addons\dota_688`
    * `content/dota_addons/dota_688` → `...\dota 2 beta\content\dota_addons\dota_688`
 3. Pornește `dota2cfg.exe` / Workshop Tools, alege addon‑ul `dota_688`.
-4. Până există harta proprie, testează regulile pe harta standard: în consolă
-   `dota_launch_custom_game dota_688 dota` (vei vedea harta 7.x, dar eroii/itemele/regulile sunt 6.88).
-   Runele cer punctele `dota688_rune_top` / `dota688_rune_bot` sau spawner‑ele Valve de rune de putere.
+4. Copiază harta 6.88 (recompilată de Valve, livrată cu clientul) în addon: `python tools/import_harta_688.py`
+   (vezi `docs/HARTA.md`), apoi în consolă `dota_launch_custom_game dota_688 dota`. Fără pasul acesta se încarcă harta 7.x
+   a jocului (eroii/itemele/regulile rămân 6.88).
 
 ## Cum adaugi o reimplementare 6.88
 

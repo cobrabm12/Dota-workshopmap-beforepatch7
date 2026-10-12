@@ -9,6 +9,7 @@ require("dota688/daynight")
 require("dota688/backpack")
 require("dota688/neutrals")
 require("dota688/aghanim")
+require("dota688/map_688")
 
 require("dota688/modifiers_link")
 
@@ -21,6 +22,7 @@ end
 function Dota688:Init()
 	print("[dota688] initializare reguli 6.88f")
 	local gm = GameRules:GetGameModeEntity()
+	Dota688Map:Ensure()   -- inainte de Dota688Runes:Init (punctele de rune)
 
 	-- Reguli generale ------------------------------------------------------
 	GameRules:SetStartingGold(C.STARTING_GOLD)
