@@ -319,12 +319,6 @@
     "familiar_attack_damage": "0 0 0"
   },
   "_aghanim": "Abilitatile oferite de scepter in 6.88 deblocate din Lua (dota688/aghanim.lua): scoatem flag-urile de scepter/shard moderne ca sa nu depinda de HasScepter() din C++.",
-  "treant_eyes_in_the_forest": {
-    "IsGrantedByShard": "0",
-    "HasShardUpgrade": "0",
-    "AbilityCharges": "0",
-    "AbilityChargeRestoreTime": "0"
-  },
   "life_stealer_assimilate": {
     "IsGrantedByScepter": "0"
   },
@@ -332,6 +326,11 @@
     "IsGrantedByScepter": "0"
   },
   "tusk_walrus_kick": {
+    "IsGrantedByScepter": "0"
+  },
+  "keeper_of_the_light_recall": {
+    "IsGrantedByShard": "0",
+    "HasShardUpgrade": "0",
     "IsGrantedByScepter": "0"
   }
 }

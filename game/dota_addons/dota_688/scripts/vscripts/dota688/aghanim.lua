@@ -38,7 +38,7 @@ AG.GRANT = {
 	npc_dota_hero_life_stealer = { "life_stealer_assimilate" },
 	npc_dota_hero_ogre_magi = { "ogre_magi_unrefined_fireblast" },
 	npc_dota_hero_tusk = { "tusk_walrus_kick" },
-	npc_dota_hero_treant = { "treant_eyes_in_the_forest" },
+	npc_dota_hero_treant = { "dota688_treant_eyes_in_the_forest" },
 	npc_dota_hero_shredder = { "shredder_chakram_2" },
 	npc_dota_hero_morphling = { "morphling_hybrid" },
 }

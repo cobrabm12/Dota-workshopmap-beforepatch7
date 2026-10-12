@@ -547,6 +547,10 @@ CUSTOM_KV_PATCH = {
         "AbilityCastPoint": "0.1",
         "ItemDeclarations": "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS",
     },
+    # abilitate oferită de scepter în 6.88, deblocată din Lua (dota688/aghanim.lua), nu de motor
+    "dota688_treant_eyes_in_the_forest": {"IsGrantedByScepter": "0"},
+    # Ice Blast 6.88 se țintește oriunde pe hartă (raza reală e dată de Lua)
+    "dota688_ancient_apparition_ice_blast": {"AbilityCastRange": "0"},
 }
 
 
@@ -678,6 +682,8 @@ RENAMED_UNITS = {
     "npc_dota688_techies_land_mine": "npc_dota_techies_land_mine",
     "npc_dota688_techies_stasis_trap": "npc_dota_techies_stasis_trap",
     "npc_dota688_techies_remote_mine": "npc_dota_techies_remote_mine",
+    "npc_dota688_techies_minefield_sign": "npc_dota_techies_minefield_sign",
+    "npc_dota688_treant_eyes": "npc_dota_treant_eyes",
 }
 
 
