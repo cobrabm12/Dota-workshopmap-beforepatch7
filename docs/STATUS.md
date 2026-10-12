@@ -22,10 +22,10 @@ _Generat automat de `tools/gen_overrides.py`. Nu edita manual._
 | nevermore | 6 | 0 | — |
 | morphling | 6 | 2 | — |
 | phantom_lancer | 4 | 0 | — |
-| puck | 5 | 0 | — |
-| pudge | 3 | 1 | — |
+| puck | 4 | 1 | — |
+| pudge | 2 | 2 | — |
 | razor | 2 | 2 | — |
-| sand_king | 3 | 1 | — |
+| sand_king | 2 | 2 | — |
 | storm_spirit | 3 | 1 | — |
 | sven | 3 | 1 | — |
 | tiny | 2 | 2 | — |
@@ -63,7 +63,7 @@ _Generat automat de `tools/gen_overrides.py`. Nu edita manual._
 | leshrac | 3 | 1 | — |
 | furion | 4 | 0 | — |
 | life_stealer | 7 | 1 | — |
-| dark_seer | 4 | 0 | — |
+| dark_seer | 3 | 1 | — |
 | clinkz | 2 | 2 | — |
 | omniknight | 2 | 2 | — |
 | enchantress | 4 | 0 | — |
@@ -79,7 +79,7 @@ _Generat automat de `tools/gen_overrides.py`. Nu edita manual._
 | doom_bringer | 5 | 1 | — |
 | ancient_apparition | 4 | 1 | — |
 | ursa | 3 | 1 | — |
-| spirit_breaker | 3 | 1 | — |
+| spirit_breaker | 2 | 2 | — |
 | gyrocopter | 4 | 0 | — |
 | alchemist | 4 | 1 | — |
 | invoker | 17 | 0 | — |
@@ -111,7 +111,7 @@ _Generat automat de `tools/gen_overrides.py`. Nu edita manual._
 | tusk | 5 | 1 | — |
 | skywrath_mage | 3 | 1 | — |
 | abaddon | 3 | 1 | — |
-| elder_titan | 5 | 0 | — |
+| elder_titan | 4 | 1 | — |
 | legion_commander | 1 | 3 | — |
 | ember_spirit | 5 | 0 | — |
 | earth_spirit | 6 | 0 | — |
@@ -125,7 +125,7 @@ _Generat automat de `tools/gen_overrides.py`. Nu edita manual._
 
 ## Reimplementate în Lua (6.88 fidel)
 
-* Abilități de erou: **118** – `abaddon_frostmourne`, `alchemist_goblins_greed`, `ancient_apparition_chilling_touch`, `attribute_bonus`, `axe_counter_helix`, `axe_culling_blade`, `bane_enfeeble`, `bane_fiends_grip`, `beastmaster_call_of_the_wild_boar`, `bloodseeker_bloodrage`, `bounty_hunter_jinada`, `bounty_hunter_wind_walk`, `brewmaster_drunken_brawler`, `bristleback_viscous_nasal_goo`, `bristleback_warpath`, `centaur_return`, `centaur_stampede`, `chaos_knight_chaos_strike`, `chaos_knight_reality_rift`, `chen_penitence`, `clinkz_death_pact`, `clinkz_strafe`, `crystal_maiden_brilliance_aura`, `crystal_maiden_freezing_field`, `dazzle_poison_touch`, `dazzle_weave`, `death_prophet_silence`, `death_prophet_witchcraft`, `disruptor_static_storm`, `doom_bringer_doom`, `dragon_knight_dragon_blood`, `drow_ranger_marksmanship`, `drow_ranger_trueshot`, `enigma_black_hole`, `huskar_berserkers_blood`, `huskar_life_break`, `jakiro_macropyre`, `juggernaut_omni_slash`, `keeper_of_the_light_blinding_light`, `legion_commander_duel`, `legion_commander_moment_of_courage`, `legion_commander_press_the_attack`, `leshrac_pulse_nova`, `lich_chain_frost`, `lich_dark_ritual`, `life_stealer_rage`, `lina_fiery_soul`, `lina_laguna_blade`, `lion_finger_of_death`, `luna_lunar_blessing`, `lycan_feral_impulse`, `lycan_howl`, `magnataur_empower`, `meepo_geostrike`, `mirana_starfall`, `morphling_adaptive_strike`, `morphling_morph`, `necrolyte_reapers_scythe`, `necrolyte_sadist`, `night_stalker_crippling_fear`, `night_stalker_darkness`, `obsidian_destroyer_arcane_orb`, `obsidian_destroyer_essence_aura`, `obsidian_destroyer_sanity_eclipse`, `omniknight_degen_aura`, `omniknight_guardian_angel`, `oracle_purifying_flames`, `phantom_assassin_blur`, `pudge_flesh_heap`, `pugna_decrepify`, `pugna_life_drain`, `queenofpain_sonic_wave`, `razor_eye_of_the_storm`, `razor_unstable_current`, `riki_blink_strike`, `riki_permanent_invisibility`, `riki_smoke_screen`, `riki_tricks_of_the_trade`, `rubick_fade_bolt`, `sandking_caustic_finale`, `shadow_demon_soul_catcher`, `silencer_glaives_of_wisdom`, `silencer_last_word`, `skeleton_king_mortal_strike`, `skeleton_king_vampiric_aura`, `skywrath_mage_mystic_flare`, `slardar_bash`, `slardar_sprint`, `slark_shadow_dance`, `sniper_take_aim`, `spirit_breaker_empowering_haste`, `storm_spirit_electric_vortex`, `sven_warcry`, `techies_focused_detonate`, `techies_land_mines`, `techies_remote_mines`, `techies_stasis_trap`, `techies_suicide`, `tinker_heat_seeking_missile`, `tinker_laser`, `tiny_craggy_exterior`, `tiny_grow`, `treant_living_armor`, `treant_natures_guise`, `troll_warlord_berserkers_rage`, `tusk_walrus_punch`, `undying_flesh_golem`, `ursa_enrage`, `vengefulspirit_command_aura`, `vengefulspirit_nether_swap`, `venomancer_poison_nova`, `viper_nethertoxin`, `viper_poison_attack`, `visage_gravekeepers_cloak`, `windrunner_focusfire`, `windrunner_windrun`, `wisp_overcharge`, `zuus_thundergods_wrath`
+* Abilități de erou: **124** – `abaddon_frostmourne`, `alchemist_goblins_greed`, `ancient_apparition_chilling_touch`, `attribute_bonus`, `axe_counter_helix`, `axe_culling_blade`, `bane_enfeeble`, `bane_fiends_grip`, `beastmaster_call_of_the_wild_boar`, `bloodseeker_bloodrage`, `bounty_hunter_jinada`, `bounty_hunter_wind_walk`, `brewmaster_drunken_brawler`, `bristleback_viscous_nasal_goo`, `bristleback_warpath`, `centaur_return`, `centaur_stampede`, `chaos_knight_chaos_strike`, `chaos_knight_reality_rift`, `chen_penitence`, `clinkz_death_pact`, `clinkz_strafe`, `crystal_maiden_brilliance_aura`, `crystal_maiden_freezing_field`, `dark_seer_wall_of_replica`, `dazzle_poison_touch`, `dazzle_weave`, `death_prophet_silence`, `death_prophet_witchcraft`, `disruptor_static_storm`, `doom_bringer_doom`, `dragon_knight_dragon_blood`, `drow_ranger_marksmanship`, `drow_ranger_trueshot`, `elder_titan_earth_splitter`, `enigma_black_hole`, `huskar_berserkers_blood`, `huskar_life_break`, `jakiro_macropyre`, `juggernaut_omni_slash`, `keeper_of_the_light_blinding_light`, `legion_commander_duel`, `legion_commander_moment_of_courage`, `legion_commander_press_the_attack`, `leshrac_pulse_nova`, `lich_chain_frost`, `lich_dark_ritual`, `life_stealer_rage`, `lina_fiery_soul`, `lina_laguna_blade`, `lion_finger_of_death`, `luna_lunar_blessing`, `lycan_feral_impulse`, `lycan_howl`, `magnataur_empower`, `meepo_geostrike`, `mirana_starfall`, `morphling_adaptive_strike`, `morphling_morph`, `necrolyte_reapers_scythe`, `necrolyte_sadist`, `night_stalker_crippling_fear`, `night_stalker_darkness`, `obsidian_destroyer_arcane_orb`, `obsidian_destroyer_essence_aura`, `obsidian_destroyer_sanity_eclipse`, `omniknight_degen_aura`, `omniknight_guardian_angel`, `oracle_purifying_flames`, `phantom_assassin_blur`, `puck_dream_coil`, `pudge_flesh_heap`, `pudge_meat_hook`, `pugna_decrepify`, `pugna_life_drain`, `queenofpain_sonic_wave`, `razor_eye_of_the_storm`, `razor_unstable_current`, `riki_blink_strike`, `riki_permanent_invisibility`, `riki_smoke_screen`, `riki_tricks_of_the_trade`, `rubick_fade_bolt`, `sandking_burrowstrike`, `sandking_caustic_finale`, `shadow_demon_soul_catcher`, `silencer_glaives_of_wisdom`, `silencer_last_word`, `skeleton_king_mortal_strike`, `skeleton_king_vampiric_aura`, `skywrath_mage_mystic_flare`, `slardar_bash`, `slardar_sprint`, `slark_shadow_dance`, `sniper_take_aim`, `spirit_breaker_empowering_haste`, `spirit_breaker_nether_strike`, `storm_spirit_electric_vortex`, `sven_warcry`, `techies_focused_detonate`, `techies_land_mines`, `techies_remote_mines`, `techies_stasis_trap`, `techies_suicide`, `tinker_heat_seeking_missile`, `tinker_laser`, `tiny_craggy_exterior`, `tiny_grow`, `treant_living_armor`, `treant_natures_guise`, `troll_warlord_berserkers_rage`, `tusk_walrus_punch`, `undying_flesh_golem`, `ursa_enrage`, `vengefulspirit_command_aura`, `vengefulspirit_nether_swap`, `venomancer_poison_nova`, `viper_nethertoxin`, `viper_poison_attack`, `visage_gravekeepers_cloak`, `windrunner_focusfire`, `windrunner_windrun`, `wisp_overcharge`, `zuus_thundergods_wrath`
 * Iteme: **126** – `item_abyssal_blade`, `item_aether_lens`, `item_ancient_janggo`, `item_armlet`, `item_bfury`, `item_bloodstone`, `item_bloodthorn`, `item_buckler`, `item_butterfly`, `item_crimson_guard`, `item_dagon`, `item_dagon_2`, `item_dagon_3`, `item_dagon_4`, `item_dagon_5`, `item_diffusal_blade`, `item_diffusal_blade_2`, `item_echo_sabre`, `item_ethereal_blade`, `item_force_staff`, `item_glimmer_cape`, `item_guardian_greaves`, `item_hand_of_midas`, `item_headdress`, `item_heart`, `item_heavens_halberd`, `item_helm_of_the_dominator`, `item_hurricane_pike`, `item_iron_talon`, `item_javelin`, `item_lotus_orb`, `item_manta`, `item_mask_of_madness`, `item_medallion_of_courage`, `item_mekansm`, `item_monkey_king_bar`, `item_null_talisman`, `item_oblivion_staff`, `item_octarine_core`, `item_orb_of_venom`, `item_pers`, `item_phase_boots`, `item_pipe`, `item_power_treads`, `item_recipe_abyssal_blade`, `item_recipe_aether_lens`, `item_recipe_ancient_janggo`, `item_recipe_armlet`, `item_recipe_bfury`, `item_recipe_bloodstone`, `item_recipe_bloodthorn`, `item_recipe_buckler`, `item_recipe_butterfly`, `item_recipe_crimson_guard`, `item_recipe_dagon`, `item_recipe_dagon_2`, `item_recipe_dagon_3`, `item_recipe_dagon_4`, `item_recipe_dagon_5`, `item_recipe_diffusal_blade`, `item_recipe_diffusal_blade_2`, `item_recipe_echo_sabre`, `item_recipe_ethereal_blade`, `item_recipe_force_staff`, `item_recipe_glimmer_cape`, `item_recipe_guardian_greaves`, `item_recipe_hand_of_midas`, `item_recipe_headdress`, `item_recipe_heart`, `item_recipe_heavens_halberd`, `item_recipe_helm_of_the_dominator`, `item_recipe_hurricane_pike`, `item_recipe_iron_talon`, `item_recipe_lotus_orb`, `item_recipe_manta`, `item_recipe_mask_of_madness`, `item_recipe_medallion_of_courage`, `item_recipe_mekansm`, `item_recipe_monkey_king_bar`, `item_recipe_null_talisman`, `item_recipe_oblivion_staff`, `item_recipe_octarine_core`, `item_recipe_pers`, `item_recipe_phase_boots`, `item_recipe_pipe`, `item_recipe_power_treads`, `item_recipe_ring_of_aquila`, `item_recipe_ring_of_basilius`, `item_recipe_rod_of_atos`, `item_recipe_sange`, `item_recipe_sange_and_yasha`, `item_recipe_satanic`, `item_recipe_sheepstick`, `item_recipe_shivas_guard`, `item_recipe_silver_edge`, `item_recipe_skadi`, `item_recipe_solar_crest`, `item_recipe_soul_booster`, `item_recipe_soul_ring`, `item_recipe_sphere`, `item_recipe_ultimate_scepter`, `item_recipe_urn_of_shadows`, `item_recipe_veil_of_discord`, `item_recipe_vladmir`, `item_recipe_wraith_band`, `item_ring_of_aquila`, `item_ring_of_basilius`, `item_rod_of_atos`, `item_sange`, `item_sange_and_yasha`, `item_satanic`, `item_shadow_amulet`, `item_sheepstick`, `item_shivas_guard`, `item_silver_edge`, `item_skadi`, `item_solar_crest`, `item_soul_booster`, `item_soul_ring`, `item_sphere`, `item_ultimate_scepter`, `item_urn_of_shadows`, `item_veil_of_discord`, `item_vladmir`, `item_wind_lace`, `item_wraith_band`
 
 ## Abilități de erou care nu mai există în joc (trebuie rescrise în Lua)
@@ -140,7 +140,7 @@ de verificat în joc dacă mecanica s‑a schimbat și, dacă da, de rescris în
 
 Rezolvate prin override manual (`tools/manual_overrides.json`): **86** – `abaddon_death_coil`, `ancient_apparition_cold_feet`, `ancient_apparition_ice_blast`, `antimage_blink`, `antimage_mana_break`, `arc_warden_spark_wraith`, `axe_culling_blade`, `bane_fiends_grip`, `bane_nightmare`, `batrider_flamebreak`, `batrider_flaming_lasso`, `bloodseeker_rupture`, `bloodseeker_thirst`, `bounty_hunter_track`, `broodmother_spin_web`, `crystal_maiden_frostbite`, `dark_seer_wall_of_replica`, `death_prophet_spirit_siphon`, `disruptor_thunder_strike`, `doom_bringer_devour`, `dragon_knight_elder_dragon_form`, `drow_ranger_frost_arrows`, `earth_spirit_geomagnetic_grip`, `earth_spirit_stone_caller`, `earthshaker_fissure`, `ember_spirit_fire_remnant`, `ember_spirit_searing_chains`, `furion_force_of_nature`, `gyrocopter_call_down`, `gyrocopter_homing_missile`, `huskar_burning_spear`, `invoker_exort`, `invoker_quas`, `invoker_wex`, `item_clarity`, `item_flask`, `item_quelling_blade`, `item_tango`, `item_tango_single`, `jakiro_dual_breath`, `jakiro_ice_path`, `jakiro_macropyre`, `juggernaut_healing_ward`, `keeper_of_the_light_illuminate`, `kunkka_tidebringer`, `kunkka_x_marks_the_spot`, `legion_commander_overwhelming_odds`, `leshrac_lightning_storm`, `lich_frost_nova`, `life_stealer_assimilate`, `life_stealer_infest`, `lion_finger_of_death`, `meepo_divided_we_stand`, `morphling_morph_agi`, `morphling_morph_str`, `naga_siren_song_of_the_siren`, `necrolyte_heartstopper_aura`, `necronomicon_archer_aoe`, `nevermore_necromastery`, `obsidian_destroyer_astral_imprisonment`, `obsidian_destroyer_sanity_eclipse`, `ogre_magi_unrefined_fireblast`, `pudge_meat_hook`, `pugna_nether_ward`, `queenofpain_blink`, `rattletrap_power_cogs`, `sandking_epicenter`, `sandking_sand_storm`, `shadow_demon_demonic_purge`, `shredder_timber_chain`, `skeleton_king_reincarnation`, `slark_essence_shift`, `sniper_shrapnel`, `sven_great_cleave`, `templar_assassin_psionic_trap`, `tidehunter_anchor_smash`, `tiny_avalanche`, `treant_eyes_in_the_forest`, `treant_overgrowth`, `tusk_walrus_kick`, `venomancer_poison_nova`, `visage_summon_familiars`, `warlock_upheaval`, `winter_wyvern_arctic_burn`, `wisp_tether`, `witch_doctor_paralyzing_cask`
 
-Total cu valori reale lipsă: **59** (alte 62 au doar chei de tooltip/Aghanim lipsă – irelevante)
+Total cu valori reale lipsă: **59** (alte 58 au doar chei de tooltip/Aghanim lipsă – irelevante)
 
 * `abaddon_borrowed_time`: redirect
 * `abyssal_underlord_firestorm`: first_wave_delay
@@ -204,7 +204,7 @@ Total cu valori reale lipsă: **59** (alte 62 au doar chei de tooltip/Aghanim li
 
 ## Abilități cu comportament (AbilityBehavior) diferit
 
-Total: **123** (doar informativ; nu suprascriem comportamentul automat)
+Total: **120** (doar informativ; nu suprascriem comportamentul automat)
 
 * `ancient_apparition_ice_blast_release`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE']
 * `antimage_blink`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_OVERSHOOT']
@@ -223,7 +223,6 @@ Total: **123** (doar informativ; nu suprascriem comportamentul automat)
 * `courier_take_stash_and_transfer_items`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_NO_TARGET']; acum are în plus ['DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE', 'DOTA_ABILITY_BEHAVIOR_UNIT_TARGET']
 * `courier_take_stash_items`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE']
 * `courier_transfer_items`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE']
-* `dark_seer_wall_of_replica`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING']
 * `doom_bringer_devour`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE']
 * `earth_spirit_petrify`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES']
 * `earth_spirit_rolling_boulder`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES']
@@ -293,7 +292,6 @@ Total: **123** (doar informativ; nu suprascriem comportamentul automat)
 * `rubick_null_field`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_PASSIVE']; acum are în plus ['DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL', 'DOTA_ABILITY_BEHAVIOR_IMMEDIATE', 'DOTA_ABILITY_BEHAVIOR_NO_TARGET']
 * `rubick_telekinesis`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING']
 * `rubick_telekinesis_land`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL', 'DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT', 'DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL', 'DOTA_ABILITY_BEHAVIOR_IMMEDIATE']
-* `sandking_burrowstrike`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_UNIT_TARGET']; acum are în plus ['DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE', 'DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES']
 * `sandking_epicenter`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_CHANNELLED']; acum are în plus —
 * `sandking_sand_storm`: 6.88 avea ['DOTA_ABILITY_BEHAVIOR_CHANNELLED']; acum are în plus —
 * `shadow_shaman_mass_serpent_ward`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_AOE']
@@ -305,7 +303,6 @@ Total: **123** (doar informativ; nu suprascriem comportamentul automat)
 * `slark_pounce`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES']
 * `spectre_desolate`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI', 'DOTA_ABILITY_BEHAVIOR_HIDDEN']
 * `spectre_reality`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES']
-* `spirit_breaker_nether_strike`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES']
 * `storm_spirit_ball_lightning`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST', 'DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET', 'DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES']
 * `techies_minefield_sign`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_HIDDEN', 'DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE', 'DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES']
 * `templar_assassin_trap`: 6.88 avea —; acum are în plus ['DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE']

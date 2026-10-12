@@ -531,27 +531,6 @@
 			"duration"		"0.75 1.50 2.25 3.25"
 		}
 	}
-	"puck_dream_coil"
-	{
-		"AbilityManaCost"		"100 150 200"
-		"AbilityValues"
-		{
-			"coil_duration"		"6.0 6.0 6.0"
-			"coil_stun_duration"		"1.5 2.25 3.0"
-			"coil_break_damage"		"100 150 200"
-		}
-	}
-	"pudge_meat_hook"
-	{
-		"AbilityManaCost"		"110 120 130 140"
-		"AbilityDamage"		"90 180 270 360"
-		"AbilityValues"
-		{
-			"AbilityCastRange"		"1000 1100 1200 1300"
-			"AbilityCooldown"		"14 13 12 11"
-			"damage"		"90 180 270 360"
-		}
-	}
 	"pudge_rot"
 	{
 		"AbilityDamage"		"30 60 90 120"
@@ -751,17 +730,6 @@
 			"ball_lightning_aoe"		"125 200 275"
 			"ball_lightning_travel_cost_base"		"12"
 			"ball_lightning_travel_cost_percent"		"0.7"
-		}
-	}
-	"sandking_burrowstrike"
-	{
-		"AbilityManaCost"		"110 120 130 140"
-		"AbilityDamage"		"100 160 220 280"
-		"AbilityValues"
-		{
-			"AbilityCastRange"		"350 450 550 650"
-			"AbilityCooldown"		"11.0 11.0 11.0 11.0"
-			"burrow_duration"		"2.17"
 		}
 	}
 	"sandking_sand_storm"
@@ -1754,22 +1722,6 @@
 			"duration"		"3.0 4.5 6.0 7.5"
 		}
 	}
-	"dark_seer_wall_of_replica"
-	{
-		"AbilityCastRange"		"500 900 1300"
-		"AbilityCastPoint"		"0.4 0.4 0.4"
-		"AbilityValues"
-		{
-			"duration"		"45.0"
-			"replica_damage_outgoing"		"-40 -25 -10"
-			"tooltip_outgoing"		"60 75 90"
-			"replica_damage_incoming"		"300 300 300"
-			"tooltip_replica_total_damage_incoming"		"400 400 400"
-			"width"		"1000 1000 1000"
-			"wall_damage"		"150 150 150"
-			"movement_slow"		"0"
-		}
-	}
 	"clinkz_searing_arrows"
 	{
 		"AbilityValues"
@@ -2251,11 +2203,6 @@
 			"duration"		"1.0 1.2 1.4 1.6"
 			"bonus_movespeed_pct"		"15 15 15 15"
 		}
-	}
-	"spirit_breaker_nether_strike"
-	{
-		"AbilityCastPoint"		"1.2"
-		"AbilityCooldown"		"80 70 60"
 	}
 	"ursa_earthshock"
 	{
@@ -3689,18 +3636,6 @@
 		{
 			"radius"		"275 275 275 275"
 			"magic_resistance_pct"		"12 19 26 33"
-		}
-	}
-	"elder_titan_earth_splitter"
-	{
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"100.0 100.0 100.0"
-			"crack_time"		"3.14"
-			"crack_width"		"300"
-			"slow_pct"		"30 40 50"
-			"speed"		"910"
-			"damage_pct"		"30 40 50"
 		}
 	}
 	"legion_commander_overwhelming_odds"
@@ -6435,11 +6370,27 @@
 			"damage_per_kill"		"0"
 		}
 	}
+	"pudge_meat_hook"
+	{
+		"AbilityValues"
+		{
+			"damage"		"90 180 270 360"
+			"AbilityCastRange"		"1000 1100 1200 1300"
+		}
+	}
 	"bane_fiends_grip"
 	{
 		"AbilityValues"
 		{
 			"AbilityChannelTime"		"5 5 5"
+		}
+	}
+	"dark_seer_wall_of_replica"
+	{
+		"AbilityValues"
+		{
+			"wall_damage"		"150 150 150"
+			"movement_slow"		"0"
 		}
 	}
 	"jakiro_macropyre"
