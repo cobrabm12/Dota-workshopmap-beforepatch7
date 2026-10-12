@@ -7,6 +7,7 @@ require("dota688/runes")
 require("dota688/roshan")
 require("dota688/daynight")
 require("dota688/backpack")
+require("dota688/neutrals")
 
 LinkLuaModifier("modifier_dota688_attributes", "modifiers/modifier_dota688_attributes", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_roshan", "modifiers/modifier_dota688_roshan", LUA_MODIFIER_MOTION_NONE)
@@ -77,6 +78,7 @@ function Dota688:Init()
 	Dota688Runes:Init(self)
 	Dota688Roshan:Init(self)
 	Dota688DayNight:Init(self)
+	Dota688Neutrals:Init(self)
 end
 
 function Dota688:OnGameRulesStateChange()
@@ -85,6 +87,7 @@ function Dota688:OnGameRulesStateChange()
 		print("[dota688] joc inceput (0:00)")
 		Dota688Runes:OnHorn()
 		Dota688DayNight:OnHorn()
+		Dota688Neutrals:OnHorn()
 	end
 end
 

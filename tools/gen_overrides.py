@@ -744,7 +744,13 @@ def write_status(report: dict, hero_list: list[str]) -> None:
     L.append("de verificat în joc dacă mecanica s‑a schimbat și, dacă da, de rescris în Lua.\n")
     def real_keys(keys):
         return [k for k in keys if "tooltip" not in k and not k.endswith("_scepter") and "scepter" not in k]
-    rows = [(n, d) for n, d in report["abilitati"].items() if real_keys(d["speciale_lipsa"]) and not d.get("lua")]
+    manual_path = os.path.join(ROOT, "tools", "manual_overrides.json")
+    manual = set()
+    if os.path.exists(manual_path):
+        with open(manual_path, encoding="utf-8") as f:
+            manual = {k for k in json.load(f) if not k.startswith("_")}
+    rows = [(n, d) for n, d in report["abilitati"].items() if real_keys(d["speciale_lipsa"]) and not d.get("lua") and n not in manual]
+    L.append(f"Rezolvate prin override manual (`tools/manual_overrides.json`): **{len(manual)}** – " + ", ".join(f"`{n}`" for n in sorted(manual)) + "\n")
     only_cosmetic = [n for n, d in report["abilitati"].items() if d["speciale_lipsa"] and not real_keys(d["speciale_lipsa"]) and not d.get("lua")]
     L.append(f"Total cu valori reale lipsă: **{len(rows)}** (alte {len(only_cosmetic)} au doar chei de tooltip/Aghanim lipsă – irelevante)\n")
     for n, d in sorted(rows):

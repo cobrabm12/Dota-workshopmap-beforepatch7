@@ -138,143 +138,83 @@ Total: **0**
 Aceste abilități există încă, însă unele valori din 6.88 nu mai au corespondent; 
 de verificat în joc dacă mecanica s‑a schimbat și, dacă da, de rescris în Lua.
 
-Total cu valori reale lipsă: **137** (alte 82 au doar chei de tooltip/Aghanim lipsă – irelevante)
+Rezolvate prin override manual (`tools/manual_overrides.json`): **70** – `abaddon_death_coil`, `antimage_blink`, `antimage_mana_break`, `arc_warden_spark_wraith`, `axe_culling_blade`, `bane_fiends_grip`, `bane_nightmare`, `batrider_flamebreak`, `batrider_flaming_lasso`, `bloodseeker_rupture`, `bloodseeker_thirst`, `bounty_hunter_track`, `broodmother_spin_web`, `crystal_maiden_frostbite`, `dark_seer_wall_of_replica`, `death_prophet_spirit_siphon`, `disruptor_thunder_strike`, `doom_bringer_devour`, `dragon_knight_elder_dragon_form`, `drow_ranger_frost_arrows`, `earth_spirit_geomagnetic_grip`, `earthshaker_fissure`, `ember_spirit_searing_chains`, `furion_force_of_nature`, `gyrocopter_call_down`, `gyrocopter_homing_missile`, `huskar_burning_spear`, `invoker_exort`, `invoker_quas`, `invoker_wex`, `item_quelling_blade`, `jakiro_dual_breath`, `jakiro_ice_path`, `jakiro_macropyre`, `juggernaut_healing_ward`, `keeper_of_the_light_illuminate`, `kunkka_tidebringer`, `kunkka_x_marks_the_spot`, `legion_commander_overwhelming_odds`, `leshrac_lightning_storm`, `lich_frost_nova`, `life_stealer_infest`, `lion_finger_of_death`, `meepo_divided_we_stand`, `naga_siren_song_of_the_siren`, `necrolyte_heartstopper_aura`, `necronomicon_archer_aoe`, `nevermore_necromastery`, `obsidian_destroyer_astral_imprisonment`, `obsidian_destroyer_sanity_eclipse`, `pudge_meat_hook`, `pugna_nether_ward`, `queenofpain_blink`, `rattletrap_power_cogs`, `sandking_epicenter`, `sandking_sand_storm`, `shadow_demon_demonic_purge`, `shredder_timber_chain`, `slark_essence_shift`, `sniper_shrapnel`, `sven_great_cleave`, `templar_assassin_psionic_trap`, `tidehunter_anchor_smash`, `tiny_avalanche`, `treant_overgrowth`, `venomancer_poison_nova`, `warlock_upheaval`, `winter_wyvern_arctic_burn`, `wisp_tether`, `witch_doctor_paralyzing_cask`
+
+Total cu valori reale lipsă: **75** (alte 82 au doar chei de tooltip/Aghanim lipsă – irelevante)
 
 * `abaddon_borrowed_time`: redirect
-* `abaddon_death_coil`: heal_amount, projectile_speed, target_damage
 * `abyssal_underlord_firestorm`: first_wave_delay
 * `alchemist_unstable_concoction_throw`: movement_speed, vision_range
 * `ancient_apparition_cold_feet`: damage
 * `ancient_apparition_ice_blast`: dot_damage
-* `antimage_blink`: blink_range
-* `antimage_mana_break`: damage_per_burn
-* `arc_warden_spark_wraith`: activation_delay, spark_damage, wraith_speed
-* `axe_culling_blade`: kill_threshold
-* `bane_fiends_grip`: fiend_grip_duration
-* `bane_nightmare`: duration, nightmare_dot_interval
-* `batrider_flamebreak`: knockback_max_distance
-* `batrider_flaming_lasso`: grab_radius
 * `beastmaster_call_of_the_wild`: boar_duration, hawk_duration
 * `beastmaster_hawk_invisibility`: idle_invis_delay
 * `big_thunder_lizard_wardrums_aura`: damage_bonus
 * `black_dragon_splash_attack`: damage_percent_close, damage_percent_far, damage_percent_mid, range_close, range_far, range_mid
-* `bloodseeker_rupture`: damage_cap_interval
-* `bloodseeker_thirst`: bonus_damage
-* `bounty_hunter_track`: aura_radius, bonus_move_speed_pct
 * `brewmaster_drunken_haze`: duration_creeps, radius
 * `brewmaster_thunder_clap`: duration_creeps
 * `bristleback_viscous_nasal_goo`: goo_duration_creep
 * `broodmother_poison_sting`: damage_per_second
-* `broodmother_spin_web`: charge_restore_time, damage_time, fade_delay, heath_regen, max_charges
 * `courier_burst`: damage_absorb
 * `courier_take_stash_and_transfer_items`: handoff_distance
 * `courier_take_stash_items`: stash_pickup_distance
 * `courier_transfer_items`: handoff_distance
 * `crystal_maiden_freezing_field`: explosion_interval
-* `crystal_maiden_frostbite`: creep_duration, damage
-* `dark_seer_wall_of_replica`: damage
-* `death_prophet_spirit_siphon`: charge_restore_time, max_charges, movement_slow
-* `disruptor_thunder_strike`: duration
-* `doom_bringer_devour`: health_per_second
-* `dragon_knight_elder_dragon_form`: corrosive_breath_damage, corrosive_breath_duration, frost_aoe, splash_damage_percent, splash_radius
-* `drow_ranger_frost_arrows`: frost_arrows_creep_duration
 * `drow_ranger_silence`: duration
-* `earth_spirit_geomagnetic_grip`: miss_duration, miss_rate
 * `earth_spirit_rolling_boulder`: move_slow, rock_distance, slow_duration
 * `earth_spirit_stone_caller`: charge_restore_time, max_charges
 * `earthshaker_enchant_totem`: aftershock_range, duration
-* `earthshaker_fissure`: fissure_range
 * `ember_spirit_fire_remnant`: charge_restore_time, max_charges
-* `ember_spirit_searing_chains`: chains_damage
 * `enigma_malefice`: duration
 * `faceless_void_time_walk`: radius
-* `furion_force_of_nature`: duration
 * `greevil_miniboss_black_nightmare`: nightmare_dot_interval
-* `gyrocopter_call_down`: damage_first, damage_second, slow_duration_first, slow_duration_second, slow_first, slow_second
 * `gyrocopter_flak_cannon`: fire_rate
-* `gyrocopter_homing_missile`: min_damage
-* `huskar_burning_spear`: health_cost
-* `invoker_exort`: bonus_intelligence
 * `invoker_ice_wall`: num_wall_elements, wall_element_radius, wall_element_spacing
-* `invoker_quas`: bonus_strength, health_regen_per_instance
-* `invoker_wex`: bonus_agility
-* `jakiro_dual_breath`: range
-* `jakiro_ice_path`: duration
-* `jakiro_macropyre`: cast_range, path_radius
-* `keeper_of_the_light_illuminate`: damage_per_second
 * `kunkka_ghostship`: buff_duration, ghostship_absorb, movespeed_bonus
-* `kunkka_tidebringer`: radius
-* `legion_commander_overwhelming_odds`: bonus_speed_creeps, bonus_speed_heroes, illusion_dmg_pct
-* `leshrac_lightning_storm`: slow_movement_speed
-* `lich_frost_nova`: slow_attack_speed
 * `life_stealer_assimilate`: damage, order_lock_duration, radius
-* `life_stealer_infest`: damage_increase_pct
 * `lone_druid_spirit_bear_demolish`: spell_resistance
 * `lone_druid_spirit_bear_entangle`: creep_duration, entangle_chance, hero_duration
 * `lone_druid_spirit_bear_return`: return_damage_cooldown
 * `lone_druid_true_form`: base_attack_time, speed_loss
 * `magnataur_reverse_polarity`: creep_stun_duration
 * `medusa_split_shot`: projectile_speed, range, total_arrow_count
-* `meepo_divided_we_stand`: respawn
 * `mirana_leap`: leap_radius
 * `morphling_morph_agi`: bonus_attributes, morph_cooldown
 * `morphling_morph_str`: bonus_attributes, morph_cooldown
 * `morphling_replicate`: illusion_damage_in_pct, illusion_damage_out_pct
-* `naga_siren_song_of_the_siren`: regen_rate, regen_rate_self
 * `necrolyte_reapers_scythe`: respawn, respawn_constant
-* `necronomicon_archer_aoe`: speed_bonus
-* `nevermore_necromastery`: necromastery_souls_hero_bonus
 * `nevermore_requiem`: requiem_reduction_damage, requiem_reduction_radius
 * `nyx_assassin_impale`: cooldown_upgrade
 * `nyx_assassin_mana_burn`: float_multiplier
 * `nyx_assassin_spiked_carapace`: bonus_armor, bonus_damage, bonus_intellect, burrow_aoe
-* `obsidian_destroyer_astral_imprisonment`: radius
-* `obsidian_destroyer_sanity_eclipse`: mana_drain
 * `ogre_magi_multicast`: bloodlust_aoe, bloodlust_cooldown, fireblast_cooldown, fireblast_mana_cost, ignite_aoe, ignite_cast_range
 * `phantom_assassin_phantom_strike`: bonus_max_attack_count
 * `phoenix_sun_ray`: beam_range
-* `pudge_meat_hook`: hook_distance
-* `queenofpain_blink`: blink_range
-* `rattletrap_power_cogs`: drain_amount
 * `rattletrap_rocket_flare`: vision_radius
 * `razor_plasma_field`: speed
 * `razor_static_link`: vision_radius
 * `roshan_slam`: slow_duration_hero, slow_duration_unit
 * `rubick_telekinesis`: max_land_distance_allied
-* `sandking_epicenter`: epicenter_radius
-* `sandking_sand_storm`: sand_storm_invis_delay
-* `shadow_demon_demonic_purge`: charge_restore_time, creep_root_duration, max_charges, slow_rate
 * `shadow_shaman_mass_serpent_ward`: damage_max, damage_min, splash_damage, splash_radius
-* `shredder_timber_chain`: range
 * `skeleton_king_reincarnation`: aura_radius
-* `sniper_shrapnel`: building_damage, charge_restore_time, max_charges
-* `sven_great_cleave`: great_cleave_radius
 * `templar_assassin_refraction`: damage_threshold
 * `templar_assassin_self_trap`: movement_speed_bonus, movement_speed_bonus_stage, trap_duration, trap_radius
 * `templar_assassin_trap`: movement_speed_bonus, movement_speed_bonus_stage, trap_duration, trap_radius
-* `tidehunter_anchor_smash`: radius
 * `tidehunter_gush`: armor_bonus
 * `tinker_laser`: duration_creep, duration_hero
-* `tiny_avalanche`: num_ticks, projectile_duration
 * `tiny_toss`: bonus_damage_pct, grow_bonus_damage_pct
 * `treant_eyes_in_the_forest`: damage, overgrowth_aoe
 * `treant_leech_seed`: damage_interval
-* `treant_overgrowth`: eyes_radius
 * `tusk_walrus_kick`: crit_multiplier
 * `undying_tombstone`: health_threshold
 * `undying_tombstone_zombie_aura`: bonus_speed
 * `undying_tombstone_zombie_deathstrike`: bonus_speed, health_threshold
-* `venomancer_poison_nova`: damage
 * `viper_corrosive_skin`: bonus_movement_speed
 * `visage_summon_familiars`: damage_charge_time, damage_per_charge, familiar_max_damage, familiar_speed, max_damage_charges
 * `visage_summon_familiars_stone_form`: max_damage_charges
-* `warlock_upheaval`: slow_rate_duration
-* `winter_wyvern_arctic_burn`: bonus_movespeed, night_vision_bonus
 * `winter_wyvern_splinter_blast`: duration
 * `winter_wyvern_winters_curse`: damage_amplification
-* `wisp_tether`: stun_duration, tether_duration
 * `witch_doctor_death_ward`: bounce_radius, bounces
-* `witch_doctor_paralyzing_cask`: hero_damage
 * `zuus_static_field`: radius
 * `zuus_thundergods_wrath`: true_sight_radius
 

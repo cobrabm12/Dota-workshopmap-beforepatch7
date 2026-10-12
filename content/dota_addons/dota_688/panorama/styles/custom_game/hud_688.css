@@ -1,1 +1,9 @@
-.Dota688Hud { width: 0px; height: 0px; }
+.Dota688Hud { width: 100%; height: 100%; }
+.Dota688RulesButton { horizontal-align: right; vertical-align: top; margin-top: 4px; margin-right: 260px; padding: 2px 8px; background-color: #1b2a1f; border: 1px solid #5a7d5a; border-radius: 3px; }
+.Dota688RulesButton Label { color: #cfe8c8; font-size: 14px; font-weight: bold; }
+.Dota688Rules { horizontal-align: center; vertical-align: center; width: 560px; padding: 16px; background-color: #0f1512ee; border: 1px solid #5a7d5a; border-radius: 6px; flow-children: down; visibility: collapse; }
+.Dota688Rules.Visible { visibility: visible; }
+.Dota688RulesTitle { color: #cfe8c8; font-size: 22px; font-weight: bold; margin-bottom: 8px; }
+.Dota688RulesBody { color: #dddddd; font-size: 14px; width: 100%; }
+.Dota688RulesClose { horizontal-align: center; margin-top: 12px; padding: 4px 24px; background-color: #2a3f2e; border-radius: 3px; }
+.Dota688RulesClose Label { color: #ffffff; font-size: 14px; }

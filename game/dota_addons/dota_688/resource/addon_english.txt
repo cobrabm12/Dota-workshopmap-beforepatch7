@@ -9,6 +9,7 @@
 		"DOTA_Tooltip_ability_dota688_attribute_bonus_Description"		"Increases Strength, Agility and Intelligence by 2 per level (pre-7.00 stats)."
 		"DOTA_Tooltip_ability_dota688_empty"		""
 		"dota688_rules_title"		"Dota 6.88 rules"
+		"dota688_rules_body"		"This is Dota as it was in patch 6.88f (December 2016).<br>• No talents, no backpack, no shrines, no neutral items, no Aghanim's Shard.<br>• Attribute Bonus (+2 all) can be leveled 10 times; max level 25; ultimates at 6/11/16.<br>• Runes: two river spots every 2 minutes, one is always a Bounty rune (both at 0:00).<br>• Courier must be bought (100 gold, flying 150). Day/night: 4 + 4 minutes.<br>• Gold, XP, respawn and buyback use the 6.88 formulas. Old item recipes and old shop layout."
 		"DOTA_Tooltip_ability_dota688_abaddon_frostmourne"		"Curse of Avernus"
 		"DOTA_Tooltip_ability_dota688_abaddon_frostmourne_Description"		"Abaddon strikes an enemy with chilling curse on each attack, causing all units who attack the slowed enemy to gain increased movement speed, along with faster attack speed, for a limited time."
 		"DOTA_Tooltip_ability_dota688_abaddon_frostmourne_Lore"		"The curse that slows an enemy, speeds an ally."
