@@ -14,7 +14,9 @@ Dota688DefineItem("item_dota688_hand_of_midas", "items/item_dota688_hand_of_mida
 			target:Kill(self, caster)
 			local pid = caster:GetPlayerOwnerID()
 			if pid >= 0 then PlayerResource:ModifyGold(pid, self:GetSpecialValueFor("bonus_gold"), true, DOTA_ModifyGold_AbilityGold) end
-			if caster:IsRealHero() then caster:AddExperience(xp, DOTA_ModifyXP_CreepKill, false, true) end
+			-- XP-ul merge eroului (si de la Spirit Bear: lui Lone Druid)
+			local hero = caster:IsRealHero() and caster or caster.dota688_bear_owner
+			if hero and not hero:IsNull() then Dota688Creeps:GiveXP(hero, xp) end
 		end,
 	},
 })

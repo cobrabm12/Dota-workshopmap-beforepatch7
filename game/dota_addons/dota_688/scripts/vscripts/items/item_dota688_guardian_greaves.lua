@@ -18,6 +18,7 @@ Dota688DefineAura("modifier_dota688_greaves_aura", "items/item_dota688_guardian_
 	},
 })
 Dota688DefineItem("item_dota688_guardian_greaves", "items/item_dota688_guardian_greaves", {
+	boots = true,   -- viteza cizmelor nu se aduna cu alte cizme (6.88)
 	onCreated = function(self)
 		if IsServer() and not self:GetParent():HasModifier("modifier_dota688_greaves_aura") then
 			self:GetParent():AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_dota688_greaves_aura", {})

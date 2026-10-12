@@ -13,6 +13,12 @@ Dota688DefineItem("item_dota688_bfury", "items/item_dota688_bfury", {
 		GetModifierProcAttack_BonusDamage_Physical = function(self, params)
 			local target = params.target
 			if not target or target:IsHero() or target:IsBuilding() or target:IsOther() or target:GetTeamNumber() == self:GetParent():GetTeamNumber() then return 0 end
+			if target:GetUnitName() == "npc_dota_roshan" then return 0 end
+			-- Quell nu se cumuleaza: doar primul Battle Fury (si el are prioritate fata de Quelling Blade / Iron Talon)
+			if IsServer() then
+				local all = self:GetParent():FindAllModifiersByName(self:GetName())
+				if all[1] ~= nil and all[1] ~= self then return 0 end
+			end
 			local a = self:GetAbility()
 			local pct = self:GetParent():IsRangedAttacker() and a:GetSpecialValueFor("quelling_bonus_ranged") or a:GetSpecialValueFor("quelling_bonus")
 			return self:GetParent():GetAverageTrueAttackDamage(nil) * (pct - 100) / 100

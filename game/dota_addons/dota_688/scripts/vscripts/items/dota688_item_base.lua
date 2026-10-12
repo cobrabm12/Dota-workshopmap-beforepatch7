@@ -101,6 +101,7 @@ function Dota688DefineItem(itemName, scriptPath, opts)
 		local funcs = { MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, MODIFIER_EVENT_ON_ATTACK_LANDED }
 		for _, def in pairs(STAT_MAP) do table.insert(funcs, def[1]) end
 		if opts.extraFunctions then for _, f in ipairs(opts.extraFunctions) do table.insert(funcs, f) end end
+		if opts.boots then table.insert(funcs, MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE) end
 		return funcs
 	end
 	for _, def in pairs(STAT_MAP) do
@@ -108,6 +109,12 @@ function Dota688DefineItem(itemName, scriptPath, opts)
 		if not mod[fname] then
 			mod[fname] = function(self) return (self.stats and self.stats[fname]) or 0 end
 		end
+	end
+	-- cizme (opts.boots): viteza de miscare a cizmelor nu se aduna intre ele (6.88), deci bonusul fix trece pe
+	-- proprietatea "unica" a cizmelor in locul celei constante
+	if opts.boots then
+		mod.GetModifierMoveSpeedBonus_Constant = function() return 0 end
+		mod.GetModifierMoveSpeedBonus_Special_Boots = function(self) return (self.stats and self.stats.GetModifierMoveSpeedBonus_Constant) or 0 end
 	end
 	function mod:GetModifierConstantManaRegen()
 		local v = self.manaRegenFlat or 0

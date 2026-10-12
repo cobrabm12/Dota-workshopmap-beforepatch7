@@ -2,6 +2,7 @@ require("dota688/val")
 require("items/dota688_item_base")
 -- Power Treads (6.88): +45 MS, +25 AS, +9 la atributul ales (STR/AGI/INT, comutat prin click).
 Dota688DefineItem("item_dota688_power_treads", "items/item_dota688_power_treads", {
+	boots = true,   -- viteza cizmelor nu se aduna cu alte cizme (6.88)
 	onCreated = function(self) if IsServer() then self.attr = self:GetAbility().attr or 0 end end,
 	modifier = {
 		GetModifierBonusStats_Strength = function(self) return (self:GetAbility().attr or 0) == 0 and Dota688Val(self, "bonus_stat") or 0 end,

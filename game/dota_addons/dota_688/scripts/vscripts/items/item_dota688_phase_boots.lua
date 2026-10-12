@@ -2,6 +2,7 @@ require("items/dota688_item_base")
 -- Phase Boots (6.88): +45 MS, +24 daune; Phase: +24% MS (20% ranged) si trece prin unitati 2.5 s, cd 8.
 LinkLuaModifier("modifier_dota688_phase", "items/item_dota688_phase_boots", LUA_MODIFIER_MOTION_NONE)
 Dota688DefineItem("item_dota688_phase_boots", "items/item_dota688_phase_boots", {
+	boots = true,   -- viteza cizmelor nu se aduna cu alte cizme (6.88)
 	item = {
 		OnSpellStart = function(self)
 			self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_dota688_phase", { duration = self:GetSpecialValueFor("phase_duration") })
