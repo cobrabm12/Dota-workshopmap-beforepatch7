@@ -3,12 +3,31 @@
 Harta 7.00 a schimbat terenul; harta noastră trebuie să reproducă layout‑ul 6.88. Fișierul sursă va fi
 `content/dota_addons/dota_688/maps/dota_688.vmap`, compilat în `game/dota_addons/dota_688/maps/dota_688.vpk`.
 
-## Punct de plecare
+## Punct de plecare: recuperarea hărții 6.88 din clientul vechi (recomandat)
 
-1. Deschide Hammer din Workshop Tools pentru addon‑ul `dota_688`.
-2. Caută (File → Open) sursele de hartă livrate de Valve cu Tools (ex. `dota.vmap` sau prefab‑urile PvP).
-   Dacă sunt disponibile, copiază una în `content/dota_addons/dota_688/maps/dota_688.vmap` și modifică‑o;
-   altfel se construiește de la zero după planul de mai jos (terenul 6.88 nu există ca sursă publică).
+Sursa `.vmap` a hărții 6.88 nu a fost publicată niciodată, dar harta **compilată** există în fișierele clientului
+Dota 2 din 7 decembrie 2016 (build 1805, ultimul înainte de 7.00), iar [Source 2 Viewer](https://s2v.app) o poate
+decompila înapoi într‑un `.vmap` editabil în Hammer (entități, geometrie pe materiale, static props, layere, fizică).
+Se pierd doar prefab‑urile, numele grupurilor, parametrii overlay‑urilor și subdiviziunile; skybox‑ul poate lipsi parțial.
+
+Nu pot descărca eu fișierele: depoturile vechi Steam cer un cont Steam (Dota 2 trebuie să fie în bibliotecă).
+Pașii, pe PC‑ul tău:
+
+1. **Descarcă clientul 6.88f** cu [DepotDownloader](https://github.com/SteamRE/DepotDownloader):
+   * pe [SteamDB, app 570 → Depots](https://steamdb.info/app/570/depots/) ia ID‑ul depotului de conținut („Dota 2 Content”)
+     și, din pagina lui de *Manifests*, ID‑ul manifestului din **7 decembrie 2016** (înainte de cel din 12 decembrie = 7.00);
+   * `DepotDownloader -app 570 -depot <depot> -manifest <manifest> -username <cont> -filelist pak01.txt`,
+     unde `pak01.txt` conține `regex:game/dota/pak01_.*\.vpk` (harta era în `pak01`, nu într‑un VPK separat; sunt câțiva GB).
+2. **Decompilează**: în Source 2 Viewer deschide `game/dota/pak01_dir.vpk`, mergi la `maps/dota.vmap_c`, click dreapta →
+   *Decompile & Export* → *vmap*, salvează ca `content/dota_addons/dota_688/maps/dota_688.vmap` (cu folderul `maps/dota_688/` lângă).
+   Lista celor 140 de fișiere ale hărții este în `reference/6.88f/maps_dota_manifest.txt` (`python3 tools/map_files_688.py`).
+3. **Hammer**: deschide `dota_688.vmap`, verifică lista de entități de mai jos (spawner‑ele de creepi, neutrali, Roshan,
+   shop‑urile, runele – adaugă `info_target` `dota688_rune_top`/`dota688_rune_bot` sau păstrează spawner‑ele de rune),
+   redenumește și compilează. Modelele/texturile din 2016 care nu mai există în joc apar ca erori la compilare: înlocuiește‑le
+   cu echivalentele actuale.
+
+Alternativa, dacă nu vrei să descarci clientul vechi: pornește de la harta curentă (`dota.vmap`, dacă e livrată cu Tools)
+și refă layout‑ul după lista de diferențe de mai jos.
 
 ## Diferențe 6.88 față de harta curentă (de refăcut)
 
