@@ -959,6 +959,10 @@ def gen_localization_lang(lang: str, scripts: dict[str, str], hero_abilities: se
     # tooltip-urile 6.88 pentru abilitățile și itemele built-in pe care le suprascriem
     for n in sorted(hero_abilities | item_names):
         copy_tokens(n, n)
+    # runele si glyph-ul cu textul 6.88 (motorul curent: "Amplify Damage", Arcane 25/30 %, glyph 7 s)
+    for k, v in tokens.scalars():
+        if k.startswith(("DOTA_Chat_Rune_", "DOTA_Tooltip_rune_", "DOTA_Hotkeys_Tooltip_ActivateGlyph")) and k not in out:
+            out[k] = v
     # textul 6.88 al upgrade-ului de Aghanim: HUD-ul curent citeste <abilitate>_scepter_description
     for k, v in list(out.scalars()):
         if k.lower().endswith("_aghanim_description"):
