@@ -52,7 +52,7 @@ originale 6.88f. Coloana „Implementare” spune unde se face în proiect.
 | Viteză atac / AGI | 1 | 1 | – |
 | Amplificare vrăji / INT | 1 % la 16 INT | 0 | idem |
 | HP / mana de bază | 200 / 50 | 120 / 75 | `StatusHealth`/`StatusMana` în `npc_heroes_custom.txt` |
-| Formula armurii | 0,06·A / (1 + 0,06·A) | identică | – |
+| Formula armurii | 0,06·A / (1 + 0,06·\|A\|) (și la armură negativă) | identică (7.27 a revenit la ea; măsurat în joc: 1000 daune la 6,6 armură = 715) | – |
 | Viteză maximă | 522 | 550 | **TODO** (nu există API) |
 
 ## Hartă și obiecte

@@ -59,7 +59,7 @@ C.EMULATE_DAY_NIGHT    = true
 -- Atribute (per punct) --------------------------------------------------------
 C.ATTR = {
 	HP_PER_STR         = 20,     -- 6.87-7.12 (ACUM: 22)
-	HP_REGEN_PER_STR   = 0.03,   -- (ACUM: 0.09 flat)
+	HP_REGEN_PER_STR   = 0.03,   -- (ACUM: 0.1 flat; masurat in joc: CM 31 STR, baza 0.25 -> 1.50 cu compensare de 0.09)
 	MANA_PER_INT       = 12,     -- (ACUM: 12)
 	MANA_REGEN_PER_INT = 0.04,   -- (ACUM: 0.05 flat)
 	ARMOR_PER_AGI      = 1 / 7,  -- (ACUM: 1/6)
@@ -72,7 +72,7 @@ C.ATTR = {
 }
 -- valorile motorului curent, de compensat (verificate pe wiki la data generarii; de reverificat la patch-uri noi)
 C.ATTR_NOW = {
-	HP_PER_STR = 22, HP_REGEN_PER_STR = 0.09, MANA_PER_INT = 12, MANA_REGEN_PER_INT = 0.05,
+	HP_PER_STR = 22, HP_REGEN_PER_STR = 0.1, MANA_PER_INT = 12, MANA_REGEN_PER_INT = 0.05,
 	ARMOR_PER_AGI = 1 / 6, AS_PER_AGI = 1, SPELL_AMP_PER_INT = 0, MAGIC_RES_PER_INT = 0.1,
 	BASE_HP_ENGINE = 120, BASE_MANA_ENGINE = 75,   -- baza motorului curent, daca ignora StatusHealth/StatusMana din KV
 }
