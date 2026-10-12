@@ -10,6 +10,8 @@ Dota688DefineItem("item_dota688_hurricane_pike", "items/item_dota688_hurricane_p
 			if self:GetParent():IsRangedAttacker() then return Dota688Val(self, "base_attack_range") end
 			return 0
 		end,
+		-- bonus_attack_speed e doar al activei ("Grants 100 Attack Speed during the attacks"), nu pasiv
+		GetModifierAttackSpeedBonus_Constant = function() return 0 end,
 	},
 	item = {
 		CastFilterResultTarget = function(self, target)

@@ -1,6 +1,8 @@
 require("dota688/val")
 require("items/dota688_item_base")
--- Bloodthorn (6.88): +25 INT, +30 AS, +60 daune, +150% regen mana, 20% critic 175%; Soul Rend: silence 5 s, toate atacurile pe tinta sunt critice 145% si la final +30% din daunele primite.
+-- Bloodthorn (6.88): +25 INT, +30 AS, +60 daune, +150% regen mana, 20% critic 175%; Soul Rend: silence 5 s, toate atacurile pe tinta
+-- (de la oricine) sunt critice 145% (critul propriu de 175% il inlocuieste cand se declanseaza) si la final +30% din daunele primite.
+-- True Strike-ul pe tinta pentru toti atacatorii nu se poate da printr-un modifier pe tinta (nu exista proprietate); ramane doar critul.
 LinkLuaModifier("modifier_dota688_soul_rend", "items/item_dota688_bloodthorn", LUA_MODIFIER_MOTION_NONE)
 Dota688DefineItem("item_dota688_bloodthorn", "items/item_dota688_bloodthorn", {
 	extraFunctions = { MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE },
@@ -8,10 +10,10 @@ Dota688DefineItem("item_dota688_bloodthorn", "items/item_dota688_bloodthorn", {
 		GetModifierPreAttack_CriticalStrike = function(self, params)
 			local target = params.target
 			if not target or target:IsBuilding() or target:IsOther() then return nil end
-			if target:HasModifier("modifier_dota688_soul_rend") then return Dota688Val(self, "target_crit_multiplier") end
 			if RollPseudoRandomPercentage(Dota688Val(self, "crit_chance"), DOTA_PSEUDO_RANDOM_ITEM_GREATERCRIT, self:GetParent()) then
 				return Dota688Val(self, "crit_multiplier")
 			end
+			if target:HasModifier("modifier_dota688_soul_rend") then return Dota688Val(self, "target_crit_multiplier") end
 			return nil
 		end,
 	},
@@ -30,7 +32,13 @@ function modifier_dota688_soul_rend:IsPurgable() return true end
 function modifier_dota688_soul_rend:GetEffectName() return "particles/items2_fx/orchid.vpcf" end
 function modifier_dota688_soul_rend:OnCreated() self.total = 0 end
 function modifier_dota688_soul_rend:CheckState() return { [MODIFIER_STATE_SILENCED] = true } end
-function modifier_dota688_soul_rend:DeclareFunctions() return { MODIFIER_EVENT_ON_TAKEDAMAGE } end
+function modifier_dota688_soul_rend:DeclareFunctions() return { MODIFIER_EVENT_ON_TAKEDAMAGE, MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE } end
+-- atacurile celorlalti (nu ale purtatorului, care are critul in propria functie) fac 145%
+function modifier_dota688_soul_rend:GetModifierIncomingDamage_Percentage(params)
+	if params.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK or params.damage_type ~= DAMAGE_TYPE_PHYSICAL then return 0 end
+	if params.attacker == self:GetCaster() then return 0 end
+	return Dota688Val(self, "target_crit_multiplier") - 100
+end
 function modifier_dota688_soul_rend:OnTakeDamage(params)
 	if IsServer() and params.unit == self:GetParent() and params.attacker ~= self:GetParent() then self.total = self.total + params.damage end
 end
