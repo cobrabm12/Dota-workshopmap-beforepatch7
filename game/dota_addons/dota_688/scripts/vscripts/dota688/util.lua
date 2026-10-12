@@ -60,3 +60,25 @@ end
 function Dota688GameMinutes()
 	return math.max(0, math.floor(GameRules:GetDOTATime(false, false) / 60))
 end
+
+-- UTIL_Remove pe o unitate inghetata intr-un Chronosphere activ face motorul sa cada (testat in testul de fum, Workshop
+-- Tools). Unitatea e ascunsa si facuta invulnerabila imediat, iar UTIL_Remove vine dupa ce se termina Chronosphere-ul.
+local function in_chronosphere(u)
+	for _, m in ipairs(u:FindAllModifiers()) do
+		if string.find(m:GetName(), "chronosphere", 1, true) then return true end
+	end
+	return false
+end
+
+function Dota688SafeRemove(u)
+	if u == nil or u:IsNull() then return end
+	if not in_chronosphere(u) then UTIL_Remove(u); return end
+	u:AddNoDraw()
+	u:AddNewModifier(u, nil, "modifier_invulnerable", {})
+	Dota688Timers:Every(0.5, function()
+		if u:IsNull() then return false end
+		if in_chronosphere(u) then return true end
+		UTIL_Remove(u)
+		return false
+	end)
+end

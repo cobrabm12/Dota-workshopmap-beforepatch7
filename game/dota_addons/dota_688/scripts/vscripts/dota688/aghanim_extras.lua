@@ -36,7 +36,7 @@ AG.EXTRA = {
 						if u ~= hero and u:IsClone() and u:GetCloneSource() == hero then table.insert(clones, u) end
 					end
 					table.sort(clones, function(x, y) return x:entindex() < y:entindex() end)
-					for i = #clones, a:GetLevel() + 1, -1 do UTIL_Remove(clones[i]) end
+					for i = #clones, a:GetLevel() + 1, -1 do Dota688SafeRemove(clones[i]) end
 				end)
 			end
 		end,

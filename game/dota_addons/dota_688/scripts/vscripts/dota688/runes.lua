@@ -200,7 +200,7 @@ function M:ReplaceIllusions(hero, pid, t0)
 	for _, u in ipairs(units) do
 		if u ~= hero and u:IsIllusion() and not u.dota688_rune_illusion and u:GetPlayerOwnerID() == pid
 			and u:GetUnitName() == name and IsNewIllusion(u, t0, now) then
-			UTIL_Remove(u)
+			Dota688SafeRemove(u)
 			removed = removed + 1
 		end
 	end

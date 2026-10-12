@@ -58,7 +58,7 @@ function dota688_lone_druid_spirit_bear:OnSpellStart()
 			local m = old:FindModifierByName("modifier_dota688_lone_druid_spirit_bear_attack_check")
 			if m then m.replaced = true end
 			self:TransferItems(old, bear)
-			UTIL_Remove(old)
+			Dota688SafeRemove(old)
 		end
 		caster.dota688_bear = bear
 	end
