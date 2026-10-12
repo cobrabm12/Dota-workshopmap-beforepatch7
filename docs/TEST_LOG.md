@@ -140,3 +140,18 @@ Harta 6.88 compilată de noi (`dota_launch_custom_game dota_688 dota_688`), Work
 | Comenzile curierului | REPARAT – Return to Base mergea în centrul hărții, Go to Secret Shop la shop‑ul celeilalte echipe (raport din playtest); comenzile 6.88 în Lua: fântâna și secret shop‑ul echipei, stash și livrare pentru jucătorul care dă ordinul (testat) |
 | Fântâna | REPARAT – 4 % HP pe secundă (măsurat +82 HP la 1960 maxim); mana 4 % + 14 |
 | Backdoor protection | REPARAT – motorul reduce 50 %, 6.88 25 %: atac 14 → 21 fără creepi lângă turn (28 cu creepi) |
+
+## 8. Runda a treia: după restartul PC‑ului (2026‑10‑12, noaptea)
+
+Pornire curată pe harta proprie, jocul în fereastră; repornirile se fac acum cu `quit` din consolă (kill‑urile forțate
+declanșau crash‑ul driverului AMD la pornirea următoare).
+
+| Test | Rezultat |
+|---|---|
+| Pornire | OK – 0 erori Lua, 66 de clădiri, 0 entități lipsă pe hartă |
+| Fântâna: mana | REPARAT – `SetFountainConstantManaRegen` nu mai are efect (măsurat: doar 4 %); +14 mana/s printr‑o aură proprie pe fântâni: 27.5 mana/s la 314 mana maximă (14 + 12.56 + regen propriu) |
+| Techies – Suicide Squad, Attack! | OK – respawn × 0.5 (21.5 s la nivelul 10), inamicii nu primesc XP sau aur |
+| Bloodstone | REPARAT – pierdea două treimi din charge‑uri (`on_death_removal 0.67` = cât rămâne): acum 12 → 8 → 5; +1 mana/s pe charge (tooltip 6.88) lipsea; respawn −3 s/charge, vindecare aliați, Pocket Deny fără XP pentru inamici, +1 charge la erou inamic mort în 1600 |
+| Curier – butoanele din HUD | REPARAT – Deliver Items, F3, burst, meniul de click dreapta (fântână / secret shop) și Select Courier căutau curierul personal 7.x și nu trimiteau niciun ordin; acum merg prin server pentru orice jucător al echipei (testat cu click‑uri reale și cu un coechipier simulat) |
+| Curier – statistici | REPARAT – motorul punea magic immune, phased și +10 viteză/nivel; burst‑ul dădea +800 % (3420 viteză) în loc de 800; în fântână curierul avea 550. Acum 350 (sol și zburător), burst 800 timp de 4 s, cooldown 90 |
+| Curier – moarte | REPARAT – motorul îl reînvia după 50–66 s; acum 120 s / 180 s (zburător), cu itemele, în fântână |
