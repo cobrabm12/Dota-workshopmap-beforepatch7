@@ -6,6 +6,11 @@ dota688_attribute_bonus = class({})
 function dota688_attribute_bonus:GetIntrinsicModifierName() return "modifier_dota688_attribute_bonus" end
 function dota688_attribute_bonus:ProcsMagicStick() return false end
 
+-- Invoker 6.88: invoker_attribute_bonus (un nivel la 25, +6); acelasi modifier, alta valoare in KV
+dota688_invoker_attribute_bonus = class({})
+function dota688_invoker_attribute_bonus:GetIntrinsicModifierName() return "modifier_dota688_attribute_bonus" end
+function dota688_invoker_attribute_bonus:ProcsMagicStick() return false end
+
 modifier_dota688_attribute_bonus = class({})
 function modifier_dota688_attribute_bonus:IsHidden() return true end
 function modifier_dota688_attribute_bonus:IsPurgable() return false end

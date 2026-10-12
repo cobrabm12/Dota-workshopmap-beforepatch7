@@ -31,7 +31,7 @@ consolă ca `[VScript]` / `Script Runtime Error`; cele de KV ca avertismente la 
 - [ ] Fiecare erou din `herolist.txt` se poate alege și are abilitățile din 6.88 în sloturile corecte (fără fațete/inate/talente).
 - [ ] Abilitățile Lua (`dota688_*`, lista în `docs/STATUS.md`) se pot învăța, au tooltip, se lansează fără eroare.
 - [ ] Itemele Lua (`item_dota688_*`) dau statisticile corecte și efectele active (Dagon, Force Staff, Euls, Manta, Blink…).
-- [ ] Invoker: orbele dau atribute pe instanță; Multicast la Ogre; Split Shot la Medusa; familiarii lui Visage; Meepo cu 3 clone.
+- [ ] Invoker: orbele dau +2 la atribute pe nivelul orbului (nu pe instanță); Multicast la Ogre; Split Shot la Medusa; familiarii lui Visage; Meepo cu 3 clone.
 - [ ] Techies: mine, capcane, Suicide, Focused Detonate, Minefield Sign.
 
 ## 4. Aghanim's Scepter (`docs/AGHANIM.md`)

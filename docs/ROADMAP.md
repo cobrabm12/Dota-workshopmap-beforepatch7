@@ -22,7 +22,7 @@
 - [x] Trecut prin abilitățile cu „valori speciale dispărute”: 79 override-uri manuale + Lua; au rămas ~65 cu diferențe minore/Aghanim (`docs/STATUS.md`)
 - [x] Aghanim's Scepter 6.88: item propriu, upgrade‑urile moderne nu se mai activează; upgrade‑urile 6.88 per erou (`docs/AGHANIM.md`)
 - [x] Aghanim: ultimate‑urile cu upgrade în 6.88 rescrise în Lua (Hook, Chain Frost, Ghostship, Ice Blast, Requiem, Duel, Doom…) – inclusiv Invoker/Rubick/Ursa/Venge/Hybrid/Meepo; imposibil doar Lone Druid
-- [ ] Invoker (Quas/Wex/Exort în 6.88 dădeau +2/4/…/14 pe instanță), Ogre Multicast, Medusa Split Shot – de verificat în joc
+- [ ] Invoker (Quas/Wex/Exort în 6.88 dădeau +2/4/…/14 pe nivelul orbului), Ogre Multicast, Medusa Split Shot – de verificat în joc
 
 ## Faza 4 – harta
 - [ ] Construit `dota_688.vmap` în Hammer după `docs/HARTA.md`

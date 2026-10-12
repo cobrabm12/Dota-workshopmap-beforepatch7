@@ -15,6 +15,6 @@ function dota688_lich_dark_ritual:OnSpellStart()
 	target:Kill(self, caster)
 	caster:GiveMana(mana)
 	if xp > 0 and caster:IsRealHero() then
-		caster:AddExperience(xp, DOTA_ModifyXP_CreepKill, false, true)
+		Dota688Creeps:GiveXP(caster, xp)   -- XP-ul CreepKill trece prin filtrul creepilor (dota688/creeps.lua)
 	end
 end

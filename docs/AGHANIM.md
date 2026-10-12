@@ -26,7 +26,7 @@ upgrade‑urile lui de scepter (modifierul vizibil „Aghanim's Scepter (from Al
 | Alchemist | Dă scepter‑ul unui aliat | ✅ | itemul se aruncă pe aliat |
 | Ancient Apparition | Frostbite 17 s | ✅ | Lua: `dota688_ancient_apparition_ice_blast` + `_release` (trasor, bulgăre, explozie care crește cu distanța) |
 | Axe | Culling Blade: cd 6, prag 300/425/550, viteză 10 s | ✅ | Lua: `dota688_axe_culling_blade` |
-| Bane | Fiend's Grip 7 s, 155/215/270 dps, 10 % mana; Nightmare pe cine atacă Bane | ✅ | Lua: `dota688_bane_fiends_grip` (Nightmare = modifierul built‑in al abilității Nightmare) |
+| Bane | Fiend's Grip 7 s, 155/215/270 dps, 10 % mana; Nightmare pe cine atacă Bane | ✅ | Lua: `dota688_bane_fiends_grip` (Nightmare = `dota688_bane_nightmare`, Lua) |
 | Batrider | Lasso prinde și cel mai apropiat erou aliat (400); 100 dps | ✅ | built‑in modern (al doilea erou) + 100 dps din `aghanim_extras` |
 | Beastmaster | Primal Roar cd 45, rază 950 | ✅ | HOOKS (C++) |
 | Bloodseeker | Rupture: 2 încărcături / 40 s | ✅ | Lua: `dota688_bloodseeker_rupture` (încărcături gestionate în Lua) |
@@ -49,7 +49,7 @@ upgrade‑urile lui de scepter (modifierul vizibil „Aghanim's Scepter (from Al
 | Faceless Void | Chronosphere cd 60 | ✅ | HOOKS (C++) |
 | Gyrocopter | Side Gunner (atac aleator la 1.2 s în 600) | ✅ | `aghanim_extras` |
 | Huskar | Life Break 65 % HP, cd 4 | ✅ | Lua: `dota688_huskar_life_break` |
-| Invoker | Invoke cd 16/8/4/2 fără mana; +1 nivel la Q/W/E pe spell‑urile invocate | ✅ | cd + mana 0 (HOOKS); `aghanim_extras` ridică Quas/Wex/Exort cu un nivel cât timp are scepter (atributele orbelor rămân la nivelul de bază) |
+| Invoker | Invoke cd 16/8/4/2 fără mana; +1 nivel la Q/W/E pe spell‑urile invocate | (de retestat) | Lua: `dota688_invoker_invoke` (cd/mana cu scepter); `aghanim_extras` ridică Quas/Wex/Exort cu un nivel cât timp are scepter (atributele orbelor rămân la nivelul de bază) |
 | Jakiro | Macropyre 1800, 30 s, 125/175/225 dps | ✅ | Lua: `dota688_jakiro_macropyre` |
 | Juggernaut | Omnislash 6/9/12 sărituri, cd 70 | ✅ | Lua: `dota688_juggernaut_omni_slash` |
 | Keeper of the Light | Spirit Form permanent; ziua Illuminate vindecă aliații | ✅ | Lua: `dota688_keeper_of_the_light_spirit_form`; vindecarea este un val lansat la sfârșitul canalizării Illuminate, pe direcția și distanța undei originale |
@@ -60,7 +60,7 @@ upgrade‑urile lui de scepter (modifierul vizibil „Aghanim's Scepter (from Al
 | Lifestealer | Assimilate | ✅ | abilitatea C++ deblocată din Lua (fără upgrade‑ul modern la Infest) |
 | Lina | Laguna Blade pure, trece prin BKB | ✅ | Lua: `dota688_lina_laguna_blade` |
 | Lion | Finger 725/875/1025, cd 100/60/20, mana 200/420/625, zonă 300 | ✅ | Lua: `dota688_lion_finger_of_death` |
-| Lone Druid | Ursul atacă la orice distanță și supraviețuiește morții lui Lone Druid | ✖ | lesa ursului și moartea lui la moartea druidului sunt în C++‑ul unității (singurul upgrade nereprodus) |
+| Lone Druid | Ursul atacă la orice distanță și supraviețuiește morții lui Lone Druid | (de testat) | Lua: `dota688_lone_druid_spirit_bear` (ursul 6.88 pe 4 niveluri, lesa 1100 și moartea odată cu druidul sunt acum în Lua, deci scepter‑ul le poate scoate) |
 | Luna | Eclipse pe aliat/zonă, 6/12/18 raze la 0.3 s, fără limită pe unitate | ✅ | Lua: `dota688_luna_eclipse` (razele folosesc Lucent Beam la nivelul curent) |
 | Magnus | Empower aură pe eroii aliați; cei la distanță jumătate + splash | ✅ | Lua: `dota688_magnataur_empower` |
 | Meepo | Un Meepo în plus; clonele primesc 100 % din atributele bonus (în loc de 20 %) | ✅ | `aghanim_extras`: Divided We Stand nivel 4 (clona în plus moare la pierderea scepter‑ului); clonele primesc 20 %/100 % din atributele bonus ale lui Meepo printr‑un modifier care se autocorectează |
@@ -70,7 +70,7 @@ upgrade‑urile lui de scepter (modifierul vizibil „Aghanim's Scepter (from Al
 | Necrophos | Scythe cd 70, mana 150, 0.6/0.9/1.2 daune/HP, fără buyback | ✅ | Lua: `dota688_necrolyte_reapers_scythe` + `respawn_buyback.lua` |
 | Night Stalker | Viziune neobstrucționată noaptea | ✅ | Lua: `dota688_night_stalker_darkness` |
 | Nyx Assassin | Burrow | ✅ | built‑in (abilitate oferită de scepter) |
-| Ogre Magi | Unrefined Fireblast (60 % mana) | ✅ | abilitatea C++ deblocată din Lua |
+| Ogre Magi | Unrefined Fireblast (60 % mana) | (de retestat) | Lua: `dota688_ogre_magi_unrefined_fireblast` (deblocată de scepter, cu Multicast 6.88) |
 | Omniknight | Guardian Angel 8/9/10 s, global, clădiri | ✅ | Lua: `dota688_omniknight_guardian_angel` |
 | Oracle | Purifying Flames cd 1, cast point 0.1 | ✅ | Lua: `dota688_oracle_purifying_flames` |
 | Outworld Devourer | Sanity's Eclipse aplică Astral Imprisonment | ✅ | Lua: `dota688_obsidian_destroyer_sanity_eclipse` (modifierul built‑in de Astral) |
@@ -108,6 +108,7 @@ upgrade‑urile lui de scepter (modifierul vizibil „Aghanim's Scepter (from Al
 | Windranger | Focus Fire cd 15, reducere 30/15/0 % | ✅ | Lua: `dota688_windrunner_focusfire` |
 | Winter Wyvern | Arctic Burn toggle | ✅ | built‑in modern |
 | Witch Doctor | Death Ward sare între inamici | ✅ | built‑in modern |
+| Wraith King | Reincarnation: Wraith Delay – aliații din 1200 devin spirite 7 s în loc să moară | (de testat) | Lua: `dota688_skeleton_king_reincarnation` |
 | Zeus | Thundergod's Wrath 440/540/640 | ✅ | Lua: `dota688_zuus_thundergods_wrath` |
 
 Eroii care **nu** aveau upgrade în 6.88 (Anti‑Mage, Phantom Lancer, Sniper, Riki, Slark, Medusa, Troll, Lycan, Spectre,

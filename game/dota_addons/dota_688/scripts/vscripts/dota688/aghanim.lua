@@ -36,7 +36,7 @@ AG.BUILTIN = {
 -- abilitati oferite de scepter in 6.88, deblocate din Lua (fara efecte secundare moderne)
 AG.GRANT = {
 	npc_dota_hero_life_stealer = { "life_stealer_assimilate" },
-	npc_dota_hero_ogre_magi = { "ogre_magi_unrefined_fireblast" },
+	npc_dota_hero_ogre_magi = { "dota688_ogre_magi_unrefined_fireblast", "ogre_magi_unrefined_fireblast" },   -- Lua (6.88); built-in pana la regenerare
 	npc_dota_hero_tusk = { "tusk_walrus_kick" },
 	npc_dota_hero_treant = { "dota688_treant_eyes_in_the_forest" },
 	npc_dota_hero_shredder = { "shredder_chakram_2" },

@@ -54,7 +54,15 @@ function modifier_dota688_fiends_grip_caster:DeclareFunctions() return { MODIFIE
 function modifier_dota688_fiends_grip_caster:OnAttackLanded(params)
 	if not IsServer() or params.target ~= self:GetParent() or not Dota688HasScepter(self:GetParent()) then return end
 	local attacker = params.attacker
-	local nightmare = self:GetParent():FindAbilityByName("bane_nightmare")
+	-- Nightmare 6.88 (Lua, dota688_bane_nightmare); built-in-ul doar daca reimplementarea lipseste
+	local nightmare = self:GetParent():FindAbilityByName("dota688_bane_nightmare")
+	if nightmare then
+		if not attacker or attacker:IsNull() or nightmare:GetLevel() < 1 or attacker:IsBuilding() or attacker:IsMagicImmune()
+			or attacker:HasModifier("modifier_dota688_bane_nightmare") then return end
+		nightmare:ApplyNightmare(attacker, false)
+		return
+	end
+	nightmare = self:GetParent():FindAbilityByName("bane_nightmare")
 	if not attacker or not nightmare or nightmare:GetLevel() < 1 or attacker:IsMagicImmune() or attacker:HasModifier("modifier_bane_nightmare") then return end
 	attacker:AddNewModifier(self:GetParent(), nightmare, "modifier_bane_nightmare", { duration = nightmare:GetSpecialValueFor("duration") })
 end

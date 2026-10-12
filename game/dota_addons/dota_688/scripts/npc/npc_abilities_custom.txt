@@ -19,6 +19,23 @@
 	// Attribute Bonus clasic (pre-7.00): +2 la toate atributele, 10 niveluri, de la nivelul 1.
 	// Tip BASIC: HUD-ul curent nu afiseaza abilitatile ABILITY_TYPE_ATTRIBUTES in bara (n-ar avea buton "+"),
 	// iar in 6.88 Attribute Bonus era o abilitate obisnuita in bara.
+	// Invoker (6.88): in locul Attribute Bonus-ului obisnuit, invoker_attribute_bonus: un nivel, la 25, +6 la atribute
+	"dota688_invoker_attribute_bonus"
+	{
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"abilities/dota688_attribute_bonus"
+		"AbilityType"			"ABILITY_TYPE_BASIC"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"	"attribute_bonus"
+		"MaxLevel"				"1"
+		"RequiredLevel"			"25"
+		"LevelsBetweenUpgrades"	"1"
+		"AbilityValues"
+		{
+			"attribute_bonus_per_level"		"6"
+		}
+	}
+
 	"dota688_attribute_bonus"
 	{
 		"BaseClass"				"ability_lua"

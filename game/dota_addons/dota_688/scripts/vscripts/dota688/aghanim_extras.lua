@@ -370,7 +370,7 @@ function AG.OnUnitSpawned(unit)
 		end
 	elseif string.find(name, "npc_dota_brewmaster_", 1, true) == 1 then
 		local kind = name:match("npc_dota_brewmaster_(%a+)_")
-		local gift = ({ earth = "brewmaster_thunder_clap", storm = "brewmaster_drunken_haze", fire = "dota688_brewmaster_drunken_brawler" })[kind]
+		local gift = ({ earth = "brewmaster_thunder_clap", storm = "dota688_brewmaster_drunken_haze", fire = "dota688_brewmaster_drunken_brawler" })[kind]
 		if gift then
 			local src = owner:FindAbilityByName(gift)
 			local lvl = src and src:GetLevel() or 1
