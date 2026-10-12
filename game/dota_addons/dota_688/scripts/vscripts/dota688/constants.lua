@@ -72,6 +72,7 @@ C.ATTR = {
 C.ATTR_NOW = {
 	HP_PER_STR = 22, HP_REGEN_PER_STR = 0.09, MANA_PER_INT = 12, MANA_REGEN_PER_INT = 0.05,
 	ARMOR_PER_AGI = 1 / 6, AS_PER_AGI = 1, SPELL_AMP_PER_INT = 0,
+	BASE_HP_ENGINE = 120, BASE_MANA_ENGINE = 75,   -- baza motorului curent, daca ignora StatusHealth/StatusMana din KV
 }
 
 -- Roshan ---------------------------------------------------------------------

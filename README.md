@@ -19,11 +19,13 @@ din fișierele originale Valve de la 6.88f, iar regulile de joc sunt implementat
 | 72 iteme apărute după 6.88 scoase din shop | ✅ |
 | Turnuri, barăci, Ancient, fântână, creepi, neutrali, Roshan, curieri cu statistici 6.88 | ✅ generat în `npc_units_custom.txt` (98 unități) |
 | Reguli de joc în Lua (aur, XP, nivel 25, respawn, buyback, rune, zi/noapte 4+4, Roshan, fără backpack, curier cumpărat) | ✅ `game/dota_addons/dota_688/scripts/vscripts/` – **netestat încă în joc** |
-| Abilități reworkate după 6.88 rescrise în Lua cu mecanica originală | ✅ 90+ abilități de erou (toate cele dispărute + cele cu rework major: Riki, Techies, Lycan, Treant, Necrophos, Viper, Io, OD, Pudge, Slardar, Sven, Tiny, Undying, Visage, Wraith King…) – lista în `docs/STATUS.md` |
+| Abilități reworkate după 6.88 rescrise în Lua cu mecanica originală | ✅ 91 abilități de erou (toate cele dispărute + cele cu rework major: Riki, Techies, Lycan, Treant, Necrophos, Viper, Io, OD, Pudge, Slardar, Sven, Tiny, Undying, Visage, Wraith King…) – lista în `docs/STATUS.md` |
 | Iteme cu mecanica 6.88 rescrise în Lua (Heart, Skadi, S&Y, Halberd, Abyssal, Dagon, Veil, Medallion, Solar Crest, Octarine, Shiva, Scythe, Urn, Mek, Pipe, Greaves, Vlad, Basilius/Aquila, Soul Ring, Atos, E-Blade, Manta, Armlet, Battle Fury, Drums, Silver Edge, HotD, Bloodstone, Linken, MKB, Butterfly, Satanic, MoM, Phase, Treads, Diffusal, Midas, Iron Talon…) | ✅ 64 iteme + shop-ul cu layout-ul 6.88 (`shops.txt`) |
-| Abilități built-in cu mecanici noi dezactivate prin override manual (`tools/manual_overrides.json`) | ✅ parțial (Mana Break, Heartstopper, Necromastery, Psionic Trap, Divided We Stand…) |
+| Abilități built-in cu mecanici noi dezactivate prin override manual (`tools/manual_overrides.json`) | ✅ 83 abilități/iteme (Mana Break, Heartstopper, Necromastery, Psionic Trap, Culling Blade, Invoker, consumabile…) |
 | Panorama: talente, backpack, slot neutru, slot TP ascunse | ✅ `content/.../panorama` – de verificat ID-urile la patch-uri noi |
-| Abilități rămase cu diferențe minore sau doar de Aghanim (Invoker orbs, Ogre Multicast, Medusa Split Shot, Visage familiars…) | 🔜 ~65, listate în `docs/STATUS.md` |
+| Abilități rămase cu diferențe minore sau doar de Aghanim (Ogre Multicast, Medusa Split Shot, Requiem, zombii lui Undying…) | 🔜 ~65, listate în `docs/STATUS.md`; nimic blocant |
+| Localizare | ✅ engleză și română generate din textele 6.88 |
+| Resurse (particule/modele) verificate față de clientul curent | ✅ |
 | Panou cu regulile 6.88 în HUD, spawn neutrali la 0:30 | ✅ de verificat în joc |
 | Harta 6.88 (Hammer) | 🔜 plan în `docs/HARTA.md` |
 | Testare în Workshop Tools | 🔜 |

@@ -21,6 +21,20 @@ function modifier_dota688_attributes:DeclareFunctions()
 	}
 end
 
+-- Daca motorul ignora StatusHealth/StatusMana din npc_heroes_custom.txt (baza moderna: 120 HP / 75 mana), compensam diferenta.
+function modifier_dota688_attributes:OnCreated()
+	if not IsServer() then return end
+	local p = self:GetParent()
+	if not p or not p.GetStrength then return end
+	local flags = 0
+	local expectHpModern = C.ATTR_NOW.BASE_HP_ENGINE + p:GetStrength() * C.ATTR_NOW.HP_PER_STR
+	if math.abs(p:GetMaxHealth() - expectHpModern) < 2 then flags = flags + 1 end
+	local expectManaModern = C.ATTR_NOW.BASE_MANA_ENGINE + p:GetIntellect(true) * C.ATTR_NOW.MANA_PER_INT
+	if math.abs(p:GetMaxMana() - expectManaModern) < 2 then flags = flags + 2 end
+	self:SetStackCount(flags)
+	if flags > 0 then print("[dota688] " .. p:GetUnitName() .. ": StatusHealth/StatusMana din KV ignorate (flags=" .. flags .. "), compensez in Lua") end
+end
+
 local function Stats(self)
 	local p = self:GetParent()
 	if not p or p:IsNull() or not p.GetStrength then return 0, 0, 0 end
@@ -29,12 +43,14 @@ end
 
 function modifier_dota688_attributes:GetModifierExtraHealthBonus()
 	local str = Stats(self)
-	return math.floor(str * (C.ATTR.HP_PER_STR - C.ATTR_NOW.HP_PER_STR))
+	local base = (self:GetStackCount() % 2 == 1) and (C.ATTR.BASE_HP - C.ATTR_NOW.BASE_HP_ENGINE) or 0
+	return math.floor(str * (C.ATTR.HP_PER_STR - C.ATTR_NOW.HP_PER_STR)) + base
 end
 
 function modifier_dota688_attributes:GetModifierExtraManaBonus()
 	local _, _, int = Stats(self)
-	return math.floor(int * (C.ATTR.MANA_PER_INT - C.ATTR_NOW.MANA_PER_INT))
+	local base = (self:GetStackCount() >= 2) and (C.ATTR.BASE_MANA - C.ATTR_NOW.BASE_MANA_ENGINE) or 0
+	return math.floor(int * (C.ATTR.MANA_PER_INT - C.ATTR_NOW.MANA_PER_INT)) + base
 end
 
 function modifier_dota688_attributes:GetModifierConstantHealthRegen()
