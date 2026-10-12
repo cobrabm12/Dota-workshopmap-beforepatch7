@@ -83,6 +83,10 @@ function Dota688:Init()
 	Dota688SafeCall(gm, "SetInnateMeleeDamageBlockPerLevelAmount", 0)
 	Dota688SafeCall(GameRules, "SetSuggestAbilitiesEnabled", false)   -- procentele de skill-uri sugerate (7.x)
 	Dota688SafeCall(GameRules, "SetSuggestItemsEnabled", false)
+	-- fantana 6.88: 4 % HP si 14 + 4 % mana pe secunda (7.07 -> 5 % / 6 %)
+	Dota688SafeCall(gm, "SetFountainPercentageHealthRegen", C.FOUNTAIN_HP_REGEN_PCT)
+	Dota688SafeCall(gm, "SetFountainPercentageManaRegen", C.FOUNTAIN_MANA_REGEN_PCT)
+	Dota688SafeCall(gm, "SetFountainConstantManaRegen", C.FOUNTAIN_MANA_REGEN_CONST)
 	Dota688SafeCall(gm, "SetRecommendedItemsDisabled", true)                               -- ghidurile/itemele recomandate (7.x)
 	Dota688SafeCall(gm, "SetHUDVisible", DOTA_HUD_VISIBILITY_SHOP_SUGGESTEDITEMS, false)  -- itemele sugerate din shop/quickbuy
 
