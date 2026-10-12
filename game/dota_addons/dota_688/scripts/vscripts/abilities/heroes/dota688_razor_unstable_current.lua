@@ -19,6 +19,7 @@ function modifier_dota688_razor_unstable_current:OnAbilityExecuted(params)
 	local caster = params.unit
 	if not caster or caster:GetTeamNumber() == parent:GetTeamNumber() or caster:IsMagicImmune() then return end
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return end
 	ApplyDamage({ victim = caster, attacker = parent, damage = a:GetAbilityDamage(), damage_type = a:GetAbilityDamageType(), ability = a })
 	caster:Purge(true, false, false, false, false)
 	caster:AddNewModifier(parent, a, "modifier_dota688_razor_unstable_current_slow", { duration = a:GetSpecialValueFor("slow_duration") })

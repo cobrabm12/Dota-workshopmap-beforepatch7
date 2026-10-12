@@ -34,6 +34,7 @@ end
 function modifier_dota688_focusfire:GetModifierDamageOutgoing_Percentage(params)
 	if not params or params.inflictor ~= nil or not self.target or params.target ~= self.target then return 0 end
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return 0 end
 	if Dota688HasScepter(self:GetParent()) then return a:GetSpecialValueFor("focusfire_damage_reduction_scepter") end
 	return a:GetSpecialValueFor("focusfire_damage_reduction")
 end

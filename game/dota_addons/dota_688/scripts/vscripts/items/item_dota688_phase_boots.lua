@@ -15,6 +15,7 @@ function modifier_dota688_phase:CheckState() return { [MODIFIER_STATE_NO_UNIT_CO
 function modifier_dota688_phase:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_EVENT_ON_ATTACK_START } end
 function modifier_dota688_phase:GetModifierMoveSpeedBonus_Percentage()
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return 0 end
 	return self:GetParent():IsRangedAttacker() and a:GetSpecialValueFor("phase_movement_speed_range") or a:GetSpecialValueFor("phase_movement_speed")
 end
 function modifier_dota688_phase:OnAttackStart(params)

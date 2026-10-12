@@ -15,7 +15,11 @@ function modifier_dota688_night_stalker_crippling_fear:IsPurgable() return true 
 function modifier_dota688_night_stalker_crippling_fear:GetEffectName() return "particles/units/heroes/hero_night_stalker/nightstalker_crippling_fear.vpcf" end
 function modifier_dota688_night_stalker_crippling_fear:CheckState() return { [MODIFIER_STATE_SILENCED] = true } end
 function modifier_dota688_night_stalker_crippling_fear:DeclareFunctions() return { MODIFIER_PROPERTY_MISS_PERCENTAGE } end
-function modifier_dota688_night_stalker_crippling_fear:GetModifierMiss_Percentage()
-	if GameRules:IsDaytime() then return self:GetAbility():GetSpecialValueFor("miss_rate_day") end
-	return self:GetAbility():GetSpecialValueFor("miss_rate_night")
+-- GameRules:IsDaytime nu exista pe client: serverul pune rata de ratare in stack count (ajunge si la client)
+function modifier_dota688_night_stalker_crippling_fear:OnCreated() if IsServer() then self:OnIntervalThink(); self:StartIntervalThink(0.25) end end
+function modifier_dota688_night_stalker_crippling_fear:OnIntervalThink()
+	local a = self:GetAbility()
+	if not a or a:IsNull() then return end
+	self:SetStackCount(a:GetSpecialValueFor(GameRules:IsDaytime() and "miss_rate_day" or "miss_rate_night"))
 end
+function modifier_dota688_night_stalker_crippling_fear:GetModifierMiss_Percentage() return self:GetStackCount() end

@@ -103,6 +103,10 @@ function Dota688:OnNPCSpawned(ev)
 	local unit = EntIndexToHScript(ev.entindex)
 	if not unit then return end
 	if unit:IsRealHero() then
+		-- motorul adauga fiecarui erou "special_bonus_attributes" (atributele-talent din 7.x, 0/7): cat exista,
+		-- HUD-ul ofera "+" la talente la fiecare level up. In 6.88 nu exista (inlocuit de dota688_attribute_bonus).
+		local sb = unit:FindAbilityByName("special_bonus_attributes")
+		if sb then unit:RemoveAbilityByHandle(sb) end
 		if not unit:HasModifier("modifier_dota688_attributes") then
 			unit:AddNewModifier(unit, nil, "modifier_dota688_attributes", {})
 		end

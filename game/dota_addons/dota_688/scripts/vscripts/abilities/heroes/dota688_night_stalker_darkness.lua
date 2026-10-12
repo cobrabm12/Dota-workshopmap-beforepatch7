@@ -18,8 +18,10 @@ modifier_dota688_ns_darkness_blind = class({})
 function modifier_dota688_ns_darkness_blind:IsHidden() return true end
 function modifier_dota688_ns_darkness_blind:IsPurgable() return false end
 function modifier_dota688_ns_darkness_blind:DeclareFunctions() return { MODIFIER_PROPERTY_FIXED_DAY_VISION, MODIFIER_PROPERTY_FIXED_NIGHT_VISION } end
-function modifier_dota688_ns_darkness_blind:GetFixedDayVision() return self:GetAbility():GetSpecialValueFor("fixed_vision") end
-function modifier_dota688_ns_darkness_blind:GetFixedNightVision() return self:GetAbility():GetSpecialValueFor("fixed_vision") end
+-- valoarea se memoreaza la creare: efectul dureaza 50 s si poate supravietui abilitatii (Rubick, iluzie)
+function modifier_dota688_ns_darkness_blind:OnCreated() self.vision = self:GetAbility() and self:GetAbility():GetSpecialValueFor("fixed_vision") or 675 end
+function modifier_dota688_ns_darkness_blind:GetFixedDayVision() return self.vision end
+function modifier_dota688_ns_darkness_blind:GetFixedNightVision() return self.vision end
 
 -- Scepter: viziune de zbor noaptea
 modifier_dota688_ns_darkness_scepter = class({})

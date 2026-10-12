@@ -9,7 +9,11 @@ var HIDE_IDS = [
 	"inventory_tpscroll_container", "inventory_tpscroll_slot",
 	"AghanimsStatus", "ShardStatus", "inventory_shard_status", "inventory_aghanims_status",
 	"AttributeBonusButton",
+	// indicatorul Aghanim's Scepter/Shard (dota_hud_aghs_status_display, 7.x) - in 6.88 nu exista
+	"AghsStatusScepterContainer", "AghsStatusShard",
 ];
+// panouri identificate dupa clasa (fara ID stabil): fatetele/abilitatea innate din 7.36 (dota_hud_innate_display)
+var HIDE_CLASSES = [ "RootInnateDisplay" ];
 
 function HudRoot() {
 	var p = $.GetContextPanel();
@@ -22,6 +26,10 @@ function HideKnownPanels() {
 	for (var i = 0; i < HIDE_IDS.length; i++) {
 		var el = root.FindChildTraverse(HIDE_IDS[i]);
 		if (el !== null && el.visible) { el.visible = false; }
+	}
+	for (var c = 0; c < HIDE_CLASSES.length; c++) {
+		var list = root.FindChildrenWithClassTraverse(HIDE_CLASSES[c]);
+		for (var k = 0; k < list.length; k++) { if (list[k].visible) { list[k].visible = false; } }
 	}
 	$.Schedule(2.0, HideKnownPanels);
 }

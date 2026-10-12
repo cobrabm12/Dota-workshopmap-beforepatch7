@@ -52,9 +52,11 @@ function modifier_dota688_freezing_field_slow:GetTexture() return "crystal_maide
 function modifier_dota688_freezing_field_slow:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT } end
 function modifier_dota688_freezing_field_slow:GetModifierMoveSpeedBonus_Percentage()
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return 0 end
 	return Dota688HasScepter(self:GetCaster()) and a:GetSpecialValueFor("movespeed_slow_scepter") or a:GetSpecialValueFor("movespeed_slow")
 end
 function modifier_dota688_freezing_field_slow:GetModifierAttackSpeedBonus_Constant()
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return 0 end
 	return Dota688HasScepter(self:GetCaster()) and a:GetSpecialValueFor("attack_slow_scepter") or a:GetSpecialValueFor("attack_slow")
 end

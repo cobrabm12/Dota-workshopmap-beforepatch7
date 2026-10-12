@@ -79,6 +79,7 @@ function modifier_dota688_ice_blast_ball:OnCreated(kv)
 end
 function modifier_dota688_ice_blast_ball:OnIntervalThink()
 	local a, caster = self:GetAbility(), self:GetCaster()
+	if not a or a:IsNull() or not caster or caster:IsNull() then self:Destroy(); return end   -- abilitatea/caster-ul au disparut (Rubick, iluzie moarta)
 	local to = self.target - self.pos; to.z = 0
 	local step = self.speed * 0.03
 	if to:Length2D() <= step then

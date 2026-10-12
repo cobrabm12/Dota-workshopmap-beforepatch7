@@ -19,6 +19,7 @@ function modifier_dota688_attributes:DeclareFunctions()
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
 	}
 end
 
@@ -77,4 +78,14 @@ end
 function modifier_dota688_attributes:GetModifierSpellAmplify_Percentage()
 	local _, _, int = Stats(self)
 	return int * (C.ATTR.SPELL_AMP_PER_INT - C.ATTR_NOW.SPELL_AMP_PER_INT)
+end
+
+-- Motorul curent aduna 0.1% rezistenta la magie pe punct de INT la baza (Techies 22 INT: 27.2% in loc de 25%).
+-- Bonusurile de rezistenta se combina multiplicativ, deci calculam bonusul negativ exact care readuce baza 6.88.
+function modifier_dota688_attributes:GetModifierMagicalResistanceBonus()
+	local _, _, int = Stats(self)
+	local extra = int * (C.ATTR_NOW.MAGIC_RES_PER_INT - C.ATTR.MAGIC_RES_PER_INT)
+	if extra <= 0 then return 0 end
+	local base = C.ATTR.BASE_MAGIC_RES
+	return 100 * (1 - (1 - base / 100) / (1 - (base + extra) / 100))
 end

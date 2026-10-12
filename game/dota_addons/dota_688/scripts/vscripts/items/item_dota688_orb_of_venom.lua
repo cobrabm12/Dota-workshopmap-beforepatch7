@@ -20,5 +20,6 @@ end
 function modifier_dota688_venom:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE } end
 function modifier_dota688_venom:GetModifierMoveSpeedBonus_Percentage()
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return 0 end
 	return self:GetCaster():IsRangedAttacker() and a:GetSpecialValueFor("poison_movement_speed_range") or a:GetSpecialValueFor("poison_movement_speed_melee")
 end

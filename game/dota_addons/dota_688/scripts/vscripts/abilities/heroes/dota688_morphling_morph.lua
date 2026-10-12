@@ -13,6 +13,7 @@ function modifier_dota688_morphling_morph:OnIntervalThink()
 	local lvl = morph and morph:GetLevel() or 0
 	if lvl ~= self:GetStackCount() then self:SetStackCount(lvl) end
 	local a = self:GetAbility()
+	if not a or a:IsNull() then self:Destroy(); return end   -- abilitatea/caster-ul au disparut (Rubick, iluzie moarta)
 	if a and a:GetLevel() ~= math.max(1, lvl) then a:SetLevel(math.max(1, lvl)) end
 end
 function modifier_dota688_morphling_morph:Bonus()

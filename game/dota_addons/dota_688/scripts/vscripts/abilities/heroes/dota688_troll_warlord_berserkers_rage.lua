@@ -26,7 +26,8 @@ function modifier_dota688_troll_warlord_berserkers_rage:OnCreated()
 	self.ms = a:GetSpecialValueFor("bonus_move_speed")
 	self.armor = a:GetSpecialValueFor("bonus_armor")
 	self.bat = a:GetSpecialValueFor("base_attack_time")
-	self.rangedRange = self:GetParent():GetBaseAttackRange()
+	local p = self:GetParent()
+	self.rangedRange = p.GetBaseAttackRange and p:GetBaseAttackRange() or 500   -- GetBaseAttackRange nu exista pe client
 	if IsServer() then self:GetParent():SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK) end
 end
 function modifier_dota688_troll_warlord_berserkers_rage:OnRefresh() self:OnCreated() end

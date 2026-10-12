@@ -37,6 +37,7 @@ function modifier_dota688_drow_ranger_marksmanship:OnAttackLanded(params)
 	local target = params.target
 	if not target or target:IsBuilding() or target:IsOther() or target:GetTeamNumber() == parent:GetTeamNumber() then return end
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return end
 	local extra = FindUnitsInRadius(parent:GetTeamNumber(), target:GetAbsOrigin(), nil, a:GetSpecialValueFor("scepter_range"),
 		DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
 	local n = 0

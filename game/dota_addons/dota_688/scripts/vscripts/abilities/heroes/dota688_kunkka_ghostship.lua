@@ -39,6 +39,7 @@ function modifier_dota688_ghostship:OnCreated(kv)
 end
 function modifier_dota688_ghostship:OnIntervalThink()
 	local a, caster = self:GetAbility(), self:GetCaster()
+	if not a or a:IsNull() or not caster or caster:IsNull() then self:Destroy(); return end   -- abilitatea/caster-ul au disparut (Rubick, iluzie moarta)
 	local to = self.target - self.pos; to.z = 0
 	local d = to:Length2D()
 	local step = self.speed * 0.03

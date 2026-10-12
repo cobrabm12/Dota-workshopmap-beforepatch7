@@ -567,6 +567,19 @@ CUSTOM_KV_PATCH = {
 }
 
 
+# iconite 6.88 care nu mai exista in clientul curent -> cele mai apropiate actuale (verificat de check_addon.py)
+ICON_REMAP = {
+    "beastmaster_call_of_the_wild_boar": "beastmaster_call_of_the_wild",
+    "lich_dark_ritual": "lich_dark_sorcery",
+    "meepo_geostrike": "meepo_geostrike_scavenger",
+    "morphling_adaptive_strike": "morphling_adaptive_strike_agi",
+    "morphling_morph": "morphling_morph_agi",
+    "shadow_demon_soul_catcher": "shadow_demon_disseminate",
+    "skeleton_king_vampiric_aura": "leoric_lifesteal_aura",
+    "item_diffusal_blade_2": "item_diffusal_blade",
+}
+
+
 # chei auxiliare dintr-un bloc AbilitySpecial (nu sunt valori); in AbilityValues devin sub-chei ale valorii
 SPECIAL_META = {"levelkey", "calculatespelldamagetooltip", "requiresscepter", "linkedspecialbonus", "damagetypetooltip"}
 
@@ -622,7 +635,7 @@ def gen_custom_defs(A0, I0, scripts: dict[str, str], custom: set[str]) -> tuple[
                 del blk["ID"]
             blk["BaseClass"] = "item_lua"
             blk["ScriptFile"] = script
-            blk["AbilityTextureName"] = orig
+            blk["AbilityTextureName"] = ICON_REMAP.get(orig, orig)
             modernize_block(blk)
             req = item_requirements_resolved(src, custom)
             if req is not None:
@@ -648,7 +661,7 @@ def gen_custom_defs(A0, I0, scripts: dict[str, str], custom: set[str]) -> tuple[
                 del blk["ID"]
             blk["BaseClass"] = "ability_lua"
             blk["ScriptFile"] = script
-            blk["AbilityTextureName"] = orig
+            blk["AbilityTextureName"] = ICON_REMAP.get(orig, orig)
             modernize_block(blk)
             for k, v in CUSTOM_KV_PATCH.get(cname, {}).items():
                 blk[k] = v

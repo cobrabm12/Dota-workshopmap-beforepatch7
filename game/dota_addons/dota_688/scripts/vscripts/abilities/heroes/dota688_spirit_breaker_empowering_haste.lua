@@ -25,6 +25,7 @@ function modifier_dota688_spirit_breaker_empowering_haste_effect:IsPurgable() re
 function modifier_dota688_spirit_breaker_empowering_haste_effect:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE } end
 function modifier_dota688_spirit_breaker_empowering_haste_effect:GetModifierMoveSpeedBonus_Percentage()
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return 0 end
 	local v = a:GetSpecialValueFor("bonus_movespeed_pct")
 	if self:GetCaster():HasModifier("modifier_dota688_spirit_breaker_empowering_haste_active") then v = v + a:GetSpecialValueFor("bonus_movespeed_pct_extra") end
 	return v

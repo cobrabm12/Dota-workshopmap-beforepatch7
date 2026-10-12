@@ -20,6 +20,7 @@ function modifier_dota688_crystal_maiden_brilliance_aura_effect:IsPurgable() ret
 function modifier_dota688_crystal_maiden_brilliance_aura_effect:DeclareFunctions() return { MODIFIER_PROPERTY_MANA_REGEN_CONSTANT } end
 function modifier_dota688_crystal_maiden_brilliance_aura_effect:GetModifierConstantManaRegen()
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return 0 end
 	if self:GetParent() == self:GetCaster() then return a:GetSpecialValueFor("mana_regen_self") end
 	return a:GetSpecialValueFor("mana_regen")
 end

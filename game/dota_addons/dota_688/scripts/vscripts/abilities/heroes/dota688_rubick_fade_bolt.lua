@@ -33,5 +33,6 @@ function modifier_dota688_rubick_fade_bolt:IsPurgable() return true end
 function modifier_dota688_rubick_fade_bolt:DeclareFunctions() return { MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE } end
 function modifier_dota688_rubick_fade_bolt:GetModifierPreAttack_BonusDamage()
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return 0 end
 	return -(self:GetParent():IsHero() and a:GetSpecialValueFor("hero_attack_damage_reduction") or a:GetSpecialValueFor("creep_attack_damage_reduction"))
 end

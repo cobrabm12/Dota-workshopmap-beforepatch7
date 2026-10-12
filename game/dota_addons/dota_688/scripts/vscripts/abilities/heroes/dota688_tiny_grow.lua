@@ -52,6 +52,7 @@ function modifier_dota688_tiny_grow:OnAttackLanded(params)
 	local t = params.target
 	if not t or t:IsBuilding() or t:IsOther() or t:GetTeamNumber() == self:GetParent():GetTeamNumber() then return end
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return end
 	DoCleaveAttack(self:GetParent(), t, a, params.damage * a:GetSpecialValueFor("bonus_cleave_damage_scepter") / 100, 150, a:GetSpecialValueFor("bonus_cleave_radius_scepter"), 460,
 		"particles/units/heroes/hero_tiny/tiny_craggy_hit.vpcf")
 end

@@ -27,6 +27,7 @@ function modifier_dota688_wall_of_replica:OnCreated(kv)
 end
 function modifier_dota688_wall_of_replica:OnIntervalThink()
 	local a, caster = self:GetAbility(), self:GetCaster()
+	if not a or a:IsNull() or not caster or caster:IsNull() then self:Destroy(); return end   -- abilitatea/caster-ul au disparut (Rubick, iluzie moarta)
 	for _, h in ipairs(FindUnitsInLine(caster:GetTeamNumber(), self.p1, self.p2, nil, 60, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS)) do
 		local old = self.replicas[h:entindex()]
 		if (not old or old:IsNull() or not old:IsAlive()) and not h:IsMagicImmune() then

@@ -11,6 +11,7 @@ function modifier_dota688_lina_fiery_soul:DeclareFunctions() return { MODIFIER_E
 function modifier_dota688_lina_fiery_soul:OnAbilityExecuted(params)
 	if not IsServer() or params.unit ~= self:GetParent() or not params.ability or params.ability:IsItem() or self:GetParent():PassivesDisabled() then return end
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return end
 	local m = self:GetParent():FindModifierByName("modifier_dota688_lina_fiery_soul_stack")
 	if not m then m = self:GetParent():AddNewModifier(self:GetParent(), a, "modifier_dota688_lina_fiery_soul_stack", { duration = a:GetDuration() }); m:SetStackCount(0) end
 	m:SetStackCount(math.min(a:GetSpecialValueFor("fiery_soul_max_stacks"), m:GetStackCount() + 1)); m:ForceRefresh()

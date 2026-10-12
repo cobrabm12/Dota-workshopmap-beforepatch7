@@ -28,6 +28,7 @@ function modifier_dota688_poison_nova_wave:OnCreated()
 end
 function modifier_dota688_poison_nova_wave:OnIntervalThink()
 	local a, caster = self:GetAbility(), self:GetCaster()
+	if not a or a:IsNull() or not caster or caster:IsNull() then self:Destroy(); return end   -- abilitatea/caster-ul au disparut (Rubick, iluzie moarta)
 	self.r = self.r + a:GetSpecialValueFor("speed") * 0.1
 	local maxr = a:GetSpecialValueFor("radius")
 	local dur = Dota688HasScepter(caster) and a:GetSpecialValueFor("duration_scepter") or a:GetSpecialValueFor("duration")

@@ -13,6 +13,7 @@ function modifier_dota688_centaur_return:OnAttackLanded(params)
 	local att = params.attacker
 	if not att or att:IsBuilding() or att:IsOther() or att:GetTeamNumber() == p:GetTeamNumber() then return end
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return end
 	local dmg = a:GetSpecialValueFor("return_damage") + p:GetStrength() * a:GetSpecialValueFor("strength_pct") / 100
 	ApplyDamage({ victim = att, attacker = p, damage = dmg, damage_type = DAMAGE_TYPE_PHYSICAL, ability = a })
 	local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_centaur/centaur_return.vpcf", PATTACH_ABSORIGIN_FOLLOW, att)

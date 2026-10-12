@@ -20,6 +20,7 @@ function modifier_dota688_tiny_craggy_exterior:OnAttackLanded(params)
 	if (attacker:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D() > self:GetAbility():GetSpecialValueFor("radius") then return end
 	if attacker:IsMagicImmune() then return end
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return end
 	if not RollPseudoRandomPercentage(a:GetSpecialValueFor("stun_chance"), DOTA_PSEUDO_RANDOM_TINY_CRAGGY, parent) then return end
 	attacker:AddNewModifier(parent, a, "modifier_stunned", { duration = a:GetSpecialValueFor("stun_duration") })
 	ApplyDamage({ victim = attacker, attacker = parent, damage = a:GetAbilityDamage(), damage_type = a:GetAbilityDamageType(), ability = a })

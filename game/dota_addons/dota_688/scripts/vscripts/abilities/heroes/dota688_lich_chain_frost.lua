@@ -46,9 +46,11 @@ function modifier_dota688_chain_frost_slow:GetTexture() return "lich_chain_frost
 function modifier_dota688_chain_frost_slow:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT } end
 function modifier_dota688_chain_frost_slow:GetModifierMoveSpeedBonus_Percentage()
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return 0 end
 	return Dota688HasScepter(self:GetCaster()) and a:GetSpecialValueFor("slow_movement_speed_scepter") or a:GetSpecialValueFor("slow_movement_speed")
 end
 function modifier_dota688_chain_frost_slow:GetModifierAttackSpeedBonus_Constant()
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return 0 end
 	return Dota688HasScepter(self:GetCaster()) and a:GetSpecialValueFor("slow_attack_speed_scepter") or a:GetSpecialValueFor("slow_attack_speed")
 end

@@ -86,6 +86,7 @@ function modifier_dota688_requiem_passive:DeclareFunctions() return { MODIFIER_E
 function modifier_dota688_requiem_passive:OnDeath(params)
 	if not IsServer() or params.unit ~= self:GetParent() then return end
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return end
 	if a:GetLevel() < 1 or self:GetParent():IsReincarnating() or self:GetParent():IsIllusion() then return end
 	a:Release(true)
 end

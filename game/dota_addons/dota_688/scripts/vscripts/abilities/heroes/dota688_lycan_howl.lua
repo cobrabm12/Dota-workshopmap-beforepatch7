@@ -16,6 +16,7 @@ function modifier_dota688_lycan_howl:GetEffectName() return "particles/units/her
 function modifier_dota688_lycan_howl:DeclareFunctions() return { MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE } end
 function modifier_dota688_lycan_howl:GetModifierPreAttack_BonusDamage()
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return 0 end
 	if self:GetParent():IsHero() then return a:GetSpecialValueFor("hero_bonus_damage") end
 	return a:GetSpecialValueFor("unit_bonus_damage")
 end

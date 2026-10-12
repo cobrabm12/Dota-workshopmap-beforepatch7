@@ -65,13 +65,15 @@ C.ATTR = {
 	ARMOR_PER_AGI      = 1 / 7,  -- (ACUM: 1/6)
 	AS_PER_AGI         = 1,      -- (ACUM: 1)
 	SPELL_AMP_PER_INT  = 1 / 16, -- procente: 1% la 16 INT (6.87-7.04); (ACUM: 0)
+	MAGIC_RES_PER_INT  = 0,      -- (ACUM: 0.1% pe punct de INT, adunat la baza)
+	BASE_MAGIC_RES     = 25,     -- toti eroii 6.88
 	BASE_HP            = 200,    -- (ACUM: 120) - setat prin KV (StatusHealth) in npc_heroes_custom.txt
 	BASE_MANA          = 50,     -- (ACUM: 75)  - setat prin KV (StatusMana)
 }
 -- valorile motorului curent, de compensat (verificate pe wiki la data generarii; de reverificat la patch-uri noi)
 C.ATTR_NOW = {
 	HP_PER_STR = 22, HP_REGEN_PER_STR = 0.09, MANA_PER_INT = 12, MANA_REGEN_PER_INT = 0.05,
-	ARMOR_PER_AGI = 1 / 6, AS_PER_AGI = 1, SPELL_AMP_PER_INT = 0,
+	ARMOR_PER_AGI = 1 / 6, AS_PER_AGI = 1, SPELL_AMP_PER_INT = 0, MAGIC_RES_PER_INT = 0.1,
 	BASE_HP_ENGINE = 120, BASE_MANA_ENGINE = 75,   -- baza motorului curent, daca ignora StatusHealth/StatusMana din KV
 }
 

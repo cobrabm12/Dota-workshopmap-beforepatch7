@@ -172,6 +172,18 @@ function modifier_dota688_meepo_share:GetModifierBonusStats_Intellect() local _,
 -- la spawn-ul unui erou (gamemode): clonele Meepo primesc share-ul 6.88; Vengeance Illusion dispare la revenirea lui Venge
 function AG.OnHeroSpawned(hero)
 	if hero.dota688_copy then return end
+	-- abilitatile oferite de scepter in 6.88 (AG.GRANT) sunt ascunse cat timp eroul nu are scepter;
+	-- modifierul scepter-ului le deblocheaza (aghanim.lua). Fara asta se vedeau si se puteau invata de la inceput.
+	if not Dota688HasScepter(hero) then
+		for _, name in ipairs(AG.GRANT[hero:GetUnitName()] or {}) do
+			local a = hero:FindAbilityByName(name)
+			if a then
+				a:SetHidden(true)
+				a:SetActivated(false)
+				if a:GetMaxLevel() == 1 then a:SetLevel(0) end
+			end
+		end
+	end
 	if hero:GetUnitName() == "npc_dota_hero_meepo" and hero.IsClone and hero:IsClone() and not hero:HasModifier("modifier_dota688_meepo_share") then
 		hero:AddNewModifier(hero, nil, "modifier_dota688_meepo_share", {})
 	end

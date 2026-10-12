@@ -51,5 +51,6 @@ function modifier_dota688_nasal_goo:DeclareFunctions() return { MODIFIER_PROPERT
 function modifier_dota688_nasal_goo:GetModifierPhysicalArmorBonus() return -self:GetAbility():GetSpecialValueFor("armor_per_stack") * self:GetStackCount() end
 function modifier_dota688_nasal_goo:GetModifierMoveSpeedBonus_Percentage()
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return 0 end
 	return -(a:GetSpecialValueFor("base_move_slow") + a:GetSpecialValueFor("move_slow_per_stack") * self:GetStackCount())
 end

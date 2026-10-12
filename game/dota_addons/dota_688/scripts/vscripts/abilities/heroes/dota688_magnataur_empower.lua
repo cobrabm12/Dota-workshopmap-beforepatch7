@@ -30,6 +30,7 @@ function modifier_dota688_magnataur_empower:OnAttackLanded(params)
 	local t = params.target
 	if not t or t:IsBuilding() or t:IsOther() or t:GetTeamNumber() == self:GetParent():GetTeamNumber() then return end
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return end
 	if self:GetParent():IsRangedAttacker() then
 		if not Dota688HasScepter(self:GetCaster()) then return end
 		-- splash in jurul tintei (scepter)

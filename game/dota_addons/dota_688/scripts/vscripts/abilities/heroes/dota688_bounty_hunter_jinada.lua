@@ -15,6 +15,7 @@ end
 function modifier_dota688_bounty_hunter_jinada:GetModifierPreAttack_CriticalStrike(params)
 	local parent = self:GetParent()
 	local ability = self:GetAbility()
+	if not ability or ability:IsNull() then return 0 end
 	if parent:PassivesDisabled() or not ability:IsCooldownReady() then return nil end
 	local target = params.target
 	if not target or target:IsBuilding() or target:IsOther() then return nil end
@@ -26,6 +27,7 @@ function modifier_dota688_bounty_hunter_jinada:OnAttackLanded(params)
 	if params.attacker ~= self:GetParent() or params.target ~= self.procTarget then return end
 	self.procTarget = nil
 	local ability = self:GetAbility()
+	if not ability or ability:IsNull() then return end
 	ability:UseResources(false, false, false, true)
 	params.target:AddNewModifier(self:GetParent(), ability, "modifier_dota688_bounty_hunter_jinada_slow", { duration = ability:GetSpecialValueFor("duration") })
 	params.target:EmitSound("Hero_BountyHunter.Jinada")

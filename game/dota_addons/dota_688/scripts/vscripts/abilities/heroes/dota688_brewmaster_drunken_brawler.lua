@@ -10,6 +10,7 @@ function modifier_dota688_brewmaster_drunken_brawler:DeclareFunctions() return {
 function modifier_dota688_brewmaster_drunken_brawler:GetModifierEvasion_Constant()
 	if self:GetParent():PassivesDisabled() then return 0 end
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return 0 end
 	if GameRules:GetGameTime() - (self.lastDodge or 0) >= a:GetSpecialValueFor("last_proc") then return 100 end
 	return a:GetSpecialValueFor("dodge_chance")
 end

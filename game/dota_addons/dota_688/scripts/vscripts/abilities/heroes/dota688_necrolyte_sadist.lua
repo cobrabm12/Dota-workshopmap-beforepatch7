@@ -16,6 +16,7 @@ function modifier_dota688_necrolyte_sadist:OnDeath(params)
 	local unit = params.unit
 	if not unit or unit:IsBuilding() or unit:IsOther() or unit:GetTeamNumber() == parent:GetTeamNumber() then return end
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return end
 	local mult = (unit:IsRealHero() and not unit:IsIllusion()) and a:GetSpecialValueFor("hero_multiplier") or 1
 	parent:AddNewModifier(parent, a, "modifier_dota688_necrolyte_sadist_regen", { duration = a:GetSpecialValueFor("regen_duration"), mult = mult })
 end

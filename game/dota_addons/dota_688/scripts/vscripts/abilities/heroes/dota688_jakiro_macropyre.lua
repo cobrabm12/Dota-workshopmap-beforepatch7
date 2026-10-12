@@ -34,6 +34,7 @@ function modifier_dota688_macropyre:OnCreated(kv)
 end
 function modifier_dota688_macropyre:OnIntervalThink()
 	local a, caster = self:GetAbility(), self:GetCaster()
+	if not a or a:IsNull() or not caster or caster:IsNull() then self:Destroy(); return end   -- abilitatea/caster-ul au disparut (Rubick, iluzie moarta)
 	for _, e in ipairs(FindUnitsInLine(caster:GetTeamNumber(), self.start, self.finish, nil, a:GetSpecialValueFor("path_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY,
 		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE)) do
 		ApplyDamage({ victim = e, attacker = caster, damage = self.dmg * self.interval, damage_type = DAMAGE_TYPE_MAGICAL, ability = a })

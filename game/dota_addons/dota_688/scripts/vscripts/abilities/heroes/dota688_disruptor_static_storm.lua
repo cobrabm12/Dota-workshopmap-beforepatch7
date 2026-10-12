@@ -29,6 +29,7 @@ function modifier_dota688_static_storm:OnCreated(kv)
 end
 function modifier_dota688_static_storm:OnIntervalThink()
 	local a, caster = self:GetAbility(), self:GetCaster()
+	if not a or a:IsNull() or not caster or caster:IsNull() then self:Destroy(); return end   -- abilitatea/caster-ul au disparut (Rubick, iluzie moarta)
 	self.n = self.n + 1
 	local dmg = a:GetSpecialValueFor("damage_max") * self.interval * math.min(1, self.n / self.pulses)
 	for _, e in ipairs(FindUnitsInRadius(caster:GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, a:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY,

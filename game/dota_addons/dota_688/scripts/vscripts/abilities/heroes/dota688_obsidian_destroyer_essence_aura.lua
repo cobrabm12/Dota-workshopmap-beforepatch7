@@ -19,6 +19,7 @@ function modifier_dota688_od_essence_aura_effect:GetModifierManaBonus() return s
 function modifier_dota688_od_essence_aura_effect:OnAbilityExecuted(params)
 	if not IsServer() or params.unit ~= self:GetParent() or not params.ability or params.ability:IsItem() then return end
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return end
 	if RollPseudoRandomPercentage(a:GetSpecialValueFor("restore_chance"), DOTA_PSEUDO_RANDOM_NONE, self:GetParent()) then
 		self:GetParent():GiveMana(self:GetParent():GetMaxMana() * a:GetSpecialValueFor("restore_amount") / 100)
 		local fx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())

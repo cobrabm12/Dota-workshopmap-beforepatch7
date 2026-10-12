@@ -516,7 +516,7 @@
 		"ItemBaseLevel"		"2"
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_diffusal_blade_2"
-		"AbilityTextureName"		"item_diffusal_blade_2"
+		"AbilityTextureName"		"item_diffusal_blade"
 		"AbilityValues"
 		{
 			"bonus_agility"		"25 35"

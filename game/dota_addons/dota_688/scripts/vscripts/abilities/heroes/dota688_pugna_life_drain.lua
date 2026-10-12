@@ -38,7 +38,7 @@ function modifier_dota688_life_drain:OnCreated()
 end
 function modifier_dota688_life_drain:OnIntervalThink()
 	local p, caster, a = self:GetParent(), self:GetCaster(), self:GetAbility()
-	if not caster:IsAlive() or not p:IsAlive() or (caster:GetAbsOrigin() - p:GetAbsOrigin()):Length2D() > a:GetCastRange(nil, nil) + 150 then
+	if not caster:IsAlive() or not p:IsAlive() or (caster:GetAbsOrigin() - p:GetAbsOrigin()):Length2D() > a:GetCastRange(caster:GetAbsOrigin(), p) + 150 then
 		a:EndChannel(true)
 		return
 	end

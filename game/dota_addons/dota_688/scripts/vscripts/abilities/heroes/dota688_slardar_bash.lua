@@ -22,6 +22,7 @@ function modifier_dota688_slardar_bash:OnAttackLanded(params)
 	if not IsServer() or params.attacker ~= self:GetParent() or params.target ~= self.bashTarget then return end
 	self.bashTarget = nil
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return end
 	local d = params.target:IsHero() and a:GetSpecialValueFor("duration") or a:GetSpecialValueFor("duration_creep")
 	params.target:AddNewModifier(self:GetParent(), a, "modifier_stunned", { duration = d })
 	params.target:EmitSound("Hero_Slardar.Bash")

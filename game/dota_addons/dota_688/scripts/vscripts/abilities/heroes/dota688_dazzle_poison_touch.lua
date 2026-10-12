@@ -25,6 +25,7 @@ end
 function modifier_dota688_dazzle_poison_touch:OnIntervalThink()
 	self.elapsed = self.elapsed + 1
 	local a = self:GetAbility()
+	if not a or a:IsNull() then self:Destroy(); return end   -- abilitatea/caster-ul au disparut (Rubick, iluzie moarta)
 	ApplyDamage({ victim = self:GetParent(), attacker = self:GetCaster(), damage = a:GetAbilityDamage(), damage_type = a:GetAbilityDamageType(), ability = a })
 	self:SetStackCount(math.min(3, self.elapsed))
 	if self.elapsed == a:GetSpecialValueFor("set_time") and a:GetSpecialValueFor("should_stun") == 1 then

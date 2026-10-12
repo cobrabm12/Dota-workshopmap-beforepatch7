@@ -134,6 +134,19 @@ def main():
                 r = m.group(1).lower()
                 if r not in files and (r + "_c") not in files:
                     err(f"{path}.lua: resursa {m.group(1)} nu există în clientul curent")
+        # iconitele abilitatilor/itemelor custom (AbilityTextureName)
+        for kind, defs in (("abilitate", custom_ab), ("item", custom_it)):
+            for name, blk in defs.blocks():
+                tex = blk.get_str("AbilityTextureName")
+                if not tex:
+                    continue
+                t = tex.lower()
+                if kind == "item":
+                    cands = [f"panorama/images/items/{t[5:] if t.startswith('item_') else t}_png.vtex_c"]
+                else:
+                    cands = [f"panorama/images/spellicons/{t}_png.vtex_c"]
+                if not any(c in files for c in cands):
+                    warn(f"{kind} {name}: iconita {tex} nu există în clientul curent ({cands[0]})")
     else:
         warn("build/pak01_listing.txt lipsă: particulele/modelele referite din Lua nu au fost verificate")
 
@@ -176,6 +189,62 @@ def main():
                     missing_api.setdefault(n, set()).add(path)
         for n, paths in sorted(missing_api.items()):
             err(f"API inexistent în jocul curent: {n} (în {', '.join(sorted(paths)[:4])}{'…' if len(paths) > 4 else ''})")
+        # cod care rulează și pe client (modifieri: OnCreated, GetModifier*, CheckState...; abilități: GetCastRange...)
+        # nu are voie să apeleze metode existente doar pe server, în afara blocurilor `if IsServer()`
+        def names_in(p):
+            t = open(p, encoding="utf-8", errors="replace").read()
+            return set(re.findall(r"function (?:\w+[:.])?(\w+)\s*\(", t))
+        server_only = names_in(api_files[0]) - names_in(api_files[1]) - lua_std
+        client_fn = re.compile(r"^function \w+[:.](OnCreated|OnRefresh|GetModifier(?!PreAttack_CriticalStrike|ProcAttack_)\w*|CheckState|IsHidden|GetTexture|GetEffectName|"
+                               r"GetStatusEffectName|IsAura|GetAura(?!EntityReject)\w*|GetCastRange|GetAOERadius|GetBehavior|GetManaCost|GetCooldown|"
+                               r"GetIntrinsicModifierName|CastFilter\w*|GetCustomCastError\w*|GetAbilityTextureName)\s*\(")
+        for path, c in code.items():
+            lines = c.split("\n")
+            i = 0
+            while i < len(lines):
+                if not client_fn.match(lines[i]):
+                    i += 1
+                    continue
+                fname = lines[i]
+                if re.search(r"\bend\s*$", lines[i]):   # functie pe o singura linie
+                    body = [(i, lines[i].split(")", 1)[1] if ")" in lines[i] else "")]
+                    if not re.search(r"IsServer\(\)", lines[i]):
+                        for n in re.findall(r":(\w+)\s*\(", body[0][1]):
+                            if n in server_only and n not in ours:
+                                warn(f"{path}.lua:{i + 1}: {n}() există doar pe server, dar e apelat în "
+                                     f"{fname.split('(')[0][9:]} (rulează și pe client) – pune-l sub IsServer()")
+                    i += 1
+                    continue
+                j, skip_indent = i + 1, None
+                while j < len(lines) and not lines[j].startswith("end"):
+                    ln = lines[j]
+                    ind = len(ln) - len(ln.lstrip())
+                    if skip_indent is not None:
+                        if ln.strip() == "end" and ind == skip_indent:
+                            skip_indent = None
+                        j += 1
+                        continue
+                    if re.match(r"\s*if not IsServer\(\) then return", ln):   # restul functiei ruleaza doar pe server
+                        skip_indent = -1
+                        j += 1
+                        continue
+                    if re.match(r"\s*if (?:not )?IsServer\(\)", ln):
+                        if not re.search(r"\bend\s*$", ln) and "return" not in ln:
+                            skip_indent = ind
+                        j += 1
+                        continue
+                    for n in re.findall(r":(\w+)\s*\(", ln):
+                        if re.search(r"\." + n + r"\s+and", ln):   # apel protejat: obj.Metoda and obj:Metoda()
+                            continue
+                        if n in server_only and n not in ours:
+                            warn(f"{path}.lua:{j + 1}: {n}() există doar pe server, dar e apelat în "
+                                 f"{fname.split('(')[0][9:]} (rulează și pe client) – pune-l sub IsServer()")
+                    j += 1
+                # funcție pe o singură linie: function X:Y() return ... end
+                if j == i + 1 and re.search(r"\bend\s*$", lines[i]):
+                    pass
+                i = j + 1
+
         # Dota688SafeCall(obj, "Metoda"): tolerează lipsa, dar semnalăm metodele care nu mai există
         for path, text in lua_text.items():
             for m in re.finditer(r'Dota688SafeCall\(\s*\w+\s*,\s*"(\w+)"', text):

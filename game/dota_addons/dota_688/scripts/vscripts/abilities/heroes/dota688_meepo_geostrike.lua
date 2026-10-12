@@ -24,8 +24,10 @@ function modifier_dota688_meepo_geostrike_debuff:IsPurgable() return true end
 function modifier_dota688_meepo_geostrike_debuff:OnCreated()
 	self.slow = self:GetAbility():GetSpecialValueFor("slow")
 	self.tick = 0.5
-	self.dps = self:GetAbility():GetAbilityDamage()
-	if IsServer() then self:StartIntervalThink(self.tick) end
+	if IsServer() then   -- GetAbilityDamage exista doar pe server (OnCreated ruleaza si pe client)
+		self.dps = self:GetAbility():GetAbilityDamage()
+		self:StartIntervalThink(self.tick)
+	end
 end
 function modifier_dota688_meepo_geostrike_debuff:OnRefresh() self:OnCreated() end
 function modifier_dota688_meepo_geostrike_debuff:OnIntervalThink()
