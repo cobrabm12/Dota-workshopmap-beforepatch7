@@ -137,3 +137,6 @@ Harta 6.88 compilată de noi (`dota_launch_custom_game dota_688 dota_688`), Work
 | Rune 6.88 | OK – Double Damage 35→70, Haste 522, invizibil după 2 s, Regen +100/+67 pe s, 2 iluzii, Bounty doar pentru cel care o ia (+62 aur, +80 XP la minutul 6); textul din chat „Double Damage” |
 | Curier | OK – Animal/Flying Courier; REPARAT – „mark for buy” la secret shop cumpăra în buclă (curierul fără proprietar): acum un singur Energy Booster |
 | Sunete | REPARAT – 53 de evenimente dispărute din client refăcute (Techies, Bloodstone, Laguna Blade, Razor...); `check_addon.py` le verifică |
+| Comenzile curierului | REPARAT – Return to Base mergea în centrul hărții, Go to Secret Shop la shop‑ul celeilalte echipe (raport din playtest); comenzile 6.88 în Lua: fântâna și secret shop‑ul echipei, stash și livrare pentru jucătorul care dă ordinul (testat) |
+| Fântâna | REPARAT – 4 % HP pe secundă (măsurat +82 HP la 1960 maxim); mana 4 % + 14 |
+| Backdoor protection | REPARAT – motorul reduce 50 %, 6.88 25 %: atac 14 → 21 fără creepi lângă turn (28 cu creepi) |

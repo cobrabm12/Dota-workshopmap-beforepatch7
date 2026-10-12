@@ -303,3 +303,25 @@ function M:ModifierGainedFilter(ev)
 	if C.ENGINE_TOWER_MODIFIERS[ev.name_const] then return false end
 	return true
 end
+
+-- Backdoor protection: 6.88 reducea damage-ul cu 25 %, motorul curent cu 50 % (masurat: atac 14 fara creepi langa
+-- turn, 28 cu creepi). Cat timp e activa (niciun creep al atacatorului in 900 de cladire) damage-ul se inmulteste cu
+-- 0.75 / 0.5 = 1.5.
+M.BACKDOOR_RADIUS = 900
+M.BACKDOOR_FIX = 0.75 / 0.5
+
+function M:DamageFilter(ev)
+	local victim = ev.entindex_victim_const and EntIndexToHScript(ev.entindex_victim_const)
+	if not victim or victim:IsNull() or not victim:IsBuilding() or not victim:HasModifier("modifier_backdoor_protection") then return true end
+	local attacker = ev.entindex_attacker_const and EntIndexToHScript(ev.entindex_attacker_const)
+	if not attacker or attacker:IsNull() or attacker:GetTeamNumber() == victim:GetTeamNumber() then return true end
+	local team = attacker:GetTeamNumber()
+	if team ~= DOTA_TEAM_GOODGUYS and team ~= DOTA_TEAM_BADGUYS then return true end
+	for _, u in ipairs(FindUnitsInRadius(team, victim:GetAbsOrigin(), nil, self.BACKDOOR_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+		DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
+		local cls = u:GetClassname()
+		if cls == "npc_dota_creep_lane" or cls == "npc_dota_creep_siege" then return true end
+	end
+	ev.damage = ev.damage * self.BACKDOOR_FIX
+	return true
+end

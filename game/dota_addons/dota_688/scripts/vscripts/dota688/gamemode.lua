@@ -96,6 +96,7 @@ function Dota688:Init()
 	gm:SetBountyRunePickupFilter(Dynamic_Wrap(Dota688, "BountyRuneFilter"), self)
 	gm:SetExecuteOrderFilter(Dynamic_Wrap(Dota688, "OrderFilter"), self)
 	gm:SetModifierGainedFilter(Dynamic_Wrap(Dota688, "ModifierGainedFilter"), self)
+	gm:SetDamageFilter(Dynamic_Wrap(Dota688, "DamageFilter"), self)
 	if C.DISABLE_BACKPACK then
 		gm:SetItemAddedToInventoryFilter(Dynamic_Wrap(Dota688, "ItemAddedToInventoryFilter"), self)
 	end
@@ -230,6 +231,10 @@ end
 function Dota688:ExperienceFilter(ev)
 	if not Dota688Creeps:ExperienceFilter(ev) then return false end
 	return Dota688GoldXP:ExperienceFilter(ev)
+end
+
+function Dota688:DamageFilter(ev)
+	return Dota688Buildings:DamageFilter(ev)
 end
 
 function Dota688:ModifierGainedFilter(ev)
