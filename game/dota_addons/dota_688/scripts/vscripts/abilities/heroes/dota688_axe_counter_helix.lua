@@ -16,7 +16,7 @@ function modifier_dota688_axe_counter_helix:OnAttacked(params)
 	if not attacker or attacker:GetTeamNumber() == parent:GetTeamNumber() or attacker:IsBuilding() or attacker:IsOther() then return end
 	local ability = self:GetAbility()
 	if not ability:IsCooldownReady() then return end
-	if not RollPseudoRandomPercentage(ability:GetSpecialValueFor("trigger_chance"), DOTA_PSEUDO_RANDOM_AXE_COUNTERHELIX, parent) then return end
+	if not RollPseudoRandomPercentage(ability:GetSpecialValueFor("trigger_chance"), DOTA_PSEUDO_RANDOM_AXE_HELIX, parent) then return end
 	ability:UseResources(false, false, false, true)
 	parent:EmitSound("Hero_Axe.CounterHelix")
 	parent:StartGesture(ACT_DOTA_CAST_ABILITY_3)

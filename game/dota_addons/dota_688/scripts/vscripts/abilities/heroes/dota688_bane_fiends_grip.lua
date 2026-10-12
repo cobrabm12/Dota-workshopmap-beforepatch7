@@ -42,7 +42,7 @@ function modifier_dota688_fiends_grip:OnIntervalThink()
 	local p, caster = self:GetParent(), self:GetCaster()
 	ApplyDamage({ victim = p, attacker = caster, damage = self.dmg, damage_type = DAMAGE_TYPE_MAGICAL, ability = self:GetAbility() })
 	local mana = p:GetMaxMana() * self.mana / 100
-	p:ReduceMana(mana)
+	p:Script_ReduceMana(mana, self:GetAbility())
 	caster:GiveMana(mana)
 end
 function modifier_dota688_fiends_grip:CheckState() return { [MODIFIER_STATE_STUNNED] = true } end

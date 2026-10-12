@@ -13,11 +13,14 @@ function modifier_dota688_phantom_assassin_blur:OnIntervalThink()
 	local parent = self:GetParent()
 	local enemies = FindUnitsInRadius(parent:GetTeamNumber(), parent:GetAbsOrigin(), nil, self:GetAbility():GetSpecialValueFor("radius"),
 		DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, FIND_ANY_ORDER, false)
-	local hidden = (#enemies == 0)
-	if hidden ~= self.hidden then
-		self.hidden = hidden
-		if parent.SetMinimapIconHidden then parent:SetMinimapIconHidden(hidden) end  -- TODO: de verificat ca API-ul exista
+	local hidden = (#enemies == 0) and not parent:PassivesDisabled()
+	if hidden ~= (self:GetStackCount() == 1) then
+		self:SetStackCount(hidden and 1 or 0)   -- stack-ul ajunge si la client, unde se evalueaza CheckState
 	end
+end
+-- SetMinimapIconHidden nu mai exista: ascunderea de pe minimap se face prin stare (doar pentru inamici, ca in 6.88)
+function modifier_dota688_phantom_assassin_blur:CheckState()
+	return { [MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES] = self:GetStackCount() == 1 }
 end
 function modifier_dota688_phantom_assassin_blur:DeclareFunctions() return { MODIFIER_PROPERTY_EVASION_CONSTANT } end
 function modifier_dota688_phantom_assassin_blur:GetModifierEvasion_Constant()

@@ -10,7 +10,7 @@ local function Feedback(self, params)
 	if parent:IsIllusion() then burn = parent:IsRangedAttacker() and a:GetSpecialValueFor("feedback_mana_burn_illusion_ranged") or a:GetSpecialValueFor("feedback_mana_burn_illusion_melee") end
 	burn = math.min(burn, target:GetMana())
 	if burn <= 0 then return end
-	target:ReduceMana(burn)
+	target:Script_ReduceMana(burn, a)
 	ApplyDamage({ victim = target, attacker = parent, damage = burn * a:GetSpecialValueFor("damage_per_burn"), damage_type = DAMAGE_TYPE_PHYSICAL, ability = a })
 	local fx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_manaburn.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 	ParticleManager:ReleaseParticleIndex(fx)

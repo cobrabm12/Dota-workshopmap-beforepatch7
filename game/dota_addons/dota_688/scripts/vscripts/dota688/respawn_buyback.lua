@@ -34,7 +34,9 @@ end
 function M:UpdateBuybackCost(hero)
 	if not hero or hero:IsNull() then return end
 	local cost = C.BuybackCost(hero:GetLevel(), GameRules:GetDOTATime(false, false))
-	hero:SetBuybackCost(cost)
+	-- CDOTA_BaseNPC_Hero:SetBuybackCost nu mai exista; costul se seteaza pe jucator
+	local pid = hero:GetPlayerOwnerID()
+	if pid and pid >= 0 then PlayerResource:SetCustomBuybackCost(pid, math.floor(cost)) end
 end
 
 function M:UpdateBuybackCosts()

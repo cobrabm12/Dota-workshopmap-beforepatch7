@@ -8,6 +8,7 @@ Dota688DefineItem("item_dota688_iron_talon", "items/item_dota688_iron_talon", {
 	},
 	item = {
 		CastFilterResultTarget = function(self, target)
+			if target.CutDown then return UF_SUCCESS end   -- copac
 			if target.IsAncient and target:IsAncient() then return UF_FAIL_ANCIENT end
 			if target:IsHero() or target:IsBuilding() or target:IsOther() then return UF_FAIL_CUSTOM end
 			if target:GetTeamNumber() == self:GetCaster():GetTeamNumber() then return UF_FAIL_FRIENDLY end
@@ -16,7 +17,8 @@ Dota688DefineItem("item_dota688_iron_talon", "items/item_dota688_iron_talon", {
 		OnSpellStart = function(self)
 			local target = self:GetCursorTarget()
 			local caster = self:GetCaster()
-			if target:IsTree() or (target.GetClassname and target:GetClassname() == "ent_dota_tree") then
+			if target.CutDown then   -- copac (CDOTA_MapTree); IsTree() nu mai exista
+
 				target:CutDown(caster:GetTeamNumber())
 				self:EndCooldown(); self:StartCooldown(self:GetSpecialValueFor("alternative_cooldown"))
 				return

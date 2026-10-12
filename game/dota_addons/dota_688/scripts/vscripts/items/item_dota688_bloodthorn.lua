@@ -8,7 +8,7 @@ Dota688DefineItem("item_dota688_bloodthorn", "items/item_dota688_bloodthorn", {
 			local target = params.target
 			if not target or target:IsBuilding() or target:IsOther() then return nil end
 			if target:HasModifier("modifier_dota688_soul_rend") then return self:GetAbility():GetSpecialValueFor("target_crit_multiplier") end
-			if RollPseudoRandomPercentage(self:GetAbility():GetSpecialValueFor("crit_chance"), DOTA_PSEUDO_RANDOM_ITEM_CRIT, self:GetParent()) then
+			if RollPseudoRandomPercentage(self:GetAbility():GetSpecialValueFor("crit_chance"), DOTA_PSEUDO_RANDOM_ITEM_GREATERCRIT, self:GetParent()) then
 				return self:GetAbility():GetSpecialValueFor("crit_multiplier")
 			end
 			return nil

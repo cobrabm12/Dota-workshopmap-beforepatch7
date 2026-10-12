@@ -33,7 +33,7 @@ NPC = os.path.join(ADDON, "scripts", "npc")
 DOCS = os.path.join(ROOT, "docs")
 BUILD = os.path.join(ROOT, "build")
 
-HEADER = "GENERAT AUTOMAT de tools/gen_overrides.py – NU EDITA MANUAL.\nSursa: reference/6.88f (Valve, 6.88f) vs reference/current."
+HEADER = "GENERAT AUTOMAT de tools/gen_overrides.py - NU EDITA MANUAL.\nSursa: reference/6.88f (Valve, 6.88f) vs reference/current."
 
 # Chei de statistici de erou copiate din 6.88 (valoarea efectivă: a eroului sau a bazei)
 HERO_STAT_KEYS = [
@@ -555,6 +555,33 @@ CUSTOM_KV_PATCH = {
 }
 
 
+# chei auxiliare dintr-un bloc AbilitySpecial (nu sunt valori); in AbilityValues devin sub-chei ale valorii
+SPECIAL_META = {"levelkey", "calculatespelldamagetooltip", "requiresscepter", "linkedspecialbonus", "damagetypetooltip"}
+
+
+def specials_to_values(blk: kv.KV) -> None:
+    """Motorul curent citeste valorile doar din AbilityValues: GetSpecialValueFor() intoarce 0 pentru cheile
+    din formatul vechi AbilitySpecial (verificat in joc). Convertim blocul 6.88 pe loc."""
+    sp = blk.get_kv("AbilitySpecial")
+    if sp is None:
+        return
+    values = blk.get_kv("AbilityValues") or kv.KV()
+    for _, entry in sp.blocks():
+        scalars = [(k, v) for k, v in entry.scalars() if k.lower() != "var_type"]
+        main = [(k, v) for k, v in scalars if k.lower() not in SPECIAL_META]
+        meta = [(k, v) for k, v in scalars if k.lower() in SPECIAL_META]
+        for k, v in main:
+            if meta:
+                sub = kv.KV([("value", v)])
+                for mk, mv in meta:
+                    sub[mk] = mv
+                values[k] = sub
+            else:
+                values[k] = v
+    del blk["AbilitySpecial"]
+    blk["AbilityValues"] = values
+
+
 def gen_custom_defs(A0, I0, scripts: dict[str, str], custom: set[str]) -> tuple[kv.KV, kv.KV]:
     """Blocurile KV de bază (din 6.88) pentru reimplementările Lua: BaseClass + ScriptFile + textura originală."""
     abilities = kv.KV()
@@ -572,6 +599,7 @@ def gen_custom_defs(A0, I0, scripts: dict[str, str], custom: set[str]) -> tuple[
             blk["BaseClass"] = "item_lua"
             blk["ScriptFile"] = script
             blk["AbilityTextureName"] = orig
+            specials_to_values(blk)
             req = item_requirements_resolved(src, custom)
             if req is not None:
                 blk["ItemRequirements"] = req
@@ -597,6 +625,7 @@ def gen_custom_defs(A0, I0, scripts: dict[str, str], custom: set[str]) -> tuple[
             blk["BaseClass"] = "ability_lua"
             blk["ScriptFile"] = script
             blk["AbilityTextureName"] = orig
+            specials_to_values(blk)
             for k, v in CUSTOM_KV_PATCH.get(cname, {}).items():
                 blk[k] = v
             abilities[cname] = blk

@@ -33,7 +33,7 @@ function dota688_axe_culling_blade:OnSpellStart()
 		ParticleManager:SetParticleControlEnt(fx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(fx, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 		ParticleManager:ReleaseParticleIndex(fx)
-		ApplyDamage({ victim = target, attacker = caster, damage = self:GetSpecialValueFor("damage"), damage_type = DAMAGE_TYPE_MAGICAL, ability = self, damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK })
+		ApplyDamage({ victim = target, attacker = caster, damage = self:GetSpecialValueFor("damage"), damage_type = DAMAGE_TYPE_MAGICAL, ability = self, damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK })
 	end
 end
 modifier_dota688_culling_blade_boost = class({})

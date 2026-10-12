@@ -15,7 +15,7 @@ end
 function modifier_dota688_chaos_knight_chaos_strike:GetModifierPreAttack_CriticalStrike(params)
 	local parent = self:GetParent()
 	if parent:PassivesDisabled() or not params.target or params.target:IsBuilding() or params.target:IsOther() then return nil end
-	if RollPseudoRandomPercentage(self:GetAbility():GetSpecialValueFor("crit_chance"), DOTA_PSEUDO_RANDOM_CHAOSKNIGHT_CRIT, parent) then
+	if RollPseudoRandomPercentage(self:GetAbility():GetSpecialValueFor("crit_chance"), DOTA_PSEUDO_RANDOM_CHAOS_CRIT, parent) then
 		self.procTarget = params.target
 		return self:GetAbility():GetSpecialValueFor("crit_damage")
 	end

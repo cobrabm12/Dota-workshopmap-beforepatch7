@@ -65,6 +65,8 @@ def main():
     # script files + clase Lua
     lua_text: dict[str, str] = {}
     for p in glob.glob(os.path.join(VS, "**", "*.lua"), recursive=True):
+        if "dota688_test" in p:   # scripturi de test locale (ignorate de git), rulate din consola
+            continue
         lua_text[os.path.relpath(p, VS).replace(os.sep, "/")[:-4]] = open(p, encoding="utf-8").read()
 
     def check_script(name, blk, kind):
@@ -134,6 +136,54 @@ def main():
                     err(f"{path}.lua: resursa {m.group(1)} nu există în clientul curent")
     else:
         warn("build/pak01_listing.txt lipsă: particulele/modelele referite din Lua nu au fost verificate")
+
+    # API VScript (opțional: build/vscript_api_server.txt / _client.txt = ieșirea comenzilor script_help2 /
+    # cl_script_help2 din consola jocului). Fiecare apel :Metoda(, funcție globală Majuscula( și constantă
+    # MAJUSCULE trebuie să existe în API sau să fie definită în Lua-ul addon-ului.
+    api_files = [os.path.join(ROOT, "build", f"vscript_api_{s}.txt") for s in ("server", "client")]
+    if all(os.path.exists(p) for p in api_files):
+        api_names, api_consts = set(), set()
+        for p in api_files:
+            t = open(p, encoding="utf-8", errors="replace").read()
+            api_names |= set(re.findall(r"function (?:\w+[:.])?(\w+)\s*\(", t))
+            api_consts |= set(re.findall(r"\b([A-Z][A-Z0-9_]+) = -?\d", t))
+        ours, our_consts = set(), set()
+        code = {}
+        for path, text in lua_text.items():
+            c = re.sub(r"--\[(=*)\[.*?\]\1\]", "", text, flags=re.S)
+            c = re.sub(r"--[^\n]*", "", c)
+            c = re.sub(r'"(?:\\.|[^"\\\n])*"|\'(?:\\.|[^\'\\\n])*\'', '""', c)
+            code[path] = c
+            ours |= set(re.findall(r"function\s+(?:[\w.]+[:.])?(\w+)\s*\(", c))
+            ours |= set(re.findall(r"(\w+)\s*=\s*function\b", c))
+            ours |= set(re.findall(r"(\w+)\s*=\s*class\s*\(", c))
+            our_consts |= set(re.findall(r"\b([A-Z][A-Z0-9_]+)\s*=[^=]", c))
+        # definite de bibliotecile Lua ale jocului (nu apar în script_help2): Vector, string, IsNull, Dynamic_Wrap, class
+        lua_std = {"print", "require", "pairs", "ipairs", "type", "tostring", "tonumber", "class", "Vector", "QAngle",
+                   "Dynamic_Wrap", "IsNull", "Length", "Length2D", "Normalized", "Dot", "Cross", "Lerp",
+                   "find", "match", "gmatch", "sub", "gsub", "lower", "upper", "format", "len", "rep", "byte"}
+        api_names |= lua_std
+        missing_api: dict[str, set[str]] = {}
+        for path, c in code.items():
+            for n in set(re.findall(r":(\w+)\s*\(", c)):
+                if n not in api_names and n not in ours:
+                    missing_api.setdefault(f":{n}()", set()).add(path)
+            for n in set(re.findall(r"(?<![\w.:])([A-Z]\w*[a-z]\w*)\s*\(", c)):
+                if n not in api_names and n not in ours and n not in lua_std:
+                    missing_api.setdefault(f"{n}()", set()).add(path)
+            for n in set(re.findall(r"(?<![\w.])([A-Z][A-Z0-9]*_[A-Z0-9_]+)\b", c)):
+                if n not in api_consts and n not in our_consts:
+                    missing_api.setdefault(n, set()).add(path)
+        for n, paths in sorted(missing_api.items()):
+            err(f"API inexistent în jocul curent: {n} (în {', '.join(sorted(paths)[:4])}{'…' if len(paths) > 4 else ''})")
+        # Dota688SafeCall(obj, "Metoda"): tolerează lipsa, dar semnalăm metodele care nu mai există
+        for path, text in lua_text.items():
+            for m in re.finditer(r'Dota688SafeCall\(\s*\w+\s*,\s*"(\w+)"', text):
+                if m.group(1) not in api_names:
+                    warn(f"{path}.lua: Dota688SafeCall pe {m.group(1)}, care nu există în API (apelul nu are efect)")
+    else:
+        warn("build/vscript_api_server.txt / _client.txt lipsă: apelurile API din Lua nu au fost verificate "
+             "(script_help2 / cl_script_help2 în consola jocului)")
 
     # sintaxă Lua
     try:

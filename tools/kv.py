@@ -235,7 +235,7 @@ def parse(text: str, base_dir: Optional[str] = None, follow_base: bool = True) -
 
 
 def load(path: str, follow_base: bool = True) -> KV:
-    with open(path, "r", encoding="utf-8", errors="replace") as f:
+    with open(path, "r", encoding="utf-8-sig", errors="replace") as f:
         text = f.read()
     return parse(text, os.path.dirname(os.path.abspath(path)), follow_base)
 
@@ -271,7 +271,9 @@ def dumps(kv: KV, indent: int = 0, comments: Optional[dict[str, str]] = None) ->
 
 def dump_file(kv: KV, path: str, header: str = "") -> None:
     os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
-    with open(path, "w", encoding="utf-8", newline="\n") as f:
+    # UTF-8 cu BOM, ca fisierele Valve: fara BOM motorul respinge fisierele de localizare
+    # ("LOCFAIL: Ignoring unsupported encoding") si poate esua la detectarea codificarii KV
+    with open(path, "w", encoding="utf-8-sig", newline="\n") as f:
         if header:
             for line in header.splitlines():
                 f.write(f"// {line}\n")

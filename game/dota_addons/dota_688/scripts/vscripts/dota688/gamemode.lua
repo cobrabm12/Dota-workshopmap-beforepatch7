@@ -47,6 +47,7 @@ function Dota688:Init()
 	-- Moarte / respawn / buyback --------------------------------------------
 	gm:SetLoseGoldOnDeath(false)                   -- pierderea de aur o calculam noi (30 x nivel)
 	gm:SetBuybackEnabled(true)
+	gm:SetCustomBuybackCostEnabled(true)            -- costul 6.88 vine din respawn_buyback.lua (PlayerResource:SetCustomBuybackCost)
 	gm:SetFixedRespawnTime(-1)
 	gm:SetRespawnTimeScale(1.0)
 	Dota688SafeCall(gm, "SetKillingSpreeAnnouncerDisabled", false)

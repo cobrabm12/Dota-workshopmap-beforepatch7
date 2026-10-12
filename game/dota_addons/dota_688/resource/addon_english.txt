@@ -1,4 +1,4 @@
-// GENERAT de tools/gen_overrides.py din reference/6.88f/dota_english.txt + addon_english.base.txt. NU EDITA MANUAL.
+﻿// GENERAT de tools/gen_overrides.py din reference/6.88f/dota_english.txt + addon_english.base.txt. NU EDITA MANUAL.
 "lang"
 {
 	"Language"		"English"

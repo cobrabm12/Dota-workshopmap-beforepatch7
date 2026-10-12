@@ -10,3 +10,10 @@ content/dota_addons/dota_688/maps/*.bak
 
 # fisierele binare ale hartii decompilate (mari); se regenereaza din clientul 6.88f
 content/dota_addons/dota_688/maps/dota_688/
+
+# cache-uri create de Workshop Tools in folderul addon-ului
+game/dota_addons/dota_688/tools_asset_info.bin
+game/dota_addons/dota_688/tools_thumbnail_cache.sqlite3*
+
+# scripturi de test rulate din consola (script_reload_code dota688_test/...)
+game/dota_addons/dota_688/scripts/vscripts/dota688_test/

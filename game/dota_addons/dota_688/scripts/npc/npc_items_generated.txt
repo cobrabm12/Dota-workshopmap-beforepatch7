@@ -1,4 +1,4 @@
-// GENERAT AUTOMAT de tools/gen_overrides.py – NU EDITA MANUAL.
+﻿// GENERAT AUTOMAT de tools/gen_overrides.py - NU EDITA MANUAL.
 // Sursa: reference/6.88f (Valve, 6.88f) vs reference/current.
 // Blocurile de baza (KV 6.88) ale itemelor reimplementate in Lua + retetele lor. Inclus din npc_items_custom.txt prin #base.
 "DOTAAbilities"
@@ -20,72 +20,24 @@
 		"ItemAliases"		"abyssal blade"
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health"		"250"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health_regen"		"15"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"block_damage_melee"		"40"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"block_damage_ranged"		"20"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"10"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_strength"		"10"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bash_chance_melee"		"25"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bash_chance_ranged"		"10"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"bash_duration"		"1.4"
-			}
-			"10"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_chance_damage"		"85"
-			}
-			"11"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"bash_cooldown"		"2.3"
-			}
-			"12"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"stun_duration"		"2"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_abyssal_blade"
 		"AbilityTextureName"		"item_abyssal_blade"
+		"AbilityValues"
+		{
+			"bonus_health"		"250"
+			"bonus_health_regen"		"15"
+			"block_damage_melee"		"40"
+			"block_damage_ranged"		"20"
+			"bonus_damage"		"10"
+			"bonus_strength"		"10"
+			"bash_chance_melee"		"25"
+			"bash_chance_ranged"		"10"
+			"bash_duration"		"1.4"
+			"bonus_chance_damage"		"85"
+			"bash_cooldown"		"2.3"
+			"stun_duration"		"2"
+		}
 	}
 	"item_dota688_aether_lens"
 	{
@@ -95,32 +47,16 @@
 		"ItemQuality"		"rare"
 		"ItemAliases"		"aether lens"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana"		"250"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health_regen"		"8"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"cast_range_bonus"		"200"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"spell_amp"		"5"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_aether_lens"
 		"AbilityTextureName"		"item_aether_lens"
+		"AbilityValues"
+		{
+			"bonus_mana"		"250"
+			"bonus_health_regen"		"8"
+			"cast_range_bonus"		"200"
+			"spell_amp"		"5"
+		}
 	}
 	"item_dota688_ancient_janggo"
 	{
@@ -136,67 +72,23 @@
 		"ItemDisplayCharges"		"1"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemRequiresCharges"		"1"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_int"		"9"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_str"		"6"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_agi"		"3"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"3"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health_regen"		"3"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_aura_attack_speed_pct"		"5"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_aura_movement_speed_pct"		"5"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_attack_speed_pct"		"25"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_movement_speed_pct"		"13"
-			}
-			"10"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"duration"		"6"
-			}
-			"11"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"radius"		"900"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_ancient_janggo"
 		"AbilityTextureName"		"item_ancient_janggo"
+		"AbilityValues"
+		{
+			"bonus_int"		"9"
+			"bonus_str"		"6"
+			"bonus_agi"		"3"
+			"bonus_damage"		"3"
+			"bonus_health_regen"		"3"
+			"bonus_aura_attack_speed_pct"		"5"
+			"bonus_aura_movement_speed_pct"		"5"
+			"bonus_attack_speed_pct"		"25"
+			"bonus_movement_speed_pct"		"13"
+			"duration"		"6"
+			"radius"		"900"
+		}
 	}
 	"item_dota688_armlet"
 	{
@@ -207,67 +99,23 @@
 		"ItemQuality"		"epic"
 		"ItemAliases"		"armlet of mordiggian"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"9"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_attack_speed"		"25"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_armor"		"5"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health_regen"		"7"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"unholy_bonus_damage"		"31"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"unholy_bonus_attack_speed"		"0"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"unholy_bonus_strength"		"25"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"unholy_bonus_armor"		"4"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"unholy_health_drain_per_tick"		"5"
-			}
-			"10"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"unholy_health_drain_per_second_tooltip"		"45"
-			}
-			"11"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"toggle_cooldown"		"0.036f"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_armlet"
 		"AbilityTextureName"		"item_armlet"
+		"AbilityValues"
+		{
+			"bonus_damage"		"9"
+			"bonus_attack_speed"		"25"
+			"bonus_armor"		"5"
+			"bonus_health_regen"		"7"
+			"unholy_bonus_damage"		"31"
+			"unholy_bonus_attack_speed"		"0"
+			"unholy_bonus_strength"		"25"
+			"unholy_bonus_armor"		"4"
+			"unholy_health_drain_per_tick"		"5"
+			"unholy_health_drain_per_second_tooltip"		"45"
+			"toggle_cooldown"		"0.036f"
+		}
 	}
 	"item_dota688_bfury"
 	{
@@ -282,57 +130,21 @@
 		"ItemQuality"		"epic"
 		"ItemAliases"		"bf;battle fury"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"55"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health_regen"		"6"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana_regen"		"150"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"cleave_damage_percent"		"35"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"quelling_bonus"		"160"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"quelling_bonus_ranged"		"125"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"cleave_radius"		"280"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"cast_range_tooltip"		"350"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"cast_range_ward"		"450"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_bfury"
 		"AbilityTextureName"		"item_bfury"
+		"AbilityValues"
+		{
+			"bonus_damage"		"55"
+			"bonus_health_regen"		"6"
+			"bonus_mana_regen"		"150"
+			"cleave_damage_percent"		"35"
+			"quelling_bonus"		"160"
+			"quelling_bonus_ranged"		"125"
+			"cleave_radius"		"280"
+			"cast_range_tooltip"		"350"
+			"cast_range_ward"		"450"
+		}
 	}
 	"item_dota688_bloodstone"
 	{
@@ -348,72 +160,24 @@
 		"ItemInitialCharges"		"12"
 		"ItemDisplayCharges"		"1"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health"		"475"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana"		"425"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health_regen"		"9"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana_regen"		"200"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"charge_range"		"1600"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"heal_on_death_range"		"1675"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"heal_on_death_base"		"500"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"heal_on_death_per_charge"		"30"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"respawn_time_reduction"		"3"
-			}
-			"10"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"death_gold_reduction"		"0"
-			}
-			"11"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"on_death_removal"		"0.67"
-			}
-			"12"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"0"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_bloodstone"
 		"AbilityTextureName"		"item_bloodstone"
+		"AbilityValues"
+		{
+			"bonus_health"		"475"
+			"bonus_mana"		"425"
+			"bonus_health_regen"		"9"
+			"bonus_mana_regen"		"200"
+			"charge_range"		"1600"
+			"heal_on_death_range"		"1675"
+			"heal_on_death_base"		"500"
+			"heal_on_death_per_charge"		"30"
+			"respawn_time_reduction"		"3"
+			"death_gold_reduction"		"0"
+			"on_death_removal"		"0.67"
+			"bonus_damage"		"0"
+		}
 	}
 	"item_dota688_bloodthorn"
 	{
@@ -431,57 +195,21 @@
 		"ItemQuality"		"epic"
 		"ItemAliases"		"orchid malevolence"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intellect"		"25"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_attack_speed"		"30"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"60"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana_regen"		"150"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"crit_chance"		"20"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"crit_multiplier"		"175"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"silence_damage_percent"		"30"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"silence_duration"		"5"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"target_crit_multiplier"		"145"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_bloodthorn"
 		"AbilityTextureName"		"item_bloodthorn"
+		"AbilityValues"
+		{
+			"bonus_intellect"		"25"
+			"bonus_attack_speed"		"30"
+			"bonus_damage"		"60"
+			"bonus_mana_regen"		"150"
+			"crit_chance"		"20"
+			"crit_multiplier"		"175"
+			"silence_damage_percent"		"30"
+			"silence_duration"		"5"
+			"target_crit_multiplier"		"145"
+		}
 	}
 	"item_dota688_buckler"
 	{
@@ -492,42 +220,18 @@
 		"ItemShopTags"		"armor;boost_armor"
 		"ItemQuality"		"rare"
 		"ItemAliases"		"buckler"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_armor"		"5"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_all_stats"		"2"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_aoe_radius"		"900"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_aoe_armor"		"2"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"bonus_aoe_duration"		"30.0"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"bonus_aoe_duration_hero"		"25.0"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_buckler"
 		"AbilityTextureName"		"item_buckler"
+		"AbilityValues"
+		{
+			"bonus_armor"		"5"
+			"bonus_all_stats"		"2"
+			"bonus_aoe_radius"		"900"
+			"bonus_aoe_armor"		"2"
+			"bonus_aoe_duration"		"30.0"
+			"bonus_aoe_duration_hero"		"25.0"
+		}
 	}
 	"item_dota688_butterfly"
 	{
@@ -538,42 +242,18 @@
 		"ItemQuality"		"epic"
 		"ItemAliases"		"bfly;butterfly"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_agility"		"35"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"30"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_evasion"		"35"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_attack_speed"		"30"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_move_speed"		"35"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"duration"		"4"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_butterfly"
 		"AbilityTextureName"		"item_butterfly"
+		"AbilityValues"
+		{
+			"bonus_agility"		"35"
+			"bonus_damage"		"30"
+			"bonus_evasion"		"35"
+			"bonus_attack_speed"		"30"
+			"bonus_move_speed"		"35"
+			"duration"		"4"
+		}
 	}
 	"item_dota688_crimson_guard"
 	{
@@ -584,72 +264,24 @@
 		"ItemQuality"		"epic"
 		"ItemAlertable"		"1"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health"		"250"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health_regen"		"8"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_all_stats"		"2"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_armor"		"5"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"block_damage_melee"		"32"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"block_damage_ranged"		"16"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_aoe_armor"		"2"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"duration"		"10"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_aoe_radius"		"900"
-			}
-			"10"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"block_damage_melee_active"		"55"
-			}
-			"11"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"block_damage_ranged_active"		"55"
-			}
-			"12"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"block_chance_active"		"100"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_crimson_guard"
 		"AbilityTextureName"		"item_crimson_guard"
+		"AbilityValues"
+		{
+			"bonus_health"		"250"
+			"bonus_health_regen"		"8"
+			"bonus_all_stats"		"2"
+			"bonus_armor"		"5"
+			"block_damage_melee"		"32"
+			"block_damage_ranged"		"16"
+			"bonus_aoe_armor"		"2"
+			"duration"		"10"
+			"bonus_aoe_radius"		"900"
+			"block_damage_melee_active"		"55"
+			"block_damage_ranged_active"		"55"
+			"block_chance_active"		"100"
+		}
 	}
 	"item_dota688_dagon"
 	{
@@ -671,42 +303,18 @@
 		"ItemAliases"		"dagon 1"
 		"UpgradesItems"		"item_dota688_dagon;item_dota688_dagon_2;item_dota688_dagon_3;item_dota688_dagon_4"
 		"UpgradeRecipe"		"item_recipe_dota688_dagon"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intellect"		"13 16 19 22 25"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_all_stats"		"3"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"9"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"damage"		"400 500 600 700 800"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"range_tooltip"		"600 650 700 750 800"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"damage_delay"		"0"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_dagon"
 		"AbilityTextureName"		"item_dagon"
+		"AbilityValues"
+		{
+			"bonus_intellect"		"13 16 19 22 25"
+			"bonus_all_stats"		"3"
+			"bonus_damage"		"9"
+			"damage"		"400 500 600 700 800"
+			"range_tooltip"		"600 650 700 750 800"
+			"damage_delay"		"0"
+		}
 	}
 	"item_dota688_dagon_2"
 	{
@@ -728,42 +336,18 @@
 		"ItemAliases"		"dagon 2"
 		"UpgradesItems"		"item_dota688_dagon_2;item_dota688_dagon_3;item_dota688_dagon_4"
 		"UpgradeRecipe"		"item_recipe_dota688_dagon"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intellect"		"13 16 19 22 25"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_all_stats"		"3"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"9"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"damage"		"400 500 600 700 800"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"range_tooltip"		"600 650 700 750 800"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"damage_delay"		"0"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_dagon_2"
 		"AbilityTextureName"		"item_dagon_2"
+		"AbilityValues"
+		{
+			"bonus_intellect"		"13 16 19 22 25"
+			"bonus_all_stats"		"3"
+			"bonus_damage"		"9"
+			"damage"		"400 500 600 700 800"
+			"range_tooltip"		"600 650 700 750 800"
+			"damage_delay"		"0"
+		}
 	}
 	"item_dota688_dagon_3"
 	{
@@ -785,42 +369,18 @@
 		"ItemAliases"		"dagon 3"
 		"UpgradesItems"		"item_dota688_dagon_3;item_dota688_dagon_4"
 		"UpgradeRecipe"		"item_recipe_dota688_dagon"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intellect"		"13 16 19 22 25"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_all_stats"		"3"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"9"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"damage"		"400 500 600 700 800"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"range_tooltip"		"600 650 700 750 800"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"damage_delay"		"0"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_dagon_3"
 		"AbilityTextureName"		"item_dagon_3"
+		"AbilityValues"
+		{
+			"bonus_intellect"		"13 16 19 22 25"
+			"bonus_all_stats"		"3"
+			"bonus_damage"		"9"
+			"damage"		"400 500 600 700 800"
+			"range_tooltip"		"600 650 700 750 800"
+			"damage_delay"		"0"
+		}
 	}
 	"item_dota688_dagon_4"
 	{
@@ -842,42 +402,18 @@
 		"ItemAliases"		"dagon 4"
 		"UpgradesItems"		"item_dota688_dagon_4"
 		"UpgradeRecipe"		"item_recipe_dota688_dagon"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intellect"		"13 16 19 22 25"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_all_stats"		"3"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"9"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"damage"		"400 500 600 700 800"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"range_tooltip"		"600 650 700 750 800"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"damage_delay"		"0"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_dagon_4"
 		"AbilityTextureName"		"item_dagon_4"
+		"AbilityValues"
+		{
+			"bonus_intellect"		"13 16 19 22 25"
+			"bonus_all_stats"		"3"
+			"bonus_damage"		"9"
+			"damage"		"400 500 600 700 800"
+			"range_tooltip"		"600 650 700 750 800"
+			"damage_delay"		"0"
+		}
 	}
 	"item_dota688_dagon_5"
 	{
@@ -897,42 +433,18 @@
 		"ItemShopTags"		"damage;int;str;agi;hard_to_tag"
 		"ItemQuality"		"rare"
 		"ItemAliases"		"dagon 5"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intellect"		"13 16 19 22 25"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_all_stats"		"3"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"9"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"damage"		"400 500 600 700 800"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"range_tooltip"		"600 650 700 750 800"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"damage_delay"		"0"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_dagon_5"
 		"AbilityTextureName"		"item_dagon_5"
+		"AbilityValues"
+		{
+			"bonus_intellect"		"13 16 19 22 25"
+			"bonus_all_stats"		"3"
+			"bonus_damage"		"9"
+			"damage"		"400 500 600 700 800"
+			"range_tooltip"		"600 650 700 750 800"
+			"damage_delay"		"0"
+		}
 	}
 	"item_dota688_diffusal_blade"
 	{
@@ -960,72 +472,24 @@
 		"ItemBaseLevel"		"1"
 		"UpgradesItems"		"item_dota688_diffusal_blade"
 		"UpgradeRecipe"		"item_recipe_dota688_diffusal_blade"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_agility"		"25 35"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intellect"		"10 15"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"initial_charges"		"8"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"feedback_mana_burn"		"40"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"feedback_mana_burn_illusion_melee"		"20"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"feedback_mana_burn_illusion_ranged"		"10"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"purge_summoned_damage"		"99999"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"purge_rate"		"5"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"purge_root_duration"		"3.0"
-			}
-			"10"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"purge_slow_duration"		"4.0"
-			}
-			"11"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"damage_per_burn"		"1.0"
-			}
-			"12"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"cast_range_tooltip"		"600"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_diffusal_blade"
 		"AbilityTextureName"		"item_diffusal_blade"
+		"AbilityValues"
+		{
+			"bonus_agility"		"25 35"
+			"bonus_intellect"		"10 15"
+			"initial_charges"		"8"
+			"feedback_mana_burn"		"40"
+			"feedback_mana_burn_illusion_melee"		"20"
+			"feedback_mana_burn_illusion_ranged"		"10"
+			"purge_summoned_damage"		"99999"
+			"purge_rate"		"5"
+			"purge_root_duration"		"3.0"
+			"purge_slow_duration"		"4.0"
+			"damage_per_burn"		"1.0"
+			"cast_range_tooltip"		"600"
+		}
 	}
 	"item_dota688_diffusal_blade_2"
 	{
@@ -1050,72 +514,24 @@
 		"ItemDisplayCharges"		"1"
 		"MaxUpgradeLevel"		"2"
 		"ItemBaseLevel"		"2"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_agility"		"25 35"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intellect"		"10 15"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"initial_charges"		"8"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"feedback_mana_burn"		"40"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"feedback_mana_burn_illusion_melee"		"20"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"feedback_mana_burn_illusion_ranged"		"10"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"purge_summoned_damage"		"99999"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"purge_rate"		"5"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"purge_root_duration"		"3.0"
-			}
-			"10"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"purge_slow_duration"		"4.0"
-			}
-			"11"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"damage_per_burn"		"1.0"
-			}
-			"12"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"cast_range_tooltip"		"600"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_diffusal_blade_2"
 		"AbilityTextureName"		"item_diffusal_blade_2"
+		"AbilityValues"
+		{
+			"bonus_agility"		"25 35"
+			"bonus_intellect"		"10 15"
+			"initial_charges"		"8"
+			"feedback_mana_burn"		"40"
+			"feedback_mana_burn_illusion_melee"		"20"
+			"feedback_mana_burn_illusion_ranged"		"10"
+			"purge_summoned_damage"		"99999"
+			"purge_rate"		"5"
+			"purge_root_duration"		"3.0"
+			"purge_slow_duration"		"4.0"
+			"damage_per_burn"		"1.0"
+			"cast_range_tooltip"		"600"
+		}
 	}
 	"item_dota688_echo_sabre"
 	{
@@ -1129,57 +545,21 @@
 		"ItemQuality"		"artifact"
 		"ItemAliases"		"echo sabre"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intellect"		"10"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_strength"		"10"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_attack_speed"		"10"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"15"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana_regen"		"75"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"proc_damage"		"0"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"movement_slow"		"100"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"attack_speed_slow"		"100"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"slow_duration"		"0.6"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_echo_sabre"
 		"AbilityTextureName"		"item_echo_sabre"
+		"AbilityValues"
+		{
+			"bonus_intellect"		"10"
+			"bonus_strength"		"10"
+			"bonus_attack_speed"		"10"
+			"bonus_damage"		"15"
+			"bonus_mana_regen"		"75"
+			"proc_damage"		"0"
+			"movement_slow"		"100"
+			"attack_speed_slow"		"100"
+			"slow_duration"		"0.6"
+		}
 	}
 	"item_dota688_ethereal_blade"
 	{
@@ -1199,62 +579,22 @@
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemAliases"		"eb;ethereal blade"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_agility"		"40"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_strength"		"10"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intellect"		"10"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"blast_movement_slow"		"-80"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"duration"		"3.0"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"blast_agility_multiplier"		"2.0"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"blast_damage_base"		"75"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"duration_ally"		"4.0"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"ethereal_damage_bonus"		"-40"
-			}
-			"10"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"projectile_speed"		"1200"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_ethereal_blade"
 		"AbilityTextureName"		"item_ethereal_blade"
+		"AbilityValues"
+		{
+			"bonus_agility"		"40"
+			"bonus_strength"		"10"
+			"bonus_intellect"		"10"
+			"blast_movement_slow"		"-80"
+			"duration"		"3.0"
+			"blast_agility_multiplier"		"2.0"
+			"blast_damage_base"		"75"
+			"duration_ally"		"4.0"
+			"ethereal_damage_bonus"		"-40"
+			"projectile_speed"		"1200"
+		}
 	}
 	"item_dota688_force_staff"
 	{
@@ -1272,27 +612,15 @@
 		"ItemQuality"		"rare"
 		"ItemAliases"		"fs;force staff"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intellect"		"10"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health_regen"		"4"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"push_length"		"600"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_force_staff"
 		"AbilityTextureName"		"item_force_staff"
+		"AbilityValues"
+		{
+			"bonus_intellect"		"10"
+			"bonus_health_regen"		"4"
+			"push_length"		"600"
+		}
 	}
 	"item_dota688_glimmer_cape"
 	{
@@ -1308,37 +636,17 @@
 		"ItemQuality"		"rare"
 		"ItemAliases"		"glimmer cape"
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_attack_speed"		"20"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_magical_armor"		"15"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"fade_delay"		"0.6"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"active_magical_armor"		"45"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"duration"		"5"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_glimmer_cape"
 		"AbilityTextureName"		"item_glimmer_cape"
+		"AbilityValues"
+		{
+			"bonus_attack_speed"		"20"
+			"bonus_magical_armor"		"15"
+			"fade_delay"		"0.6"
+			"active_magical_armor"		"45"
+			"duration"		"5"
+		}
 	}
 	"item_dota688_guardian_greaves"
 	{
@@ -1352,77 +660,25 @@
 		"ItemAliases"		"guardian greaves"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemAlertable"		"1"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_movement"		"55"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana"		"250"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_all_stats"		"5"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_armor"		"5"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aura_health_regen"		"4"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aura_armor"		"2"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aura_health_regen_bonus"		"15"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aura_armor_bonus"		"15"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aura_bonus_threshold"		"20"
-			}
-			"10"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aura_radius"		"900"
-			}
-			"11"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"replenish_health"		"250"
-			}
-			"12"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"replenish_mana"		"160"
-			}
-			"13"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"replenish_radius"		"900"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_guardian_greaves"
 		"AbilityTextureName"		"item_guardian_greaves"
+		"AbilityValues"
+		{
+			"bonus_movement"		"55"
+			"bonus_mana"		"250"
+			"bonus_all_stats"		"5"
+			"bonus_armor"		"5"
+			"aura_health_regen"		"4"
+			"aura_armor"		"2"
+			"aura_health_regen_bonus"		"15"
+			"aura_armor_bonus"		"15"
+			"aura_bonus_threshold"		"20"
+			"aura_radius"		"900"
+			"replenish_health"		"250"
+			"replenish_mana"		"160"
+			"replenish_radius"		"900"
+		}
 	}
 	"item_dota688_hand_of_midas"
 	{
@@ -1439,32 +695,16 @@
 		"ItemQuality"		"common"
 		"ItemAliases"		"hand of midas"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_attack_speed"		"30"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"xp_multiplier"		"2.5"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_gold"		"190"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"transmute_cast_range_tooltip"		"600"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_hand_of_midas"
 		"AbilityTextureName"		"item_hand_of_midas"
+		"AbilityValues"
+		{
+			"bonus_attack_speed"		"30"
+			"xp_multiplier"		"2.5"
+			"bonus_gold"		"190"
+			"transmute_cast_range_tooltip"		"600"
+		}
 	}
 	"item_dota688_headdress"
 	{
@@ -1473,27 +713,15 @@
 		"ItemShopTags"		"str;int;agi;regen_health"
 		"ItemQuality"		"rare"
 		"ItemAliases"		"headdress"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_all_stats"		"2"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aura_health_regen"		"3"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aura_radius"		"900"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_headdress"
 		"AbilityTextureName"		"item_headdress"
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"2"
+			"aura_health_regen"		"3"
+			"aura_radius"		"900"
+		}
 	}
 	"item_dota688_heart"
 	{
@@ -1504,37 +732,17 @@
 		"ItemQuality"		"epic"
 		"ItemAliases"		"hot;heart of tarrasque"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_strength"		"45"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health"		"250"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"health_regen_rate"		"4.75"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"cooldown_melee"		"5"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"cooldown_ranged_tooltip"		"7"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_heart"
 		"AbilityTextureName"		"item_heart"
+		"AbilityValues"
+		{
+			"bonus_strength"		"45"
+			"bonus_health"		"250"
+			"health_regen_rate"		"4.75"
+			"cooldown_melee"		"5"
+			"cooldown_ranged_tooltip"		"7"
+		}
 	}
 	"item_dota688_heavens_halberd"
 	{
@@ -1552,72 +760,24 @@
 		"ItemAliases"		"heaven's halberd"
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_evasion"		"25"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"25"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_strength"		"20"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"maim_chance"		"20"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"maim_slow_movement"		"-20"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"maim_slow_attack"		"-20"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"maim_slow_movement_range"		"-10"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"maim_slow_attack_range"		"-10"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"maim_duration"		"4.0"
-			}
-			"10"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"disarm_range"		"5.5"
-			}
-			"11"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"disarm_melee"		"3.0"
-			}
-			"12"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"disarm_cast_range_tooltip"		"600"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_heavens_halberd"
 		"AbilityTextureName"		"item_heavens_halberd"
+		"AbilityValues"
+		{
+			"bonus_evasion"		"25"
+			"bonus_damage"		"25"
+			"bonus_strength"		"20"
+			"maim_chance"		"20"
+			"maim_slow_movement"		"-20"
+			"maim_slow_attack"		"-20"
+			"maim_slow_movement_range"		"-10"
+			"maim_slow_attack_range"		"-10"
+			"maim_duration"		"4.0"
+			"disarm_range"		"5.5"
+			"disarm_melee"		"3.0"
+			"disarm_cast_range_tooltip"		"600"
+		}
 	}
 	"item_dota688_helm_of_the_dominator"
 	{
@@ -1634,47 +794,19 @@
 		"ItemQuality"		"artifact"
 		"ItemAliases"		"hotd;helm of the dominator"
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"20"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_armor"		"5"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_regen"		"3"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"lifesteal_percent"		"15"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"dominate_duration"		"1200.0"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"health_min"		"1400"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"speed_base"		"350"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_helm_of_the_dominator"
 		"AbilityTextureName"		"item_helm_of_the_dominator"
+		"AbilityValues"
+		{
+			"bonus_damage"		"20"
+			"bonus_armor"		"5"
+			"bonus_regen"		"3"
+			"lifesteal_percent"		"15"
+			"dominate_duration"		"1200.0"
+			"health_min"		"1400"
+			"speed_base"		"350"
+		}
 	}
 	"item_dota688_hurricane_pike"
 	{
@@ -1692,67 +824,23 @@
 		"ItemQuality"		"epic"
 		"ItemAliases"		"fs;force staff"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intellect"		"10"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health_regen"		"4"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_agility"		"20"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_strength"		"15"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"base_attack_range"		"140"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"push_length"		"600"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"enemy_length"		"450"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"range_duration"		"5"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"cast_range_enemy"		"400"
-			}
-			"10"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"max_attacks"		"4"
-			}
-			"11"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_attack_speed"		"100"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_hurricane_pike"
 		"AbilityTextureName"		"item_hurricane_pike"
+		"AbilityValues"
+		{
+			"bonus_intellect"		"10"
+			"bonus_health_regen"		"4"
+			"bonus_agility"		"20"
+			"bonus_strength"		"15"
+			"base_attack_range"		"140"
+			"push_length"		"600"
+			"enemy_length"		"450"
+			"range_duration"		"5"
+			"cast_range_enemy"		"400"
+			"max_attacks"		"4"
+			"bonus_attack_speed"		"100"
+		}
 	}
 	"item_dota688_iron_talon"
 	{
@@ -1768,47 +856,19 @@
 		"ItemShopTags"		"damage"
 		"ItemQuality"		"common"
 		"ItemAliases"		"quelling blade"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"damage_bonus"		"140"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"damage_bonus_ranged"		"115"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"quelling_range_tooltip"		"350"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"cast_range_ward"		"450"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"creep_damage_pct"		"40"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_armor"		"2"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"alternative_cooldown"		"4"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_iron_talon"
 		"AbilityTextureName"		"item_iron_talon"
+		"AbilityValues"
+		{
+			"damage_bonus"		"140"
+			"damage_bonus_ranged"		"115"
+			"quelling_range_tooltip"		"350"
+			"cast_range_ward"		"450"
+			"creep_damage_pct"		"40"
+			"bonus_armor"		"2"
+			"alternative_cooldown"		"4"
+		}
 	}
 	"item_dota688_javelin"
 	{
@@ -1817,27 +877,15 @@
 		"ItemShopTags"		"damage"
 		"ItemQuality"		"component"
 		"ItemAliases"		"javelin"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"10"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_chance"		"25"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_chance_damage"		"85"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_javelin"
 		"AbilityTextureName"		"item_javelin"
+		"AbilityValues"
+		{
+			"bonus_damage"		"10"
+			"bonus_chance"		"25"
+			"bonus_chance_damage"		"85"
+		}
 	}
 	"item_dota688_lotus_orb"
 	{
@@ -1854,47 +902,19 @@
 		"ItemAliases"		"ls;lotus orb"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"10"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_armor"		"10"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health_regen"		"6"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana_regen"		"125"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana"		"250"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"active_duration"		"6"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"cast_range_tooltip"		"900"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_lotus_orb"
 		"AbilityTextureName"		"item_lotus_orb"
+		"AbilityValues"
+		{
+			"bonus_damage"		"10"
+			"bonus_armor"		"10"
+			"bonus_health_regen"		"6"
+			"bonus_mana_regen"		"125"
+			"bonus_mana"		"250"
+			"active_duration"		"6"
+			"cast_range_tooltip"		"900"
+		}
 	}
 	"item_dota688_manta"
 	{
@@ -1908,107 +928,31 @@
 		"ItemAliases"		"manta style"
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_strength"		"10"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_agility"		"26"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intellect"		"10"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_attack_speed"		"15"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_movement_speed"		"10"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"images_count"		"2"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"tooltip_illusion_duration"		"20"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"images_do_damage_percent_melee"		"-67"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"tooltip_damage_outgoing_melee"		"33"
-			}
-			"10"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"images_take_damage_percent_melee"		"250"
-			}
-			"11"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"tooltip_damage_incoming_melee_total_pct"		"350"
-			}
-			"12"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"images_do_damage_percent_ranged"		"-72"
-			}
-			"13"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"tooltip_damage_outgoing_ranged"		"28"
-			}
-			"14"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"images_take_damage_percent_ranged"		"300"
-			}
-			"15"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"tooltip_damage_incoming_ranged_total_pct"		"400"
-			}
-			"16"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"cooldown_melee"		"30"
-			}
-			"17"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"cooldown_ranged_tooltip"		"45"
-			}
-			"18"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"invuln_duration"		"0.1"
-			}
-			"19"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"vision_radius"		"1000"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_manta"
 		"AbilityTextureName"		"item_manta"
+		"AbilityValues"
+		{
+			"bonus_strength"		"10"
+			"bonus_agility"		"26"
+			"bonus_intellect"		"10"
+			"bonus_attack_speed"		"15"
+			"bonus_movement_speed"		"10"
+			"images_count"		"2"
+			"tooltip_illusion_duration"		"20"
+			"images_do_damage_percent_melee"		"-67"
+			"tooltip_damage_outgoing_melee"		"33"
+			"images_take_damage_percent_melee"		"250"
+			"tooltip_damage_incoming_melee_total_pct"		"350"
+			"images_do_damage_percent_ranged"		"-72"
+			"tooltip_damage_outgoing_ranged"		"28"
+			"images_take_damage_percent_ranged"		"300"
+			"tooltip_damage_incoming_ranged_total_pct"		"400"
+			"cooldown_melee"		"30"
+			"cooldown_ranged_tooltip"		"45"
+			"invuln_duration"		"0.1"
+			"vision_radius"		"1000"
+		}
 	}
 	"item_dota688_mask_of_madness"
 	{
@@ -2021,37 +965,17 @@
 		"ItemQuality"		"artifact"
 		"ItemAliases"		"mom;mask of madness"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"lifesteal_percent"		"20"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"berserk_bonus_attack_speed"		"100"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"berserk_bonus_movement_speed"		"17"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"berserk_extra_damage"		"25"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"berserk_duration"		"12.0"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_mask_of_madness"
 		"AbilityTextureName"		"item_mask_of_madness"
+		"AbilityValues"
+		{
+			"lifesteal_percent"		"20"
+			"berserk_bonus_attack_speed"		"100"
+			"berserk_bonus_movement_speed"		"17"
+			"berserk_extra_damage"		"25"
+			"berserk_duration"		"12.0"
+		}
 	}
 	"item_dota688_medallion_of_courage"
 	{
@@ -2067,37 +991,17 @@
 		"ItemQuality"		"rare"
 		"ItemAliases"		"medallion of courage"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_armor"		"7"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana_regen_pct"		"50"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"armor_reduction"		"-7"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"duration"		"7"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"valor_cast_range_tooltip"		"1000"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_medallion_of_courage"
 		"AbilityTextureName"		"item_medallion_of_courage"
+		"AbilityValues"
+		{
+			"bonus_armor"		"7"
+			"bonus_mana_regen_pct"		"50"
+			"armor_reduction"		"-7"
+			"duration"		"7"
+			"valor_cast_range_tooltip"		"1000"
+		}
 	}
 	"item_dota688_mekansm"
 	{
@@ -2111,52 +1015,20 @@
 		"ItemAliases"		"mechanism;mekansm"
 		"ItemAlertable"		"1"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_all_stats"		"5"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_armor"		"5"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aura_radius"		"900"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aura_health_regen"		"4"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"heal_amount"		"250"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"heal_bonus_armor"		"2"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"heal_armor_duration"		"25"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"heal_radius"		"900"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_mekansm"
 		"AbilityTextureName"		"item_mekansm"
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"5"
+			"bonus_armor"		"5"
+			"aura_radius"		"900"
+			"aura_health_regen"		"4"
+			"heal_amount"		"250"
+			"heal_bonus_armor"		"2"
+			"heal_armor_duration"		"25"
+			"heal_radius"		"900"
+		}
 	}
 	"item_dota688_monkey_king_bar"
 	{
@@ -2166,37 +1038,17 @@
 		"ItemQuality"		"epic"
 		"ItemAliases"		"mkb;monkey king bar"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"66"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_attack_speed"		"15"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bash_chance"		"35"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bash_damage"		"160"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"bash_stun"		"0.01"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_monkey_king_bar"
 		"AbilityTextureName"		"item_monkey_king_bar"
+		"AbilityValues"
+		{
+			"bonus_damage"		"66"
+			"bonus_attack_speed"		"15"
+			"bash_chance"		"35"
+			"bash_damage"		"160"
+			"bash_stun"		"0.01"
+		}
 	}
 	"item_dota688_null_talisman"
 	{
@@ -2205,32 +1057,16 @@
 		"ItemShopTags"		"damage;int;agi;str"
 		"ItemQuality"		"common"
 		"ItemAliases"		"null talisman"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_strength"		"3"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_agility"		"3"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intellect"		"6"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"3"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_null_talisman"
 		"AbilityTextureName"		"item_null_talisman"
+		"AbilityValues"
+		{
+			"bonus_strength"		"3"
+			"bonus_agility"		"3"
+			"bonus_intellect"		"6"
+			"bonus_damage"		"3"
+		}
 	}
 	"item_dota688_oblivion_staff"
 	{
@@ -2239,32 +1075,16 @@
 		"ItemShopTags"		"damage;int;attack_speed;regen_mana"
 		"ItemQuality"		"common"
 		"ItemAliases"		"oblivion staff"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intellect"		"6"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_attack_speed"		"10"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"15"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana_regen"		"75"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_oblivion_staff"
 		"AbilityTextureName"		"item_oblivion_staff"
+		"AbilityValues"
+		{
+			"bonus_intellect"		"6"
+			"bonus_attack_speed"		"10"
+			"bonus_damage"		"15"
+			"bonus_mana_regen"		"75"
+		}
 	}
 	"item_dota688_octarine_core"
 	{
@@ -2275,57 +1095,21 @@
 		"ItemAliases"		"mana;mb;octarine core"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intelligence"		"25"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health"		"425"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana"		"425"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health_regen"		"0"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana_regen"		"50"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_cooldown"		"25"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"hero_lifesteal"		"25"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"creep_lifesteal"		"5"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"active_duration"		"7"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_octarine_core"
 		"AbilityTextureName"		"item_octarine_core"
+		"AbilityValues"
+		{
+			"bonus_intelligence"		"25"
+			"bonus_health"		"425"
+			"bonus_mana"		"425"
+			"bonus_health_regen"		"0"
+			"bonus_mana_regen"		"50"
+			"bonus_cooldown"		"25"
+			"hero_lifesteal"		"25"
+			"creep_lifesteal"		"5"
+			"active_duration"		"7"
+		}
 	}
 	"item_dota688_orb_of_venom"
 	{
@@ -2335,32 +1119,16 @@
 		"ItemQuality"		"component"
 		"ItemAliases"		"orb of venom"
 		"SideShop"		"1"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"poison_damage"		"3.0"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"poison_movement_speed_melee"		"-12"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"poison_movement_speed_range"		"-4"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"poison_duration"		"4.0"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_orb_of_venom"
 		"AbilityTextureName"		"item_orb_of_venom"
+		"AbilityValues"
+		{
+			"poison_damage"		"3.0"
+			"poison_movement_speed_melee"		"-12"
+			"poison_movement_speed_range"		"-4"
+			"poison_duration"		"4.0"
+		}
 	}
 	"item_dota688_pers"
 	{
@@ -2371,27 +1139,15 @@
 		"ItemAliases"		"perseverance"
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemShareability"		"ITEM_PARTIALLY_SHAREABLE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health_regen"		"6"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana_regen"		"125"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"10"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_pers"
 		"AbilityTextureName"		"item_pers"
+		"AbilityValues"
+		{
+			"bonus_health_regen"		"6"
+			"bonus_mana_regen"		"125"
+			"bonus_damage"		"10"
+		}
 	}
 	"item_dota688_phase_boots"
 	{
@@ -2402,62 +1158,22 @@
 		"ItemQuality"		"common"
 		"ItemAliases"		"phase boots"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_movement_speed"		"45"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"24"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"damage_block_melee"		"0"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"damage_block_ranged"		"0"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"block_chance"		"0"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"phase_movement_speed"		"24"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"phase_movement_speed_range"		"20"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"phase_duration"		"2.5"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_attack_speed"		"0"
-			}
-			"10"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_armor"		"0"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_phase_boots"
 		"AbilityTextureName"		"item_phase_boots"
+		"AbilityValues"
+		{
+			"bonus_movement_speed"		"45"
+			"bonus_damage"		"24"
+			"damage_block_melee"		"0"
+			"damage_block_ranged"		"0"
+			"block_chance"		"0"
+			"phase_movement_speed"		"24"
+			"phase_movement_speed_range"		"20"
+			"phase_duration"		"2.5"
+			"bonus_attack_speed"		"0"
+			"bonus_armor"		"0"
+		}
 	}
 	"item_dota688_pipe"
 	{
@@ -2471,72 +1187,24 @@
 		"ItemAliases"		"pipe of insight"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemAlertable"		"1"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"health_regen"		"8"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"magic_resistance"		"30"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"barrier_debuff_duration"		"50.0"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"tooltip_resist"		"30"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aura_health_regen"		"4"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"magic_resistance_aura"		"10"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aura_radius"		"900"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"barrier_block"		"400"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"barrier_duration"		"12.0"
-			}
-			"10"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"barrier_radius"		"900"
-			}
-			"11"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_all_stats"		"0"
-			}
-			"12"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"barrier_block_creep"		"400"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_pipe"
 		"AbilityTextureName"		"item_pipe"
+		"AbilityValues"
+		{
+			"health_regen"		"8"
+			"magic_resistance"		"30"
+			"barrier_debuff_duration"		"50.0"
+			"tooltip_resist"		"30"
+			"aura_health_regen"		"4"
+			"magic_resistance_aura"		"10"
+			"aura_radius"		"900"
+			"barrier_block"		"400"
+			"barrier_duration"		"12.0"
+			"barrier_radius"		"900"
+			"bonus_all_stats"		"0"
+			"barrier_block_creep"		"400"
+		}
 	}
 	"item_dota688_power_treads"
 	{
@@ -2546,32 +1214,16 @@
 		"ItemQuality"		"common"
 		"ItemAliases"		"power treads"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_movement_speed"		"45"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_stat"		"9"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_attack_speed"		"25"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"0"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_power_treads"
 		"AbilityTextureName"		"item_power_treads"
+		"AbilityValues"
+		{
+			"bonus_movement_speed"		"45"
+			"bonus_stat"		"9"
+			"bonus_attack_speed"		"25"
+			"bonus_damage"		"0"
+		}
 	}
 	"item_dota688_ring_of_aquila"
 	{
@@ -2585,52 +1237,20 @@
 		"UIPickupSound"		"Item.PickUpRingShop"
 		"UIDropSound"		"Item.DropRingShop"
 		"WorldDropSound"		"Item.DropRingWorld"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"10"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_strength"		"3"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_agility"		"9"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intellect"		"3"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_armor"		"0"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aura_radius"		"900"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"aura_mana_regen"		"0.65"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aura_bonus_armor"		"2"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_ring_of_aquila"
 		"AbilityTextureName"		"item_ring_of_aquila"
+		"AbilityValues"
+		{
+			"bonus_damage"		"10"
+			"bonus_strength"		"3"
+			"bonus_agility"		"9"
+			"bonus_intellect"		"3"
+			"bonus_armor"		"0"
+			"aura_radius"		"900"
+			"aura_mana_regen"		"0.65"
+			"aura_bonus_armor"		"2"
+		}
 	}
 	"item_dota688_ring_of_basilius"
 	{
@@ -2643,37 +1263,17 @@
 		"UIPickupSound"		"Item.PickUpRingShop"
 		"UIDropSound"		"Item.DropRingShop"
 		"WorldDropSound"		"Item.DropRingWorld"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"7"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_armor"		"0"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aura_radius"		"900"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"aura_mana_regen"		"0.65"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aura_bonus_armor"		"2"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_ring_of_basilius"
 		"AbilityTextureName"		"item_ring_of_basilius"
+		"AbilityValues"
+		{
+			"bonus_damage"		"7"
+			"bonus_armor"		"0"
+			"aura_radius"		"900"
+			"aura_mana_regen"		"0.65"
+			"aura_bonus_armor"		"2"
+		}
 	}
 	"item_dota688_rod_of_atos"
 	{
@@ -2690,32 +1290,16 @@
 		"ItemQuality"		"rare"
 		"ItemAliases"		"rod of atos"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intellect"		"30"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health"		"350"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"slow"		"60"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"duration"		"4.0"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_rod_of_atos"
 		"AbilityTextureName"		"item_rod_of_atos"
+		"AbilityValues"
+		{
+			"bonus_intellect"		"30"
+			"bonus_health"		"350"
+			"slow"		"60"
+			"duration"		"4.0"
+		}
 	}
 	"item_dota688_sange"
 	{
@@ -2724,52 +1308,20 @@
 		"ItemShopTags"		"damage;str;unique"
 		"ItemQuality"		"artifact"
 		"ItemAliases"		"sange"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"10"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_strength"		"16"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"maim_chance"		"20"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"maim_slow_movement"		"-20"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"maim_slow_attack"		"-20"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"maim_slow_movement_range"		"-10"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"maim_slow_attack_range"		"-10"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"maim_duration"		"4.0"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_sange"
 		"AbilityTextureName"		"item_sange"
+		"AbilityValues"
+		{
+			"bonus_damage"		"10"
+			"bonus_strength"		"16"
+			"maim_chance"		"20"
+			"maim_slow_movement"		"-20"
+			"maim_slow_attack"		"-20"
+			"maim_slow_movement_range"		"-10"
+			"maim_slow_attack_range"		"-10"
+			"maim_duration"		"4.0"
+		}
 	}
 	"item_dota688_sange_and_yasha"
 	{
@@ -2780,67 +1332,23 @@
 		"ItemAliases"		"sny;s&y;sy;sange and yasha"
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"16"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_strength"		"16"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_agility"		"16"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_attack_speed"		"16"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"movement_speed_percent_bonus"		"16"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"maim_chance"		"30"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"maim_slow_movement"		"-26"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"maim_slow_attack"		"-26"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"maim_slow_movement_range"		"-13"
-			}
-			"10"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"maim_slow_attack_range"		"-13"
-			}
-			"11"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"maim_duration"		"5.0"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_sange_and_yasha"
 		"AbilityTextureName"		"item_sange_and_yasha"
+		"AbilityValues"
+		{
+			"bonus_damage"		"16"
+			"bonus_strength"		"16"
+			"bonus_agility"		"16"
+			"bonus_attack_speed"		"16"
+			"movement_speed_percent_bonus"		"16"
+			"maim_chance"		"30"
+			"maim_slow_movement"		"-26"
+			"maim_slow_attack"		"-26"
+			"maim_slow_movement_range"		"-13"
+			"maim_slow_attack_range"		"-13"
+			"maim_duration"		"5.0"
+		}
 	}
 	"item_dota688_satanic"
 	{
@@ -2852,47 +1360,19 @@
 		"ItemQuality"		"artifact"
 		"ItemAliases"		"satanic"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"20"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_strength"		"25"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_armor"		"5"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"lifesteal_percent"		"25"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"unholy_lifesteal_percent"		"175"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"unholy_lifesteal_total_tooltip"		"200"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"unholy_duration"		"4.5"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_satanic"
 		"AbilityTextureName"		"item_satanic"
+		"AbilityValues"
+		{
+			"bonus_damage"		"20"
+			"bonus_strength"		"25"
+			"bonus_armor"		"5"
+			"lifesteal_percent"		"25"
+			"unholy_lifesteal_percent"		"175"
+			"unholy_lifesteal_total_tooltip"		"200"
+			"unholy_duration"		"4.5"
+		}
 	}
 	"item_dota688_shadow_amulet"
 	{
@@ -2906,22 +1386,14 @@
 		"ItemCost"		"1300"
 		"ItemShopTags"		""
 		"ItemAliases"		"shadow amulet"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_attack_speed"		"20"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"fade_time"		"1.5"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_shadow_amulet"
 		"AbilityTextureName"		"item_shadow_amulet"
+		"AbilityValues"
+		{
+			"bonus_attack_speed"		"20"
+			"fade_time"		"1.5"
+		}
 	}
 	"item_dota688_sheepstick"
 	{
@@ -2938,42 +1410,18 @@
 		"ItemQuality"		"rare"
 		"ItemAliases"		"hex;sheepstick;scythe of vyse"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_strength"		"10"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_agility"		"10"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intellect"		"35"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana_regen"		"150"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"sheep_duration"		"3.5"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"sheep_movement_speed"		"140"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_sheepstick"
 		"AbilityTextureName"		"item_sheepstick"
+		"AbilityValues"
+		{
+			"bonus_strength"		"10"
+			"bonus_agility"		"10"
+			"bonus_intellect"		"35"
+			"bonus_mana_regen"		"150"
+			"sheep_duration"		"3.5"
+			"sheep_movement_speed"		"140"
+		}
 	}
 	"item_dota688_shivas_guard"
 	{
@@ -2987,57 +1435,21 @@
 		"ItemAliases"		"shiva's guard"
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intellect"		"30"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_armor"		"15"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aura_radius"		"900"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aura_attack_speed"		"-45"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"blast_damage"		"200"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"blast_movement_speed"		"-40"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"blast_debuff_duration"		"4.0"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"blast_radius"		"900"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"blast_speed"		"350"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_shivas_guard"
 		"AbilityTextureName"		"item_shivas_guard"
+		"AbilityValues"
+		{
+			"bonus_intellect"		"30"
+			"bonus_armor"		"15"
+			"aura_radius"		"900"
+			"aura_attack_speed"		"-45"
+			"blast_damage"		"200"
+			"blast_movement_speed"		"-40"
+			"blast_debuff_duration"		"4.0"
+			"blast_radius"		"900"
+			"blast_speed"		"350"
+		}
 	}
 	"item_dota688_silver_edge"
 	{
@@ -3052,57 +1464,21 @@
 		"ItemAliases"		"sb;invis;shadow blade"
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"30"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_attack_speed"		"30"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_all_stats"		"15"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"windwalk_duration"		"14.0"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"windwalk_movement_speed"		"20"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"windwalk_fade_time"		"0.3"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"windwalk_bonus_damage"		"225"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"backstab_reduction"		"-50"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"backstab_duration"		"5"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_silver_edge"
 		"AbilityTextureName"		"item_silver_edge"
+		"AbilityValues"
+		{
+			"bonus_damage"		"30"
+			"bonus_attack_speed"		"30"
+			"bonus_all_stats"		"15"
+			"windwalk_duration"		"14.0"
+			"windwalk_movement_speed"		"20"
+			"windwalk_fade_time"		"0.3"
+			"windwalk_bonus_damage"		"225"
+			"backstab_reduction"		"-50"
+			"backstab_duration"		"5"
+		}
 	}
 	"item_dota688_skadi"
 	{
@@ -3112,47 +1488,19 @@
 		"ItemQuality"		"artifact"
 		"ItemAliases"		"eos;eye of skadi"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_all_stats"		"25"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health"		"225"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana"		"250"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"cold_movement_speed"		"-35"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"cold_attack_speed"		"-45"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"cold_duration_melee"		"5.0"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"cold_duration_ranged"		"2.5"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_skadi"
 		"AbilityTextureName"		"item_skadi"
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"25"
+			"bonus_health"		"225"
+			"bonus_mana"		"250"
+			"cold_movement_speed"		"-35"
+			"cold_attack_speed"		"-45"
+			"cold_duration_melee"		"5.0"
+			"cold_duration_ranged"		"2.5"
+		}
 	}
 	"item_dota688_solar_crest"
 	{
@@ -3169,62 +1517,22 @@
 		"ItemQuality"		"rare"
 		"ItemAliases"		"solar crest"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_armor"		"10"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana_regen_pct"		"75"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_evasion"		"25"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"allied_armor"		"10"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"allied_evasion"		"25"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"armor_reduction"		"-10"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"enemy_armor_reduction_tooltip"		"10"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"miss_chance"		"25"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"duration"		"7"
-			}
-			"10"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"valor_cast_range_tooltip"		"1000"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_solar_crest"
 		"AbilityTextureName"		"item_solar_crest"
+		"AbilityValues"
+		{
+			"bonus_armor"		"10"
+			"bonus_mana_regen_pct"		"75"
+			"bonus_evasion"		"25"
+			"allied_armor"		"10"
+			"allied_evasion"		"25"
+			"armor_reduction"		"-10"
+			"enemy_armor_reduction_tooltip"		"10"
+			"miss_chance"		"25"
+			"duration"		"7"
+			"valor_cast_range_tooltip"		"1000"
+		}
 	}
 	"item_dota688_soul_booster"
 	{
@@ -3233,32 +1541,16 @@
 		"ItemShopTags"		"regen_health;regen_mana;health_pool;mana_pool"
 		"ItemQuality"		"epic"
 		"ItemAliases"		"soul booster"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health"		"425"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana"		"425"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health_regen"		"0"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana_regen"		"50"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_soul_booster"
 		"AbilityTextureName"		"item_soul_booster"
+		"AbilityValues"
+		{
+			"bonus_health"		"425"
+			"bonus_mana"		"425"
+			"bonus_health_regen"		"0"
+			"bonus_mana_regen"		"50"
+		}
 	}
 	"item_dota688_soul_ring"
 	{
@@ -3273,37 +1565,17 @@
 		"UIPickupSound"		"Item.PickUpRingShop"
 		"UIDropSound"		"Item.DropRingShop"
 		"WorldDropSound"		"Item.DropRingWorld"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"health_regen"		"3"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"mana_regen"		"50"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"health_sacrifice"		"150"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"mana_gain"		"150"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"duration"		"10"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_soul_ring"
 		"AbilityTextureName"		"item_soul_ring"
+		"AbilityValues"
+		{
+			"health_regen"		"3"
+			"mana_regen"		"50"
+			"health_sacrifice"		"150"
+			"mana_gain"		"150"
+			"duration"		"10"
+		}
 	}
 	"item_dota688_sphere"
 	{
@@ -3318,37 +1590,17 @@
 		"ItemQuality"		"epic"
 		"ItemAliases"		"ls;linken's sphere"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_all_stats"		"15"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health_regen"		"6"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana_regen"		"150"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"15"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"block_cooldown"		"13.0"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_sphere"
 		"AbilityTextureName"		"item_sphere"
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"15"
+			"bonus_health_regen"		"6"
+			"bonus_mana_regen"		"150"
+			"bonus_damage"		"15"
+			"block_cooldown"		"13.0"
+		}
 	}
 	"item_dota688_ultimate_scepter"
 	{
@@ -3362,27 +1614,15 @@
 		"ItemQuality"		"rare"
 		"ItemAliases"		"ultimate;aghanim's scepter"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_all_stats"		"10"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health"		"175"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_mana"		"175"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_ultimate_scepter"
 		"AbilityTextureName"		"item_ultimate_scepter"
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"10"
+			"bonus_health"		"175"
+			"bonus_mana"		"175"
+		}
 		"AbilityCastPoint"		"0.1"
 	}
 	"item_dota688_urn_of_shadows"
@@ -3403,67 +1643,23 @@
 		"ItemQuality"		"rare"
 		"ItemAliases"		"urn of shadows"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"mana_regen"		"50"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_strength"		"6"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"soul_radius"		"1400"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"soul_initial_charge"		"2"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"soul_additional_charges"		"1"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"soul_heal_interval"		"0.25"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"soul_heal_amount"		"400"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"soul_damage_amount"		"150"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"soul_heal_duration"		"8.0"
-			}
-			"10"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"soul_damage_duration"		"8.0"
-			}
-			"11"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"soul_release_range_tooltip"		"950"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_urn_of_shadows"
 		"AbilityTextureName"		"item_urn_of_shadows"
+		"AbilityValues"
+		{
+			"mana_regen"		"50"
+			"bonus_strength"		"6"
+			"soul_radius"		"1400"
+			"soul_initial_charge"		"2"
+			"soul_additional_charges"		"1"
+			"soul_heal_interval"		"0.25"
+			"soul_heal_amount"		"400"
+			"soul_damage_amount"		"150"
+			"soul_heal_duration"		"8.0"
+			"soul_damage_duration"		"8.0"
+			"soul_release_range_tooltip"		"950"
+		}
 	}
 	"item_dota688_veil_of_discord"
 	{
@@ -3477,57 +1673,21 @@
 		"ItemQuality"		"rare"
 		"ItemAliases"		"vod;veil of discord"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_health_regen"		"6"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_armor"		"6"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_agi"		"6"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_str"		"6"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"6"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_int"		"12"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"resist_debuff"		"-25"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"debuff_radius"		"600"
-			}
-			"09"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"resist_debuff_duration"		"16.0"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_veil_of_discord"
 		"AbilityTextureName"		"item_veil_of_discord"
+		"AbilityValues"
+		{
+			"bonus_health_regen"		"6"
+			"bonus_armor"		"6"
+			"bonus_agi"		"6"
+			"bonus_str"		"6"
+			"bonus_damage"		"6"
+			"bonus_int"		"12"
+			"resist_debuff"		"-25"
+			"debuff_radius"		"600"
+			"resist_debuff_duration"		"16.0"
+		}
 	}
 	"item_dota688_vladmir"
 	{
@@ -3537,52 +1697,20 @@
 		"ItemQuality"		"rare"
 		"ItemAliases"		"vladmir's offering;vlads"
 		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_all_stats"		"2"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"hp_regen"		"3"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"mana_regen_aura"		"0.8"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"armor_aura"		"4"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"damage_aura"		"15"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"vampiric_aura"		"15"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"vampiric_aura_ranged"		"10"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aura_radius"		"900"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_vladmir"
 		"AbilityTextureName"		"item_vladmir"
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"2"
+			"hp_regen"		"3"
+			"mana_regen_aura"		"0.8"
+			"armor_aura"		"4"
+			"damage_aura"		"15"
+			"vampiric_aura"		"15"
+			"vampiric_aura_ranged"		"10"
+			"aura_radius"		"900"
+		}
 	}
 	"item_dota688_wind_lace"
 	{
@@ -3595,27 +1723,15 @@
 		"UIPickupSound"		"Item.PickUpRingShop"
 		"UIDropSound"		"Item.DropRingShop"
 		"WorldDropSound"		"Item.DropRingWorld"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"movement_speed"		"20"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_speed"		"8"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"duration"		"5"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_wind_lace"
 		"AbilityTextureName"		"item_wind_lace"
+		"AbilityValues"
+		{
+			"movement_speed"		"20"
+			"bonus_speed"		"8"
+			"duration"		"5"
+		}
 	}
 	"item_dota688_wraith_band"
 	{
@@ -3624,32 +1740,16 @@
 		"ItemShopTags"		"damage;int;agi;str"
 		"ItemQuality"		"common"
 		"ItemAliases"		"wraith band"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_strength"		"3"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_agility"		"6"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_intellect"		"3"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage"		"3"
-			}
-		}
 		"BaseClass"		"item_lua"
 		"ScriptFile"		"items/item_dota688_wraith_band"
 		"AbilityTextureName"		"item_wraith_band"
+		"AbilityValues"
+		{
+			"bonus_strength"		"3"
+			"bonus_agility"		"6"
+			"bonus_intellect"		"3"
+			"bonus_damage"		"3"
+		}
 	}
 	"item_recipe_dota688_phase_boots"
 	{

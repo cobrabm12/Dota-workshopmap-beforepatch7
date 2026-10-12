@@ -18,7 +18,7 @@ function dota688_obsidian_destroyer_sanity_eclipse:OnSpellStart()
 			local diff = math.max(0, caster:GetIntellect(true) - (e.GetIntellect and e:GetIntellect(true) or 0))
 			e:EmitSound("Hero_ObsidianDestroyer.SanityEclipse.Target")
 			ApplyDamage({ victim = e, attacker = caster, damage = diff * mult, damage_type = DAMAGE_TYPE_MAGICAL, ability = self })
-			e:ReduceMana(e:GetMaxMana() * self:GetSpecialValueFor("mana_drain") / 100)
+			e:Script_ReduceMana(e:GetMaxMana() * self:GetSpecialValueFor("mana_drain") / 100, self)
 			if scepter and astral and astral:GetLevel() > 0 and e:IsAlive() then
 				e:AddNewModifier(caster, astral, "modifier_obsidian_destroyer_astral_imprisonment_prison", { duration = astral:GetSpecialValueFor("prison_duration") })
 			end

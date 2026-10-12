@@ -26,9 +26,14 @@ function modifier_dota688_wisp_overcharge:OnIntervalThink()
 	caster:SetHealth(math.max(1, caster:GetHealth() - caster:GetHealth() * pct))
 	caster:SetMana(math.max(0, caster:GetMana() - caster:GetMana() * pct))
 	-- aplicam si pe unitatea legata prin Tether (modifier-ul built-in al Tether-ului)
+	-- modifierul Tether-ului nu expune tinta in Lua: o cautam dupa modifierul pus de Io pe aliatul legat
 	local tethered = nil
-	local m = caster:FindModifierByName("modifier_wisp_tether")
-	if m and m.GetTarget then tethered = m:GetTarget() end
+	if caster:HasModifier("modifier_wisp_tether") then
+		for _, u in ipairs(FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, FIND_UNITS_EVERYWHERE,
+			DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)) do
+			if u ~= caster and u:FindModifierByNameAndCaster("modifier_wisp_tether_haste", caster) then tethered = u; break end
+		end
+	end
 	local prev = caster.dota688_overcharge_target
 	if prev and not prev:IsNull() and prev ~= tethered then prev:RemoveModifierByName("modifier_dota688_wisp_overcharge") end
 	if tethered and not tethered:IsNull() and not tethered:HasModifier("modifier_dota688_wisp_overcharge") then
