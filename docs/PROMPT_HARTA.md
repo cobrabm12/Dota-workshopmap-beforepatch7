@@ -81,7 +81,7 @@ Pașii:
 1. Unelte, în `C:\dota688_tools\`: DepotDownloader (release windows-x64, https://github.com/SteamRE/DepotDownloader/releases)
    și Source 2 Viewer, atât GUI-ul cât și CLI-ul (https://github.com/ValveResourceFormat/ValveResourceFormat/releases). Verifică-le.
 2. Manifest: depot `373301` (Dota 2 Content), manifest candidat `6583592615927321343` (de pe
-   https://steamdb.info/depot/373301/history/?changeid=M:6583592615927321343 – verifică pe pagină că data este 7 dec 2016,
+   https://steamdb.info/depot/373301/history/?changeid=M:6583592615927321343 – data confirmată: 8 dec 2016 = build-ul 1805 (6.88f, compilat pe 7 dec),
    înainte de 7.00 din 12 dec 2016; dacă nu, ia manifestul corect din tab-ul Manifests). Verifică cu
    `-manifest-only` că manifestul conține `game/dota/pak01_dir.vpk`; dacă nu, încearcă celelalte depoturi de conținut (373301–373306).
 3. Descărcare: `DepotDownloader -app 570 -depot 373301 -manifest 6583592615927321343 -username <CONT> -remember-password
