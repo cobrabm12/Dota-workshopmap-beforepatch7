@@ -549,6 +549,7 @@ CUSTOM_KV_PATCH = {
     },
     # abilitate oferită de scepter în 6.88, deblocată din Lua (dota688/aghanim.lua), nu de motor
     "dota688_treant_eyes_in_the_forest": {"IsGrantedByScepter": "0"},
+    "dota688_morphling_hybrid": {"IsGrantedByScepter": "0"},
     # Ice Blast 6.88 se țintește oriunde pe hartă (raza reală e dată de Lua)
     "dota688_ancient_apparition_ice_blast": {"AbilityCastRange": "0"},
 }

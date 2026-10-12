@@ -687,7 +687,7 @@
 		"Ability2"		"dota688_morphling_adaptive_strike"
 		"Ability3"		"morphling_morph_agi"
 		"Ability4"		"morphling_morph_str"
-		"Ability5"		"morphling_hybrid"
+		"Ability5"		"dota688_morphling_hybrid"
 		"Ability6"		"morphling_replicate"
 		"Ability7"		"dota688_morphling_morph"
 		"Ability8"		"morphling_morph_replicate"

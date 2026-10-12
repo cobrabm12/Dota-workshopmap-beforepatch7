@@ -1,5 +1,5 @@
 -- Enrage (6.88): 4 s: 80% reducere a daunelor primite si Fury Swipes x1.5/1.75/2 (multiplicatorul se aplica ca daune bonus la atac, echivalent cu stack-urile built-in).
--- Scepter: cooldown 30/24/18. (6.88 permitea si folosirea Enrage cand Ursa e dezactivat – nu se poate reproduce din Lua; vezi docs/AGHANIM.md.)
+-- Scepter: cooldown 30/24/18; poate fi folosit si cand Ursa e dezactivat (stun/hex) – prin filtrul de ordine din dota688/aghanim_extras.lua.
 require("dota688/aghanim")
 LinkLuaModifier("modifier_dota688_ursa_enrage", "abilities/heroes/dota688_ursa_enrage", LUA_MODIFIER_MOTION_NONE)
 dota688_ursa_enrage = class({})

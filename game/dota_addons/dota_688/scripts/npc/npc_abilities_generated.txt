@@ -2819,6 +2819,61 @@
 		"ScriptFile"		"abilities/heroes/dota688_morphling_adaptive_strike"
 		"AbilityTextureName"		"morphling_adaptive_strike"
 	}
+	"dota688_morphling_hybrid"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_CUSTOM"
+		"MaxLevel"		"1"
+		"FightRecapLevel"		"1"
+		"IsGrantedByScepter"		"0"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastRange"		"600"
+		"AbilityCastPoint"		"0.25"
+		"AbilityCooldown"		"60"
+		"AbilityManaCost"		"200"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"illusion_damage_out_pct"		"-50 -50 -50"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"tooltip_illusion_damage_out_pct"		"50 50 50"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"illusion_incoming_dmg_pct_tooltip"		"100 100 100"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"illusion_damage_in_pct"		"0 0 0"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"tooltip_cast_range"		"600"
+			}
+			"06"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"illusion_damage_out_pct_scepter"		"-20"
+			}
+			"07"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"		"20.0"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_morphling_hybrid"
+		"AbilityTextureName"		"morphling_hybrid"
+	}
 	"dota688_morphling_morph"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_HIDDEN"

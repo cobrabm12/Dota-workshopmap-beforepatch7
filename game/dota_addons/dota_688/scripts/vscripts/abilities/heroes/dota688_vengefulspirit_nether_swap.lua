@@ -1,6 +1,7 @@
 -- Nether Swap (6.88): schimba pozitia cu un erou (aliat sau inamic), raza 700/950/1200, cooldown 45; trece prin imunitate.
--- Scepter: cooldown 10, poate schimba si unitati non-erou; cand Venge moare, apare o Vengeance Illusion (50% daune date, 150% primite) pana la respawn.
+-- Scepter: cooldown 10, poate schimba si unitati non-erou; cand Venge moare, apare o Vengeance Illusion (copie cu abilitati, fara iteme: 50% daune date, 150% primite) pana la respawn.
 require("dota688/aghanim")
+require("dota688/herocopy")
 local F = "abilities/heroes/dota688_vengefulspirit_nether_swap"
 LinkLuaModifier("modifier_dota688_nether_swap_passive", F, LUA_MODIFIER_MOTION_NONE)
 dota688_vengefulspirit_nether_swap = class({})
@@ -44,7 +45,7 @@ function modifier_dota688_nether_swap_passive:OnDeath(params)
 	Dota688Timers:After(0.1, function()
 		if p:IsNull() or p:IsAlive() then return end
 		local dur = math.max(5, p:GetTimeUntilRespawn())
-		local ill = CreateIllusions(p, p, { outgoing_damage = -a:GetSpecialValueFor("illusion_damage_out_pct_scepter"), incoming_damage = a:GetSpecialValueFor("illusion_damage_in_pct_scepter") - 100, duration = dur }, 1, 100, false, false)
-		for _, u in ipairs(ill or {}) do FindClearSpaceForUnit(u, p:GetAbsOrigin(), true) end
+		local copy = Dota688CreateHeroCopy(p, p, p:GetAbsOrigin(), dur, -a:GetSpecialValueFor("illusion_damage_out_pct_scepter"), a:GetSpecialValueFor("illusion_damage_in_pct_scepter") - 100)
+		p.dota688_vengeance = copy
 	end)
 end

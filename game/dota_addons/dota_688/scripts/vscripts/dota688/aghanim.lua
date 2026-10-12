@@ -40,7 +40,7 @@ AG.GRANT = {
 	npc_dota_hero_tusk = { "tusk_walrus_kick" },
 	npc_dota_hero_treant = { "dota688_treant_eyes_in_the_forest" },
 	npc_dota_hero_shredder = { "shredder_chakram_2" },
-	npc_dota_hero_morphling = { "morphling_hybrid" },
+	npc_dota_hero_morphling = { "dota688_morphling_hybrid" },
 }
 
 -- abilitati C++ la care scepter-ul 6.88 schimba cooldown-ul / mana / cast range / attack range

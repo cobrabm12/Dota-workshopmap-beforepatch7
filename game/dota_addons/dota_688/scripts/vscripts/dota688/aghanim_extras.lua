@@ -2,7 +2,8 @@
 --   Sven (aura de daune pentru aliati), Gyrocopter (Side Gunner), Batrider (100 dps pe Lasso),
 --   Shadow Shaman (daune la wards), Warlock (al doilea golem, -25% statistici, -50% bounty),
 --   Visage (al treilea familiar), Brewmaster (brewlingii primesc Thunder Clap / Drunken Haze / Drunken Brawler),
---   Meepo (un Meepo in plus: Divided We Stand nivel 4).
+--   Meepo (un Meepo in plus: Divided We Stand nivel 4; clonele primesc 20%/100% din atributele bonus),
+--   Invoker (+1 nivel la orbe pentru spell-urile invocate), Rubick (versiunea cu scepter a spell-urilor furate), Ursa (Enrage sub stun/hex).
 -- Se incarca din dota688/aghanim.lua.
 local AG = Dota688Aghanim
 local F = "dota688/aghanim_extras"
@@ -13,6 +14,8 @@ AG.EXTRA = {
 	npc_dota_hero_gyrocopter = { modifier = "modifier_dota688_scepter_gyrocopter" },
 	npc_dota_hero_batrider = { modifier = "modifier_dota688_scepter_batrider" },
 	npc_dota_hero_visage = { modifier = "modifier_dota688_scepter_visage" },
+	npc_dota_hero_invoker = { modifier = "modifier_dota688_scepter_invoker" },
+	npc_dota_hero_rubick = { modifier = "modifier_dota688_scepter_rubick" },
 	npc_dota_hero_meepo = {
 		gained = function(hero)
 			local a = hero:FindAbilityByName("meepo_divided_we_stand")
@@ -20,10 +23,179 @@ AG.EXTRA = {
 		end,
 		lost = function(hero)
 			local a = hero:FindAbilityByName("meepo_divided_we_stand")
-			if a and a:GetLevel() == 4 then a:SetLevel(3) end
+			if a and a:GetLevel() == 4 then
+				a:SetLevel(3)
+				-- clona in plus dispare (6.88)
+				local clones = {}
+				for _, u in ipairs(FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
+					if u ~= hero and u:GetUnitName() == hero:GetUnitName() and u.IsClone and u:IsClone() then table.insert(clones, u) end
+				end
+				if #clones > 3 then clones[#clones]:ForceKill(false) end
+			end
 		end,
 	},
 }
+
+-- abilitati C++ ale eroilor din AG.BUILTIN: daca Rubick le fura, primeste si el modifierul "consumed" ca sa aiba versiunea cu scepter
+AG.BUILTIN_ABILITIES = {
+	earthshaker_enchant_totem = true, witch_doctor_death_ward = true, tidehunter_gush = true, weaver_time_lapse = true,
+	batrider_flaming_lasso = true, undying_decay = true, phoenix_supernova = true, winter_wyvern_arctic_burn = true,
+	silencer_global_silence = true, shadow_demon_demonic_purge = true,
+}
+
+------------------------------------------------------------------------------------------------
+-- Invoker: +1 nivel la Quas/Wex/Exort pentru spell-urile invocate (atributele orbelor raman la nivelul de baza – modifier_dota688_invoker_orbs)
+modifier_dota688_scepter_invoker = class({})
+local ORBS = { "invoker_quas", "invoker_wex", "invoker_exort" }
+function modifier_dota688_scepter_invoker:IsHidden() return true end
+function modifier_dota688_scepter_invoker:IsPurgable() return false end
+function modifier_dota688_scepter_invoker:RemoveOnDeath() return false end
+function modifier_dota688_scepter_invoker:OnCreated()
+	if not IsServer() then return end
+	local p = self:GetParent()
+	p.dota688_orb_base = {}
+	for _, n in ipairs(ORBS) do
+		local a = p:FindAbilityByName(n)
+		if a then
+			p.dota688_orb_base[n] = a:GetLevel()
+			if a:GetLevel() > 0 then a:SetLevel(a:GetLevel() + 1) end
+		end
+	end
+	self:StartIntervalThink(0.2)
+end
+function modifier_dota688_scepter_invoker:OnIntervalThink()
+	local p = self:GetParent()
+	local base = p.dota688_orb_base
+	if not base then return end
+	for _, n in ipairs(ORBS) do
+		local a = p:FindAbilityByName(n)
+		if a then
+			local cur, b = a:GetLevel(), base[n] or 0
+			local expected = (b > 0) and (b + 1) or 0
+			if cur == expected then
+				-- ok
+			elseif cur == expected + 1 then
+				base[n] = b + 1              -- jucatorul a mai pus un nivel
+			elseif b == 0 and cur == 1 then
+				base[n] = 1; a:SetLevel(2)   -- primul nivel pus cu scepter in inventar
+			elseif cur < expected then
+				base[n] = math.max(0, cur - 1)
+			end
+			if base[n] > 7 then base[n] = 7; a:SetLevel(8) end
+		end
+	end
+end
+function modifier_dota688_scepter_invoker:OnDestroy()
+	if not IsServer() then return end
+	local p = self:GetParent()
+	if p:IsNull() or not p.dota688_orb_base then return end
+	for _, n in ipairs(ORBS) do
+		local a = p:FindAbilityByName(n)
+		if a and a:GetLevel() > 0 then a:SetLevel(p.dota688_orb_base[n] or (a:GetLevel() - 1)) end
+	end
+	p.dota688_orb_base = nil
+end
+
+------------------------------------------------------------------------------------------------
+-- Rubick: spell-urile furate de la eroii cu upgrade built-in primesc versiunea cu scepter
+modifier_dota688_scepter_rubick = class({})
+function modifier_dota688_scepter_rubick:IsHidden() return true end
+function modifier_dota688_scepter_rubick:IsPurgable() return false end
+function modifier_dota688_scepter_rubick:RemoveOnDeath() return false end
+function modifier_dota688_scepter_rubick:OnCreated() if IsServer() then self:StartIntervalThink(0.2) end end
+function modifier_dota688_scepter_rubick:DeclareFunctions() return { MODIFIER_EVENT_ON_ABILITY_START } end
+function modifier_dota688_scepter_rubick:OnAbilityStart(params)
+	-- cat timp fura un spell, fara "consumed" (altfel Spell Steal modern ar fura 2 spell-uri)
+	if IsServer() and params.unit == self:GetParent() and params.ability:GetName() == "rubick_spell_steal" then
+		self:GetParent():RemoveModifierByName(AG.CONSUMED)
+		self.block = GameRules:GetGameTime() + 0.5
+	end
+end
+function modifier_dota688_scepter_rubick:OnIntervalThink()
+	local p = self:GetParent()
+	local want = false
+	if not (self.block and GameRules:GetGameTime() < self.block) then
+		for i = 0, 23 do
+			local a = p:GetAbilityByIndex(i)
+			if a and a:GetLevel() > 0 and AG.BUILTIN_ABILITIES[a:GetName()] then want = true end
+		end
+	end
+	local has = p:HasModifier(AG.CONSUMED)
+	if want and not has then p:AddNewModifier(p, nil, AG.CONSUMED, {}) elseif has and not want then p:RemoveModifierByName(AG.CONSUMED) end
+end
+function modifier_dota688_scepter_rubick:OnDestroy()
+	if IsServer() and not self:GetParent():IsNull() then self:GetParent():RemoveModifierByName(AG.CONSUMED) end
+end
+
+------------------------------------------------------------------------------------------------
+-- Meepo: clonele primesc 20% din atributele bonus ale lui Meepo (100% cu scepter)
+modifier_dota688_meepo_share = class({})
+function modifier_dota688_meepo_share:IsHidden() return true end
+function modifier_dota688_meepo_share:IsPurgable() return false end
+function modifier_dota688_meepo_share:RemoveOnDeath() return false end
+function modifier_dota688_meepo_share:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT end
+function modifier_dota688_meepo_share:OnCreated()
+	self.s, self.a, self.i = 0, 0, 0
+	if IsServer() then self:StartIntervalThink(0.5) end
+end
+function modifier_dota688_meepo_share:OnIntervalThink()
+	local clone = self:GetParent()
+	local main = clone.GetCloneSource and clone:GetCloneSource() or nil
+	if not main or main:IsNull() then return end
+	local pct = Dota688HasScepter(main) and 1.0 or 0.2
+	local function want(getTotal, getBase)
+		local bonusMain = getTotal(main) - getBase(main)           -- atributele lui Meepo din iteme/alte surse
+		local bonusClone = getTotal(clone) - getBase(clone)         -- ce are clona acum (inclusiv contributia noastra)
+		return bonusMain * pct - bonusClone
+	end
+	local ds = want(function(u) return u:GetStrength() end, function(u) return u:GetBaseStrength() end)
+	local da = want(function(u) return u:GetAgility() end, function(u) return u:GetBaseAgility() end)
+	local di = want(function(u) return u:GetIntellect(true) end, function(u) return u:GetBaseIntellect() end)
+	local s, a, i = math.floor(self.s + ds + 0.5), math.floor(self.a + da + 0.5), math.floor(self.i + di + 0.5)
+	if s ~= self.s or a ~= self.a or i ~= self.i then
+		self.s, self.a, self.i = s, a, i
+		self:SetStackCount((s + 500) * 1000000 + (a + 500) * 1000 + (i + 500))
+		clone:CalculateStatBonus(true)
+	end
+end
+function modifier_dota688_meepo_share:Decode()
+	local v = self:GetStackCount()
+	if v == 0 then return 0, 0, 0 end
+	return math.floor(v / 1000000) - 500, math.floor((v % 1000000) / 1000) - 500, (v % 1000) - 500
+end
+function modifier_dota688_meepo_share:DeclareFunctions() return { MODIFIER_PROPERTY_STATS_STRENGTH_BONUS, MODIFIER_PROPERTY_STATS_AGILITY_BONUS, MODIFIER_PROPERTY_STATS_INTELLECT_BONUS } end
+function modifier_dota688_meepo_share:GetModifierBonusStats_Strength() local s = self:Decode(); return s end
+function modifier_dota688_meepo_share:GetModifierBonusStats_Agility() local _, a = self:Decode(); return a end
+function modifier_dota688_meepo_share:GetModifierBonusStats_Intellect() local _, _, i = self:Decode(); return i end
+
+------------------------------------------------------------------------------------------------
+-- la spawn-ul unui erou (gamemode): clonele Meepo primesc share-ul 6.88; Vengeance Illusion dispare la revenirea lui Venge
+function AG.OnHeroSpawned(hero)
+	if hero.dota688_copy then return end
+	if hero:GetUnitName() == "npc_dota_hero_meepo" and hero.IsClone and hero:IsClone() and not hero:HasModifier("modifier_dota688_meepo_share") then
+		hero:AddNewModifier(hero, nil, "modifier_dota688_meepo_share", {})
+	end
+	local v = hero.dota688_vengeance
+	if v and not v:IsNull() and v:IsAlive() then v:ForceKill(false) end
+	hero.dota688_vengeance = nil
+end
+
+-- filtrul de ordine (gamemode): Ursa cu scepter poate folosi Enrage si cand e dezactivat (stun/hex)
+function AG.OrderFilter(ev)
+	if ev.order_type ~= DOTA_UNIT_ORDER_CAST_NO_TARGET or not ev.entindex_ability then return true end
+	local ab = EntIndexToHScript(ev.entindex_ability)
+	if not ab or ab:IsNull() or ab:GetName() ~= "dota688_ursa_enrage" then return true end
+	local unit = ev.units and ev.units["0"] and EntIndexToHScript(ev.units["0"])
+	if not unit or not unit:IsAlive() or not Dota688HasScepter(unit) then return true end
+	if not (unit:IsStunned() or unit:IsHexed()) then return true end
+	if ab:GetLevel() < 1 or not ab:IsCooldownReady() then return true end
+	local cost = ab:GetManaCost(ab:GetLevel() - 1)
+	if unit:GetMana() < cost then return true end
+	unit:SpendMana(cost, ab)
+	ab:StartCooldown(ab:GetCooldown(ab:GetLevel() - 1))
+	ab:OnSpellStart()
+	return false
+end
 
 ------------------------------------------------------------------------------------------------
 -- Sven: God's Strength da +75/100/125% daune de baza eroilor aliati din 900
@@ -193,6 +365,7 @@ end
 
 for _, m in ipairs({ "modifier_dota688_scepter_sven", "modifier_dota688_scepter_sven_buff", "modifier_dota688_scepter_gyrocopter",
 	"modifier_dota688_scepter_batrider", "modifier_dota688_scepter_batrider_burn", "modifier_dota688_scepter_visage",
-	"modifier_dota688_scepter_ward_damage", "modifier_dota688_scepter_golem" }) do
+	"modifier_dota688_scepter_ward_damage", "modifier_dota688_scepter_golem", "modifier_dota688_scepter_invoker",
+	"modifier_dota688_scepter_rubick", "modifier_dota688_meepo_share" }) do
 	LinkLuaModifier(m, F, LUA_MODIFIER_MOTION_NONE)
 end

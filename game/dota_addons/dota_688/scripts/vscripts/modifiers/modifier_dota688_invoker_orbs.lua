@@ -13,9 +13,12 @@ function modifier_dota688_invoker_orbs:OnIntervalThink()
 	local function count(orb, inst)
 		local a = p:FindAbilityByName(orb)
 		if not a or a:GetLevel() == 0 then return 0 end
+		local lvl = a:GetLevel()
+		-- scepter 6.88: +1 nivel doar pentru spell-urile invocate, nu si pentru atributele orbelor (dota688/aghanim_extras.lua)
+		if Dota688HasScepter and Dota688HasScepter(p) and p.dota688_orb_base and p.dota688_orb_base[orb] then lvl = p.dota688_orb_base[orb] end
 		local n = 0
 		for _, m in ipairs(p:FindAllModifiersByName(inst)) do n = n + 1 end
-		return n * 2 * a:GetLevel()
+		return n * 2 * lvl
 	end
 	local s, g, i = count("invoker_quas", "modifier_invoker_quas_instance"), count("invoker_wex", "modifier_invoker_wex_instance"), count("invoker_exort", "modifier_invoker_exort_instance")
 	if s ~= self.str or g ~= self.agi or i ~= self.int then

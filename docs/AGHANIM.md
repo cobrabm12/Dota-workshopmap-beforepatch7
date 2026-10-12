@@ -16,7 +16,6 @@ upgrade‑urile lui de scepter (modifierul vizibil „Aghanim's Scepter (from Al
 ## Legenda
 
 * **✅** – comportamentul 6.88 este reprodus (built‑in identic sau rescris în Lua).
-* **✅\*** – reprodus în Lua, cu o simplificare notată în ultima coloană.
 * **✖** – nu se poate reproduce din Lua (logica este în C++); ce lipsește este notat.
 
 ## Tabel pe eroi (toți eroii care aveau upgrade în 6.88)
@@ -50,10 +49,10 @@ upgrade‑urile lui de scepter (modifierul vizibil „Aghanim's Scepter (from Al
 | Faceless Void | Chronosphere cd 60 | ✅ | HOOKS (C++) |
 | Gyrocopter | Side Gunner (atac aleator la 1.2 s în 600) | ✅ | `aghanim_extras` |
 | Huskar | Life Break 65 % HP, cd 4 | ✅ | Lua: `dota688_huskar_life_break` |
-| Invoker | Invoke cd 16/8/4/2 fără mana; +1 nivel la Q/W/E pe spell‑urile invocate | ✖ parțial | cd + mana 0 (HOOKS); „+1 nivel” este în C++‑ul spell‑urilor invocate |
+| Invoker | Invoke cd 16/8/4/2 fără mana; +1 nivel la Q/W/E pe spell‑urile invocate | ✅ | cd + mana 0 (HOOKS); `aghanim_extras` ridică Quas/Wex/Exort cu un nivel cât timp are scepter (atributele orbelor rămân la nivelul de bază) |
 | Jakiro | Macropyre 1800, 30 s, 125/175/225 dps | ✅ | Lua: `dota688_jakiro_macropyre` |
 | Juggernaut | Omnislash 6/9/12 sărituri, cd 70 | ✅ | Lua: `dota688_juggernaut_omni_slash` |
-| Keeper of the Light | Spirit Form permanent; ziua Illuminate vindecă aliații | ✅\* | Lua: `dota688_keeper_of_the_light_spirit_form`; vindecarea este un val propriu lansat la sfârșitul canalizării Illuminate (C++), în direcția în care privește Ezalor |
+| Keeper of the Light | Spirit Form permanent; ziua Illuminate vindecă aliații | ✅ | Lua: `dota688_keeper_of_the_light_spirit_form`; vindecarea este un val lansat la sfârșitul canalizării Illuminate, pe direcția și distanța undei originale |
 | Kunkka | Ghostship trage inamicii cu corabia | ✅ | Lua: `dota688_kunkka_ghostship` (inclusiv Rum) |
 | Legion Commander | Duel 6/7/8 s, cei doi iau daune doar unul de la altul | ✅ | Lua: `dota688_legion_commander_duel` |
 | Leshrac | Pulse Nova 160/190/220 dps | ✅ | Lua: `dota688_leshrac_pulse_nova` |
@@ -61,12 +60,12 @@ upgrade‑urile lui de scepter (modifierul vizibil „Aghanim's Scepter (from Al
 | Lifestealer | Assimilate | ✅ | abilitatea C++ deblocată din Lua (fără upgrade‑ul modern la Infest) |
 | Lina | Laguna Blade pure, trece prin BKB | ✅ | Lua: `dota688_lina_laguna_blade` |
 | Lion | Finger 725/875/1025, cd 100/60/20, mana 200/420/625, zonă 300 | ✅ | Lua: `dota688_lion_finger_of_death` |
-| Lone Druid | Ursul atacă la orice distanță și supraviețuiește morții lui Lone Druid | ✖ | lesa ursului și moartea lui la moartea druidului sunt în C++‑ul unității |
+| Lone Druid | Ursul atacă la orice distanță și supraviețuiește morții lui Lone Druid | ✖ | lesa ursului și moartea lui la moartea druidului sunt în C++‑ul unității (singurul upgrade nereprodus) |
 | Luna | Eclipse pe aliat/zonă, 6/12/18 raze la 0.3 s, fără limită pe unitate | ✅ | Lua: `dota688_luna_eclipse` (razele folosesc Lucent Beam la nivelul curent) |
 | Magnus | Empower aură pe eroii aliați; cei la distanță jumătate + splash | ✅ | Lua: `dota688_magnataur_empower` |
-| Meepo | Un Meepo în plus (Divided We Stand nivel 4) | ✅\* | `aghanim_extras` ridică Divided We Stand la nivelul 4 (clona rămâne la pierderea scepter‑ului); procentul de atribute 100 % nu e separat de 20 % (C++) |
+| Meepo | Un Meepo în plus; clonele primesc 100 % din atributele bonus (în loc de 20 %) | ✅ | `aghanim_extras`: Divided We Stand nivel 4 (clona în plus moare la pierderea scepter‑ului); clonele primesc 20 %/100 % din atributele bonus ale lui Meepo printr‑un modifier care se autocorectează |
 | Mirana | Starstorm pasiv la 10 s | ✅ | Lua: `dota688_mirana_starfall` |
-| Morphling | Hybrid | ✅\* | abilitatea C++ veche deblocată din Lua – de testat în joc |
+| Morphling | Hybrid | ✅ | Lua: `dota688_morphling_hybrid` (copie a unui erou aliat cu abilitățile lui, 80 % daune, 20 s) |
 | Naga Siren | Song of the Siren vindecă aliații 10 %/s | ✅ | Lua: `dota688_naga_siren_song_of_the_siren` + `_cancel` |
 | Necrophos | Scythe cd 70, mana 150, 0.6/0.9/1.2 daune/HP, fără buyback | ✅ | Lua: `dota688_necrolyte_reapers_scythe` + `respawn_buyback.lua` |
 | Night Stalker | Viziune neobstrucționată noaptea | ✅ | Lua: `dota688_night_stalker_darkness` |
@@ -81,7 +80,7 @@ upgrade‑urile lui de scepter (modifierul vizibil „Aghanim's Scepter (from Al
 | Pugna | Life Drain 180/240/300 /s, fără cooldown | ✅ | Lua: `dota688_pugna_life_drain` |
 | Queen of Pain | Sonic Wave cd 40, 325/440/555 | ✅ | Lua: `dota688_queenofpain_sonic_wave` |
 | Razor | Eye of the Storm 0.6/0.5/0.4 s, lovește clădiri | ✅ | Lua: `dota688_razor_eye_of_the_storm` |
-| Rubick | Spell Steal cd 2, rază 1400, versiunea cu scepter a spell‑ului furat | ✖ parțial | cd + rază (HOOKS); spell‑ul furat este o copie C++ și nu vede scepter‑ul nostru |
+| Rubick | Spell Steal cd 2, rază 1400, versiunea cu scepter a spell‑ului furat | ✅ | cd + rază (HOOKS); spell‑urile furate rescrise în Lua văd scepter‑ul lui Rubick direct, cele C++ cu upgrade built‑in primesc modifierul „consumed” cât timp sunt furate (`aghanim_extras`) |
 | Sand King | Burrowstrike rază dublă + Caustic Finale pe eroi | ✅ | Lua: `dota688_sandking_burrowstrike` |
 | Shadow Demon | Demonic Purge 3 încărcături / 40 s + break | ✅ | built‑in modern |
 | Shadow Fiend | Requiem se întoarce (40 % daune, vindecă 100 %); +4/6/8/10 suflete | ✅ | Lua: `dota688_nevermore_requiem` + `dota688_nevermore_necromastery` |
@@ -95,12 +94,12 @@ upgrade‑urile lui de scepter (modifierul vizibil „Aghanim's Scepter (from Al
 | Tidehunter | Gush în linie, cd 7 | ✅ | built‑in modern |
 | Timbersaw | A doua Chakram | ✅ | abilitatea C++ deblocată din Lua |
 | Tinker | Laser se refractă; Missiles 4 ținte | ✅ | Lua: `dota688_tinker_laser`, `dota688_tinker_heat_seeking_missile` |
-| Tiny | Copac: +85 rază, cleave 50 % în 400, +75 % la clădiri; Toss +50/65/80 % | ✅\* | Lua: `dota688_tiny_grow`, `dota688_tiny_toss`; fără modelul cu copac |
+| Tiny | Copac: +85 rază, cleave 50 % în 400, +75 % la clădiri; Toss +50/65/80 % | ✅ | Lua: `dota688_tiny_grow` (copacul este atașat în mână), `dota688_tiny_toss` |
 | Treant Protector | Eyes in the Forest; Overgrowth în 800 de fiecare ochi, 175 dps | ✅ | Lua: `dota688_treant_eyes_in_the_forest` (Overgrowth = modifierul built‑in + daune din Lua) |
 | Tusk | Walrus Kick | ✅ | abilitatea C++ deblocată din Lua |
 | Undying | Decay fură 10 STR | ✅ | built‑in modern |
-| Ursa | Enrage cd 30/24/18; utilizabil și dezactivat | ✖ parțial | cd (Lua); folosirea sub stun nu se poate din Lua |
-| Vengeful Spirit | Nether Swap cd 10, pe non‑eroi; Vengeance Illusion la moarte | ✅\* | Lua: `dota688_vengefulspirit_nether_swap`; iluzia nu poate folosi abilități (iluziile nu pot cast‑a) |
+| Ursa | Enrage cd 30/24/18; utilizabil și dezactivat | ✅ | cd (Lua); sub stun/hex, ordinul de cast este prins în filtrul de ordine și Enrage se aplică direct (`aghanim_extras`) |
+| Vengeful Spirit | Nether Swap cd 10, pe non‑eroi; Vengeance Illusion la moarte | ✅ | Lua: `dota688_vengefulspirit_nether_swap`; „iluzia” este o copie a eroului cu abilitățile ei (fără iteme), 50 % daune date / 150 % primite, până la respawn |
 | Venomancer | Poison Nova cd 140/120/60, 60/85/110 dps | ✅ | Lua: `dota688_venomancer_poison_nova` |
 | Viper | Viper Strike mana 125, cd 10, rază 900 | ✅ | HOOKS (C++) |
 | Visage | 3 familiari | ✅ | `aghanim_extras` (al treilea familiar creat după cast) |
@@ -115,8 +114,7 @@ Eroii care **nu** aveau upgrade în 6.88 (Anti‑Mage, Phantom Lancer, Sniper, R
 Death Prophet, Templar Assassin, Ember, Arc Warden, Underlord, Io, Chaos Knight, Broodmother, Bounty Hunter, Slardar,
 Dragon Knight…) nu primesc nimic de la scepter în afară de statistici, exact ca în 6.88.
 
-Bilanț: 84 de eroi cu upgrade în 6.88 – 81 reproduse (din care 6 cu o simplificare notată), 3 parțiale
-(Invoker, Rubick, Ursa), 1 imposibilă (Lone Druid).
+Bilanț: 84 de eroi cu upgrade în 6.88 – 83 reproduse, 1 imposibilă (Lone Druid).
 
 ## Note de implementare
 
@@ -129,4 +127,5 @@ Bilanț: 84 de eroi cu upgrade în 6.88 – 81 reproduse (din care 6 cu o simpli
 * Încărcăturile (charges) adăugate după 6.88 la abilități care nu le aveau sunt scoase generic de generator.
 * De verificat în joc (nu se poate offline): `modifier_item_ultimate_scepter_consumed` adăugat din Lua activează
   upgrade‑urile built‑in; `SetHidden/SetLevel` pe abilitățile deblocate; `GetBehavior` dinamic pe item pentru Alchemist;
-  modifierii built‑in aplicați din Lua (Overgrowth, Astral Imprisonment, Nightmare); `SetCurrentAbilityCharges` la Rupture.
+  modifierii built‑in aplicați din Lua (Overgrowth, Astral Imprisonment, Nightmare); `SetCurrentAbilityCharges` la Rupture;
+  filtrul de ordine primește ordinul de cast al unei unități stunate (Ursa); `CreateUnitByName` cu numele unui erou pentru copii (Venge, Morphling).

@@ -21,6 +21,13 @@ function modifier_dota688_spirit_form_passive:IsHidden() return true end
 function modifier_dota688_spirit_form_passive:IsPurgable() return false end
 function modifier_dota688_spirit_form_passive:RemoveOnDeath() return false end
 function modifier_dota688_spirit_form_passive:OnCreated() if IsServer() then self:StartIntervalThink(0.1) end end
+function modifier_dota688_spirit_form_passive:DeclareFunctions() return { MODIFIER_EVENT_ON_ABILITY_FULLY_CAST } end
+function modifier_dota688_spirit_form_passive:OnAbilityFullyCast(params)
+	if IsServer() and params.unit == self:GetParent() and params.ability:GetName() == "keeper_of_the_light_illuminate" then
+		self.illumDir = self:GetParent():GetForwardVector()
+		self.chanStart = GameRules:GetGameTime()
+	end
+end
 function modifier_dota688_spirit_form_passive:OnIntervalThink()
 	local p, a = self:GetParent(), self:GetAbility()
 	local scepter = Dota688HasScepter(p) and a:GetLevel() > 0
@@ -33,7 +40,7 @@ function modifier_dota688_spirit_form_passive:OnIntervalThink()
 	end
 	-- Illuminate: urmarim canalizarea (modifierul built-in) ca sa vindecam aliatii la sfarsit
 	local chan = p:HasModifier("modifier_keeper_of_the_light_illuminate")
-	if chan and not self.chanStart then self.chanStart = GameRules:GetGameTime() end
+	if chan and not self.chanStart then self.chanStart = GameRules:GetGameTime(); self.illumDir = p:GetForwardVector() end
 	if not chan and self.chanStart then
 		local t = GameRules:GetGameTime() - self.chanStart
 		self.chanStart = nil
@@ -47,7 +54,7 @@ function modifier_dota688_spirit_form_passive:HealWave(t)
 	local amount = illum:GetSpecialValueFor("damage_per_second") * math.min(t, illum:GetSpecialValueFor("max_channel_time"))
 	if amount <= 0 then return end
 	local radius, range = illum:GetSpecialValueFor("radius"), illum:GetSpecialValueFor("range")
-	local dir = p:GetForwardVector()
+	local dir = self.illumDir or p:GetForwardVector()
 	local finish = p:GetAbsOrigin() + dir * range
 	for _, u in ipairs(FindUnitsInLine(p:GetTeamNumber(), p:GetAbsOrigin(), finish, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE)) do
 		u:Heal(amount, illum)

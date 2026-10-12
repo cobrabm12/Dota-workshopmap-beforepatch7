@@ -65,6 +65,7 @@ function Dota688:Init()
 	gm:SetModifyGoldFilter(Dynamic_Wrap(Dota688, "GoldFilter"), self)
 	gm:SetModifyExperienceFilter(Dynamic_Wrap(Dota688, "ExperienceFilter"), self)
 	gm:SetBountyRunePickupFilter(Dynamic_Wrap(Dota688, "BountyRuneFilter"), self)
+	gm:SetExecuteOrderFilter(Dynamic_Wrap(Dota688, "OrderFilter"), self)
 	if C.DISABLE_BACKPACK then
 		gm:SetItemAddedToInventoryFilter(Dynamic_Wrap(Dota688, "ItemAddedToInventoryFilter"), self)
 	end
@@ -102,6 +103,7 @@ function Dota688:OnNPCSpawned(ev)
 			unit:AddNewModifier(unit, nil, "modifier_dota688_attributes", {})
 		end
 		Dota688Respawn:OnHeroSpawned(unit)
+		Dota688Aghanim.OnHeroSpawned(unit)
 		if unit:GetUnitName() == "npc_dota_hero_invoker" and not unit:HasModifier("modifier_dota688_invoker_orbs") then
 			unit:AddNewModifier(unit, nil, "modifier_dota688_invoker_orbs", {})
 		end
@@ -117,6 +119,9 @@ function Dota688:OnEntityKilled(ev)
 	local killed = EntIndexToHScript(ev.entindex_killed)
 	if not killed then return end
 	local attacker = ev.entindex_attacker and EntIndexToHScript(ev.entindex_attacker) or nil
+	if killed.dota688_copy then
+		return   -- copie (Vengeance Illusion / Hybrid): fara aur, XP sau respawn
+	end
 	if killed:IsRealHero() and not killed:IsReincarnating() then
 		Dota688Respawn:OnHeroKilled(killed, attacker)
 		Dota688GoldXP:OnHeroKilled(killed, attacker)
@@ -132,6 +137,10 @@ end
 -- Filtre --------------------------------------------------------------------
 function Dota688:GoldFilter(ev)
 	return Dota688GoldXP:GoldFilter(ev)
+end
+
+function Dota688:OrderFilter(ev)
+	return Dota688Aghanim.OrderFilter(ev)
 end
 
 function Dota688:ExperienceFilter(ev)

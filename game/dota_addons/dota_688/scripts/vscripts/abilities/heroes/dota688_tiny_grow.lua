@@ -1,5 +1,5 @@
 -- Grow (6.88): +50/100/150 daune, -20/35/50 AS, +40/50/60 MS, model mai mare. (Bonusul la Toss ramane in abilitatea built-in Toss.)
--- Scepter (copacul): +85 raza de atac, cleave 50% in raza 400, +75% daune la cladiri.
+-- Scepter (copacul): +85 raza de atac, cleave 50% in raza 400, +75% daune la cladiri; Tiny tine un copac in mana.
 require("dota688/aghanim")
 LinkLuaModifier("modifier_dota688_tiny_grow", "abilities/heroes/dota688_tiny_grow", LUA_MODIFIER_MOTION_NONE)
 dota688_tiny_grow = class({})
@@ -15,6 +15,19 @@ modifier_dota688_tiny_grow = class({})
 function modifier_dota688_tiny_grow:IsHidden() return true end
 function modifier_dota688_tiny_grow:IsPurgable() return false end
 function modifier_dota688_tiny_grow:RemoveOnDeath() return false end
+function modifier_dota688_tiny_grow:OnCreated() if IsServer() then self:StartIntervalThink(0.5) end end
+function modifier_dota688_tiny_grow:OnIntervalThink()
+	local want = self:HasTree()
+	local have = self.tree ~= nil and not self.tree:IsNull()
+	if want and not have then
+		local p = self:GetParent()
+		self.tree = SpawnEntityFromTableSynchronous("prop_dynamic", { model = "models/heroes/tiny/tiny_tree/tiny_tree.vmdl", origin = p:GetAbsOrigin() })
+		if self.tree then self.tree:SetParent(p, "attach_attack1"); self.tree:SetLocalOrigin(Vector(0, 0, 0)); self.tree:SetLocalAngles(0, 0, 0) end
+	elseif have and not want then
+		UTIL_Remove(self.tree); self.tree = nil
+	end
+end
+function modifier_dota688_tiny_grow:OnDestroy() if IsServer() and self.tree and not self.tree:IsNull() then UTIL_Remove(self.tree) end end
 function modifier_dota688_tiny_grow:DeclareFunctions()
 	return { MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE, MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT, MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT, MODIFIER_PROPERTY_MODEL_SCALE,
 		MODIFIER_PROPERTY_ATTACK_RANGE_BONUS, MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE, MODIFIER_EVENT_ON_ATTACK_LANDED }
