@@ -161,6 +161,73 @@
 		"ScriptFile"		"abilities/heroes/dota688_axe_counter_helix"
 		"AbilityTextureName"		"axe_counter_helix"
 	}
+	"dota688_axe_culling_blade"
+	{
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastPoint"		"0.3"
+		"AbilityCooldown"		"75.0 65.0 55.0"
+		"AbilityManaCost"		"60 120 180"
+		"AbilityCastRange"		"150"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"kill_threshold"		"250 325 400"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"		"150 250 300"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"speed_bonus"		"30"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"atk_speed_bonus_tooltip"		"30"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"speed_duration"		"6"
+			}
+			"06"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"speed_aoe"		"900"
+			}
+			"07"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"cooldown_scepter"		"6.0 6.0 6.0"
+			}
+			"08"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"kill_threshold_scepter"		"300 425 550"
+			}
+			"09"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"speed_duration_scepter"		"10"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_axe_culling_blade"
+		"AbilityTextureName"		"axe_culling_blade"
+	}
 	"dota688_bane_enfeeble"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -184,6 +251,64 @@
 		"BaseClass"		"ability_lua"
 		"ScriptFile"		"abilities/heroes/dota688_bane_enfeeble"
 		"AbilityTextureName"		"bane_enfeeble"
+	}
+	"dota688_bane_fiends_grip"
+	{
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastRange"		"625"
+		"AbilityCastPoint"		"0.5 0.5 0.5"
+		"AbilityChannelTime"		"5.0 5.0 5.0"
+		"AbilityCooldown"		"100.0 100.0 100.0"
+		"AbilityManaCost"		"200 300 400"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"fiend_grip_tick_interval"		"1.0"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"fiend_grip_mana_drain"		"5"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"fiend_grip_duration"		"5.0 5.0 5.0"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"fiend_grip_damage"		"100 155 215"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"fiend_grip_mana_drain_scepter"		"10"
+			}
+			"06"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"fiend_grip_duration_scepter"		"7"
+			}
+			"07"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"fiend_grip_damage_scepter"		"155 215 270"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_bane_fiends_grip"
+		"AbilityTextureName"		"bane_fiends_grip"
 	}
 	"dota688_beastmaster_call_of_the_wild_boar"
 	{
@@ -364,6 +489,65 @@
 		"ScriptFile"		"abilities/heroes/dota688_brewmaster_drunken_brawler"
 		"AbilityTextureName"		"brewmaster_drunken_brawler"
 	}
+	"dota688_bristleback_viscous_nasal_goo"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"1"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastRange"		"600"
+		"AbilityCastPoint"		"0.3"
+		"AbilityCooldown"		"1.5 1.5 1.5 1.5"
+		"AbilityManaCost"		"25"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"goo_speed"		"1000"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"goo_duration"		"5.0"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"armor_per_stack"		"1 1.4 1.8 2.2"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"base_move_slow"		"20"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"move_slow_per_stack"		"3 6 9 12"
+			}
+			"06"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"stack_limit"		"4"
+			}
+			"07"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"goo_duration_creep"		"10.0"
+			}
+			"08"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"radius_scepter"		"700"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_bristleback_viscous_nasal_goo"
+		"AbilityTextureName"		"bristleback_viscous_nasal_goo"
+	}
 	"dota688_bristleback_warpath"
 	{
 		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
@@ -428,6 +612,70 @@
 		"BaseClass"		"ability_lua"
 		"ScriptFile"		"abilities/heroes/dota688_centaur_return"
 		"AbilityTextureName"		"centaur_return"
+	}
+	"dota688_centaur_stampede"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCooldown"		"90.0 75.0 60.0"
+		"AbilityManaCost"		"100"
+		"AbilityModifierSupportValue"		"0.2"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"		"4.0"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"base_damage"		"0"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"strength_damage"		"1.0 2.0 3.0"
+				"CalculateSpellDamageTooltip"		"1"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"slow_duration"		"1.8"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"radius"		"105"
+			}
+			"06"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"slow_movement_speed"		"100"
+			}
+			"07"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"cooldown_scepter"		"90 75 60"
+			}
+			"08"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage_reduction"		"60"
+			}
+			"09"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage_reduction_tooltip_scepter"		"60"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_centaur_stampede"
+		"AbilityTextureName"		"centaur_stampede"
 	}
 	"dota688_chaos_knight_chaos_strike"
 	{
@@ -613,6 +861,92 @@
 		"ScriptFile"		"abilities/heroes/dota688_crystal_maiden_brilliance_aura"
 		"AbilityTextureName"		"crystal_maiden_brilliance_aura"
 	}
+	"dota688_crystal_maiden_freezing_field"
+	{
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityChannelTime"		"10"
+		"AbilityCastPoint"		"0.3 0.3 0.3"
+		"AbilityCooldown"		"90"
+		"AbilityDuration"		"10.0"
+		"AbilityManaCost"		"200 400 600"
+		"AbilityModifierSupportValue"		"0.35"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"radius"		"835"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"explosion_radius"		"300"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"explosion_interval"		"0.1"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"movespeed_slow"		"-30"
+			}
+			"06"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"attack_slow"		"-30"
+			}
+			"07"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"slow_duration"		"1.0"
+			}
+			"08"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"explosion_min_dist"		"195"
+			}
+			"09"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"explosion_max_dist"		"785"
+			}
+			"10"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"		"105 170 250"
+			}
+			"11"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage_scepter"		"170 250 310"
+			}
+			"12"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"movespeed_slow_scepter"		"-50"
+			}
+			"13"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"attack_slow_scepter"		"-50"
+			}
+			"14"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"duration_tooltip"		"10"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_crystal_maiden_freezing_field"
+		"AbilityTextureName"		"crystal_maiden_freezing_field"
+	}
 	"dota688_dazzle_poison_touch"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -674,6 +1008,59 @@
 		"BaseClass"		"ability_lua"
 		"ScriptFile"		"abilities/heroes/dota688_dazzle_poison_touch"
 		"AbilityTextureName"		"dazzle_poison_touch"
+	}
+	"dota688_dazzle_weave"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastRange"		"2000"
+		"AbilityCastPoint"		"0.3 0.3 0.3"
+		"AbilityCooldown"		"40 40 40"
+		"AbilityManaCost"		"100 100 100"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"radius"		"575 575 575"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"vision"		"800"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"armor_per_second"		"0.75 1 1.25"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"		"24.0"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"radius_scepter"		"775 775 775"
+			}
+			"06"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"duration_scepter"		"24"
+			}
+			"07"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"armor_per_second_scepter"		"1.25 1.5 1.75"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_dazzle_weave"
+		"AbilityTextureName"		"dazzle_weave"
 	}
 	"dota688_death_prophet_silence"
 	{
@@ -750,6 +1137,102 @@
 		"BaseClass"		"ability_lua"
 		"ScriptFile"		"abilities/heroes/dota688_death_prophet_witchcraft"
 		"AbilityTextureName"		"death_prophet_witchcraft"
+	}
+	"dota688_disruptor_static_storm"
+	{
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastPoint"		"0.05 0.05 0.05 0.05"
+		"AbilityCooldown"		"90 80 70"
+		"AbilityManaCost"		"125 175 225"
+		"AbilityCastRange"		"800 800 800 800"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"radius"		"450"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"pulses"		"20"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage_max"		"200 250 300"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"		"5.0"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration_scepter"		"7.0"
+			}
+			"06"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"pulses_scepter"		"28"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_disruptor_static_storm"
+		"AbilityTextureName"		"disruptor_static_storm"
+	}
+	"dota688_doom_bringer_doom"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastPoint"		"0.5"
+		"AbilityCastRange"		"550 550 550"
+		"AbilityCooldown"		"145.0"
+		"AbilityManaCost"		"150 200 250"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"		"15.0"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"		"20 35 50"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration_scepter"		"16.0"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage_scepter"		"20 35 50"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"deniable_pct"		"25 25 25"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_doom_bringer_doom"
+		"AbilityTextureName"		"doom_bringer_doom"
 	}
 	"dota688_dragon_knight_dragon_blood"
 	{
@@ -918,6 +1401,146 @@
 		"ScriptFile"		"abilities/heroes/dota688_huskar_berserkers_blood"
 		"AbilityTextureName"		"huskar_berserkers_blood"
 	}
+	"dota688_huskar_life_break"
+	{
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastPoint"		"0.3 0.3 0.3"
+		"AbilityCooldown"		"12"
+		"AbilityManaCost"		"0 0 0"
+		"AbilityCastRange"		"550"
+		"AbilityDuration"		"4 5 6"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"health_cost_percent"		".35"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"health_damage"		"0.35"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"health_damage_scepter"		"0.65"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"charge_speed"		"1000"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"tooltip_health_damage"		"35"
+			}
+			"06"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"tooltip_health_cost_percent"		"35"
+				"CalculateSpellDamageTooltip"		"1"
+			}
+			"07"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"movespeed"		"-40 -50 -60"
+			}
+			"08"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"slow_durtion_tooltip"		"4 5 6"
+			}
+			"09"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"tooltip_health_damage_scepter"		"65"
+			}
+			"10"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"cooldown_scepter"		"4"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_huskar_life_break"
+		"AbilityTextureName"		"huskar_life_break"
+	}
+	"dota688_jakiro_macropyre"
+	{
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastRange"		"1400"
+		"AbilityCastPoint"		"0.65 0.65 0.65 0.65"
+		"AbilityCooldown"		"60 60 60"
+		"AbilityManaCost"		"220 330 440"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"		"100 140 180"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"cast_range"		"1400"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"path_radius"		"240"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"tooltip_duration"		"10"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"duration"		"10"
+			}
+			"06"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"burn_interval"		"0.5 0.5 0.5"
+			}
+			"07"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage_scepter"		"125 175 225"
+			}
+			"08"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"cast_range_scepter"		"1800"
+			}
+			"09"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"duration_scepter"		"30"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_jakiro_macropyre"
+		"AbilityTextureName"		"jakiro_macropyre"
+	}
 	"dota688_juggernaut_omni_slash"
 	{
 		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
@@ -1018,6 +1641,43 @@
 		"ScriptFile"		"abilities/heroes/dota688_keeper_of_the_light_blinding_light"
 		"AbilityTextureName"		"keeper_of_the_light_blinding_light"
 	}
+	"dota688_legion_commander_duel"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastRange"		"150"
+		"AbilityCastPoint"		"0.3 0.3 0.3 0.3"
+		"AbilityCooldown"		"50.0 50.0 50.0"
+		"AbilityManaCost"		"75 75 75"
+		"AbilityModifierSupportValue"		"3.0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"		"4.0 4.75 5.5"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration_scepter"		"6 7 8"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"reward_damage"		"10 14 18"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_legion_commander_duel"
+		"AbilityTextureName"		"legion_commander_duel"
+	}
 	"dota688_legion_commander_moment_of_courage"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1077,6 +1737,129 @@
 		"BaseClass"		"ability_lua"
 		"ScriptFile"		"abilities/heroes/dota688_legion_commander_press_the_attack"
 		"AbilityTextureName"		"legion_commander_press_the_attack"
+	}
+	"dota688_leshrac_pulse_nova"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"1"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastPoint"		"0 0 0 0"
+		"AbilityCooldown"		"1.0 1.0 1.0 1.0"
+		"AbilityManaCost"		"70 90 110"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"mana_cost_per_second"		"20 40 60"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"radius"		"450"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"		"100 130 160"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage_scepter"		"160 190 220"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_leshrac_pulse_nova"
+		"AbilityTextureName"		"leshrac_pulse_nova"
+	}
+	"dota688_lich_chain_frost"
+	{
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastRange"		"750"
+		"AbilityCastPoint"		"0.4 0.4 0.4 0.4"
+		"AbilityCooldown"		"120.0 90.0 60.0"
+		"AbilityManaCost"		"200 325 500"
+		"AbilityModifierSupportValue"		"0.0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"		"280 370 460"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"jumps"		"10 10 10"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"jump_range"		"575 575 575"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"slow_movement_speed"		"-30"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"slow_attack_speed"		"-30"
+			}
+			"06"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"slow_duration"		"4.0 4.0 4.0"
+			}
+			"07"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"projectile_speed"		"850"
+			}
+			"08"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"vision_radius"		"1000 1000 1000"
+			}
+			"09"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage_scepter"		"370 460 550"
+			}
+			"10"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"cast_range_scepter"		"850 850 850"
+			}
+			"11"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"slow_movement_speed_scepter"		"-50"
+			}
+			"12"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"slow_attack_speed_scepter"		"-50"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_lich_chain_frost"
+		"AbilityTextureName"		"lich_chain_frost"
 	}
 	"dota688_lich_dark_ritual"
 	{
@@ -1155,6 +1938,96 @@
 		"BaseClass"		"ability_lua"
 		"ScriptFile"		"abilities/heroes/dota688_lina_fiery_soul"
 		"AbilityTextureName"		"lina_fiery_soul"
+	}
+	"dota688_lina_laguna_blade"
+	{
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastRange"		"600"
+		"AbilityCastPoint"		"0.45 0.45 0.45"
+		"AbilityCooldown"		"70 60 50"
+		"AbilityManaCost"		"280 420 680"
+		"AbilityModifierSupportValue"		"0.0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"		"450 650 850"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"cast_range_scepter"		"600"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"damage_delay"		"0.25"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_lina_laguna_blade"
+		"AbilityTextureName"		"lina_laguna_blade"
+	}
+	"dota688_lion_finger_of_death"
+	{
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastRange"		"900"
+		"AbilityCastPoint"		"0.3 0.3 0.3"
+		"AbilityCooldown"		"160.0 100.0 40.0"
+		"AbilityManaCost"		"200 420 650"
+		"AbilityModifierSupportValue"		"0.0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"		"600 725 850"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage_scepter"		"725 875 1025"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"mana_cost_scepter"		"200 420 625"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"damage_delay"		"0.25"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"cooldown_scepter"		"100.0 60.0 20.0"
+			}
+			"06"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"splash_radius_scepter"		"300"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_lion_finger_of_death"
+		"AbilityTextureName"		"lion_finger_of_death"
 	}
 	"dota688_luna_lunar_blessing"
 	{
@@ -1315,6 +2188,40 @@
 		"ScriptFile"		"abilities/heroes/dota688_meepo_geostrike"
 		"AbilityTextureName"		"meepo_geostrike"
 	}
+	"dota688_mirana_starfall"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"1"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
+		"AbilityCooldown"		"12.0 12.0 12.0 12.0"
+		"AbilityDuration"		"10.0 10.0 10.0 10.0"
+		"AbilityDamage"		"75 150 225 300"
+		"AbilityManaCost"		"100 120 140 160"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"starfall_radius"		"650"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"starfall_secondary_radius"		"425"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"interval_scepter"		"10.0"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_mirana_starfall"
+		"AbilityTextureName"		"mirana_starfall"
+	}
 	"dota688_morphling_adaptive_strike"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -1395,6 +2302,64 @@
 		"BaseClass"		"ability_lua"
 		"ScriptFile"		"abilities/heroes/dota688_morphling_morph"
 		"AbilityTextureName"		"morphling_morph"
+	}
+	"dota688_necrolyte_reapers_scythe"
+	{
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastPoint"		"0.5 0.5 0.5"
+		"AbilityCooldown"		"100 85 70"
+		"AbilityManaCost"		"175 340 500"
+		"AbilityCastRange"		"600"
+		"AbilityModifierSupportValue"		"0.1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"damage_per_health"		"0.6 0.75 0.9"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"stun_duration"		"1.5 1.5 1.5"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"mana_cost_scepter"		"150 340 500"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"cooldown_scepter"		"70"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"damage_per_health_scepter"		"0.6 0.9 1.2"
+			}
+			"06"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"respawn"		"0.0"
+			}
+			"07"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"respawn_constant"		"10 20 30"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_necrolyte_reapers_scythe"
+		"AbilityTextureName"		"necrolyte_reapers_scythe"
 	}
 	"dota688_necrolyte_sadist"
 	{
@@ -1573,6 +2538,50 @@
 		"ScriptFile"		"abilities/heroes/dota688_obsidian_destroyer_essence_aura"
 		"AbilityTextureName"		"obsidian_destroyer_essence_aura"
 	}
+	"dota688_obsidian_destroyer_sanity_eclipse"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityCastRange"		"700"
+		"AbilityCastPoint"		"0.25 0.25 0.25"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCooldown"		"160"
+		"AbilityManaCost"		"175 250 325"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage_multiplier"		"8 9 10"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"mana_drain"		"40"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"radius"		"375 475 575"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"cast_range"		"700"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage_multiplier_scepter"		"8 9 10"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_obsidian_destroyer_sanity_eclipse"
+		"AbilityTextureName"		"obsidian_destroyer_sanity_eclipse"
+	}
 	"dota688_omniknight_degen_aura"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
@@ -1600,6 +2609,94 @@
 		"BaseClass"		"ability_lua"
 		"ScriptFile"		"abilities/heroes/dota688_omniknight_degen_aura"
 		"AbilityTextureName"		"omniknight_degen_aura"
+	}
+	"dota688_omniknight_guardian_angel"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ALLIES_YES"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCooldown"		"150"
+		"AbilityCastPoint"		"0.5 0.5 0.5"
+		"AbilityManaCost"		"125 175 250"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"		"6.0 7.0 8.0"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"radius"		"600 600 600"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration_scepter"		"8.0 9.0 10.0"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_omniknight_guardian_angel"
+		"AbilityTextureName"		"omniknight_guardian_angel"
+	}
+	"dota688_oracle_purifying_flames"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"1"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastRange"		"800"
+		"AbilityCastPoint"		"0.3"
+		"AbilityCooldown"		"2.25"
+		"AbilityManaCost"		"80 85 90 95"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"		"90 180 270 360"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"heal_per_second"		"11.0 22.0 33.0 44.0"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"total_heal_tooltip"		"99 198 297 396"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"		"9.0"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"tick_rate"		"1.0"
+			}
+			"06"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"cooldown_scepter"		"1.0"
+			}
+			"07"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"castpoint_scepter"		"0.1"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_oracle_purifying_flames"
+		"AbilityTextureName"		"oracle_purifying_flames"
 	}
 	"dota688_phantom_assassin_blur"
 	{
@@ -1693,6 +2790,165 @@
 		"BaseClass"		"ability_lua"
 		"ScriptFile"		"abilities/heroes/dota688_pugna_decrepify"
 		"AbilityTextureName"		"pugna_decrepify"
+	}
+	"dota688_pugna_life_drain"
+	{
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"FightRecapLevel"		"1"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastRange"		"900 1050 1200"
+		"AbilityCastPoint"		"0.2 0.2 0.2"
+		"AbilityChannelTime"		"10.0"
+		"AbilityCooldown"		"22.0 22.0 22.0"
+		"AbilityManaCost"		"125 175 225"
+		"AbilityModifierSupportValue"		"0.0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"health_drain"		"150 200 250"
+				"CalculateSpellDamageTooltip"		"1"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"cast_range_tooltip"		"900 1050 1200"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"duration_tooltip"		"10"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"health_drain_scepter"		"180 240 300"
+				"CalculateSpellDamageTooltip"		"1"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"scepter_cooldown"		"0.0 0.0 0.0"
+			}
+			"06"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"tick_rate"		"0.25 0.25 0.25"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_pugna_life_drain"
+		"AbilityTextureName"		"pugna_life_drain"
+	}
+	"dota688_queenofpain_sonic_wave"
+	{
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastRange"		"700"
+		"AbilityCastPoint"		"0.452 0.452 0.452"
+		"AbilityCooldown"		"135 135 135"
+		"AbilityManaCost"		"250 360 500"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"starting_aoe"		"100"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"distance"		"900"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"final_aoe"		"450"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"speed"		"900"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"		"290 380 470"
+			}
+			"06"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"cooldown_scepter"		"40"
+			}
+			"07"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage_scepter"		"325 440 555"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_queenofpain_sonic_wave"
+		"AbilityTextureName"		"queenofpain_sonic_wave"
+	}
+	"dota688_razor_eye_of_the_storm"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"		"1"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastPoint"		"0.3 0.3 0.3"
+		"AbilityCooldown"		"80 70 60"
+		"AbilityManaCost"		"100 150 200"
+		"AbilityModifierSupportValue"		"0.1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"radius"		"500 500 500"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"		"30.0"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"strike_interval"		"0.7 0.6 0.5"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"armor_reduction"		"1 1 1"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"		"40 55 70"
+			}
+			"06"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"strike_interval_scepter"		"0.6 0.5 0.4"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_razor_eye_of_the_storm"
+		"AbilityTextureName"		"razor_eye_of_the_storm"
 	}
 	"dota688_razor_unstable_current"
 	{
@@ -2131,6 +3387,56 @@
 		"BaseClass"		"ability_lua"
 		"ScriptFile"		"abilities/heroes/dota688_skeleton_king_vampiric_aura"
 		"AbilityTextureName"		"skeleton_king_vampiric_aura"
+	}
+	"dota688_skywrath_mage_mystic_flare"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastRange"		"1200"
+		"AbilityCastPoint"		"0.1 0.1 0.1 0.1"
+		"AbilityCooldown"		"60.0 40.0 20.0"
+		"AbilityManaCost"		"350 575 800"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"radius"		"170"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"		"2.4"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"		"600 1000 1400"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"damage_interval"		"0.1"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"cooldown_scepter"		"20 10 5"
+			}
+			"06"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration_scepter"		"12"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_skywrath_mage_mystic_flare"
+		"AbilityTextureName"		"skywrath_mage_mystic_flare"
 	}
 	"dota688_slardar_bash"
 	{
@@ -2621,6 +3927,91 @@
 		"ScriptFile"		"abilities/heroes/dota688_techies_suicide"
 		"AbilityTextureName"		"techies_suicide"
 	}
+	"dota688_tinker_heat_seeking_missile"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"1"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastPoint"		"0 0 0 0"
+		"AbilityCooldown"		"25.0 25.0 25.0 25.0"
+		"AbilityDamage"		"125 200 275 350"
+		"AbilityManaCost"		"120 140 160 180"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"radius"		"2500 2500 2500 2500"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"targets"		"2 2 2 2"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"speed"		"900 900 900 900"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"targets_scepter"		"4 4 4 4"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_tinker_heat_seeking_missile"
+		"AbilityTextureName"		"tinker_heat_seeking_missile"
+	}
+	"dota688_tinker_laser"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"1"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastRange"		"650"
+		"AbilityCastPoint"		"0.4"
+		"AbilityCooldown"		"14.0 14.0 14.0 14.0"
+		"AbilityDamage"		"80 160 240 320"
+		"AbilityManaCost"		"95 120 145 170"
+		"AbilityModifierSupportValue"		"0.3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"miss_rate"		"100 100 100 100"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration_hero"		"3 3.5 4 4.5"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration_creep"		"6.0 6.0 6.0 6.0"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"cast_range_tooltip"		"650"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"cast_range_scepter"		"650"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_tinker_laser"
+		"AbilityTextureName"		"tinker_laser"
+	}
 	"dota688_tiny_craggy_exterior"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -3017,6 +4408,105 @@
 		"ScriptFile"		"abilities/heroes/dota688_vengefulspirit_command_aura"
 		"AbilityTextureName"		"vengefulspirit_command_aura"
 	}
+	"dota688_vengefulspirit_nether_swap"
+	{
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_CUSTOM"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastRange"		"700 950 1200"
+		"AbilityCastPoint"		"0.3 0.3 0.3"
+		"AbilityCooldown"		"45.0"
+		"AbilityManaCost"		"100 150 200"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"tooltip_range"		"700 950 1200"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"nether_swap_cooldown_scepter"		"10"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"illusion_damage_out_pct_scepter"		"50"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"illusion_damage_in_pct_scepter"		"150"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_vengefulspirit_nether_swap"
+		"AbilityTextureName"		"vengefulspirit_nether_swap"
+	}
+	"dota688_venomancer_poison_nova"
+	{
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastPoint"		"0.0 0.0 0.0"
+		"AbilityCooldown"		"140.0 120.0 100.0"
+		"AbilityManaCost"		"200 300 400"
+		"AbilityModifierSupportValue"		"0.0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"radius"		"830"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"start_radius"		"255 255 255"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"		"16"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"		"30 55 80"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"cooldown_scepter"		"140.0 120.0 60.0"
+			}
+			"06"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration_scepter"		"16"
+			}
+			"07"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage_scepter"		"60 85 110"
+			}
+			"08"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"speed"		"500"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_venomancer_poison_nova"
+		"AbilityTextureName"		"venomancer_poison_nova"
+	}
 	"dota688_viper_nethertoxin"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -3113,6 +4603,52 @@
 		"ScriptFile"		"abilities/heroes/dota688_visage_gravekeepers_cloak"
 		"AbilityTextureName"		"visage_gravekeepers_cloak"
 	}
+	"dota688_windrunner_focusfire"
+	{
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastRange"		"600"
+		"AbilityCastPoint"		"0"
+		"AbilityCooldown"		"60.0 60.0 60.0"
+		"AbilityDuration"		"20.0 20.0 20.0"
+		"AbilityManaCost"		"75 100 125"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"bonus_attack_speed"		"500"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"focusfire_damage_reduction"		"-50 -40 -30"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"focusfire_duration_tooltip"		"20"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"cooldown_scepter"		"15.0 15.0 15.0"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"focusfire_damage_reduction_scepter"		"-30 -15 -0"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_windrunner_focusfire"
+		"AbilityTextureName"		"windrunner_focusfire"
+	}
 	"dota688_windrunner_windrun"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -3190,5 +4726,58 @@
 		"BaseClass"		"ability_lua"
 		"ScriptFile"		"abilities/heroes/dota688_wisp_overcharge"
 		"AbilityTextureName"		"wisp_overcharge"
+	}
+	"dota688_zuus_thundergods_wrath"
+	{
+		"AbilityType"		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"2"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastPoint"		"0.4 0.4 0.4 0.4"
+		"AbilityCooldown"		"90.0"
+		"AbilityManaCost"		"225 325 450"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"true_sight_radius"		"900 900 900"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"true_sight_radius_tooltip"		"500"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"sight_radius_day"		"500"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"sight_radius_night"		"500"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"sight_duration"		"3.0 3.0 3.0 3.0"
+			}
+			"06"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"		"225 325 425"
+			}
+			"07"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage_scepter"		"440 540 640"
+			}
+		}
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_zuus_thundergods_wrath"
+		"AbilityTextureName"		"zuus_thundergods_wrath"
 	}
 }

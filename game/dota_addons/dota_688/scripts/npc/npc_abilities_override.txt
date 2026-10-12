@@ -63,19 +63,6 @@
 			"speed_bonus"		"12"
 		}
 	}
-	"axe_culling_blade"
-	{
-		"AbilityCastRange"		"150"
-		"AbilityCooldown"		"75.0 65.0 55.0"
-		"AbilityManaCost"		"60 120 180"
-		"AbilityValues"
-		{
-			"damage"		"250 325 400"
-			"speed_bonus"		"40 40 40"
-			"armor_bonus"		"0"
-			"armor_per_stack"		"0"
-		}
-	}
 	"bane_brain_sap"
 	{
 		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
@@ -85,17 +72,6 @@
 		{
 			"AbilityCastRange"		"600"
 			"AbilityCooldown"		"14 13 12 11"
-		}
-	}
-	"bane_fiends_grip"
-	{
-		"AbilityCastPoint"		"0.5 0.5 0.5"
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"100.0 100.0 100.0"
-			"AbilityChannelTime"		"5 5 5"
-			"fiend_grip_tick_interval"		"1.0"
-			"fiend_grip_damage"		"100 155 215"
 		}
 	}
 	"bane_nightmare"
@@ -304,16 +280,6 @@
 			"light_strike_array_stun_duration"		"1.6 1.9 2.2 2.5"
 		}
 	}
-	"lina_laguna_blade"
-	{
-		"AbilityCastRange"		"600"
-		"AbilityCastPoint"		"0.45 0.45 0.45"
-		"AbilityManaCost"		"280 420 680"
-		"AbilityValues"
-		{
-			"damage"		"450 650 850"
-		}
-	}
 	"lion_impale"
 	{
 		"AbilityManaCost"		"100 120 140 160"
@@ -346,15 +312,6 @@
 		"AbilityValues"
 		{
 			"break_distance"		"1200"
-		}
-	}
-	"lion_finger_of_death"
-	{
-		"AbilityCooldown"		"160.0 100.0 40.0"
-		"AbilityManaCost"		"200 420 650"
-		"AbilityValues"
-		{
-			"damage_per_kill"		"0"
 		}
 	}
 	"mirana_arrow"
@@ -394,17 +351,6 @@
 			"leap_acceleration"		"7000.0"
 			"leap_speedbonus"		"4 8 12 16"
 			"leap_speedbonus_as"		"8 16 24 32"
-		}
-	}
-	"mirana_starfall"
-	{
-		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
-		"AbilityManaCost"		"100 120 140 160"
-		"AbilityDamage"		"75 150 225 300"
-		"AbilityValues"
-		{
-			"starfall_radius"		"650"
-			"starfall_secondary_radius"		"425"
 		}
 	}
 	"morphling_waveform"
@@ -684,14 +630,6 @@
 			"drain_range_buffer"		"200"
 		}
 	}
-	"razor_eye_of_the_storm"
-	{
-		"AbilityCastPoint"		"0.3 0.3 0.3"
-		"AbilityValues"
-		{
-			"damage"		"40 55 70"
-		}
-	}
 	"skeleton_king_hellfire_blast"
 	{
 		"AbilityCooldown"		"8.0 8.0 8.0 8.0"
@@ -916,17 +854,6 @@
 			"damage_health_pct"		"4 6 8 10"
 		}
 	}
-	"zuus_thundergods_wrath"
-	{
-		"AbilityCooldown"		"90.0"
-		"AbilityManaCost"		"225 325 450"
-		"AbilityValues"
-		{
-			"sight_radius_day"		"500"
-			"sight_radius_night"		"500"
-			"damage"		"225 325 425"
-		}
-	}
 	"slardar_slithereen_crush"
 	{
 		"AbilityCastPoint"		"0.35 0.35 0.35 0.35"
@@ -1017,15 +944,6 @@
 			"vision_duration"		"3.0 3.0 3.0 3.0"
 		}
 	}
-	"vengefulspirit_nether_swap"
-	{
-		"AbilityCastRange"		"700 950 1200"
-		"AbilityCastPoint"		"0.3 0.3 0.3"
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"45.0"
-		}
-	}
 	"crystal_maiden_crystal_nova"
 	{
 		"AbilityDamage"		"100 150 200 250"
@@ -1044,19 +962,6 @@
 			"AbilityCastRange"		"525"
 			"AbilityManaCost"		"115 125 140 150"
 			"damage_per_second"		"100"
-		}
-	}
-	"crystal_maiden_freezing_field"
-	{
-		"AbilityValues"
-		{
-			"AbilityCastPoint"		"0.3 0.3 0.3"
-			"AbilityCooldown"		"90"
-			"radius"		"835"
-			"explosion_radius"		"300"
-			"movespeed_slow"		"-30"
-			"attack_slow"		"-30"
-			"damage"		"105 170 250"
 		}
 	}
 	"windrunner_shackleshot"
@@ -1081,15 +986,6 @@
 			"tree_width"		"75 75 75 75"
 		}
 	}
-	"windrunner_focusfire"
-	{
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"60.0 60.0 60.0"
-			"bonus_attack_speed"		"500"
-			"focusfire_damage_reduction"		"-50 -40 -30"
-		}
-	}
 	"lich_frost_nova"
 	{
 		"AbilityCastRange"		"600"
@@ -1112,21 +1008,6 @@
 			"armor_bonus"		"3 5 7 9"
 			"slow_movement_speed"		"-30 -30 -30 -30"
 			"slow_attack_speed"		"-30"
-		}
-	}
-	"lich_chain_frost"
-	{
-		"AbilityCastPoint"		"0.4 0.4 0.4 0.4"
-		"AbilityCooldown"		"120.0 90.0 60.0"
-		"AbilityManaCost"		"200 325 500"
-		"AbilityValues"
-		{
-			"damage"		"280 370 460"
-			"jump_range"		"575 575 575"
-			"slow_movement_speed"		"-30"
-			"slow_attack_speed"		"-30"
-			"slow_duration"		"4.0 4.0 4.0"
-			"vision_radius"		"1000 1000 1000"
 		}
 	}
 	"witch_doctor_paralyzing_cask"
@@ -1205,24 +1086,6 @@
 			"duration"		"11"
 		}
 	}
-	"tinker_laser"
-	{
-		"AbilityCastRange"		"650"
-		"AbilityCooldown"		"14.0 14.0 14.0 14.0"
-		"AbilityManaCost"		"95 120 145 170"
-		"AbilityDamage"		"80 160 240 320"
-	}
-	"tinker_heat_seeking_missile"
-	{
-		"AbilityCooldown"		"25.0 25.0 25.0 25.0"
-		"AbilityManaCost"		"120 140 160 180"
-		"AbilityDamage"		"125 200 275 350"
-		"AbilityValues"
-		{
-			"radius"		"2500 2500 2500 2500"
-			"speed"		"900 900 900 900"
-		}
-	}
 	"tinker_march_of_the_machines"
 	{
 		"AbilityCooldown"		"35.0 35.0 35.0 35.0"
@@ -1281,16 +1144,6 @@
 			"aura_radius"		"900"
 			"aura_damage"		"0.6 1.0 1.4 1.8"
 			"heal_reduction_pct"		"0"
-		}
-	}
-	"necrolyte_reapers_scythe"
-	{
-		"AbilityCastPoint"		"0.5 0.5 0.5"
-		"AbilityCooldown"		"100 85 70"
-		"AbilityManaCost"		"175 340 500"
-		"AbilityValues"
-		{
-			"damage_per_health"		"0.6 0.75 0.9"
 		}
 	}
 	"warlock_fatal_bonds"
@@ -1432,15 +1285,6 @@
 			"area_of_effect"		"475"
 		}
 	}
-	"queenofpain_sonic_wave"
-	{
-		"AbilityManaCost"		"250 360 500"
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"135 135 135"
-			"damage"		"290 380 470"
-		}
-	}
 	"venomancer_venomous_gale"
 	{
 		"AbilityManaCost"		"125"
@@ -1461,19 +1305,6 @@
 	"venomancer_plague_ward"
 	{
 		"AbilityManaCost"		"20 20 20 20"
-	}
-	"venomancer_poison_nova"
-	{
-		"AbilityCooldown"		"140.0 120.0 100.0"
-		"AbilityModifierSupportValue"		"0.0"
-		"AbilityValues"
-		{
-			"radius"		"830"
-			"duration"		"16"
-			"speed"		"500"
-			"damage_base"		"30 55 80"
-			"hp_damage"		"0"
-		}
 	}
 	"faceless_void_time_walk"
 	{
@@ -1546,16 +1377,6 @@
 			"base_damage"		"0"
 			"health_restore_pct"		"0"
 			"mana_restore_pct"		"0"
-		}
-	}
-	"pugna_life_drain"
-	{
-		"AbilityCastRange"		"900 1050 1200"
-		"AbilityManaCost"		"125 175 225"
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"22.0 22.0 22.0"
-			"health_drain"		"150 200 250"
 		}
 	}
 	"phantom_assassin_stifling_dagger"
@@ -1826,15 +1647,6 @@
 			"damage"		"50 100 150 200"
 		}
 	}
-	"leshrac_pulse_nova"
-	{
-		"AbilityManaCost"		"70 90 110"
-		"AbilityValues"
-		{
-			"radius"		"450"
-			"damage"		"100 130 160"
-		}
-	}
 	"furion_sprout"
 	{
 		"AbilityCooldown"		"11 10 9 8"
@@ -1996,17 +1808,6 @@
 			"duration"		"5 6 7 8"
 		}
 	}
-	"omniknight_guardian_angel"
-	{
-		"AbilityCastPoint"		"0.5 0.5 0.5"
-		"AbilityManaCost"		"125 175 250"
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"150"
-			"duration"		"6.0 7.0 8.0"
-			"radius"		"600 600 600"
-		}
-	}
 	"enchantress_untouchable"
 	{
 		"AbilityValues"
@@ -2065,20 +1866,6 @@
 		{
 			"max_health_cost"		"0"
 			"burn_damage"		"5 10 15 20"
-		}
-	}
-	"huskar_life_break"
-	{
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"12"
-			"AbilityDuration"		"4 5 6"
-			"health_cost_percent"		".35"
-			"health_damage"		"0.35"
-			"charge_speed"		"1000"
-			"tooltip_health_damage"		"35"
-			"tooltip_health_cost_percent"		"35"
-			"movespeed"		"-40 -50 -60"
 		}
 	}
 	"night_stalker_void"
@@ -2253,17 +2040,6 @@
 			"damage"		"12 16 20 24"
 		}
 	}
-	"jakiro_macropyre"
-	{
-		"AbilityCastPoint"		"0.65 0.65 0.65 0.65"
-		"AbilityCooldown"		"60 60 60"
-		"AbilityManaCost"		"220 330 440"
-		"AbilityValues"
-		{
-			"damage"		"100 140 180"
-			"path_width"		"480"
-		}
-	}
 	"batrider_sticky_napalm"
 	{
 		"AbilityCastPoint"		"0.2 0.2 0.2 0.2"
@@ -2415,16 +2191,6 @@
 			"burn_damage"		"25 30 35 40"
 			"burn_damage_pct"		"1.25 2.5 3.75 5"
 			"ministun_duration"		"0.3"
-		}
-	}
-	"doom_bringer_doom"
-	{
-		"AbilityCastRange"		"550 550 550"
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"145.0"
-			"duration"		"15.0"
-			"damage"		"20 35 50"
 		}
 	}
 	"ancient_apparition_cold_feet"
@@ -2799,18 +2565,6 @@
 			"damage"		"100 175 250 325"
 			"has_mana_steal"		"0"
 			"mana_capacity_steal"		"0"
-		}
-	}
-	"obsidian_destroyer_sanity_eclipse"
-	{
-		"AbilityManaCost"		"175 250 325"
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"160"
-			"damage_multiplier"		"8 9 10"
-			"radius"		"375 475 575"
-			"base_damage"		"0 0 0"
-			"percentage_damage"		"0"
 		}
 	}
 	"lycan_summon_wolves"
@@ -3305,16 +3059,6 @@
 			"formation_time"		"1.2 1.2 1.2 1.2"
 		}
 	}
-	"disruptor_static_storm"
-	{
-		"AbilityCooldown"		"90 80 70"
-		"AbilityValues"
-		{
-			"radius"		"450"
-			"damage_max"		"200 250 300"
-			"duration"		"5.0"
-		}
-	}
 	"nyx_assassin_impale"
 	{
 		"AbilityCastRange"		"700"
@@ -3691,18 +3435,6 @@
 			"radius"		"190"
 		}
 	}
-	"centaur_stampede"
-	{
-		"AbilityManaCost"		"100"
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"90.0 75.0 60.0"
-			"duration"		"4.0"
-			"strength_damage"		"1.0 2.0 3.0"
-			"slow_duration"		"1.8"
-			"damage_reduction"		"60"
-		}
-	}
 	"magnataur_shockwave"
 	{
 		"AbilityCooldown"		"10.0 9.0 8.0 7.0"
@@ -3788,18 +3520,6 @@
 		{
 			"pass_damage"		"100 140 180"
 			"mana_per_second"		"20.0 25.0 30.0"
-		}
-	}
-	"bristleback_viscous_nasal_goo"
-	{
-		"AbilityCooldown"		"1.5 1.5 1.5 1.5"
-		"AbilityManaCost"		"25"
-		"AbilityValues"
-		{
-			"AbilityCastRange"		"600"
-			"armor_per_stack"		"1 1.4 1.8 2.2"
-			"base_move_slow"		"20"
-			"stack_limit"		"4"
 		}
 	}
 	"bristleback_quill_spray"
@@ -3895,16 +3615,6 @@
 		"AbilityValues"
 		{
 			"resist_debuff"		"-30 -35 -40 -45"
-		}
-	}
-	"skywrath_mage_mystic_flare"
-	{
-		"AbilityCooldown"		"60.0 40.0 20.0"
-		"AbilityManaCost"		"350 575 800"
-		"AbilityValues"
-		{
-			"duration"		"2.4"
-			"damage"		"600 1000 1400"
 		}
 	}
 	"abaddon_death_coil"
@@ -4006,17 +3716,6 @@
 			"radius"		"330"
 			"bonus_attack_speed"		"0"
 			"movement_slow"		"0"
-		}
-	}
-	"legion_commander_duel"
-	{
-		"AbilityManaCost"		"75 75 75"
-		"AbilityValues"
-		{
-			"AbilityCastRange"		"150"
-			"AbilityCooldown"		"50.0 50.0 50.0"
-			"duration"		"4.0 4.75 5.5"
-			"reward_damage"		"10 14 18"
 		}
 	}
 	"ember_spirit_searing_chains"
@@ -4320,20 +4019,6 @@
 		"AbilityValues"
 		{
 			"duration"		"3.0 3.5 4.0 4.5"
-		}
-	}
-	"oracle_purifying_flames"
-	{
-		"AbilityCastRange"		"800"
-		"AbilityCastPoint"		"0.3"
-		"AbilityManaCost"		"80 85 90 95"
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"2.25"
-			"heal_per_second"		"11.0 22.0 33.0 44.0"
-			"total_heal_tooltip"		"99 198 297 396"
-			"duration"		"9.0"
-			"tick_rate"		"1.0"
 		}
 	}
 	"oracle_false_promise"
@@ -6732,6 +6417,53 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
+	}
+	"axe_culling_blade"
+	{
+		"AbilityValues"
+		{
+			"damage"		"250 325 400"
+			"armor_bonus"		"0"
+			"armor_per_stack"		"0"
+			"speed_bonus"		"40 40 40"
+		}
+	}
+	"lion_finger_of_death"
+	{
+		"AbilityValues"
+		{
+			"damage_per_kill"		"0"
+		}
+	}
+	"bane_fiends_grip"
+	{
+		"AbilityValues"
+		{
+			"AbilityChannelTime"		"5 5 5"
+		}
+	}
+	"jakiro_macropyre"
+	{
+		"AbilityValues"
+		{
+			"path_width"		"480"
+		}
+	}
+	"obsidian_destroyer_sanity_eclipse"
+	{
+		"AbilityValues"
+		{
+			"base_damage"		"0 0 0"
+			"percentage_damage"		"0"
+		}
+	}
+	"venomancer_poison_nova"
+	{
+		"AbilityValues"
+		{
+			"damage_base"		"30 55 80"
+			"hp_damage"		"0"
+		}
 	}
 	"life_stealer_assimilate"
 	{

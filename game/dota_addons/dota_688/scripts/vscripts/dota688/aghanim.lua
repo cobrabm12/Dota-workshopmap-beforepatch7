@@ -17,29 +17,20 @@ AG.ITEM = "item_dota688_ultimate_scepter"
 AG.MODIFIER = "modifier_dota688_scepter"
 AG.CONSUMED = "modifier_item_ultimate_scepter_consumed"
 
--- eroi la care upgrade-ul C++ actual = 6.88 (sau diferentele sunt minore; vezi docs/AGHANIM.md)
+-- eroi la care upgrade-ul C++ actual = 6.88 (restul ultimate-urilor cu scepter sunt rescrise in Lua; vezi docs/AGHANIM.md)
 AG.BUILTIN = {
 	npc_dota_hero_earthshaker = true,     -- Enchant Totem: saritura de 900
 	npc_dota_hero_witch_doctor = true,    -- Death Ward: atacurile sar intre inamici
 	npc_dota_hero_tidehunter = true,      -- Gush in linie, cooldown redus
-	npc_dota_hero_nevermore = true,       -- Requiem se intoarce si vindeca
-	npc_dota_hero_warlock = true,         -- 2 golemi
-	npc_dota_hero_luna = true,            -- Eclipse pe aliat / zona, mai multe raze
-	npc_dota_hero_omniknight = true,      -- Guardian Angel global + cladiri
 	npc_dota_hero_weaver = true,          -- Time Lapse pe aliat (cooldown 16 prin HOOKS)
 	npc_dota_hero_batrider = true,        -- Lasso prinde si cel mai apropiat erou aliat
 	npc_dota_hero_undying = true,         -- Decay fura mai mult STR
-	npc_dota_hero_disruptor = true,       -- Static Storm face mute la iteme
 	npc_dota_hero_phoenix = true,         -- Supernova pe aliat, mai multe atacuri necesare
 	npc_dota_hero_winter_wyvern = true,   -- Arctic Burn toggle
 	npc_dota_hero_silencer = true,        -- Global Silence aplica Arcane Curse
 	npc_dota_hero_shadow_demon = true,    -- Demonic Purge: 3 incarcaturi + break
 	npc_dota_hero_nyx_assassin = true,    -- Burrow (abilitate oferita de scepter)
 	npc_dota_hero_earth_spirit = true,    -- Enchant Remnant (abilitate oferita de scepter)
-	npc_dota_hero_razor = true,           -- Eye of the Storm loveste si cladiri (acum: 2 tinte in loc de lovituri mai dese)
-	npc_dota_hero_bloodseeker = true,     -- Rupture cu incarcaturi
-	npc_dota_hero_lion = true,            -- Finger of Death in zona (cooldown/mana 6.88 prin HOOKS)
-	npc_dota_hero_abaddon = true,         -- Borrowed Time mai lung + protejeaza aliatii
 }
 
 -- abilitati oferite de scepter in 6.88, deblocate din Lua (fara efecte secundare moderne)
@@ -55,30 +46,14 @@ AG.GRANT = {
 -- abilitati C++ la care scepter-ul 6.88 schimba cooldown-ul / mana / cast range / attack range
 -- (valorile din reference/6.88f/npc_abilities.txt, pe nivel; cast_range = bonus fata de raza de baza)
 AG.HOOKS = {
-	axe_culling_blade            = { cooldown = { 6, 6, 6 } },
-	pudge_meat_hook              = { cooldown = { 4, 4, 4, 4 } },
-	sandking_burrowstrike        = { cast_range = { 350, 450, 550, 650 } },           -- 350/450/550/650 -> 700/900/1100/1300
-	vengefulspirit_nether_swap   = { cooldown = { 10, 10, 10 } },
-	windrunner_focusfire         = { cooldown = { 15, 15, 15 } },
-	lich_chain_frost             = { cast_range = { 100, 100, 100 } },                -- 750 -> 850
 	beastmaster_primal_roar      = { cooldown = { 45, 45, 45 }, cast_range = { 350, 350, 350 } },  -- 600 -> 950
-	queenofpain_sonic_wave       = { cooldown = { 40, 40, 40 } },
-	venomancer_poison_nova       = { cooldown = { 140, 120, 60 } },
 	faceless_void_chronosphere   = { cooldown = { 60, 60, 60 } },
-	viper_viper_strike           = { cooldown = { 10, 10, 10 }, mana = { 125, 125, 125 }, cast_range = { 400, 400, 400 } },  -- 500 -> 900
 	rattletrap_hookshot          = { cooldown = { 12, 12, 12 } },
-	enchantress_impetus          = { attack_range = 190, cast_range = { 190, 190, 190 } },
-	necrolyte_reapers_scythe     = { cooldown = { 70, 70, 70 }, mana = { 150, 340, 500 } },
-	huskar_life_break            = { cooldown = { 4, 4, 4 } },
 	weaver_time_lapse            = { cooldown = { 16, 16, 16 } },
-	tinker_laser                 = { cast_range = { 100, 100, 100, 100 } },           -- 550 -> 650
-	oracle_purifying_flames      = { cooldown = { 1, 1, 1, 1 } },
-	skywrath_mage_mystic_flare   = { cooldown = { 20, 10, 5 } },
-	spirit_breaker_nether_strike = { cooldown = { 20, 20, 20 }, cast_range = { 150, 150, 150 } },  -- 700 -> 850
 	rubick_spell_steal           = { cooldown = { 2, 2, 2 }, cast_range = { 400, 400, 400 } },     -- 1000 -> 1400
+	viper_viper_strike           = { cooldown = { 10, 10, 10 }, mana = { 125, 125, 125 }, cast_range = { 400, 400, 400 } },  -- 500 -> 900
+	enchantress_impetus          = { attack_range = 190, cast_range = { 190, 190, 190 } },
 	invoker_invoke               = { cooldown = { 16, 8, 4, 2 }, mana = { 0, 0, 0, 0 } },
-	lion_finger_of_death         = { cooldown = { 100, 60, 20 }, mana = { 200, 420, 625 } },
-	pugna_life_drain             = { cooldown = { 0, 0, 0 } },
 }
 
 local function level_value(tbl, level)
@@ -147,6 +122,11 @@ function M:OnCreated()
 			if a:GetLevel() < 1 and a:GetMaxLevel() >= 1 then a:SetLevel(1) end
 		end
 	end
+	local extra = AG.EXTRA and AG.EXTRA[hero]
+	if extra then
+		if extra.modifier and not p:HasModifier(extra.modifier) then p:AddNewModifier(p, nil, extra.modifier, {}) end
+		if extra.gained then extra.gained(p) end
+	end
 end
 
 function M:OnDestroy()
@@ -162,6 +142,11 @@ function M:OnDestroy()
 			a:SetActivated(false)
 			if a:GetMaxLevel() == 1 then a:SetLevel(0) end
 		end
+	end
+	local extra = AG.EXTRA and AG.EXTRA[hero]
+	if extra then
+		if extra.modifier then p:RemoveModifierByName(extra.modifier) end
+		if extra.lost then extra.lost(p) end
 	end
 end
 
@@ -220,3 +205,4 @@ function M:GetModifierAttackRangeBonus()
 end
 
 LinkLuaModifier(AG.MODIFIER, "dota688/aghanim", LUA_MODIFIER_MOTION_NONE)
+require("dota688/aghanim_extras")

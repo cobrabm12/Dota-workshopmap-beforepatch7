@@ -110,6 +110,7 @@ function Dota688:OnNPCSpawned(ev)
 	elseif unit:GetUnitName() == "npc_dota_roshan" then
 		Dota688Roshan:OnRoshanSpawned(unit)
 	end
+	if not unit:IsRealHero() then Dota688Aghanim.OnUnitSpawned(unit) end
 end
 
 function Dota688:OnEntityKilled(ev)

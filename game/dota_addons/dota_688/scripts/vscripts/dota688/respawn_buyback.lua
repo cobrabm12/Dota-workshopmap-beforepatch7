@@ -18,13 +18,14 @@ function M:OnHeroKilled(hero, attacker)
 	local t = C.RespawnTime(hero:GetLevel())
 	-- Nota: 6.88 nu avea timp minim de 26 s pentru moartea la neutrali (adaugat in 7.00).
 	-- Reaper's Scythe (6.88): +10/20/30 s la respawn daca eroul moare sub efectul lui
-	local scythe = hero:FindModifierByName("modifier_necrolyte_reapers_scythe")
+	-- (marcajele sunt puse de abilities/heroes/dota688_necrolyte_reapers_scythe.lua in momentul loviturii)
 	local noBuyback = false
-	if scythe and scythe:GetAbility() then
-		t = t + scythe:GetAbility():GetSpecialValueFor("respawn_constant")
+	if hero.dota688_scythe_time and GameRules:GetGameTime() - hero.dota688_scythe_time < 0.5 then
+		t = t + (hero.dota688_scythe_respawn or 0)
 		-- Scepter 6.88: eroii omorati de Reaper's Scythe nu pot face buyback
-		noBuyback = Dota688HasScepter and Dota688HasScepter(scythe:GetCaster())
+		noBuyback = Dota688HasScepter and Dota688HasScepter(hero.dota688_scythe_caster)
 	end
+	hero.dota688_scythe_time = nil
 	hero:SetTimeUntilRespawn(t)
 	if noBuyback then hero:SetBuybackCooldownTime(t) end
 	self:UpdateBuybackCost(hero)
