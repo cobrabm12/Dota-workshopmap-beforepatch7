@@ -1,13 +1,30 @@
 -- Electric Vortex (6.88): trage tinta spre Storm 1/1.5/2/2.5 s (100 unitati/s); Storm e incetinit 50% 3 s.
+-- Scepter: devine fara tinta si afecteaza toti inamicii din raza 475 in jurul lui Storm.
+require("dota688/aghanim")
 local F = "abilities/heroes/dota688_storm_spirit_electric_vortex"
 LinkLuaModifier("modifier_dota688_storm_vortex_pull", F, LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_storm_vortex_self", F, LUA_MODIFIER_MOTION_NONE)
 dota688_storm_spirit_electric_vortex = class({})
+function dota688_storm_spirit_electric_vortex:GetBehavior()
+	if Dota688HasScepter(self:GetCaster()) then return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_AOE end
+	return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
+end
+function dota688_storm_spirit_electric_vortex:GetAOERadius() return self:GetSpecialValueFor("radius_scepter") end
 function dota688_storm_spirit_electric_vortex:OnSpellStart()
-	local caster, target = self:GetCaster(), self:GetCursorTarget()
-	if target:TriggerSpellAbsorb(self) then return end
+	local caster = self:GetCaster()
 	caster:EmitSound("Hero_StormSpirit.ElectricVortex")
-	target:AddNewModifier(caster, self, "modifier_dota688_storm_vortex_pull", { duration = self:GetSpecialValueFor("duration") })
+	local targets = {}
+	if Dota688HasScepter(caster) then
+		targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, self:GetSpecialValueFor("radius_scepter"), DOTA_UNIT_TARGET_TEAM_ENEMY,
+			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+	else
+		local target = self:GetCursorTarget()
+		if target:TriggerSpellAbsorb(self) then return end
+		targets = { target }
+	end
+	for _, target in ipairs(targets) do
+		target:AddNewModifier(caster, self, "modifier_dota688_storm_vortex_pull", { duration = self:GetSpecialValueFor("duration") })
+	end
 	caster:AddNewModifier(caster, self, "modifier_dota688_storm_vortex_self", { duration = self:GetSpecialValueFor("electric_vortex_self_slow_duration") })
 end
 modifier_dota688_storm_vortex_pull = class({})

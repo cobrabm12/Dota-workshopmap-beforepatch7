@@ -1,4 +1,6 @@
 -- Black Hole (6.88): channel 4 s; trage inamicii din raza 420; 50/100/150 daune pure/s (dublu in centrul de 200); stun pe durata; trece prin imunitate.
+-- Scepter: adauga nivelul curent de Midnight Pulse (daune magice % din HP max pe secunda) in Black Hole.
+require("dota688/aghanim")
 local F = "abilities/heroes/dota688_enigma_black_hole"
 LinkLuaModifier("modifier_dota688_enigma_black_hole_thinker", F, LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_enigma_black_hole_pull", F, LUA_MODIFIER_MOTION_NONE)
@@ -23,6 +25,13 @@ function modifier_dota688_enigma_black_hole_thinker:OnCreated()
 	self.fx = ParticleManager:CreateParticle("particles/units/heroes/hero_enigma/enigma_blackhole.vpcf", PATTACH_ABSORIGIN, self:GetParent())
 	ParticleManager:SetParticleControl(self.fx, 0, self:GetParent():GetAbsOrigin())
 	AddFOWViewer(self:GetCaster():GetTeamNumber(), self:GetParent():GetAbsOrigin(), a:GetSpecialValueFor("vision_radius"), a:GetSpecialValueFor("duration"), false)
+	-- Scepter: Midnight Pulse in interiorul gaurii negre
+	self.pulsePct = 0
+	local pulse = self:GetCaster():FindAbilityByName("enigma_midnight_pulse")
+	if pulse and pulse:GetLevel() > 0 and Dota688HasScepter(self:GetCaster()) then
+		self.pulse = pulse
+		self.pulsePct = pulse:GetSpecialValueFor("damage_percent")
+	end
 	self:StartIntervalThink(a:GetSpecialValueFor("tick_rate"))
 end
 function modifier_dota688_enigma_black_hole_thinker:OnIntervalThink()
@@ -36,6 +45,9 @@ function modifier_dota688_enigma_black_hole_thinker:OnIntervalThink()
 		local d = (e:GetAbsOrigin() - center):Length2D()
 		local dmg = (d <= a:GetSpecialValueFor("near_radius")) and (a:GetSpecialValueFor("near_damage") + a:GetSpecialValueFor("far_damage")) or a:GetSpecialValueFor("far_damage")
 		ApplyDamage({ victim = e, attacker = caster, damage = dmg * tick, damage_type = DAMAGE_TYPE_PURE, ability = a })
+		if self.pulsePct and self.pulsePct > 0 then
+			ApplyDamage({ victim = e, attacker = caster, damage = e:GetMaxHealth() * self.pulsePct / 100 * tick, damage_type = DAMAGE_TYPE_MAGICAL, ability = self.pulse })
+		end
 	end
 end
 function modifier_dota688_enigma_black_hole_thinker:OnDestroy()

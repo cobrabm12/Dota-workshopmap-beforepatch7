@@ -23,14 +23,15 @@ din fișierele originale Valve de la 6.88f, iar regulile de joc sunt implementat
 | Iteme cu mecanica 6.88 rescrise în Lua (Heart, Skadi, S&Y, Halberd, Abyssal, Dagon, Veil, Medallion, Solar Crest, Octarine, Shiva, Scythe, Urn, Mek, Pipe, Greaves, Vlad, Basilius/Aquila, Soul Ring, Atos, E-Blade, Manta, Armlet, Battle Fury, Drums, Silver Edge, HotD, Bloodstone, Linken, MKB, Butterfly, Satanic, MoM, Phase, Treads, Diffusal, Midas, Iron Talon…) | ✅ 64 iteme + shop-ul cu layout-ul 6.88 (`shops.txt`) |
 | Abilități built-in cu mecanici noi dezactivate prin override manual (`tools/manual_overrides.json`) | ✅ 83 abilități/iteme (Mana Break, Heartstopper, Necromastery, Psionic Trap, Culling Blade, Invoker, consumabile…) |
 | Panorama: talente, backpack, slot neutru, slot TP ascunse | ✅ `content/.../panorama` – de verificat ID-urile la patch-uri noi |
-| Abilități rămase cu diferențe minore sau doar de Aghanim (Ogre Multicast, Medusa Split Shot, Requiem, zombii lui Undying…) | 🔜 ~65, listate în `docs/STATUS.md`; nimic blocant |
+| Aghanim's Scepter ca în 6.88: item propriu (fără upgrade‑urile moderne), upgrade‑urile 6.88 reproduse per erou (built‑in unde sunt identice, Lua în rest), Alchemist îl poate da aliaților | ✅ `docs/AGHANIM.md` – 29 eroi identici, 10 apropiați, 21 parțiali, 28 fără (necesită reimplementarea întregului ultimate) |
+| Abilități rămase cu diferențe minore (Ogre Multicast, Medusa Split Shot, zombii lui Undying…) | 🔜 ~65, listate în `docs/STATUS.md`; nimic blocant |
 | Localizare | ✅ engleză, generată din textele 6.88 (jocul rămâne în engleză) |
 | Resurse (particule/modele) verificate față de clientul curent | ✅ |
 | Panou cu regulile 6.88 în HUD, spawn neutrali la 0:30 | ✅ de verificat în joc |
 | Harta 6.88 (Hammer) | 🔜 plan în `docs/HARTA.md` |
 | Testare în Workshop Tools | 🔜 |
 
-Detalii: `docs/REGULI_6.88.md` (toate regulile și sursa lor), `docs/STATUS.md` (raport generat),
+Detalii: `docs/REGULI_6.88.md` (toate regulile și sursa lor), `docs/STATUS.md` (raport generat), `docs/AGHANIM.md` (scepter per erou),
 `docs/HARTA.md` (ce trebuie construit în Hammer), `docs/ROADMAP.md`.
 
 ## Structura repo‑ului

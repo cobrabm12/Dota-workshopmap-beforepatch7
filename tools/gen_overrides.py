@@ -277,6 +277,17 @@ def build_ability_override(name: str, old: kv.KV, cur: kv.KV, top_keys: list[str
             out[key] = ov
         changed.append(key)
 
+    # incarcaturi (charges) adaugate dupa 6.88: revenim la cooldown simplu
+    # (nu si pentru abilitatile care aveau incarcaturi in 6.88 prin chei speciale, ex. Shrapnel max_charges)
+    had_charges = any("charge" in k for k in old_vals)
+    for key in ("AbilityCharges", "AbilityChargeRestoreTime"):
+        if not had_charges and old.get_str(key) is None and cur_value(cur, key) not in (None, "0"):
+            if where_defined(cur, key) == "values":
+                values[key] = "0"
+            else:
+                out[key] = "0"
+            changed.append(key)
+
     for key, ov in old_vals.items():
         if key in cur_vals:
             if same_value(ov, cur_vals[key]):
@@ -528,6 +539,17 @@ def lua_scripts() -> dict[str, str]:
     return out
 
 
+# Ajustări KV pentru reimplementările Lua (peste blocul copiat din 6.88)
+CUSTOM_KV_PATCH = {
+    # Aghanim's Scepter: Alchemist îl poate da unui aliat (Lua GetBehavior îl ține pasiv pentru ceilalți eroi)
+    "item_dota688_ultimate_scepter": {
+        "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET",
+        "AbilityCastPoint": "0.1",
+        "ItemDeclarations": "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS",
+    },
+}
+
+
 def gen_custom_defs(A0, I0, scripts: dict[str, str], custom: set[str]) -> tuple[kv.KV, kv.KV]:
     """Blocurile KV de bază (din 6.88) pentru reimplementările Lua: BaseClass + ScriptFile + textura originală."""
     abilities = kv.KV()
@@ -555,6 +577,8 @@ def gen_custom_defs(A0, I0, scripts: dict[str, str], custom: set[str]) -> tuple[
             v = blk.get_str("UpgradeRecipe")
             if v:
                 blk["UpgradeRecipe"] = resolve_item(v, custom)
+            for k, v in CUSTOM_KV_PATCH.get(cname, {}).items():
+                blk[k] = v
             items[cname] = blk
         else:
             orig = cname[len(CUSTOM_ABILITY_PREFIX):]
@@ -568,6 +592,8 @@ def gen_custom_defs(A0, I0, scripts: dict[str, str], custom: set[str]) -> tuple[
             blk["BaseClass"] = "ability_lua"
             blk["ScriptFile"] = script
             blk["AbilityTextureName"] = orig
+            for k, v in CUSTOM_KV_PATCH.get(cname, {}).items():
+                blk[k] = v
             abilities[cname] = blk
     return abilities, items
 

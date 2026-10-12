@@ -20,7 +20,8 @@
 - [x] Iteme cu mecanica 6.88 (64) + shop-ul 6.88
 - [x] Override-uri manuale pentru mecanicile moderne ale abilităților păstrate built-in (`tools/manual_overrides.json`)
 - [x] Trecut prin abilitățile cu „valori speciale dispărute”: 79 override-uri manuale + Lua; au rămas ~65 cu diferențe minore/Aghanim (`docs/STATUS.md`)
-- [ ] Scos upgrade‑urile de Aghanim adăugate după 6.88 (sunt în C++; de verificat per erou)
+- [x] Aghanim's Scepter 6.88: item propriu, upgrade‑urile moderne nu se mai activează; upgrade‑urile 6.88 per erou (`docs/AGHANIM.md`)
+- [ ] Aghanim: cele 28 de upgrade‑uri marcate „lipsă” necesită rescrierea întregului ultimate în Lua (Bane, CM, Puck, Kunkka, Jakiro, Doom…)
 - [ ] Invoker (Quas/Wex/Exort în 6.88 dădeau +2/4/…/14 pe instanță), Ogre Multicast, Medusa Split Shot – de verificat în joc
 
 ## Faza 4 – harta

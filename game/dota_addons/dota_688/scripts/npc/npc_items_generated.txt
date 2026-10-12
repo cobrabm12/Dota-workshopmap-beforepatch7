@@ -3350,6 +3350,41 @@
 		"ScriptFile"		"items/item_dota688_sphere"
 		"AbilityTextureName"		"item_sphere"
 	}
+	"item_dota688_ultimate_scepter"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"AbilityCastRange"		"600"
+		"ItemCost"		"4200"
+		"ItemShopTags"		"int;str;agi;mana_pool;health_pool;hard_to_tag"
+		"ItemQuality"		"rare"
+		"ItemAliases"		"ultimate;aghanim's scepter"
+		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"bonus_all_stats"		"10"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"bonus_health"		"175"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"bonus_mana"		"175"
+			}
+		}
+		"BaseClass"		"item_lua"
+		"ScriptFile"		"items/item_dota688_ultimate_scepter"
+		"AbilityTextureName"		"item_ultimate_scepter"
+		"AbilityCastPoint"		"0.1"
+	}
 	"item_dota688_urn_of_shadows"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -3941,6 +3976,18 @@
 		"ItemRequirements"
 		{
 			"02"		"item_dota688_dagon_4;item_recipe_dota688_dagon"
+		}
+		"AbilityTextureName"		"item_recipe"
+	}
+	"item_recipe_dota688_ultimate_scepter"
+	{
+		"ItemCost"		"0"
+		"ItemShopTags"		""
+		"ItemRecipe"		"1"
+		"ItemResult"		"item_dota688_ultimate_scepter"
+		"ItemRequirements"
+		{
+			"01"		"item_point_booster;item_staff_of_wizardry;item_ogre_axe;item_blade_of_alacrity"
 		}
 		"AbilityTextureName"		"item_recipe"
 	}

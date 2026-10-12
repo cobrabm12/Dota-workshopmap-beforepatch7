@@ -8,6 +8,7 @@ require("dota688/roshan")
 require("dota688/daynight")
 require("dota688/backpack")
 require("dota688/neutrals")
+require("dota688/aghanim")
 
 LinkLuaModifier("modifier_dota688_attributes", "modifiers/modifier_dota688_attributes", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_roshan", "modifiers/modifier_dota688_roshan", LUA_MODIFIER_MOTION_NONE)

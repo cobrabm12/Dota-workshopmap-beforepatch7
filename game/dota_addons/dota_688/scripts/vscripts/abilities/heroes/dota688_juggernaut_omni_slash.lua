@@ -1,11 +1,19 @@
 -- Omnislash (6.88): 3/6/9 salturi la fiecare 0.4 s, 200-225 daune fizice fiecare, raza 425; invulnerabil pe durata.
+-- Scepter: 6/9/12 salturi, cooldown 70.
+require("dota688/aghanim")
 LinkLuaModifier("modifier_dota688_juggernaut_omni_slash", "abilities/heroes/dota688_juggernaut_omni_slash", LUA_MODIFIER_MOTION_NONE)
 dota688_juggernaut_omni_slash = class({})
+function dota688_juggernaut_omni_slash:GetCooldown(level)
+	if Dota688HasScepter(self:GetCaster()) then return self:GetSpecialValueFor("omni_slash_cooldown_scepter") end
+	return self.BaseClass.GetCooldown(self, level)
+end
 function dota688_juggernaut_omni_slash:OnSpellStart()
 	local caster, target = self:GetCaster(), self:GetCursorTarget()
 	if target:TriggerSpellAbsorb(self) then return end
 	caster:EmitSound("Hero_Juggernaut.OmniSlash")
-	caster:AddNewModifier(caster, self, "modifier_dota688_juggernaut_omni_slash", { jumps = self:GetSpecialValueFor("omni_slash_jumps"), target = target:entindex() })
+	local jumps = self:GetSpecialValueFor("omni_slash_jumps")
+	if Dota688HasScepter(caster) then jumps = self:GetSpecialValueFor("omni_slash_jumps_scepter") end
+	caster:AddNewModifier(caster, self, "modifier_dota688_juggernaut_omni_slash", { jumps = jumps, target = target:entindex() })
 end
 modifier_dota688_juggernaut_omni_slash = class({})
 function modifier_dota688_juggernaut_omni_slash:IsPurgable() return false end

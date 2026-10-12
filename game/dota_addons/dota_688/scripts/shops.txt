@@ -120,7 +120,7 @@
 		"item"		"item_dota688_solar_crest"
 		"item"		"item_dota688_rod_of_atos"
 		"item"		"item_orchid"
-		"item"		"item_ultimate_scepter"
+		"item"		"item_dota688_ultimate_scepter"
 		"item"		"item_refresher"
 		"item"		"item_dota688_sheepstick"
 		"item"		"item_dota688_octarine_core"

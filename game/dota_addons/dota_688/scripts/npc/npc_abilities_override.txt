@@ -385,6 +385,8 @@
 		"AbilityCooldown"		"30.0 26.0 22.0 18.0"
 		"AbilityManaCost"		"40 35 30 20"
 		"AbilityDuration"		"10.0"
+		"AbilityCharges"		"0"
+		"AbilityChargeRestoreTime"		"0"
 		"AbilityValues"
 		{
 			"leap_distance"		"600 700 800 900"
@@ -875,6 +877,7 @@
 		"AbilityManaCost"		"120 120 120 120"
 		"AbilityValues"
 		{
+			"AbilityCharges"		"0"
 			"duration"		"1.3"
 			"grab_radius"		"275"
 			"toss_damage"		"75 150 225 300"
@@ -1574,6 +1577,8 @@
 		"AbilityCooldown"		"14 11 8 5"
 		"AbilityManaCost"		"50 50 50 50"
 		"AbilityDuration"		"3 3 3 3"
+		"AbilityCharges"		"0"
+		"AbilityChargeRestoreTime"		"0"
 		"AbilityValues"
 		{
 			"AbilityCastRange"		"1000 1000 1000 1000"
@@ -1767,6 +1772,7 @@
 		"AbilityDamage"		"80 120 160 200"
 		"AbilityValues"
 		{
+			"AbilityChargeRestoreTime"		"0"
 			"duration"		"10.0 10.0 10.0 10.0"
 			"speed"		"1750"
 		}
@@ -2493,6 +2499,7 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"5"
+			"AbilityChargeRestoreTime"		"0"
 			"movement_slow"		"-25 -35 -45 -55"
 		}
 	}
@@ -2763,6 +2770,7 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"20 18 16 14"
+			"AbilityCharges"		"0"
 			"damage"		"14 22 30 38"
 			"radius"		"425"
 			"penalty_duration"		"4"
@@ -3008,6 +3016,8 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"27.0 24.0 21.0 18.0"
+			"AbilityCharges"		"0"
+			"AbilityChargeRestoreTime"		"0"
 			"disruption_duration"		"2.5 2.5 2.5 2.5"
 			"illusion_outgoing_damage"		"-70.0 -55.0 -40.0 -25.0"
 			"illusion_outgoing_tooltip"		"30.0 45.0 60.0 75.0"
@@ -3124,6 +3134,10 @@
 		"AbilityCastRange"		"160"
 		"AbilityCooldown"		"25"
 		"AbilityManaCost"		"100"
+		"AbilityCharges"		"0"
+		"AbilityChargeRestoreTime"		"0"
+		"IsGrantedByShard"		"0"
+		"HasShardUpgrade"		"0"
 	}
 	"ogre_magi_fireblast"
 	{
@@ -3148,6 +3162,7 @@
 			"multicast_delay"		"0.5"
 			"scepter_mana"		"0.6"
 		}
+		"IsGrantedByScepter"		"0"
 	}
 	"ogre_magi_ignite"
 	{
@@ -3448,6 +3463,7 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"15"
+			"AbilityChargeRestoreTime"		"0"
 			"teleport_delay"		"5.0 4.0 3.0"
 		}
 	}
@@ -3851,6 +3867,7 @@
 			"slow_duration"		"4"
 			"damage"		"350"
 		}
+		"IsGrantedByScepter"		"0"
 	}
 	"skywrath_mage_arcane_bolt"
 	{
@@ -4020,6 +4037,7 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"30.0 22.0 14.0 6.0"
+			"AbilityChargeRestoreTime"		"0"
 			"bonus_hero_damage"		"20 40 60 80"
 			"attack_interval"		"0.2"
 			"creep_damage_penalty"		"-50"
@@ -5630,9 +5648,15 @@
 		}
 		"ItemPurchasable"		"1"
 	}
+	"item_recipe_ultimate_scepter"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+	}
 	"item_ultimate_scepter"
 	{
-		"AbilityCastRange"		"600"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_refresher"
 	{
@@ -6708,5 +6732,9 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
+	}
+	"life_stealer_assimilate"
+	{
+		"IsGrantedByScepter"		"0"
 	}
 }
