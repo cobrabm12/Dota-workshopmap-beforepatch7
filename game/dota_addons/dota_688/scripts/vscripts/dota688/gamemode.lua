@@ -93,6 +93,7 @@ function Dota688:OnGameRulesStateChange()
 	local state = GameRules:State_Get()
 	if state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		print("[dota688] joc inceput (0:00)")
+		Dota688GoldXP:OnHorn()
 		Dota688Runes:OnHorn()
 		Dota688DayNight:OnHorn()
 		Dota688Neutrals:OnHorn()
@@ -119,6 +120,14 @@ function Dota688:OnNPCSpawned(ev)
 		unit:AddNewModifier(unit, nil, "modifier_dota688_familiar", {})
 	elseif unit:GetUnitName() == "npc_dota_roshan" then
 		Dota688Roshan:OnRoshanSpawned(unit)
+	end
+	if unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+		-- motorul adauga singur neutralilor "neutral_upgrade" (cresterea lor in timp, 7.x), chiar daca nu e in KV
+		local up = unit:FindAbilityByName("neutral_upgrade")
+		if up then
+			unit:RemoveModifierByName("modifier_neutral_upgrade")
+			unit:RemoveAbilityByHandle(up)
+		end
 	end
 	if not unit:IsRealHero() then Dota688Aghanim.OnUnitSpawned(unit) end
 end

@@ -14,6 +14,14 @@ var HIDE_IDS = [
 ];
 // panouri identificate dupa clasa (fara ID stabil): fatetele/abilitatea innate din 7.36 (dota_hud_innate_display)
 var HIDE_CLASSES = [ "RootInnateDisplay" ];
+// panouri fara ID ascunse prin parintele unui copil cunoscut: arborele de talente (DOTAHudTalentDisplay,
+// dota_hud_talentdisplay) aparea de la nivelul 10 peste prima abilitate
+var HIDE_PARENT_OF = [ "StatBranchBG" ];
+var BAR_HIDE_IDS = [ "StatBranch", "AghsStatusContainer" ];
+// butonul de level-up al talentelor (dota_hud_level_stats_frame), aparea de la nivelul 10 peste prima abilitate
+var BAR_HIDE_TYPES = [ "DOTAHUDLevelStatsFrame", "DOTAHudTalentDisplay" ];
+// panoul extins cu talentele (dota_hud_stat_branch)
+HIDE_IDS.push("DOTAStatBranch", "StatBranchOuter");
 
 function HudRoot() {
 	var p = $.GetContextPanel();
@@ -21,17 +29,45 @@ function HudRoot() {
 	return p;
 }
 
+// HUD-ul Valve reface "visible" (ex. arborele de talente la nivelul 10, peste prima abilitate): pe langa visible
+// colapsam panoul prin stiluri inline, pe care HUD-ul nu le reseteaza
+function Collapse(el) {
+	if (el === null) { return; }
+	el.visible = false;
+	el.hittest = false;
+	el.style.opacity = "0";
+	el.style.width = "0px";
+	el.style.height = "0px";
+}
+
+// panouri fara ID cautate dupa tip (paneltype), in bara de abilitati
+function CollapseByType(p, type, depth) {
+	if (p === null || depth > 8) { return; }
+	if (p.paneltype === type) { Collapse(p); return; }
+	for (var i = 0; i < p.GetChildCount(); i++) { CollapseByType(p.GetChild(i), type, depth + 1); }
+}
+
 function HideKnownPanels() {
 	var root = HudRoot();
 	for (var i = 0; i < HIDE_IDS.length; i++) {
-		var el = root.FindChildTraverse(HIDE_IDS[i]);
-		if (el !== null && el.visible) { el.visible = false; }
+		Collapse(root.FindChildTraverse(HIDE_IDS[i]));
+	}
+	for (var j = 0; j < HIDE_PARENT_OF.length; j++) {
+		var child = root.FindChildTraverse(HIDE_PARENT_OF[j]);
+		if (child !== null) { Collapse(child.GetParent()); }
+	}
+	// in bara de abilitati: arborele de talente (DOTAHudTalentDisplay are id "StatBranch"; un panou cu acelasi id
+	// exista si in alte parti ale HUD-ului, deci cautarea globala il gasea pe altul) si containerul Aghanim
+	var bar = root.FindChildTraverse("AbilitiesAndStatBranch");
+	if (bar !== null) {
+		for (var b = 0; b < BAR_HIDE_IDS.length; b++) { Collapse(bar.FindChildTraverse(BAR_HIDE_IDS[b])); }
+		for (var t = 0; t < BAR_HIDE_TYPES.length; t++) { CollapseByType(bar.GetParent(), BAR_HIDE_TYPES[t], 0); }
 	}
 	for (var c = 0; c < HIDE_CLASSES.length; c++) {
 		var list = root.FindChildrenWithClassTraverse(HIDE_CLASSES[c]);
-		for (var k = 0; k < list.length; k++) { if (list[k].visible) { list[k].visible = false; } }
+		for (var k = 0; k < list.length; k++) { Collapse(list[k]); }
 	}
-	$.Schedule(2.0, HideKnownPanels);
+	$.Schedule(1.0, HideKnownPanels);
 }
 
 function Dota688ToggleRules() {
@@ -48,3 +84,5 @@ function Dota688ToggleRules() {
 		$.Schedule(25.0, function () { panel.RemoveClass("Visible"); });
 	}
 })();
+
+

@@ -16,7 +16,8 @@ function Dota688Timers:Think()
 				print("[dota688] eroare in timer " .. tostring(id) .. ": " .. tostring(ret))
 				self.list[id] = nil
 			elseif type(ret) == "number" then
-				t.at = now + ret
+				-- cadenta fixa (fara deriva de pana la 0.05 s pe tick): aurul pasiv la 0.6 s ramane 100/min
+				t.at = math.max(t.at + ret, now)
 			else
 				self.list[id] = nil
 			end

@@ -754,7 +754,29 @@ RENAMED_UNITS = {
 }
 
 
-def gen_units(U0, UN, report: dict) -> kv.KV:
+# abilitati moderne care emuleaza tabelul de tipuri de atac/armura scos din motor (6.88 il avea in C++): raman
+UNIT_DAMAGE_TYPE_ABILITIES = {"creep_piercing", "creep_irresolute", "creep_siege"}
+# abilitati 6.88 al caror C++ modern contrazice 6.88 si care sunt reimplementate in Lua:
+#   roshan_inherent_buffs - in 6.88 pasiv fara valori; acum impune HP 6000 + 130/min la fiecare frame (testat) ->
+#   cresterea 6.88 o face modifiers/modifier_dota688_roshan.lua
+UNIT_ABILITIES_REPLACED = {"roshan_inherent_buffs"}
+
+
+def unit_abilities_688(old: kv.KV, cur: kv.KV, AN) -> tuple[list[str], list[str], list[str], list[str]]:
+    """Abilitatile unei unitati ca in 6.88: cele din KV-ul 6.88 care mai exista in joc + emularile tipurilor de
+    atac/armura. Intoarce (lista finala, scoase, lipsa, lista curenta)."""
+    def slots(b):
+        return [v for k, v in sorted(((k, v) for k, v in b.scalars() if re.fullmatch(r"Ability\d+", k)),
+                                     key=lambda kv_: int(kv_[0][7:])) if v]
+    old_ab, cur_ab = slots(old), slots(cur)
+    keep = [a for a in old_ab if (AN.get_kv(a) is not None or a in cur_ab) and a not in UNIT_ABILITIES_REPLACED]
+    missing = [a for a in old_ab if a not in keep]
+    keep += [a for a in cur_ab if a in UNIT_DAMAGE_TYPE_ABILITIES and a not in keep]
+    removed = [a for a in cur_ab if a not in keep]
+    return keep, removed, missing, cur_ab
+
+
+def gen_units(U0, UN, report: dict, AN=None) -> kv.KV:
     out = kv.KV()
     base0 = U0.get_kv("npc_dota_units_base")
     for new, old_name in RENAMED_UNITS.items():
@@ -798,6 +820,18 @@ def gen_units(U0, UN, report: dict) -> kv.KV:
                 if cv is None or not isinstance(cv, str) or not same_value(ov, cv):
                     blk[key] = ov
                     changed.append(key)
+        if AN is not None:
+            keep, removed, missing, cur_ab = unit_abilities_688(old, cur, AN)
+            if keep != cur_ab:
+                for k in list(blk.keys()):
+                    if re.fullmatch(r"Ability\d+", k):
+                        del blk[k]
+                for i, a in enumerate(keep, start=1):
+                    blk[f"Ability{i}"] = a
+                if not keep:
+                    blk["Ability1"] = ""
+                changed.append("abilitati 6.88" + (f" (scoase: {', '.join(removed)})" if removed else "")
+                               + (f" (lipsa in joc: {', '.join(missing)})" if missing else ""))
         if changed:
             out[name] = blk
             report["unitati"][name] = sorted(changed)
@@ -902,7 +936,7 @@ def main() -> None:
     heroes, hero_list = gen_heroes(H0, HN, A0, AN, custom, report)
     abilities = gen_abilities(A0, AN, custom, report)
     item_over, item_recreate = gen_items(I0, IN, custom, report)
-    units = gen_units(U0, UN, report)
+    units = gen_units(U0, UN, report, AN)
 
     # abilități de erou lipsă (din report) -> și ele în lista "inexistente"
     for h in report["eroi"].values():

@@ -79,11 +79,11 @@ C.ATTR_NOW = {
 
 -- Roshan ---------------------------------------------------------------------
 -- 6.88: 8000 HP, 5 armura, 128 raza (prin npc_units_custom.txt) + la fiecare 4 minute: +700 HP, +10 dmg, +0.7 armura.
+C.ROSHAN_BASE = { HP = 8000, ARMOR = 5, DAMAGE = 65 }   -- reference/6.88f/npc_units.txt
 C.ROSHAN_GROWTH_INTERVAL = 240
 C.ROSHAN_GROWTH = { HP = 700, DAMAGE = 10, ARMOR = 0.7 }
--- motorul curent creste Roshan la fiecare minut (7.07+): +130 HP (7.33), +6 dmg (7.22), +0.375 armura (7.28) - compensate in Lua
-C.ROSHAN_GROWTH_NOW_INTERVAL = 60
-C.ROSHAN_GROWTH_NOW = { HP = 130, DAMAGE = 6, ARMOR = 0.375 }
+-- motorul curent creste Roshan in fiecare minut (HP de baza 6000 + 130/min impus din C++, armura/daune prin
+-- modifier_roshan_inherent_buffs); modifier_dota688_roshan masoara si compenseaza diferenta
 C.ROSHAN_CHEESE_FROM_DEATH = 3           -- Cheese din a 3-a moarte (7.06 -> a 2-a)
 C.ROSHAN_EXTRA_DROPS = { "item_refresher_shard", "item_aghanims_blessing_roshan", "item_aghanims_shard_roshan", "item_roshans_banner" }
 
