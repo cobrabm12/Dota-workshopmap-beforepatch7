@@ -11,7 +11,7 @@ function modifier_dota688_drow_ranger_marksmanship:IsHidden() return false end
 function modifier_dota688_drow_ranger_marksmanship:IsPurgable() return false end
 function modifier_dota688_drow_ranger_marksmanship:OnCreated()
 	self.active = true
-	if IsServer() then self:StartIntervalThink(0.25) end
+	if IsServer() then self:SetStackCount(1); self:StartIntervalThink(0.25) end
 end
 function modifier_dota688_drow_ranger_marksmanship:OnIntervalThink()
 	local parent = self:GetParent()

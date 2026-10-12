@@ -6,8 +6,9 @@ function dota688_ancient_apparition_chilling_touch:GetAOERadius() return self:Ge
 function dota688_ancient_apparition_chilling_touch:OnSpellStart()
 	local caster, pos = self:GetCaster(), self:GetCursorPosition()
 	caster:EmitSound("Hero_Ancient_Apparition.ChillingTouch.Cast")
+	caster:AddNewModifier(caster, self, "modifier_dota688_aa_chilling_touch", { duration = self:GetDuration() })   -- "always receives the buff"
 	for _, u in ipairs(FindUnitsInRadius(caster:GetTeamNumber(), pos, nil, self:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
-		u:AddNewModifier(caster, self, "modifier_dota688_aa_chilling_touch", { duration = self:GetDuration() })
+		if u ~= caster then u:AddNewModifier(caster, self, "modifier_dota688_aa_chilling_touch", { duration = self:GetDuration() }) end
 	end
 end
 modifier_dota688_aa_chilling_touch = class({})

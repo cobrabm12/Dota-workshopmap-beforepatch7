@@ -13,7 +13,8 @@ function dota688_zuus_thundergods_wrath:OnSpellStart()
 		local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_thundergods_wrath.vpcf", PATTACH_ABSORIGIN_FOLLOW, e)
 		ParticleManager:SetParticleControlEnt(fx, 1, e, PATTACH_POINT_FOLLOW, "attach_hitloc", pos, true)
 		ParticleManager:ReleaseParticleIndex(fx)
-		if not e:IsMagicImmune() then
+		-- 6.88: "If an enemy hero is invisible, it takes no damage, but the True Sight is still created"
+		if not e:IsMagicImmune() and not e:IsInvisible() then
 			e:EmitSound("Hero_Zuus.GodsWrath.Target")
 			ApplyDamage({ victim = e, attacker = caster, damage = dmg, damage_type = DAMAGE_TYPE_MAGICAL, ability = self })
 		end

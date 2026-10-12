@@ -14,5 +14,5 @@ function dota688_morphling_hybrid:OnSpellStart()
 	local out = Dota688HasScepter(caster) and self:GetSpecialValueFor("illusion_damage_out_pct_scepter") or self:GetSpecialValueFor("illusion_damage_out_pct")
 	caster:EmitSound("Hero_Morphling.Replicate")
 	if caster.dota688_hybrid and not caster.dota688_hybrid:IsNull() and caster.dota688_hybrid:IsAlive() then caster.dota688_hybrid:ForceKill(false) end
-	caster.dota688_hybrid = Dota688CreateHeroCopy(target, caster, caster:GetAbsOrigin() + RandomVector(100), self:GetSpecialValueFor("duration"), out, self:GetSpecialValueFor("illusion_damage_in_pct"))
+	caster.dota688_hybrid = Dota688CreateHeroCopy(target, caster, caster:GetAbsOrigin() + RandomVector(100), self:GetSpecialValueFor("duration"), out, self:GetSpecialValueFor("illusion_damage_in_pct"), true)
 end

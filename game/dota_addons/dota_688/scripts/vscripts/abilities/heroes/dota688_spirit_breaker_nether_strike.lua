@@ -1,4 +1,4 @@
--- Nether Strike (6.88): Spirit Breaker apare langa tinta (raza 700) si o loveste cu 150/250/350 daune magice + un Greater Bash de nivelul curent.
+-- Nether Strike (6.88): Spirit Breaker apare in spatele tintei (raza 700) si o loveste cu 150/250/350 daune magice + un Greater Bash de nivelul curent.
 -- Scepter: raza 850, cooldown 20, bash-ul loveste toti inamicii din 250 de tinta.
 require("dota688/val")
 require("dota688/aghanim")
@@ -32,8 +32,8 @@ function dota688_spirit_breaker_nether_strike:OnSpellStart()
 	if target:TriggerSpellAbsorb(self) then return end
 	local dir = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
 	caster:EmitSound("Hero_SpiritBreaker.NetherStrike.Begin")
-	FindClearSpaceForUnit(caster, target:GetAbsOrigin() - dir * 80, true)
-	caster:SetForwardVector(dir)
+	FindClearSpaceForUnit(caster, target:GetAbsOrigin() + dir * 80, true)   -- "appears behind the target"
+	caster:SetForwardVector(-dir)
 	local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_spirit_breaker/spirit_breaker_nether_strike_end.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:ReleaseParticleIndex(fx)
 	caster:EmitSound("Hero_SpiritBreaker.NetherStrike.End")

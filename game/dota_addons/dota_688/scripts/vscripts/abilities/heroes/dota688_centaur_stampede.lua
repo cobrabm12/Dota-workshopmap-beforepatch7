@@ -40,8 +40,8 @@ function modifier_dota688_stampede:GetModifierIncomingDamage_Percentage()
 	return 0
 end
 function modifier_dota688_stampede:CheckState()
-	if self:GetParent():IsHero() and Dota688HasScepter(self:GetCaster()) then return { [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true } end
-	return {}
+	if self:GetParent():IsHero() and Dota688HasScepter(self:GetCaster()) then return { [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true, [MODIFIER_STATE_NO_UNIT_COLLISION] = true } end
+	return { [MODIFIER_STATE_NO_UNIT_COLLISION] = true }   -- "move through units"
 end
 modifier_dota688_stampede_slow = class({})
 function modifier_dota688_stampede_slow:IsDebuff() return true end

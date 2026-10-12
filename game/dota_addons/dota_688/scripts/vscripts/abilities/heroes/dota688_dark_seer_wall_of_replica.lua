@@ -30,7 +30,7 @@ function modifier_dota688_wall_of_replica:OnIntervalThink()
 	if not a or a:IsNull() or not caster or caster:IsNull() then self:Destroy(); return end   -- abilitatea/caster-ul au disparut (Rubick, iluzie moarta)
 	for _, h in ipairs(FindUnitsInLine(caster:GetTeamNumber(), self.p1, self.p2, nil, 60, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS)) do
 		local old = self.replicas[h:entindex()]
-		if (not old or old:IsNull() or not old:IsAlive()) and not h:IsMagicImmune() then
+		if (not old or old:IsNull() or not old:IsAlive()) and not h:IsMagicImmune() and not h:IsClone() then   -- "Doesn't create illusions from Meepo clones"
 			ApplyDamage({ victim = h, attacker = caster, damage = a:GetSpecialValueFor("damage"), damage_type = DAMAGE_TYPE_MAGICAL, ability = a })
 			local out = Dota688HasScepter(caster) and a:GetSpecialValueFor("replica_damage_outgoing_scepter") or a:GetSpecialValueFor("replica_damage_outgoing")
 			local ill = CreateIllusions(caster, h, { outgoing_damage = out, incoming_damage = a:GetSpecialValueFor("replica_damage_incoming"), duration = self:GetRemainingTime() }, 1, 100, false, false)

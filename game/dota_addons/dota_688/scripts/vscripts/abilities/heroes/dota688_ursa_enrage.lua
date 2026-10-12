@@ -1,4 +1,4 @@
--- Enrage (6.88): 4 s: 80% reducere a daunelor primite si Fury Swipes x1.5/1.75/2 (multiplicatorul se aplica ca daune bonus la atac, echivalent cu stack-urile built-in).
+-- Enrage (6.88): 4 s: scoate debuff-urile, 80% reducere a daunelor primite si Fury Swipes x1.5/1.75/2 (multiplicatorul se aplica ca daune bonus la atac, echivalent cu stack-urile built-in).
 -- Scepter: cooldown 30/24/18; poate fi folosit si cand Ursa e dezactivat (stun/hex) – prin filtrul de ordine din dota688/aghanim_extras.lua.
 require("dota688/val")
 require("dota688/aghanim")
@@ -9,6 +9,7 @@ function dota688_ursa_enrage:GetCooldown(level)
 	return self.BaseClass.GetCooldown(self, level)
 end
 function dota688_ursa_enrage:OnSpellStart()
+	self:GetCaster():Purge(false, true, false, false, false)   -- "Removes any existing debuffs"
 	self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_dota688_ursa_enrage", { duration = self:GetSpecialValueFor("duration") })
 	self:GetCaster():EmitSound("Hero_Ursa.Enrage")
 end

@@ -1,5 +1,6 @@
--- Toss (6.88): Tiny apuca o unitate aleatoare din 275 (nu pe el) si o arunca spre tinta (1300); dupa 1.3 s, unitatile din 275 de locul aterizarii
--- iau 75/150/225/300 daune magice (unitatea aruncata +20%). Grow mareste daunele cu 35/50/65% (scepter: 50/65/80%).
+-- Toss (6.88): Tiny apuca cea mai apropiata unitate din 275 (nu pe el, inclusiv inamici imuni la vraji) si o arunca spre tinta (1300);
+-- dupa 1.3 s, unitatile din 275 de locul aterizarii iau 75/150/225/300 daune magice (cladirile 33 %; unitatea aruncata +20 % daca e
+-- inamica, aliatii nu iau daune). Grow mareste daunele cu 35/50/65% (scepter: 50/65/80%).
 require("dota688/aghanim")
 LinkLuaModifier("modifier_dota688_tossed", "abilities/heroes/dota688_tiny_toss", LUA_MODIFIER_MOTION_BOTH)
 dota688_tiny_toss = class({})
@@ -7,7 +8,7 @@ function dota688_tiny_toss:GetAOERadius() return self:GetSpecialValueFor("radius
 function dota688_tiny_toss:Grabbable()
 	local caster = self:GetCaster()
 	local units = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, self:GetSpecialValueFor("grab_radius"), DOTA_UNIT_TARGET_TEAM_BOTH,
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
 	local out = {}
 	for _, u in ipairs(units) do if u ~= caster and not u:IsInvulnerable() and not u:HasModifier("modifier_dota688_tossed") then table.insert(out, u) end end
 	return out
@@ -25,7 +26,7 @@ function dota688_tiny_toss:OnSpellStart()
 	local caster, target = self:GetCaster(), self:GetCursorTarget()
 	local cands = self:Grabbable()
 	if #cands == 0 then return end
-	local unit = cands[RandomInt(1, #cands)]
+	local unit = cands[1]   -- FIND_CLOSEST: cea mai apropiata
 	caster:EmitSound("Ability.TossThrow")
 	unit:AddNewModifier(caster, self, "modifier_dota688_tossed", { duration = self:GetSpecialValueFor("duration"), target = target:entindex() })
 end
@@ -76,9 +77,11 @@ function modifier_dota688_tossed:Land()
 	ParticleManager:SetParticleControl(fx, 0, pos); ParticleManager:ReleaseParticleIndex(fx)
 	for _, e in ipairs(FindUnitsInRadius(caster:GetTeamNumber(), pos, nil, a:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY,
 		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
-		if e ~= me then ApplyDamage({ victim = e, attacker = caster, damage = dmg, damage_type = DAMAGE_TYPE_MAGICAL, ability = a }) end
+		if e ~= me then
+			ApplyDamage({ victim = e, attacker = caster, damage = e:IsBuilding() and dmg * 0.33 or dmg, damage_type = DAMAGE_TYPE_MAGICAL, ability = a })
+		end
 	end
-	if not me:IsMagicImmune() or me:GetTeamNumber() == caster:GetTeamNumber() then
+	if me:GetTeamNumber() ~= caster:GetTeamNumber() and not me:IsMagicImmune() then
 		ApplyDamage({ victim = me, attacker = caster, damage = dmg * (1 + a:GetSpecialValueFor("bonus_damage_pct") / 100), damage_type = DAMAGE_TYPE_MAGICAL, ability = a })
 	end
 	self:Destroy()

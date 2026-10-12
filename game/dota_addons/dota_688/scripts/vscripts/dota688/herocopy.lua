@@ -2,7 +2,8 @@
 -- Spre deosebire de o iluzie, copia poate folosi abilitati. Nu da aur/XP la moarte si nu reinvie.
 LinkLuaModifier("modifier_dota688_herocopy", "dota688/herocopy", LUA_MODIFIER_MOTION_NONE)
 
-function Dota688CreateHeroCopy(source, owner, pos, duration, outPct, inPct)
+-- noUltimates: Hybrid (6.88: "can cast all of that hero's current, non-ultimate abilities"); Vengeance Illusion le are pe toate
+function Dota688CreateHeroCopy(source, owner, pos, duration, outPct, inPct, noUltimates)
 	local u = CreateUnitByName(source:GetUnitName(), pos, true, owner, owner:GetPlayerOwner(), owner:GetTeamNumber())
 	if not u then return nil end
 	u.dota688_copy = true
@@ -13,7 +14,7 @@ function Dota688CreateHeroCopy(source, owner, pos, duration, outPct, inPct)
 	end
 	for i = 0, 15 do
 		local sa = source:GetAbilityByIndex(i)
-		if sa and sa:GetLevel() > 0 then
+		if sa and sa:GetLevel() > 0 and not (noUltimates and sa:GetAbilityType() == ABILITY_TYPE_ULTIMATE) then
 			local ua = u:FindAbilityByName(sa:GetName()) or u:AddAbility(sa:GetName())
 			if ua then ua:SetLevel(sa:GetLevel()); ua:SetHidden(sa:IsHidden()) end
 		end

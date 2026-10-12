@@ -28,8 +28,8 @@ function modifier_dota688_abaddon_frostmourne_debuff:IsPurgable() return true en
 function modifier_dota688_abaddon_frostmourne_debuff:GetEffectName() return "particles/units/heroes/hero_abaddon/abaddon_frost_slow.vpcf" end
 function modifier_dota688_abaddon_frostmourne_debuff:OnCreated()
 	local a = self:GetAbility()
-	self.ms = -a:GetSpecialValueFor("move_speed_pct")
-	self.as = -a:GetSpecialValueFor("slow_pct")
+	self.ms = -a:GetSpecialValueFor("slow_pct")              -- "%MOVEMENT SLOW" 8/12/16/20 (move_speed_pct e bonusul aliatilor)
+	self.as = -a:GetSpecialValueFor("attack_slow_tooltip")   -- 8/12/16/20
 end
 function modifier_dota688_abaddon_frostmourne_debuff:OnRefresh() self:OnCreated() end
 function modifier_dota688_abaddon_frostmourne_debuff:DeclareFunctions()

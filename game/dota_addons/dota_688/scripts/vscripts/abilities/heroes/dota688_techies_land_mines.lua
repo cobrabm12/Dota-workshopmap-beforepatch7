@@ -22,7 +22,9 @@ function modifier_dota688_techies_land_mine:OnIntervalThink()
 		local small, big = a:GetSpecialValueFor("small_radius"), a:GetSpecialValueFor("big_radius")
 		Dota688Techies.Explode(mine, caster, a, a:GetSpecialValueFor("damage"), DAMAGE_TYPE_PHYSICAL, big,
 			"particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf", "Dota688.Techies.LandMine.Detonate",
-			function(e, dmg) if (e:GetAbsOrigin() - mine:GetAbsOrigin()):Length2D() > small then return dmg / 2 end return dmg end)
+			function(e, dmg) if (e:GetAbsOrigin() - mine:GetAbsOrigin()):Length2D() > small then return dmg / 2 end return dmg end,
+			-- 6.88: "Damages buildings", trece prin imunitatea la vraji (SPELL_IMMUNITY_ENEMIES_YES)
+			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
 		mine:ForceKill(false)
 	end)
 end

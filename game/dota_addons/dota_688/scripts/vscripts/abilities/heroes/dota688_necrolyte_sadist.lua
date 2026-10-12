@@ -15,7 +15,7 @@ function modifier_dota688_necrolyte_sadist:OnDeath(params)
 	local parent = self:GetParent()
 	if params.attacker ~= parent or parent:PassivesDisabled() then return end
 	local unit = params.unit
-	if not unit or unit:IsBuilding() or unit:IsOther() or unit:GetTeamNumber() == parent:GetTeamNumber() then return end
+	if not unit or unit:IsBuilding() or unit:IsOther() then return end   -- si deny-urile (6.88: "Sadist is also triggered by denies")
 	local a = self:GetAbility()
 	if not a or a:IsNull() then return end
 	local mult = (unit:IsRealHero() and not unit:IsIllusion()) and a:GetSpecialValueFor("hero_multiplier") or 1

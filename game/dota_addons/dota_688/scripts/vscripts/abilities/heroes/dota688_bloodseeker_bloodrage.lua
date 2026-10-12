@@ -16,7 +16,18 @@ end
 function modifier_dota688_bloodseeker_bloodrage:GetModifierTotalDamageOutgoing_Percentage() return Dota688Val(self, "damage_increase_pct") end
 function modifier_dota688_bloodseeker_bloodrage:GetModifierIncomingDamage_Percentage() return Dota688Val(self, "damage_increase_pct") end
 function modifier_dota688_bloodseeker_bloodrage:OnDeath(params)
-	if not IsServer() or params.attacker ~= self:GetParent() then return end
+	if not IsServer() then return end
+	local parent = self:GetParent()
+	if params.unit == parent then
+		-- 6.88: "Units affected by Bloodrage when killed will heal a percentage of their max health to their killer"
+		local killer = params.attacker
+		if killer and not killer:IsNull() and killer ~= parent and killer:GetTeamNumber() ~= parent:GetTeamNumber() then
+			local pct = parent:IsHero() and Dota688Val(self, "health_bonus_pct") or Dota688Val(self, "health_bonus_creep_pct")
+			killer:Heal(parent:GetMaxHealth() * pct / 100, self:GetAbility())
+		end
+		return
+	end
+	if params.attacker ~= parent then return end
 	local unit = params.unit
 	if not unit or unit:IsBuilding() or unit:IsOther() or unit:GetTeamNumber() == self:GetParent():GetTeamNumber() then return end
 	local pct = unit:IsHero() and Dota688Val(self, "health_bonus_pct") or Dota688Val(self, "health_bonus_creep_pct")

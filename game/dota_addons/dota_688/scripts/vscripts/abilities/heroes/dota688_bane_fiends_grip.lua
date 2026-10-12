@@ -46,6 +46,11 @@ function modifier_dota688_fiends_grip:OnIntervalThink()
 	caster:GiveMana(mana)
 end
 function modifier_dota688_fiends_grip:CheckState() return { [MODIFIER_STATE_STUNNED] = true } end
+function modifier_dota688_fiends_grip:OnDestroy()
+	if not IsServer() then return end
+	local a = self:GetAbility()
+	if a and not a:IsNull() and a:IsChanneling() and self:GetRemainingTime() > 0.05 then a:EndChannel(true) end
+end
 -- pe Bane: cine il ataca primeste Nightmare (scepter)
 modifier_dota688_fiends_grip_caster = class({})
 function modifier_dota688_fiends_grip_caster:IsHidden() return true end
@@ -54,6 +59,7 @@ function modifier_dota688_fiends_grip_caster:DeclareFunctions() return { MODIFIE
 function modifier_dota688_fiends_grip_caster:OnAttackLanded(params)
 	if not IsServer() or params.target ~= self:GetParent() or not Dota688HasScepter(self:GetParent()) then return end
 	local attacker = params.attacker
+	if not attacker or attacker:GetTeamNumber() == self:GetParent():GetTeamNumber() then return end
 	-- Nightmare 6.88 (Lua, dota688_bane_nightmare); built-in-ul doar daca reimplementarea lipseste
 	local nightmare = self:GetParent():FindAbilityByName("dota688_bane_nightmare")
 	if nightmare then

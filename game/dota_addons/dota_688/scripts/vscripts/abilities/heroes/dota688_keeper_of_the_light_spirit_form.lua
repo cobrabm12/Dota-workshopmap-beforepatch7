@@ -51,7 +51,9 @@ function modifier_dota688_spirit_form_passive:HealWave(t)
 	local p = self:GetParent()
 	local illum = p:FindAbilityByName("keeper_of_the_light_illuminate")
 	if not illum or illum:GetLevel() < 1 then return end
-	local amount = illum:GetSpecialValueFor("damage_per_second") * math.min(t, illum:GetSpecialValueFor("max_channel_time"))
+	local maxT = math.max(0.1, illum:GetSpecialValueFor("max_channel_time"))
+	local amount = illum:GetSpecialValueFor("damage_per_second") * math.min(t, maxT)
+	if amount <= 0 then amount = illum:GetSpecialValueFor("total_damage") * math.min(t, maxT) / maxT end   -- KV-ul curent: total_damage
 	if amount <= 0 then return end
 	local radius, range = illum:GetSpecialValueFor("radius"), illum:GetSpecialValueFor("range")
 	local dir = self.illumDir or p:GetForwardVector()

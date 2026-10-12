@@ -1,4 +1,5 @@
--- Mystic Flare (6.88): 600/1000/1400 daune magice impartite egal intre eroii din raza 170, pe 2.4 s (tick 0.1).
+-- Mystic Flare (6.88): 600/1000/1400 daune magice impartite egal intre eroii din raza 170, pe 2.4 s (tick 0.1); nu loveste iluzii
+-- si creep-eroi.
 -- Scepter: cooldown 20/10/5, dureaza 12 s cu aceleasi daune pe secunda (deci de 5x mai multe daune totale).
 require("dota688/aghanim")
 LinkLuaModifier("modifier_dota688_mystic_flare", "abilities/heroes/dota688_skywrath_mage_mystic_flare", LUA_MODIFIER_MOTION_NONE)
@@ -31,7 +32,10 @@ function modifier_dota688_mystic_flare:OnIntervalThink()
 	local a, caster = self:GetAbility(), self:GetCaster()
 	if not a or a:IsNull() or not caster or caster:IsNull() then self:Destroy(); return end   -- abilitatea/caster-ul au disparut (Rubick, iluzie moarta)
 	local heroes = FindUnitsInRadius(caster:GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, a:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+		DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, FIND_ANY_ORDER, false)
+	local real = {}
+	for _, h in ipairs(heroes) do if h:IsRealHero() then real[#real + 1] = h end end
+	heroes = real
 	if #heroes == 0 then return end
 	local dmg = self.dps * self.interval / #heroes
 	for _, h in ipairs(heroes) do

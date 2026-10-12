@@ -10,7 +10,7 @@ function dota688_bane_enfeeble:OnSpellStart()
 end
 modifier_dota688_bane_enfeeble = class({})
 function modifier_dota688_bane_enfeeble:IsDebuff() return true end
-function modifier_dota688_bane_enfeeble:IsPurgable() return true end
+function modifier_dota688_bane_enfeeble:IsPurgable() return false end   -- 6.88: "Enfeeble cannot be purged"
 function modifier_dota688_bane_enfeeble:GetEffectName() return "particles/units/heroes/hero_bane/bane_enfeeble.vpcf" end
 function modifier_dota688_bane_enfeeble:DeclareFunctions() return { MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE } end
 function modifier_dota688_bane_enfeeble:GetModifierPreAttack_BonusDamage() return Dota688Val(self, "enfeeble_attack_reduction") end

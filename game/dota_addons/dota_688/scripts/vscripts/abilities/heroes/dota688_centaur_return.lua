@@ -11,7 +11,7 @@ function modifier_dota688_centaur_return:OnAttackLanded(params)
 	local p = self:GetParent()
 	if params.target ~= p or p:PassivesDisabled() or not p:IsAlive() then return end
 	local att = params.attacker
-	if not att or att:IsBuilding() or att:IsOther() or att:GetTeamNumber() == p:GetTeamNumber() then return end
+	if not att or att:IsOther() or att:GetTeamNumber() == p:GetTeamNumber() then return end   -- 6.88: "Return deals damage to towers"
 	local a = self:GetAbility()
 	if not a or a:IsNull() then return end
 	local dmg = a:GetSpecialValueFor("return_damage") + p:GetStrength() * a:GetSpecialValueFor("strength_pct") / 100

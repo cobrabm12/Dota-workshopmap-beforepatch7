@@ -31,7 +31,7 @@ function modifier_dota688_bloodseeker_thirst:OnIntervalThink()
 			if pct < minPct then
 				sum = sum + math.min(1, (minPct - pct) / math.max(1, minPct - maxPct))
 			end
-			if pct < visPct and p:IsRealHero() then
+			if pct < visPct and p:IsRealHero() and p:IsAlive() then
 				h:AddNewModifier(p, a, "modifier_dota688_bloodseeker_thirst_vision", { duration = 0.25 })
 			end
 		end

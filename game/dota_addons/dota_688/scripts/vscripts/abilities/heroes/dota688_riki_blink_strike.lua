@@ -1,4 +1,5 @@
--- Blink Strike (6.88): teleportare in spatele tintei (aliat sau inamic); inamicii primesc +55/70/85/100 daune magice si un atac.
+-- Blink Strike (6.88): teleportare in spatele tintei (aliat sau inamic); inamicii primesc 55/70/85/100 daune magice (primul atac
+-- dupa aceea e backstab, fiind din spate).
 dota688_riki_blink_strike = class({})
 function dota688_riki_blink_strike:CastFilterResultTarget(target)
 	if target == self:GetCaster() then return UF_FAIL_CUSTOM end
@@ -19,6 +20,6 @@ function dota688_riki_blink_strike:OnSpellStart()
 	caster:SetForwardVector(target:GetForwardVector())
 	if target:GetTeamNumber() ~= caster:GetTeamNumber() then
 		ApplyDamage({ victim = target, attacker = caster, damage = self:GetSpecialValueFor("bonus_damage"), damage_type = self:GetAbilityDamageType(), ability = self })
-		caster:PerformAttack(target, true, true, true, false, true, false, false)
+		caster:MoveToTargetToAttack(target)
 	end
 end

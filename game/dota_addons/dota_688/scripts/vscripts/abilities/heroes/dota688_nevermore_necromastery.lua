@@ -1,4 +1,5 @@
--- Necromastery (6.88): +2 daune pentru fiecare suflet; +1 suflet la fiecare unitate omorata, +12 (1 + 11) la erou; max 18/24/30/36; la moarte pierde jumatate.
+-- Necromastery (6.88): +2 daune pentru fiecare suflet; +1 suflet la fiecare unitate omorata (si deny-uri, si neutrali), +12 (1 + 11)
+-- la erou; max 18/24/30/36; la moarte pierde jumatate (dupa Requiem-ul de moarte, care foloseste numarul dinainte).
 -- Scepter: max 22/30/38/46.
 require("dota688/val")
 require("dota688/aghanim")
@@ -35,12 +36,18 @@ function modifier_dota688_necromastery:OnDeath(params)
 	if not IsServer() then return end
 	local p, a = self:GetParent(), self:GetAbility()
 	if params.unit == p then
-		if not p:IsReincarnating() then self:SetStackCount(math.floor(self:GetStackCount() * a:GetSpecialValueFor("necromastery_soul_release"))) end
+		if not p:IsReincarnating() then
+			-- dupa Requiem-ul pasiv (acelasi eveniment), ca liniile sa se calculeze din sufletele de dinainte
+			local souls = self:GetStackCount()
+			Dota688Timers:After(0, function()
+				if not self:IsNull() then self:SetStackCount(math.floor(souls * a:GetSpecialValueFor("necromastery_soul_release"))) end
+			end)
+		end
 		return
 	end
 	if params.attacker ~= p or p:PassivesDisabled() or a:GetLevel() < 1 then return end
 	local u = params.unit
-	if not u or u:IsBuilding() or u:IsOther() or u:IsIllusion() or u:GetTeamNumber() == p:GetTeamNumber() then return end
+	if not u or u:IsBuilding() or u:IsOther() or u:IsIllusion() then return end   -- si deny-urile (6.88)
 	local gain = 1
 	if u:IsRealHero() then gain = gain + a:GetSpecialValueFor("necromastery_souls_hero_bonus") end
 	self:SetStackCount(math.min(a:MaxSouls(), self:GetStackCount() + gain))

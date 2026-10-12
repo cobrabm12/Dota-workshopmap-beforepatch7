@@ -6,6 +6,7 @@ LinkLuaModifier("modifier_dota688_windrunner_windrun_slow", F, LUA_MODIFIER_MOTI
 dota688_windrunner_windrun = class({})
 function dota688_windrunner_windrun:OnSpellStart()
 	self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_dota688_windrunner_windrun", { duration = self:GetSpecialValueFor("duration") })
+	ProjectileManager:ProjectileDodge(self:GetCaster())   -- 6.88: "Activating Windrun will evade incoming projectiles"
 	self:GetCaster():EmitSound("Hero_Windrunner.Windrun")
 end
 modifier_dota688_windrunner_windrun = class({})
@@ -15,7 +16,7 @@ function modifier_dota688_windrunner_windrun:IsAura() return true end
 function modifier_dota688_windrunner_windrun:GetAuraRadius() return Dota688Val(self, "radius") end
 function modifier_dota688_windrunner_windrun:GetAuraSearchTeam() return DOTA_UNIT_TARGET_TEAM_ENEMY end
 function modifier_dota688_windrunner_windrun:GetAuraSearchType() return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC end
-function modifier_dota688_windrunner_windrun:GetAuraSearchFlags() return DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES end
+function modifier_dota688_windrunner_windrun:GetAuraSearchFlags() return DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES end
 function modifier_dota688_windrunner_windrun:GetModifierAura() return "modifier_dota688_windrunner_windrun_slow" end
 function modifier_dota688_windrunner_windrun:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_PROPERTY_EVASION_CONSTANT } end
 function modifier_dota688_windrunner_windrun:GetModifierMoveSpeedBonus_Percentage() return Dota688Val(self, "movespeed_bonus_pct") end

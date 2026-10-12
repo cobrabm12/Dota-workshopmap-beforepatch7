@@ -10,7 +10,7 @@ modifier_dota688_bh_wind_walk = class({})
 function modifier_dota688_bh_wind_walk:IsPurgable() return false end
 function modifier_dota688_bh_wind_walk:OnCreated() self.start = GameRules:GetGameTime() end
 function modifier_dota688_bh_wind_walk:Faded() return GameRules:GetGameTime() - self.start >= Dota688Val(self, "fade_time") end
-function modifier_dota688_bh_wind_walk:CheckState() return { [MODIFIER_STATE_INVISIBLE] = self:Faded() } end
+function modifier_dota688_bh_wind_walk:CheckState() return { [MODIFIER_STATE_INVISIBLE] = self:Faded(), [MODIFIER_STATE_NO_UNIT_COLLISION] = true } end   -- "move through other units"
 function modifier_dota688_bh_wind_walk:DeclareFunctions() return { MODIFIER_PROPERTY_INVISIBILITY_LEVEL, MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PHYSICAL, MODIFIER_EVENT_ON_ATTACK_LANDED, MODIFIER_EVENT_ON_ABILITY_EXECUTED } end
 function modifier_dota688_bh_wind_walk:GetModifierInvisibilityLevel() return self:Faded() and 1 or 0 end
 function modifier_dota688_bh_wind_walk:GetModifierProcAttack_BonusDamage_Physical(params)

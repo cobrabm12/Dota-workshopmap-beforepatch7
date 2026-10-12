@@ -34,7 +34,7 @@ function modifier_dota688_poison_nova_wave:OnIntervalThink()
 	local maxr = a:GetSpecialValueFor("radius")
 	local dur = Dota688HasScepter(caster) and a:GetSpecialValueFor("duration_scepter") or a:GetSpecialValueFor("duration")
 	for _, e in ipairs(FindUnitsInRadius(caster:GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, math.min(self.r, maxr), DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)) do
 		if not self.hit[e:entindex()] then
 			self.hit[e:entindex()] = true
 			e:AddNewModifier(caster, a, "modifier_dota688_poison_nova", { duration = dur })

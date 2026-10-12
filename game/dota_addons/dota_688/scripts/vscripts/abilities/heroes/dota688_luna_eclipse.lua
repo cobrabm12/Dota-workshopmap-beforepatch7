@@ -1,4 +1,5 @@
--- Eclipse (6.88): 5/8/11 Lucent Beams (nivelul curent) la 0.6 s pe inamici aleatori din 675 (max 5 lovituri pe unitate).
+-- Eclipse (6.88): 5/8/11 Lucent Beams (nivelul curent, FARA stun) la 0.6 s pe inamici aleatori din 675 (max 5 lovituri pe unitate);
+-- face noapte 10 s; razele se opresc daca Luna moare.
 -- Scepter: 6/12/18 raze la 0.3 s, fara limita pe unitate; poate fi aruncat pe un aliat/pe Luna (razele il urmeaza) sau pe o zona (raza de cast 2500).
 require("dota688/aghanim")
 require("dota688/stun")
@@ -20,6 +21,7 @@ function dota688_luna_eclipse:OnSpellStart()
 	if scepter then target = self:GetCursorTarget() end   -- nil = aruncat pe o zona
 	local pos = (not target) and self:GetCursorPosition() or nil
 	caster:EmitSound("Hero_Luna.Eclipse.Cast")
+	GameRules:BeginTemporaryNight(10)
 	local beams = scepter and self:GetSpecialValueFor("beams_scepter") or self:GetSpecialValueFor("beams")
 	local interval = scepter and self:GetSpecialValueFor("beam_interval_scepter") or self:GetSpecialValueFor("beam_interval")
 	local kv = { duration = beams * interval + 0.1, beams = beams, interval = interval, hits = scepter and 9999 or self:GetSpecialValueFor("hit_count") }
@@ -41,7 +43,7 @@ function modifier_dota688_eclipse:OnCreated(kv)
 end
 function modifier_dota688_eclipse:OnIntervalThink()
 	local a, caster, p = self:GetAbility(), self:GetCaster(), self:GetParent()
-	if self.left <= 0 then self:Destroy() return end
+	if self.left <= 0 or not caster or caster:IsNull() or not caster:IsAlive() then self:Destroy() return end
 	self.left = self.left - 1
 	local beam = caster:FindAbilityByName("luna_lucent_beam")
 	if not beam or beam:GetLevel() < 1 then return end
@@ -62,7 +64,6 @@ function modifier_dota688_eclipse:OnIntervalThink()
 	ParticleManager:ReleaseParticleIndex(fx)
 	e:EmitSound("Hero_Luna.Eclipse.Target")
 	ApplyDamage({ victim = e, attacker = caster, damage = beam:GetAbilityDamage(), damage_type = DAMAGE_TYPE_MAGICAL, ability = beam })
-	Dota688Stun(e, caster, beam, beam:GetSpecialValueFor("stun_duration"))
 end
 function modifier_dota688_eclipse:OnDestroy()
 	if not IsServer() then return end

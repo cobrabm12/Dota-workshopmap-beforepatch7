@@ -31,11 +31,13 @@ end
 function modifier_dota688_weave_thinker:OnIntervalThink()
 	local a, caster = self:GetAbility(), self:GetCaster()
 	if not a or a:IsNull() or not caster or caster:IsNull() then self:Destroy(); return end   -- abilitatea/caster-ul au disparut (Rubick, iluzie moarta)
+	if self.applied then return end   -- 6.88: "entering or leaving the area after the cast has no effect"
+	self.applied = true
 	local remaining = self:GetRemainingTime()
 	for _, u in ipairs(FindUnitsInRadius(caster:GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, a:Radius(), DOTA_UNIT_TARGET_TEAM_BOTH,
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)) do
 		local name = (u:GetTeamNumber() == caster:GetTeamNumber()) and "modifier_dota688_weave_buff" or "modifier_dota688_weave_debuff"
-		if not u:HasModifier(name) and (u:GetTeamNumber() == caster:GetTeamNumber() or not u:IsMagicImmune()) then
+		if not u:HasModifier(name) then
 			u:AddNewModifier(caster, a, name, { duration = remaining })
 		end
 	end

@@ -39,5 +39,6 @@ function modifier_dota688_reapers_scythe:OnDestroy()
 	p.dota688_scythe_caster = caster
 	p.dota688_scythe_time = GameRules:GetGameTime()
 	p.dota688_scythe_respawn = a:GetSpecialValueFor("respawn_constant")
+	if p:IsMagicImmune() then return end   -- "The stun goes through spell immunity, but not the damage"
 	ApplyDamage({ victim = p, attacker = caster, damage = dmg, damage_type = DAMAGE_TYPE_MAGICAL, ability = a })
 end

@@ -12,7 +12,8 @@ function Dota688Techies.Spawn(unitName, caster, ability, pos, modifierName, dura
 	return u
 end
 
-function Dota688Techies.Explode(mine, caster, ability, damage, damageType, radius, particle, sound, extra)
+-- types / flags: tipurile si flag-urile cautarii (implicit eroi + unitati de baza, fara imunitate la vraji)
+function Dota688Techies.Explode(mine, caster, ability, damage, damageType, radius, particle, sound, extra, types, flags)
 	local pos = mine:GetAbsOrigin()
 	if particle then
 		local fx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, nil)
@@ -21,7 +22,7 @@ function Dota688Techies.Explode(mine, caster, ability, damage, damageType, radiu
 	end
 	if sound then EmitSoundOnLocationWithCaster(pos, sound, caster) end
 	for _, e in ipairs(FindUnitsInRadius(caster:GetTeamNumber(), pos, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
+		types or (DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC), flags or DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
 		local dmg = damage
 		if extra then dmg = extra(e, dmg) end
 		if dmg and dmg > 0 then ApplyDamage({ victim = e, attacker = caster, damage = dmg, damage_type = damageType, ability = ability }) end

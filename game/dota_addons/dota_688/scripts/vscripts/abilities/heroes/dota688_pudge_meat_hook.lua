@@ -1,4 +1,5 @@
--- Meat Hook (6.88): carlig (viteza 1600, latime 100) pe 1000/1100/1200/1300; prima unitate intalnita (aliat sau inamic) e trasa la Pudge; inamicii iau 90/180/270/360 daune pure.
+-- Meat Hook (6.88): carlig (viteza 1600, latime 100) pe 1000/1100/1200/1300; prima unitate intalnita (aliat sau inamic, si invizibila
+-- sau imuna la vraji; trece prin unitatile mecanice) e trasa la Pudge; inamicii iau 90/180/270/360 daune pure.
 -- Scepter: cooldown 4, 180/270/360/450 daune.
 require("dota688/aghanim")
 LinkLuaModifier("modifier_dota688_meat_hook", "abilities/heroes/dota688_pudge_meat_hook", LUA_MODIFIER_MOTION_NONE)
@@ -42,9 +43,13 @@ function modifier_dota688_meat_hook:OnIntervalThink()
 	if self.phase == "out" then
 		self.head = self.head + self.dir * step
 		local units = FindUnitsInRadius(p:GetTeamNumber(), self.head, nil, self.width, DOTA_UNIT_TARGET_TEAM_BOTH,
-			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false)
+			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
 		for _, u in ipairs(units) do
-			if u ~= p and not u:IsInvulnerable() and not u:IsCourier() then
+			-- unitatile mecanice (siege, cogs, mine) sunt sarite: "can go through ... mechanical units"
+			local cls = u:GetClassname()
+			local mechanical = cls == "npc_dota_creep_siege" or u:GetUnitName():find("siege", 1, true) or u:GetUnitName():find("rattletrap_cog", 1, true)
+				or u:GetUnitName():find("techies_", 1, true)
+			if u ~= p and not u:IsInvulnerable() and not u:IsCourier() and not mechanical then
 				self.target = u
 				break
 			end

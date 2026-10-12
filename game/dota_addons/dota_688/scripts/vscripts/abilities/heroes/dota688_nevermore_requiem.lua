@@ -52,10 +52,6 @@ function dota688_nevermore_requiem:Release(onDeath)
 			end)
 		end
 	end
-	if onDeath then
-		local m = caster:FindModifierByName("modifier_dota688_necromastery")
-		if m then m:SetStackCount(math.floor(m:GetStackCount() * 0.5)) end
-	end
 end
 function dota688_nevermore_requiem:OnSpellStart() self:Release(false) end
 function dota688_nevermore_requiem:OnProjectileHit_ExtraData(target, location, data)

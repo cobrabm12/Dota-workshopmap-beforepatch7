@@ -14,6 +14,7 @@ function modifier_dota688_flesh_golem:IsAura() return true end
 function modifier_dota688_flesh_golem:GetAuraRadius() return Dota688Val(self, "radius") end
 function modifier_dota688_flesh_golem:GetAuraSearchTeam() return DOTA_UNIT_TARGET_TEAM_ENEMY end
 function modifier_dota688_flesh_golem:GetAuraSearchType() return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC end
+function modifier_dota688_flesh_golem:GetAuraSearchFlags() return DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES end   -- 6.88: "goes through spell immunity"
 function modifier_dota688_flesh_golem:GetModifierAura() return "modifier_dota688_flesh_golem_plague" end
 function modifier_dota688_flesh_golem:DeclareFunctions() return { MODIFIER_PROPERTY_MODEL_CHANGE } end
 function modifier_dota688_flesh_golem:GetModifierModelChange() return "models/heroes/undying/undying_flesh_golem.vmdl" end
@@ -38,7 +39,7 @@ function modifier_dota688_flesh_golem_plague:GetModifierMoveSpeedBonus_Percentag
 	return -(a:GetSpecialValueFor("min_speed_slow") + (a:GetSpecialValueFor("max_speed_slow") - a:GetSpecialValueFor("min_speed_slow")) * f)
 end
 function modifier_dota688_flesh_golem_plague:OnDeath(params)
-	if not IsServer() or params.unit ~= self:GetParent() then return end
+	if not IsServer() or params.unit ~= self:GetParent() or self:GetParent():IsIllusion() then return end   -- iluziile nu vindeca (6.88)
 	local c, a = self:GetCaster(), self:GetAbility()
 	if not c or c:IsNull() or not c:IsAlive() then return end
 	local pct = self:GetParent():IsHero() and a:GetSpecialValueFor("death_heal") or a:GetSpecialValueFor("death_heal_creep")

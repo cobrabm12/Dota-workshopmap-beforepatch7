@@ -49,7 +49,7 @@ end
 function modifier_dota688_life_break_charge:OnDestroy()
 	if IsServer() then self:GetParent():RemoveHorizontalMotionController(self); FindClearSpaceForUnit(self:GetParent(), self:GetParent():GetAbsOrigin(), false) end
 end
-function modifier_dota688_life_break_charge:CheckState() return { [MODIFIER_STATE_NO_UNIT_COLLISION] = true } end
+function modifier_dota688_life_break_charge:CheckState() return { [MODIFIER_STATE_NO_UNIT_COLLISION] = true, [MODIFIER_STATE_MAGIC_IMMUNE] = true } end   -- "While leaping, Huskar is Spell Immune"
 modifier_dota688_life_break_slow = class({})
 function modifier_dota688_life_break_slow:IsDebuff() return true end
 function modifier_dota688_life_break_slow:IsPurgable() return true end

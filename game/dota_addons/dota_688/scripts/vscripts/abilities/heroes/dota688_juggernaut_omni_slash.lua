@@ -33,8 +33,13 @@ function modifier_dota688_juggernaut_omni_slash:Slash(target)
 	FindClearSpaceForUnit(parent, pos, false)
 	parent:SetForwardVector((target:GetAbsOrigin() - parent:GetAbsOrigin()):Normalized())
 	parent:StartGesture(ACT_DOTA_OVERRIDE_ABILITY_4)
-	local dmg = RandomInt(a:GetSpecialValueFor("omni_slash_damage"), a:GetSpecialValueFor("omni_slash_damage") + 25)
-	ApplyDamage({ victim = target, attacker = parent, damage = dmg, damage_type = DAMAGE_TYPE_PHYSICAL, ability = a })
+	-- KV "200 225" = minim si maxim (nu pe nivel)
+	local dmg = RandomInt(a:GetLevelSpecialValueFor("omni_slash_damage", 0), a:GetLevelSpecialValueFor("omni_slash_damage", 1))
+	if not target:IsHero() and not target:IsConsideredHero() and not target:IsAncient() then
+		target:Kill(a, parent)   -- 6.88: "Creeps are killed in one hit"
+	else
+		ApplyDamage({ victim = target, attacker = parent, damage = dmg, damage_type = DAMAGE_TYPE_PHYSICAL, ability = a })
+	end
 	target:EmitSound("Hero_Juggernaut.OmniSlash.Damage")
 	self.jumps = self.jumps - 1
 	return true

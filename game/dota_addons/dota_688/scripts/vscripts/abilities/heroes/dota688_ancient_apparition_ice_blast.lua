@@ -29,14 +29,15 @@ function dota688_ancient_apparition_ice_blast:Release()
 	if not m then return end
 	local mark, travelled = m.pos, m.travelled
 	m:Destroy()
-	local radius = math.min(self:GetSpecialValueFor("radius_max"), self:GetSpecialValueFor("radius_min") + self:GetSpecialValueFor("radius_grow") * travelled / 100)
+	-- 6.88: "The area of effect is 275 + 50*TimeTraveled, capped at 1000"
+	local seconds = travelled / math.max(1, self:GetSpecialValueFor("speed"))
+	local radius = math.min(self:GetSpecialValueFor("radius_max"), self:GetSpecialValueFor("radius_min") + self:GetSpecialValueFor("radius_grow") * seconds)
 	local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_marker.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(fx, 0, mark); ParticleManager:SetParticleControl(fx, 1, Vector(radius, 0, 0))
 	ParticleManager:ReleaseParticleIndex(fx)
 	CreateModifierThinker(caster, self, "modifier_dota688_ice_blast_ball", { duration = 30, tx = mark.x, ty = mark.y, radius = radius }, caster:GetAbsOrigin(), caster:GetTeamNumber(), false)
 end
-function dota688_ancient_apparition_ice_blast:Frostbite(unit)
-	if unit:IsMagicImmune() then return end
+function dota688_ancient_apparition_ice_blast:Frostbite(unit)   -- SPELL_IMMUNITY_ENEMIES_YES
 	local dur = Dota688HasScepter(self:GetCaster()) and self:GetSpecialValueFor("frostbite_duration_scepter") or self:GetSpecialValueFor("frostbite_duration")
 	unit:AddNewModifier(self:GetCaster(), self, "modifier_dota688_frostbite", { duration = dur })
 end
@@ -90,7 +91,7 @@ function modifier_dota688_ice_blast_ball:OnIntervalThink()
 		ParticleManager:SetParticleControl(fx, 0, self.pos); ParticleManager:SetParticleControl(fx, 1, Vector(self.radius, 0, 0))
 		ParticleManager:ReleaseParticleIndex(fx)
 		for _, e in ipairs(FindUnitsInRadius(caster:GetTeamNumber(), self.pos, nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY,
-			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
+			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)) do
 			ApplyDamage({ victim = e, attacker = caster, damage = a:GetAbilityDamage(), damage_type = DAMAGE_TYPE_MAGICAL, ability = a })
 			a:Frostbite(e)
 		end
@@ -100,7 +101,7 @@ function modifier_dota688_ice_blast_ball:OnIntervalThink()
 	self.pos = self.pos + to:Normalized() * step
 	ParticleManager:SetParticleControl(self.fx, 0, self.pos)
 	for _, e in ipairs(FindUnitsInRadius(caster:GetTeamNumber(), self.pos, nil, a:GetSpecialValueFor("path_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)) do
 		if not self.hit[e:entindex()] then self.hit[e:entindex()] = true; a:Frostbite(e) end
 	end
 end

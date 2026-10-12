@@ -45,7 +45,8 @@ function modifier_dota688_earth_splitter_thinker:OnDestroy()
 			local proj = self.start + self.dir * rel:Dot(self.dir)
 			FindClearSpaceForUnit(e, GetGroundPosition(proj, e), false)
 			local dmg = e:GetMaxHealth() * a:GetSpecialValueFor("damage_pct") / 100
-			if not e:IsMagicImmune() then ApplyDamage({ victim = e, attacker = caster, damage = dmg / 2, damage_type = DAMAGE_TYPE_MAGICAL, ability = a }) end
+			-- SPELL_IMMUNITY_ENEMIES_YES: jumatatea magica se da ca daune pure cand tinta e imuna (motorul ar bloca-o)
+			ApplyDamage({ victim = e, attacker = caster, damage = dmg / 2, damage_type = e:IsMagicImmune() and DAMAGE_TYPE_PURE or DAMAGE_TYPE_MAGICAL, ability = a })
 			ApplyDamage({ victim = e, attacker = caster, damage = dmg / 2, damage_type = DAMAGE_TYPE_PHYSICAL, ability = a })
 			e:AddNewModifier(caster, a, "modifier_dota688_earth_splitter_slow", { duration = slowDur, scepter = scepter and 1 or 0 })
 		end

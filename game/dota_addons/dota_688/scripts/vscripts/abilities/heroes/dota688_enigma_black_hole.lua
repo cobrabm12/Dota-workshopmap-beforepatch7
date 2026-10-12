@@ -53,7 +53,16 @@ function modifier_dota688_enigma_black_hole_thinker:OnIntervalThink()
 	end
 end
 function modifier_dota688_enigma_black_hole_thinker:OnDestroy()
-	if IsServer() then ParticleManager:DestroyParticle(self.fx, false); UTIL_Remove(self:GetParent()) end
+	if not IsServer() then return end
+	ParticleManager:DestroyParticle(self.fx, false)
+	-- canalizare intrerupta: victimele scapa imediat
+	local caster = self:GetCaster()
+	for _, e in ipairs(FindUnitsInRadius(DOTA_TEAM_NOTEAM, self:GetParent():GetAbsOrigin(), nil, 1200, DOTA_UNIT_TARGET_TEAM_BOTH,
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)) do
+		local m = caster and not caster:IsNull() and e:FindModifierByNameAndCaster("modifier_dota688_enigma_black_hole_pull", caster) or e:FindModifierByName("modifier_dota688_enigma_black_hole_pull")
+		if m then m:Destroy() end
+	end
+	UTIL_Remove(self:GetParent())
 end
 modifier_dota688_enigma_black_hole_pull = class({})
 function modifier_dota688_enigma_black_hole_pull:IsDebuff() return true end

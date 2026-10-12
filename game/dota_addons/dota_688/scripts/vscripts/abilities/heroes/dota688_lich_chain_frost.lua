@@ -11,7 +11,7 @@ function dota688_lich_chain_frost:Launch(from, target, jumps)
 	ProjectileManager:CreateTrackingProjectile({
 		Target = target, Source = from, Ability = self, EffectName = "particles/units/heroes/hero_lich/lich_chain_frost.vpcf",
 		iMoveSpeed = self:GetSpecialValueFor("projectile_speed"), vSourceLoc = from:GetAbsOrigin(), bDodgeable = false, bProvidesVision = true,
-		iVisionRadius = self:GetSpecialValueFor("vision_radius"), iVisionTeamNumber = self:GetCaster():GetTeamNumber(), ExtraData = { jumps = jumps },
+		iVisionRadius = self:GetSpecialValueFor("vision_radius"), iVisionTeamNumber = self:GetCaster():GetTeamNumber(), ExtraData = { jumps = jumps, first = (from == self:GetCaster()) and 1 or 0 },
 	})
 end
 function dota688_lich_chain_frost:OnSpellStart()
@@ -26,6 +26,7 @@ function dota688_lich_chain_frost:OnProjectileHit_ExtraData(target, location, da
 	local caster = self:GetCaster()
 	local scepter = Dota688HasScepter(caster)
 	target:EmitSound("Hero_Lich.ChainFrostImpact")
+	if data.first == 1 then target:AddNewModifier(caster, self, "modifier_stunned", { duration = 0.1 }) end   -- mini-stun pe prima tinta, prin imunitate
 	if not target:IsMagicImmune() then
 		ApplyDamage({ victim = target, attacker = caster, damage = scepter and self:GetSpecialValueFor("damage_scepter") or self:GetSpecialValueFor("damage"), damage_type = DAMAGE_TYPE_MAGICAL, ability = self })
 		target:AddNewModifier(caster, self, "modifier_dota688_chain_frost_slow", { duration = self:GetSpecialValueFor("slow_duration") })
@@ -35,7 +36,9 @@ function dota688_lich_chain_frost:OnProjectileHit_ExtraData(target, location, da
 	local next = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, self:GetSpecialValueFor("jump_range"), DOTA_UNIT_TARGET_TEAM_ENEMY,
 		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 	local cands = {}
-	for _, u in ipairs(next) do if u ~= target then table.insert(cands, u) end end
+	for _, u in ipairs(next) do
+		if u ~= target and u:GetUnitName() ~= "npc_dota_unit_undying_zombie" and u:GetUnitName() ~= "npc_dota_unit_undying_zombie_torso" then table.insert(cands, u) end   -- nu sare pe zombii
+	end
 	if #cands == 0 then return end
 	self:Launch(target, cands[RandomInt(1, #cands)], jumps)
 end

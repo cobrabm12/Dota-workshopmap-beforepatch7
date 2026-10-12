@@ -50,9 +50,14 @@ function modifier_dota688_life_drain:OnIntervalThink()
 		end
 	else
 		if p:IsMagicImmune() then return end
+		if p:IsIllusion() then p:ForceKill(false); a:EndChannel(true); return end   -- 6.88: iluziile sunt distruse instant
 		local before = p:GetHealth()
 		ApplyDamage({ victim = p, attacker = caster, damage = self.drain, damage_type = DAMAGE_TYPE_MAGICAL, ability = a })
 		local dealt = before - p:GetHealth()
-		if caster:GetHealth() >= caster:GetMaxHealth() then caster:GiveMana(dealt) else caster:Heal(dealt, a) end
+		if caster:GetHealth() >= caster:GetMaxHealth() then
+			if p:IsHero() then caster:GiveMana(dealt) end   -- mana doar de la eroi (6.88)
+		else
+			caster:Heal(dealt, a)
+		end
 	end
 end
