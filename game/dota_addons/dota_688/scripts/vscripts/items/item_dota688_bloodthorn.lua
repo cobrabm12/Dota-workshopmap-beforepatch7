@@ -2,7 +2,7 @@ require("dota688/val")
 require("items/dota688_item_base")
 -- Bloodthorn (6.88): +25 INT, +30 AS, +60 daune, +150% regen mana, 20% critic 175%; Soul Rend: silence 5 s, toate atacurile pe tinta
 -- (de la oricine) sunt critice 145% (critul propriu de 175% il inlocuieste cand se declanseaza) si la final +30% din daunele primite.
--- True Strike-ul pe tinta pentru toti atacatorii nu se poate da printr-un modifier pe tinta (nu exista proprietate); ramane doar critul.
+-- True Strike pentru toti atacatorii: evaziunea tintei e anulata (MODIFIER_PROPERTY_NEGATIVE_EVASION_CONSTANT pe debuff).
 LinkLuaModifier("modifier_dota688_soul_rend", "items/item_dota688_bloodthorn", LUA_MODIFIER_MOTION_NONE)
 Dota688DefineItem("item_dota688_bloodthorn", "items/item_dota688_bloodthorn", {
 	extraFunctions = { MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE },
@@ -32,7 +32,9 @@ function modifier_dota688_soul_rend:IsPurgable() return true end
 function modifier_dota688_soul_rend:GetEffectName() return "particles/items2_fx/orchid.vpcf" end
 function modifier_dota688_soul_rend:OnCreated() self.total = 0 end
 function modifier_dota688_soul_rend:CheckState() return { [MODIFIER_STATE_SILENCED] = true } end
-function modifier_dota688_soul_rend:DeclareFunctions() return { MODIFIER_EVENT_ON_TAKEDAMAGE, MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE } end
+function modifier_dota688_soul_rend:DeclareFunctions() return { MODIFIER_EVENT_ON_TAKEDAMAGE, MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE, MODIFIER_PROPERTY_NEGATIVE_EVASION_CONSTANT } end
+-- "All attacks on the silenced target will have True Strike": evaziunea tintei e anulata
+function modifier_dota688_soul_rend:GetModifierNegativeEvasion_Constant() return 100 end
 -- atacurile celorlalti (nu ale purtatorului, care are critul in propria functie) fac 145%
 function modifier_dota688_soul_rend:GetModifierIncomingDamage_Percentage(params)
 	if params.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK or params.damage_type ~= DAMAGE_TYPE_PHYSICAL then return 0 end
