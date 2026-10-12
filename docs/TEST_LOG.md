@@ -119,3 +119,21 @@ Rămân (găsite de audit, de reparat):
 | Clădiri | Aur de echipă la turnuri/barăci (6.88: 160/200/240/280 și 275/225, sigur; motorul dă doar last hit), Roshan 200/jucător; glyph 5 s doar pe clădiri; Tower Protection; backdoor 25 %; iluzii −30 % pe clădiri |
 | Creepi | Raza de XP 1300, 35 % XP când îi omoară neutralii, upgrade‑uri +12 HP/+2 aur la 7:30, siege la fiecare al 7‑lea val |
 | HUD | Timere moderne (rune, Roshan, Tormentor), fațete, talentele din scoreboard, Ring of Health/Void Stone marcate de secret shop, +200 aur la random |
+
+## 7. Runda a doua: audit cu agenți, rescrieri 6.88 și harta proprie (2026‑10‑12, seara)
+
+Harta 6.88 compilată de noi (`dota_launch_custom_game dota_688 dota_688`), Workshop Tools fără dialogul „Legacy Compiled Data”.
+
+| Test | Rezultat |
+|---|---|
+| Test de fum: 112 eroi, nivel 25, fiecare abilitate activă lansată printr‑un ordin real | OK – 0 erori Lua; cele 30 de abilități rescrise azi în Lua se lansează (Assassinate verificat separat: ochire 2 s, 244 daune, cd 20 s; în testul de fum ținta era în ceață). Două crash‑uri ale testului: ștergerea unităților dintr‑un Chronosphere activ (REPARAT pentru cod: `Dota688SafeRemove`) și eroi creați fără precache (artefact al testului) |
+| 75 de iteme Lua: statistici + activă | OK – 0 erori; Boots of Travel teleportează, Rapier +330, Power Treads/Phase Boots, Dust |
+| Tower Protection | OK – +1 armură lângă T1, +3 lângă T2, aura modernă blocată |
+| Glyph | OK – 33/33 clădiri invulnerabile 5 s, cooldown 300 s |
+| Aur la distrugerea unui turn | REPARAT – 160 echipă + last hit; motorul curent ignoră `reliable` la `ModifyGold` (doar Bounty rune rămâne sigur), deci aurul sigur se dă cu `Dota688GiveGold` (+160 sigur, 0 nesigur) |
+| XP de la creepi | OK – motorul blocat, XP‑ul dat de Lua în 1300 (melee 45, ranged 90, o singură dată) |
+| Valuri de creepi | OK – siege adăugat la valul 7 (3:30); HP/aur/XP 6.88 (melee 550 HP, 36–40 aur, 45 XP) |
+| Neutrali | OK – primul spawn la 0:30 (41 de neutrali la 0:31), fără stack‑uri singure |
+| Rune 6.88 | OK – Double Damage 35→70, Haste 522, invizibil după 2 s, Regen +100/+67 pe s, 2 iluzii, Bounty doar pentru cel care o ia (+62 aur, +80 XP la minutul 6); textul din chat „Double Damage” |
+| Curier | OK – Animal/Flying Courier; REPARAT – „mark for buy” la secret shop cumpăra în buclă (curierul fără proprietar): acum un singur Energy Booster |
+| Sunete | REPARAT – 53 de evenimente dispărute din client refăcute (Techies, Bloodstone, Laguna Blade, Razor...); `check_addon.py` le verifică |
