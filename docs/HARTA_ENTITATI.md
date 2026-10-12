@@ -181,7 +181,7 @@ Tipuri 6.88: per junglă principală 2 mari, 2 medii, 1 mic; secundară 1 ancien
 
 ## Roshan și rune
 
-`dota_item_rune_spawner` este clasa din 2016; Lua (`dota688/runes.lua`) caută `info_target` `dota688_rune_top` / `dota688_rune_bot`, care se adaugă în Hammer la aceste două poziții.
+`dota_item_rune_spawner` este clasa din 2016 (nu mai există în motor); `tools/import_harta_688.py` le transformă în `info_target` `dota688_rune_top` (y > 0) / `dota688_rune_bot`, punctele căutate de `dota688/runes.lua`.
 
 | Clasă | Nume | Poziție |
 |---|---|---|

@@ -17,3 +17,5 @@ game/dota_addons/dota_688/tools_thumbnail_cache.sqlite3*
 
 # scripturi de test rulate din consola (script_reload_code dota688_test/...)
 game/dota_addons/dota_688/scripts/vscripts/dota688_test/
+# fisiere compilate ale hartii (se regenereaza cu resourcecompiler)
+game/dota_addons/dota_688/maps/dota_688/

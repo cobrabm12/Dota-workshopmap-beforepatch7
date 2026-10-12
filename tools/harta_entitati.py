@@ -117,8 +117,8 @@ def main(ents_dir):
     section("Roshan și rune", ["npc_dota_roshan_spawner", "trigger_boss_attackable", "dota_item_rune_spawner",
             "dota_item_rune_spawner_powerup", "dota_item_rune_spawner_bounty"],
             [("Clasă", C), ("Nume", N), ("Poziție", pos)],
-            "`dota_item_rune_spawner` este clasa din 2016; Lua (`dota688/runes.lua`) caută `info_target` "
-            "`dota688_rune_top` / `dota688_rune_bot`, care se adaugă în Hammer la aceste două poziții.")
+            "`dota_item_rune_spawner` este clasa din 2016 (nu mai există în motor); `tools/import_harta_688.py` le transformă "
+            "în `info_target` `dota688_rune_top` (y > 0) / `dota688_rune_bot`, punctele căutate de `dota688/runes.lua`.")
     section("Turnuri, barăci, Ancient", ["npc_dota_tower", "npc_dota_barracks", "npc_dota_fort"],
             [("Clasă", C), ("Nume", N), ("Unitate", lambda e: e.get("mapunitname", "")),
              ("Echipă", lambda e: TEAM.get(e.get("teamnumber", ""), e.get("teamnumber"))), ("Poziție", pos)])
