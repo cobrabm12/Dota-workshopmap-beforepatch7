@@ -127,8 +127,23 @@ The **original 6.88 map** (decompiled from the December 2016 client and recompil
   Desolator, Blight Stone, Eye of Skadi). Eye of Skadi works together with lifesteal and with Liquid Fire; on
   buildings, where lifesteal and Skadi do nothing, Desolator applies.
 * **River Vials** are removed from the shop: in 6.88 they needed the 2016 Battle Pass and cannot be bought here.
+* **Quarterstaff, Stout Shield, Hood of Defiance, Necronomicon and Tome of Knowledge** can be bought again (the
+  current game marks them as removed).
+
+## Neutral creeps
+
+* Only **6.88 camps** spawn. Camps added after 6.88 (Warpine Raiders, Prowlers, Ice Shaman and Frostbitten
+  Golems, frogs) are replaced with a 6.88 camp of the same tier.
 
 ## Heroes
+
+* **Phantom Assassin:** Coup de Grace is a plain 15 % chance to crit for 230/340/450 % on the attack itself
+  (no Deadly Focus buff); Stifling Dagger shares the chance.
+* **Chaos Knight:** Phantasm has the 6.88 50 % chance of an extra phantasm without Aghanim's Scepter.
+* **Mechanics added after 6.88 removed from built‑in abilities:** Shadow Word hits one target, Gust does not reveal
+  invisible units, Insatiable Hunger has no spiderling aura, Amplify Damage leaves no puddles, Snowball does not
+  stun longer per ally, Stone Remnants give no attack damage, Grave Chill does not feed the Familiars, Spark
+  Wraith does not slow, Phase Shift cannot be used while rooted.
 
 * **15 heroes added after 6.88 are disabled:** Monkey King, Dark Willow, Pangolier, Grimstroke, Mars, Void Spirit,
   Snapfire, Hoodwink, Dawnbreaker, Marci, Primal Beast, Muerta, Ringmaster, Kez, Largo.
@@ -199,7 +214,6 @@ The **original 6.88 map** (decompiled from the December 2016 client and recompil
 * Lone Druid's bear leash (Scepter) is in C++ and cannot be reproduced.
 * A Chain Lightning proc cannot cancel the built‑in hero orbs (Frost Arrows, Liquid Fire, Mana Break) on that
   attack; it does cancel the item orb effects.
-* The engine can still spawn neutral camps added after 6.88 (Warpine Raiders, Prowlers, Ice Shaman camps, frogs).
 
 ---
 
