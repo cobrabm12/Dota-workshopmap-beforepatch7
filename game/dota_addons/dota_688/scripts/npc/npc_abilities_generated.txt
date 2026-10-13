@@ -124,6 +124,31 @@
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
 	}
+	"dota688_arc_warden_flux"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"1"
+		"AbilityCastRange"		"600 700 800 900"
+		"AbilityCastPoint"		"0.3 0.3 0.3 0.3"
+		"AbilityCooldown"		"18.0"
+		"AbilityManaCost"		"75"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_arc_warden_flux"
+		"AbilityTextureName"		"arc_warden_flux"
+		"AbilityValues"
+		{
+			"duration"		"6.0"
+			"damage_per_second"		"15 30 45 60"
+			"search_radius"		"225"
+			"think_interval"		"0.5"
+			"move_speed_slow_pct"		"20 30 40 50"
+			"cast_range_tooltip"		"600 700 800 900"
+		}
+	}
 	"dota688_attribute_bonus"
 	{
 		"AbilityType"		"ABILITY_TYPE_ATTRIBUTES"
@@ -862,6 +887,25 @@
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
 	}
+	"dota688_dark_seer_surge"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ALLIES_YES"
+		"AbilityCastRange"		"600"
+		"AbilityCastPoint"		"0.4"
+		"AbilityCooldown"		"12.0 11.0 10.0 9.0"
+		"AbilityManaCost"		"50"
+		"AbilityModifierSupportValue"		"2.5"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_dark_seer_surge"
+		"AbilityTextureName"		"dark_seer_surge"
+		"AbilityValues"
+		{
+			"duration"		"3.0 4.5 6.0 7.5"
+		}
+	}
 	"dota688_dark_seer_wall_of_replica"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT"
@@ -1178,6 +1222,22 @@
 		}
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
+	}
+	"dota688_elder_titan_natural_order"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_elder_titan_natural_order"
+		"AbilityTextureName"		"elder_titan_natural_order"
+		"AbilityValues"
+		{
+			"radius"		"275 275 275 275"
+			"armor_reduction_pct"		"40 60 80 100"
+			"magic_resistance_pct"		"12 19 26 33"
+		}
 	}
 	"dota688_enchantress_enchant"
 	{
@@ -2979,6 +3039,29 @@
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
 	}
+	"dota688_rattletrap_power_cogs"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityCastPoint"		"0.2"
+		"AbilityCooldown"		"15"
+		"AbilityManaCost"		"50 60 70 80"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_rattletrap_power_cogs"
+		"AbilityTextureName"		"rattletrap_power_cogs"
+		"AbilityValues"
+		{
+			"duration"		"5.0 6.0 7.0 8.0"
+			"drain_amount"		"80 120 160 200"
+			"attacks_to_destroy"		"2 2 2 3"
+			"push_length"		"250"
+			"push_duration"		"0.85"
+			"cogs_radius"		"215"
+			"trigger_distance"		"170"
+			"extra_pull_buffer"		"-10"
+		}
+	}
 	"dota688_razor_eye_of_the_storm"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -3269,6 +3352,28 @@
 			"bonus_damage_taken"		"20 30 40 50"
 			"radius"		"450 450 450 450"
 			"tooltip_duration"		"12.0 12.0 12.0 12.0"
+		}
+	}
+	"dota688_shredder_whirling_death"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"1"
+		"AbilityCastRange"		"300"
+		"AbilityCastPoint"		"0.0 0.0 0.0 0.0"
+		"AbilityCooldown"		"6"
+		"AbilityManaCost"		"70"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_shredder_whirling_death"
+		"AbilityTextureName"		"shredder_whirling_death"
+		"AbilityValues"
+		{
+			"whirling_radius"		"300"
+			"whirling_damage"		"100 150 200 250"
+			"whirling_tick"		"0.3"
+			"stat_loss_pct"		"15"
+			"duration"		"14.0"
 		}
 	}
 	"dota688_silencer_glaives_of_wisdom"
@@ -3739,6 +3844,25 @@
 			"partial_damage"		"260 300 340 380"
 			"respawn_time_percentage"		"0.5"
 			"respawn_time_percentage_tooltip"		"50"
+		}
+	}
+	"dota688_templar_assassin_refraction"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityCastPoint"		"0.0 0.0 0.0 0.0"
+		"AbilityCooldown"		"17.0 17.0 17.0 17.0"
+		"AbilityManaCost"		"100"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_templar_assassin_refraction"
+		"AbilityTextureName"		"templar_assassin_refraction"
+		"AbilityValues"
+		{
+			"instances"		"3 4 5 6"
+			"bonus_damage"		"20 40 60 80"
+			"damage_threshold"		"5 5 5 5"
+			"duration"		"17.0 17.0 17.0 17.0"
 		}
 	}
 	"dota688_terrorblade_reflection"
@@ -4296,6 +4420,33 @@
 			"radius"		"300 300 300 300"
 			"duration"		"3 4 5 6"
 		}
+	}
+	"dota688_winter_wyvern_winters_curse"
+	{
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"		"2"
+		"AbilityCastRange"		"800"
+		"AbilityCastPoint"		"0.3 0.3 0.3 0.3"
+		"AbilityCooldown"		"80"
+		"AbilityManaCost"		"250"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_winter_wyvern_winters_curse"
+		"AbilityTextureName"		"winter_wyvern_winters_curse"
+		"AbilityValues"
+		{
+			"radius"		"500"
+			"damage_reduction"		"100"
+			"damage_amplification"		"0"
+			"bonus_attack_speed"		"70"
+			"duration"		"3.25 4 4.75"
+		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"dota688_wisp_overcharge"
 	{

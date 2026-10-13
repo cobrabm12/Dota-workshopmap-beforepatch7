@@ -260,6 +260,7 @@ function Dota688:DamageFilter(ev)
 end
 
 function Dota688:ModifierGainedFilter(ev)
+	Dota688Extras.ModifierGained(ev)   -- BKB: imunitate la vraji (6.88)
 	if not Dota688Runes:ModifierGainedFilter(ev) then return false end
 	return Dota688Buildings:ModifierGainedFilter(ev)
 end
