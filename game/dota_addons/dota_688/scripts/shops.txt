@@ -138,7 +138,7 @@
 		"item"		"item_lesser_crit"
 		"item"		"item_dota688_armlet"
 		"item"		"item_invis_sword"
-		"item"		"item_basher"
+		"item"		"item_dota688_basher"
 		"item"		"item_dota688_bfury"
 		"item"		"item_dota688_ethereal_blade"
 		"item"		"item_dota688_silver_edge"

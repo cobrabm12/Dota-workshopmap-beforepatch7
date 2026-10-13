@@ -146,5 +146,7 @@
  "item_dota688_stout_shield": 20144,
  "item_dota688_vanguard": 20145,
  "item_recipe_dota688_poor_mans_shield": 20146,
- "item_recipe_dota688_vanguard": 20147
+ "item_recipe_dota688_vanguard": 20147,
+ "item_dota688_basher": 20148,
+ "item_recipe_dota688_basher": 20149
 }

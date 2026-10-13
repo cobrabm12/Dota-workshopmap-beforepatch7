@@ -281,4 +281,12 @@ Audit cu agenți: 229 de abilități built‑in cu descrierea schimbată față 
 
 Crash‑uri văzute în teste: doar la ștergerea forțată (`UTIL_Remove`) a unui erou în mijlocul unei abilități built‑in (Timbersaw după Timber Chain + Chakram, Earth Spirit cu Boulder Smash în zbor). Reprodus și fără codul addon‑ului (fără Whirling Death Lua), deci al motorului; într‑un meci eroii nu sunt șterși.
 
-Rămase: Meepo (clonele împart toate itemele), Boulder Smash pe Stone Remnant neconfirmat în test (bolovanul nu a atins ținta), Skull Basher pe Troll (de verificat), Bottle și Smoke (incerte).
+Rezolvate apoi (aceeași seară):
+
+| Ce | Rezultat testat |
+|---|---|
+| Meepo | motorul punea pe clonă pasivele tuturor itemelor (Claymore +21, Desolator, Skadi); acum doar cizmele. Share‑ul de 20 % nu ajungea pe clone (npc_spawned vine înainte de IsClone); clona: 49/43/37 = bază + Attribute Bonus + Power Treads + 20 % din Skadi, fără daunele Desolator / Claymore |
+| Boulder Smash pe Stone Remnant | lovit pe teren lângă remnant (ținta directă e refuzată, remnant‑ul e invulnerabil): Sven pe traiectorie −150 și stun |
+| Skull Basher | built‑in‑ul dădea bash pe Troll (4 în 15 s); Lua: pe Troll doar bash‑ul lui, pe Sven bash‑ul itemului |
+| Bottle | motorul umple Bottle‑ul la 3 când stochezi runa, ca în 6.88; nimic de schimbat |
+| Smoke | invizibilitatea nu se vede cu True Sight și în 6.88; nimic de schimbat |
