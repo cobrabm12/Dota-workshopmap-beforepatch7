@@ -63,18 +63,30 @@ function Dota688ManaRegenFromPct(unit, pct)
 end
 
 -- Damage block (6.88): doar pe atacuri, iar sursele nu se cumuleaza (se aplica cea mai mare). Sursele Lua: Crimson Guard activ (55),
--- Abyssal Blade (40/20), Crimson Guard pasiv (32/16). Stout Shield / PMS / Vanguard sunt built-in si nu pot fi coordonate de aici.
+-- Abyssal Blade (40/20), Crimson Guard pasiv si Vanguard (32/16), Poor Man's Shield (20/10: mereu contra eroilor, 53% contra restului),
+-- Stout Shield (16/8, 50%). O sursa cu sansa ("chance") al carei zar a picat nu conteaza: castiga urmatoarea ca valoare.
 local BLOCK_SOURCES = {
 	{ mod = "modifier_dota688_crimson_active", melee = "block_damage_melee_active", ranged = "block_damage_ranged_active" },
 	{ item = "item_dota688_abyssal_blade", melee = "block_damage_melee", ranged = "block_damage_ranged" },
 	{ item = "item_dota688_crimson_guard", melee = "block_damage_melee", ranged = "block_damage_ranged" },
+	{ item = "item_dota688_vanguard", melee = "block_damage_melee", ranged = "block_damage_ranged" },
+	{ item = "item_dota688_poor_mans_shield", melee = "damage_block_melee", ranged = "damage_block_ranged",
+		chance = "block_chance", chanceHero = "block_chance_hero", prd = DOTA_PSEUDO_RANDOM_ITEM_PMS },
+	{ item = "item_dota688_stout_shield", melee = "damage_block_melee", ranged = "damage_block_ranged",
+		chance = "block_chance", prd = DOTA_PSEUDO_RANDOM_ITEM_STOUT },
 }
-function Dota688DamageBlock(parent, params, sourceKey, mine)
-	if not IsServer() or params.damage_type ~= DAMAGE_TYPE_PHYSICAL or params.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK then return 0 end
-	if bit.band(params.damage_flags or 0, DOTA_DAMAGE_FLAG_HPLOSS) ~= 0 then return 0 end
+-- Castigatorul se alege o singura data pe lovitura (fiecare modifier de block cheama helper-ul, dar zarurile se dau o data):
+-- sursele in ordinea valorii, prima care reuseste castiga. Block-ul se plateste o singura data, chiar daca unitatea are
+-- doua iteme identice (doua Stout Shield / doua Vanguard: fiecare are modifier-ul lui, MULTIPLE).
+local function BlockWinner(parent, params)
+	local att = params.attacker
+	if att and att:IsNull() then att = nil end
+	local key = GetFrameCount() .. ":" .. (att and att:entindex() or -1) .. ":" .. tostring(params.record or "")
+	local c = parent.dota688_block
+	if c and c.key == key then return c end
 	local ranged = parent:IsRangedAttacker()
-	local bestKey, bestV
-	for _, src in ipairs(BLOCK_SOURCES) do
+	local list = {}
+	for i, src in ipairs(BLOCK_SOURCES) do
 		local a
 		if src.mod then
 			local m = parent:FindModifierByName(src.mod)
@@ -83,11 +95,29 @@ function Dota688DamageBlock(parent, params, sourceKey, mine)
 			a = parent:FindItemInInventory(src.item)
 		end
 		if a and not a:IsNull() then
-			local v = a:GetSpecialValueFor(ranged and src.ranged or src.melee)
-			if not bestV or v > bestV then bestKey, bestV = src.mod or src.item, v end
+			table.insert(list, { i = i, src = src, a = a, v = a:GetSpecialValueFor(ranged and src.ranged or src.melee) })
 		end
 	end
-	if bestKey ~= sourceKey then return 0 end
+	table.sort(list, function(x, y) if x.v ~= y.v then return x.v > y.v end return x.i < y.i end)
+	c = { key = key }
+	for _, e in ipairs(list) do
+		local ok = true
+		if e.src.chance then
+			local pct = e.a:GetSpecialValueFor(e.src.chance)
+			if e.src.chanceHero and att and att:IsHero() then pct = e.a:GetSpecialValueFor(e.src.chanceHero) end
+			ok = pct >= 100 or (pct > 0 and RollPseudoRandomPercentage(pct, e.src.prd, parent))
+		end
+		if ok then c.winner = e.src.mod or e.src.item; break end
+	end
+	parent.dota688_block = c
+	return c
+end
+function Dota688DamageBlock(parent, params, sourceKey, mine)
+	if not IsServer() or params.damage_type ~= DAMAGE_TYPE_PHYSICAL or params.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK then return 0 end
+	if bit.band(params.damage_flags or 0, DOTA_DAMAGE_FLAG_HPLOSS) ~= 0 then return 0 end
+	local c = BlockWinner(parent, params)
+	if c.winner ~= sourceKey or c.paid then return 0 end
+	c.paid = true
 	return -math.min(mine, params.damage)
 end
 

@@ -126,6 +126,9 @@ The **original 6.88 map** (decompiled from the December 2016 client and recompil
   Orb, Caustic Finale), then the oldest item (Morbid Mask, Mask of Madness, Satanic, Helm of the Dominator,
   Desolator, Blight Stone, Eye of Skadi). Eye of Skadi works together with lifesteal and with Liquid Fire; on
   buildings, where lifesteal and Skadi do nothing, Desolator applies.
+* **Black King Bar** gives 6.88 spell immunity again (the current item only gives debuff immunity).
+* **Stout Shield, Poor Man's Shield and Vanguard** follow the 6.88 damage block rule with Crimson Guard and Abyssal
+  Blade: only the highest block applies. **Healing Salve** heals allies fully.
 * **River Vials** are removed from the shop: in 6.88 they needed the 2016 Battle Pass and cannot be bought here.
 * **Quarterstaff, Stout Shield, Hood of Defiance, Necronomicon and Tome of Knowledge** can be bought again (the
   current game marks them as removed).
@@ -140,6 +143,17 @@ The **original 6.88 map** (decompiled from the December 2016 client and recompil
 * **Phantom Assassin:** Coup de Grace is a plain 15 % chance to crit for 230/340/450 % on the attack itself
   (no Deadly Focus buff); Stifling Dagger shares the chance.
 * **Chaos Knight:** Phantasm has the 6.88 50 % chance of an extra phantasm without Aghanim's Scepter.
+* **Abilities whose mechanics changed after 6.88, restored:** Epicenter (2 s channel, cancelled by a stun),
+  Rolling Boulder (no stun; slow only through a Stone Remnant), Void (mini‑stun by day too), Battle Hunger (magic
+  damage, slow regardless of facing, +12 % speed for Axe per target, ends on a kill), Enchant (no dispel), Echo Slam
+  (one echo per enemy), Phantom Rush (passive), Whirling Death (pure damage when a tree is cut), Refraction
+  (instances of 5+ damage), Winter's Curse (no dispel, Wyvern cannot damage the target), Flux (fully muted near
+  another unit), Surge (522 speed, no phasing), Power Cogs (Clockwerk trapped too, one hit from him kills a cog),
+  Natural Order (follows the hero and the Astral Spirit), Homing Missile (damage grows with distance), Stone Gaze
+  (petrified units take no magic damage, petrified illusions die), Wind Walk (ends when Clinkz casts), Blade Fury
+  (spell immunity), Boulder Smash (a smashed Stone Remnant stuns), Devour (digestion HP / 20 s), Frostbite and
+  Frost Arrows (longer on creeps), Familiars (one charge per 15 s, full in Stone Form), Spark Wraith (purge), Waning
+  Rift (no target), Mana Drain (enemies only).
 * **Mechanics added after 6.88 removed from built‑in abilities:** Shadow Word hits one target, Gust does not reveal
   invisible units, Insatiable Hunger has no spiderling aura, Amplify Damage leaves no puddles, Snowball does not
   stun longer per ally, Stone Remnants give no attack damage, Grave Chill does not feed the Familiars, Spark
@@ -212,6 +226,7 @@ The **original 6.88 map** (decompiled from the December 2016 client and recompil
 * The 6.82–6.88 networth "comeback" component of kill gold and the 6.88 illusion kill bounty rules are
   approximated (see `docs/REGULI_6.88.md`, marked TODO).
 * Lone Druid's bear leash (Scepter) is in C++ and cannot be reproduced.
+* Meepo's clones share all of Meepo's items (6.88: only boots); not yet changed.
 * A Chain Lightning proc cannot cancel the built‑in hero orbs (Frost Arrows, Liquid Fire, Mana Break) on that
   attack; it does cancel the item orb effects.
 

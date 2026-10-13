@@ -59,21 +59,6 @@
 		}
 		"HasShardUpgrade"		"0"
 	}
-	"axe_battle_hunger"
-	{
-		"AbilityCastRange"		"750"
-		"AbilityManaCost"		"75"
-		"AbilityDamage"		"16 24 32 40"
-		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
-		"AbilityValues"
-		{
-			"damage_per_second"		"16 24 32 40"
-			"duration"		"10.0"
-			"slow"		"12"
-			"speed_bonus"		"12"
-		}
-		"HasShardUpgrade"		"0"
-	}
 	"bane_brain_sap"
 	{
 		"AbilityCastPoint"		"0.5 0.5 0.5 0.5"
@@ -168,22 +153,6 @@
 			"aftershock_range"		"300"
 			"tooltip_duration"		"0.6 0.9 1.2 1.5"
 		}
-	}
-	"earthshaker_echo_slam"
-	{
-		"AbilityManaCost"		"145 205 265"
-		"AbilityDamage"		"160 210 270"
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"150.0 130.0 110.0"
-			"echo_slam_initial_damage"		"160 210 270"
-			"echo_slam_damage_range"		"600"
-			"echo_slam_echo_search_range"		"600"
-			"echo_slam_echo_range"		"600"
-			"echo_slam_echo_damage"		"40 55 70"
-		}
-		"RequiredLevel"		"6"
-		"LevelsBetweenUpgrades"		"5"
 	}
 	"juggernaut_blade_dance"
 	{
@@ -479,17 +448,6 @@
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
 	}
-	"phantom_lancer_phantom_edge"
-	{
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"16 12 8 4"
-			"min_distance"		"300"
-			"max_distance"		"600 700 800 900"
-			"evasion"		"0"
-		}
-		"HasScepterUpgrade"		"0"
-	}
 	"puck_illusory_orb"
 	{
 		"AbilityCastRange"		"3000"
@@ -514,6 +472,7 @@
 			"silence_duration"		"0.75 1.5 2.25 3.0"
 			"max_distance"		"0"
 		}
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	}
 	"puck_phase_shift"
 	{
@@ -759,27 +718,6 @@
 			"ball_lightning_travel_cost_base"		"12"
 			"ball_lightning_travel_cost_percent"		"0.7"
 		}
-		"RequiredLevel"		"6"
-		"LevelsBetweenUpgrades"		"5"
-	}
-	"sandking_epicenter"
-	{
-		"AbilityCastPoint"		"0.0 0.0 0.0 0.0"
-		"AbilityDuration"		"3.0 3.0 3.0"
-		"AbilityChannelTime"		"2.0 2.0 2.0"
-		"AbilityValues"
-		{
-			"epicenter_radius"		"275 325 375 425 475 525 575 650 675 700"
-			"epicenter_pulses"		"6 8 10"
-			"epicenter_damage"		"110 110 110"
-			"epicenter_slow"		"-30 -30 -30"
-			"epicenter_slow_as"		"-30"
-			"epicenter_slow_duration_tooltip"		"3"
-			"epicenter_radius_base"		"275"
-			"epicenter_radius_increment"		"47"
-		}
-		"HasShardUpgrade"		"0"
-		"HasScepterUpgrade"		"0"
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
 	}
@@ -1450,17 +1388,6 @@
 			"tooltip_range"		"1000 1000 1000 1000"
 		}
 	}
-	"templar_assassin_refraction"
-	{
-		"AbilityCooldown"		"17.0 17.0 17.0 17.0"
-		"AbilityManaCost"		"100"
-		"AbilityValues"
-		{
-			"bonus_damage"		"20 40 60 80"
-			"damage_threshold"		"5 5 5 5"
-		}
-		"HasShardUpgrade"		"0"
-	}
 	"templar_assassin_meld"
 	{
 		"AbilityCooldown"		"6"
@@ -1640,23 +1567,6 @@
 		"AbilityCooldown"		"32.0 28.0 24.0 20.0"
 		"AbilityManaCost"		"75 75 75 75"
 		"AbilityDamage"		"20 45 70 95"
-	}
-	"rattletrap_power_cogs"
-	{
-		"AbilityManaCost"		"50 60 70 80"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"15"
-			"drain_amount"		"80 120 160 200"
-			"attacks_to_destroy"		"2 2 2 3"
-			"push_length"		"250"
-			"push_duration"		"0.85"
-			"trigger_distance"		"170"
-			"damage"		"80 120 160 200"
-			"mana_burn"		"80 120 160 200"
-			"mana_burn_as_damage_pct"		"0"
-		}
 	}
 	"rattletrap_rocket_flare"
 	{
@@ -1862,15 +1772,6 @@
 			"duration"		"25"
 		}
 	}
-	"dark_seer_surge"
-	{
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"12.0 11.0 10.0 9.0"
-			"duration"		"3.0 4.5 6.0 7.5"
-		}
-		"HasShardUpgrade"		"0"
-	}
 	"clinkz_searing_arrows"
 	{
 		"AbilityValues"
@@ -1911,24 +1812,6 @@
 			"slow_attack_speed"		"-40 -70 -100 -130"
 		}
 		"AbilityType"		"ABILITY_TYPE_BASIC"
-	}
-	"enchantress_enchant"
-	{
-		"AbilityCastRange"		"700"
-		"AbilityManaCost"		"65 65 65 65"
-		"AbilityDuration"		"5.5 5.5 5.5 5.5"
-		"AbilityValues"
-		{
-			"slow_duration"		"5.5 5.5 5.5 5.5"
-			"dominate_duration"		"80.0"
-			"slow_movement_speed"		"-20 -30 -40 -50"
-			"tooltip_duration"		"5.5 5.5 5.5 5.5"
-			"attack_range_bonus"		"0"
-			"enchant_health"		"0"
-			"enchant_damage"		"0"
-			"xp_gain_pct"		"0"
-		}
-		"HasScepterUpgrade"		"0"
 	}
 	"enchantress_natures_attendants"
 	{
@@ -1981,19 +1864,6 @@
 			"burn_damage"		"5 10 15 20"
 			"burn_damage_max_pct"		"0"
 		}
-	}
-	"night_stalker_void"
-	{
-		"AbilityManaCost"		"80 90 100 110"
-		"AbilityDamage"		"90 160 255 335"
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"8 8 8 8"
-			"damage"		"90 160 255 335"
-			"duration_day"		"2.0 2.0 2.0 2.0"
-			"duration_night"		"2.5 3 3.5 4"
-		}
-		"HasShardUpgrade"		"0"
 	}
 	"broodmother_spawn_spiderlings"
 	{
@@ -2286,6 +2156,7 @@
 			"bonus_gold"		"25 50 75 100"
 			"health_per_second"		"20 20 20 20"
 			"hero_ability_steal_time"		"99999"
+			"creep_level"		"99"
 		}
 		"HasShardUpgrade"		"0"
 	}
@@ -3540,21 +3411,6 @@
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
 	}
-	"shredder_whirling_death"
-	{
-		"AbilityCastRange"		"300"
-		"AbilityCooldown"		"6"
-		"AbilityManaCost"		"70"
-		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
-		"AbilityValues"
-		{
-			"whirling_radius"		"300"
-			"whirling_damage"		"100 150 200 250"
-			"stat_loss_pct"		"15"
-			"duration"		"14.0"
-			"tree_damage_scale"		"0"
-		}
-	}
 	"shredder_timber_chain"
 	{
 		"AbilityValues"
@@ -3777,15 +3633,6 @@
 		}
 		"HasScepterUpgrade"		"0"
 	}
-	"elder_titan_natural_order"
-	{
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityValues"
-		{
-			"radius"		"275 275 275 275"
-			"magic_resistance_pct"		"12 19 26 33"
-		}
-	}
 	"ember_spirit_searing_chains"
 	{
 		"AbilityCooldown"		"14.0 12.0 10.0 8.0"
@@ -3861,22 +3708,6 @@
 			"rock_damage"		"50 100 150 200"
 			"stun_duration"		"0.75 1.25 1.75 2.25"
 			"move_slow"		"0"
-		}
-	}
-	"earth_spirit_rolling_boulder"
-	{
-		"AbilityCastPoint"		"0.01"
-		"AbilityValues"
-		{
-			"radius"		"150"
-			"speed"		"800"
-			"rock_distance"		"1600.0"
-			"damage"		"100"
-			"move_slow"		"80"
-			"slow_duration"		"1.4 1.6 1.8 2.0"
-			"damage_str"		"0"
-			"stun_duration"		"0"
-			"rock_bonus_duration"		"0"
 		}
 	}
 	"earth_spirit_geomagnetic_grip"
@@ -4571,33 +4402,6 @@
 		}
 		"HasShardUpgrade"		"0"
 	}
-	"winter_wyvern_winters_curse"
-	{
-		"AbilityCooldown"		"80"
-		"AbilityManaCost"		"250"
-		"AbilityValues"
-		{
-			"radius"		"500"
-			"damage_amplification"		"0"
-			"bonus_attack_speed"		"70"
-			"duration"		"3.25 4 4.75"
-			"bonus_duration_per_hero"		"0"
-			"bonus_duration_per_creep"		"0"
-		}
-		"RequiredLevel"		"6"
-		"LevelsBetweenUpgrades"		"5"
-	}
-	"arc_warden_flux"
-	{
-		"AbilityCooldown"		"18.0"
-		"AbilityValues"
-		{
-			"AbilityCastRange"		"600 700 800 900"
-			"move_speed_slow_pct"		"20 30 40 50"
-			"cast_range_tooltip"		"600 700 800 900"
-		}
-		"HasScepterUpgrade"		"0"
-	}
 	"arc_warden_magnetic_field"
 	{
 		"AbilityManaCost"		"110"
@@ -4740,14 +4544,8 @@
 	}
 	"item_stout_shield"
 	{
-		"ItemCost"		"200"
-		"SideShop"		"1"
-		"AbilityValues"
-		{
-			"damage_block_melee"		"16"
-		}
-		"IsObsolete"		"0"
-		"ItemPurchasable"		"1"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_moon_shard"
 	{
@@ -4940,16 +4738,12 @@
 	}
 	"item_flask"
 	{
-		"ItemCost"		"110"
-		"ItemShopTags"		"consumable"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 		"AbilityValues"
 		{
-			"buff_duration"		"8"
 			"health_regen"		"50"
 		}
-		"ItemStockMax"		"0"
-		"ItemStockInitial"		"0"
-		"ItemStockTime"		"0"
 		"AbilityDuration"		"8"
 	}
 	"item_dust"
@@ -5199,26 +4993,14 @@
 	}
 	"item_recipe_poor_mans_shield"
 	{
-		"ItemRequirements"
-		{
-			"01"		"item_slippers;item_slippers;item_stout_shield"
-		}
-		"IsObsolete"		"0"
-		"ItemPurchasable"		"1"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+		"ItemCost"		"99999"
 	}
 	"item_poor_mans_shield"
 	{
-		"ItemCost"		"500"
-		"AbilityValues"
-		{
-			"bonus_agility"		"6"
-			"damage_block_melee"		"20"
-			"damage_block_ranged"		"10"
-			"block_chance"		"53"
-		}
-		"ItemPurchasable"		"1"
-		"ItemIsNeutralActiveDrop"		"0"
-		"ItemSellable"		"1"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_bracer"
 	{
@@ -5624,6 +5406,7 @@
 			"refresh_items"		"1"
 		}
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"CooldownPausedOutOfInventory"		"0"
 	}
 	"item_recipe_assault"
 	{
@@ -5721,23 +5504,18 @@
 	}
 	"item_recipe_vanguard"
 	{
-		"ItemRequirements"
-		{
-			"01"		"item_ring_of_health;item_vitality_booster;item_stout_shield"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+		"ItemCost"		"99999"
 	}
 	"item_vanguard"
 	{
-		"ItemCost"		"2150"
-		"ItemShopTags"		"regen_health;block;health_pool"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 		"AbilityValues"
 		{
-			"bonus_health_regen"		"8"
-			"block_damage_melee"		"32"
-			"block_damage_ranged"		"16"
 			"block_chance"		"100"
 		}
-		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"
 	}
 	"item_recipe_crimson_guard"
 	{
@@ -5773,6 +5551,7 @@
 			"passive_reflection_pct"		"0"
 			"active_reflection_pct"		"100"
 		}
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	}
 	"item_recipe_soul_booster"
 	{
@@ -5851,8 +5630,10 @@
 			"aura_radius"		"700"
 			"evasion"		"0"
 			"aura_damage_illusions"		"0"
+			"upgrade_day_vision"		"0"
 		}
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 	}
 	"item_recipe_butterfly"
 	{
@@ -6871,6 +6652,23 @@
 			"percentage_damage"		"0"
 		}
 	}
+	"rattletrap_power_cogs"
+	{
+		"AbilityValues"
+		{
+			"damage"		"80 120 160 200"
+			"mana_burn"		"80 120 160 200"
+			"mana_burn_as_damage_pct"		"0"
+		}
+	}
+	"sandking_epicenter"
+	{
+		"AbilityValues"
+		{
+			"epicenter_radius_base"		"275"
+			"epicenter_radius_increment"		"47"
+		}
+	}
 	"venomancer_poison_nova"
 	{
 		"AbilityValues"
@@ -6884,6 +6682,45 @@
 		"AbilityValues"
 		{
 			"damage_per_second"		"12.5 20 32"
+		}
+	}
+	"phantom_lancer_phantom_edge"
+	{
+		"AbilityValues"
+		{
+			"evasion"		"0"
+		}
+	}
+	"shredder_whirling_death"
+	{
+		"AbilityValues"
+		{
+			"tree_damage_scale"		"0"
+		}
+	}
+	"winter_wyvern_winters_curse"
+	{
+		"AbilityValues"
+		{
+			"bonus_duration_per_hero"		"0"
+			"bonus_duration_per_creep"		"0"
+		}
+	}
+	"earth_spirit_rolling_boulder"
+	{
+		"AbilityValues"
+		{
+			"damage_str"		"0"
+		}
+	}
+	"enchantress_enchant"
+	{
+		"AbilityValues"
+		{
+			"attack_range_bonus"		"0"
+			"enchant_health"		"0"
+			"enchant_damage"		"0"
+			"xp_gain_pct"		"0"
 		}
 	}
 	"centaur_stampede"

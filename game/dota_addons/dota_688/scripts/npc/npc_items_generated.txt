@@ -680,6 +680,31 @@
 			"projectile_speed"		"1200"
 		}
 	}
+	"item_dota688_flask"
+	{
+		"ID"		"20142"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+		"Model"		"models/props_gameplay/salve.vmdl"
+		"AbilityCastRange"		"250"
+		"AbilityCastPoint"		"0.0"
+		"ItemCost"		"110"
+		"ItemShopTags"		"consumable"
+		"ItemQuality"		"consumable"
+		"ItemAliases"		"healing salve"
+		"ItemStackable"		"1"
+		"ItemPermanent"		"0"
+		"ItemInitialCharges"		"1"
+		"BaseClass"		"item_lua"
+		"ScriptFile"		"items/item_dota688_flask"
+		"AbilityTextureName"		"item_flask"
+		"AbilityValues"
+		{
+			"buff_duration"		"8"
+			"total_health"		"400"
+		}
+	}
 	"item_dota688_force_staff"
 	{
 		"ID"		"20022"
@@ -1331,6 +1356,26 @@
 			"barrier_block_creep"		"400"
 		}
 	}
+	"item_dota688_poor_mans_shield"
+	{
+		"ID"		"20143"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemCost"		"500"
+		"ItemShopTags"		"agi;block"
+		"ItemQuality"		"common"
+		"ItemAliases"		"pms;poor man's shield"
+		"BaseClass"		"item_lua"
+		"ScriptFile"		"items/item_dota688_poor_mans_shield"
+		"AbilityTextureName"		"item_poor_mans_shield"
+		"AbilityValues"
+		{
+			"bonus_agility"		"6"
+			"damage_block_melee"		"20"
+			"damage_block_ranged"		"10"
+			"block_chance"		"53"
+			"block_chance_hero"		"100"
+		}
+	}
 	"item_dota688_power_treads"
 	{
 		"ID"		"20047"
@@ -1792,6 +1837,26 @@
 			"block_cooldown"		"13.0"
 		}
 	}
+	"item_dota688_stout_shield"
+	{
+		"ID"		"20144"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"		"models/props_gameplay/stout_shield.vmdl"
+		"ItemCost"		"200"
+		"ItemShopTags"		"block"
+		"ItemQuality"		"component"
+		"ItemAliases"		"stout shield"
+		"SideShop"		"1"
+		"BaseClass"		"item_lua"
+		"ScriptFile"		"items/item_dota688_stout_shield"
+		"AbilityTextureName"		"item_stout_shield"
+		"AbilityValues"
+		{
+			"damage_block_melee"		"16"
+			"damage_block_ranged"		"8"
+			"block_chance"		"50"
+		}
+	}
 	"item_dota688_tango"
 	{
 		"ID"		"20065"
@@ -1996,6 +2061,26 @@
 			"soul_release_range_tooltip"		"950"
 		}
 	}
+	"item_dota688_vanguard"
+	{
+		"ID"		"20145"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemCost"		"2150"
+		"ItemShopTags"		"regen_health;block;health_pool"
+		"ItemQuality"		"epic"
+		"ItemAliases"		"vanguard"
+		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"BaseClass"		"item_lua"
+		"ScriptFile"		"items/item_dota688_vanguard"
+		"AbilityTextureName"		"item_vanguard"
+		"AbilityValues"
+		{
+			"bonus_health"		"250"
+			"bonus_health_regen"		"8"
+			"block_damage_melee"		"32"
+			"block_damage_ranged"		"16"
+		}
+	}
 	"item_dota688_veil_of_discord"
 	{
 		"ID"		"20072"
@@ -2194,6 +2279,21 @@
 		"ItemRequirements"
 		{
 			"01"		"item_ring_of_health;item_void_stone"
+		}
+		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
+	}
+	"item_recipe_dota688_poor_mans_shield"
+	{
+		"ID"		"20146"
+		"Model"		"models/props_gameplay/recipe.vmdl"
+		"ItemCost"		"0"
+		"ItemShopTags"		""
+		"ItemRecipe"		"1"
+		"ItemResult"		"item_dota688_poor_mans_shield"
+		"ItemRequirements"
+		{
+			"01"		"item_slippers;item_slippers;item_dota688_stout_shield"
 		}
 		"AbilityTextureName"		"item_recipe"
 		"BaseClass"		"item_datadriven"
@@ -2587,6 +2687,21 @@
 		"AbilityTextureName"		"item_recipe"
 		"BaseClass"		"item_datadriven"
 	}
+	"item_recipe_dota688_vanguard"
+	{
+		"ID"		"20147"
+		"Model"		"models/props_gameplay/recipe.vmdl"
+		"ItemCost"		"0"
+		"ItemShopTags"		""
+		"ItemRecipe"		"1"
+		"ItemResult"		"item_dota688_vanguard"
+		"ItemRequirements"
+		{
+			"01"		"item_ring_of_health;item_vitality_booster;item_dota688_stout_shield"
+		}
+		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
+	}
 	"item_recipe_dota688_crimson_guard"
 	{
 		"ID"		"20109"
@@ -2597,7 +2712,7 @@
 		"ItemResult"		"item_dota688_crimson_guard"
 		"ItemRequirements"
 		{
-			"01"		"item_vanguard;item_dota688_buckler"
+			"01"		"item_dota688_vanguard;item_dota688_buckler"
 		}
 		"AbilityTextureName"		"item_recipe"
 		"BaseClass"		"item_datadriven"
@@ -3005,7 +3120,7 @@
 		"ItemResult"		"item_dota688_abyssal_blade"
 		"ItemRequirements"
 		{
-			"01"		"item_basher;item_vanguard"
+			"01"		"item_basher;item_dota688_vanguard"
 		}
 		"AbilityTextureName"		"item_recipe"
 		"BaseClass"		"item_datadriven"

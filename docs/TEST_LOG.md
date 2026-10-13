@@ -256,3 +256,29 @@ Până aici testele rulau în Workshop Tools, din fișierele proiectului. Testat
 | Phantom Assassin: indicator de crit deasupra | Coup de Grace curent dă „Deadly Focus” (critic garantat la atacul următor) | Coup de Grace în Lua (15 %, 230/340/450 %, direct pe atac). Testat: 16 % din atacuri critice, Stifling Dagger dă critic, fără Deadly Focus |
 | Abilități built‑in cu mecanici noi (audit cu 2 agenți pe 229 de descrieri schimbate) | chei ale motorului curent care adaugă efecte | reparate din valori și testate: Phantasm 3–4 iluzii, Hoof Stomp stun la 0,57 s (windup‑ul rămâne: e chiar întârzierea), plus Shadow Word, Gust, Insatiable Hunger, Amplify Damage, Snowball, Stone Caller, Grave Chill, Spark Wraith, Phase Shift. De refăcut în Lua: Epicenter (testat: fără channel, nu se mai întrerupe), Rolling Boulder (stun la coliziune), Astral (daunele în arie), Void, Battle Hunger, Enchant, Echo Slam și altele |
 | Test de fum după toate corecțiile (eroii 1–80 și 82–112) | – | 0 erori Lua |
+
+## 15. Mecanici built‑in schimbate după 6.88 (2026‑10‑13, seara)
+
+Audit cu agenți: 229 de abilități built‑in cu descrierea schimbată față de 6.88 și toate itemele built‑in din shop. Corecturi testate în Workshop Tools:
+
+| Abilitate / item | 6.88 | Rezultat testat |
+|---|---|---|
+| Epicenter (Lua) | channel 2 s, stun‑ul îl anulează | canalizează; stun la 1 s → fără pulsuri, cooldown consumat; complet → 856 daune + slow |
+| Rolling Boulder (Lua) | daune, fără stun; slow prin Stone Remnant | 70 daune după rezistență, fără stun, se oprește la erou; prin Stone Remnant → slow |
+| Void (Lua) | mini‑stun și ziua | 2 s ziua; întrerupe Freezing Field ziua |
+| Battle Hunger (Lua) | slow mereu, +12 % viteză Axe per țintă | Sven cu fața spre Axe 290 → 255; Axe +24 % cu 2 ținte; se termină la kill |
+| Enchant (Lua) | fără dispel pe eroi | creep controlat 80 s, apoi dispare |
+| Echo Slam (Lua) | un ecou per inamic | 213 inițial + 2 × 56 ecouri pe fiecare din 2 eroi |
+| Phantom Rush (Lua) | pasiv | 290 → 1090 viteză, țintă atinsă în 0,53 s |
+| Whirling Death (Lua) | pure dacă taie un copac | 200 magice fără copaci, 266 pure lângă copaci; −15 % STR |
+| Refraction (Lua) | instanțe de minim 5 daune | 4 daune trec fără consum; 100 blocate, o instanță |
+| Winter's Curse, Flux, Surge, Power Cogs, Natural Order (Lua, scrise de agenți) | vezi PATCH_NOTES | ținta înghețată și imună la echipa Wyvern, aliatul o atacă; Flux 0 slow lângă un aliat; Surge 522; Clockwerk și Sven rămân în cerc; Natural Order −33 % rezistență |
+| Homing Missile | daune după distanță | 56 la 300, 244 la 1000 |
+| Stone Gaze | 100 % rezistență la magie, iluziile mor | 100 magice → 0; iluzia moare |
+| Wind Walk, Blade Fury, Devour, BKB | vezi PATCH_NOTES | Strafe scoate invizibilitatea; Blade Fury imun la magie; Devour 55 s pe Centaur Khan (1100 HP); BKB: IsMagicImmune adevărat, Void și Hex nu se aplică |
+| Stout / PMS / Vanguard (Lua) + Healing Salve (Lua) | doar cel mai mare block; Salve întreg pe aliați | media daunelor pe atac: 70,2 fără, 61,0 Stout, 48,3 PMS, 38,4 Vanguard + Stout; Salve pe aliat +452 în 8 s |
+| Valori | chei moderne care adaugă efecte | Phantasm 3–4 iluzii; Hoof Stomp stun la 0,57 s |
+
+Crash‑uri văzute în teste: doar la ștergerea forțată (`UTIL_Remove`) a unui erou în mijlocul unei abilități built‑in (Timbersaw după Timber Chain + Chakram, Earth Spirit cu Boulder Smash în zbor). Reprodus și fără codul addon‑ului (fără Whirling Death Lua), deci al motorului; într‑un meci eroii nu sunt șterși.
+
+Rămase: Meepo (clonele împart toate itemele), Boulder Smash pe Stone Remnant neconfirmat în test (bolovanul nu a atins ținta), Skull Basher pe Troll (de verificat), Bottle și Smoke (incerte).
