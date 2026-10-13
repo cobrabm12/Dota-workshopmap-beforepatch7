@@ -8,6 +8,8 @@
 --   Reverse Polarity: creepii sunt stunati 3/4/5 s (eroii 2.25/3/3.75 s).
 --   Earth Brewling (Primal Split): Spell Immunity = imun la vraji (motorul curent da doar 60% rezistenta la magie).
 --   Frostbite: pe creepi tine 10 s (eroii 1.5-3 s); Frost Arrows: pe creepi 7 s (eroii 1.5 s).
+--   Spark Wraith: purge pe tinta (Dota688Extras.OnDamage, din DamageFilter).
+--   Mana Drain: nu se poate folosi pe aliati (Dota688Extras.OrderFilter).
 Dota688Extras = Dota688Extras or {}
 local F = "dota688/extras_688"
 LinkLuaModifier("modifier_dota688_extra_morph", F, LUA_MODIFIER_MOTION_NONE)
@@ -153,6 +155,27 @@ function modifier_dota688_extra_frost_arrows:OnAttackLanded(params)
 			if m:GetCaster() == caster and m:GetElapsedTime() < 0.2 then m:SetDuration(dur, true) end
 		end
 	end)
+end
+
+-- Mana Drain (6.88): doar pe inamici; abilitatea curenta poate tinti si aliati (cheia AbilityUnitTargetTeam e ignorata)
+function Dota688Extras.OrderFilter(ev)
+	if ev.order_type ~= DOTA_UNIT_ORDER_CAST_TARGET then return true end
+	local a = ev.entindex_ability and EntIndexToHScript(ev.entindex_ability)
+	local t = ev.entindex_target and EntIndexToHScript(ev.entindex_target)
+	if a and t and a.GetAbilityName and a:GetAbilityName() == "lion_mana_drain" and t:GetTeamNumber() == a:GetCaster():GetTeamNumber() then
+		return false
+	end
+	return true
+end
+
+-- Spark Wraith: purge pe tinta lovita (6.88: "dealing magical damage and purging the unit"); apelat din Dota688:DamageFilter
+function Dota688Extras.OnDamage(ev)
+	local inflictor = ev.entindex_inflictor_const and EntIndexToHScript(ev.entindex_inflictor_const)
+	if not inflictor or not inflictor.GetAbilityName or inflictor:GetAbilityName() ~= "arc_warden_spark_wraith" then return end
+	local victim = ev.entindex_victim_const and EntIndexToHScript(ev.entindex_victim_const)
+	if victim and not victim:IsNull() and victim:IsAlive() then
+		Dota688Timers:After(0, function() if not victim:IsNull() then victim:Purge(true, false, false, false, false) end end)
+	end
 end
 
 ------------------------------------------------------------------------------------------------

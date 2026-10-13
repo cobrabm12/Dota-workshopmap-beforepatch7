@@ -243,6 +243,7 @@ end
 function Dota688:OrderFilter(ev)
 	if MODERN_ORDERS[ev.order_type] then return false end
 	if not Dota688Buildings:OrderFilter(ev) then return false end
+	if not Dota688Extras.OrderFilter(ev) then return false end
 	Dota688Selection:OrderFilter(ev)
 	return Dota688Aghanim.OrderFilter(ev)
 end
@@ -254,6 +255,7 @@ end
 
 function Dota688:DamageFilter(ev)
 	Dota688UAM:OnDamage(ev)   -- Chain Lightning (Maelstrom / Mjollnir) = UAM conditional pe atacul curent
+	Dota688Extras.OnDamage(ev)   -- Spark Wraith: purge
 	return Dota688Buildings:DamageFilter(ev)
 end
 

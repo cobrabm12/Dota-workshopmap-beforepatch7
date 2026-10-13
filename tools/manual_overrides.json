@@ -436,7 +436,8 @@
     "damage_over_time_pct": "0"
   },
   "puck_waning_rift": {
-    "max_distance": "0"
+    "max_distance": "0",
+    "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   },
   "storm_spirit_static_remnant": {
     "is_point_targeted": "0"
@@ -724,5 +725,6 @@
     "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
   },
   "_comentariu_valori_motor_2026_10_13": "Chei ale motorului curent care adaugau efecte inexistente in 6.88: Phantasm cu 50% sansa fara Scepter, Shadow Word fara arie, Gust fara reveal, Insatiable Hunger fara aura, Amplify Damage fara balti, Snowball fara stun per aliat, Stone Remnant fara bonus de daune, Grave Chill fara Familiars, Spark Wraith fara slow, Phase Shift blocat de root.",
-  "_comentariu_hoof_stomp_windup": "Hoof Stomp: in motorul curent windup_time (0.5) este intarzierea (abilitatea e IMMEDIATE, cast point-ul nu se aplica); ramane 0.5 = cast point-ul 6.88. Testat: cu 0, stun dupa 0.1 s."
+  "_comentariu_hoof_stomp_windup": "Hoof Stomp: in motorul curent windup_time (0.5) este intarzierea (abilitatea e IMMEDIATE, cast point-ul nu se aplica); ramane 0.5 = cast point-ul 6.88. Testat: cu 0, stun dupa 0.1 s.",
+  "_comentariu_comportament_2026_10_13": "Comportament 6.88 redat prin cheie top-level: Waning Rift fara tinta (acum punct; max_distance 0 opreste teleportul). Phantom Edge ramane toggle (ca PASSIVE motorul nu mai declanseaza rush-ul; implicit e activ). Mana Drain pe aliati e blocat in Dota688Extras.OrderFilter (motorul ignora AbilityUnitTargetTeam)."
 }

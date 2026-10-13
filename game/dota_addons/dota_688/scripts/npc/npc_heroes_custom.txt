@@ -762,7 +762,7 @@
 		"BaseAttackSpeed"		"100"
 		"Ability1"		"phantom_lancer_spirit_lance"
 		"Ability2"		"phantom_lancer_doppelwalk"
-		"Ability3"		"phantom_lancer_phantom_edge"
+		"Ability3"		"dota688_phantom_lancer_phantom_edge"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
 		"Ability6"		"phantom_lancer_juxtapose"

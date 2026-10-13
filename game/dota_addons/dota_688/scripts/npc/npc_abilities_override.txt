@@ -448,17 +448,6 @@
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
 	}
-	"phantom_lancer_phantom_edge"
-	{
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"16 12 8 4"
-			"min_distance"		"300"
-			"max_distance"		"600 700 800 900"
-			"evasion"		"0"
-		}
-		"HasScepterUpgrade"		"0"
-	}
 	"puck_illusory_orb"
 	{
 		"AbilityCastRange"		"3000"
@@ -483,6 +472,7 @@
 			"silence_duration"		"0.75 1.5 2.25 3.0"
 			"max_distance"		"0"
 		}
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	}
 	"puck_phase_shift"
 	{
@@ -6793,6 +6783,13 @@
 		"AbilityValues"
 		{
 			"damage_per_second"		"12.5 20 32"
+		}
+	}
+	"phantom_lancer_phantom_edge"
+	{
+		"AbilityValues"
+		{
+			"evasion"		"0"
 		}
 	}
 	"earth_spirit_rolling_boulder"

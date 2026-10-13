@@ -2803,6 +2803,20 @@
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
 	}
+	"dota688_phantom_lancer_phantom_edge"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityCooldown"		"16 12 8 4"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_phantom_lancer_phantom_edge"
+		"AbilityTextureName"		"phantom_lancer_phantom_edge"
+		"AbilityValues"
+		{
+			"min_distance"		"300"
+			"max_distance"		"600 700 800 900"
+			"bonus_speed"		"800"
+		}
+	}
 	"dota688_puck_dream_coil"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
