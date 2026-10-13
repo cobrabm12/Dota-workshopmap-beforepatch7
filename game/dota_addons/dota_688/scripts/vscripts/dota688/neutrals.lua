@@ -8,8 +8,7 @@ local M = Dota688Neutrals
 function M:Init(gamemode)
 	self.gamemode = gamemode
 	Dota688SafeCall(GameRules, "SetNeutralInitialSpawnOffset", C.NEUTRAL_FIRST_SPAWN_OFFSET)
-	-- InitCamps() (inlocuirea camp-urilor moderne) e oprita: neutrii creati cu CreateUnitByName nu au AI-ul de camp
-	-- (testat 13.10.2026: nu riposteaza cand sunt atacati). De reluat cu o metoda care pastreaza AI-ul motorului.
+	self:InitCamps()
 end
 
 function M:OnHorn()
@@ -24,6 +23,8 @@ end
 -- Motorul curent alege la fiecare spawn un camp aleator de nivelul spawner-ului, inclusiv tipuri aparute dupa 6.88
 -- (Warpine Raiders, broaste, Prowlers, Ice Shaman + Frostbitten Golems la ancient). Un astfel de camp e sters in
 -- cadrul urmator si inlocuit cu un camp 6.88 de acelasi nivel (nivelurile vin din spawner-ele hartii 6.88).
+-- Neutrii creati cu CreateUnitByName pe DOTA_TEAM_NEUTRALS au AI-ul de camp al motorului (testat: riposteaza,
+-- urmaresc si se intorc la locul in care au aparut, ca neutrii motorului).
 M.MODERN = {
 	npc_dota_neutral_warpine_raider = true, npc_dota_neutral_prowler_acolyte = true, npc_dota_neutral_prowler_shaman = true,
 	npc_dota_neutral_ice_shaman = true, npc_dota_neutral_frostbitten_golem = true,
@@ -86,7 +87,8 @@ function M:OnNPCSpawned(ev)
 	table.insert(self.pending, u)
 	if not self.replaceQueued then
 		self.replaceQueued = true
-		Dota688Timers:After(0, function() M:ReplaceModernCamps() end)
+		-- motorul creeaza unitatile unui camp in cadre diferite: asteptam sa apara tot camp-ul
+		Dota688Timers:After(0.5, function() M:ReplaceModernCamps() end)
 	end
 end
 
@@ -114,15 +116,22 @@ function M:ReplaceModernCamps()
 		end
 	end
 	self.pending = {}
+	local now = GameRules:GetGameTime()
 	for s, units in pairs(groups) do
 		local names = {}
 		for _, u in ipairs(units) do names[#names + 1] = u:GetUnitName(); UTIL_Remove(u) end
-		local list = self.CAMPS_688[s[2]]
-		local pick = list[RandomInt(1, #list)]
-		for _, name in ipairs(pick) do
-			local c = CreateUnitByName(name, s[1] + RandomVector(RandomFloat(0, 150)), true, nil, nil, DOTA_TEAM_NEUTRALS)
-			if c then c.dota688_camp_688 = true end
+		if s.replacedAt and now - s.replacedAt < 55 then   -- motorul creeaza unitatile camp-ului esalonat, pana la ~40 s; reapare cel mult o data pe minut
+			-- un singur camp 6.88 per spawn: resturi ale aceluiasi camp modern aparute mai tarziu sunt doar sterse
+			print(string.format("[dota688] rest de camp modern (%s) sters, camp-ul 6.88 exista deja", table.concat(names, ",")))
+		else
+			s.replacedAt = now
+			local list = self.CAMPS_688[s[2]]
+			local pick = list[RandomInt(1, #list)]
+			for _, name in ipairs(pick) do
+				local c = CreateUnitByName(name, s[1] + RandomVector(RandomFloat(0, 150)), true, nil, nil, DOTA_TEAM_NEUTRALS)
+				if c then c.dota688_camp_688 = true end
+			end
+			print(string.format("[dota688] camp modern (%s) inlocuit cu camp 6.88 de nivel %d: %s", table.concat(names, ","), s[2], table.concat(pick, ",")))
 		end
-		print(string.format("[dota688] camp modern (%s) inlocuit cu camp 6.88 de nivel %d: %s", table.concat(names, ","), s[2], table.concat(pick, ",")))
 	end
 end
