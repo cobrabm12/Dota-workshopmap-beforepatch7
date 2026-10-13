@@ -1,7 +1,7 @@
 "AddonInfo"
 {
 	"addontitle"		"Dota 6.88 Classic"
-	"addontagline"		"Dota 2 asa cum era in ultimul patch dinaintea lui 7.00 (6.88f): fara talente, fara backpack, fara shrine-uri, harta veche, 112 eroi."
+	"addontagline"		"Dota 2 as it was in 6.88f, the last patch before 7.00: no talents, no backpack, no shrines, the old map, 112 heroes."
 	"MaxPlayers"		"10"
 	"TeamCount"			"2"
 	"Default_Keys"
