@@ -4,7 +4,10 @@ A Dota 2 custom game that recreates the game as it was in **6.88f** (December 20
 before 7.00: no talents, no backpack, no shrines / outposts / neutral items, the old map, 112 heroes,
 Attribute Bonus, 25 levels, and the gold / XP / respawn / buyback / rune rules of that time.
 
-Steam Workshop: **[Dota 6.88 Classic](https://steamcommunity.com/sharedfiles/filedetails/?id=3818931233)**
+Steam Workshop: **[Dota 6.88 Classic](https://steamcommunity.com/sharedfiles/filedetails/?id=3818931233)** ·
+**[Full patch notes](https://cobrabm12.github.io/Dota-workshopmap-beforepatch7/patchnotes/)** (Valve‑style: every hero with its abilities, every item, the map and the rules; [text version](docs/PATCH_NOTES.md))
+
+![Mid lane on the 6.88 map](docs/img/mid_lane.jpg)
 
 The project runs on the current Dota 2 engine (Workshop Tools), so it does not "roll the game back":
 it **overrides** everything that changed since. Hero, ability, item and unit values come straight from
@@ -78,6 +81,7 @@ docs/                             <- documentation (Romanian)
 ```
 python tools/gen_overrides.py     # regenerates KV, shop, tooltips, docs/STATUS.md
 python tools/check_addon.py      # consistency checks (slots, Lua scripts, recipes, shop, syntax, sounds, particles) – must report 0 errors
+python tools/gen_patchnotes.py   # regenerates docs/patchnotes/index.html (the HTML patch notes, published with GitHub Pages)
 ```
 
 The generator reads `reference/6.88f` and `reference/current` and writes the files in `scripts/npc/` and `docs/STATUS.md`.
