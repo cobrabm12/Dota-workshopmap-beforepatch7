@@ -1,6 +1,6 @@
 -- Ghostship (6.88): corabia porneste de la 1000 in spatele lui Kunkka (opus punctului tintit) si se sfarama la punctul tintit (viteza 650;
 -- la raza maxima 1000 parcurge 2000, ~3 s - Liquipedia, Archive:Kunkka): 400/500/600 daune magice + stun 1.4 in 425.
--- Aliatii atinsi de corabie primesc Rum: +10% viteza si 40/45/50% din daunele primite sunt amanate 10 s.
+-- Aliatii atinsi de corabie (eroi si creepi, nu cladiri) primesc Rum: +10% viteza si 40/45/50% din daunele primite sunt amanate 10 s.
 -- Scepter: corabia (latime 200) trage inamicii atinsi pana la locul naufragiului (ei pot actiona in continuare).
 require("dota688/val")
 require("dota688/aghanim")
@@ -52,7 +52,7 @@ function modifier_dota688_ghostship:OnIntervalThink()
 	for _, u in ipairs(FindUnitsInRadius(caster:GetTeamNumber(), self.pos, nil, self.width / 2, DOTA_UNIT_TARGET_TEAM_BOTH,
 		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
 		if u:GetTeamNumber() == caster:GetTeamNumber() then
-			if u:IsHero() and not self.rummed[u:entindex()] then
+			if not u:IsBuilding() and not self.rummed[u:entindex()] then
 				self.rummed[u:entindex()] = true
 				u:AddNewModifier(caster, a, "modifier_dota688_ghostship_rum", { duration = a:GetSpecialValueFor("buff_duration") })
 			end
@@ -98,13 +98,15 @@ function modifier_dota688_ghostship_rum:DeclareFunctions() return { MODIFIER_PRO
 function modifier_dota688_ghostship_rum:GetModifierMoveSpeedBonus_Percentage() return Dota688Val(self, "movespeed_bonus") end
 function modifier_dota688_ghostship_rum:GetModifierIncomingDamage_Percentage(params)
 	local pct = Dota688Val(self, "ghostship_absorb")
+	if self.expired then return 0 end   -- daunele amanate aplicate din OnDestroy nu mai trec prin Rum
 	if IsServer() and params and params.damage and params.damage > 0 then self.delayed = (self.delayed or 0) + params.damage * pct / 100 end
 	return -pct
 end
 function modifier_dota688_ghostship_rum:OnDestroy()
 	if not IsServer() then return end
 	local p = self:GetParent()
+	self.expired = true
 	if self.delayed and self.delayed > 0 and p:IsAlive() then
-		ApplyDamage({ victim = p, attacker = p, damage = self.delayed, damage_type = DAMAGE_TYPE_PURE, ability = self:GetAbility(), damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NON_LETHAL })
+		ApplyDamage({ victim = p, attacker = p, damage = self.delayed, damage_type = DAMAGE_TYPE_PURE, ability = self:GetAbility(), damage_flags = DOTA_DAMAGE_FLAG_HPLOSS })   -- 6.88: daunele amanate pot ucide
 	end
 end
