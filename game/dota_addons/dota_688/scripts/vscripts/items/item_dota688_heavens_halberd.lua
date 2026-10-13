@@ -6,7 +6,7 @@ Dota688DefineItem("item_dota688_heavens_halberd", "items/item_dota688_heavens_ha
 		local target = params.target
 		if not target or target:IsBuilding() or target:IsOther() then return end
 		local a = self:GetAbility()
-		if RollPseudoRandomPercentage(a:GetSpecialValueFor("maim_chance"), DOTA_PSEUDO_RANDOM_ITEM_MAIM, self:GetParent()) then
+		if RollPseudoRandomPercentage(a:GetSpecialValueFor("maim_chance"), DOTA_PSEUDO_RANDOM_ITEM_HALBRED_MAIM, self:GetParent()) then
 			target:AddNewModifier(self:GetParent(), a, "modifier_dota688_maim", { duration = a:GetSpecialValueFor("maim_duration") })
 		end
 	end,

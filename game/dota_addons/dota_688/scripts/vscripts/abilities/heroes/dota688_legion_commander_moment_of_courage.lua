@@ -1,4 +1,5 @@
 -- Moment of Courage (6.88): 25% sansa cand e atacata sa contraatace instant, cu 55/65/75/85% lifesteal pe acel atac. Cooldown 2.3-0.8 s.
+require("dota688/val")
 local F = "abilities/heroes/dota688_legion_commander_moment_of_courage"
 LinkLuaModifier("modifier_dota688_legion_commander_moment_of_courage", F, LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_legion_commander_moment_of_courage_lifesteal", F, LUA_MODIFIER_MOTION_NONE)
@@ -22,7 +23,7 @@ function modifier_dota688_legion_commander_moment_of_courage:OnAttacked(params)
 	ability:UseResources(false, false, false, true)
 	parent:AddNewModifier(parent, ability, "modifier_dota688_legion_commander_moment_of_courage_lifesteal", { duration = ability:GetSpecialValueFor("buff_duration") })
 	parent:EmitSound("Hero_LegionCommander.Courage")
-	local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_legion_commander/legion_commander_courage.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+	local fx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
 	ParticleManager:ReleaseParticleIndex(fx)
 	parent:PerformAttack(attacker, true, true, true, false, false, false, false)
 end
@@ -35,6 +36,6 @@ function modifier_dota688_legion_commander_moment_of_courage_lifesteal:OnAttackL
 	if not IsServer() or params.attacker ~= self:GetParent() then return end
 	local target = params.target
 	if not target or target:IsBuilding() or target:IsOther() then return end
-	self:GetParent():Heal(params.damage * self:GetAbility():GetSpecialValueFor("hp_leech_percent") / 100, self:GetAbility())
+	self:GetParent():Heal(params.damage * Dota688Val(self, "hp_leech_percent") / 100, self:GetAbility())
 	self:Destroy()
 end

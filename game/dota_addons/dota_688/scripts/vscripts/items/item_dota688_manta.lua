@@ -1,6 +1,12 @@
 require("items/dota688_item_base")
 -- Manta Style (6.88): +10 STR, +26 AGI, +10 INT, +15 AS, +10% MS; Mirror Image: 2 iluzii 20 s (33%/28% daune, 350%/400% daune primite), cd 30 melee / 45 ranged.
 Dota688DefineItem("item_dota688_manta", "items/item_dota688_manta", {
+	extraFunctions = { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE },
+	modifier = {
+		-- bonus_movement_speed "10" e procent in 6.88 ("+10% Movement Speed", nu se cumuleaza cu Yasha / S&Y)
+		GetModifierMoveSpeedBonus_Constant = function() return 0 end,
+		GetModifierMoveSpeedBonus_Percentage_Unique = function(self) local a = self:GetAbility(); return a and a:GetSpecialValueFor("bonus_movement_speed") or 0 end,
+	},
 	item = {
 		GetCooldown = function(self, level)
 			local c = self:GetCaster()

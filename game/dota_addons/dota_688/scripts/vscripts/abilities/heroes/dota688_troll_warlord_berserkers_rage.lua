@@ -1,4 +1,5 @@
 -- Berserker's Rage (6.88): toggle: forma melee (raza 128, BAT 1.5): +10/20/30/40 MS, +6 armura, 10% sansa de bash 0.8-2.0 s cu +20-50 daune.
+require("dota688/val")
 LinkLuaModifier("modifier_dota688_troll_warlord_berserkers_rage", "abilities/heroes/dota688_troll_warlord_berserkers_rage", LUA_MODIFIER_MOTION_NONE)
 dota688_troll_warlord_berserkers_rage = class({})
 function dota688_troll_warlord_berserkers_rage:OnToggle()
@@ -26,7 +27,8 @@ function modifier_dota688_troll_warlord_berserkers_rage:OnCreated()
 	self.ms = a:GetSpecialValueFor("bonus_move_speed")
 	self.armor = a:GetSpecialValueFor("bonus_armor")
 	self.bat = a:GetSpecialValueFor("base_attack_time")
-	self.rangedRange = self:GetParent():GetBaseAttackRange()
+	local p = self:GetParent()
+	self.rangedRange = p.GetBaseAttackRange and p:GetBaseAttackRange() or 500   -- GetBaseAttackRange nu exista pe client
 	if IsServer() then self:GetParent():SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK) end
 end
 function modifier_dota688_troll_warlord_berserkers_rage:OnRefresh() self:OnCreated() end
@@ -46,14 +48,14 @@ function modifier_dota688_troll_warlord_berserkers_rage:GetModifierProcAttack_Bo
 	local parent = self:GetParent()
 	local target = params.target
 	if parent:PassivesDisabled() or not target or target:IsBuilding() or target:IsOther() then return 0 end
-	if RollPseudoRandomPercentage(self:GetAbility():GetSpecialValueFor("bash_chance"), DOTA_PSEUDO_RANDOM_TROLL_BASH, parent) then
+	if RollPseudoRandomPercentage(Dota688Val(self, "bash_chance"), DOTA_PSEUDO_RANDOM_TROLL_BASH, parent) then
 		self.bashTarget = target
-		return self:GetAbility():GetSpecialValueFor("bash_damage")
+		return Dota688Val(self, "bash_damage")
 	end
 	return 0
 end
 function modifier_dota688_troll_warlord_berserkers_rage:OnAttackLanded(params)
 	if not IsServer() or params.attacker ~= self:GetParent() or params.target ~= self.bashTarget then return end
 	self.bashTarget = nil
-	params.target:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_stunned", { duration = self:GetAbility():GetSpecialValueFor("bash_duration") })
+	params.target:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_stunned", { duration = Dota688Val(self, "bash_duration") })
 end

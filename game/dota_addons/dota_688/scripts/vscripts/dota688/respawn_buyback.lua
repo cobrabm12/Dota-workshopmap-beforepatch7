@@ -10,7 +10,8 @@ function M:Init(gamemode)
 end
 
 function M:OnHeroSpawned(hero)
-	hero:SetBuybackCooldownTime(0)
+	-- cooldown-ul de buyback (7 min) continua peste respawn-uri; motorul il pune la 0 la respawn
+	hero:SetBuybackCooldownTime(math.max(0, (hero.dota688_bb_until or 0) - GameRules:GetGameTime()))
 	self:UpdateBuybackCost(hero)
 end
 
@@ -18,18 +19,25 @@ function M:OnHeroKilled(hero, attacker)
 	local t = C.RespawnTime(hero:GetLevel())
 	-- Nota: 6.88 nu avea timp minim de 26 s pentru moartea la neutrali (adaugat in 7.00).
 	-- Reaper's Scythe (6.88): +10/20/30 s la respawn daca eroul moare sub efectul lui
-	local scythe = hero:FindModifierByName("modifier_necrolyte_reapers_scythe")
-	if scythe and scythe:GetAbility() then
-		t = t + scythe:GetAbility():GetSpecialValueFor("respawn_constant")
+	-- (marcajele sunt puse de abilities/heroes/dota688_necrolyte_reapers_scythe.lua in momentul loviturii)
+	local noBuyback = false
+	if hero.dota688_scythe_time and GameRules:GetGameTime() - hero.dota688_scythe_time < 0.5 then
+		t = t + (hero.dota688_scythe_respawn or 0)
+		-- Scepter 6.88: eroii omorati de Reaper's Scythe nu pot face buyback
+		noBuyback = Dota688HasScepter and Dota688HasScepter(hero.dota688_scythe_caster)
 	end
+	hero.dota688_scythe_time = nil
 	hero:SetTimeUntilRespawn(t)
+	if noBuyback then hero:SetBuybackCooldownTime(t) end
 	self:UpdateBuybackCost(hero)
 end
 
 function M:UpdateBuybackCost(hero)
 	if not hero or hero:IsNull() then return end
 	local cost = C.BuybackCost(hero:GetLevel(), GameRules:GetDOTATime(false, false))
-	hero:SetBuybackCost(cost)
+	-- CDOTA_BaseNPC_Hero:SetBuybackCost nu mai exista; costul se seteaza pe jucator
+	local pid = hero:GetPlayerOwnerID()
+	if pid and pid >= 0 then PlayerResource:SetCustomBuybackCost(pid, math.floor(cost)) end
 end
 
 function M:UpdateBuybackCosts()
@@ -51,5 +59,6 @@ function M:OnBuyback(ev)
 	if remaining and remaining > 0 then
 		Dota688GoldXP:SetBuybackPenalty(pid, remaining)
 	end
+	hero.dota688_bb_until = GameRules:GetGameTime() + C.BUYBACK_COOLDOWN
 	hero:SetBuybackCooldownTime(C.BUYBACK_COOLDOWN)
 end

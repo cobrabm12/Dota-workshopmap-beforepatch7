@@ -1,3 +1,4 @@
+require("dota688/val")
 require("items/dota688_item_base")
 -- Shiva's Guard (6.88): +30 INT, +15 armura; aura: -45 AS inamicilor in 900; Arctic Blast: 200 daune magice, -40% MS 4 s.
 LinkLuaModifier("modifier_dota688_shivas_aura", "items/item_dota688_shivas_guard", LUA_MODIFIER_MOTION_NONE)
@@ -42,7 +43,7 @@ function modifier_dota688_shivas_aura:IsHidden() return true end
 function modifier_dota688_shivas_aura:IsPurgable() return false end
 function modifier_dota688_shivas_aura:RemoveOnDeath() return false end
 function modifier_dota688_shivas_aura:IsAura() return true end
-function modifier_dota688_shivas_aura:GetAuraRadius() return self:GetAbility():GetSpecialValueFor("aura_radius") end
+function modifier_dota688_shivas_aura:GetAuraRadius() return Dota688Val(self, "aura_radius") end
 function modifier_dota688_shivas_aura:GetAuraSearchTeam() return DOTA_UNIT_TARGET_TEAM_ENEMY end
 function modifier_dota688_shivas_aura:GetAuraSearchType() return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC end
 function modifier_dota688_shivas_aura:GetModifierAura() return "modifier_dota688_shivas_aura_effect" end
@@ -50,9 +51,9 @@ modifier_dota688_shivas_aura_effect = class({})
 function modifier_dota688_shivas_aura_effect:IsDebuff() return true end
 function modifier_dota688_shivas_aura_effect:IsPurgable() return false end
 function modifier_dota688_shivas_aura_effect:DeclareFunctions() return { MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT } end
-function modifier_dota688_shivas_aura_effect:GetModifierAttackSpeedBonus_Constant() return self:GetAbility():GetSpecialValueFor("aura_attack_speed") end
+function modifier_dota688_shivas_aura_effect:GetModifierAttackSpeedBonus_Constant() return Dota688Val(self, "aura_attack_speed") end
 modifier_dota688_shivas_blast = class({})
 function modifier_dota688_shivas_blast:IsDebuff() return true end
 function modifier_dota688_shivas_blast:IsPurgable() return true end
 function modifier_dota688_shivas_blast:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE } end
-function modifier_dota688_shivas_blast:GetModifierMoveSpeedBonus_Percentage() return self:GetAbility():GetSpecialValueFor("blast_movement_speed") end
+function modifier_dota688_shivas_blast:GetModifierMoveSpeedBonus_Percentage() return Dota688Val(self, "blast_movement_speed") end

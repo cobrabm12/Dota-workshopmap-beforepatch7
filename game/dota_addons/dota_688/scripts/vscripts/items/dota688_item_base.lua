@@ -22,6 +22,7 @@ local STAT_MAP = {
 	bonus_mana       = { MODIFIER_PROPERTY_MANA_BONUS, "GetModifierManaBonus" },
 	bonus_health_regen = { MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, "GetModifierConstantHealthRegen" },
 	hp_regen         = { MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, "GetModifierConstantHealthRegen" },
+	bonus_regen      = { MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, "GetModifierConstantHealthRegen" },   -- Helm of the Dominator
 	health_regen     = { MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, "GetModifierConstantHealthRegen" },
 	bonus_movement_speed = { MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT, "GetModifierMoveSpeedBonus_Constant" },
 	bonus_movement   = { MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT, "GetModifierMoveSpeedBonus_Constant" },
@@ -38,11 +39,78 @@ local STAT_MAP = {
 -- "bonus_mana_regen" / "mana_regen" (6.88) = procent din regenerarea de baza (0.01 + 0.04 x INT); "mana_regen_flat" = valoare fixa
 -- "lifesteal_percent" = lifesteal pe atacuri
 
+-- Cand itemul dispare (vandut, aruncat, combinat), efectele aurei/buff-urile lui mai raman putin pe unitati si
+-- GetAbility() intoarce nil (testat: zeci de "attempt to index a nil value" la Vladmir, Pipe, Drums, Shiva...).
+-- Callback-urile din configurarile itemelor sunt invelite: fara item, getter-ele dau 0, CheckState nimic.
+function Dota688GuardItemFn(key, fn)
+	if type(fn) ~= "function" then return fn end
+	return function(self, ...)
+		local a = self:GetAbility()
+		if a == nil or a:IsNull() then
+			if key == "CheckState" then return {} end
+			if string.sub(key, 1, 3) == "Get" then return 0 end
+			return nil
+		end
+		return fn(self, ...)
+	end
+end
+
 function Dota688ManaRegenFromPct(unit, pct)
 	-- regenerarea "de baza" din 6.88 la care se aplica procentele itemelor
 	local int = unit.GetIntellect and unit:GetIntellect(true) or 0
 	return (0.01 + 0.04 * int) * pct / 100
 end
+
+-- itemul cu cel mai mare lifesteal_percent din inventar (6.88: "does not stack with other Unique Attack Modifiers")
+function Dota688BestLifesteal(unit)
+	local best, bestV
+	for s = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+		local it = unit:GetItemInSlot(s)
+		if it then
+			local v = it:GetSpecialValueFor("lifesteal_percent")
+			if v > 0 and (not bestV or v > bestV) then best, bestV = it, v end
+		end
+	end
+	return best
+end
+
+-- Damage block (6.88): doar pe atacuri, iar sursele nu se cumuleaza (se aplica cea mai mare). Sursele Lua: Crimson Guard activ (55),
+-- Abyssal Blade (40/20), Crimson Guard pasiv (32/16). Stout Shield / PMS / Vanguard sunt built-in si nu pot fi coordonate de aici.
+local BLOCK_SOURCES = {
+	{ mod = "modifier_dota688_crimson_active", melee = "block_damage_melee_active", ranged = "block_damage_ranged_active" },
+	{ item = "item_dota688_abyssal_blade", melee = "block_damage_melee", ranged = "block_damage_ranged" },
+	{ item = "item_dota688_crimson_guard", melee = "block_damage_melee", ranged = "block_damage_ranged" },
+}
+function Dota688DamageBlock(parent, params, sourceKey, mine)
+	if not IsServer() or params.damage_type ~= DAMAGE_TYPE_PHYSICAL or params.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK then return 0 end
+	if bit.band(params.damage_flags or 0, DOTA_DAMAGE_FLAG_HPLOSS) ~= 0 then return 0 end
+	local ranged = parent:IsRangedAttacker()
+	local bestKey, bestV
+	for _, src in ipairs(BLOCK_SOURCES) do
+		local a
+		if src.mod then
+			local m = parent:FindModifierByName(src.mod)
+			a = m and m:GetAbility()
+		else
+			a = parent:FindItemInInventory(src.item)
+		end
+		if a and not a:IsNull() then
+			local v = a:GetSpecialValueFor(ranged and src.ranged or src.melee)
+			if not bestV or v > bestV then bestKey, bestV = src.mod or src.item, v end
+		end
+	end
+	if bestKey ~= sourceKey then return 0 end
+	return -math.min(mine, params.damage)
+end
+
+-- Restore (Mekansm) si Mend (Guardian Greaves): o unitate vindecata recent nu mai e afectata 25 s (6.88)
+LinkLuaModifier("modifier_dota688_restore_lockout", "items/dota688_item_base", LUA_MODIFIER_MOTION_NONE)
+modifier_dota688_restore_lockout = class({})
+function modifier_dota688_restore_lockout:IsHidden() return false end
+function modifier_dota688_restore_lockout:IsDebuff() return true end
+function modifier_dota688_restore_lockout:IsPurgable() return false end
+function modifier_dota688_restore_lockout:GetTexture() return "item_mekansm" end
+Dota688RESTORE_LOCKOUT = 25
 
 function Dota688DefineItem(itemName, scriptPath, opts)
 	opts = opts or {}
@@ -77,7 +145,7 @@ function Dota688DefineItem(itemName, scriptPath, opts)
 				self.stats[f] = (self.stats[f] or 0) + all
 			end
 		end
-		self.manaRegenPct = a:GetSpecialValueFor("bonus_mana_regen") + a:GetSpecialValueFor("mana_regen")
+		self.manaRegenPct = a:GetSpecialValueFor("bonus_mana_regen") + a:GetSpecialValueFor("mana_regen") + a:GetSpecialValueFor("bonus_mana_regen_pct")
 		self.manaRegenFlat = a:GetSpecialValueFor("mana_regen_flat")
 		self.lifesteal = a:GetSpecialValueFor("lifesteal_percent")
 	end
@@ -85,6 +153,7 @@ function Dota688DefineItem(itemName, scriptPath, opts)
 		local funcs = { MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, MODIFIER_EVENT_ON_ATTACK_LANDED }
 		for _, def in pairs(STAT_MAP) do table.insert(funcs, def[1]) end
 		if opts.extraFunctions then for _, f in ipairs(opts.extraFunctions) do table.insert(funcs, f) end end
+		if opts.boots then table.insert(funcs, MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE) end
 		return funcs
 	end
 	for _, def in pairs(STAT_MAP) do
@@ -92,6 +161,12 @@ function Dota688DefineItem(itemName, scriptPath, opts)
 		if not mod[fname] then
 			mod[fname] = function(self) return (self.stats and self.stats[fname]) or 0 end
 		end
+	end
+	-- cizme (opts.boots): viteza de miscare a cizmelor nu se aduna intre ele (6.88), deci bonusul fix trece pe
+	-- proprietatea "unica" a cizmelor in locul celei constante
+	if opts.boots then
+		mod.GetModifierMoveSpeedBonus_Constant = function() return 0 end
+		mod.GetModifierMoveSpeedBonus_Special_Boots = function(self) return (self.stats and self.stats.GetModifierMoveSpeedBonus_Constant) or 0 end
 	end
 	function mod:GetModifierConstantManaRegen()
 		local v = self.manaRegenFlat or 0
@@ -104,14 +179,15 @@ function Dota688DefineItem(itemName, scriptPath, opts)
 		local parent = self:GetParent()
 		if params.attacker ~= parent then return end
 		local target = params.target
-		if self.lifesteal and self.lifesteal > 0 and target and not target:IsBuilding() and not target:IsOther() then
+		-- lifesteal-ul itemelor e Unique Attack Modifier in 6.88: se aplica doar cel mai mare (primul din inventar la egalitate)
+		if self.lifesteal and self.lifesteal > 0 and target and not target:IsBuilding() and not target:IsOther() and Dota688BestLifesteal(parent) == self:GetAbility() then
 			parent:Heal(params.damage * self.lifesteal / 100, self:GetAbility())
 			local fx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
 			ParticleManager:ReleaseParticleIndex(fx)
 		end
-		if opts.onAttackLanded then opts.onAttackLanded(self, params) end
+		if opts.onAttackLanded and self:GetAbility() and not self:GetAbility():IsNull() then opts.onAttackLanded(self, params) end
 	end
-	if opts.modifier then for k, v in pairs(opts.modifier) do mod[k] = v end end
+	if opts.modifier then for k, v in pairs(opts.modifier) do mod[k] = Dota688GuardItemFn(k, v) end end
 	LinkLuaModifier(modName, scriptPath, LUA_MODIFIER_MOTION_NONE)
 	return item, mod
 end
@@ -124,7 +200,7 @@ function Dota688DefineAura(name, scriptPath, cfg)
 	function auraMod:IsPurgable() return false end
 	function auraMod:RemoveOnDeath() return false end
 	function auraMod:IsAura() return true end
-	function auraMod:GetAuraRadius() return cfg.radius(self) end
+	function auraMod:GetAuraRadius() local a = self:GetAbility(); if not a or a:IsNull() then return 0 end; return cfg.radius(self) end
 	function auraMod:GetAuraSearchTeam() return cfg.team or DOTA_UNIT_TARGET_TEAM_FRIENDLY end
 	function auraMod:GetAuraSearchType() return cfg.types or (DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC) end
 	function auraMod:GetModifierAura() return name .. "_effect" end
@@ -136,7 +212,7 @@ function Dota688DefineAura(name, scriptPath, cfg)
 	function eff:IsPurgable() return false end
 	function eff:IsDebuff() return cfg.debuff or false end
 	function eff:DeclareFunctions() return cfg.functions end
-	for k, v in pairs(cfg.effect) do eff[k] = v end
+	for k, v in pairs(cfg.effect) do eff[k] = Dota688GuardItemFn(k, v) end
 	LinkLuaModifier(name, scriptPath, LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier(name .. "_effect", scriptPath, LUA_MODIFIER_MOTION_NONE)
 	return auraMod, eff

@@ -1,15 +1,16 @@
+require("dota688/val")
 require("items/dota688_item_base")
 -- Ring of Basilius / Aquila (6.88): daune/stats + aura 900: +2 armura, +0.65 regen mana; toggle: doar eroi.
 Dota688DefineAura("modifier_dota688_basilius_aura", "items/item_dota688_ring_of_basilius", {
-	radius = function(self) return self:GetAbility():GetSpecialValueFor("aura_radius") end,
-	functions = { MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS, MODIFIER_PROPERTY_MANA_REGEN_CONSTANT },
+	radius = function(self) return Dota688Val(self, "aura_radius") end,
+	functions = { MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE, MODIFIER_PROPERTY_MANA_REGEN_CONSTANT },   -- armura nu se cumuleaza cu Vladmir (6.88)
 	reject = function(self, unit)
 		if self:GetAbility():GetToggleState() then return not unit:IsHero() and unit ~= self:GetParent() end
 		return false
 	end,
 	effect = {
-		GetModifierPhysicalArmorBonus = function(self) return self:GetAbility():GetSpecialValueFor("aura_bonus_armor") end,
-		GetModifierConstantManaRegen = function(self) return self:GetAbility():GetSpecialValueFor("aura_mana_regen") end,
+		GetModifierPhysicalArmorBonusUnique = function(self) return Dota688Val(self, "aura_bonus_armor") end,
+		GetModifierConstantManaRegen = function(self) return Dota688Val(self, "aura_mana_regen") end,
 	},
 })
 local function Define(name)

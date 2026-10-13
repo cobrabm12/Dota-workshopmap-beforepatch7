@@ -2,6 +2,7 @@ require("items/dota688_item_base")
 -- Phase Boots (6.88): +45 MS, +24 daune; Phase: +24% MS (20% ranged) si trece prin unitati 2.5 s, cd 8.
 LinkLuaModifier("modifier_dota688_phase", "items/item_dota688_phase_boots", LUA_MODIFIER_MOTION_NONE)
 Dota688DefineItem("item_dota688_phase_boots", "items/item_dota688_phase_boots", {
+	boots = true,   -- viteza cizmelor nu se aduna cu alte cizme (6.88)
 	item = {
 		OnSpellStart = function(self)
 			self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_dota688_phase", { duration = self:GetSpecialValueFor("phase_duration") })
@@ -15,6 +16,7 @@ function modifier_dota688_phase:CheckState() return { [MODIFIER_STATE_NO_UNIT_CO
 function modifier_dota688_phase:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_EVENT_ON_ATTACK_START } end
 function modifier_dota688_phase:GetModifierMoveSpeedBonus_Percentage()
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return 0 end
 	return self:GetParent():IsRangedAttacker() and a:GetSpecialValueFor("phase_movement_speed_range") or a:GetSpecialValueFor("phase_movement_speed")
 end
 function modifier_dota688_phase:OnAttackStart(params)

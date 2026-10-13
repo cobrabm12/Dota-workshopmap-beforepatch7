@@ -1,4 +1,5 @@
 -- Glaives of Wisdom (6.88, orb): +35/50/65/80% din INT ca daune pure; Silencer fura permanent 2 INT cand un erou inamic moare in raza 925 (sau e ucis de el).
+require("dota688/val")
 local F = "abilities/heroes/dota688_silencer_glaives_of_wisdom"
 LinkLuaModifier("modifier_dota688_silencer_glaives_of_wisdom", F, LUA_MODIFIER_MOTION_NONE)
 dota688_silencer_glaives_of_wisdom = class({})
@@ -26,7 +27,7 @@ function modifier_dota688_silencer_glaives_of_wisdom:OnDeath(params)
 	local parent = self:GetParent()
 	local unit = params.unit
 	if not unit or not unit:IsRealHero() or unit:IsIllusion() or unit:GetTeamNumber() == parent:GetTeamNumber() then return end
-	local near = (unit:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D() <= self:GetAbility():GetSpecialValueFor("steal_range")
+	local near = (unit:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D() <= Dota688Val(self, "steal_range")
 	if near or params.attacker == parent then
 		self:IncrementStackCount()
 		unit:ModifyIntellect(-2)  -- permanent, ca in 6.88 (tinta pierde 2 INT)

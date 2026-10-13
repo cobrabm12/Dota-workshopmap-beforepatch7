@@ -1,3 +1,4 @@
+require("dota688/val")
 require("items/dota688_item_base")
 -- Veil of Discord (6.88): +6 regen, +6 armura, +6 STR/AGI, +12 INT, +6 daune; Magic Weakness: -25% rezistenta magica in 600 raza, 16 s.
 LinkLuaModifier("modifier_dota688_veil_debuff", "items/item_dota688_veil_of_discord", LUA_MODIFIER_MOTION_NONE)
@@ -25,4 +26,4 @@ function modifier_dota688_veil_debuff:IsDebuff() return true end
 function modifier_dota688_veil_debuff:IsPurgable() return true end
 function modifier_dota688_veil_debuff:GetEffectName() return "particles/items2_fx/veil_of_discord_debuff.vpcf" end
 function modifier_dota688_veil_debuff:DeclareFunctions() return { MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS } end
-function modifier_dota688_veil_debuff:GetModifierMagicalResistanceBonus() return self:GetAbility():GetSpecialValueFor("resist_debuff") end
+function modifier_dota688_veil_debuff:GetModifierMagicalResistanceBonus() return Dota688Val(self, "resist_debuff") end

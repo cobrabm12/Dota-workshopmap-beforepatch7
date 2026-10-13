@@ -59,28 +59,31 @@ C.EMULATE_DAY_NIGHT    = true
 -- Atribute (per punct) --------------------------------------------------------
 C.ATTR = {
 	HP_PER_STR         = 20,     -- 6.87-7.12 (ACUM: 22)
-	HP_REGEN_PER_STR   = 0.03,   -- (ACUM: 0.09 flat)
+	HP_REGEN_PER_STR   = 0.03,   -- (ACUM: 0.1 flat; masurat in joc: CM 31 STR, baza 0.25 -> 1.50 cu compensare de 0.09)
 	MANA_PER_INT       = 12,     -- (ACUM: 12)
 	MANA_REGEN_PER_INT = 0.04,   -- (ACUM: 0.05 flat)
 	ARMOR_PER_AGI      = 1 / 7,  -- (ACUM: 1/6)
 	AS_PER_AGI         = 1,      -- (ACUM: 1)
 	SPELL_AMP_PER_INT  = 1 / 16, -- procente: 1% la 16 INT (6.87-7.04); (ACUM: 0)
+	MAGIC_RES_PER_INT  = 0,      -- (ACUM: 0.1% pe punct de INT, adunat la baza)
+	BASE_MAGIC_RES     = 25,     -- toti eroii 6.88
 	BASE_HP            = 200,    -- (ACUM: 120) - setat prin KV (StatusHealth) in npc_heroes_custom.txt
 	BASE_MANA          = 50,     -- (ACUM: 75)  - setat prin KV (StatusMana)
 }
 -- valorile motorului curent, de compensat (verificate pe wiki la data generarii; de reverificat la patch-uri noi)
 C.ATTR_NOW = {
-	HP_PER_STR = 22, HP_REGEN_PER_STR = 0.09, MANA_PER_INT = 12, MANA_REGEN_PER_INT = 0.05,
-	ARMOR_PER_AGI = 1 / 6, AS_PER_AGI = 1, SPELL_AMP_PER_INT = 0,
+	HP_PER_STR = 22, HP_REGEN_PER_STR = 0.1, MANA_PER_INT = 12, MANA_REGEN_PER_INT = 0.05,
+	ARMOR_PER_AGI = 1 / 6, AS_PER_AGI = 1, SPELL_AMP_PER_INT = 0, MAGIC_RES_PER_INT = 0.1,
+	BASE_HP_ENGINE = 120, BASE_MANA_ENGINE = 75,   -- baza motorului curent, daca ignora StatusHealth/StatusMana din KV
 }
 
 -- Roshan ---------------------------------------------------------------------
 -- 6.88: 8000 HP, 5 armura, 128 raza (prin npc_units_custom.txt) + la fiecare 4 minute: +700 HP, +10 dmg, +0.7 armura.
+C.ROSHAN_BASE = { HP = 8000, ARMOR = 5, DAMAGE = 65 }   -- reference/6.88f/npc_units.txt
 C.ROSHAN_GROWTH_INTERVAL = 240
 C.ROSHAN_GROWTH = { HP = 700, DAMAGE = 10, ARMOR = 0.7 }
--- motorul curent creste Roshan la fiecare minut (7.07+): +130 HP (7.33), +6 dmg (7.22), +0.375 armura (7.28) - compensate in Lua
-C.ROSHAN_GROWTH_NOW_INTERVAL = 60
-C.ROSHAN_GROWTH_NOW = { HP = 130, DAMAGE = 6, ARMOR = 0.375 }
+-- motorul curent creste Roshan in fiecare minut (HP de baza 6000 + 130/min impus din C++, armura/daune prin
+-- modifier_roshan_inherent_buffs); modifier_dota688_roshan masoara si compenseaza diferenta
 C.ROSHAN_CHEESE_FROM_DEATH = 3           -- Cheese din a 3-a moarte (7.06 -> a 2-a)
 C.ROSHAN_EXTRA_DROPS = { "item_refresher_shard", "item_aghanims_blessing_roshan", "item_aghanims_shard_roshan", "item_roshans_banner" }
 
@@ -89,3 +92,23 @@ C.DISABLE_BACKPACK     = true            -- 7.00 a adaugat backpack-ul; refuzam 
 C.PREGAME_TIME         = 90
 C.TREE_REGROW_TIME     = 300
 C.ILLUSION_BOUNTY      = false           -- 7.00 a adaugat bounty pentru iluzii (TODO: filtrare)
+
+-- Abilitati 7.x pe care motorul le adauga singur unitatilor (nu sunt in KV) -> {ability = {modifieri de scos}}
+C.MODERN_UNIT_ABILITIES = {
+	neutral_upgrade = { "modifier_neutral_upgrade" },                 -- cresterea neutralilor in timp (7.x)
+	twin_gate_portal_warp = {},                                        -- Twin Gates (7.33)
+	flagbearer_creep_aura_effect = { "modifier_flagbearer_creep_aura_effect", "modifier_creep_bonus_xp" },  -- 7.32
+}
+
+-- Mecanici fara KV --------------------------------------------------------
+C.MAX_ATTACK_SPEED     = 600             -- 6.88: 600 (azi 700)
+C.SCAN_COOLDOWN        = 270             -- scan (6.87): 270 s, o singura incarcare (7.34 -> 2 incarcari)
+C.SCAN_CHARGES         = 1
+C.NEUTRAL_FIRST_SPAWN_OFFSET = -30       -- motorul: primul spawn la 1:00 -> 0:30 (6.88)
+
+-- regenerare de mana procentuala a itemelor 6.88 (reference/6.88f/items.txt, bonus_mana_regen; vezi modifier_dota688_attributes)
+C.MANA_REGEN_PCT_ITEMS = { item_sobi_mask = 50, item_void_stone = 100, item_orchid = 150, item_cyclone = 150, item_refresher = 250 }
+C.RANDOM_BONUS_GOLD = 200                -- 6.88: +200 aur pentru random (reference/6.88f/dota_english.txt)
+C.FOUNTAIN_HP_REGEN_PCT = 4               -- 6.88 (Liquipedia, Buildings 7.07: "from 4% to 5%")
+C.FOUNTAIN_MANA_REGEN_PCT = 4
+C.FOUNTAIN_MANA_REGEN_CONST = 14

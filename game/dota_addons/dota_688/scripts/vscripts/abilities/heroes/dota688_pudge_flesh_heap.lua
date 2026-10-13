@@ -1,4 +1,5 @@
 -- Flesh Heap (6.88): +6/8/10/12% rezistenta magica; +1/1.5/2/2.5 STR permanent pentru fiecare erou inamic care moare in raza 450 (retroactiv).
+require("dota688/val")
 LinkLuaModifier("modifier_dota688_pudge_flesh_heap", "abilities/heroes/dota688_pudge_flesh_heap", LUA_MODIFIER_MOTION_NONE)
 dota688_pudge_flesh_heap = class({})
 function dota688_pudge_flesh_heap:GetIntrinsicModifierName() return "modifier_dota688_pudge_flesh_heap" end
@@ -14,13 +15,13 @@ function modifier_dota688_pudge_flesh_heap:OnDeath(params)
 	local parent = self:GetParent()
 	local unit = params.unit
 	if not unit or not unit:IsRealHero() or unit:IsIllusion() or unit:GetTeamNumber() == parent:GetTeamNumber() then return end
-	if (unit:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D() > self:GetAbility():GetSpecialValueFor("flesh_heap_range") then return end
+	if params.attacker ~= parent and (unit:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D() > Dota688Val(self, "flesh_heap_range") then return end   -- "kills an enemy Hero or it dies in his vicinity"
 	self:IncrementStackCount()
 end
 function modifier_dota688_pudge_flesh_heap:GetModifierMagicalResistanceBonus()
 	if self:GetParent():PassivesDisabled() then return 0 end
-	return self:GetAbility():GetSpecialValueFor("flesh_heap_magic_resist")
+	return Dota688Val(self, "flesh_heap_magic_resist")
 end
 function modifier_dota688_pudge_flesh_heap:GetModifierBonusStats_Strength()
-	return self:GetStackCount() * self:GetAbility():GetSpecialValueFor("flesh_heap_strength_buff_amount")
+	return self:GetStackCount() * Dota688Val(self, "flesh_heap_strength_buff_amount")
 end

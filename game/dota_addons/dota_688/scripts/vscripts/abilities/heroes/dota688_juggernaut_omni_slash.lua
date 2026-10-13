@@ -1,11 +1,20 @@
 -- Omnislash (6.88): 3/6/9 salturi la fiecare 0.4 s, 200-225 daune fizice fiecare, raza 425; invulnerabil pe durata.
+-- Scepter: 6/9/12 salturi, cooldown 70.
+require("dota688/val")
+require("dota688/aghanim")
 LinkLuaModifier("modifier_dota688_juggernaut_omni_slash", "abilities/heroes/dota688_juggernaut_omni_slash", LUA_MODIFIER_MOTION_NONE)
 dota688_juggernaut_omni_slash = class({})
+function dota688_juggernaut_omni_slash:GetCooldown(level)
+	if Dota688HasScepter(self:GetCaster()) then return self:GetSpecialValueFor("omni_slash_cooldown_scepter") end
+	return self.BaseClass.GetCooldown(self, level)
+end
 function dota688_juggernaut_omni_slash:OnSpellStart()
 	local caster, target = self:GetCaster(), self:GetCursorTarget()
 	if target:TriggerSpellAbsorb(self) then return end
 	caster:EmitSound("Hero_Juggernaut.OmniSlash")
-	caster:AddNewModifier(caster, self, "modifier_dota688_juggernaut_omni_slash", { jumps = self:GetSpecialValueFor("omni_slash_jumps"), target = target:entindex() })
+	local jumps = self:GetSpecialValueFor("omni_slash_jumps")
+	if Dota688HasScepter(caster) then jumps = self:GetSpecialValueFor("omni_slash_jumps_scepter") end
+	caster:AddNewModifier(caster, self, "modifier_dota688_juggernaut_omni_slash", { jumps = jumps, target = target:entindex() })
 end
 modifier_dota688_juggernaut_omni_slash = class({})
 function modifier_dota688_juggernaut_omni_slash:IsPurgable() return false end
@@ -15,7 +24,7 @@ function modifier_dota688_juggernaut_omni_slash:OnCreated(kv)
 	self.target = EntIndexToHScript(kv.target)
 	self.fx = ParticleManager:CreateParticle("particles/units/heroes/hero_juggernaut/juggernaut_omni_slash_trail.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	self:Slash(self.target)
-	self:StartIntervalThink(self:GetAbility():GetSpecialValueFor("omni_slash_bounce_tick"))
+	self:StartIntervalThink(Dota688Val(self, "omni_slash_bounce_tick"))
 end
 function modifier_dota688_juggernaut_omni_slash:Slash(target)
 	local parent, a = self:GetParent(), self:GetAbility()
@@ -24,8 +33,13 @@ function modifier_dota688_juggernaut_omni_slash:Slash(target)
 	FindClearSpaceForUnit(parent, pos, false)
 	parent:SetForwardVector((target:GetAbsOrigin() - parent:GetAbsOrigin()):Normalized())
 	parent:StartGesture(ACT_DOTA_OVERRIDE_ABILITY_4)
-	local dmg = RandomInt(a:GetSpecialValueFor("omni_slash_damage"), a:GetSpecialValueFor("omni_slash_damage") + 25)
-	ApplyDamage({ victim = target, attacker = parent, damage = dmg, damage_type = DAMAGE_TYPE_PHYSICAL, ability = a })
+	-- KV "200 225" = minim si maxim (nu pe nivel)
+	local dmg = RandomInt(a:GetLevelSpecialValueFor("omni_slash_damage", 0), a:GetLevelSpecialValueFor("omni_slash_damage", 1))
+	if not target:IsHero() and not target:IsConsideredHero() and not target:IsAncient() then
+		target:Kill(a, parent)   -- 6.88: "Creeps are killed in one hit"
+	else
+		ApplyDamage({ victim = target, attacker = parent, damage = dmg, damage_type = DAMAGE_TYPE_PHYSICAL, ability = a })
+	end
 	target:EmitSound("Hero_Juggernaut.OmniSlash.Damage")
 	self.jumps = self.jumps - 1
 	return true
@@ -41,4 +55,8 @@ end
 function modifier_dota688_juggernaut_omni_slash:OnDestroy()
 	if IsServer() then ParticleManager:DestroyParticle(self.fx, false); self:GetParent():RemoveGesture(ACT_DOTA_OVERRIDE_ABILITY_4) end
 end
-function modifier_dota688_juggernaut_omni_slash:CheckState() return { [MODIFIER_STATE_INVULNERABLE] = true, [MODIFIER_STATE_NO_UNIT_COLLISION] = true, [MODIFIER_STATE_STUNNED] = true } end
+-- 6.88: "You can use items during Omnislash" -> fara stun; vrajile sunt blocate (silence), miscarea/atacul de catre saltul insusi
+function modifier_dota688_juggernaut_omni_slash:CheckState()
+	return { [MODIFIER_STATE_INVULNERABLE] = true, [MODIFIER_STATE_NO_UNIT_COLLISION] = true, [MODIFIER_STATE_ROOTED] = true,
+		[MODIFIER_STATE_DISARMED] = true, [MODIFIER_STATE_SILENCED] = true }
+end

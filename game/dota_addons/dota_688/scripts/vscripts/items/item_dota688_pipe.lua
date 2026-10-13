@@ -1,11 +1,12 @@
+require("dota688/val")
 require("items/dota688_item_base")
 -- Pipe of Insight (6.88): +8 regen, +30% rezistenta magica; aura 900: +4 regen, +10% rezistenta; Barrier: 400 absorbtie magica 12 s aliatilor din 900, cd 60.
 Dota688DefineAura("modifier_dota688_pipe_aura", "items/item_dota688_pipe", {
-	radius = function(self) return self:GetAbility():GetSpecialValueFor("aura_radius") end,
+	radius = function(self) return Dota688Val(self, "aura_radius") end,
 	functions = { MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS },
 	effect = {
-		GetModifierConstantHealthRegen = function(self) return self:GetAbility():GetSpecialValueFor("aura_health_regen") end,
-		GetModifierMagicalResistanceBonus = function(self) return self:GetAbility():GetSpecialValueFor("magic_resistance_aura") end,
+		GetModifierConstantHealthRegen = function(self) return Dota688Val(self, "aura_health_regen") end,
+		GetModifierMagicalResistanceBonus = function(self) return Dota688Val(self, "magic_resistance_aura") end,
 	},
 })
 LinkLuaModifier("modifier_dota688_pipe_barrier", "items/item_dota688_pipe", LUA_MODIFIER_MOTION_NONE)
@@ -38,7 +39,6 @@ Dota688DefineItem("item_dota688_pipe", "items/item_dota688_pipe", {
 })
 modifier_dota688_pipe_barrier = class({})
 function modifier_dota688_pipe_barrier:IsPurgable() return false end
-function modifier_dota688_pipe_barrier:GetEffectName() return "particles/items_fx/pipe_of_insight.vpcf" end
 function modifier_dota688_pipe_barrier:OnCreated()
 	local a = self:GetAbility()
 	self.left = self:GetParent():IsHero() and a:GetSpecialValueFor("barrier_block") or a:GetSpecialValueFor("barrier_block_creep")

@@ -73,7 +73,7 @@ function M:OnHeroKilled(victim, attacker)
 	-- aur direct pentru ucigas (daca e un jucator)
 	if killerPID >= 0 then
 		local direct = math.floor(C.KILL_GOLD_BASE + streakGold + C.KILL_GOLD_PER_LEVEL * level)
-		PlayerResource:ModifyGold(killerPID, direct, true, DOTA_ModifyGold_HeroKill)
+		Dota688GiveGold(killerPID, direct, true, DOTA_ModifyGold_HeroKill)
 	end
 	-- aur si XP "AoE" pentru fiecare erou din raza (inclusiv ucigasul)
 	local aoe = C.AOE_GOLD[n]
@@ -83,7 +83,7 @@ function M:OnHeroKilled(victim, attacker)
 	for _, hero in ipairs(nearby) do
 		local pid = OwnerPlayerID(hero)
 		if pid >= 0 then
-			PlayerResource:ModifyGold(pid, aoeGold, true, DOTA_ModifyGold_HeroKill)
+			Dota688GiveGold(pid, aoeGold, true, DOTA_ModifyGold_HeroKill)
 		end
 		hero:AddExperience(xpEach, DOTA_ModifyXP_HeroKill, false, true)
 	end
@@ -91,8 +91,29 @@ function M:OnHeroKilled(victim, attacker)
 end
 
 -- Filtru de aur: blocheaza aurul de kill calculat de motor (il dam noi) si aplica penalizarea de buyback.
+-- Aur pasiv 6.88: 1 aur (nesigur) la 0.6 s, de la horn. GameRules:SetGoldPerTick/SetGoldTickTime nu mai au efect
+-- in motorul curent (testat: 0 aur pasiv, cu sau fara filtru), deci il dam din Lua.
+function M:OnHorn()
+	Dota688Timers:Every(C.GOLD_TICK_TIME, function()
+		if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then return false end
+		self.awarding = true
+		for pid = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+			if PlayerResource:IsValidPlayerID(pid) and PlayerResource:HasSelectedHero(pid) then
+				local team = PlayerResource:GetTeam(pid)
+				if team == DOTA_TEAM_GOODGUYS or team == DOTA_TEAM_BADGUYS then
+					PlayerResource:ModifyGold(pid, C.GOLD_PER_TICK, false, DOTA_ModifyGold_GameTick)
+				end
+			end
+		end
+		self.awarding = false
+	end)
+end
+
 function M:GoldFilter(ev)
 	local reason = ev.reason_const
+	if reason == DOTA_ModifyGold_GameTick and not self.awarding then
+		return false   -- aurul pasiv il dam noi (OnHorn); evitam dublarea daca motorul l-ar da si el
+	end
 	if reason == DOTA_ModifyGold_HeroKill and not self.awarding then
 		return false
 	end
@@ -111,6 +132,10 @@ end
 
 function M:ExperienceFilter(ev)
 	if ev.reason_const == DOTA_ModifyXP_HeroKill and not self.awarding then
+		return false
+	end
+	-- XP de recuperare pentru eroii in urma si XP de la outpost-uri: aparute dupa 6.88
+	if ev.reason_const == DOTA_ModifyXP_CatchUp or ev.reason_const == DOTA_ModifyXP_Outpost then
 		return false
 	end
 	return true

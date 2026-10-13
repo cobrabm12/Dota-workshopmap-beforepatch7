@@ -1,4 +1,5 @@
 -- Soul Catcher (6.88): un erou inamic aleatoriu din zona (450) primeste +20/30/40/50% daune pentru 12 s.
+require("dota688/val")
 LinkLuaModifier("modifier_dota688_shadow_demon_soul_catcher", "abilities/heroes/dota688_shadow_demon_soul_catcher", LUA_MODIFIER_MOTION_NONE)
 dota688_shadow_demon_soul_catcher = class({})
 function dota688_shadow_demon_soul_catcher:GetAOERadius() return self:GetSpecialValueFor("radius") end
@@ -21,4 +22,4 @@ function modifier_dota688_shadow_demon_soul_catcher:IsDebuff() return true end
 function modifier_dota688_shadow_demon_soul_catcher:IsPurgable() return false end
 function modifier_dota688_shadow_demon_soul_catcher:GetEffectName() return "particles/units/heroes/hero_shadow_demon/shadow_demon_soul_catcher_debuff.vpcf" end
 function modifier_dota688_shadow_demon_soul_catcher:DeclareFunctions() return { MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE } end
-function modifier_dota688_shadow_demon_soul_catcher:GetModifierIncomingDamage_Percentage() return self:GetAbility():GetSpecialValueFor("bonus_damage_taken") end
+function modifier_dota688_shadow_demon_soul_catcher:GetModifierIncomingDamage_Percentage() return Dota688Val(self, "bonus_damage_taken") end

@@ -1,0 +1,783 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+// Evenimente de sunet pe care Lua addon-ului le foloseste si care NU exista in clientul Dota curent
+// (redenumite/scoase in 7.x; fisierele audio .vsnd exista inca in joc). Numele raman cele din Lua, deci codul nu se schimba.
+// Precache in scripts/vscripts/addon_game_mode.lua. Compilare:
+//   resourcecompiler.exe -nop4 -i "<dota 2 beta>\content\dota_addons\dota_688\soundevents\dota688_sounds.vsndevts"
+// Verificare: python tools/check_addon.py (lista evenimentelor din client: python tools/dump_sound_events.py).
+// Fiecare intrare noteaza evenimentul modern din care a fost copiata ("<- ...").
+{
+	// --- Techies: Land Mines (in 7.x "Proximity Mines") si Stasis Trap (scos in 7.x) nu mai au evenimente
+	// Hero_Techies.LandMine.* / Hero_Techies.StasisTrap.Priming/Stun.
+	Dota688.Techies.LandMine.Plant =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		spread_radius = 150.0
+		vsnd_files = "sounds/weapons/hero/techies/land_mine_plant.vsnd"
+		vsnd_duration = 1.365805
+	}
+	Dota688.Techies.LandMine.Priming =
+	{
+		type = "dota_src1_3d"
+		volume = 1.0
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		distance_max = 1600.0
+		vsnd_files = "sounds/weapons/hero/techies/land_mine_primed.vsnd"
+		vsnd_duration = 1.367982
+	}
+	Dota688.Techies.LandMine.Detonate =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 150.0
+		mixgroup = "NoDuck"
+		spread_radius = 600.0
+		distance_max = 15000.0
+		soundevent_layer2 = "Hero_Techies.Debris"
+		soundevent_layer2_on = 1.0
+		vsnd_files =
+		[
+			"sounds/weapons/hero/techies/land_mine01.vsnd",
+			"sounds/weapons/hero/techies/land_mine02.vsnd",
+		]
+		vsnd_duration = 2.480453
+	}
+	Dota688.Techies.StasisTrap.Priming =
+	{
+		type = "dota_src1_3d"
+		volume = 1.0
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		distance_max = 1600.0
+		vsnd_files = "sounds/weapons/hero/techies/land_mine_primed.vsnd"
+		vsnd_duration = 1.367982
+	}
+	Dota688.Techies.StasisTrap.Stun =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 120.0
+		mixgroup = "Weapons"
+		spread_radius = 450.0
+		distance_max = 6000.0
+		vsnd_files = "sounds/weapons/hero/techies/stasis_trap.vsnd"
+		vsnd_duration = 4.692834
+	}
+	// --- iteme ---
+	// <- DOTA_Item.Bloodstone.Cast
+	DOTA_Item.Bloodstone.Activate =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		spread_radius = 300.0
+		vsnd_files = "sounds/items/bloodstone_cast.vsnd"
+		vsnd_duration = 2.220113
+	}
+	// <- Item.CrimsonGuard.Cast
+	DOTA_Item.CrimsonGuard.Cast =
+	{
+		type = "dota_src1_3d"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		distance_max = 2500.0
+		vsnd_files = "sounds/items/crimson_guard.vsnd"
+		vsnd_duration = 4.440816
+	}
+	// <- Item.GlimmerCape.Activate
+	DOTA_Item.GlimmerCape.Target =
+	{
+		type = "dota_src1_3d"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 84.0
+		distance_max = 2500.0
+		vsnd_files = "sounds/items/glimmer_cape.vsnd"
+		vsnd_duration = 3.802131
+	}
+	// <- Item.GuardianGreaves.Activate
+	DOTA_Item.GuardianGreaves.Activate =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch = 1.0
+		soundlevel = 90.0
+		mixgroup = "Weapons"
+		spread_radius = 600.0
+		vsnd_files = "sounds/items/guardian_greaves.vsnd"
+		vsnd_duration = 4.484603
+	}
+	// <- Item.LotusOrb.Target: Echo Shell pe tinta (lotus_cast); Item.LotusOrb.Activate din client e sunetul reflectarii
+	DOTA_Item.LotusOrb.Activate =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 84.0
+		mixgroup = "Weapons"
+		vsnd_files = "sounds/items/lotus_cast.vsnd"
+		vsnd_duration = 3.286576
+	}
+	// <- definit manual: Power Treads nu a avut niciodata sunet de comutare: clic discret, auzit doar langa erou
+	DOTA_Item.PowerTreads.Activate =
+	{
+		type = "dota_src1_3d"
+		volume = 0.6
+		pitch = 1.0
+		soundlevel = 60.0
+		distance_max = 800.0
+		vsnd_files = "sounds/ui/inventory/common_equip.vsnd"
+		vsnd_duration = 0.356735
+	}
+	// <- definit manual: Scepter daruit unui aliat: sunetul de consum (Item.MoonShard.Consume), dar 3D
+	DOTA_Item.UltimateScepter.Activate =
+	{
+		type = "dota_src1_3d"
+		volume = 1.0
+		pitch = 1.0
+		soundlevel = 81.0
+		distance_max = 2000.0
+		vsnd_files = "sounds/items/moon_shard.vsnd"
+		vsnd_duration = 2.546962
+	}
+	// --- eroi ---
+	// <- Hero_Ancient_Apparition.IceBlast.Tracker
+	Hero_Ancient_Apparition.IceBlast.Cast =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		volume_move_vol = 1.0
+		volume_falloff_min = 599999.0
+		volume_falloff_max = 600000.0
+		spread_radius = 100.0
+		vsnd_files = "sounds/weapons/hero/ancient_apparition/iceblast.vsnd"
+		vsnd_duration = 1.47102
+	}
+	// <- Hero_Ancient_Apparition.IceBlast.Target
+	Hero_Ancient_Apparition.IceBlastRelease.Target =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Ultimates"
+		spread_radius = 750.0
+		vsnd_files = "sounds/weapons/hero/ancient_apparition/iceblast_explode.vsnd"
+		vsnd_duration = 2.698776
+	}
+	// <- hero_bloodseeker.bloodRage: in client doar cu alte majuscule
+	Hero_Bloodseeker.Bloodrage =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		spread_radius = 300.0
+		vsnd_files = "sounds/weapons/hero/bloodseeker/rage.vsnd"
+		vsnd_duration = 2.769456
+	}
+	// <- hero_bloodseeker.rupture.cast: in client doar cu alte majuscule
+	Hero_Bloodseeker.Rupture.Cast =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Ultimates"
+		spread_radius = 300.0
+		vsnd_files = "sounds/weapons/hero/bloodseeker/rupture_cast.vsnd"
+		vsnd_duration = 2.1
+	}
+	// <- Hero_Brewmaster.Barrel.Cast: fisierul 6.88 drunken_haze_cast (in 7.x refolosit de Barrel cu volum/pitch modificate)
+	Hero_Brewmaster.DrunkenHaze.Cast =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		spread_radius = 300.0
+		use_entity_position = 0.0
+		vsnd_files = "sounds/weapons/hero/brewmaster/drunken_haze_cast.vsnd"
+		vsnd_duration = 0.998413
+	}
+	// <- Hero_Brewmaster.CinderBrew.Target
+	Hero_Brewmaster.DrunkenHaze.Target =
+	{
+		type = "dota_src1_3d"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 78.0
+		distance_max = 2500.0
+		limiter_on = 1.0
+		limiter_event_name = "Hero_Brewmaster.DrunkenHaze.Target"
+		limiter_max = 1.0
+		limiter_match_entity = 0.0
+		vsnd_files = "sounds/weapons/hero/brewmaster/drunken_haze_target.vsnd"
+		vsnd_duration = 4.789342
+	}
+	// <- Hero_Centaur.Stampede.Stun
+	Hero_Centaur.Stampede.Impact =
+	{
+		type = "dota_update_default"
+		volume = 0.5
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.2
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		spread_radius = 300.0
+		vsnd_files = "sounds/weapons/hero/spirit_breaker/greater_bash.vsnd"
+		vsnd_duration = 1.718753
+	}
+	// <- Hero_Chen.HolyPersuasionEnemy
+	Hero_Chen.HolyPersuasion =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		spread_radius = 300.0
+		vsnd_files = "sounds/weapons/hero/chen/holy_persuasion_convert.vsnd"
+		vsnd_duration = 3.370635
+	}
+	// <- Hero_Chen.DivineFavor.Target: fisierul 6.88 test_of_faith (nefolosit de niciun eveniment in 7.x)
+	Hero_Chen.TestOfFaith.Target =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		spread_radius = 300.0
+		vsnd_files = "sounds/weapons/hero/chen/test_of_faith.vsnd"
+		vsnd_duration = 2.862494
+	}
+	// <- Hero_Dark_Seer.Wall_of_Replica_Start
+	Hero_Dark_Seer.WallOfReplica =
+	{
+		type = "dota_update_default"
+		volume = 0.5
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		spread_radius = 300.0
+		vsnd_files = "sounds/weapons/hero/dark_seer/dota_dark_seer_wall_start.vsnd"
+		vsnd_duration = 2.439206
+	}
+	// <- Hero_Dazzle.Poison_Cast
+	Hero_Dazzle.PoisonTouch =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		spread_radius = 300.0
+		vsnd_files = "sounds/weapons/hero/dazzle/poison_cast.vsnd"
+		vsnd_duration = 1.213152
+	}
+	// <- Hero_Dazzle.Poison_Touch
+	Hero_Dazzle.PoisonTouch.Target =
+	{
+		type = "dota_src1_3d"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		distance_max = 3000.0
+		block_duration = 0.15
+		block_distance = 600.0
+		vsnd_files = "sounds/weapons/hero/dazzle/poison_impact.vsnd"
+		vsnd_duration = 3.29297
+	}
+	// <- Hero_Dazzle.BadJuJu.Cast: fisierul 6.88 weave (in 7.x refolosit de Bad Juju cu pitch 0.5)
+	Hero_Dazzle.Weave =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Ultimates"
+		spread_radius = 300.0
+		vsnd_files = "sounds/weapons/hero/dazzle/weave.vsnd"
+		vsnd_duration = 2.703605
+	}
+	// <- Hero_DrowRanger.Marksmanship.Target: Precision Aura nu a avut sunet propriu nici in 6.88: cel mai apropiat sunet Drow existent
+	Hero_DrowRanger.Trueshot.Cast =
+	{
+		type = "dota_src1_3d"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 75.0
+		distance_max = 2000.0
+		vsnd_files = "sounds/weapons/hero/drow_ranger/marksmanship_target.vsnd"
+		vsnd_duration = 1.132653
+	}
+	// <- Hero_ElderTitan.EarthSplitter.Cast
+	Hero_EldarTitan.EarthSplitter.Cast =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Ultimates"
+		spread_radius = 600.0
+		vsnd_files = "sounds/weapons/hero/elder_titan/earth_split_cast.vsnd"
+		vsnd_duration = 4.922449
+	}
+	// <- Hero_ElderTitan.EarthSplitter.Destroy
+	Hero_EldarTitan.EarthSplitter.Destroy =
+	{
+		type = "dota_src1_3d"
+		volume = 1.0
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Ultimates"
+		block_duration = 0.1
+		block_distance = 250.0
+		block_match_entity = 0.0
+		block_multiple_instances = 1.0
+		vsnd_files =
+		[
+			"sounds/weapons/hero/elder_titan/earth_split_destroy01.vsnd",
+			"sounds/weapons/hero/elder_titan/earth_split_destroy02.vsnd",
+			"sounds/weapons/hero/elder_titan/earth_split_destroy03.vsnd",
+		]
+		vsnd_duration = 4.267392
+	}
+	// <- hero_jakiro.macropyre: in client doar cu alte majuscule
+	Hero_Jakiro.Macropyre =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch = 0.9
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		volume_fade_out = 1.0
+		spread_radius = 600.0
+		volume_use_FOW = 1.0
+		volume_FOW_radius = 300.0
+		vsnd_files = "sounds/weapons/hero/jakiro/macropyre.vsnd"
+		vsnd_duration = 9.982267
+	}
+	// <- Hero_KeeperOfTheLight.SpiritForm
+	Hero_KeeperOfTheLight.SpiritForm.Cast =
+	{
+		type = "dota_update_default"
+		volume = 0.699707
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Ultimates"
+		volume_fade_out = 1.0
+		spread_radius = 300.0
+		vsnd_files = "sounds/weapons/hero/keeper/spirit_form.vsnd"
+		vsnd_duration = 5.537166
+	}
+	// <- Hero_Lich.ChainFrostImpact.Hero
+	Hero_Lich.ChainFrostImpact =
+	{
+		type = "dota_update_default"
+		volume = 0.799805
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Ultimates"
+		spread_radius = 150.0
+		distance_max = 2500.0
+		soundevent_layer2 = "Hero_Lich.ChainFrostImpact.LF"
+		soundevent_layer2_on = 1.0
+		vsnd_files =
+		[
+			"sounds/weapons/hero/lich/chain_frost_impact_hero01.vsnd",
+			"sounds/weapons/hero/lich/chain_frost_impact_hero02.vsnd",
+			"sounds/weapons/hero/lich/chain_frost_impact_hero03.vsnd",
+		]
+		vsnd_duration = 1.705215
+	}
+	// <- Hero_Lich.Sacrifice
+	Hero_Lich.DarkRitual =
+	{
+		type = "dota_src1_3d"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		soundlevel = 75.0
+		mixgroup = "Weapons"
+		volume_fade_in = 1.0
+		distance_max = 2000.0
+		vsnd_files = "sounds/weapons/hero/lich/dark_ritual.vsnd"
+		vsnd_duration = 3.320204
+	}
+	// <- Ability.LagunaBlade
+	Hero_Lina.LagunaBlade =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 84.0
+		mixgroup = "Weapons"
+		spread_radius = 600.0
+		vsnd_files = "sounds/weapons/hero/lina/lagunablade.vsnd"
+		vsnd_duration = 1.984762
+	}
+	// <- Ability.LagunaBladeImpact
+	Hero_Lina.LagunaBladeImpact =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 84.0
+		mixgroup = "Ultimates"
+		spread_radius = 150.0
+		vsnd_files = "sounds/weapons/hero/lina/lagunablade_impact.vsnd"
+		vsnd_duration = 1.760204
+	}
+	// <- Hero_Morphling.AdaptiveStrikeAgi.Target: 6.88 nu avea sunet de impact separat: impactul Adaptive Strike (Agility) din 7.x
+	Hero_Morphling.AdaptiveStrike_Impact =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		spread_radius = 300.0
+		vsnd_files = "sounds/weapons/hero/morphling/adaptive_strike_agi_target.vsnd"
+		vsnd_duration = 2.204082
+	}
+	// <- Hero_NagaSiren.SongOfTheSiren
+	Hero_NagaSiren.SongOfTheSiren.Cast =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 78.0
+		mixgroup = "Ultimates"
+		volume_fade_out = 1.0
+		spread_radius = 750.0
+		volume_use_FOW = 1.0
+		volume_FOW_filter_vel = 0.3
+		vsnd_files = "sounds/weapons/hero/naga_siren/song_of_the_siren.vsnd"
+		vsnd_duration = 7.852381
+	}
+	// <- definit manual: explozia Sanity's Eclipse; Lua il emite pe fiecare tinta, block_* il lasa sa sune o singura data
+	Hero_ObsidianDestroyer.SanityEclipse.Target =
+	{
+		type = "dota_src1_3d"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Ultimates"
+		distance_max = 3000.0
+		block_duration = 0.5
+		block_distance = 2000.0
+		block_match_entity = 0.0
+		vsnd_files = "sounds/weapons/hero/obsidian_destroyer/sanity_eclipse.vsnd"
+		vsnd_duration = 3.766009
+	}
+	// <- Hero_Razor.Storm.Cast
+	Hero_Razor.Storm.Start =
+	{
+		type = "dota_update_default"
+		volume = 0.5
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Ultimates"
+		spread_radius = 600.0
+		vsnd_files = "sounds/weapons/hero/razor/storm_cast.vsnd"
+		vsnd_duration = 3.036576
+	}
+	// <- Hero_Razor.StormEnd
+	Hero_Razor.Storm.End =
+	{
+		type = "dota_src1_3d"
+		volume = 0.299805
+		pitch = 1.0
+		soundlevel = 75.0
+		distance_max = 2500.0
+		limiter_on = 0.0
+		vsnd_files = "sounds/weapons/hero/razor/razor_storm_loop_end.vsnd"
+		vsnd_duration = 2.091769
+	}
+	// <- Hero_razor.lightning
+	Hero_Razor.Storm.Strike =
+	{
+		type = "dota_src1_3d"
+		volume_rand_min = -0.149902
+		volume_rand_max = 0.149902
+		volume = 0.749512
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 75.0
+		distance_max = 2500.0
+		limiter_on = 1.0
+		vsnd_files =
+		[
+			"sounds/weapons/hero/razor/razor_lightning_strike_01.vsnd",
+			"sounds/weapons/hero/razor/razor_lightning_strike_02.vsnd",
+			"sounds/weapons/hero/razor/razor_lightning_strike_03.vsnd",
+			"sounds/weapons/hero/razor/razor_lightning_strike_04.vsnd",
+			"sounds/weapons/hero/razor/razor_lightning_strike_05.vsnd",
+		]
+		vsnd_duration = 2.04034
+	}
+	// <- Ability.SandKing_CausticFinale
+	Hero_SandKing.CausticFinale =
+	{
+		type = "dota_src1_3d"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		distance_max = 2500.0
+		limiter_on = 0.0
+		vsnd_files = "sounds/weapons/hero/sand_king/sand_king_caustic_bodyexplode.vsnd"
+		vsnd_duration = 1.493492
+	}
+	// <- Hero_ShadowDemon.Soul_Catcher.Cast
+	Hero_ShadowDemon.SoulCatcher.Cast =
+	{
+		type = "dota_update_default"
+		volume = 0.75
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		spread_radius = 300.0
+		vsnd_files = "sounds/weapons/hero/shadow_demon/soul_catcher_cast.vsnd"
+		vsnd_duration = 1.996327
+	}
+	// <- Hero_ShadowDemon.Soul_Catcher
+	Hero_ShadowDemon.SoulCatcher.Target =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		spread_radius = 300.0
+		vsnd_files = "sounds/weapons/hero/shadow_demon/soul_catcher_target.vsnd"
+		vsnd_duration = 2.822336
+	}
+	// <- Hero_Spirit_Breaker.GreaterBash: fisierul 6.88 haste_cast (Empowering Haste a fost scoasa, fisierul a ramas)
+	Hero_SpiritBreaker.EmpoweringHaste =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		spread_radius = 300.0
+		vsnd_files = "sounds/weapons/hero/spirit_breaker/haste_cast.vsnd"
+		vsnd_duration = 2.118866
+	}
+	// <- Hero_Spirit_Breaker.GreaterBash
+	Hero_SpiritBreaker.GreaterBash =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		spread_radius = 300.0
+		vsnd_files = "sounds/weapons/hero/spirit_breaker/greater_bash.vsnd"
+		vsnd_duration = 1.718753
+	}
+	// <- Hero_Spirit_Breaker.NetherStrike.Begin
+	Hero_SpiritBreaker.NetherStrike.Begin =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		volume_fade_out = 0.6
+		spread_radius = 300.0
+		vsnd_files = "sounds/weapons/hero/spirit_breaker/nether_strike_in.vsnd"
+		vsnd_duration = 2.098889
+	}
+	// <- Hero_Spirit_Breaker.NetherStrike.End
+	Hero_SpiritBreaker.NetherStrike.End =
+	{
+		type = "dota_update_default"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Ultimates"
+		spread_radius = 300.0
+		vsnd_files = "sounds/weapons/hero/spirit_breaker/nether_strike_out.vsnd"
+		vsnd_duration = 0.760272
+	}
+	// <- Tiny.Grow
+	Hero_Tiny.Grow =
+	{
+		type = "dota_src1_3d"
+		volume = 1.0
+		pitch = 1.0
+		soundlevel = 80.0
+		distance_max = 2500.0
+		limiter_on = 0.0
+		vsnd_files = "sounds/weapons/hero/tiny/tiny_grow.vsnd"
+		vsnd_duration = 2.70254
+	}
+	// <- Hero_Treant.NaturesGuise.On
+	Hero_Treant.NaturesGuise.Cast =
+	{
+		type = "dota_update_default"
+		volume = 0.599609
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		volume_fade_out = 0.5
+		spread_radius = 300.0
+		vsnd_files = "sounds/weapons/hero/treant/natures_guise.vsnd"
+		vsnd_duration = 2.763039
+	}
+	// <- Hero_TrollWarlord.BerserkersRage.Toggle
+	Hero_TrollWarlord.BerserkersRage.On =
+	{
+		type = "dota_src1_3d"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 78.0
+		distance_max = 2500.0
+		limiter_on = 0.0
+		vsnd_files =
+		[
+			"sounds/weapons/hero/shared/small_blade/whoosh01.vsnd",
+			"sounds/weapons/hero/shared/small_blade/whoosh02.vsnd",
+			"sounds/weapons/hero/shared/small_blade/whoosh03.vsnd",
+			"sounds/weapons/hero/shared/small_blade/whoosh04.vsnd",
+		]
+		vsnd_duration = 0.188254
+	}
+	// <- Hero_TrollWarlord.BerserkersRage.Toggle
+	Hero_TrollWarlord.BerserkersRage.Off =
+	{
+		type = "dota_src1_3d"
+		volume = 1.0
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 78.0
+		distance_max = 2500.0
+		limiter_on = 0.0
+		vsnd_files =
+		[
+			"sounds/weapons/hero/shared/small_blade/whoosh01.vsnd",
+			"sounds/weapons/hero/shared/small_blade/whoosh02.vsnd",
+			"sounds/weapons/hero/shared/small_blade/whoosh03.vsnd",
+			"sounds/weapons/hero/shared/small_blade/whoosh04.vsnd",
+		]
+		vsnd_duration = 0.188254
+	}
+	// <- Ability.Focusfire
+	Hero_Windrunner.FocusFire.Cast =
+	{
+		type = "dota_update_default"
+		volume = 0.699707
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Ultimates"
+		spread_radius = 300.0
+		vsnd_files = "sounds/weapons/hero/windrunner/focus_fire.vsnd"
+		vsnd_duration = 3.881224
+	}
+	// <- Ability.Windrun
+	Hero_Windrunner.Windrun =
+	{
+		type = "dota_update_default"
+		volume = 0.699707
+		pitch_rand_min = -0.05
+		pitch_rand_max = 0.05
+		pitch = 1.0
+		soundlevel = 81.0
+		mixgroup = "Weapons"
+		volume_fade_out = 0.75
+		spread_radius = 150.0
+		vsnd_files = "sounds/weapons/hero/windrunner/windrun.vsnd"
+		vsnd_duration = 7.000567
+	}
+}

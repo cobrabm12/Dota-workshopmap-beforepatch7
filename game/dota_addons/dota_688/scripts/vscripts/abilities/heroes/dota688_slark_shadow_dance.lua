@@ -1,4 +1,5 @@
 -- Shadow Dance (6.88): 4 s invizibilitate care nu se rupe la atac/cast; pasiv: cand nu e vazut de inamici, +30/35/40% MS si 3/5/7% HP regen/s.
+require("dota688/val")
 local F = "abilities/heroes/dota688_slark_shadow_dance"
 LinkLuaModifier("modifier_dota688_slark_shadow_dance", F, LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_slark_shadow_dance_passive", F, LUA_MODIFIER_MOTION_NONE)
@@ -26,5 +27,5 @@ function modifier_dota688_slark_shadow_dance_passive:OnIntervalThink()
 	self:SetStackCount((seen or p:PassivesDisabled()) and 0 or 1)
 end
 function modifier_dota688_slark_shadow_dance_passive:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE } end
-function modifier_dota688_slark_shadow_dance_passive:GetModifierMoveSpeedBonus_Percentage() return self:GetStackCount() == 1 and self:GetAbility():GetSpecialValueFor("bonus_movement_speed") or 0 end
-function modifier_dota688_slark_shadow_dance_passive:GetModifierHealthRegenPercentage() return self:GetStackCount() == 1 and self:GetAbility():GetSpecialValueFor("bonus_regen_pct") or 0 end
+function modifier_dota688_slark_shadow_dance_passive:GetModifierMoveSpeedBonus_Percentage() return self:GetStackCount() == 1 and Dota688Val(self, "bonus_movement_speed") or 0 end
+function modifier_dota688_slark_shadow_dance_passive:GetModifierHealthRegenPercentage() return self:GetStackCount() == 1 and Dota688Val(self, "bonus_regen_pct") or 0 end

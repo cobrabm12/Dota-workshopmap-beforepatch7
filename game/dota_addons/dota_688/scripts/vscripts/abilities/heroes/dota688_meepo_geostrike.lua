@@ -1,4 +1,5 @@
 -- Geostrike (6.88): atacurile aplica un debuff de 2 s cu daune magice pe secunda si incetinire; fiecare Meepo are propriul debuff.
+require("dota688/val")
 LinkLuaModifier("modifier_dota688_meepo_geostrike", "abilities/heroes/dota688_meepo_geostrike", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_meepo_geostrike_debuff", "abilities/heroes/dota688_meepo_geostrike", LUA_MODIFIER_MOTION_NONE)
 
@@ -21,12 +22,13 @@ end
 modifier_dota688_meepo_geostrike_debuff = class({})
 function modifier_dota688_meepo_geostrike_debuff:IsDebuff() return true end
 function modifier_dota688_meepo_geostrike_debuff:IsPurgable() return true end
-function modifier_dota688_meepo_geostrike_debuff:GetEffectName() return "particles/units/heroes/hero_meepo/meepo_geostrike_debuff.vpcf" end
 function modifier_dota688_meepo_geostrike_debuff:OnCreated()
-	self.slow = self:GetAbility():GetSpecialValueFor("slow")
+	self.slow = Dota688Val(self, "slow")
 	self.tick = 0.5
-	self.dps = self:GetAbility():GetAbilityDamage()
-	if IsServer() then self:StartIntervalThink(self.tick) end
+	if IsServer() then   -- GetAbilityDamage exista doar pe server (OnCreated ruleaza si pe client)
+		self.dps = self:GetAbility():GetAbilityDamage()
+		self:StartIntervalThink(self.tick)
+	end
 end
 function modifier_dota688_meepo_geostrike_debuff:OnRefresh() self:OnCreated() end
 function modifier_dota688_meepo_geostrike_debuff:OnIntervalThink()

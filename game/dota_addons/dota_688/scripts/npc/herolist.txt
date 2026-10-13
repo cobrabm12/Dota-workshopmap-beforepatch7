@@ -1,4 +1,4 @@
-// GENERAT AUTOMAT de tools/gen_overrides.py – NU EDITA MANUAL.
+﻿// GENERAT AUTOMAT de tools/gen_overrides.py - NU EDITA MANUAL.
 // Sursa: reference/6.88f (Valve, 6.88f) vs reference/current.
 "whitelist"
 {

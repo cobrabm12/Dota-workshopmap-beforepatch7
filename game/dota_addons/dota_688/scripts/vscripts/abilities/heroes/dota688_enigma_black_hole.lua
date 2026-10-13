@@ -1,4 +1,7 @@
 -- Black Hole (6.88): channel 4 s; trage inamicii din raza 420; 50/100/150 daune pure/s (dublu in centrul de 200); stun pe durata; trece prin imunitate.
+-- Scepter: adauga nivelul curent de Midnight Pulse (daune pure % din HP max pe secunda) in Black Hole.
+require("dota688/val")
+require("dota688/aghanim")
 local F = "abilities/heroes/dota688_enigma_black_hole"
 LinkLuaModifier("modifier_dota688_enigma_black_hole_thinker", F, LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_enigma_black_hole_pull", F, LUA_MODIFIER_MOTION_NONE)
@@ -23,6 +26,13 @@ function modifier_dota688_enigma_black_hole_thinker:OnCreated()
 	self.fx = ParticleManager:CreateParticle("particles/units/heroes/hero_enigma/enigma_blackhole.vpcf", PATTACH_ABSORIGIN, self:GetParent())
 	ParticleManager:SetParticleControl(self.fx, 0, self:GetParent():GetAbsOrigin())
 	AddFOWViewer(self:GetCaster():GetTeamNumber(), self:GetParent():GetAbsOrigin(), a:GetSpecialValueFor("vision_radius"), a:GetSpecialValueFor("duration"), false)
+	-- Scepter: Midnight Pulse in interiorul gaurii negre
+	self.pulsePct = 0
+	local pulse = self:GetCaster():FindAbilityByName("dota688_enigma_midnight_pulse") or self:GetCaster():FindAbilityByName("enigma_midnight_pulse")
+	if pulse and pulse:GetLevel() > 0 and Dota688HasScepter(self:GetCaster()) then
+		self.pulse = pulse
+		self.pulsePct = pulse:GetSpecialValueFor("damage_percent")
+	end
 	self:StartIntervalThink(a:GetSpecialValueFor("tick_rate"))
 end
 function modifier_dota688_enigma_black_hole_thinker:OnIntervalThink()
@@ -36,10 +46,23 @@ function modifier_dota688_enigma_black_hole_thinker:OnIntervalThink()
 		local d = (e:GetAbsOrigin() - center):Length2D()
 		local dmg = (d <= a:GetSpecialValueFor("near_radius")) and (a:GetSpecialValueFor("near_damage") + a:GetSpecialValueFor("far_damage")) or a:GetSpecialValueFor("far_damage")
 		ApplyDamage({ victim = e, attacker = caster, damage = dmg * tick, damage_type = DAMAGE_TYPE_PURE, ability = a })
+		if self.pulsePct and self.pulsePct > 0 then
+			-- Midnight Pulse 6.88 face daune pure
+			ApplyDamage({ victim = e, attacker = caster, damage = e:GetMaxHealth() * self.pulsePct / 100 * tick, damage_type = DAMAGE_TYPE_PURE, ability = self.pulse })
+		end
 	end
 end
 function modifier_dota688_enigma_black_hole_thinker:OnDestroy()
-	if IsServer() then ParticleManager:DestroyParticle(self.fx, false); UTIL_Remove(self:GetParent()) end
+	if not IsServer() then return end
+	ParticleManager:DestroyParticle(self.fx, false)
+	-- canalizare intrerupta: victimele scapa imediat
+	local caster = self:GetCaster()
+	for _, e in ipairs(FindUnitsInRadius(DOTA_TEAM_NOTEAM, self:GetParent():GetAbsOrigin(), nil, 1200, DOTA_UNIT_TARGET_TEAM_BOTH,
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)) do
+		local m = caster and not caster:IsNull() and e:FindModifierByNameAndCaster("modifier_dota688_enigma_black_hole_pull", caster) or e:FindModifierByName("modifier_dota688_enigma_black_hole_pull")
+		if m then m:Destroy() end
+	end
+	UTIL_Remove(self:GetParent())
 end
 modifier_dota688_enigma_black_hole_pull = class({})
 function modifier_dota688_enigma_black_hole_pull:IsDebuff() return true end
@@ -48,7 +71,7 @@ function modifier_dota688_enigma_black_hole_pull:IsStunDebuff() return true end
 function modifier_dota688_enigma_black_hole_pull:OnCreated(kv)
 	if not IsServer() then return end
 	self.center = Vector(kv.x, kv.y, self:GetParent():GetAbsOrigin().z)
-	self.speed = self:GetAbility():GetSpecialValueFor("pull_speed")
+	self.speed = Dota688Val(self, "pull_speed")
 	self:StartIntervalThink(0.03)
 end
 function modifier_dota688_enigma_black_hole_pull:OnIntervalThink()

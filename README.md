@@ -19,17 +19,20 @@ din fișierele originale Valve de la 6.88f, iar regulile de joc sunt implementat
 | 72 iteme apărute după 6.88 scoase din shop | ✅ |
 | Turnuri, barăci, Ancient, fântână, creepi, neutrali, Roshan, curieri cu statistici 6.88 | ✅ generat în `npc_units_custom.txt` (98 unități) |
 | Reguli de joc în Lua (aur, XP, nivel 25, respawn, buyback, rune, zi/noapte 4+4, Roshan, fără backpack, curier cumpărat) | ✅ `game/dota_addons/dota_688/scripts/vscripts/` – **netestat încă în joc** |
-| Abilități reworkate după 6.88 rescrise în Lua cu mecanica originală | ✅ 90+ abilități de erou (toate cele dispărute + cele cu rework major: Riki, Techies, Lycan, Treant, Necrophos, Viper, Io, OD, Pudge, Slardar, Sven, Tiny, Undying, Visage, Wraith King…) – lista în `docs/STATUS.md` |
+| Abilități reworkate după 6.88 rescrise în Lua cu mecanica originală | ✅ 91 abilități de erou (toate cele dispărute + cele cu rework major: Riki, Techies, Lycan, Treant, Necrophos, Viper, Io, OD, Pudge, Slardar, Sven, Tiny, Undying, Visage, Wraith King…) – lista în `docs/STATUS.md` |
 | Iteme cu mecanica 6.88 rescrise în Lua (Heart, Skadi, S&Y, Halberd, Abyssal, Dagon, Veil, Medallion, Solar Crest, Octarine, Shiva, Scythe, Urn, Mek, Pipe, Greaves, Vlad, Basilius/Aquila, Soul Ring, Atos, E-Blade, Manta, Armlet, Battle Fury, Drums, Silver Edge, HotD, Bloodstone, Linken, MKB, Butterfly, Satanic, MoM, Phase, Treads, Diffusal, Midas, Iron Talon…) | ✅ 64 iteme + shop-ul cu layout-ul 6.88 (`shops.txt`) |
-| Abilități built-in cu mecanici noi dezactivate prin override manual (`tools/manual_overrides.json`) | ✅ parțial (Mana Break, Heartstopper, Necromastery, Psionic Trap, Divided We Stand…) |
+| Abilități built-in cu mecanici noi dezactivate prin override manual (`tools/manual_overrides.json`) | ✅ 83 abilități/iteme (Mana Break, Heartstopper, Necromastery, Psionic Trap, Culling Blade, Invoker, consumabile…) |
 | Panorama: talente, backpack, slot neutru, slot TP ascunse | ✅ `content/.../panorama` – de verificat ID-urile la patch-uri noi |
-| Abilități rămase cu diferențe minore sau doar de Aghanim (Invoker orbs, Ogre Multicast, Medusa Split Shot, Visage familiars…) | 🔜 ~65, listate în `docs/STATUS.md` |
+| Aghanim's Scepter ca în 6.88: item propriu (fără upgrade‑urile moderne), upgrade‑urile 6.88 reproduse per erou (built‑in unde sunt identice, altfel ultimate‑ul rescris în Lua), Alchemist îl poate da aliaților | ✅ `docs/AGHANIM.md` – 84 eroi: 83 reproduse, 1 imposibilă (Lone Druid: lesa ursului e în C++) |
+| Abilități rămase cu diferențe minore (Ogre Multicast, Medusa Split Shot, zombii lui Undying…) | 🔜 ~65, listate în `docs/STATUS.md`; nimic blocant |
+| Localizare | ✅ engleză, generată din textele 6.88 (jocul rămâne în engleză) |
+| Resurse (particule/modele) verificate față de clientul curent | ✅ |
 | Panou cu regulile 6.88 în HUD, spawn neutrali la 0:30 | ✅ de verificat în joc |
-| Harta 6.88 (Hammer) | 🔜 plan în `docs/HARTA.md` |
+| Harta 6.88: harta 6.88f originală, sursă Hammer în repo, compilată de noi în formatul curent (trigger‑e de shop/camp‑uri refăcute ca mesh‑uri, world layer‑ele bazei) | ✅ `docs/HARTA.md` – testată în joc |
 | Testare în Workshop Tools | 🔜 |
 
-Detalii: `docs/REGULI_6.88.md` (toate regulile și sursa lor), `docs/STATUS.md` (raport generat),
-`docs/HARTA.md` (ce trebuie construit în Hammer), `docs/ROADMAP.md`.
+Detalii: `docs/REGULI_6.88.md` (toate regulile și sursa lor), `docs/STATUS.md` (raport generat), `docs/AGHANIM.md` (scepter per erou),
+`docs/HARTA.md` (harta 6.88: import, compilare, teste), `docs/ROADMAP.md`.
 
 ## Structura repo‑ului
 
@@ -53,9 +56,10 @@ docs/                             <- documentație (română)
    * `game/dota_addons/dota_688` → `...\dota 2 beta\game\dota_addons\dota_688`
    * `content/dota_addons/dota_688` → `...\dota 2 beta\content\dota_addons\dota_688`
 3. Pornește `dota2cfg.exe` / Workshop Tools, alege addon‑ul `dota_688`.
-4. Până există harta proprie, testează regulile pe harta standard: în consolă
-   `dota_launch_custom_game dota_688 dota` (vei vedea harta 7.x, dar eroii/itemele/regulile sunt 6.88).
-   Runele cer punctele `dota688_rune_top` / `dota688_rune_bot` sau spawner‑ele Valve de rune de putere.
+4. Construiește harta 6.88 (`docs/HARTA.md`): `python tools/import_harta_688.py` (are nevoie de `maps/dota.vpk` din
+   clientul 6.88f, descărcat o dată cu DepotDownloader, și de Source2Viewer‑CLI; scrie sursa Hammer
+   `content/dota_addons/dota_688/maps/dota_688.vmap` și fișierele ei), apoi `python tools/compile_harta_688.py`
+   și în consolă `dota_launch_custom_game dota_688 dota_688`.
 
 ## Cum adaugi o reimplementare 6.88
 

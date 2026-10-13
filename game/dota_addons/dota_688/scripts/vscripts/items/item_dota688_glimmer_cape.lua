@@ -1,3 +1,4 @@
+require("dota688/val")
 require("items/dota688_item_base")
 -- Glimmer Cape (6.88): +20 AS, +15% rezistenta magica; Glimmer: invizibilitate dupa 0.6 s + 45% rezistenta magica, 5 s, cd 16, 90 mana.
 LinkLuaModifier("modifier_dota688_glimmer", "items/item_dota688_glimmer_cape", LUA_MODIFIER_MOTION_NONE)
@@ -12,10 +13,12 @@ Dota688DefineItem("item_dota688_glimmer_cape", "items/item_dota688_glimmer_cape"
 })
 modifier_dota688_glimmer = class({})
 function modifier_dota688_glimmer:IsPurgable() return true end
-function modifier_dota688_glimmer:GetEffectName() return "particles/items_fx/glimmer_cape_initial_flash.vpcf" end
+function modifier_dota688_glimmer:GetEffectName() return "particles/items3_fx/glimmer_cape_initial_flash.vpcf" end
 function modifier_dota688_glimmer:OnCreated() self.start = GameRules:GetGameTime() end
-function modifier_dota688_glimmer:Faded() return GameRules:GetGameTime() - (self.start or 0) >= self:GetAbility():GetSpecialValueFor("fade_delay") end
+function modifier_dota688_glimmer:Faded() return GameRules:GetGameTime() - (self.start or 0) >= Dota688Val(self, "fade_delay") end
 function modifier_dota688_glimmer:CheckState() return { [MODIFIER_STATE_INVISIBLE] = self:Faded() } end
-function modifier_dota688_glimmer:DeclareFunctions() return { MODIFIER_PROPERTY_INVISIBILITY_LEVEL, MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS } end
+function modifier_dota688_glimmer:DeclareFunctions() return { MODIFIER_PROPERTY_INVISIBILITY_LEVEL, MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS, MODIFIER_EVENT_ON_ATTACK, MODIFIER_EVENT_ON_ABILITY_EXECUTED } end
 function modifier_dota688_glimmer:GetModifierInvisibilityLevel() return self:Faded() and 1 or 0 end
-function modifier_dota688_glimmer:GetModifierMagicalResistanceBonus() return self:GetAbility():GetSpecialValueFor("active_magical_armor") end
+function modifier_dota688_glimmer:GetModifierMagicalResistanceBonus() return self:Faded() and Dota688Val(self, "active_magical_armor") or 0 end   -- "After a 0.6 second delay, grants invisibility and 45% magic resistance"
+function modifier_dota688_glimmer:OnAttack(params) if IsServer() and params.attacker == self:GetParent() then self:Destroy() end end
+function modifier_dota688_glimmer:OnAbilityExecuted(params) if IsServer() and params.unit == self:GetParent() and params.ability ~= self:GetAbility() then self:Destroy() end end

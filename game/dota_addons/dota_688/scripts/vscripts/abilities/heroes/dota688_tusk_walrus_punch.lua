@@ -1,4 +1,5 @@
 -- Walrus PUNCH! (6.88, orb/ultimate): urmatorul atac e critic 350%, arunca tinta in aer 1 s si o incetineste 40% pentru 2/3/4 s.
+require("dota688/val")
 local F = "abilities/heroes/dota688_tusk_walrus_punch"
 LinkLuaModifier("modifier_dota688_walrus_punch_buff", F, LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_walrus_punch_slow", F, LUA_MODIFIER_MOTION_NONE)
@@ -21,7 +22,7 @@ function modifier_dota688_walrus_punch_buff:GetModifierPreAttack_CriticalStrike(
 	local t = params.target
 	if not t or t:IsBuilding() or t:IsOther() then return nil end
 	self.punchTarget = t
-	return self:GetAbility():GetSpecialValueFor("crit_multiplier")
+	return Dota688Val(self, "crit_multiplier")
 end
 function modifier_dota688_walrus_punch_buff:OnAttackLanded(params)
 	if not IsServer() or params.attacker ~= self:GetParent() or params.target ~= self.punchTarget then return end
@@ -38,4 +39,4 @@ modifier_dota688_walrus_punch_slow = class({})
 function modifier_dota688_walrus_punch_slow:IsDebuff() return true end
 function modifier_dota688_walrus_punch_slow:IsPurgable() return true end
 function modifier_dota688_walrus_punch_slow:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE } end
-function modifier_dota688_walrus_punch_slow:GetModifierMoveSpeedBonus_Percentage() return -self:GetAbility():GetSpecialValueFor("move_slow") end
+function modifier_dota688_walrus_punch_slow:GetModifierMoveSpeedBonus_Percentage() return -Dota688Val(self, "move_slow") end

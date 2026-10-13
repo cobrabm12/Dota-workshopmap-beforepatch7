@@ -1,3 +1,4 @@
+require("dota688/val")
 require("items/dota688_item_base")
 require("items/item_dota688_force_staff")
 -- Hurricane Pike (6.88): +10 INT, +4 regen, +20 AGI, +15 STR, +140 raza de atac (ranged); Hurricane Thrust: aliat/self impins 600; inamic: ambii impinsi 450 unul de altul,
@@ -6,9 +7,11 @@ LinkLuaModifier("modifier_dota688_pike_attacks", "items/item_dota688_hurricane_p
 Dota688DefineItem("item_dota688_hurricane_pike", "items/item_dota688_hurricane_pike", {
 	modifier = {
 		GetModifierAttackRangeBonus = function(self)
-			if self:GetParent():IsRangedAttacker() then return self:GetAbility():GetSpecialValueFor("base_attack_range") end
+			if self:GetParent():IsRangedAttacker() then return Dota688Val(self, "base_attack_range") end
 			return 0
 		end,
+		-- bonus_attack_speed e doar al activei ("Grants 100 Attack Speed during the attacks"), nu pasiv
+		GetModifierAttackSpeedBonus_Constant = function() return 0 end,
 	},
 	item = {
 		CastFilterResultTarget = function(self, target)
@@ -39,10 +42,10 @@ Dota688DefineItem("item_dota688_hurricane_pike", "items/item_dota688_hurricane_p
 })
 modifier_dota688_pike_attacks = class({})
 function modifier_dota688_pike_attacks:IsPurgable() return false end
-function modifier_dota688_pike_attacks:OnCreated() self:SetStackCount(self:GetAbility():GetSpecialValueFor("max_attacks")) end
+function modifier_dota688_pike_attacks:OnCreated() self:SetStackCount(Dota688Val(self, "max_attacks")) end
 function modifier_dota688_pike_attacks:DeclareFunctions() return { MODIFIER_PROPERTY_ATTACK_RANGE_BONUS, MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT, MODIFIER_EVENT_ON_ATTACK } end
 function modifier_dota688_pike_attacks:GetModifierAttackRangeBonus() return 5000 end
-function modifier_dota688_pike_attacks:GetModifierAttackSpeedBonus_Constant() return self:GetAbility():GetSpecialValueFor("bonus_attack_speed") end
+function modifier_dota688_pike_attacks:GetModifierAttackSpeedBonus_Constant() return Dota688Val(self, "bonus_attack_speed") end
 function modifier_dota688_pike_attacks:OnAttack(params)
 	if not IsServer() or params.attacker ~= self:GetParent() then return end
 	self:DecrementStackCount()

@@ -1,4 +1,5 @@
 -- Decrepify (6.88): tinta devine eterica 3.5 s: inamic -30/40/50/60% MS si +30..60% daune magice primite; aliat: -25% daune magice primite.
+require("dota688/val")
 LinkLuaModifier("modifier_dota688_pugna_decrepify", "abilities/heroes/dota688_pugna_decrepify", LUA_MODIFIER_MOTION_NONE)
 dota688_pugna_decrepify = class({})
 function dota688_pugna_decrepify:CastFilterResultTarget(target)
@@ -20,10 +21,10 @@ function modifier_dota688_pugna_decrepify:GetStatusEffectName() return "particle
 function modifier_dota688_pugna_decrepify:CheckState() return { [MODIFIER_STATE_DISARMED] = true, [MODIFIER_STATE_ATTACK_IMMUNE] = true } end
 function modifier_dota688_pugna_decrepify:DeclareFunctions() return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS } end
 function modifier_dota688_pugna_decrepify:GetModifierMoveSpeedBonus_Percentage()
-	if not self:IsDebuff() then return self:GetAbility():GetSpecialValueFor("bonus_movement_speed_allies") end
-	return self:GetAbility():GetSpecialValueFor("bonus_movement_speed")
+	if not self:IsDebuff() then return Dota688Val(self, "bonus_movement_speed_allies") end
+	return Dota688Val(self, "bonus_movement_speed")
 end
 function modifier_dota688_pugna_decrepify:GetModifierMagicalResistanceBonus()
-	if not self:IsDebuff() then return -self:GetAbility():GetSpecialValueFor("bonus_spell_damage_pct_allies") end
-	return self:GetAbility():GetSpecialValueFor("bonus_spell_damage_pct")
+	if not self:IsDebuff() then return -Dota688Val(self, "bonus_spell_damage_pct_allies") end
+	return Dota688Val(self, "bonus_spell_damage_pct")
 end

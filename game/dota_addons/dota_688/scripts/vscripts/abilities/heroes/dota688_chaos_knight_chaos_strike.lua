@@ -1,4 +1,5 @@
 -- Chaos Strike (6.88): 10% sansa de critic 125/175/225/275%; tinta pierde 5 armura pentru 8 s.
+require("dota688/val")
 local F = "abilities/heroes/dota688_chaos_knight_chaos_strike"
 LinkLuaModifier("modifier_dota688_chaos_knight_chaos_strike", F, LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_chaos_knight_chaos_strike_armor", F, LUA_MODIFIER_MOTION_NONE)
@@ -15,9 +16,9 @@ end
 function modifier_dota688_chaos_knight_chaos_strike:GetModifierPreAttack_CriticalStrike(params)
 	local parent = self:GetParent()
 	if parent:PassivesDisabled() or not params.target or params.target:IsBuilding() or params.target:IsOther() then return nil end
-	if RollPseudoRandomPercentage(self:GetAbility():GetSpecialValueFor("crit_chance"), DOTA_PSEUDO_RANDOM_CHAOSKNIGHT_CRIT, parent) then
+	if RollPseudoRandomPercentage(Dota688Val(self, "crit_chance"), DOTA_PSEUDO_RANDOM_CHAOS_CRIT, parent) then
 		self.procTarget = params.target
-		return self:GetAbility():GetSpecialValueFor("crit_damage")
+		return Dota688Val(self, "crit_damage")
 	end
 	return nil
 end
@@ -25,7 +26,7 @@ function modifier_dota688_chaos_knight_chaos_strike:OnAttackLanded(params)
 	if not IsServer() then return end
 	if params.attacker ~= self:GetParent() or params.target ~= self.procTarget then return end
 	self.procTarget = nil
-	params.target:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_dota688_chaos_knight_chaos_strike_armor", { duration = self:GetAbility():GetSpecialValueFor("armor_duration") })
+	params.target:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_dota688_chaos_knight_chaos_strike_armor", { duration = Dota688Val(self, "armor_duration") })
 	params.target:EmitSound("Hero_ChaosKnight.ChaosStrike")
 end
 
@@ -33,4 +34,4 @@ modifier_dota688_chaos_knight_chaos_strike_armor = class({})
 function modifier_dota688_chaos_knight_chaos_strike_armor:IsDebuff() return true end
 function modifier_dota688_chaos_knight_chaos_strike_armor:IsPurgable() return true end
 function modifier_dota688_chaos_knight_chaos_strike_armor:DeclareFunctions() return { MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS } end
-function modifier_dota688_chaos_knight_chaos_strike_armor:GetModifierPhysicalArmorBonus() return self:GetAbility():GetSpecialValueFor("armor_reduction") end
+function modifier_dota688_chaos_knight_chaos_strike_armor:GetModifierPhysicalArmorBonus() return Dota688Val(self, "armor_reduction") end

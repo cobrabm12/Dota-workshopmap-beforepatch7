@@ -12,6 +12,7 @@ function modifier_dota688_bristleback_warpath:OnAbilityExecuted(params)
 	if not IsServer() or params.unit ~= self:GetParent() or not params.ability or params.ability:IsItem() or params.ability == self:GetAbility() then return end
 	if self:GetParent():PassivesDisabled() then return end
 	local a = self:GetAbility()
+	if not a or a:IsNull() then return end
 	local m = self:GetParent():FindModifierByName("modifier_dota688_bristleback_warpath_stack")
 	if not m then m = self:GetParent():AddNewModifier(self:GetParent(), a, "modifier_dota688_bristleback_warpath_stack", { duration = a:GetSpecialValueFor("stack_duration") }); m:SetStackCount(0) end
 	m:SetStackCount(math.min(a:GetSpecialValueFor("max_stacks"), m:GetStackCount() + 1))

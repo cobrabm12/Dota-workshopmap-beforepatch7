@@ -1,3 +1,4 @@
+require("dota688/val")
 require("items/dota688_item_base")
 -- Shadow Amulet (6.88): +20 AS; activ: tinta (self/aliat) devine invizibila dupa 1.5 s cat timp sta pe loc; cd 10.
 LinkLuaModifier("modifier_dota688_shadow_amulet", "items/item_dota688_shadow_amulet", LUA_MODIFIER_MOTION_NONE)
@@ -20,7 +21,7 @@ function modifier_dota688_shadow_amulet:OnIntervalThink()
 	local p = self:GetParent()
 	if (p:GetAbsOrigin() - self.pos):Length2D() > 1 or p:IsAttacking() then self:Destroy() end
 end
-function modifier_dota688_shadow_amulet:Faded() return GameRules:GetGameTime() - self.start >= self:GetAbility():GetSpecialValueFor("fade_time") end
+function modifier_dota688_shadow_amulet:Faded() return GameRules:GetGameTime() - self.start >= Dota688Val(self, "fade_time") end
 function modifier_dota688_shadow_amulet:CheckState() return { [MODIFIER_STATE_INVISIBLE] = self:Faded() } end
 function modifier_dota688_shadow_amulet:DeclareFunctions() return { MODIFIER_PROPERTY_INVISIBILITY_LEVEL, MODIFIER_EVENT_ON_ABILITY_EXECUTED } end
 function modifier_dota688_shadow_amulet:GetModifierInvisibilityLevel() return self:Faded() and 1 or 0 end

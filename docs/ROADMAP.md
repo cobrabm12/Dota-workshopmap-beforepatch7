@@ -8,7 +8,7 @@
 - [x] Documentație
 
 ## Faza 2 – testare în joc
-- [ ] Instalare în Workshop Tools și pornire pe harta standard (`dota_launch_custom_game dota_688 dota`)
+- [x] Instalare în Workshop Tools și pornire pe harta 6.88 (`dota_launch_custom_game dota_688 dota_688`)
 - [ ] Verificat: sloturile golite scot talentele/inatele; fațeta unică funcționează (7.36+); Attribute Bonus apare în HUD
 - [ ] Verificat: filtrele de aur/XP, respawn, buyback, rune
 - [ ] Verificat: itemele scoase din shop, curierul cumpărat, fără backpack
@@ -20,8 +20,9 @@
 - [x] Iteme cu mecanica 6.88 (64) + shop-ul 6.88
 - [x] Override-uri manuale pentru mecanicile moderne ale abilităților păstrate built-in (`tools/manual_overrides.json`)
 - [x] Trecut prin abilitățile cu „valori speciale dispărute”: 79 override-uri manuale + Lua; au rămas ~65 cu diferențe minore/Aghanim (`docs/STATUS.md`)
-- [ ] Scos upgrade‑urile de Aghanim adăugate după 6.88 (sunt în C++; de verificat per erou)
-- [ ] Invoker (Quas/Wex/Exort în 6.88 dădeau +2/4/…/14 pe instanță), Ogre Multicast, Medusa Split Shot – de verificat în joc
+- [x] Aghanim's Scepter 6.88: item propriu, upgrade‑urile moderne nu se mai activează; upgrade‑urile 6.88 per erou (`docs/AGHANIM.md`)
+- [x] Aghanim: ultimate‑urile cu upgrade în 6.88 rescrise în Lua (Hook, Chain Frost, Ghostship, Ice Blast, Requiem, Duel, Doom…) – inclusiv Invoker/Rubick/Ursa/Venge/Hybrid/Meepo; imposibil doar Lone Druid
+- [ ] Invoker (Quas/Wex/Exort în 6.88 dădeau +2/4/…/14 pe nivelul orbului), Ogre Multicast, Medusa Split Shot – de verificat în joc
 
 ## Faza 4 – harta
 - [ ] Construit `dota_688.vmap` în Hammer după `docs/HARTA.md`
