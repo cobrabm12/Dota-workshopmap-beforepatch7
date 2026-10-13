@@ -29,7 +29,8 @@ din fișierele originale Valve de la 6.88f, iar regulile de joc sunt implementat
 | Resurse (particule/modele) verificate față de clientul curent | ✅ |
 | Panou cu regulile 6.88 în HUD, spawn neutrali la 0:30 | ✅ de verificat în joc |
 | Harta 6.88: harta 6.88f originală, sursă Hammer în repo, compilată de noi în formatul curent (trigger‑e de shop/camp‑uri refăcute ca mesh‑uri, world layer‑ele bazei) | ✅ `docs/HARTA.md` – testată în joc |
-| Testare în Workshop Tools | 🔜 |
+| Testare în Workshop Tools | ✅ `docs/TEST_LOG.md` (112 eroi, 76 de iteme, reguli, hartă) |
+| Publicare în Steam Workshop | ✅ [Dota 6.88 Classic](https://steamcommunity.com/sharedfiles/filedetails/?id=3818931233) (id 3818931233; se republică din Workshop Tools → Tools → Workshop Manager) |
 
 Detalii: `docs/REGULI_6.88.md` (toate regulile și sursa lor), `docs/STATUS.md` (raport generat), `docs/AGHANIM.md` (scepter per erou),
 `docs/HARTA.md` (harta 6.88: import, compilare, teste), `docs/ROADMAP.md`.
