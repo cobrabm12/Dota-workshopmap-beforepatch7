@@ -121,6 +121,12 @@ The **original 6.88 map** (decompiled from the December 2016 client and recompil
     **Ethereal Blade** (2 × primary attribute + 75), **Silver Edge**, **Glimmer Cape**, **Echo Sabre**, **Abyssal Blade**
     (bash does not stack with Skull Basher / innate bashes).
 * **Damage block, lifesteal and armor auras follow the 6.88 stacking rules** (only the highest applies).
+* **Unique Attack Modifiers (orb effects) follow the 6.88 rules:** only one applies per attack. Priority: a
+  Maelstrom / Mjollnir Chain Lightning proc, then the hero's own orb (Mana Break, Frost Arrows, Liquid Fire, Arcane
+  Orb, Caustic Finale), then the oldest item (Morbid Mask, Mask of Madness, Satanic, Helm of the Dominator,
+  Desolator, Blight Stone, Eye of Skadi). Eye of Skadi works together with lifesteal and with Liquid Fire; on
+  buildings, where lifesteal and Skadi do nothing, Desolator applies.
+* **River Vials** are removed from the shop: in 6.88 they needed the 2016 Battle Pass and cannot be bought here.
 
 ## Heroes
 
@@ -191,6 +197,9 @@ The **original 6.88 map** (decompiled from the December 2016 client and recompil
 * The 6.82–6.88 networth "comeback" component of kill gold and the 6.88 illusion kill bounty rules are
   approximated (see `docs/REGULI_6.88.md`, marked TODO).
 * Lone Druid's bear leash (Scepter) is in C++ and cannot be reproduced.
+* A Chain Lightning proc cannot cancel the built‑in hero orbs (Frost Arrows, Liquid Fire, Mana Break) on that
+  attack; it does cancel the item orb effects.
+* The engine can still spawn neutral camps added after 6.88 (Warpine Raiders, Prowlers, Ice Shaman camps, frogs).
 
 ---
 
