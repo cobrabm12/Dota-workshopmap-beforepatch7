@@ -183,3 +183,17 @@ abilități). Toate cheile citite există în KV‑ul încărcat; problemele era
 | Silencer (ocolit la fum) | OK – testat ca erou al jucătorului (precache normal, fără crash): Glaives of Wisdom +60 % INT, Last Word pune silence după cast‑ul inamicului, Curse of the Silent și Global Silence (built‑in) se aplică. Crash‑ul de la fum vine din crearea lui cu `CreateUnitByName` fără modelele cosmetice precache‑uite (Workshop Tools), nu din addon |
 | Play‑through real (mouse + tastatură prin HUD, meci natural pe harta 6.88) | OK – level‑up din „+”, Land Mines (Q) plantată pe sol, atac‑move (A), 2 last‑hit‑uri cu aur/XP (nivel 4 la 10:50), moarte la creep: respawn 24 s la nivel 5 (5 + 3,8·5), −150 aur (30·5), buyback afișat 314, respawn în fântână cu HP plin, K/D/A 0/1/0 în HUD; shop‑ul cu layout‑ul 6.88 se deschide cu F4 (click‑urile sintetice ale uneltei de automatizare nu produc ordine de cumpărare în grilă – cumpărăturile din shop au fost verificate de utilizator în sesiunile anterioare) |
 
+
+## 10. Re‑verificare a build‑ului final înainte de publicarea patch notes‑urilor HTML (2026‑10‑13, dimineața)
+
+Codul jocului (Lua, KV, hartă) este identic cu cel testat în secțiunile 8–9 (de atunci s‑au schimbat doar documentația,
+pagina HTML, imaginea de previzualizare și tagline‑ul din `addoninfo.txt`). Reluat totuși în joc, pe harta `dota_688`, în fereastră:
+
+| Test | Rezultat |
+|---|---|
+| Pornire pe hartă (`tryown.sh`) | OK – PRE_GAME, 0 erori Lua la încărcare |
+| `basics` (CM nivel 10) | OK – HP 819 / mana 554 / armură bază + AGI/7 / respawn 8,8 … 100 s / XP 2000 / 6000 / 13500 / 32400 / buyback 400 |
+| `verify1` aur pasiv | 0/s în PRE_GAME (normal); după `forcegamestart` 1,662/s (6.88: 1,667/s); Roshan 8000 HP / 5 armură / 65 daune |
+| `items2` (lotul 2 de iteme) | OK – Manta +10 %, Vlad +4 armură / +3 regen, Vlad + Basilius +0, block‑ul nu se cumulează, Mekansm 252 apoi lockout, HotD +3, Flutter 35 → 0, Scythe omoară iluzia |
+| `audit1` (Eclipse, Omnislash, Poison Touch, Toss, Tricks, Bloodrage) | OK – fără erori; Omnislash 1432 pe Axe cu armură (testul presupune 0 armură), aliatul aruncat cu Toss pierde HP de la Axe‑ul inamic de nivel 25 lângă care aterizează (codul nu dă daune aliaților), Bloodrage – artefact de test cunoscut (ucigașul e în echipa creep‑ului); restul conform așteptărilor |
+| Test de fum eroii 1‑30 (nivel 25, fiecare abilitate activă lansată) | OK – 0 erori Lua, jocul stabil; închis curat cu `quit` |
