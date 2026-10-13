@@ -28,6 +28,8 @@ function M:OnHeroKilled(hero, attacker)
 	end
 	hero.dota688_scythe_time = nil
 	hero:SetTimeUntilRespawn(t)
+	-- momentul in care eroul ar fi renascut (pentru penalizarea de buyback; la dota_buyback timer-ul e adesea deja 0)
+	hero.dota688_respawn_at = GameRules:GetGameTime() + t
 	if noBuyback then hero:SetBuybackCooldownTime(t) end
 	self:UpdateBuybackCost(hero)
 end
@@ -55,8 +57,8 @@ function M:OnBuyback(ev)
 	local hero = PlayerResource:GetSelectedHeroEntity(pid)
 	if not hero then return end
 	-- 6.84-7.10: dupa buyback, tot aurul castigat este redus cu 60% pana expira timpul de respawn pe care l-ai fi avut
-	local remaining = hero:GetTimeUntilRespawn()
-	if remaining and remaining > 0 then
+	local remaining = (hero.dota688_respawn_at or 0) - GameRules:GetGameTime()
+	if remaining > 0 then
 		Dota688GoldXP:SetBuybackPenalty(pid, remaining)
 	end
 	hero.dota688_bb_until = GameRules:GetGameTime() + C.BUYBACK_COOLDOWN

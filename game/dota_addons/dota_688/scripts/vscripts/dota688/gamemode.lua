@@ -31,8 +31,10 @@ function Dota688:Init()
 
 	-- Reguli generale ------------------------------------------------------
 	GameRules:SetStartingGold(C.STARTING_GOLD)
+	-- aurul pasiv il da Dota688GoldXP:OnHorn (ca sa poata fi redus de penalizarea de buyback). Aurul pasiv al motorului
+	-- nu trece prin filtrul de aur, iar cu SetGoldPerTick(1) se adauga peste al nostru (testat: 19 aur in 6 s in loc de 10).
 	GameRules:SetGoldTickTime(C.GOLD_TICK_TIME)
-	GameRules:SetGoldPerTick(C.GOLD_PER_TICK)
+	GameRules:SetGoldPerTick(0)
 	GameRules:SetHeroRespawnEnabled(true)
 	GameRules:SetUseUniversalShopMode(false)
 	GameRules:SetSameHeroSelectionEnabled(false)
@@ -162,6 +164,7 @@ function Dota688:OnNPCSpawned(ev)
 	local unit = EntIndexToHScript(ev.entindex)
 	if not unit then return end
 	Dota688Meepo688.OnSpawned(unit)   -- clonele Meepo: doar cizmele (6.88)
+	Dota688GoldXP:OnUnitSpawned(unit)   -- iluziile: fara aur / XP la moarte (6.88)
 	if unit:IsRealHero() then
 		-- motorul adauga fiecarui erou "special_bonus_attributes" (atributele-talent din 7.x, 0/7): cat exista,
 		-- HUD-ul ofera "+" la talente la fiecare level up. In 6.88 nu exista (inlocuit de dota688_attribute_bonus).

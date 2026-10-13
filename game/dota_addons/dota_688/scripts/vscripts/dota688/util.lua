@@ -85,13 +85,18 @@ end
 
 -- Aur sigur: motorul curent ignora parametrul "reliable" al lui ModifyGold (testat: doar motivul BountyRune ramane
 -- sigur, toate celelalte ajung nesigure). In 6.88 aurul de la eroi, cladiri si Roshan era sigur, iar la moarte se
--- pierdea doar din cel nesigur. Dam aurul prin ModifyGold (filtru, popup, statistici) si mutam castigul in sigur.
+-- pierdea doar din cel nesigur. Dam aurul prin ModifyGold (popup, statistici) si mutam castigul in sigur.
+-- ModifyGold apelat din Lua nu trece prin filtrul de aur (testat), deci penalizarea de buyback o aplicam aici.
 function Dota688GiveGold(pid, amount, reliable, reason)
 	if pid == nil or pid < 0 or amount == 0 then return end
+	if Dota688GoldXP then amount = Dota688GoldXP:Penalize(pid, amount, reason) end
+	if amount == 0 then return end
 	local u0 = PlayerResource:GetUnreliableGold(pid)
+	if Dota688GoldXP then Dota688GoldXP.penaltyDone = true end
 	PlayerResource:ModifyGold(pid, amount, reliable, reason)
+	if Dota688GoldXP then Dota688GoldXP.penaltyDone = false end
 	if not reliable then return end
-	local gained = PlayerResource:GetUnreliableGold(pid) - u0   -- dupa filtru (ex. penalizarea de buyback)
+	local gained = PlayerResource:GetUnreliableGold(pid) - u0
 	if gained > 0 then
 		PlayerResource:SetGold(pid, PlayerResource:GetUnreliableGold(pid) - gained, false)
 		PlayerResource:SetGold(pid, PlayerResource:GetReliableGold(pid) + gained, true)
