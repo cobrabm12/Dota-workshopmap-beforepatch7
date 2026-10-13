@@ -2352,6 +2352,18 @@
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
 	}
+	"dota688_night_stalker_hunter_in_the_night"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_night_stalker_hunter_in_the_night"
+		"AbilityTextureName"		"night_stalker_hunter_in_the_night"
+		"AbilityValues"
+		{
+			"bonus_movement_speed_pct_night"		"20 25 30 35"
+			"bonus_attack_speed_night"		"45 60 75 90"
+		}
+	}
 	"dota688_nyx_assassin_mana_burn"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
