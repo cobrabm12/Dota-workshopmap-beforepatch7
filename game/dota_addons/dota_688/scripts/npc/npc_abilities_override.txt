@@ -1445,17 +1445,6 @@
 			"tooltip_range"		"1000 1000 1000 1000"
 		}
 	}
-	"phantom_assassin_coup_de_grace"
-	{
-		"AbilityValues"
-		{
-			"crit_bonus"		"230 340 450"
-			"crit_chance"		"15"
-			"dagger_crit_chance"		"15"
-		}
-		"RequiredLevel"		"6"
-		"LevelsBetweenUpgrades"		"5"
-	}
 	"templar_assassin_refraction"
 	{
 		"AbilityCooldown"		"17.0 17.0 17.0 17.0"
@@ -4690,6 +4679,7 @@
 	"item_quarterstaff"
 	{
 		"SideShop"		"1"
+		"IsObsolete"		"0"
 	}
 	"item_quelling_blade"
 	{
@@ -4741,6 +4731,7 @@
 		{
 			"damage_block_melee"		"16"
 		}
+		"IsObsolete"		"0"
 		"ItemPurchasable"		"1"
 	}
 	"item_moon_shard"
@@ -5197,6 +5188,7 @@
 		{
 			"01"		"item_slippers;item_slippers;item_stout_shield"
 		}
+		"IsObsolete"		"0"
 		"ItemPurchasable"		"1"
 	}
 	"item_poor_mans_shield"
@@ -5494,6 +5486,7 @@
 	"item_recipe_necronomicon"
 	{
 		"ItemCost"		"1200"
+		"IsObsolete"		"0"
 		"ItemPurchasable"		"1"
 	}
 	"item_recipe_necronomicon_2"
@@ -5502,6 +5495,7 @@
 		{
 			"01"		"item_necronomicon;item_recipe_necronomicon"
 		}
+		"IsObsolete"		"0"
 		"ItemPurchasable"		"1"
 	}
 	"item_recipe_necronomicon_3"
@@ -5510,6 +5504,7 @@
 		{
 			"01"		"item_necronomicon_2;item_recipe_necronomicon"
 		}
+		"IsObsolete"		"0"
 		"ItemPurchasable"		"1"
 	}
 	"item_necronomicon"
@@ -5532,6 +5527,7 @@
 			"archer_damage_tooltip"		"60 90 120"
 			"archer_aura_radius_tooltip"		"900"
 		}
+		"IsObsolete"		"0"
 		"ItemPurchasable"		"1"
 	}
 	"item_necronomicon_2"
@@ -5554,6 +5550,7 @@
 			"archer_damage_tooltip"		"60 90 120"
 			"archer_aura_radius_tooltip"		"900"
 		}
+		"IsObsolete"		"0"
 		"ItemPurchasable"		"1"
 	}
 	"item_necronomicon_3"
@@ -5576,6 +5573,7 @@
 			"archer_damage_tooltip"		"60 90 120"
 			"archer_aura_radius_tooltip"		"900"
 		}
+		"IsObsolete"		"0"
 		"ItemPurchasable"		"1"
 	}
 	"item_recipe_ultimate_scepter"
@@ -5778,6 +5776,7 @@
 		{
 			"01"		"item_ring_of_health;item_cloak;item_ring_of_regen"
 		}
+		"IsObsolete"		"0"
 		"ItemPurchasable"		"1"
 	}
 	"item_hood_of_defiance"
@@ -5792,6 +5791,7 @@
 			"tooltip_resist"		"30"
 			"barrier_block"		"325"
 		}
+		"IsObsolete"		"0"
 		"ItemPurchasable"		"1"
 	}
 	"item_recipe_rapier"
@@ -6249,6 +6249,7 @@
 			"xp_bonus"		"425"
 			"xp_per_use"		"0"
 		}
+		"IsObsolete"		"0"
 		"ItemPurchasable"		"1"
 	}
 	"item_recipe_veil_of_discord"
@@ -6354,6 +6355,34 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
+	}
+	"item_river_painter"
+	{
+		"IsObsolete"		"0"
+	}
+	"item_river_painter2"
+	{
+		"IsObsolete"		"0"
+	}
+	"item_river_painter3"
+	{
+		"IsObsolete"		"0"
+	}
+	"item_river_painter4"
+	{
+		"IsObsolete"		"0"
+	}
+	"item_river_painter5"
+	{
+		"IsObsolete"		"0"
+	}
+	"item_river_painter6"
+	{
+		"IsObsolete"		"0"
+	}
+	"item_river_painter7"
+	{
+		"IsObsolete"		"0"
 	}
 	"item_overwhelming_blink"
 	{

@@ -773,6 +773,10 @@ def gen_items(I0, IN, custom: set[str], report: dict) -> tuple[kv.KV, kv.KV]:
         req = item_requirements_resolved(old, custom)
         if req is not None and (kv.dumps(req) != kv.dumps(old.get_kv("ItemRequirements")) or "ItemRequirements" in blk):
             blk["ItemRequirements"] = req
+        # itemele scoase din joc după 6.88 au "IsObsolete" "1": motorul refuză să le cumpere sau să le combine
+        # (Quarterstaff, Stout Shield, Hood of Defiance, Necronomicon, Tome of Knowledge și rețetele lor)
+        if cur.get_str("IsObsolete") == "1" and old.get_str("IsObsolete", "0") != "1":
+            blk["IsObsolete"] = "0"
         # itemele din 6.88 trebuie să fie cumpărabile (unele au fost scoase din shop între timp)
         if old.get_str("ItemCost") and old.get_str("ItemPurchasable", "1") != "0" and cur.get_str("ItemPurchasable", "1") == "0":
             blk["ItemPurchasable"] = "1"
@@ -1306,6 +1310,31 @@ def load_scepter_688() -> set[str]:
     return out
 
 
+ITEM_IDS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "item_ids.json")
+ITEM_ID_BASE = 20000   # ID-urile Valve (scripts/npc/npc_ability_ids.txt) ajung pana la 9999
+
+
+def assign_item_ids(items: kv.KV) -> None:
+    """ID fix pentru fiecare item Lua si reteta lui (tools/item_ids.json; numele noi primesc urmatorul ID liber).
+    Fara "ID" motorul aloca singur un numar (ex. 12227), care poate varia intre versiuni; cu ID-uri fixe ordinele de
+    cumparare (DOTA_UNIT_ORDER_PURCHASE_ITEM cere ID-ul itemului) se pot da si din teste, ca din shop."""
+    ids = {}
+    if os.path.exists(ITEM_IDS_FILE):
+        with open(ITEM_IDS_FILE, encoding="utf-8") as f:
+            ids = json.load(f)
+    nxt = max(list(ids.values()) + [ITEM_ID_BASE - 1]) + 1
+    for name, blk in items.blocks():
+        if name not in ids:
+            ids[name] = nxt
+            nxt += 1
+        if "ID" in blk:
+            del blk["ID"]
+        blk.items.insert(0, ("ID", str(ids[name])))
+    with open(ITEM_IDS_FILE, "w", encoding="utf-8") as f:
+        json.dump(dict(sorted(ids.items(), key=lambda kv_: kv_[1])), f, indent=1)
+        f.write("\n")
+
+
 def main() -> None:
     H0, A0, I0, U0 = load_old()
     HN, AN, IN, UN = load_now()
@@ -1368,6 +1397,7 @@ def main() -> None:
     custom_abilities, custom_items = gen_custom_defs(A0, I0, scripts, custom)
     for k, v in item_recreate.items:
         custom_items[k] = v
+    assign_item_ids(custom_items)
     kv.dump_file(kv.KV([("DOTAAbilities", custom_items)]), os.path.join(NPC, "npc_items_generated.txt"),
                  HEADER + "\nBlocurile de baza (KV 6.88) ale itemelor reimplementate in Lua + retetele lor. Inclus din npc_items_custom.txt prin #base.")
     kv.dump_file(kv.KV([("DOTAAbilities", custom_abilities)]), os.path.join(NPC, "npc_abilities_generated.txt"),

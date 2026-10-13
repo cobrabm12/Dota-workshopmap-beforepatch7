@@ -5,6 +5,7 @@
 {
 	"item_dota688_abyssal_blade"
 	{
+		"ID"		"20000"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -41,6 +42,7 @@
 	}
 	"item_dota688_aether_lens"
 	{
+		"ID"		"20001"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"		"2300"
 		"ItemShopTags"		"int;regen_mana;move_speed;hard_to_tag"
@@ -60,6 +62,7 @@
 	}
 	"item_dota688_ancient_janggo"
 	{
+		"ID"		"20002"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"ItemPermanent"		"1"
 		"FightRecapLevel"		"1"
@@ -92,6 +95,7 @@
 	}
 	"item_dota688_armlet"
 	{
+		"ID"		"20003"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityCooldown"		"0.0"
 		"ItemCost"		"2370"
@@ -119,6 +123,7 @@
 	}
 	"item_dota688_bfury"
 	{
+		"ID"		"20004"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_CUSTOM"
@@ -148,6 +153,7 @@
 	}
 	"item_dota688_blight_stone"
 	{
+		"ID"		"20005"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"		"300"
 		"ItemShopTags"		"hard_to_tag"
@@ -165,6 +171,7 @@
 	}
 	"item_dota688_bloodstone"
 	{
+		"ID"		"20006"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT"
 		"FightRecapLevel"		"2"
 		"AbilityCastRange"		"150"
@@ -198,6 +205,7 @@
 	}
 	"item_dota688_bloodthorn"
 	{
+		"ID"		"20007"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -230,6 +238,7 @@
 	}
 	"item_dota688_buckler"
 	{
+		"ID"		"20008"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityCooldown"		"25.0"
 		"AbilityManaCost"		"10"
@@ -252,6 +261,7 @@
 	}
 	"item_dota688_butterfly"
 	{
+		"ID"		"20009"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityCooldown"		"25.0"
 		"ItemCost"		"5775"
@@ -274,6 +284,7 @@
 	}
 	"item_dota688_crimson_guard"
 	{
+		"ID"		"20010"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityCooldown"		"46.0"
 		"ItemCost"		"3550"
@@ -302,6 +313,7 @@
 	}
 	"item_dota688_dagon"
 	{
+		"ID"		"20011"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -335,6 +347,7 @@
 	}
 	"item_dota688_dagon_2"
 	{
+		"ID"		"20012"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -368,6 +381,7 @@
 	}
 	"item_dota688_dagon_3"
 	{
+		"ID"		"20013"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -401,6 +415,7 @@
 	}
 	"item_dota688_dagon_4"
 	{
+		"ID"		"20014"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -434,6 +449,7 @@
 	}
 	"item_dota688_dagon_5"
 	{
+		"ID"		"20015"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -465,6 +481,7 @@
 	}
 	"item_dota688_desolator"
 	{
+		"ID"		"20016"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"		"3500"
 		"ItemShopTags"		"damage;unique"
@@ -483,6 +500,7 @@
 	}
 	"item_dota688_diffusal_blade"
 	{
+		"ID"		"20017"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -528,6 +546,7 @@
 	}
 	"item_dota688_diffusal_blade_2"
 	{
+		"ID"		"20018"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -570,6 +589,7 @@
 	}
 	"item_dota688_dust"
 	{
+		"ID"		"20019"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Model"		"models/props_gameplay/dust.vmdl"
 		"Effect"		"particles/generic_gameplay/dropped_dust.vpcf"
@@ -597,6 +617,7 @@
 	}
 	"item_dota688_echo_sabre"
 	{
+		"ID"		"20020"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"FightRecapLevel"		"1"
 		"AbilityCastPoint"		"0.0"
@@ -625,6 +646,7 @@
 	}
 	"item_dota688_ethereal_blade"
 	{
+		"ID"		"20021"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
@@ -660,6 +682,7 @@
 	}
 	"item_dota688_force_staff"
 	{
+		"ID"		"20022"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
@@ -686,6 +709,7 @@
 	}
 	"item_dota688_glimmer_cape"
 	{
+		"ID"		"20023"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
@@ -712,6 +736,7 @@
 	}
 	"item_dota688_guardian_greaves"
 	{
+		"ID"		"20024"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"		"1"
 		"AbilityCooldown"		"40"
@@ -744,6 +769,7 @@
 	}
 	"item_dota688_hand_of_midas"
 	{
+		"ID"		"20025"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_CREEP"
@@ -770,6 +796,7 @@
 	}
 	"item_dota688_headdress"
 	{
+		"ID"		"20026"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"		"575"
 		"ItemShopTags"		"str;int;agi;regen_health"
@@ -787,6 +814,7 @@
 	}
 	"item_dota688_heart"
 	{
+		"ID"		"20027"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityCooldown"		"7.0"
 		"ItemCost"		"5500"
@@ -808,6 +836,7 @@
 	}
 	"item_dota688_heavens_halberd"
 	{
+		"ID"		"20028"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -843,6 +872,7 @@
 	}
 	"item_dota688_helm_of_the_dominator"
 	{
+		"ID"		"20029"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_CREEP"
@@ -872,6 +902,7 @@
 	}
 	"item_dota688_hurricane_pike"
 	{
+		"ID"		"20030"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
@@ -906,6 +937,7 @@
 	}
 	"item_dota688_iron_talon"
 	{
+		"ID"		"20031"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_CUSTOM"
@@ -934,6 +966,7 @@
 	}
 	"item_dota688_javelin"
 	{
+		"ID"		"20032"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"		"1500"
 		"ItemShopTags"		"damage"
@@ -951,6 +984,7 @@
 	}
 	"item_dota688_lifesteal"
 	{
+		"ID"		"20033"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"		"900"
 		"ItemShopTags"		"unique"
@@ -967,6 +1001,7 @@
 	}
 	"item_dota688_lotus_orb"
 	{
+		"ID"		"20034"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
@@ -996,6 +1031,7 @@
 	}
 	"item_dota688_manta"
 	{
+		"ID"		"20035"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityCooldown"		"45.0"
 		"AbilityCastPoint"		"0.0"
@@ -1034,6 +1070,7 @@
 	}
 	"item_dota688_mask_of_madness"
 	{
+		"ID"		"20036"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"		"1"
 		"AbilityCooldown"		"25.0"
@@ -1057,6 +1094,7 @@
 	}
 	"item_dota688_medallion_of_courage"
 	{
+		"ID"		"20037"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -1083,6 +1121,7 @@
 	}
 	"item_dota688_mekansm"
 	{
+		"ID"		"20038"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"		"2"
 		"AbilityCooldown"		"65.0"
@@ -1110,6 +1149,7 @@
 	}
 	"item_dota688_monkey_king_bar"
 	{
+		"ID"		"20039"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"		"5400"
 		"ItemShopTags"		"damage;attack_speed;hard_to_tag"
@@ -1130,6 +1170,7 @@
 	}
 	"item_dota688_null_talisman"
 	{
+		"ID"		"20040"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"		"470"
 		"ItemShopTags"		"damage;int;agi;str"
@@ -1148,6 +1189,7 @@
 	}
 	"item_dota688_oblivion_staff"
 	{
+		"ID"		"20041"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"		"1650"
 		"ItemShopTags"		"damage;int;attack_speed;regen_mana"
@@ -1166,6 +1208,7 @@
 	}
 	"item_dota688_octarine_core"
 	{
+		"ID"		"20042"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"		"5900"
 		"ItemShopTags"		"move_speed;boost_mana;mana_pool"
@@ -1191,6 +1234,7 @@
 	}
 	"item_dota688_orb_of_venom"
 	{
+		"ID"		"20043"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"		"275"
 		"ItemShopTags"		"hard_to_tag"
@@ -1210,6 +1254,7 @@
 	}
 	"item_dota688_pers"
 	{
+		"ID"		"20044"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"		"1700"
 		"ItemShopTags"		"regen_health;regen_mana"
@@ -1229,6 +1274,7 @@
 	}
 	"item_dota688_phase_boots"
 	{
+		"ID"		"20045"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityCooldown"		"8.0"
 		"ItemCost"		"1240"
@@ -1255,6 +1301,7 @@
 	}
 	"item_dota688_pipe"
 	{
+		"ID"		"20046"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"		"2"
 		"AbilityCooldown"		"60.0"
@@ -1286,6 +1333,7 @@
 	}
 	"item_dota688_power_treads"
 	{
+		"ID"		"20047"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"ItemCost"		"1350"
 		"ItemShopTags"		"attack_speed;move_speed;int;agi;str"
@@ -1305,6 +1353,7 @@
 	}
 	"item_dota688_quelling_blade"
 	{
+		"ID"		"20048"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_CUSTOM"
@@ -1331,6 +1380,7 @@
 	}
 	"item_dota688_rapier"
 	{
+		"ID"		"20049"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"Model"		"models/props_gameplay/divine_rapier.vmdl"
 		"ItemCost"		"6200"
@@ -1352,6 +1402,7 @@
 	}
 	"item_dota688_ring_of_aquila"
 	{
+		"ID"		"20050"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"ItemCost"		"985"
 		"ItemShopTags"		""
@@ -1379,6 +1430,7 @@
 	}
 	"item_dota688_ring_of_basilius"
 	{
+		"ID"		"20051"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"ItemCost"		"500"
 		"ItemShopTags"		"damage;regen_mana;armor"
@@ -1402,6 +1454,7 @@
 	}
 	"item_dota688_rod_of_atos"
 	{
+		"ID"		"20052"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -1428,6 +1481,7 @@
 	}
 	"item_dota688_sange"
 	{
+		"ID"		"20053"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"		"2050"
 		"ItemShopTags"		"damage;str;unique"
@@ -1450,6 +1504,7 @@
 	}
 	"item_dota688_sange_and_yasha"
 	{
+		"ID"		"20054"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"		"4100"
 		"ItemShopTags"		"damage;str;agi;attack_speed;unique"
@@ -1477,6 +1532,7 @@
 	}
 	"item_dota688_satanic"
 	{
+		"ID"		"20055"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"		"2"
 		"AbilityCooldown"		"35.0"
@@ -1501,6 +1557,7 @@
 	}
 	"item_dota688_shadow_amulet"
 	{
+		"ID"		"20056"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
@@ -1522,6 +1579,7 @@
 	}
 	"item_dota688_sheepstick"
 	{
+		"ID"		"20057"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -1550,6 +1608,7 @@
 	}
 	"item_dota688_shivas_guard"
 	{
+		"ID"		"20058"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"		"1"
 		"AbilityCooldown"		"30"
@@ -1578,6 +1637,7 @@
 	}
 	"item_dota688_silver_edge"
 	{
+		"ID"		"20059"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"		"1"
 		"AbilityCooldown"		"24.0"
@@ -1607,6 +1667,7 @@
 	}
 	"item_dota688_skadi"
 	{
+		"ID"		"20060"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"		"5675"
 		"ItemShopTags"		"agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
@@ -1629,6 +1690,7 @@
 	}
 	"item_dota688_solar_crest"
 	{
+		"ID"		"20061"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -1661,6 +1723,7 @@
 	}
 	"item_dota688_soul_booster"
 	{
+		"ID"		"20062"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"		"3200"
 		"ItemShopTags"		"regen_health;regen_mana;health_pool;mana_pool"
@@ -1679,6 +1742,7 @@
 	}
 	"item_dota688_soul_ring"
 	{
+		"ID"		"20063"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityCooldown"		"30.0"
 		"AbilityManaCost"		"0"
@@ -1704,6 +1768,7 @@
 	}
 	"item_dota688_sphere"
 	{
+		"ID"		"20064"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
@@ -1729,6 +1794,7 @@
 	}
 	"item_dota688_tango"
 	{
+		"ID"		"20065"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"Model"		"models/props_gameplay/tango.vmdl"
 		"Effect"		"particles/generic_gameplay/dropped_tango.vpcf"
@@ -1757,6 +1823,7 @@
 	}
 	"item_dota688_tango_single"
 	{
+		"ID"		"20066"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"Model"		"models/props_gameplay/tango.vmdl"
 		"Effect"		"particles/generic_gameplay/dropped_tango.vpcf"
@@ -1787,6 +1854,7 @@
 	}
 	"item_dota688_tranquil_boots"
 	{
+		"ID"		"20067"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityCooldown"		"13.0"
 		"AbilityManaCost"		"0"
@@ -1815,6 +1883,7 @@
 	}
 	"item_dota688_travel_boots"
 	{
+		"ID"		"20068"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BUILDING"
@@ -1842,6 +1911,7 @@
 	}
 	"item_dota688_travel_boots_2"
 	{
+		"ID"		"20069"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BUILDING"
@@ -1867,6 +1937,7 @@
 	}
 	"item_dota688_ultimate_scepter"
 	{
+		"ID"		"20070"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
@@ -1890,6 +1961,7 @@
 	}
 	"item_dota688_urn_of_shadows"
 	{
+		"ID"		"20071"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
@@ -1926,6 +1998,7 @@
 	}
 	"item_dota688_veil_of_discord"
 	{
+		"ID"		"20072"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
 		"AbilityCooldown"		"20"
 		"AbilityCastRange"		"1000"
@@ -1954,6 +2027,7 @@
 	}
 	"item_dota688_vladmir"
 	{
+		"ID"		"20073"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"		"2275"
 		"ItemShopTags"		"lifesteal;damage;armor;regen_mana"
@@ -1977,6 +2051,7 @@
 	}
 	"item_dota688_wind_lace"
 	{
+		"ID"		"20074"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"		"235"
 		"ItemShopTags"		"armor"
@@ -1998,6 +2073,7 @@
 	}
 	"item_dota688_wraith_band"
 	{
+		"ID"		"20075"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"		"485"
 		"ItemShopTags"		"damage;int;agi;str"
@@ -2016,6 +2092,7 @@
 	}
 	"item_recipe_dota688_travel_boots"
 	{
+		"ID"		"20076"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"2000"
 		"ItemShopTags"		""
@@ -2030,6 +2107,7 @@
 	}
 	"item_recipe_dota688_travel_boots_2"
 	{
+		"ID"		"20077"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
@@ -2044,6 +2122,7 @@
 	}
 	"item_recipe_dota688_phase_boots"
 	{
+		"ID"		"20078"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
@@ -2058,6 +2137,7 @@
 	}
 	"item_recipe_dota688_power_treads"
 	{
+		"ID"		"20079"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
@@ -2074,6 +2154,7 @@
 	}
 	"item_recipe_dota688_hand_of_midas"
 	{
+		"ID"		"20080"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"1550"
 		"ItemShopTags"		""
@@ -2089,6 +2170,7 @@
 	}
 	"item_recipe_dota688_oblivion_staff"
 	{
+		"ID"		"20081"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
@@ -2103,6 +2185,7 @@
 	}
 	"item_recipe_dota688_pers"
 	{
+		"ID"		"20082"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
@@ -2117,6 +2200,7 @@
 	}
 	"item_recipe_dota688_wraith_band"
 	{
+		"ID"		"20083"
 		"ItemCost"		"170"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
@@ -2130,6 +2214,7 @@
 	}
 	"item_recipe_dota688_null_talisman"
 	{
+		"ID"		"20084"
 		"ItemCost"		"155"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
@@ -2143,6 +2228,7 @@
 	}
 	"item_recipe_dota688_mekansm"
 	{
+		"ID"		"20085"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"900"
 		"ItemShopTags"		""
@@ -2157,6 +2243,7 @@
 	}
 	"item_recipe_dota688_vladmir"
 	{
+		"ID"		"20086"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"300"
 		"ItemShopTags"		""
@@ -2171,6 +2258,7 @@
 	}
 	"item_recipe_dota688_buckler"
 	{
+		"ID"		"20087"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"200"
 		"ItemShopTags"		""
@@ -2185,6 +2273,7 @@
 	}
 	"item_recipe_dota688_ring_of_basilius"
 	{
+		"ID"		"20088"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
 		"UIPickupSound"		"Item.PickUpRingShop"
@@ -2201,6 +2290,7 @@
 	}
 	"item_recipe_dota688_pipe"
 	{
+		"ID"		"20089"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"800"
 		"ItemShopTags"		""
@@ -2215,6 +2305,7 @@
 	}
 	"item_recipe_dota688_urn_of_shadows"
 	{
+		"ID"		"20090"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"250"
 		"ItemShopTags"		""
@@ -2229,6 +2320,7 @@
 	}
 	"item_recipe_dota688_headdress"
 	{
+		"ID"		"20091"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"200"
 		"ItemShopTags"		""
@@ -2243,6 +2335,7 @@
 	}
 	"item_recipe_dota688_sheepstick"
 	{
+		"ID"		"20092"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
@@ -2257,6 +2350,7 @@
 	}
 	"item_recipe_dota688_bloodthorn"
 	{
+		"ID"		"20093"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"1000"
 		"ItemShopTags"		""
@@ -2271,6 +2365,7 @@
 	}
 	"item_recipe_dota688_echo_sabre"
 	{
+		"ID"		"20094"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
@@ -2285,6 +2380,7 @@
 	}
 	"item_recipe_dota688_aether_lens"
 	{
+		"ID"		"20095"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"550"
 		"ItemShopTags"		""
@@ -2299,6 +2395,7 @@
 	}
 	"item_recipe_dota688_force_staff"
 	{
+		"ID"		"20096"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"900"
 		"ItemShopTags"		""
@@ -2313,6 +2410,7 @@
 	}
 	"item_recipe_dota688_hurricane_pike"
 	{
+		"ID"		"20097"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"250"
 		"ItemShopTags"		""
@@ -2327,6 +2425,7 @@
 	}
 	"item_recipe_dota688_dagon"
 	{
+		"ID"		"20098"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"1250"
 		"ItemShopTags"		""
@@ -2341,6 +2440,7 @@
 	}
 	"item_recipe_dota688_dagon_2"
 	{
+		"ID"		"20099"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
@@ -2355,6 +2455,7 @@
 	}
 	"item_recipe_dota688_dagon_3"
 	{
+		"ID"		"20100"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
@@ -2369,6 +2470,7 @@
 	}
 	"item_recipe_dota688_dagon_4"
 	{
+		"ID"		"20101"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
@@ -2383,6 +2485,7 @@
 	}
 	"item_recipe_dota688_dagon_5"
 	{
+		"ID"		"20102"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
@@ -2397,6 +2500,7 @@
 	}
 	"item_recipe_dota688_ultimate_scepter"
 	{
+		"ID"		"20103"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
@@ -2410,6 +2514,7 @@
 	}
 	"item_recipe_dota688_heart"
 	{
+		"ID"		"20104"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"1400"
 		"ItemShopTags"		""
@@ -2424,6 +2529,7 @@
 	}
 	"item_recipe_dota688_shivas_guard"
 	{
+		"ID"		"20105"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"600"
 		"ItemShopTags"		""
@@ -2438,6 +2544,7 @@
 	}
 	"item_recipe_dota688_bloodstone"
 	{
+		"ID"		"20106"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"900"
 		"ItemShopTags"		""
@@ -2452,6 +2559,7 @@
 	}
 	"item_recipe_dota688_sphere"
 	{
+		"ID"		"20107"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"1000"
 		"ItemShopTags"		""
@@ -2466,6 +2574,7 @@
 	}
 	"item_recipe_dota688_lotus_orb"
 	{
+		"ID"		"20108"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
@@ -2480,6 +2589,7 @@
 	}
 	"item_recipe_dota688_crimson_guard"
 	{
+		"ID"		"20109"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"600"
 		"ItemShopTags"		""
@@ -2494,6 +2604,7 @@
 	}
 	"item_recipe_dota688_soul_booster"
 	{
+		"ID"		"20110"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
@@ -2507,6 +2618,7 @@
 	}
 	"item_recipe_dota688_rapier"
 	{
+		"ID"		"20111"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
@@ -2520,6 +2632,7 @@
 	}
 	"item_recipe_dota688_monkey_king_bar"
 	{
+		"ID"		"20112"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
@@ -2533,6 +2646,7 @@
 	}
 	"item_recipe_dota688_butterfly"
 	{
+		"ID"		"20113"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
@@ -2546,6 +2660,7 @@
 	}
 	"item_recipe_dota688_bfury"
 	{
+		"ID"		"20114"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
@@ -2559,6 +2674,7 @@
 	}
 	"item_recipe_dota688_manta"
 	{
+		"ID"		"20115"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"FightRecapLevel"		"1"
 		"ItemCost"		"800"
@@ -2574,6 +2690,7 @@
 	}
 	"item_recipe_dota688_armlet"
 	{
+		"ID"		"20116"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"550"
 		"ItemShopTags"		""
@@ -2588,6 +2705,7 @@
 	}
 	"item_recipe_dota688_silver_edge"
 	{
+		"ID"		"20117"
 		"ItemCost"		"300"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
@@ -2601,6 +2719,7 @@
 	}
 	"item_recipe_dota688_sange_and_yasha"
 	{
+		"ID"		"20118"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
@@ -2614,6 +2733,7 @@
 	}
 	"item_recipe_dota688_satanic"
 	{
+		"ID"		"20119"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"1100"
 		"ItemShopTags"		""
@@ -2628,6 +2748,7 @@
 	}
 	"item_recipe_dota688_skadi"
 	{
+		"ID"		"20120"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
@@ -2641,6 +2762,7 @@
 	}
 	"item_recipe_dota688_sange"
 	{
+		"ID"		"20121"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"600"
 		"ItemShopTags"		""
@@ -2655,6 +2777,7 @@
 	}
 	"item_recipe_dota688_helm_of_the_dominator"
 	{
+		"ID"		"20122"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
@@ -2668,6 +2791,7 @@
 	}
 	"item_recipe_dota688_desolator"
 	{
+		"ID"		"20123"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
@@ -2682,6 +2806,7 @@
 	}
 	"item_recipe_dota688_mask_of_madness"
 	{
+		"ID"		"20124"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"900"
 		"ItemShopTags"		""
@@ -2696,6 +2821,7 @@
 	}
 	"item_recipe_dota688_diffusal_blade"
 	{
+		"ID"		"20125"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"700"
 		"ItemShopTags"		""
@@ -2710,6 +2836,7 @@
 	}
 	"item_recipe_dota688_diffusal_blade_2"
 	{
+		"ID"		"20126"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
@@ -2723,6 +2850,7 @@
 	}
 	"item_recipe_dota688_ethereal_blade"
 	{
+		"ID"		"20127"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
@@ -2736,6 +2864,7 @@
 	}
 	"item_recipe_dota688_soul_ring"
 	{
+		"ID"		"20128"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"125"
 		"ItemShopTags"		""
@@ -2750,6 +2879,7 @@
 	}
 	"item_recipe_dota688_octarine_core"
 	{
+		"ID"		"20129"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
@@ -2763,6 +2893,7 @@
 	}
 	"item_recipe_dota688_ancient_janggo"
 	{
+		"ID"		"20130"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"700"
 		"ItemShopTags"		""
@@ -2778,6 +2909,7 @@
 	}
 	"item_recipe_dota688_medallion_of_courage"
 	{
+		"ID"		"20131"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
@@ -2792,6 +2924,7 @@
 	}
 	"item_recipe_dota688_solar_crest"
 	{
+		"ID"		"20132"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
@@ -2806,6 +2939,7 @@
 	}
 	"item_recipe_dota688_veil_of_discord"
 	{
+		"ID"		"20133"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"400"
 		"ItemShopTags"		""
@@ -2820,6 +2954,7 @@
 	}
 	"item_recipe_dota688_guardian_greaves"
 	{
+		"ID"		"20134"
 		"Model"		"models/props_gameplay/recipe.vmdl"
 		"ItemCost"		"1700"
 		"ItemShopTags"		""
@@ -2834,6 +2969,7 @@
 	}
 	"item_recipe_dota688_rod_of_atos"
 	{
+		"ID"		"20135"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
@@ -2847,6 +2983,7 @@
 	}
 	"item_recipe_dota688_iron_talon"
 	{
+		"ID"		"20136"
 		"Model"		"models/props_gameplay/recipe.mdl"
 		"ItemCost"		"125"
 		"ItemShopTags"		""
@@ -2861,6 +2998,7 @@
 	}
 	"item_recipe_dota688_abyssal_blade"
 	{
+		"ID"		"20137"
 		"ItemCost"		"1550"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
@@ -2874,6 +3012,7 @@
 	}
 	"item_recipe_dota688_heavens_halberd"
 	{
+		"ID"		"20138"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
@@ -2887,6 +3026,7 @@
 	}
 	"item_recipe_dota688_ring_of_aquila"
 	{
+		"ID"		"20139"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
@@ -2900,6 +3040,7 @@
 	}
 	"item_recipe_dota688_tranquil_boots"
 	{
+		"ID"		"20140"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
@@ -2913,6 +3054,7 @@
 	}
 	"item_recipe_dota688_glimmer_cape"
 	{
+		"ID"		"20141"
 		"ItemCost"		"0"
 		"ItemShopTags"		""
 		"ItemRecipe"		"1"
