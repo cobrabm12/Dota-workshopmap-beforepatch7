@@ -13,7 +13,6 @@ require("dota688/map_688")
 require("dota688/selection")
 require("dota688/buildings")
 require("dota688/creeps")
-require("dota688/courier")
 
 require("dota688/modifiers_link")
 
@@ -57,7 +56,7 @@ function Dota688:Init()
 	Dota688SafeCall(gm, "SetKillingSpreeAnnouncerDisabled", false)
 
 	-- Elemente aparute dupa 6.88, dezactivate ------------------------------
-	Dota688SafeCall(gm, "SetFreeCourierModeEnabled", false)        -- curierul se cumpara (item_courier, 7.23 l-a facut gratuit)
+	Dota688SafeCall(gm, "SetFreeCourierModeEnabled", true)         -- curierul din ultimul patch: personal si gratuit (decizia autorului, 13.10.2026)
 	Dota688SafeCall(gm, "SetAllowNeutralItemDrops", false)         -- fara iteme neutre (7.23)
 	Dota688SafeCall(gm, "SetUseDefaultDOTARuneSpawnLogic", false)  -- rune dupa logica 6.88 (vezi runes.lua)
 	-- SetUseDefaultDOTARuneSpawnLogic(false) nu opreste spawner-ele hartii (testat: Shield, Bounty in jungla, power
@@ -118,7 +117,6 @@ function Dota688:Init()
 	Dota688Neutrals:Init(self)
 	Dota688Backpack:Init()
 	Dota688Selection:Init()
-	Dota688Courier:Init()
 	Dota688Buildings:Init(self)
 	Dota688Creeps:Init(self)
 end
@@ -176,7 +174,6 @@ function Dota688:OnNPCSpawned(ev)
 			end)
 		end
 		Dota688Respawn:OnHeroSpawned(unit)
-		Dota688Courier:GrantControl(unit)
 		Dota688Aghanim.OnHeroSpawned(unit)
 		if unit:GetUnitName() == "npc_dota_hero_invoker" and not unit:HasModifier("modifier_dota688_invoker_orbs") then
 			unit:AddNewModifier(unit, nil, "modifier_dota688_invoker_orbs", {})
@@ -202,7 +199,6 @@ function Dota688:OnNPCSpawned(ev)
 	Dota688Extras.OnSpawned(unit)
 	Dota688Buildings:OnNPCSpawned(unit)
 	Dota688Creeps:OnNPCSpawned(unit)
-	Dota688Courier:OnNPCSpawned(unit)
 end
 
 function Dota688:OnEntityKilled(ev)
@@ -223,7 +219,6 @@ function Dota688:OnEntityKilled(ev)
 	end
 	if not killed:IsHero() then
 		Dota688Creeps:OnUnitKilled(killed, attacker)
-		Dota688Courier:OnKilled(killed)
 	end
 end
 
@@ -247,7 +242,6 @@ end
 function Dota688:OrderFilter(ev)
 	if MODERN_ORDERS[ev.order_type] then return false end
 	if not Dota688Buildings:OrderFilter(ev) then return false end
-	if not Dota688Courier:OrderFilter(ev) then return false end
 	Dota688Selection:OrderFilter(ev)
 	return Dota688Aghanim.OrderFilter(ev)
 end

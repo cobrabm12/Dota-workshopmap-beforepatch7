@@ -83,9 +83,8 @@ The **original 6.88 map** (decompiled from the December 2016 client and recompil
   "fortification" at the horn.
 * **Ancient:** 4250 HP, 15 armor. **Roshan:** 8000 HP, 5 armor, grows by +700 HP / +10 damage / +0.7 armor
   every 4 minutes.
-* **Couriers must be bought:** Animal Courier 100 gold (75 HP, 350 speed), Flying Courier 150 gold
-  (150 HP, 10 armor, 350 speed, Speed Burst 800 for 4 s, 90 s cooldown). One courier per team; it revives after
-  120 s (180 s flying) with its items. No free courier per player, no courier shield, no auto‑delivery.
+* **Courier: unchanged from the current Dota 2** (deliberate exception to 6.88): every player gets a free personal
+  courier, as in the latest patch. Animal Courier / Flying Courier are not in the shop.
 
 ## Items
 

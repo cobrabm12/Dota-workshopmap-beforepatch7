@@ -68,7 +68,7 @@ ITEM_TOP_KEYS = ABILITY_TOP_KEYS + [
 UNIT_PREFIXES = (
     "npc_dota_goodguys_", "npc_dota_badguys_",
     "npc_dota_creep_goodguys_", "npc_dota_creep_badguys_",
-    "npc_dota_neutral_", "npc_dota_roshan", "npc_dota_courier", "npc_dota_flying_courier",
+    "npc_dota_neutral_", "npc_dota_roshan",   # curierii raman cei din ultimul patch (decizia autorului, 13.10.2026)
     "npc_dota_fort", "npc_dota_observer_wards", "npc_dota_sentry_wards",
     "npc_dota_dark_troll_warlord_skeleton_warrior", "dota_fountain",
     # unitati invocate care exista si azi cu acelasi nume (statisticile si abilitatile lor 6.88)
@@ -629,6 +629,8 @@ def gen_abilities(A0, AN, custom: set[str], report: dict) -> kv.KV:
     for name, old in A0.blocks():
         if name.startswith("special_bonus") or name in ("Version",):
             continue
+        if name.startswith("courier_"):
+            continue   # curierul e cel din ultimul patch (decizia autorului, 13.10.2026): abilitatile lui raman moderne
         if name in custom or custom_name_for(name) in custom:
             report["abilitati"][name] = {"schimbate": [], "speciale_lipsa": [], "comportament": None, "lua": True}
             continue
@@ -721,6 +723,10 @@ def gen_items(I0, IN, custom: set[str], report: dict) -> tuple[kv.KV, kv.KV]:
     for name, old in I0.blocks():
         if name == "Version" or name in custom:
             continue
+        if name in SHOP_EXCLUDED:
+            # curierul e gratuit si personal (ultimul patch): Animal / Flying Courier nu se mai cumpara
+            override[name] = kv.KV([("ItemPurchasable", "0"), ("ShouldBeSuggested", "0")])
+            continue
         has_custom = custom_name_for(name) in custom
         is_recipe = name.startswith("item_recipe_")
         recipe_of_custom = is_recipe and custom_name_for("item_" + name[len("item_recipe_"):]) in custom
@@ -731,12 +737,13 @@ def gen_items(I0, IN, custom: set[str], report: dict) -> tuple[kv.KV, kv.KV]:
             if cur is not None:
                 override[name] = kv.KV([("ItemPurchasable", "0"), ("ShouldBeSuggested", "0")])
                 if recipe_of_custom:
-                    # o rețetă built-in gratuită se combină singură (ex. Aghanim's Scepter din componente) înaintea
-                    # celei Lua: o facem să dea tot itemul Lua, cu componentele 6.88
-                    override[name]["ItemResult"] = resolve(old.get_str("ItemResult", ""), custom)
-                    req = item_requirements_resolved(old, custom)
-                    if req is not None:
-                        override[name]["ItemRequirements"] = req
+                    # rețeta built-in trebuie să nu mai producă nimic:
+                    #  * gratuită (cost 0) s-ar combina singură din componente (ex. Aghanim's Scepter; Mask of Madness
+                    #    ar ieși direct din Morbid Mask, apoi s-ar vinde cu profit);
+                    #  * nu poate duce la itemul Lua: dacă motorul o alege pe ea la cumpărare, itemul nu se mai poate cumpăra
+                    #    (Boots of Travel: rețeta built-in de 2000, necumpărabilă).
+                    # Cu cost nenul ar trebui cumpărată chiar ea, iar nu se poate: nu se mai combină niciodată.
+                    override[name]["ItemCost"] = "99999"
             if recipe_of_custom:
                 blk = old.copy()
                 if "ID" in blk:
@@ -746,6 +753,9 @@ def gen_items(I0, IN, custom: set[str], report: dict) -> tuple[kv.KV, kv.KV]:
                 if req is not None:
                     blk["ItemRequirements"] = req
                 blk["AbilityTextureName"] = "item_recipe"
+                # fără BaseClass motorul nu poate crea entitatea rețetei ("entity class is NULL"): rețeta nu se poate
+                # cumpăra, deci nici itemul (Boots of Travel, MoM etc. cumpărate din shop)
+                blk["BaseClass"] = "item_datadriven"
                 recreate[resolve_item(name, custom)] = blk
             report["iteme"][name] = {"schimbate": [], "speciale_lipsa": [], "comportament": None, "lua": True}
             continue
@@ -938,6 +948,10 @@ def gen_custom_defs(A0, I0, scripts: dict[str, str], custom: set[str]) -> tuple[
     return abilities, items
 
 
+# Curierul e cel din ultimul patch (personal si gratuit): Animal / Flying Courier nu mai sunt in shop
+SHOP_EXCLUDED = {"item_courier", "item_flying_courier"}
+
+
 def gen_shops(custom: set[str]) -> None:
     """scripts/shops.txt: layout-ul shop-ului din 6.88, cu itemele reimplementate in Lua in locul celor built-in."""
     src = os.path.join(REF_OLD, "shops.txt")
@@ -949,6 +963,8 @@ def gen_shops(custom: set[str]) -> None:
     for cat, items in shops.blocks():
         blk = kv.KV()
         for k, v in items.scalars():
+            if v in SHOP_EXCLUDED:
+                continue
             blk.items.append((k, resolve_item(v, custom)))
         out[cat] = blk
     kv.dump_file(kv.KV([("dota_shops", out)]), os.path.join(ADDON, "scripts", "shops.txt"),

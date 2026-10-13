@@ -4173,26 +4173,6 @@
 			"as_bonus"		"5 7 9"
 		}
 	}
-	"courier_shield"
-	{
-		"AbilityCooldown"		"20.0"
-		"AbilityValues"
-		{
-			"duration"		"7.0"
-		}
-		"RequiredLevel"		"6"
-		"LevelsBetweenUpgrades"		"5"
-	}
-	"courier_burst"
-	{
-		"AbilityCooldown"		"90.0"
-		"AbilityValues"
-		{
-			"duration"		"4.0"
-			"movement_speed"		"800"
-			"damage_absorb"		"250"
-		}
-	}
 	"roshan_slam"
 	{
 		"AbilityValues"
@@ -5074,21 +5054,13 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_travel_boots"
-		"ItemRequirements"
-		{
-			"01"		"item_boots"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_recipe_travel_boots_2"
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_travel_boots_2"
-		"ItemRequirements"
-		{
-			"01"		"item_dota688_travel_boots;item_recipe_dota688_travel_boots"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_travel_boots"
 	{
@@ -5104,11 +5076,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_phase_boots"
-		"ItemRequirements"
-		{
-			"01"		"item_boots;item_blades_of_attack;item_blades_of_attack"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_phase_boots"
 	{
@@ -5186,13 +5154,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_power_treads"
-		"ItemRequirements"
-		{
-			"01"		"item_boots;item_gloves;item_belt_of_strength"
-			"02"		"item_boots;item_gloves;item_robe"
-			"03"		"item_boots;item_gloves;item_boots_of_elves"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_power_treads"
 	{
@@ -5203,11 +5165,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_hand_of_midas"
-		"ItemRequirements"
-		{
-			"01"		"item_gloves"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_hand_of_midas"
 	{
@@ -5218,11 +5176,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_oblivion_staff"
-		"ItemRequirements"
-		{
-			"01"		"item_quarterstaff;item_sobi_mask;item_robe"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_oblivion_staff"
 	{
@@ -5233,11 +5187,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_pers"
-		"ItemRequirements"
-		{
-			"01"		"item_ring_of_health;item_void_stone"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_pers"
 	{
@@ -5283,11 +5233,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_wraith_band"
-		"ItemRequirements"
-		{
-			"01"		"item_circlet;item_slippers"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_wraith_band"
 	{
@@ -5298,11 +5244,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_null_talisman"
-		"ItemRequirements"
-		{
-			"01"		"item_circlet;item_mantle"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_null_talisman"
 	{
@@ -5313,11 +5255,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_mekansm"
-		"ItemRequirements"
-		{
-			"01"		"item_dota688_headdress;item_dota688_buckler"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_mekansm"
 	{
@@ -5328,11 +5266,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_vladmir"
-		"ItemRequirements"
-		{
-			"01"		"item_dota688_headdress;item_dota688_ring_of_basilius;item_lifesteal"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_vladmir"
 	{
@@ -5348,11 +5282,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_buckler"
-		"ItemRequirements"
-		{
-			"01"		"item_chainmail;item_branches"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_buckler"
 	{
@@ -5363,11 +5293,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_ring_of_basilius"
-		"ItemRequirements"
-		{
-			"01"		"item_sobi_mask;item_ring_of_protection"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_ring_of_basilius"
 	{
@@ -5378,11 +5304,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_pipe"
-		"ItemRequirements"
-		{
-			"01"		"item_hood_of_defiance;item_dota688_headdress"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_pipe"
 	{
@@ -5393,11 +5315,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_urn_of_shadows"
-		"ItemRequirements"
-		{
-			"01"		"item_sobi_mask;item_gauntlets;item_gauntlets"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_urn_of_shadows"
 	{
@@ -5408,11 +5326,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_headdress"
-		"ItemRequirements"
-		{
-			"01"		"item_ring_of_regen;item_branches"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_headdress"
 	{
@@ -5423,11 +5337,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_sheepstick"
-		"ItemRequirements"
-		{
-			"01"		"item_mystic_staff;item_ultimate_orb;item_void_stone"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_sheepstick"
 	{
@@ -5459,11 +5369,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_bloodthorn"
-		"ItemRequirements"
-		{
-			"01"		"item_orchid;item_lesser_crit"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_bloodthorn"
 	{
@@ -5474,11 +5380,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_echo_sabre"
-		"ItemRequirements"
-		{
-			"01"		"item_ogre_axe;item_dota688_oblivion_staff"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_echo_sabre"
 	{
@@ -5508,11 +5410,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_aether_lens"
-		"ItemRequirements"
-		{
-			"01"		"item_energy_booster;item_ring_of_health"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_aether_lens"
 	{
@@ -5523,11 +5421,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_force_staff"
-		"ItemRequirements"
-		{
-			"01"		"item_staff_of_wizardry;item_ring_of_regen"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_force_staff"
 	{
@@ -5538,11 +5432,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_hurricane_pike"
-		"ItemRequirements"
-		{
-			"01"		"item_dota688_force_staff;item_dragon_lance"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_hurricane_pike"
 	{
@@ -5553,51 +5443,31 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_dagon"
-		"ItemRequirements"
-		{
-			"01"		"item_staff_of_wizardry;item_dota688_null_talisman"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_recipe_dagon_2"
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_dagon_2"
-		"ItemRequirements"
-		{
-			"02"		"item_dota688_dagon;item_recipe_dota688_dagon"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_recipe_dagon_3"
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_dagon_3"
-		"ItemRequirements"
-		{
-			"02"		"item_dota688_dagon_2;item_recipe_dota688_dagon"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_recipe_dagon_4"
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_dagon_4"
-		"ItemRequirements"
-		{
-			"02"		"item_dota688_dagon_3;item_recipe_dota688_dagon"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_recipe_dagon_5"
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_dagon_5"
-		"ItemRequirements"
-		{
-			"02"		"item_dota688_dagon_4;item_recipe_dota688_dagon"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_dagon"
 	{
@@ -5715,11 +5585,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_ultimate_scepter"
-		"ItemRequirements"
-		{
-			"01"		"item_point_booster;item_staff_of_wizardry;item_ogre_axe;item_blade_of_alacrity"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_ultimate_scepter"
 	{
@@ -5771,11 +5637,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_heart"
-		"ItemRequirements"
-		{
-			"01"		"item_reaver;item_vitality_booster"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_heart"
 	{
@@ -5807,11 +5669,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_shivas_guard"
-		"ItemRequirements"
-		{
-			"01"		"item_platemail;item_mystic_staff"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_shivas_guard"
 	{
@@ -5822,11 +5680,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_bloodstone"
-		"ItemRequirements"
-		{
-			"01"		"item_dota688_soul_ring;item_dota688_soul_booster"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_bloodstone"
 	{
@@ -5837,11 +5691,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_sphere"
-		"ItemRequirements"
-		{
-			"01"		"item_ultimate_orb;item_dota688_pers"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_sphere"
 	{
@@ -5852,11 +5702,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_lotus_orb"
-		"ItemRequirements"
-		{
-			"01"		"item_dota688_pers;item_platemail;item_energy_booster"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_lotus_orb"
 	{
@@ -5887,11 +5733,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_crimson_guard"
-		"ItemRequirements"
-		{
-			"01"		"item_vanguard;item_dota688_buckler"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_crimson_guard"
 	{
@@ -5926,11 +5768,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_soul_booster"
-		"ItemRequirements"
-		{
-			"01"		"item_vitality_booster;item_energy_booster;item_point_booster"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_soul_booster"
 	{
@@ -5963,11 +5801,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_rapier"
-		"ItemRequirements"
-		{
-			"01"		"item_relic;item_demon_edge"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_rapier"
 	{
@@ -5978,11 +5812,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_monkey_king_bar"
-		"ItemRequirements"
-		{
-			"01"		"item_demon_edge;item_dota688_javelin;item_dota688_javelin"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_monkey_king_bar"
 	{
@@ -6016,11 +5846,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_butterfly"
-		"ItemRequirements"
-		{
-			"01"		"item_eagle;item_talisman_of_evasion;item_quarterstaff"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_butterfly"
 	{
@@ -6059,11 +5885,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_bfury"
-		"ItemRequirements"
-		{
-			"01"		"item_broadsword;item_claymore;item_dota688_pers;item_dota688_quelling_blade"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_bfury"
 	{
@@ -6074,11 +5896,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_manta"
-		"ItemRequirements"
-		{
-			"01"		"item_yasha;item_ultimate_orb"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_manta"
 	{
@@ -6127,11 +5945,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_armlet"
-		"ItemRequirements"
-		{
-			"01"		"item_helm_of_iron_will;item_gloves;item_blades_of_attack"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_armlet"
 	{
@@ -6161,11 +5975,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_silver_edge"
-		"ItemRequirements"
-		{
-			"01"		"item_invis_sword;item_ultimate_orb"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_silver_edge"
 	{
@@ -6176,11 +5986,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_sange_and_yasha"
-		"ItemRequirements"
-		{
-			"01"		"item_yasha;item_dota688_sange"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_sange_and_yasha"
 	{
@@ -6191,11 +5997,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_satanic"
-		"ItemRequirements"
-		{
-			"01"		"item_reaver;item_dota688_helm_of_the_dominator"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_satanic"
 	{
@@ -6230,11 +6032,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_skadi"
-		"ItemRequirements"
-		{
-			"01"		"item_ultimate_orb;item_ultimate_orb;item_point_booster;item_dota688_orb_of_venom"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_skadi"
 	{
@@ -6245,11 +6043,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_sange"
-		"ItemRequirements"
-		{
-			"01"		"item_ogre_axe;item_belt_of_strength"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_sange"
 	{
@@ -6260,11 +6054,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_helm_of_the_dominator"
-		"ItemRequirements"
-		{
-			"01"		"item_lifesteal;item_helm_of_iron_will"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_helm_of_the_dominator"
 	{
@@ -6321,11 +6111,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_mask_of_madness"
-		"ItemRequirements"
-		{
-			"01"		"item_lifesteal"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_mask_of_madness"
 	{
@@ -6336,11 +6122,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_diffusal_blade"
-		"ItemRequirements"
-		{
-			"01"		"item_blade_of_alacrity;item_blade_of_alacrity;item_robe"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_diffusal_blade"
 	{
@@ -6351,11 +6133,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_ethereal_blade"
-		"ItemRequirements"
-		{
-			"01"		"item_eagle;item_ghost"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_ethereal_blade"
 	{
@@ -6366,11 +6144,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_soul_ring"
-		"ItemRequirements"
-		{
-			"01"		"item_ring_of_regen;item_sobi_mask"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_soul_ring"
 	{
@@ -6404,11 +6178,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_octarine_core"
-		"ItemRequirements"
-		{
-			"01"		"item_mystic_staff;item_dota688_soul_booster"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_octarine_core"
 	{
@@ -6432,12 +6202,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_ancient_janggo"
-		"ItemRequirements"
-		{
-			"01"		"item_ring_of_regen;item_bracer;item_dota688_wind_lace"
-			"02"		"item_dota688_ancient_janggo"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_ancient_janggo"
 	{
@@ -6448,11 +6213,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_medallion_of_courage"
-		"ItemRequirements"
-		{
-			"01"		"item_chainmail;item_sobi_mask;item_blight_stone"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_medallion_of_courage"
 	{
@@ -6463,11 +6224,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_solar_crest"
-		"ItemRequirements"
-		{
-			"01"		"item_dota688_medallion_of_courage;item_talisman_of_evasion"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_solar_crest"
 	{
@@ -6500,11 +6257,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_veil_of_discord"
-		"ItemRequirements"
-		{
-			"01"		"item_helm_of_iron_will;item_dota688_null_talisman;item_dota688_null_talisman"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_veil_of_discord"
 	{
@@ -6515,11 +6268,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_guardian_greaves"
-		"ItemRequirements"
-		{
-			"01"		"item_dota688_mekansm;item_arcane_boots"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_guardian_greaves"
 	{
@@ -6530,11 +6279,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_rod_of_atos"
-		"ItemRequirements"
-		{
-			"01"		"item_vitality_booster;item_staff_of_wizardry;item_staff_of_wizardry"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_rod_of_atos"
 	{
@@ -6545,11 +6290,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_iron_talon"
-		"ItemRequirements"
-		{
-			"01"		"item_dota688_quelling_blade;item_ring_of_protection"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_iron_talon"
 	{
@@ -6560,11 +6301,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_abyssal_blade"
-		"ItemRequirements"
-		{
-			"01"		"item_basher;item_vanguard"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_abyssal_blade"
 	{
@@ -6575,11 +6312,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_heavens_halberd"
-		"ItemRequirements"
-		{
-			"01"		"item_dota688_sange;item_talisman_of_evasion"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_heavens_halberd"
 	{
@@ -6590,11 +6323,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_ring_of_aquila"
-		"ItemRequirements"
-		{
-			"01"		"item_dota688_wraith_band;item_dota688_ring_of_basilius"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_ring_of_aquila"
 	{
@@ -6605,11 +6334,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_tranquil_boots"
-		"ItemRequirements"
-		{
-			"01"		"item_boots;item_ring_of_protection;item_ring_of_regen"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_tranquil_boots"
 	{
@@ -6625,11 +6350,7 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"ItemResult"		"item_dota688_glimmer_cape"
-		"ItemRequirements"
-		{
-			"01"		"item_dota688_shadow_amulet;item_cloak"
-		}
+		"ItemCost"		"99999"
 	}
 	"item_glimmer_cape"
 	{

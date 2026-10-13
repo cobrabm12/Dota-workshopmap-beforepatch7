@@ -66,7 +66,7 @@ originale 6.88f. Coloana „Implementare” spune unde se face în proiect.
 | Backpack | nu există | `backpack.lua` (refuză sloturile 7–9) |
 | Iteme neutre | nu există | `SetAllowNeutralItemDrops(false)` |
 | Aghanim's Shard, Blood Grenade etc. | nu există | `ItemPurchasable 0` (generat) |
-| Curier | se cumpără (100 aur, zburător 150) | `SetFreeCourierModeEnabled(false)` + override iteme |
+| Curier | **excepție decisă de autor (13.10.2026): curierul din ultimul patch** – personal și gratuit pentru fiecare jucător (6.88: se cumpăra, 100 aur, zburător 150, comun echipei) | `SetFreeCourierModeEnabled(true)`; Animal/Flying Courier scoase din shop (`SHOP_EXCLUDED` în generator) |
 | Zi/noapte | 4 + 4 min | `daynight.lua` (emulat prin `SetTimeOfDay`) |
 | Turnuri | T1 1300 HP/20 armură/100‑120 dmg; T2‑4 122‑182 dmg; glyph 5 min | `npc_units_custom.txt` |
 | Ancient | 4250 HP, 15 armură, viziune 1900/1200 | idem |

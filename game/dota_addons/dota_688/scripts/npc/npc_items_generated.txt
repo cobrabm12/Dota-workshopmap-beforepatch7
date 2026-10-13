@@ -255,22 +255,6 @@
 			"duration"		"4"
 		}
 	}
-	"item_dota688_courier"
-	{
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES"
-		"ItemCost"		"100"
-		"ItemShopTags"		"consumable"
-		"ItemQuality"		"consumable"
-		"ItemAliases"		"donkey;chicken;animal courier"
-		"ItemShareability"		"ITEM_FULLY_SHAREABLE"
-		"ItemStockMax"		"1"
-		"ItemStockTime"		"120.0"
-		"ItemSupport"		"1"
-		"BaseClass"		"item_lua"
-		"ScriptFile"		"items/item_dota688_courier"
-		"AbilityTextureName"		"item_courier"
-	}
 	"item_dota688_crimson_guard"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -638,23 +622,6 @@
 			"ethereal_damage_bonus"		"-40"
 			"projectile_speed"		"1200"
 		}
-	}
-	"item_dota688_flying_courier"
-	{
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES"
-		"ItemCost"		"150"
-		"ItemShopTags"		"consumable"
-		"ItemQuality"		"consumable"
-		"ItemAliases"		"crow;flying courier"
-		"ItemShareability"		"ITEM_FULLY_SHAREABLE"
-		"ItemStockMax"		"1"
-		"ItemStockInitial"		"0"
-		"ItemStockTime"		"270.0"
-		"ItemSupport"		"1"
-		"BaseClass"		"item_lua"
-		"ScriptFile"		"items/item_dota688_flying_courier"
-		"AbilityTextureName"		"item_flying_courier"
 	}
 	"item_dota688_force_staff"
 	{
@@ -2008,6 +1975,7 @@
 			"01"		"item_boots"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_travel_boots_2"
 	{
@@ -2021,6 +1989,7 @@
 			"01"		"item_dota688_travel_boots;item_recipe_dota688_travel_boots"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_phase_boots"
 	{
@@ -2034,6 +2003,7 @@
 			"01"		"item_boots;item_blades_of_attack;item_blades_of_attack"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_power_treads"
 	{
@@ -2049,6 +2019,7 @@
 			"03"		"item_boots;item_gloves;item_boots_of_elves"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_hand_of_midas"
 	{
@@ -2063,6 +2034,7 @@
 			"01"		"item_gloves"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_oblivion_staff"
 	{
@@ -2076,6 +2048,7 @@
 			"01"		"item_quarterstaff;item_sobi_mask;item_robe"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_pers"
 	{
@@ -2089,6 +2062,7 @@
 			"01"		"item_ring_of_health;item_void_stone"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_wraith_band"
 	{
@@ -2101,6 +2075,7 @@
 			"01"		"item_circlet;item_slippers"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_null_talisman"
 	{
@@ -2113,6 +2088,7 @@
 			"01"		"item_circlet;item_mantle"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_mekansm"
 	{
@@ -2126,6 +2102,7 @@
 			"01"		"item_dota688_headdress;item_dota688_buckler"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_vladmir"
 	{
@@ -2139,6 +2116,7 @@
 			"01"		"item_dota688_headdress;item_dota688_ring_of_basilius;item_lifesteal"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_buckler"
 	{
@@ -2152,6 +2130,7 @@
 			"01"		"item_chainmail;item_branches"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_ring_of_basilius"
 	{
@@ -2167,6 +2146,7 @@
 			"01"		"item_sobi_mask;item_ring_of_protection"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_pipe"
 	{
@@ -2180,6 +2160,7 @@
 			"01"		"item_hood_of_defiance;item_dota688_headdress"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_urn_of_shadows"
 	{
@@ -2193,6 +2174,7 @@
 			"01"		"item_sobi_mask;item_gauntlets;item_gauntlets"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_headdress"
 	{
@@ -2206,6 +2188,7 @@
 			"01"		"item_ring_of_regen;item_branches"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_sheepstick"
 	{
@@ -2219,6 +2202,7 @@
 			"01"		"item_mystic_staff;item_ultimate_orb;item_void_stone"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_bloodthorn"
 	{
@@ -2232,6 +2216,7 @@
 			"01"		"item_orchid;item_lesser_crit"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_echo_sabre"
 	{
@@ -2245,6 +2230,7 @@
 			"01"		"item_ogre_axe;item_dota688_oblivion_staff"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_aether_lens"
 	{
@@ -2258,6 +2244,7 @@
 			"01"		"item_energy_booster;item_ring_of_health"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_force_staff"
 	{
@@ -2271,6 +2258,7 @@
 			"01"		"item_staff_of_wizardry;item_ring_of_regen"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_hurricane_pike"
 	{
@@ -2284,6 +2272,7 @@
 			"01"		"item_dota688_force_staff;item_dragon_lance"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_dagon"
 	{
@@ -2297,6 +2286,7 @@
 			"01"		"item_staff_of_wizardry;item_dota688_null_talisman"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_dagon_2"
 	{
@@ -2310,6 +2300,7 @@
 			"02"		"item_dota688_dagon;item_recipe_dota688_dagon"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_dagon_3"
 	{
@@ -2323,6 +2314,7 @@
 			"02"		"item_dota688_dagon_2;item_recipe_dota688_dagon"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_dagon_4"
 	{
@@ -2336,6 +2328,7 @@
 			"02"		"item_dota688_dagon_3;item_recipe_dota688_dagon"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_dagon_5"
 	{
@@ -2349,6 +2342,7 @@
 			"02"		"item_dota688_dagon_4;item_recipe_dota688_dagon"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_ultimate_scepter"
 	{
@@ -2361,6 +2355,7 @@
 			"01"		"item_point_booster;item_staff_of_wizardry;item_ogre_axe;item_blade_of_alacrity"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_heart"
 	{
@@ -2374,6 +2369,7 @@
 			"01"		"item_reaver;item_vitality_booster"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_shivas_guard"
 	{
@@ -2387,6 +2383,7 @@
 			"01"		"item_platemail;item_mystic_staff"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_bloodstone"
 	{
@@ -2400,6 +2397,7 @@
 			"01"		"item_dota688_soul_ring;item_dota688_soul_booster"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_sphere"
 	{
@@ -2413,6 +2411,7 @@
 			"01"		"item_ultimate_orb;item_dota688_pers"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_lotus_orb"
 	{
@@ -2426,6 +2425,7 @@
 			"01"		"item_dota688_pers;item_platemail;item_energy_booster"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_crimson_guard"
 	{
@@ -2439,6 +2439,7 @@
 			"01"		"item_vanguard;item_dota688_buckler"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_soul_booster"
 	{
@@ -2451,6 +2452,7 @@
 			"01"		"item_vitality_booster;item_energy_booster;item_point_booster"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_rapier"
 	{
@@ -2463,6 +2465,7 @@
 			"01"		"item_relic;item_demon_edge"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_monkey_king_bar"
 	{
@@ -2475,6 +2478,7 @@
 			"01"		"item_demon_edge;item_dota688_javelin;item_dota688_javelin"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_butterfly"
 	{
@@ -2487,6 +2491,7 @@
 			"01"		"item_eagle;item_talisman_of_evasion;item_quarterstaff"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_bfury"
 	{
@@ -2499,6 +2504,7 @@
 			"01"		"item_broadsword;item_claymore;item_dota688_pers;item_dota688_quelling_blade"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_manta"
 	{
@@ -2513,6 +2519,7 @@
 			"01"		"item_yasha;item_ultimate_orb"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_armlet"
 	{
@@ -2526,6 +2533,7 @@
 			"01"		"item_helm_of_iron_will;item_gloves;item_blades_of_attack"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_silver_edge"
 	{
@@ -2538,6 +2546,7 @@
 			"01"		"item_invis_sword;item_ultimate_orb"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_sange_and_yasha"
 	{
@@ -2550,6 +2559,7 @@
 			"01"		"item_yasha;item_dota688_sange"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_satanic"
 	{
@@ -2563,6 +2573,7 @@
 			"01"		"item_reaver;item_dota688_helm_of_the_dominator"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_skadi"
 	{
@@ -2575,6 +2586,7 @@
 			"01"		"item_ultimate_orb;item_ultimate_orb;item_point_booster;item_dota688_orb_of_venom"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_sange"
 	{
@@ -2588,6 +2600,7 @@
 			"01"		"item_ogre_axe;item_belt_of_strength"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_helm_of_the_dominator"
 	{
@@ -2600,6 +2613,7 @@
 			"01"		"item_lifesteal;item_helm_of_iron_will"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_mask_of_madness"
 	{
@@ -2613,6 +2627,7 @@
 			"01"		"item_lifesteal"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_diffusal_blade"
 	{
@@ -2626,6 +2641,7 @@
 			"01"		"item_blade_of_alacrity;item_blade_of_alacrity;item_robe"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_diffusal_blade_2"
 	{
@@ -2638,6 +2654,7 @@
 			"01"		"item_dota688_diffusal_blade;item_recipe_dota688_diffusal_blade"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_ethereal_blade"
 	{
@@ -2650,6 +2667,7 @@
 			"01"		"item_eagle;item_ghost"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_soul_ring"
 	{
@@ -2663,6 +2681,7 @@
 			"01"		"item_ring_of_regen;item_sobi_mask"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_octarine_core"
 	{
@@ -2675,6 +2694,7 @@
 			"01"		"item_mystic_staff;item_dota688_soul_booster"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_ancient_janggo"
 	{
@@ -2689,6 +2709,7 @@
 			"02"		"item_dota688_ancient_janggo"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_medallion_of_courage"
 	{
@@ -2702,6 +2723,7 @@
 			"01"		"item_chainmail;item_sobi_mask;item_blight_stone"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_solar_crest"
 	{
@@ -2715,6 +2737,7 @@
 			"01"		"item_dota688_medallion_of_courage;item_talisman_of_evasion"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_veil_of_discord"
 	{
@@ -2728,6 +2751,7 @@
 			"01"		"item_helm_of_iron_will;item_dota688_null_talisman;item_dota688_null_talisman"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_guardian_greaves"
 	{
@@ -2741,6 +2765,7 @@
 			"01"		"item_dota688_mekansm;item_arcane_boots"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_rod_of_atos"
 	{
@@ -2753,6 +2778,7 @@
 			"01"		"item_vitality_booster;item_staff_of_wizardry;item_staff_of_wizardry"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_iron_talon"
 	{
@@ -2766,6 +2792,7 @@
 			"01"		"item_dota688_quelling_blade;item_ring_of_protection"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_abyssal_blade"
 	{
@@ -2778,6 +2805,7 @@
 			"01"		"item_basher;item_vanguard"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_heavens_halberd"
 	{
@@ -2790,6 +2818,7 @@
 			"01"		"item_dota688_sange;item_talisman_of_evasion"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_ring_of_aquila"
 	{
@@ -2802,6 +2831,7 @@
 			"01"		"item_dota688_wraith_band;item_dota688_ring_of_basilius"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_tranquil_boots"
 	{
@@ -2814,6 +2844,7 @@
 			"01"		"item_boots;item_ring_of_protection;item_ring_of_regen"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 	"item_recipe_dota688_glimmer_cape"
 	{
@@ -2826,5 +2857,6 @@
 			"01"		"item_dota688_shadow_amulet;item_cloak"
 		}
 		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
 	}
 }

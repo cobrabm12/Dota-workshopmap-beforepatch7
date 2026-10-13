@@ -22,13 +22,14 @@ Valve's original 6.88f files, and the game rules are implemented in Lua.
 | 112 heroes enabled with 6.88 stats, 15 newer heroes disabled, talents / innates / facets removed | ✅ generated into `npc_heroes_custom.txt` |
 | 6.88 values for 530 abilities and 303 items (cooldown, mana, damage, recipes, prices, ultimate levels 6/11/16) | ✅ generated into `npc_abilities_override.txt` |
 | 72 items added after 6.88 removed from the shop | ✅ |
-| Towers, barracks, Ancient, fountain, creeps, neutrals, Roshan, couriers with 6.88 stats | ✅ generated into `npc_units_custom.txt` (98 units) |
-| Game rules in Lua (gold, XP, level 25, respawn, buyback, runes, 4+4 day/night, Roshan, no backpack, bought courier) | ✅ `game/dota_addons/dota_688/scripts/vscripts/` |
+| Towers, barracks, Ancient, fountain, creeps, neutrals, Roshan with 6.88 stats | ✅ generated into `npc_units_custom.txt` |
+| Game rules in Lua (gold, XP, level 25, respawn, buyback, runes, 4+4 day/night, Roshan, no backpack) | ✅ `game/dota_addons/dota_688/scripts/vscripts/` |
+| Courier | the current Dota 2 one (free personal courier) – a deliberate exception to 6.88 |
 | Abilities reworked after 6.88 rewritten in Lua with their original mechanics | ✅ ~190 hero abilities (every removed one plus those with major reworks: Riki, Techies, Lycan, Treant, Necrophos, Viper, Io, OD, Pudge, Slardar, Sven, Tiny, Undying, Visage, Wraith King…) – list in `docs/STATUS.md` |
 | Items with 6.88 mechanics rewritten in Lua (Heart, Skadi, S&Y, Halberd, Abyssal, Dagon, Veil, Medallion, Solar Crest, Octarine, Shiva, Scythe, Urn, Mek, Pipe, Greaves, Vlad, Basilius/Aquila, Soul Ring, Atos, E‑Blade, Manta, Armlet, Battle Fury, Drums, Silver Edge, HotD, Bloodstone, Linken, Lotus, MKB, Butterfly, Satanic, MoM, Phase, Treads, Diffusal, Midas, Iron Talon…) | ✅ 76 items + the shop with the 6.88 layout (`shops.txt`) |
 | Built‑in abilities with new mechanics disabled through manual overrides (`tools/manual_overrides.json`) | ✅ 187 abilities / items (Mana Break, Heartstopper, Necromastery, Psionic Trap, Culling Blade, Invoker, Glimpse, Double Edge, Roshan resistances, consumables…); no ability scales with hero level |
 | 6.88 details on built‑in abilities restored in Lua (`dota688/extras_688.lua`) | ✅ Morph passive stats, Serpent Ward splash, Phantom Strike 4 attacks, Corrosive Skin movement slow, creep durations of Thunder Clap / Reverse Polarity, Earth Brewling spell immunity |
-| Panorama: talents, backpack, neutral slot, TP slot, 7.x timers hidden; 6.88 courier controls | ✅ `content/.../panorama` – IDs to be re‑checked after new patches |
+| Panorama: talents, backpack, neutral slot, TP slot, 7.x timers hidden | ✅ `content/.../panorama` – IDs to be re‑checked after new patches |
 | Aghanim's Scepter as in 6.88: own item (no modern upgrades), the 6.88 upgrades reproduced per hero, Alchemist can give it to allies | ✅ `docs/AGHANIM.md` – 84 heroes: 83 reproduced, 1 impossible (Lone Druid: the bear leash is in C++) |
 | Localization | ✅ English, generated from the 6.88 texts |
 | Assets (particles / models) verified against the current client | ✅ |
