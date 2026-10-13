@@ -398,6 +398,10 @@ def build_ability_override(name: str, old: kv.KV, cur: kv.KV, top_keys: list[str
             continue
         if cv is None and key in ("AbilityCastRange", "AbilityCastPoint", "AbilityCooldown", "AbilityManaCost") and set(norm_num_list(ov)) <= {"0"}:
             continue  # 0 implicit
+        if key == "AbilityCastRange" and set(norm_num_list(ov)) <= {"0"}:
+            # 6.88 lasa raza 0 cand o definea in alta cheie (ex. Blink Dagger: blink_range 1200); motorul curent
+            # foloseste AbilityCastRange, iar 0 facea Blink-ul sa sara pe loc (raportat de jucatori din Arcade)
+            continue
         loc = where_defined(cur, key)
         if loc == "values":
             values[key] = ov

@@ -692,5 +692,9 @@
     "status_resist": "0",
     "slow_resist": "0"
   },
-  "_comentariu_2026_10_13_unitati": "Abilitati de unitati/iteme cu mecanici moderne: rezistente la Roshan, mana burn cu INT la Satyr, Mud Golem 150 pe creepi, Dark Troll 3 scheleti (6.88: 2, 250 HP, 24-25 daune), regen reduction la Vhoul, accuracy la Wardrums, daune la aterizare la Cyclone, Earth Brewling cu rezistente in loc de imunitate la vraji (imunitatea e in extras_688.lua), aura de mana si regen la Arcane Boots (6.88: doar Replenish Mana)."
+  "_comentariu_2026_10_13_unitati": "Abilitati de unitati/iteme cu mecanici moderne: rezistente la Roshan, mana burn cu INT la Satyr, Mud Golem 150 pe creepi, Dark Troll 3 scheleti (6.88: 2, 250 HP, 24-25 daune), regen reduction la Vhoul, accuracy la Wardrums, daune la aterizare la Cyclone, Earth Brewling cu rezistente in loc de imunitate la vraji (imunitatea e in extras_688.lua), aura de mana si regen la Arcane Boots (6.88: doar Replenish Mana).",
+  "item_blink": {
+    "AbilityOvershootCastRange": "960"
+  },
+  "_comentariu_blink": "Blink Dagger 6.88: click peste raza de 1200 = salt de 4/5 din raza (960, blink_range_clamp). Motorul curent are comportamentul OVERSHOOT, care fara AbilityOvershootCastRange sare la raza maxima (1200)."
 }

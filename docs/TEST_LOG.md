@@ -229,3 +229,10 @@ Până aici testele rulau în Workshop Tools, din fișierele proiectului. Testat
 | Jucător care nu alege eroul la timp | **BUG** – rămânea fără erou (HUD gol, 0 aur). REPARAT: la Strategy Time / Pre‑game primește un erou random (fără bonusul de +200 pentru random voluntar); testat în Workshop Tools (Dazzle random, 567 aur după penalizarea de întârziere a motorului) |
 | După re‑upload: Arcade → Update → Create Custom Lobby | OK – harta `dota_688` apare, lobby creat, Start Game → Accept → încărcare → Custom Game Setup → alegerea eroului (grila 6.88 fără Universal, 112 eroi) → Strategy Time cu 625 aur → joc pe harta 6.88 cu dialogul „Dota 6.88 rules”, regulile 6.88 active (creepi 6.88, aur pasiv), 0 erori Lua |
 | Notă pentru jucători | Jocul este „Player‑Hosted”: Play caută un lobby existent; dacă nu există niciunul, se folosește **Create Custom Lobby** → Create → Start Game |
+
+## 13. Bug‑uri raportate de jucători din Arcade (2026‑10‑13, seara)
+
+| Bug | Cauză | Corecție, verificată în joc |
+|---|---|---|
+| Invoker: orbe nelimitate și daune nelimitate; Invoke nu mai mergea, pe model se vedea un singur orb | motorul curent ia limita de 3 instanțe din Invoke‑ul built‑in, pe care l‑am înlocuit cu `dota688_invoker_invoke` (testat: 10 × Exort = 10 instanțe, daune 134 → 358) | `modifier_dota688_invoker_orbs` păstrează maxim 3 instanțe (orbul nou o înlocuiește pe cea mai veche), ca în 6.88. Testat: 10 × Exort → 3 instanțe (+21 daune fiecare), Q W W + Invoke → Tornado |
+| Blink Dagger sărea pe loc | în 6.88 raza era în `blink_range`, iar `AbilityCastRange` era 0; generatorul copia 0 peste raza de 1200 a motorului curent | generatorul nu mai suprascrie o rază de cast cu 0; `AbilityOvershootCastRange` 960 pentru clicul peste rază (6.88: 4/5 din 1200). Testat: țintă la 1000 → salt ~1000, țintă la 2000 → salt ~960 |
