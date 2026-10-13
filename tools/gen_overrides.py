@@ -845,6 +845,11 @@ CUSTOM_KV_PATCH = {
     "dota688_lone_druid_true_form_battle_cry": {"AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"},
     # Ice Blast 6.88 se țintește oriunde pe hartă (raza reală e dată de Lua)
     "dota688_ancient_apparition_ice_blast": {"AbilityCastRange": "0"},
+    # Omnislash 6.88 nu trece prin imunitatea la magie (BKB): nu tinteste si nu sare pe unitati imune
+    "dota688_juggernaut_omni_slash": {
+        "SpellImmunityType": "SPELL_IMMUNITY_ENEMIES_NO",
+        "AbilityUnitTargetFlags": "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS",
+    },
 }
 
 

@@ -29,6 +29,7 @@ end
 function modifier_dota688_juggernaut_omni_slash:Slash(target)
 	local parent, a = self:GetParent(), self:GetAbility()
 	if not target or target:IsNull() or not target:IsAlive() then return false end
+	if target:IsMagicImmune() then return false end   -- 6.88: nu trece prin BKB (nici daune, nici salt)
 	local pos = target:GetAbsOrigin() + RandomVector(100)
 	FindClearSpaceForUnit(parent, pos, false)
 	parent:SetForwardVector((target:GetAbsOrigin() - parent:GetAbsOrigin()):Normalized())
@@ -48,7 +49,7 @@ function modifier_dota688_juggernaut_omni_slash:OnIntervalThink()
 	if self.jumps <= 0 then self:Destroy() return end
 	local parent, a = self:GetParent(), self:GetAbility()
 	local enemies = FindUnitsInRadius(parent:GetTeamNumber(), parent:GetAbsOrigin(), nil, a:GetSpecialValueFor("omni_slash_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS, FIND_ANY_ORDER, false)
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS, FIND_ANY_ORDER, false)
 	if #enemies == 0 then self:Destroy() return end
 	self:Slash(enemies[RandomInt(1, #enemies)])
 end
