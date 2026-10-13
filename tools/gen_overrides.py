@@ -959,11 +959,15 @@ def gen_shops(custom: set[str]) -> None:
         return
     doc = kv.load(src)
     shops = doc.get_kv("dota_shops")
+    # itemele de eveniment (River Vial: EventID / AssociatedConsumable din Battle Pass 2016) se puteau cumpara doar cu
+    # consumabilul din Battle Pass; intr-un custom game apar in shop dar nu se pot cumpara niciodata -> scoase
+    items688 = kv.load(os.path.join(REF_OLD, "items.txt"))["DOTAAbilities"]
+    event_only = {n for n, b in items688.blocks() if b.get_str("EventID") or b.get_str("AssociatedConsumable")}
     out = kv.KV()
     for cat, items in shops.blocks():
         blk = kv.KV()
         for k, v in items.scalars():
-            if v in SHOP_EXCLUDED:
+            if v in SHOP_EXCLUDED or v in event_only:
                 continue
             blk.items.append((k, resolve_item(v, custom)))
         out[cat] = blk

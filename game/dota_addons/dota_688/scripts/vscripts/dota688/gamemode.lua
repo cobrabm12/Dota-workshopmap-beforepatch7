@@ -13,6 +13,7 @@ require("dota688/map_688")
 require("dota688/selection")
 require("dota688/buildings")
 require("dota688/creeps")
+require("dota688/uam")
 
 require("dota688/modifiers_link")
 
@@ -252,6 +253,7 @@ function Dota688:ExperienceFilter(ev)
 end
 
 function Dota688:DamageFilter(ev)
+	Dota688UAM:OnDamage(ev)   -- Chain Lightning (Maelstrom / Mjollnir) = UAM conditional pe atacul curent
 	return Dota688Buildings:DamageFilter(ev)
 end
 

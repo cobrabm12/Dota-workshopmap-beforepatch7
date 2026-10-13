@@ -7,6 +7,7 @@ function dota688_obsidian_destroyer_arcane_orb:GetProjectileName() return "parti
 function dota688_obsidian_destroyer_arcane_orb:OnOrbImpact(params)
 	local caster, target = self:GetCaster(), params.target
 	if not target or target:IsBuilding() or target:IsOther() then return end
+	if Dota688UAM then Dota688UAM:MarkAbilityOrb(caster) end   -- UAM al abilitatii: itemele UAM nu se aplica pe acest atac
 	local dmg = caster:GetMana() * self:GetSpecialValueFor("mana_pool_damage_pct") / 100
 	if target:IsIllusion() or target:IsSummoned() then dmg = dmg + self:GetSpecialValueFor("illusion_damage") end   -- "bonus damage to summoned units and illusions"
 	ApplyDamage({ victim = target, attacker = caster, damage = dmg, damage_type = DAMAGE_TYPE_PURE, ability = self })

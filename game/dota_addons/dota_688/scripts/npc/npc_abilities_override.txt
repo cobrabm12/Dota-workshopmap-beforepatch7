@@ -4804,11 +4804,8 @@
 	}
 	"item_lifesteal"
 	{
-		"SideShop"		"1"
-		"AbilityValues"
-		{
-			"lifesteal_percent"		"15"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_ring_of_regen"
 	{
@@ -6082,14 +6079,18 @@
 			"chain_cooldown"		"0"
 		}
 	}
+	"item_recipe_desolator"
+	{
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+		"ItemCost"		"99999"
+	}
 	"item_desolator"
 	{
-		"ItemShopTags"		"damage;unique"
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 		"AbilityValues"
 		{
-			"bonus_damage"		"50"
-			"corruption_armor"		"-7"
-			"corruption_duration"		"15.0"
 			"bonus_damage_per_kill"		"0"
 			"bonus_damage_per_assist"		"0"
 			"max_damage"		"0"
@@ -6192,11 +6193,8 @@
 	}
 	"item_blight_stone"
 	{
-		"SideShop"		"1"
-		"AbilityValues"
-		{
-			"corruption_duration"		"8.0"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_ancient_janggo"
 	{

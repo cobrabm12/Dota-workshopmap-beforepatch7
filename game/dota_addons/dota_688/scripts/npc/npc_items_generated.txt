@@ -146,6 +146,23 @@
 			"cast_range_ward"		"450"
 		}
 	}
+	"item_dota688_blight_stone"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemCost"		"300"
+		"ItemShopTags"		"hard_to_tag"
+		"ItemQuality"		"component"
+		"ItemAliases"		"blight stone"
+		"SideShop"		"1"
+		"BaseClass"		"item_lua"
+		"ScriptFile"		"items/item_dota688_blight_stone"
+		"AbilityTextureName"		"item_blight_stone"
+		"AbilityValues"
+		{
+			"corruption_armor"		"-2"
+			"corruption_duration"		"8.0"
+		}
+	}
 	"item_dota688_bloodstone"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT"
@@ -444,6 +461,24 @@
 			"damage"		"400 500 600 700 800"
 			"range_tooltip"		"600 650 700 750 800"
 			"damage_delay"		"0"
+		}
+	}
+	"item_dota688_desolator"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemCost"		"3500"
+		"ItemShopTags"		"damage;unique"
+		"ItemQuality"		"artifact"
+		"ItemAliases"		"desolator"
+		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"BaseClass"		"item_lua"
+		"ScriptFile"		"items/item_dota688_desolator"
+		"AbilityTextureName"		"item_desolator"
+		"AbilityValues"
+		{
+			"bonus_damage"		"50"
+			"corruption_armor"		"-7"
+			"corruption_duration"		"15.0"
 		}
 	}
 	"item_dota688_diffusal_blade"
@@ -912,6 +947,22 @@
 			"bonus_damage"		"10"
 			"bonus_chance"		"25"
 			"bonus_chance_damage"		"85"
+		}
+	}
+	"item_dota688_lifesteal"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemCost"		"900"
+		"ItemShopTags"		"unique"
+		"ItemQuality"		"component"
+		"ItemAliases"		"morbid mask"
+		"SideShop"		"1"
+		"BaseClass"		"item_lua"
+		"ScriptFile"		"items/item_dota688_lifesteal"
+		"AbilityTextureName"		"item_lifesteal"
+		"AbilityValues"
+		{
+			"lifesteal_percent"		"15"
 		}
 	}
 	"item_dota688_lotus_orb"
@@ -2113,7 +2164,7 @@
 		"ItemResult"		"item_dota688_vladmir"
 		"ItemRequirements"
 		{
-			"01"		"item_dota688_headdress;item_dota688_ring_of_basilius;item_lifesteal"
+			"01"		"item_dota688_headdress;item_dota688_ring_of_basilius;item_dota688_lifesteal"
 		}
 		"AbilityTextureName"		"item_recipe"
 		"BaseClass"		"item_datadriven"
@@ -2610,7 +2661,21 @@
 		"ItemResult"		"item_dota688_helm_of_the_dominator"
 		"ItemRequirements"
 		{
-			"01"		"item_lifesteal;item_helm_of_iron_will"
+			"01"		"item_dota688_lifesteal;item_helm_of_iron_will"
+		}
+		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
+	}
+	"item_recipe_dota688_desolator"
+	{
+		"Model"		"models/props_gameplay/recipe.vmdl"
+		"ItemCost"		"0"
+		"ItemShopTags"		""
+		"ItemRecipe"		"1"
+		"ItemResult"		"item_dota688_desolator"
+		"ItemRequirements"
+		{
+			"01"		"item_mithril_hammer;item_mithril_hammer;item_dota688_blight_stone"
 		}
 		"AbilityTextureName"		"item_recipe"
 		"BaseClass"		"item_datadriven"
@@ -2624,7 +2689,7 @@
 		"ItemResult"		"item_dota688_mask_of_madness"
 		"ItemRequirements"
 		{
-			"01"		"item_lifesteal"
+			"01"		"item_dota688_lifesteal"
 		}
 		"AbilityTextureName"		"item_recipe"
 		"BaseClass"		"item_datadriven"
@@ -2720,7 +2785,7 @@
 		"ItemResult"		"item_dota688_medallion_of_courage"
 		"ItemRequirements"
 		{
-			"01"		"item_chainmail;item_sobi_mask;item_blight_stone"
+			"01"		"item_chainmail;item_sobi_mask;item_dota688_blight_stone"
 		}
 		"AbilityTextureName"		"item_recipe"
 		"BaseClass"		"item_datadriven"
