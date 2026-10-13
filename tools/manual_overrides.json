@@ -96,7 +96,8 @@
   "arc_warden_spark_wraith": {
     "base_activation_delay": "2.0",
     "spark_damage_base": "100 160 220 280",
-    "wraith_speed_base": "400"
+    "wraith_speed_base": "400",
+    "move_speed_slow_pct": "0"
   },
   "bane_fiends_grip": {
     "AbilityChannelTime": "5 5 5"
@@ -299,7 +300,9 @@
   },
   "earth_spirit_stone_caller": {
     "AbilityCharges": "6",
-    "AbilityChargeRestoreTime": "30"
+    "AbilityChargeRestoreTime": "30",
+    "attack_damage_per_stone": "0",
+    "attack_damage_per_stone_used": "0"
   },
   "morphling_morph_agi": {
     "morph_rate": "2 4 8 16"
@@ -526,7 +529,9 @@
     "move_slow": "0"
   },
   "earth_spirit_rolling_boulder": {
-    "damage_str": "0"
+    "damage_str": "0",
+    "stun_duration": "0",
+    "rock_bonus_duration": "0"
   },
   "earthshaker_enchant_totem": {
     "bonus_attack_range": "0"
@@ -693,5 +698,33 @@
   "item_blink": {
     "AbilityOvershootCastRange": "960"
   },
-  "_comentariu_blink": "Blink Dagger 6.88: click peste raza de 1200 = salt de 4/5 din raza (960, blink_range_clamp). Motorul curent are comportamentul OVERSHOOT, care fara AbilityOvershootCastRange sare la raza maxima (1200)."
+  "_comentariu_blink": "Blink Dagger 6.88: click peste raza de 1200 = salt de 4/5 din raza (960, blink_range_clamp). Motorul curent are comportamentul OVERSHOOT, care fara AbilityOvershootCastRange sare la raza maxima (1200).",
+  "chaos_knight_phantasm": {
+    "bonus_illusion_chance": "50",
+    "bonus_illusion_count": "1"
+  },
+  "warlock_shadow_word": {
+    "spell_aoe": "0"
+  },
+  "drow_ranger_wave_of_silence": {
+    "gust_reveals_invis": "0"
+  },
+  "broodmother_insatiable_hunger": {
+    "aura_radius": "0"
+  },
+  "slardar_amplify_damage": {
+    "puddle_radius": "0",
+    "puddle_duration": "0"
+  },
+  "tusk_snowball": {
+    "stun_duration_bonus": "0"
+  },
+  "visage_grave_chill": {
+    "radius": "0"
+  },
+  "puck_phase_shift": {
+    "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+  },
+  "_comentariu_valori_motor_2026_10_13": "Chei ale motorului curent care adaugau efecte inexistente in 6.88: Phantasm cu 50% sansa fara Scepter, Shadow Word fara arie, Gust fara reveal, Insatiable Hunger fara aura, Amplify Damage fara balti, Snowball fara stun per aliat, Stone Remnant fara bonus de daune, Grave Chill fara Familiars, Spark Wraith fara slow, Rolling Boulder fara stun, Phase Shift blocat de root.",
+  "_comentariu_hoof_stomp_windup": "Hoof Stomp: in motorul curent windup_time (0.5) este intarzierea (abilitatea e IMMEDIATE, cast point-ul nu se aplica); ramane 0.5 = cast point-ul 6.88. Testat: cu 0, stun dupa 0.1 s."
 }
