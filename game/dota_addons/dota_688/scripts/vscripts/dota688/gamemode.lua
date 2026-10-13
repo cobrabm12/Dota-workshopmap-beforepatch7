@@ -125,10 +125,25 @@ end
 
 function Dota688:OnGameRulesStateChange()
 	local state = GameRules:State_Get()
-	if state == DOTA_GAMERULES_STATE_PRE_GAME then
-		-- 6.88: +200 aur pentru random (7.x da iteme in loc de aur)
+	if state == DOTA_GAMERULES_STATE_STRATEGY_TIME or state == DOTA_GAMERULES_STATE_PRE_GAME then
+		-- 6.88: cine nu alege eroul pana expira timpul primeste un erou random (fara bonusul de random).
+		-- In custom games motorul nu face asta singur: jucatorul ramanea fara erou (testat din Arcade).
+		self.forcedRandom = self.forcedRandom or {}
 		for pid = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
-			if PlayerResource:IsValidPlayerID(pid) and PlayerResource:HasRandomed(pid) then
+			if PlayerResource:IsValidPlayerID(pid) and not PlayerResource:HasSelectedHero(pid) then
+				local player = PlayerResource:GetPlayer(pid)
+				if player then
+					player:MakeRandomHeroSelection()
+					self.forcedRandom[pid] = true
+					print("[dota688] jucatorul " .. pid .. " nu a ales eroul la timp: erou random")
+				end
+			end
+		end
+	end
+	if state == DOTA_GAMERULES_STATE_PRE_GAME then
+		-- 6.88: +200 aur pentru random (7.x da iteme in loc de aur); nu si pentru random-ul fortat
+		for pid = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+			if PlayerResource:IsValidPlayerID(pid) and PlayerResource:HasRandomed(pid) and not self.forcedRandom[pid] then
 				PlayerResource:ModifyGold(pid, C.RANDOM_BONUS_GOLD, false, DOTA_ModifyGold_Unspecified)
 			end
 		end
