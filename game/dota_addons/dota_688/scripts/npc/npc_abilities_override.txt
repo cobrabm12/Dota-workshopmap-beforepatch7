@@ -5658,21 +5658,14 @@
 	}
 	"item_recipe_basher"
 	{
-		"ItemCost"		"750"
-		"ItemRequirements"
-		{
-			"01"		"item_belt_of_strength;item_dota688_javelin"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
+		"ItemCost"		"99999"
 	}
 	"item_basher"
 	{
-		"ItemCost"		"2700"
-		"AbilityValues"
-		{
-			"bonus_damage"		"10"
-			"bash_duration"		"1.4"
-			"bonus_chance_damage"		"85"
-		}
+		"ItemPurchasable"		"0"
+		"ShouldBeSuggested"		"0"
 	}
 	"item_recipe_bfury"
 	{

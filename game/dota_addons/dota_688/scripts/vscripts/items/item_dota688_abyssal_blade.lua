@@ -11,7 +11,7 @@ Dota688DefineItem("item_dota688_abyssal_blade", "items/item_dota688_abyssal_blad
 			local a = self:GetAbility()
 			if not target or target:IsBuilding() or target:IsOther() then return 0 end
 			local parent = self:GetParent()
-			if NO_BASH[parent:GetUnitName()] or parent:HasItemInInventory("item_basher") then return 0 end
+			if NO_BASH[parent:GetUnitName()] or (parent:HasItemInInventory("item_dota688_basher") or parent:HasItemInInventory("item_basher")) then return 0 end
 			if not a:IsCooldownReady() and (self.bashCd or 0) > GameRules:GetGameTime() then return 0 end
 			if self.bashCd and self.bashCd > GameRules:GetGameTime() then return 0 end
 			local chance = self:GetParent():IsRangedAttacker() and a:GetSpecialValueFor("bash_chance_ranged") or a:GetSpecialValueFor("bash_chance_melee")

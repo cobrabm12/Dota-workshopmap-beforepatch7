@@ -121,6 +121,30 @@
 			"toggle_cooldown"		"0.036f"
 		}
 	}
+	"item_dota688_basher"
+	{
+		"ID"		"20148"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityCooldown"		"2.3"
+		"ItemCost"		"2700"
+		"ItemShopTags"		"damage;str;hard_to_tag"
+		"ItemQuality"		"epic"
+		"ItemAliases"		"skull basher"
+		"ItemDeclarations"		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"BaseClass"		"item_lua"
+		"ScriptFile"		"items/item_dota688_basher"
+		"AbilityTextureName"		"item_basher"
+		"AbilityValues"
+		{
+			"bonus_damage"		"10"
+			"bonus_strength"		"10"
+			"bash_chance_melee"		"25"
+			"bash_chance_ranged"		"10"
+			"bash_duration"		"1.4"
+			"bash_cooldown"		"2.3"
+			"bonus_chance_damage"		"85"
+		}
+	}
 	"item_dota688_bfury"
 	{
 		"ID"		"20004"
@@ -2773,6 +2797,21 @@
 		"AbilityTextureName"		"item_recipe"
 		"BaseClass"		"item_datadriven"
 	}
+	"item_recipe_dota688_basher"
+	{
+		"ID"		"20149"
+		"Model"		"models/props_gameplay/recipe.vmdl"
+		"ItemCost"		"750"
+		"ItemShopTags"		""
+		"ItemRecipe"		"1"
+		"ItemResult"		"item_dota688_basher"
+		"ItemRequirements"
+		{
+			"01"		"item_belt_of_strength;item_dota688_javelin"
+		}
+		"AbilityTextureName"		"item_recipe"
+		"BaseClass"		"item_datadriven"
+	}
 	"item_recipe_dota688_bfury"
 	{
 		"ID"		"20114"
@@ -3120,7 +3159,7 @@
 		"ItemResult"		"item_dota688_abyssal_blade"
 		"ItemRequirements"
 		{
-			"01"		"item_basher;item_dota688_vanguard"
+			"01"		"item_dota688_basher;item_dota688_vanguard"
 		}
 		"AbilityTextureName"		"item_recipe"
 		"BaseClass"		"item_datadriven"
