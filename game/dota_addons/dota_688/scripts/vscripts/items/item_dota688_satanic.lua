@@ -18,5 +18,8 @@ function modifier_dota688_satanic_unholy:OnAttackLanded(params)
 	if not IsServer() or params.attacker ~= self:GetParent() then return end
 	local target = params.target
 	if not target or target:IsBuilding() or target:IsOther() then return end
-	self:GetParent():Heal(params.damage * Dota688Val(self, "unholy_lifesteal_percent") / 100, self:GetAbility())
+	-- face parte din lifesteal-ul Satanic-ului (UAM): se aplica doar cand Satanic castiga atacul
+	local p, a, heal = self:GetParent(), self:GetAbility(), params.damage * Dota688Val(self, "unholy_lifesteal_percent") / 100
+	if not a or a:IsNull() then return end
+	Dota688UAM:Queue(p, target, a, function() if p:IsAlive() then p:Heal(heal, a) end end)
 end

@@ -15,6 +15,7 @@ function modifier_dota688_invoker_orbs:OnCreated()
 end
 -- stack count = nivelurile de baza (3 biti fiecare) + instantele orbelor ridicate de scepter (2 biti fiecare), ca sa le vada si clientul
 function modifier_dota688_invoker_orbs:OnIntervalThink()
+	self:EnforceOrbLimit()   -- plasa de siguranta (orbe aparute pe alta cale decat cast-ul eroului)
 	local p = self:GetParent()
 	-- scepter: nivelul de baza (fara +1) e tinut de modifier_dota688_scepter_invoker
 	local base = Dota688HasScepter and Dota688HasScepter(p) and p.dota688_orb_base or nil
@@ -58,7 +59,29 @@ end
 function modifier_dota688_invoker_orbs:DeclareFunctions()
 	return { MODIFIER_PROPERTY_STATS_STRENGTH_BONUS, MODIFIER_PROPERTY_STATS_AGILITY_BONUS, MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT, MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE }
+		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE, MODIFIER_EVENT_ON_ABILITY_EXECUTED }
+end
+
+-- Maxim 3 instante de orbe (6.88): un orb nou o inlocuieste pe cea mai veche. Motorul curent ia limita din Invoke-ul
+-- built-in, pe care l-am inlocuit cu dota688_invoker_invoke, deci fara asta instantele se adunau la infinit
+-- (testat: 10 x Exort = 10 instante, daune 134 -> 358, iar Invoke nu mai gasea o combinatie de 3).
+local INSTANCES = { "modifier_invoker_quas_instance", "modifier_invoker_wex_instance", "modifier_invoker_exort_instance" }
+local ORB_NAMES = { invoker_quas = true, invoker_wex = true, invoker_exort = true }
+function modifier_dota688_invoker_orbs:EnforceOrbLimit()
+	local p = self:GetParent()
+	local list = {}
+	for _, n in ipairs(INSTANCES) do
+		for _, m in ipairs(p:FindAllModifiersByName(n)) do list[#list + 1] = m end
+	end
+	if #list <= 3 then return end
+	table.sort(list, function(a, b) return a:GetCreationTime() < b:GetCreationTime() end)
+	for i = 1, #list - 3 do list[i]:Destroy() end
+end
+function modifier_dota688_invoker_orbs:OnAbilityExecuted(params)
+	if not IsServer() or params.unit ~= self:GetParent() or not params.ability or not ORB_NAMES[params.ability:GetAbilityName()] then return end
+	self:EnforceOrbLimit()
+	-- instanta noua poate aparea dupa eveniment (in OnSpellStart-ul orbului): verificam si in frame-ul urmator
+	Dota688Timers:After(0, function() if not self:IsNull() then self:EnforceOrbLimit() end end)
 end
 function modifier_dota688_invoker_orbs:GetModifierBonusStats_Strength() return 2 * self:Decode(1) end
 function modifier_dota688_invoker_orbs:GetModifierBonusStats_Agility() return 2 * self:Decode(2) end

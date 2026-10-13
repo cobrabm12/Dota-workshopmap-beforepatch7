@@ -61,11 +61,9 @@ var SCOPED = [
 	// sticky si tab-urile side/secret shop (existau in 6.88)
 	{ scope: [ "shop" ], ids: [ "GuidesButton", "GuidesButtonV2", "GuideFlyout", "ItemPlusGuide", "RequestSuggestion",
 		"PopularItems", "GridNeutralsTab", "BuybackProtection" ], classes: [ "GridNeutralsTabContainer" ] },
-	// quickbuy + curier (#courier e in quickbuy): itemul sugerat, protectia la buyback, scutul curierului (7.x) si
-	// indicatorul "A" de auto-deliver (curierul echipei din addon nu are auto-deliver)
-	// si livrarea catre alt erou (OtherHeroDeliver, 7.x)
-	{ scope: [ "quickbuy" ], ids: [ "SuggestItems", "BuybackProtection", "CourierShieldButton", "CourierShieldHotkey",
-		"OtherHeroDeliver" ], classes: [ "CourierAutoStatus" ] },
+	// quickbuy: itemul sugerat si protectia la buyback (7.x). Curierul e cel din ultimul patch (personal, gratuit):
+	// panoul lui ramane neatins
+	{ scope: [ "quickbuy" ], ids: [ "SuggestItems", "BuybackProtection" ] },
 	// scoreboard: arborele de talente si indicatorul Aghanim din fiecare rand; coloanele talente/tips/cadouri/bounty
 	// (antet + randuri; TalentTree si AghsStatusContainer sunt la adancimea 5: scoreboard > Background >
 	// RadiantTeamContainer > rand > coloana)
@@ -92,98 +90,13 @@ if (HIDE_STATS_ATTACKSPEED_MAGICRESIST) {
 }
 
 // 3) Meniuri contextuale, create la deschidere (deci verificate des):
-// - curierul (context_menu_courier, click dreapta pe curier/livrare): randul auto-deliver si randurile cu coechipierii
-//   (curierul echipei din addon nu are auto-deliver)
 // - itemele din inventar (context_menu_inventory_item): optiunile 7.x ale caror ordine le respinge serverul (blocarea
 //   combinarii, marcarea pentru vanzare, drop la fantana) si trimiterea in stash-ul de neutre
-var COURIER_MENU_HIDE = [ "ToggleAutoDeliver", "Teammates" ];
 var INVENTORY_MENU_HIDE = [ "CombineLock", "CombineUnlock", "MarkForSell", "UnmarkForSell", "DropAtFountain",
 	"TeleportToNeutralStash" ];
-function HideCourierMenu(menu) {
-	CollapseIds(menu, COURIER_MENU_HIDE);
-	HookCourierPanels(menu, COURIER_MENU_ROWS, true);
-}
 function HideInventoryMenu(menu) { CollapseIds(menu, INVENTORY_MENU_HIDE); }
 // daca meniurile nu sunt sub #ContextMenuManager, verificarea lenta le gaseste dupa un rand cunoscut (id unic in HUD)
-var MENU_FALLBACK = [ { row: "ToggleAutoDeliver", hide: HideCourierMenu }, { row: "CombineLock", hide: HideInventoryMenu } ];
-
-// 4) Curierul echipei (6.88). Butoanele din panoul shop-ului (dota_hud_courier.xml: livrare, burst), randurile din
-// meniul de click dreapta (fantana, secret shop) si hotkey-urile lor cauta curierul personal al jucatorului (7.23+) si
-// nu trimit nimic pentru curierul echipei. Le trimitem serverului (scripts/vscripts/dota688/courier.lua,
-// OnHudCommand), care comanda curierul echipei. Selectarea (buton + hotkey) o facem direct pe client, tot pe curierul
-// echipei, ca sa mearga si pentru coechipierii celui care l-a cumparat.
-var COURIER_BUTTONS = [
-	{ id: "DeliverItemsButton", cmd: "courier_take_stash_and_transfer_items" },
-	{ id: "CourierBurstButton", cmd: "courier_burst" },
-	{ id: "SelectCourierButton", fn: SelectCourier },
-];
-var COURIER_MENU_ROWS = [
-	{ id: "Home", cmd: "courier_return_to_base" },
-	{ id: "SecretShop", cmd: "courier_go_to_secretshop" },
-];
-var COURIER_HOTKEYS = [
-	{ keybind: "DOTA_KEYBIND_COURIER_DELIVER", command: "dota688_courier_deliver", cmd: "courier_take_stash_and_transfer_items" },
-	{ keybind: "DOTA_KEYBIND_COURIER_BURST", command: "dota688_courier_burst", cmd: "courier_burst" },
-	{ keybind: "DOTA_KEYBIND_COURIER_SELECT", command: "dota688_courier_select", fn: SelectCourier },
-];
-
-function CourierCommand(cmd) {
-	GameEvents.SendCustomGameEventToServer("dota688_courier_command", { cmd: cmd });
-}
-
-function CourierHandler(cmd, closeMenu) {
-	return function () {
-		CourierCommand(cmd);
-		if (closeMenu) { $.DispatchEvent("DismissAllContextMenus"); }
-	};
-}
-
-// curierul echipei jucatorului local (-1 daca nu exista / e mort)
-function TeamCourier() {
-	var team = Players.GetTeam(Players.GetLocalPlayer());
-	var list = Entities.GetAllEntitiesByClassname("npc_dota_courier");
-	for (var i = 0; i < list.length; i++) {
-		if (Entities.GetTeamNumber(list[i]) === team && Entities.IsAlive(list[i])) { return list[i]; }
-	}
-	return -1;
-}
-
-// "Select Courier": selecteaza curierul echipei (al doilea click il centreaza); butonul Valve cauta curierul personal
-function SelectCourier() {
-	try {
-		var c = TeamCourier();
-		if (c < 0) { return; }
-		if (Players.GetLocalPlayerPortraitUnit() === c) { GameUI.MoveCameraToEntity(c); return; }
-		GameUI.SelectUnit(c, false);
-	} catch (e) {
-		LogOnce(e);
-	}
-}
-
-// SetPanelEvent inlocuieste actiunea din layout (onactivate="DOTAHUDCourierDeliverLeftClick();" etc.)
-function HookCourierPanels(scope, list, closeMenu) {
-	if (scope === null) { return; }
-	for (var i = 0; i < list.length; i++) {
-		var p = scope.FindChildTraverse(list[i].id);
-		if (p !== null) { p.SetPanelEvent("onactivate", list[i].fn || CourierHandler(list[i].cmd, closeMenu)); }
-	}
-}
-
-// tasta aleasa de jucator pentru livrare / burst ruleaza comanda noastra
-function BindCourierHotkeys() {
-	for (var i = 0; i < COURIER_HOTKEYS.length; i++) {
-		var h = COURIER_HOTKEYS[i];
-		try {
-			var key = Game.GetKeybindForCommand(DOTAKeybindCommand_t[h.keybind]);
-			// comenzile legate de taste au forma +comanda (apasare) / -comanda (eliberare)
-			Game.AddCommand("+" + h.command, h.fn || CourierHandler(h.cmd, false), "", 0);
-			Game.AddCommand("-" + h.command, function () {}, "", 0);
-			if (key !== undefined && key !== null && key !== "") { Game.CreateCustomKeyBind(key, "+" + h.command); }
-		} catch (e) {
-			$.Msg("[dota688] hud_688.js: tasta pentru " + h.keybind + ": " + e);
-		}
-	}
-}
+var MENU_FALLBACK = [ { row: "CombineLock", hide: HideInventoryMenu } ];
 
 function CollapseIds(scope, ids) {
 	for (var i = 0; i < ids.length; i++) { Collapse(scope.FindChildTraverse(ids[i])); }
@@ -210,7 +123,7 @@ function Matcher(all, skip, depth, inside) {
 
 var BAR_MATCH = Matcher(BAR_HIDE, [], 8, null);
 var MENU_MATCH = Matcher([], [], WALK_DEPTH,
-	{ DOTACourierContextMenu: HideCourierMenu, DOTAContextMenuInventoryItem: HideInventoryMenu });
+	{ DOTAContextMenuInventoryItem: HideInventoryMenu });
 function PrepareScoped(list) {
 	for (var i = 0; i < list.length; i++) {
 		var s = list[i];
@@ -317,7 +230,6 @@ function HideKnownPanels() {
 		}
 		HideScoped(root, SCOPED);
 		if (InHeroSelection()) { HideScoped(root, SCOPED_PREGAME); }
-		HookCourierPanels(root.FindChildTraverse("quickbuy"), COURIER_BUTTONS, false);
 		// meniurile contextuale, daca nu sunt sub #ContextMenuManager (verificarea rapida nu le-ar gasi)
 		for (var f = 0; f < MENU_FALLBACK.length; f++) {
 			var row = root.FindChildTraverse(MENU_FALLBACK[f].row);
@@ -362,7 +274,6 @@ function Dota688ToggleRules() {
 (function () {
 	HideKnownPanels();
 	HideTransientPanels();
-	BindCourierHotkeys();
 	GameEvents.Subscribe("dota_player_update_selected_unit", SendSelection);
 	GameEvents.Subscribe("dota_player_update_query_unit", SendSelection);
 	// panoul cu reguli apare singur la inceput si dispare dupa 25 s

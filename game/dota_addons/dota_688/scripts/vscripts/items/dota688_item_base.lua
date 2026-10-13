@@ -1,3 +1,4 @@
+require("dota688/uam")
 -- Baza itemelor reimplementate (6.88). Un item isi citeste statisticile din AbilitySpecial-ul original
 -- (reference/6.88f/items.txt, generat in npc_items_generated.txt) prin numele standard ale valorilor.
 --
@@ -59,19 +60,6 @@ function Dota688ManaRegenFromPct(unit, pct)
 	-- regenerarea "de baza" din 6.88 la care se aplica procentele itemelor
 	local int = unit.GetIntellect and unit:GetIntellect(true) or 0
 	return (0.01 + 0.04 * int) * pct / 100
-end
-
--- itemul cu cel mai mare lifesteal_percent din inventar (6.88: "does not stack with other Unique Attack Modifiers")
-function Dota688BestLifesteal(unit)
-	local best, bestV
-	for s = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-		local it = unit:GetItemInSlot(s)
-		if it then
-			local v = it:GetSpecialValueFor("lifesteal_percent")
-			if v > 0 and (not bestV or v > bestV) then best, bestV = it, v end
-		end
-	end
-	return best
 end
 
 -- Damage block (6.88): doar pe atacuri, iar sursele nu se cumuleaza (se aplica cea mai mare). Sursele Lua: Crimson Guard activ (55),
@@ -179,11 +167,15 @@ function Dota688DefineItem(itemName, scriptPath, opts)
 		local parent = self:GetParent()
 		if params.attacker ~= parent then return end
 		local target = params.target
-		-- lifesteal-ul itemelor e Unique Attack Modifier in 6.88: se aplica doar cel mai mare (primul din inventar la egalitate)
-		if self.lifesteal and self.lifesteal > 0 and target and not target:IsBuilding() and not target:IsOther() and Dota688BestLifesteal(parent) == self:GetAbility() then
-			parent:Heal(params.damage * self.lifesteal / 100, self:GetAbility())
-			local fx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
-			ParticleManager:ReleaseParticleIndex(fx)
+		-- lifesteal-ul itemelor e Unique Attack Modifier in 6.88: dota688/uam.lua alege ce se aplica pe atac
+		if self.lifesteal and self.lifesteal > 0 and target and not target:IsBuilding() and not target:IsOther() then
+			local a, pct, dmg = self:GetAbility(), self.lifesteal, params.damage
+			Dota688UAM:Queue(parent, target, a, function()
+				if not parent:IsAlive() then return end
+				parent:Heal(dmg * pct / 100, a)
+				local fx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+				ParticleManager:ReleaseParticleIndex(fx)
+			end)
 		end
 		if opts.onAttackLanded and self:GetAbility() and not self:GetAbility():IsNull() then opts.onAttackLanded(self, params) end
 	end

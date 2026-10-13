@@ -229,3 +229,30 @@ Până aici testele rulau în Workshop Tools, din fișierele proiectului. Testat
 | Jucător care nu alege eroul la timp | **BUG** – rămânea fără erou (HUD gol, 0 aur). REPARAT: la Strategy Time / Pre‑game primește un erou random (fără bonusul de +200 pentru random voluntar); testat în Workshop Tools (Dazzle random, 567 aur după penalizarea de întârziere a motorului) |
 | După re‑upload: Arcade → Update → Create Custom Lobby | OK – harta `dota_688` apare, lobby creat, Start Game → Accept → încărcare → Custom Game Setup → alegerea eroului (grila 6.88 fără Universal, 112 eroi) → Strategy Time cu 625 aur → joc pe harta 6.88 cu dialogul „Dota 6.88 rules”, regulile 6.88 active (creepi 6.88, aur pasiv), 0 erori Lua |
 | Notă pentru jucători | Jocul este „Player‑Hosted”: Play caută un lobby existent; dacă nu există niciunul, se folosește **Create Custom Lobby** → Create → Start Game |
+
+## 13. Bug‑uri raportate de jucători din Arcade (2026‑10‑13, seara)
+
+| Bug | Cauză | Corecție, verificată în joc |
+|---|---|---|
+| Invoker: orbe nelimitate și daune nelimitate; Invoke nu mai mergea, pe model se vedea un singur orb | motorul curent ia limita de 3 instanțe din Invoke‑ul built‑in, pe care l‑am înlocuit cu `dota688_invoker_invoke` (testat: 10 × Exort = 10 instanțe, daune 134 → 358) | `modifier_dota688_invoker_orbs` păstrează maxim 3 instanțe (orbul nou o înlocuiește pe cea mai veche), ca în 6.88. Testat: 10 × Exort → 3 instanțe (+21 daune fiecare), Q W W + Invoke → Tornado |
+| Blink Dagger sărea pe loc | în 6.88 raza era în `blink_range`, iar `AbilityCastRange` era 0; generatorul copia 0 peste raza de 1200 a motorului curent | generatorul nu mai suprascrie o rază de cast cu 0; `AbilityOvershootCastRange` 960 pentru clicul peste rază (6.88: 4/5 din 1200). Testat: țintă la 1000 → salt ~1000, țintă la 2000 → salt ~960 |
+
+## 14. A doua rundă de bug‑uri raportate din Arcade (2026‑10‑13, seara)
+
+| Bug | Cauză | Corecție, verificată în joc |
+|---|---|---|
+| Boots of Travel nu se putea cumpăra | rețetele generate (`item_recipe_dota688_*`) nu aveau `BaseClass`: „entity class is NULL”, cumpărarea eșua | `BaseClass item_datadriven` pe toate cele 65 de rețete; toate se creează. BoT 1 și 2 cumpărate din shop (2400 + 2000) |
+| Morbid Mask devenea MoM la cumpărare și se vindea cu profit | rețeta built‑in a lui MoM e gratuită în patch‑ul curent și ducea la MoM‑ul Lua | rețetele built‑in nu mai produc nimic (cost 99999, necumpărabile). Morbid Mask rămâne Morbid Mask; MoM = Morbid Mask + rețetă 900 |
+| Mask of Madness „nu merge” | MoM venea din rețeta built‑in | MoM cumpărat normal: Berserk +100 AS, +17 % MS, cooldown 25 |
+| Corabia lui Kunkka buguită | `kunkka_ghost_ship.vpcf` primește viteza în CP1, codul punea ținta | CP1 = direcție × 650; corabia pleacă de la 1000 în spatele lui Kunkka și se sfărâmă la țintă (poziții la 0,5 s: −1122 … 497, țintă 600); daune și stun |
+| Tidebringer | – | funcționează: 206 daune pe fiecare creep din spate până la 800 |
+| Shadow Fiend: Requiem nu se vedea, sunetul incomplet | liniile au durata în CP2 (`C_OP_StopAfterCPDuration`), nesetat; lipseau aripile și sunetul de lansare | linii create cu CP2 = durata drumului; aripi + `RequiemOfSoulsCast` în faza de lansare (verificat vizual) |
+| Rune „Arcane și multe Bounty” | nu e bug: Arcane există din 6.84; la 0:00 ambele rune sunt Bounty | verificat până la 7:00: mereu 2 rune, una Bounty și una de putere |
+| Orb effects se cumulau | doar lifesteal‑ul itemelor era coordonat; Morbid Mask, Desolator și Blight Stone erau built‑in | `dota688/uam.lua` (regulile 6.88), Morbid Mask / Desolator / Blight Stone în Lua. Testat: MoM vechi + Deso → doar lifesteal; Deso vechi + MoM → doar Corruption; Skadi + MoM → ambele; pe turn → Corruption; AM → niciun orb din iteme; Frost Arrows → niciun orb din iteme; Liquid Fire + Skadi → ambele; proc Mjollnir → fără lifesteal pe acel atac |
+| Iteme care apar dar nu se cumpără | River Vials (Battle Pass 2016) erau în shop‑ul 6.88 | scoase din shop; celelalte 146 de iteme din shop se creează, sunt cumpărabile și au cost |
+| Power Treads nu arăta atributul | atributul era ținut doar pe server | stack count + marcaj pe erou; iconița trece STR → AGI → INT (verificat vizual), statisticile corecte |
+| Creepi moderni în junglă (ancient) | motorul alege aleator și camp‑uri apărute după 6.88 | camp‑ul modern e înlocuit cu un camp 6.88 de același nivel. Testat: neutrii creați din Lua ripostează, urmăresc și se întorc (ca neutrii motorului); 3 cicluri de respawn cu Prowlers / Ice Shaman / Warpine → camp‑uri 6.88, câte unul pe spawner; 9 minute fără dubluri |
+| Quarterstaff (și Stout Shield, Hood, Necronomicon, Tome) nu se cumpăra | `IsObsolete 1` în patch‑ul curent: motorul refuză cumpărarea și combinarea | `IsObsolete 0` pe itemele și rețetele 6.88. Testat cu ordinul de cumpărare al HUD‑ului: cele 63 de iteme de bază se cumpără (cele secrete la Secret Shop), toate cele 83 de iteme compuse se combină |
+| Phantom Assassin: indicator de crit deasupra | Coup de Grace curent dă „Deadly Focus” (critic garantat la atacul următor) | Coup de Grace în Lua (15 %, 230/340/450 %, direct pe atac). Testat: 16 % din atacuri critice, Stifling Dagger dă critic, fără Deadly Focus |
+| Abilități built‑in cu mecanici noi (audit cu 2 agenți pe 229 de descrieri schimbate) | chei ale motorului curent care adaugă efecte | reparate din valori și testate: Phantasm 3–4 iluzii, Hoof Stomp stun la 0,57 s (windup‑ul rămâne: e chiar întârzierea), plus Shadow Word, Gust, Insatiable Hunger, Amplify Damage, Snowball, Stone Caller, Grave Chill, Spark Wraith, Phase Shift. De refăcut în Lua: Epicenter (testat: fără channel, nu se mai întrerupe), Rolling Boulder (stun la coliziune), Astral (daunele în arie), Void, Battle Hunger, Enchant, Echo Slam și altele |
+| Test de fum după toate corecțiile (eroii 1–80 și 82–112) | – | 0 erori Lua |

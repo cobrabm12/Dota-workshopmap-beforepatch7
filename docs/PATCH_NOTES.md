@@ -83,9 +83,8 @@ The **original 6.88 map** (decompiled from the December 2016 client and recompil
   "fortification" at the horn.
 * **Ancient:** 4250 HP, 15 armor. **Roshan:** 8000 HP, 5 armor, grows by +700 HP / +10 damage / +0.7 armor
   every 4 minutes.
-* **Couriers must be bought:** Animal Courier 100 gold (75 HP, 350 speed), Flying Courier 150 gold
-  (150 HP, 10 armor, 350 speed, Speed Burst 800 for 4 s, 90 s cooldown). One courier per team; it revives after
-  120 s (180 s flying) with its items. No free courier per player, no courier shield, no auto‑delivery.
+* **Courier: unchanged from the current Dota 2** (deliberate exception to 6.88): every player gets a free personal
+  courier, as in the latest patch. Animal Courier / Flying Courier are not in the shop.
 
 ## Items
 
@@ -122,8 +121,29 @@ The **original 6.88 map** (decompiled from the December 2016 client and recompil
     **Ethereal Blade** (2 × primary attribute + 75), **Silver Edge**, **Glimmer Cape**, **Echo Sabre**, **Abyssal Blade**
     (bash does not stack with Skull Basher / innate bashes).
 * **Damage block, lifesteal and armor auras follow the 6.88 stacking rules** (only the highest applies).
+* **Unique Attack Modifiers (orb effects) follow the 6.88 rules:** only one applies per attack. Priority: a
+  Maelstrom / Mjollnir Chain Lightning proc, then the hero's own orb (Mana Break, Frost Arrows, Liquid Fire, Arcane
+  Orb, Caustic Finale), then the oldest item (Morbid Mask, Mask of Madness, Satanic, Helm of the Dominator,
+  Desolator, Blight Stone, Eye of Skadi). Eye of Skadi works together with lifesteal and with Liquid Fire; on
+  buildings, where lifesteal and Skadi do nothing, Desolator applies.
+* **River Vials** are removed from the shop: in 6.88 they needed the 2016 Battle Pass and cannot be bought here.
+* **Quarterstaff, Stout Shield, Hood of Defiance, Necronomicon and Tome of Knowledge** can be bought again (the
+  current game marks them as removed).
+
+## Neutral creeps
+
+* Only **6.88 camps** spawn. Camps added after 6.88 (Warpine Raiders, Prowlers, Ice Shaman and Frostbitten
+  Golems, frogs) are replaced with a 6.88 camp of the same tier.
 
 ## Heroes
+
+* **Phantom Assassin:** Coup de Grace is a plain 15 % chance to crit for 230/340/450 % on the attack itself
+  (no Deadly Focus buff); Stifling Dagger shares the chance.
+* **Chaos Knight:** Phantasm has the 6.88 50 % chance of an extra phantasm without Aghanim's Scepter.
+* **Mechanics added after 6.88 removed from built‑in abilities:** Shadow Word hits one target, Gust does not reveal
+  invisible units, Insatiable Hunger has no spiderling aura, Amplify Damage leaves no puddles, Snowball does not
+  stun longer per ally, Stone Remnants give no attack damage, Grave Chill does not feed the Familiars, Spark
+  Wraith does not slow, Phase Shift cannot be used while rooted.
 
 * **15 heroes added after 6.88 are disabled:** Monkey King, Dark Willow, Pangolier, Grimstroke, Mars, Void Spirit,
   Snapfire, Hoodwink, Dawnbreaker, Marci, Primal Beast, Muerta, Ringmaster, Kez, Largo.
@@ -192,6 +212,8 @@ The **original 6.88 map** (decompiled from the December 2016 client and recompil
 * The 6.82–6.88 networth "comeback" component of kill gold and the 6.88 illusion kill bounty rules are
   approximated (see `docs/REGULI_6.88.md`, marked TODO).
 * Lone Druid's bear leash (Scepter) is in C++ and cannot be reproduced.
+* A Chain Lightning proc cannot cancel the built‑in hero orbs (Frost Arrows, Liquid Fire, Mana Break) on that
+  attack; it does cancel the item orb effects.
 
 ---
 

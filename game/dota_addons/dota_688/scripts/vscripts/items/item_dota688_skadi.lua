@@ -7,8 +7,12 @@ Dota688DefineItem("item_dota688_skadi", "items/item_dota688_skadi", {
 		local target = params.target
 		if not target or target:IsBuilding() or target:IsOther() or target:GetTeamNumber() == self:GetParent():GetTeamNumber() then return end
 		local a = self:GetAbility()
-		local d = self:GetParent():IsRangedAttacker() and a:GetSpecialValueFor("cold_duration_ranged") or a:GetSpecialValueFor("cold_duration_melee")
-		target:AddNewModifier(self:GetParent(), a, "modifier_dota688_skadi_cold", { duration = d })
+		local parent = self:GetParent()
+		local d = parent:IsRangedAttacker() and a:GetSpecialValueFor("cold_duration_ranged") or a:GetSpecialValueFor("cold_duration_melee")
+		Dota688UAM:Queue(parent, target, a, function()   -- orb: dota688/uam.lua decide daca se aplica pe acest atac
+			if target:IsNull() or not target:IsAlive() then return end
+			target:AddNewModifier(parent, a, "modifier_dota688_skadi_cold", { duration = d })
+		end)
 	end,
 })
 modifier_dota688_skadi_cold = class({})

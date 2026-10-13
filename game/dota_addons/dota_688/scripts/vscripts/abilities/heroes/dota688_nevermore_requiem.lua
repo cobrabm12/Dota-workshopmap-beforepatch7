@@ -14,8 +14,16 @@ function dota688_nevermore_requiem:Souls()
 end
 function dota688_nevermore_requiem:Line(from, dir, returning)
 	local caster = self:GetCaster()
+	-- nevermore_requiemofsouls_line.vpcf: CP0 = start, CP1 = viteza, CP2.y = durata (C_OP_StopAfterCPDuration). Proiectilul
+	-- nu seteaza CP2, deci cu EffectName linia se oprea imediat (nu se vedea): o cream separat, cu durata drumului.
+	local speed = self:GetSpecialValueFor("requiem_line_speed")
+	local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_nevermore/nevermore_requiemofsouls_line.vpcf", PATTACH_WORLDORIGIN, nil)
+	ParticleManager:SetParticleControl(fx, 0, from)
+	ParticleManager:SetParticleControl(fx, 1, dir * speed)
+	ParticleManager:SetParticleControl(fx, 2, Vector(0, self:GetSpecialValueFor("requiem_radius") / speed, 0))
+	ParticleManager:ReleaseParticleIndex(fx)
 	ProjectileManager:CreateLinearProjectile({
-		Ability = self, EffectName = "particles/units/heroes/hero_nevermore/nevermore_requiemofsouls_line.vpcf", vSpawnOrigin = from,
+		Ability = self, EffectName = "", vSpawnOrigin = from,
 		fDistance = self:GetSpecialValueFor("requiem_radius"), fStartRadius = self:GetSpecialValueFor("requiem_line_width_start"), fEndRadius = self:GetSpecialValueFor("requiem_line_width_end"),
 		Source = caster, bHasFrontalCone = true, bReplaceExisting = false, iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
 		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
@@ -27,8 +35,12 @@ function dota688_nevermore_requiem:Release(onDeath)
 	local caster = self:GetCaster()
 	local lines = math.floor(self:Souls() / self:GetSpecialValueFor("requiem_soul_conversion"))
 	caster:EmitSound("Hero_Nevermore.RequiemOfSouls")
-	local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_nevermore/nevermore_requiemofsouls.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-	ParticleManager:ReleaseParticleIndex(fx)
+	-- CP1.x = numarul de linii (sufletele care pleaca din Shadow Fiend in nevermore_requiemofsouls_a.vpcf)
+	for _, name in ipairs({ "nevermore_requiemofsouls.vpcf", "nevermore_requiemofsouls_a.vpcf" }) do
+		local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_nevermore/" .. name, PATTACH_ABSORIGIN_FOLLOW, caster)
+		ParticleManager:SetParticleControl(fx, 1, Vector(lines, 0, 0))
+		ParticleManager:ReleaseParticleIndex(fx)
+	end
 	-- incetinire + reducere de daune pentru inamicii din 700
 	for _, e in ipairs(FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, self:GetSpecialValueFor("requiem_reduction_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY,
 		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)) do
@@ -53,7 +65,21 @@ function dota688_nevermore_requiem:Release(onDeath)
 		end
 	end
 end
-function dota688_nevermore_requiem:OnSpellStart() self:Release(false) end
+-- faza de lansare (1.67 s): aripile si sunetul de incarcare, ca la abilitatea originala
+function dota688_nevermore_requiem:OnAbilityPhaseStart()
+	local caster = self:GetCaster()
+	caster:EmitSound("Hero_Nevermore.RequiemOfSoulsCast")
+	self.wings = ParticleManager:CreateParticle("particles/units/heroes/hero_nevermore/nevermore_wings.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	return true
+end
+function dota688_nevermore_requiem:EndWings(interrupted)
+	if self.wings then ParticleManager:DestroyParticle(self.wings, interrupted); ParticleManager:ReleaseParticleIndex(self.wings); self.wings = nil end
+end
+function dota688_nevermore_requiem:OnAbilityPhaseInterrupted()
+	self:GetCaster():StopSound("Hero_Nevermore.RequiemOfSoulsCast")
+	self:EndWings(true)
+end
+function dota688_nevermore_requiem:OnSpellStart() self:EndWings(false); self:Release(false) end
 function dota688_nevermore_requiem:OnProjectileHit_ExtraData(target, location, data)
 	if not target or target:IsMagicImmune() then return end
 	local caster = self:GetCaster()

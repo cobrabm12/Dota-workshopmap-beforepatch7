@@ -68,7 +68,7 @@ ITEM_TOP_KEYS = ABILITY_TOP_KEYS + [
 UNIT_PREFIXES = (
     "npc_dota_goodguys_", "npc_dota_badguys_",
     "npc_dota_creep_goodguys_", "npc_dota_creep_badguys_",
-    "npc_dota_neutral_", "npc_dota_roshan", "npc_dota_courier", "npc_dota_flying_courier",
+    "npc_dota_neutral_", "npc_dota_roshan",   # curierii raman cei din ultimul patch (decizia autorului, 13.10.2026)
     "npc_dota_fort", "npc_dota_observer_wards", "npc_dota_sentry_wards",
     "npc_dota_dark_troll_warlord_skeleton_warrior", "dota_fountain",
     # unitati invocate care exista si azi cu acelasi nume (statisticile si abilitatile lor 6.88)
@@ -398,6 +398,10 @@ def build_ability_override(name: str, old: kv.KV, cur: kv.KV, top_keys: list[str
             continue
         if cv is None and key in ("AbilityCastRange", "AbilityCastPoint", "AbilityCooldown", "AbilityManaCost") and set(norm_num_list(ov)) <= {"0"}:
             continue  # 0 implicit
+        if key == "AbilityCastRange" and set(norm_num_list(ov)) <= {"0"}:
+            # 6.88 lasa raza 0 cand o definea in alta cheie (ex. Blink Dagger: blink_range 1200); motorul curent
+            # foloseste AbilityCastRange, iar 0 facea Blink-ul sa sara pe loc (raportat de jucatori din Arcade)
+            continue
         loc = where_defined(cur, key)
         if loc == "values":
             values[key] = ov
@@ -497,6 +501,32 @@ def build_ability_override(name: str, old: kv.KV, cur: kv.KV, top_keys: list[str
     return out if len(out) else None
 
 
+def _hidden_688(aname: str, A0) -> bool:
+    if aname == "generic_hidden":
+        return True
+    orig = aname[len(CUSTOM_ABILITY_PREFIX):] if aname.startswith(CUSTOM_ABILITY_PREFIX) else aname
+    old = A0.get_kv(orig)
+    return old is not None and "DOTA_ABILITY_BEHAVIOR_HIDDEN" in (old.get_str("AbilityBehavior") or "")
+
+
+def arrange_hotkey_slots(slots: list[str], A0) -> list[str]:
+    """Motorul curent leaga tastele de pozitie: pozitiile 1-6 = Q W E D F R (ultimate-ul e mereu pe pozitia 6).
+    In 6.88 tastele veneau din ordinea abilitatilor vizibile (Q W E R / Q W E D R / Q W E D F R). Fara rearanjare,
+    la eroii cu 4 abilitati ultimate-ul ajungea pe D si Attribute Bonus pe F (gasit in joc).
+    Ordinea: 3 vizibile (Q W E), abilitatile vizibile din mijloc si apoi sub-abilitatile ascunse (care apar mai tarziu:
+    Battle Cry, Launch Snowball, Spirits In/Out...) pe D/F, ultima vizibila (ultimate-ul) pe R; restul ascunse si
+    Attribute Bonus dupa pozitia 6, fara tasta."""
+    attr = [s for s in slots if "attribute_bonus" in s]
+    body = [s for s in slots if s not in attr]
+    vis = [s for s in body if not _hidden_688(s, A0)]
+    hid = [s for s in body if _hidden_688(s, A0)]
+    if len(vis) < 4:
+        return slots
+    middle = vis[3:-1] + hid
+    df = middle[:2] + ["generic_hidden"] * (2 - len(middle[:2]))
+    return vis[:3] + df + [vis[-1]] + middle[2:] + attr
+
+
 def gen_heroes(H0, HN, A0, AN, custom: set[str], report: dict) -> tuple[kv.KV, list[str]]:
     base0 = H0.get_kv("npc_dota_hero_base")
     baseN = HN.get_kv("npc_dota_hero_base")
@@ -567,6 +597,7 @@ def gen_heroes(H0, HN, A0, AN, custom: set[str], report: dict) -> tuple[kv.KV, l
                     used_slots.append("dota688_empty")
         if not own_attribute_bonus:
             used_slots.append("dota688_attribute_bonus")  # Attribute Bonus clasic, implementat in Lua
+        used_slots = arrange_hotkey_slots(used_slots, A0)
         for i, aname in enumerate(used_slots, start=1):
             o[f"Ability{i}"] = aname
         for i in range(len(used_slots) + 1, MAX_ABILITY_SLOT + 1):
@@ -598,6 +629,8 @@ def gen_abilities(A0, AN, custom: set[str], report: dict) -> kv.KV:
     for name, old in A0.blocks():
         if name.startswith("special_bonus") or name in ("Version",):
             continue
+        if name.startswith("courier_"):
+            continue   # curierul e cel din ultimul patch (decizia autorului, 13.10.2026): abilitatile lui raman moderne
         if name in custom or custom_name_for(name) in custom:
             report["abilitati"][name] = {"schimbate": [], "speciale_lipsa": [], "comportament": None, "lua": True}
             continue
@@ -690,6 +723,10 @@ def gen_items(I0, IN, custom: set[str], report: dict) -> tuple[kv.KV, kv.KV]:
     for name, old in I0.blocks():
         if name == "Version" or name in custom:
             continue
+        if name in SHOP_EXCLUDED:
+            # curierul e gratuit si personal (ultimul patch): Animal / Flying Courier nu se mai cumpara
+            override[name] = kv.KV([("ItemPurchasable", "0"), ("ShouldBeSuggested", "0")])
+            continue
         has_custom = custom_name_for(name) in custom
         is_recipe = name.startswith("item_recipe_")
         recipe_of_custom = is_recipe and custom_name_for("item_" + name[len("item_recipe_"):]) in custom
@@ -700,12 +737,13 @@ def gen_items(I0, IN, custom: set[str], report: dict) -> tuple[kv.KV, kv.KV]:
             if cur is not None:
                 override[name] = kv.KV([("ItemPurchasable", "0"), ("ShouldBeSuggested", "0")])
                 if recipe_of_custom:
-                    # o rețetă built-in gratuită se combină singură (ex. Aghanim's Scepter din componente) înaintea
-                    # celei Lua: o facem să dea tot itemul Lua, cu componentele 6.88
-                    override[name]["ItemResult"] = resolve(old.get_str("ItemResult", ""), custom)
-                    req = item_requirements_resolved(old, custom)
-                    if req is not None:
-                        override[name]["ItemRequirements"] = req
+                    # rețeta built-in trebuie să nu mai producă nimic:
+                    #  * gratuită (cost 0) s-ar combina singură din componente (ex. Aghanim's Scepter; Mask of Madness
+                    #    ar ieși direct din Morbid Mask, apoi s-ar vinde cu profit);
+                    #  * nu poate duce la itemul Lua: dacă motorul o alege pe ea la cumpărare, itemul nu se mai poate cumpăra
+                    #    (Boots of Travel: rețeta built-in de 2000, necumpărabilă).
+                    # Cu cost nenul ar trebui cumpărată chiar ea, iar nu se poate: nu se mai combină niciodată.
+                    override[name]["ItemCost"] = "99999"
             if recipe_of_custom:
                 blk = old.copy()
                 if "ID" in blk:
@@ -715,6 +753,9 @@ def gen_items(I0, IN, custom: set[str], report: dict) -> tuple[kv.KV, kv.KV]:
                 if req is not None:
                     blk["ItemRequirements"] = req
                 blk["AbilityTextureName"] = "item_recipe"
+                # fără BaseClass motorul nu poate crea entitatea rețetei ("entity class is NULL"): rețeta nu se poate
+                # cumpăra, deci nici itemul (Boots of Travel, MoM etc. cumpărate din shop)
+                blk["BaseClass"] = "item_datadriven"
                 recreate[resolve_item(name, custom)] = blk
             report["iteme"][name] = {"schimbate": [], "speciale_lipsa": [], "comportament": None, "lua": True}
             continue
@@ -732,6 +773,10 @@ def gen_items(I0, IN, custom: set[str], report: dict) -> tuple[kv.KV, kv.KV]:
         req = item_requirements_resolved(old, custom)
         if req is not None and (kv.dumps(req) != kv.dumps(old.get_kv("ItemRequirements")) or "ItemRequirements" in blk):
             blk["ItemRequirements"] = req
+        # itemele scoase din joc după 6.88 au "IsObsolete" "1": motorul refuză să le cumpere sau să le combine
+        # (Quarterstaff, Stout Shield, Hood of Defiance, Necronomicon, Tome of Knowledge și rețetele lor)
+        if cur.get_str("IsObsolete") == "1" and old.get_str("IsObsolete", "0") != "1":
+            blk["IsObsolete"] = "0"
         # itemele din 6.88 trebuie să fie cumpărabile (unele au fost scoase din shop între timp)
         if old.get_str("ItemCost") and old.get_str("ItemPurchasable", "1") != "0" and cur.get_str("ItemPurchasable", "1") == "0":
             blk["ItemPurchasable"] = "1"
@@ -907,6 +952,10 @@ def gen_custom_defs(A0, I0, scripts: dict[str, str], custom: set[str]) -> tuple[
     return abilities, items
 
 
+# Curierul e cel din ultimul patch (personal si gratuit): Animal / Flying Courier nu mai sunt in shop
+SHOP_EXCLUDED = {"item_courier", "item_flying_courier"}
+
+
 def gen_shops(custom: set[str]) -> None:
     """scripts/shops.txt: layout-ul shop-ului din 6.88, cu itemele reimplementate in Lua in locul celor built-in."""
     src = os.path.join(REF_OLD, "shops.txt")
@@ -914,10 +963,16 @@ def gen_shops(custom: set[str]) -> None:
         return
     doc = kv.load(src)
     shops = doc.get_kv("dota_shops")
+    # itemele de eveniment (River Vial: EventID / AssociatedConsumable din Battle Pass 2016) se puteau cumpara doar cu
+    # consumabilul din Battle Pass; intr-un custom game apar in shop dar nu se pot cumpara niciodata -> scoase
+    items688 = kv.load(os.path.join(REF_OLD, "items.txt"))["DOTAAbilities"]
+    event_only = {n for n, b in items688.blocks() if b.get_str("EventID") or b.get_str("AssociatedConsumable")}
     out = kv.KV()
     for cat, items in shops.blocks():
         blk = kv.KV()
         for k, v in items.scalars():
+            if v in SHOP_EXCLUDED or v in event_only:
+                continue
             blk.items.append((k, resolve_item(v, custom)))
         out[cat] = blk
     kv.dump_file(kv.KV([("dota_shops", out)]), os.path.join(ADDON, "scripts", "shops.txt"),
@@ -1255,6 +1310,31 @@ def load_scepter_688() -> set[str]:
     return out
 
 
+ITEM_IDS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "item_ids.json")
+ITEM_ID_BASE = 20000   # ID-urile Valve (scripts/npc/npc_ability_ids.txt) ajung pana la 9999
+
+
+def assign_item_ids(items: kv.KV) -> None:
+    """ID fix pentru fiecare item Lua si reteta lui (tools/item_ids.json; numele noi primesc urmatorul ID liber).
+    Fara "ID" motorul aloca singur un numar (ex. 12227), care poate varia intre versiuni; cu ID-uri fixe ordinele de
+    cumparare (DOTA_UNIT_ORDER_PURCHASE_ITEM cere ID-ul itemului) se pot da si din teste, ca din shop."""
+    ids = {}
+    if os.path.exists(ITEM_IDS_FILE):
+        with open(ITEM_IDS_FILE, encoding="utf-8") as f:
+            ids = json.load(f)
+    nxt = max(list(ids.values()) + [ITEM_ID_BASE - 1]) + 1
+    for name, blk in items.blocks():
+        if name not in ids:
+            ids[name] = nxt
+            nxt += 1
+        if "ID" in blk:
+            del blk["ID"]
+        blk.items.insert(0, ("ID", str(ids[name])))
+    with open(ITEM_IDS_FILE, "w", encoding="utf-8") as f:
+        json.dump(dict(sorted(ids.items(), key=lambda kv_: kv_[1])), f, indent=1)
+        f.write("\n")
+
+
 def main() -> None:
     H0, A0, I0, U0 = load_old()
     HN, AN, IN, UN = load_now()
@@ -1317,6 +1397,7 @@ def main() -> None:
     custom_abilities, custom_items = gen_custom_defs(A0, I0, scripts, custom)
     for k, v in item_recreate.items:
         custom_items[k] = v
+    assign_item_ids(custom_items)
     kv.dump_file(kv.KV([("DOTAAbilities", custom_items)]), os.path.join(NPC, "npc_items_generated.txt"),
                  HEADER + "\nBlocurile de baza (KV 6.88) ale itemelor reimplementate in Lua + retetele lor. Inclus din npc_items_custom.txt prin #base.")
     kv.dump_file(kv.KV([("DOTAAbilities", custom_abilities)]), os.path.join(NPC, "npc_abilities_generated.txt"),

@@ -36,8 +36,9 @@ function modifier_dota688_ghostship:OnCreated(kv)
 	self.rummed, self.dragged = {}, {}
 	self.fx = ParticleManager:CreateParticle("particles/units/heroes/hero_kunkka/kunkka_ghost_ship.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(self.fx, 0, self.pos)
-	ParticleManager:SetParticleControl(self.fx, 1, self.target)
-	ParticleManager:SetParticleControl(self.fx, 2, Vector(self.speed, 0, 0))
+	-- kunkka_ghost_ship.vpcf: CP0 = pozitia de start, CP1 = vectorul viteza (C_INIT_VelocityFromCP); corabia merge singura
+	-- pana la DestroyParticle (endcap = sfaramarea). Cu tinta in CP1 corabia zbura intr-o directie gresita.
+	ParticleManager:SetParticleControl(self.fx, 1, self.dir * self.speed)
 	self:StartIntervalThink(0.03)
 end
 function modifier_dota688_ghostship:OnIntervalThink()
@@ -80,7 +81,8 @@ function modifier_dota688_ghostship:OnDestroy()
 	for _, u in pairs(self.dragged or {}) do
 		if not u:IsNull() then u:RemoveModifierByName("modifier_dota688_ghostship_drag"); FindClearSpaceForUnit(u, u:GetAbsOrigin(), false) end
 	end
-	UTIL_Remove(self:GetParent())
+	-- thinker-ul (CreateModifierThinker) se sterge singur cand modifierul dispare; UTIL_Remove din OnDestroy l-ar sterge
+	-- in timp ce motorul inca proceseaza modifierul lui
 end
 modifier_dota688_ghostship_drag = class({})
 function modifier_dota688_ghostship_drag:IsHidden() return true end

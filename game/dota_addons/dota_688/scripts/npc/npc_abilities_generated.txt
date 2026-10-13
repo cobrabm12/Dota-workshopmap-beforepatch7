@@ -2667,6 +2667,22 @@
 			"radius"		"1600 1600 1600 1600"
 		}
 	}
+	"dota688_phantom_assassin_coup_de_grace"
+	{
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"abilities/heroes/dota688_phantom_assassin_coup_de_grace"
+		"AbilityTextureName"		"phantom_assassin_coup_de_grace"
+		"AbilityValues"
+		{
+			"crit_bonus"		"230 340 450"
+			"crit_chance"		"15"
+		}
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
+	}
 	"dota688_puck_dream_coil"
 	{
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
