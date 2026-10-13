@@ -2811,7 +2811,7 @@
 		"Ability3"		"dota688_phantom_assassin_blur"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
-		"Ability6"		"phantom_assassin_coup_de_grace"
+		"Ability6"		"dota688_phantom_assassin_coup_de_grace"
 		"Ability7"		"dota688_attribute_bonus"
 		"Ability8"		""
 		"Ability9"		""

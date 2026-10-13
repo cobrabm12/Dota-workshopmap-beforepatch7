@@ -633,9 +633,6 @@
   "centaur_double_edge": {
     "strength_damage": "0"
   },
-  "phantom_assassin_coup_de_grace": {
-    "dagger_crit_chance": "15"
-  },
   "rubick_spell_steal": {
     "stolen_spell_cooldown_percent": "0"
   },
