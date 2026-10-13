@@ -150,14 +150,25 @@ function modifier_dota688_meepo_share:OnIntervalThink()
 	local main = clone.GetCloneSource and clone:GetCloneSource() or nil
 	if not main or main:IsNull() then return end
 	local pct = Dota688HasScepter(main) and 1.0 or 0.2
-	local function want(getTotal, getBase)
-		local bonusMain = getTotal(main) - getBase(main)           -- atributele lui Meepo din iteme/alte surse
-		local bonusClone = getTotal(clone) - getBase(clone)         -- ce are clona acum (inclusiv contributia noastra)
+	-- nu se impart: Attribute Bonus (clona il are la acelasi nivel) si atributele cizmelor (clona le poarta intregi, 6.88)
+	local function own(u, k)
+		local v = 0
+		local ab = u:FindModifierByName("modifier_dota688_attribute_bonus")
+		if ab then
+			local f = ({ ab.GetModifierBonusStats_Strength, ab.GetModifierBonusStats_Agility, ab.GetModifierBonusStats_Intellect })[k]
+			if f then v = v + (f(ab) or 0) end
+		end
+		if Dota688Meepo688 and Dota688Meepo688.BootAttributes then v = v + (select(k, Dota688Meepo688.BootAttributes(u)) or 0) end
+		return v
+	end
+	local function want(getTotal, getBase, k)
+		local bonusMain = getTotal(main) - getBase(main) - own(main, k)      -- atributele lui Meepo din iteme (fara cizme)
+		local bonusClone = getTotal(clone) - getBase(clone) - own(clone, k)  -- ce are clona acum (inclusiv contributia noastra)
 		return bonusMain * pct - bonusClone
 	end
-	local ds = want(function(u) return u:GetStrength() end, function(u) return u:GetBaseStrength() end)
-	local da = want(function(u) return u:GetAgility() end, function(u) return u:GetBaseAgility() end)
-	local di = want(function(u) return u:GetIntellect(true) end, function(u) return u:GetBaseIntellect() end)
+	local ds = want(function(u) return u:GetStrength() end, function(u) return u:GetBaseStrength() end, 1)
+	local da = want(function(u) return u:GetAgility() end, function(u) return u:GetBaseAgility() end, 2)
+	local di = want(function(u) return u:GetIntellect(true) end, function(u) return u:GetBaseIntellect() end, 3)
 	local s, a, i = math.floor(self.s + ds + 0.5), math.floor(self.a + da + 0.5), math.floor(self.i + di + 0.5)
 	if s ~= self.s or a ~= self.a or i ~= self.i then
 		self.s, self.a, self.i = s, a, i

@@ -14,6 +14,7 @@ require("dota688/selection")
 require("dota688/buildings")
 require("dota688/creeps")
 require("dota688/uam")
+require("dota688/meepo_688")
 
 require("dota688/modifiers_link")
 
@@ -160,6 +161,7 @@ end
 function Dota688:OnNPCSpawned(ev)
 	local unit = EntIndexToHScript(ev.entindex)
 	if not unit then return end
+	Dota688Meepo688.OnSpawned(unit)   -- clonele Meepo: doar cizmele (6.88)
 	if unit:IsRealHero() then
 		-- motorul adauga fiecarui erou "special_bonus_attributes" (atributele-talent din 7.x, 0/7): cat exista,
 		-- HUD-ul ofera "+" la talente la fiecare level up. In 6.88 nu exista (inlocuit de dota688_attribute_bonus).
@@ -242,6 +244,7 @@ end
 
 function Dota688:OrderFilter(ev)
 	if MODERN_ORDERS[ev.order_type] then return false end
+	if not Dota688Meepo688.OrderFilter(ev) then return false end
 	if not Dota688Buildings:OrderFilter(ev) then return false end
 	if not Dota688Extras.OrderFilter(ev) then return false end
 	Dota688Selection:OrderFilter(ev)
@@ -260,6 +263,7 @@ function Dota688:DamageFilter(ev)
 end
 
 function Dota688:ModifierGainedFilter(ev)
+	if not Dota688Meepo688.ModifierGainedFilter(ev) then return false end   -- clonele Meepo: fara pasivele itemelor (6.88)
 	Dota688Extras.ModifierGained(ev)   -- BKB: imunitate la vraji (6.88)
 	if not Dota688Runes:ModifierGainedFilter(ev) then return false end
 	return Dota688Buildings:ModifierGainedFilter(ev)
