@@ -159,7 +159,7 @@ The **original 6.88 map** (decompiled from the December 2016 client and recompil
     slash, 3/6/9 slashes, items usable); **Huskar:** Berserker's Blood (linear), Life Break (spell immune while
     leaping); **Kunkka:** Ghostship (ship spawns behind Kunkka), Rum; **Lich:** Chain Frost (10 jumps,
     no zombie bounces), Dark Ritual; **Lina:** Fiery Soul, Laguna Blade; **Lion:** Finger of Death;
-    **Magnus:** Empower; **Meepo:** Geostrike; **Night Stalker:** Crippling Fear, Darkness; **Dazzle:**
+    **Magnus:** Empower; **Meepo:** Geostrike; **Night Stalker:** Crippling Fear, Hunter in the Night, Darkness; **Dazzle:**
     Poison Touch, Weave; **Death Prophet:** Silence; **Disruptor:** Static Storm; **Doom:** Doom;
     **Dragon Knight:** Dragon Blood; **Drow Ranger:** Marksmanship, Precision Aura; **Elder Titan:** Earth
     Splitter; **Crystal Maiden:** Brilliance Aura, Freezing Field; **Clinkz:** Strafe, Death Pact;
@@ -173,9 +173,18 @@ The **original 6.88 map** (decompiled from the December 2016 client and recompil
     Sonic Wave; **Phantom Assassin:** Blur; **Oracle:** Purifying Flames; **Tusk:** Walrus Punch; **Ursa:**
     Enrage; **Shadow Demon:** Soul Catcher; **Leshrac:** Pulse Nova; **Jakiro:** Macropyre.
   * The full list (191 abilities, 76 items) is in `docs/STATUS.md`; per‑hero Scepter upgrades are in `docs/AGHANIM.md`.
-* **Built‑in abilities that gained new mechanics after 6.88 have them disabled** (124 overrides): e.g. Anti‑Mage's
+* **Built‑in abilities that gained new mechanics after 6.88 have them disabled** (187 overrides): e.g. Anti‑Mage's
   Mana Break has no mana burn amplification, Necrophos' Heartstopper Aura, Templar Assassin's Psionic Trap,
   Culling Blade's threshold, Invoker's spells, consumables and more use their 6.88 behaviour.
+* **No ability scales with hero level** (current passives such as Desolate, Poison Sting, Hunter in the Night and
+  Stone Remnant charges grow with hero level; here they use their 6.88 per‑level values only).
+* **6.88 details restored on built‑in abilities:** Morph passively grants +3/4/5/6 Agility and Strength; Serpent Wards
+  deal 40–45 / 60–65 / 80–85 damage with splash; Phantom Strike's attack speed lasts at most 4 attacks; Corrosive Skin
+  also slows movement (1400 range); Thunder Clap slows creeps for 8 s and Reverse Polarity stuns creeps for 3/4/5 s;
+  the Earth Brewling is immune to spells; Stifling Dagger crits with Coup de Grace's 15 % chance.
+* **Modern additions removed:** Glimpse damage, Double Edge Strength damage, Shockwave slow and pull, Skeleton Walk
+  skeletons, Spell Steal cooldown reduction, Lycan wolf bash, golem slow resistance, Brawler on brewlings, Death Ward
+  bonus range, Mystic Snake slow, spiderling bonus damage, Roshan's status and slow resistance, Arcane Boots' mana aura.
 
 ## Not changed (engine limitations, documented)
 

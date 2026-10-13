@@ -91,6 +91,13 @@ UNIT_STAT_KEYS = [
 # 6.88 nu avea BaseAttackSpeed (viteza de atac de baza era 100 pentru toate unitatile); 7.31 a dat neutralilor
 # BaseAttackSpeed 110-200 (si AttackRate 2) -> cu AttackRate-ul 6.88 atacau de 1.25-2x mai repede (turnurile 1.1x)
 UNIT_DEFAULTS_688 = {"BaseAttackSpeed": "100"}
+# Unitati care in 6.88 aveau 0 daune in KV si primeau daunele de la abilitate; motorul curent ia daunele din unitate
+# (verificat in joc: Serpent Wards faceau 0 daune). (unitate, abilitate 6.88, index nivel, cheie min, cheie max)
+UNIT_DAMAGE_FROM_ABILITY_688 = [
+    ("npc_dota_shadow_shaman_ward_1", "shadow_shaman_mass_serpent_ward", 0, "damage_min", "damage_max"),
+    ("npc_dota_shadow_shaman_ward_2", "shadow_shaman_mass_serpent_ward", 1, "damage_min", "damage_max"),
+    ("npc_dota_shadow_shaman_ward_3", "shadow_shaman_mass_serpent_ward", 2, "damage_min", "damage_max"),
+]
 
 # Sloturi de abilitate pe care le golim (talente 10‑17, inate, etc.)
 MAX_ABILITY_SLOT = 24
@@ -431,6 +438,10 @@ def build_ability_override(name: str, old: kv.KV, cur: kv.KV, top_keys: list[str
             changed.append(key)
         else:
             missing.append(key)
+            # cheia nu mai exista in motor: o pastram in AbilityValues cu valoarea 6.88, ca extra-urile Lua
+            # (dota688/extras_688.lua) sa o poata citi; motorul o ignora
+            if cur_uses_values and not name.startswith("item_") and key.lower() not in SPECIAL_META:
+                values[key] = ov
 
     # ItemRequirements (rețete): copiem blocul din 6.88 dacă diferă
     if "ItemRequirements" in top_keys or name.startswith("item_"):
@@ -1037,7 +1048,7 @@ def unit_abilities_688(old: kv.KV, cur: kv.KV, AN, attack_class: str = "") -> tu
     return keep, removed, missing, cur_ab
 
 
-def gen_units(U0, UN, report: dict, AN=None) -> kv.KV:
+def gen_units(U0, UN, report: dict, AN=None, A0=None) -> kv.KV:
     out = kv.KV()
     base0 = U0.get_kv("npc_dota_units_base")
     for new, old_name in RENAMED_UNITS.items():
@@ -1116,6 +1127,14 @@ def gen_units(U0, UN, report: dict, AN=None) -> kv.KV:
                     blk["Ability1"] = ""
                 changed.append("abilitati 6.88" + (f" (scoase: {', '.join(removed)})" if removed else "")
                                + (f" (lipsa in joc: {', '.join(missing)})" if missing else ""))
+        for uname, aname, idx, kmin, kmax in UNIT_DAMAGE_FROM_ABILITY_688:
+            ab = A0.get_kv(aname) if (A0 is not None and uname == name) else None
+            if ab is not None:
+                vals = kv.values_of(ab)
+                for ukey, akey in (("AttackDamageMin", kmin), ("AttackDamageMax", kmax)):
+                    lv = norm_num_list(vals[akey])
+                    blk[ukey] = lv[min(idx, len(lv) - 1)]
+                changed.append(f"daune din {aname} (6.88)")
         if changed:
             out[name] = blk
             report["unitati"][name] = sorted(changed)
@@ -1205,6 +1224,28 @@ def write_status(report: dict, hero_list: list[str]) -> None:
 
 # ---------------------------------------------------------------------------
 
+def neutralize_hero_levelup(merged: kv.KV, AN: kv.KV, IN: kv.KV) -> int:
+    """Clientul curent are valori care cresc cu nivelul eroului ("hero_levelup", ex. Desolate +1.5 daune / nivel,
+    Poison Sting, Hunter in the Night, incarcaturile Stone Remnant). Override-ul inlocuieste doar "value", iar motorul
+    pastreaza cresterea. In 6.88 nicio abilitate nu crestea cu nivelul eroului: pentru fiecare cheie pe care o
+    suprascriem, daca definitia curenta are hero_levelup, scriem un bloc cu "hero_levelup" "0"."""
+    n = 0
+    for name, blk in merged.blocks():
+        cur = AN.get_kv(name) or IN.get_kv(name)
+        oav = blk.get_kv("AbilityValues")
+        cav = cur.get_kv("AbilityValues") if cur is not None else None
+        if oav is None or cav is None:
+            continue
+        for key, val in list(oav.items):
+            cdef = cav.get(key)
+            if not isinstance(cdef, kv.KV) or not any(sk.lower() in ("hero_levelup", "levelup_interval") for sk, _ in cdef.items):
+                continue
+            value = val if isinstance(val, str) else (val.get_str("value") or "0")
+            oav[key] = kv.KV([("value", value), ("hero_levelup", "0")])
+            n += 1
+    return n
+
+
 def load_scepter_688() -> set[str]:
     """Abilitatile care aveau upgrade de Aghanim in 6.88 (au token-ul _aghanim_description in tooltip-urile 6.88)."""
     out = set()
@@ -1230,7 +1271,7 @@ def main() -> None:
     heroes, hero_list = gen_heroes(H0, HN, A0, AN, custom, report)
     abilities = gen_abilities(A0, AN, custom, report)
     item_over, item_recreate = gen_items(I0, IN, custom, report)
-    units = gen_units(U0, UN, report, AN)
+    units = gen_units(U0, UN, report, AN, A0)
 
     # abilități de erou lipsă (din report) -> și ele în lista "inexistente"
     for h in report["eroi"].values():
@@ -1270,6 +1311,7 @@ def main() -> None:
                     av[key] = str(val)
                 else:
                     blk[key] = str(val)
+    neutralize_hero_levelup(merged, AN, IN)
     kv.dump_file(kv.KV([("DOTAAbilities", merged)]), os.path.join(NPC, "npc_abilities_override.txt"), HEADER)
 
     custom_abilities, custom_items = gen_custom_defs(A0, I0, scripts, custom)

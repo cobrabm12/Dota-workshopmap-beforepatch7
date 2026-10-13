@@ -384,7 +384,10 @@
   },
   "magnataur_shockwave": {
     "pull_distance": "0",
-    "movement_slow": "0"
+    "movement_slow": "0",
+    "slow_duration": "0",
+    "basic_slow_duration": "0",
+    "pull_duration": "0"
   },
   "magnataur_skewer": {
     "damage_distance_pct": "0"
@@ -511,11 +514,13 @@
     "creep_damage_multiplier": "1"
   },
   "witch_doctor_death_ward": {
-    "bonus_accuracy": "0"
+    "bonus_accuracy": "0",
+    "bonus_attack_range": "0"
   },
   "disruptor_glimpse": {
     "min_damage": "0",
-    "max_damage": "0"
+    "max_damage": "0",
+    "damage_to_distance_pct": "0"
   },
   "earth_spirit_boulder_smash": {
     "move_slow": "0"
@@ -552,7 +557,8 @@
     "illusion_damage_multiplier": "1"
   },
   "broodmother_spawn_spiderlings": {
-    "movement_speed": "0"
+    "movement_speed": "0",
+    "damage_bonus": "0"
   },
   "broodmother_incapacitating_bite": {
     "attack_damage": "0"
@@ -623,5 +629,68 @@
   "undying_tombstone_zombie_deathstrike": {
     "bonus_move_speed": "50",
     "bonus_attack_speed": "50"
-  }
+  },
+  "centaur_double_edge": {
+    "strength_damage": "0"
+  },
+  "phantom_assassin_coup_de_grace": {
+    "dagger_crit_chance": "15"
+  },
+  "rubick_spell_steal": {
+    "stolen_spell_cooldown_percent": "0"
+  },
+  "shredder_reactive_armor": {
+    "stacks_per_hero_attack": "1"
+  },
+  "lycan_summon_wolves": {
+    "bash_chance": "0"
+  },
+  "warlock_rain_of_chaos": {
+    "bonus_slow_resistance": "0"
+  },
+  "brewmaster_primal_split": {
+    "give_brawler_passive": "0"
+  },
+  "viper_corrosive_skin": {
+    "max_range": "1400"
+  },
+  "medusa_split_shot": {
+    "split_shot_bonus_range": "100"
+  },
+  "medusa_mystic_snake": {
+    "movement_slow": "0"
+  },
+  "_comentariu_2026_10_13": "Mecanici moderne gasite de verificarea din 13.10.2026 (chei care exista doar in clientul curent): Death Ward +50 raza, Glimpse daune pe distanta, Double Edge daune din STR, Shockwave slow/pull, scheleti la Skeleton Walk, crit 34% pe Stifling Dagger (6.88: aceeasi sansa ca Coup de Grace, 15%), reducere de cooldown la Spell Steal, 4 stack-uri Reactive Armor pe atac de erou, bash la lupii lui Lycan, 60% rezistenta la slow pentru golemi, Brawler pe panda, Corrosive Skin 1200 (6.88: 1400), bonus de daune la spiderlings, Split Shot = raza de atac + 150 (6.88: 700 fix; Medusa are 600), slow la Mystic Snake.",
+  "roshan_spell_block": {
+    "status_resistance": "0"
+  },
+  "roshan_devotion": {
+    "slow_resistance": "0"
+  },
+  "satyr_soulstealer_mana_burn": {
+    "int_multiplier": "0"
+  },
+  "mud_golem_hurl_boulder": {
+    "damage_creeps": "125"
+  },
+  "dark_troll_warlord_raise_dead": {
+    "skeletons_created": "2",
+    "skeletons_health": "250",
+    "skeletons_damage": "24"
+  },
+  "gnoll_assassin_envenomed_weapon": {
+    "regen_reduction": "0"
+  },
+  "big_thunder_lizard_wardrums_aura": {
+    "accuracy": "0"
+  },
+  "brewmaster_storm_cyclone": {
+    "landing_damage": "0"
+  },
+  "brewmaster_earth_spell_immunity": {
+    "magic_resist": "0",
+    "status_resist": "0",
+    "slow_resist": "0"
+  },
+  "_comentariu_2026_10_13_unitati": "Abilitati de unitati/iteme cu mecanici moderne: rezistente la Roshan, mana burn cu INT la Satyr, Mud Golem 150 pe creepi, Dark Troll 3 scheleti (6.88: 2, 250 HP, 24-25 daune), regen reduction la Vhoul, accuracy la Wardrums, daune la aterizare la Cyclone, Earth Brewling cu rezistente in loc de imunitate la vraji (imunitatea e in extras_688.lua), aura de mana si regen la Arcane Boots (6.88: doar Replenish Mana)."
 }

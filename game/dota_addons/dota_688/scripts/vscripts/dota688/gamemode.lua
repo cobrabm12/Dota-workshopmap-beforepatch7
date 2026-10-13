@@ -184,6 +184,7 @@ function Dota688:OnNPCSpawned(ev)
 		end
 	end
 	if not unit:IsRealHero() then Dota688Aghanim.OnUnitSpawned(unit) end
+	Dota688Extras.OnSpawned(unit)
 	Dota688Buildings:OnNPCSpawned(unit)
 	Dota688Creeps:OnNPCSpawned(unit)
 	Dota688Courier:OnNPCSpawned(unit)

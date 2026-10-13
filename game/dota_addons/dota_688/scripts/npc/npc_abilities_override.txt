@@ -7,6 +7,7 @@
 	{
 		"AbilityValues"
 		{
+			"damage_per_burn"		"0.6"
 			"mana_per_hit"		"28 40 52 64"
 			"mana_per_hit_pct"		"0"
 			"percent_damage_per_burn"		"60"
@@ -20,6 +21,7 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"12.0 9.0 7.0 5.0"
+			"blink_range"		"925 1000 1075 1150"
 			"AbilityCastRange"		"925 1000 1075 1150"
 		}
 		"HasScepterUpgrade"		"0"
@@ -82,6 +84,7 @@
 		{
 			"AbilityCastRange"		"600"
 			"AbilityCooldown"		"14 13 12 11"
+			"tooltip_brain_sap_heal_amt"		"90 160 230 300"
 		}
 		"HasShardUpgrade"		"0"
 	}
@@ -102,9 +105,18 @@
 		{
 			"AbilityManaCost"		"12 12 12 12"
 			"frost_arrows_movement_speed"		"-16 -32 -48 -64"
+			"frost_arrows_hero_duration_tooltip"		"1.5"
+			"frost_arrows_creep_duration"		"7.0"
 			"damage"		"0"
 		}
 		"HasScepterUpgrade"		"0"
+	}
+	"drow_ranger_silence"
+	{
+		"AbilityValues"
+		{
+			"duration"		"3.0 4.0 5.0 6.0"
+		}
 	}
 	"drow_ranger_wave_of_silence"
 	{
@@ -112,6 +124,7 @@
 		{
 			"AbilityCooldown"		"16 15 14 13"
 			"AbilityManaCost"		"90"
+			"wave_range_tooltip"		"900"
 			"knockback_distance_max"		"350"
 		}
 	}
@@ -124,6 +137,7 @@
 		{
 			"AbilityCastRange"		"1400"
 			"AbilityCooldown"		"15.0 15.0 15.0 15.0"
+			"fissure_range"		"1400"
 			"fissure_duration"		"8.0"
 			"stun_duration"		"1.0 1.25 1.5 1.75"
 			"fissure_damage"		"110 160 210 260"
@@ -136,6 +150,10 @@
 		"AbilityManaCost"		"20 30 40 50"
 		"AbilityValues"
 		{
+			"tooltip_duration"		"14.0 14.0 14.0 14.0"
+			"distance_scepter"		"900"
+			"duration"		"0.75"
+			"aftershock_range"		"300"
 			"bonus_attack_range"		"0"
 		}
 	}
@@ -147,6 +165,7 @@
 		{
 			"aftershock_damage"		"50 75 100 125"
 			"aftershock_range"		"300"
+			"tooltip_duration"		"0.6 0.9 1.2 1.5"
 		}
 	}
 	"earthshaker_echo_slam"
@@ -194,6 +213,7 @@
 		{
 			"healing_ward_aura_radius"		"500"
 			"healing_ward_movespeed_tooltip"		"420"
+			"healing_ward_duration_tooltip"		"25"
 			"healing_ward_bonus_health"		"0"
 		}
 		"HasShardUpgrade"		"0"
@@ -216,6 +236,7 @@
 	{
 		"AbilityValues"
 		{
+			"radius"		"450 500 550 600"
 			"damage_bonus"		"25 45 65 85"
 			"cleave_damage"		"100"
 			"cleave_ending_width"		"450 500 550 600"
@@ -231,6 +252,8 @@
 		"AbilityValues"
 		{
 			"duration"		"4.0"
+			"allied_duration_tooltip"		"8.0"
+			"tooltip_range"		"400 600 800 1000"
 			"ghostship_absorb"		"40 45 50 50"
 			"movespeed_bonus"		"10"
 			"allied_duration"		"8"
@@ -346,6 +369,8 @@
 		"AbilityValues"
 		{
 			"mana_cost"		"30 30 30 30"
+			"morph_cooldown"		"0.5 0.25 0.125 0.0625"
+			"bonus_attributes"		"3 4 5 6"
 			"morph_rate"		"2 4 8 16"
 		}
 		"HasShardUpgrade"		"0"
@@ -355,6 +380,8 @@
 		"AbilityValues"
 		{
 			"mana_cost"		"30 30 30 30"
+			"morph_cooldown"		"0.5 0.25 0.125 0.0625"
+			"bonus_attributes"		"3 4 5 6"
 			"morph_rate"		"2 4 8 16"
 		}
 		"HasShardUpgrade"		"0"
@@ -559,6 +586,15 @@
 	{
 		"AbilityCooldown"		"120"
 		"AbilityManaCost"		"200 350 600"
+		"AbilityValues"
+		{
+			"splash_radius"		"175"
+			"splash_damage"		"100"
+			"damage_min"		"40 60 80"
+			"damage_max"		"45 65 85"
+			"damage_min_scepter"		"85 105 125"
+			"damage_max_scepter"		"90 110 130"
+		}
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
 	}
@@ -569,6 +605,7 @@
 		{
 			"damage_min"		"30 50 70 90"
 			"damage_max"		"160 230 300 370"
+			"speed"		"636"
 			"slow_min"		"0"
 			"slow_max"		"0"
 		}
@@ -584,6 +621,7 @@
 			"drain_duration"		"18.0 18.0 18.0 18.0"
 			"drain_rate"		"7 14 21 28"
 			"drain_range_buffer"		"200"
+			"vision_radius"		"800 800 800 800"
 		}
 	}
 	"skeleton_king_hellfire_blast"
@@ -596,6 +634,7 @@
 			"damage"		"50 100 150 200"
 			"blast_speed"		"1000"
 			"blast_stun_duration"		"2.0"
+			"tooltip_slow_duration"		"2"
 			"blast_dot_duration"		"4"
 			"blast_dot_damage"		"20 35 50 65"
 		}
@@ -620,6 +659,9 @@
 		{
 			"damage"		"14"
 			"damage_pct"		"1.0 2.5 4.0 5.5"
+			"movement_slow"		"5 10 15 20"
+			"max_charges"		"1 2 3 4"
+			"charge_restore_time"		"45"
 			"AbilityChargeRestoreTime"		"45"
 		}
 		"HasShardUpgrade"		"0"
@@ -659,6 +701,7 @@
 	{
 		"AbilityValues"
 		{
+			"great_cleave_radius"		"300.0"
 			"great_cleave_damage"		"30 42 54 66"
 			"cleave_ending_width"		"300"
 			"cleave_distance"		"550"
@@ -672,6 +715,8 @@
 		{
 			"AbilityCooldown"		"80.0 80.0 80.0"
 			"gods_strength_damage"		"100 150 200"
+			"radius_scepter"		"900"
+			"gods_strength_damage_scepter"		"75 100 125"
 			"bonus_slow_resistance"		"0"
 		}
 		"RequiredLevel"		"6"
@@ -696,6 +741,7 @@
 		{
 			"overload_damage"		"40 60 80 100"
 			"overload_attack_slow"		"-50"
+			"tooltip_duration"		"0.6 0.6 0.6 0.6"
 		}
 		"HasShardUpgrade"		"0"
 	}
@@ -721,10 +767,12 @@
 		"AbilityChannelTime"		"2.0 2.0 2.0"
 		"AbilityValues"
 		{
+			"epicenter_radius"		"275 325 375 425 475 525 575 650 675 700"
 			"epicenter_pulses"		"6 8 10"
 			"epicenter_damage"		"110 110 110"
 			"epicenter_slow"		"-30 -30 -30"
 			"epicenter_slow_as"		"-30"
+			"epicenter_slow_duration_tooltip"		"3"
 			"epicenter_radius_base"		"275"
 			"epicenter_radius_increment"		"47"
 		}
@@ -743,7 +791,9 @@
 			"AbilityCooldown"		"17.0 17.0 17.0 17.0"
 			"radius"		"275 275 275 275"
 			"tick_interval"		"0.25 0.25 0.25 0.25"
+			"num_ticks"		"4 4 4 4"
 			"stun_duration"		"1.0"
+			"projectile_duration"		"0.5"
 			"tick_count"		"4"
 			"avalanche_damage"		"100 180 260 300"
 			"total_duration"		"1.0"
@@ -816,6 +866,11 @@
 		{
 			"gush_damage"		"110 160 210 260"
 			"projectile_speed"		"4000 4000 4000 4000"
+			"armor_bonus"		"-3 -4 -5 -6"
+			"speed_scepter"		"1500"
+			"aoe_scepter"		"240"
+			"cooldown_scepter"		"7"
+			"cast_range_scepter"		"1800"
 		}
 	}
 	"tidehunter_kraken_shell"
@@ -871,6 +926,7 @@
 		{
 			"damage"		"30 50 70 90"
 			"wave_width"		"300"
+			"tooltip_duration"		"15"
 			"vision_aoe"		"500 500 500 500"
 			"vision_duration"		"3.0 3.0 3.0 3.0"
 			"attack_reduction"		"0"
@@ -894,6 +950,11 @@
 		{
 			"AbilityCastRange"		"525"
 			"AbilityManaCost"		"115 125 140 150"
+			"damage_per_second_tooltip"		"50"
+			"hero_damage_tooltip"		"150 200 250 300"
+			"creep_duration"		"10.0 10.0 10.0 10.0"
+			"creep_damage_tooltip"		"1000"
+			"damage"		"100"
 			"damage_per_second"		"100"
 			"creep_multiplier"		"1"
 		}
@@ -932,6 +993,7 @@
 		{
 			"AbilityCooldown"		"8.0"
 			"slow_movement_speed"		"-30 -30 -30 -30"
+			"slow_attack_speed"		"-20 -20 -20 -20"
 			"aoe_damage"		"75 100 125 150"
 			"slow_attack_speed_primary"		"-20 -20 -20 -20"
 			"damage"		"50 100 150 200"
@@ -956,9 +1018,11 @@
 		{
 			"hero_duration"		"1.0 1.0 1.0 1.0"
 			"creep_duration"		"5.0 5.0 5.0 5.0"
+			"hero_damage"		"50 50 50 50"
 			"bounces"		"3 5 7 9"
 			"speed"		"1000"
 			"bounce_delay"		"0.3"
+			"bounces_tooltip"		"2 4 6 8"
 			"base_damage"		"50 50 50 50"
 			"creep_damage_pct"		"150 200 250 300"
 			"bounce_bonus_damage"		"0"
@@ -982,6 +1046,7 @@
 		"AbilityValues"
 		{
 			"radius"		"180"
+			"duration_tooltip"		"12"
 		}
 	}
 	"witch_doctor_death_ward"
@@ -993,7 +1058,11 @@
 		"AbilityValues"
 		{
 			"damage"		"60 105 150"
+			"bounces"		"0 0 0"
+			"bounces_scepter"		"4 4 4"
+			"bounce_radius"		"650 650 650"
 			"bonus_accuracy"		"0"
+			"bonus_attack_range"		"0"
 		}
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
@@ -1007,6 +1076,8 @@
 		{
 			"stun_duration"		"0.25 0.5 0.75 1.0"
 			"damage"		"30 50 70 90"
+			"duration"		"4.0 4.0 4.0 4.0"
+			"tooltip_stuns"		"3 3 3 3"
 		}
 		"HasShardUpgrade"		"0"
 	}
@@ -1018,6 +1089,7 @@
 		"AbilityValues"
 		{
 			"damage"		"16 24 32 40"
+			"distance_scepter"		"1800"
 		}
 		"HasScepterUpgrade"		"0"
 	}
@@ -1030,6 +1102,9 @@
 			"shrapnel_damage"		"15 35 55 75"
 			"slow_movement_speed"		"-15 -20 -25 -30"
 			"radius"		"450"
+			"building_damage"		"0"
+			"max_charges"		"3"
+			"charge_restore_time"		"55"
 			"AbilityChargeRestoreTime"		"55"
 		}
 	}
@@ -1098,6 +1173,7 @@
 		{
 			"AbilityCooldown"		"50 46 42 38"
 			"aoe"		"650 650 650 650"
+			"slow_rate_duration"		"12.5 6.5 4.5 3.5"
 			"duration"		"3.0"
 			"max_slow"		"84"
 			"slow_per_second"		"6.7 12.9 18.7 24"
@@ -1114,9 +1190,19 @@
 		{
 			"stun_duration"		"1.0"
 			"golem_hp"		"1000 1500 2000"
+			"golem_hp_tooltip"		"1000 1500 2000"
 			"golem_dmg"		"75 100 125"
+			"golem_dmg_tooltip"		"75 100 125"
 			"golem_armor"		"6 9 12"
 			"tooltip_golem_armor"		"6 9 12"
+			"golem_armor_tooltip"		"6 9 12"
+			"golem_regen_tooltip"		"25 50 75"
+			"number_of_golems_scepter"		"2"
+			"golem_hp_tooltip_scepter"		"750 1125 1500"
+			"golem_dmg_tooltip_scepter"		"56 75 94"
+			"hp_dmg_reduction_scepter"		"25"
+			"bounty_reduction_scepter"		"50"
+			"bonus_slow_resistance"		"0"
 		}
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
@@ -1147,6 +1233,14 @@
 		}
 		"HasShardUpgrade"		"0"
 	}
+	"beastmaster_hawk_invisibility"
+	{
+		"AbilityValues"
+		{
+			"idle_invis_delay"		"3"
+			"fade_tooltip"		"0 0 4 4"
+		}
+	}
 	"beastmaster_boar_poison"
 	{
 		"AbilityValues"
@@ -1166,6 +1260,8 @@
 			"push_distance"		"300"
 			"push_duration"		"0.6"
 			"slow_duration"		"2.0 3.0 4.0"
+			"cast_range_scepter"		"950 950 950"
+			"cooldown_scepter"		"45.0 45.0 45.0"
 			"movement_speed"		"0"
 		}
 		"RequiredLevel"		"6"
@@ -1184,6 +1280,8 @@
 			"strike_damage"		"50 75 100 125"
 			"duration_damage"		"30 40 50 60"
 			"movement_slow"		"-20 -30 -40 -50"
+			"cast_range_tooltip"		"450 475 500 525"
+			"duration_tooltip"		"15"
 		}
 		"HasScepterUpgrade"		"0"
 	}
@@ -1194,6 +1292,7 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"15.0 12.0 9.0 6.0"
+			"blink_range"		"1300"
 		}
 		"HasShardUpgrade"		"0"
 	}
@@ -1223,8 +1322,16 @@
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
-			"duration"		"6.0 9.0 12.0 15.0"
-			"damage"		"6 12 18 24"
+			"duration"
+			{
+				"value"		"6.0 9.0 12.0 15.0"
+				"hero_levelup"		"0"
+			}
+			"damage"
+			{
+				"value"		"6 12 18 24"
+				"hero_levelup"		"0"
+			}
 			"movement_speed"		"11 12 13 14"
 		}
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
@@ -1237,7 +1344,9 @@
 		"AbilityValues"
 		{
 			"ward_max_health"		"75 200 325 450"
+			"ward_hp_tooltip"		"75 200 325 450"
 			"ward_base_damage"		"13 22 31 40"
+			"ward_damage_tooltip"		"13 22 31 40"
 		}
 	}
 	"faceless_void_time_walk"
@@ -1247,6 +1356,7 @@
 		{
 			"AbilityCooldown"		"24 18 12 6"
 			"range"		"675"
+			"radius"		"300"
 		}
 		"HasScepterUpgrade"		"0"
 	}
@@ -1268,6 +1378,8 @@
 		{
 			"radius"		"425"
 			"duration"		"4.0 4.5 5.0"
+			"duration_scepter"		"4.0 4.5 5.0"
+			"cooldown_scepter"		"60"
 		}
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
@@ -1295,6 +1407,8 @@
 			"radius"		"1600"
 			"mana_multiplier"		"1.00 1.25 1.50 1.75"
 			"mana_regen"		"-1.5 -3.0 -4.5 -6.0"
+			"attacks_to_destroy_tooltip"		"4 4 4 4"
+			"ward_duration_tooltip"		"30"
 			"base_damage"		"0"
 			"health_restore_pct"		"0"
 			"mana_restore_pct"		"0"
@@ -1327,6 +1441,8 @@
 		{
 			"AbilityCastRange"		"1000 1000 1000 1000"
 			"bonus_attack_speed"		"130"
+			"bonus_max_attack_count"		"4"
+			"tooltip_range"		"1000 1000 1000 1000"
 		}
 	}
 	"phantom_assassin_coup_de_grace"
@@ -1335,6 +1451,7 @@
 		{
 			"crit_bonus"		"230 340 450"
 			"crit_chance"		"15"
+			"dagger_crit_chance"		"15"
 		}
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
@@ -1346,6 +1463,7 @@
 		"AbilityValues"
 		{
 			"bonus_damage"		"20 40 60 80"
+			"damage_threshold"		"5 5 5 5"
 		}
 		"HasShardUpgrade"		"0"
 	}
@@ -1357,6 +1475,7 @@
 		"AbilityValues"
 		{
 			"debuff_duration"		"10.0 10.0 10.0 10.0"
+			"armor_reduction_duration_tooltip"		"10"
 		}
 	}
 	"templar_assassin_psi_blades"
@@ -1373,17 +1492,20 @@
 	"templar_assassin_psionic_trap"
 	{
 		"AbilityCastRange"		"2000"
-		"HasScepterUpgrade"		"0"
-		"RequiredLevel"		"6"
-		"LevelsBetweenUpgrades"		"5"
 		"AbilityValues"
 		{
+			"movement_speed_min_tooltip"		"30"
+			"movement_speed_max_tooltip"		"60"
+			"trap_duration_tooltip"		"5"
 			"movement_speed_min"		"30"
 			"movement_speed_max"		"60"
 			"trap_bonus_damage"		"0"
 			"instant_trap_damage"		"0"
 			"extra_damage"		"0"
 		}
+		"HasScepterUpgrade"		"0"
+		"RequiredLevel"		"6"
+		"LevelsBetweenUpgrades"		"5"
 	}
 	"templar_assassin_trap"
 	{
@@ -1397,7 +1519,10 @@
 	{
 		"AbilityValues"
 		{
+			"bonus_movement_speed"		"-10 -15 -20 -25"
 			"bonus_attack_speed"		"10 15 20 25"
+			"max_range_tooltip"		"1400"
+			"max_range"		"1400"
 		}
 		"HasScepterUpgrade"		"0"
 	}
@@ -1413,6 +1538,9 @@
 			"damage"		"60 100 145"
 			"bonus_movement_speed"		"40 60 80"
 			"bonus_attack_speed"		"40 60 80"
+			"mana_cost_scepter"		"125 125 125"
+			"cooldown_scepter"		"10"
+			"cast_range_scepter"		"900"
 			"projectile_speed"		"1200"
 			"does_break"		"0"
 		}
@@ -1469,9 +1597,14 @@
 		"AbilityValues"
 		{
 			"bonus_movement_speed"		"25 25 25"
+			"corrosive_breath_damage"		"20 20 20"
+			"corrosive_breath_duration"		"5.0 5.0 5.0"
+			"splash_radius"		"150 225 300"
+			"splash_damage_percent"		"100 75 50"
 			"frost_bonus_movement_speed"		"0 0 30"
 			"frost_bonus_attack_speed"		"0 0 20"
 			"frost_duration"		"0 0 3"
+			"frost_aoe"		"300"
 			"corrosive_damage_per_second"		"20 20 20 20"
 			"corrosive_duration"		"5 5 5 5"
 			"bonus_ability_cast_range"		"0"
@@ -1490,6 +1623,8 @@
 		{
 			"AbilityCooldown"		"60 45 30 15"
 			"duration"		"5 5 5 5"
+			"duration_tooltip"		"5 5 5 5"
+			"range_tooltip"		"550 700 850 1000"
 			"heal_amplify"		"0"
 		}
 	}
@@ -1519,6 +1654,7 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"15"
+			"drain_amount"		"80 120 160 200"
 			"attacks_to_destroy"		"2 2 2 3"
 			"push_length"		"250"
 			"push_duration"		"0.85"
@@ -1537,6 +1673,7 @@
 			"AbilityChargeRestoreTime"		"0"
 			"duration"		"10.0 10.0 10.0 10.0"
 			"speed"		"1750"
+			"vision_radius"		"600"
 			"slow_pct"		"0"
 		}
 	}
@@ -1547,7 +1684,9 @@
 		{
 			"AbilityCooldown"		"70.0 55.0 40.0"
 			"duration"		"1.0 1.5 2.0"
+			"tooltip_range"		"2000 2500 3000"
 			"damage"		"100 200 300"
+			"cooldown_scepter"		"12.0 12.0 12.0"
 		}
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
@@ -1578,6 +1717,7 @@
 			"AbilityDuration"		"10"
 			"radius"		"500"
 			"tower_bonus"		"40"
+			"duration_tooltip"		"10"
 		}
 	}
 	"leshrac_lightning_storm"
@@ -1590,6 +1730,7 @@
 		{
 			"jump_count"		"4 5 6 7"
 			"radius"		"475"
+			"slow_movement_speed"		"-75"
 			"slow_duration"		"0.7 0.8 0.9 1.0"
 			"damage"		"50 100 150 200"
 		}
@@ -1602,6 +1743,7 @@
 		{
 			"vision_range"		"1000"
 			"duration"		"3 4 5 6"
+			"cast_range_tooltip"		"625 700 775 850"
 			"sprout_damage"		"0"
 		}
 	}
@@ -1620,6 +1762,10 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"37 37 37 37"
+			"duration"		"60 60 60 60"
+			"treant_health_tooltip"		"550"
+			"treant_min_dmg_tooltip"		"30"
+			"treant_max_dmg_tooltip"		"34"
 			"treant_duration"		"60"
 			"treant_health"		"550"
 			"treant_damage"		"30 30 30 30"
@@ -1638,6 +1784,10 @@
 			"damage"		"140 180 225"
 			"damage_percent_add"		"7"
 			"jump_delay"		"0.25"
+			"max_targets_scepter"		"18 18 18"
+			"damage_scepter"		"155 210 275"
+			"scepter_buffer"		"4"
+			"buffer_tooltip_scepter"		"4"
 		}
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
@@ -1654,6 +1804,7 @@
 			"heal_percent"		"50"
 			"slow_tooltip"		"70"
 			"duration"		"8"
+			"tooltip_range"		"200 300 400 500"
 		}
 	}
 	"life_stealer_infest"
@@ -1662,6 +1813,10 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"100 75 50"
+			"infest_scepter_duration"		"8"
+			"damage_increase_pct"		"50"
+			"cast_range_scepter"		"500"
+			"cooldown_scepter"		"25"
 			"bonus_health"		"0"
 			"bonus_movement_speed"		"0"
 			"self_regen"		"0"
@@ -1675,6 +1830,12 @@
 	}
 	"life_stealer_assimilate"
 	{
+		"AbilityValues"
+		{
+			"damage"		"300"
+			"radius"		"700 700 700"
+			"order_lock_duration"		"2.0"
+		}
 		"HasScepterUpgrade"		"0"
 		"IsGrantedByScepter"		"0"
 	}
@@ -1767,6 +1928,7 @@
 			"slow_duration"		"5.5 5.5 5.5 5.5"
 			"dominate_duration"		"80.0"
 			"slow_movement_speed"		"-20 -30 -40 -50"
+			"tooltip_duration"		"5.5 5.5 5.5 5.5"
 			"attack_range_bonus"		"0"
 			"enchant_health"		"0"
 			"enchant_damage"		"0"
@@ -1796,6 +1958,7 @@
 		"AbilityValues"
 		{
 			"distance_damage_pct"		"14.0 18.0 22.0"
+			"bonus_attack_range_scepter"		"190 190 190"
 			"illusion_damage_multiplier"		"1"
 		}
 		"AbilityType"		"ABILITY_TYPE_ULTIMATE"
@@ -1819,6 +1982,7 @@
 		"AbilityValues"
 		{
 			"duration"		"8"
+			"health_cost"		"15"
 			"max_health_cost"		"0"
 			"burn_damage"		"5 10 15 20"
 			"burn_damage_max_pct"		"0"
@@ -1837,18 +2001,6 @@
 		}
 		"HasShardUpgrade"		"0"
 	}
-	"night_stalker_hunter_in_the_night"
-	{
-		"AbilityValues"
-		{
-			"bonus_movement_speed_pct_night"		"20 25 30 35"
-			"bonus_attack_speed_night"		"45 60 75 90"
-		}
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
-		"Innate"		"0"
-		"MaxLevel"		"4"
-		"HasScepterUpgrade"		"0"
-	}
 	"broodmother_spawn_spiderlings"
 	{
 		"AbilityCastRange"		"700"
@@ -1861,6 +2013,7 @@
 			"damage"		"70 140 210 280"
 			"count"		"1 2 3 4"
 			"movement_speed"		"0"
+			"damage_bonus"		"0"
 		}
 		"AbilityType"		"ABILITY_TYPE_BASIC"
 	}
@@ -1869,6 +2022,7 @@
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
+			"damage_per_second"		"8"
 			"movement_speed"		"-8"
 		}
 	}
@@ -1940,6 +2094,8 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"60 50 40"
+			"cooldown_scepter"		"16"
+			"cast_range_tooltip_scepter"		"1000"
 		}
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
@@ -1954,9 +2110,11 @@
 			"AbilityCooldown"		"10.0 10.0 10.0 10.0"
 			"start_radius"		"200 200 200 200"
 			"end_radius"		"250 250 250 250"
+			"range"		"750 750 750 750"
 			"fire_delay"		"0.3 0.3 0.3 0.3"
 			"slow_movement_speed_pct"		"-28 -32 -36 -40"
 			"slow_attack_speed_pct"		"-28 -32 -36 -40"
+			"tooltip_duration"		"5"
 		}
 	}
 	"jakiro_ice_path"
@@ -1970,6 +2128,7 @@
 			"stun_duration"		"1 1.5 2 2.5"
 			"path_duration"		"1.0 1.33 1.66 2.0"
 			"path_delay"		"0.5"
+			"duration"		"1.0 1.5 2.0 2.5"
 		}
 	}
 	"jakiro_liquid_fire"
@@ -1981,6 +2140,7 @@
 		{
 			"slow_attack_speed_pct"		"-20 -30 -40 -50"
 			"damage"		"12 16 20 24"
+			"tooltip_duration"		"5 5 5 5"
 			"AbilityManaCost"		"0"
 			"building_dmg_pct"		"100"
 		}
@@ -2011,8 +2171,10 @@
 		{
 			"AbilityCooldown"		"17.0"
 			"damage_duration"		"4 5 6 7"
+			"damage_total_tooltip"		"100 150 210 280"
 			"explosion_radius"		"375 375 375 375"
 			"speed"		"900 900 900 900"
+			"knockback_max_distance"		"400"
 			"knockback_duration"		"0.25 0.25 0.25 0.25"
 			"knockback_distance"		"400"
 			"slow"		"0"
@@ -2038,6 +2200,9 @@
 		"AbilityValues"
 		{
 			"duration"		"3.0 3.5 4.0"
+			"grab_radius"		"400"
+			"grab_radius_scepter"		"400"
+			"damage_scepter"		"100"
 			"damage"		"0 0 0"
 		}
 		"RequiredLevel"		"6"
@@ -2048,6 +2213,7 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"160 140 120"
+			"ancient_creeps_scepter"		"1 2 3"
 			"heal_per_second"		"0"
 		}
 		"HasScepterUpgrade"		"0"
@@ -2071,7 +2237,11 @@
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityValues"
 		{
-			"bonus_damage"		"20 35 50 65"
+			"bonus_damage"
+			{
+				"value"		"20 35 50 65"
+				"hero_levelup"		"0"
+			}
 			"radius"		"325"
 		}
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
@@ -2119,6 +2289,7 @@
 		{
 			"AbilityCooldown"		"70.0 60.0 50.0 40.0"
 			"bonus_gold"		"25 50 75 100"
+			"health_per_second"		"20 20 20 20"
 			"hero_ability_steal_time"		"99999"
 		}
 		"HasShardUpgrade"		"0"
@@ -2153,8 +2324,10 @@
 		"AbilityManaCost"		"150 150 150 150"
 		"AbilityValues"
 		{
+			"damage"		"37.5 50 62.5 75"
 			"break_distance"		"740 740 740 740"
 			"stun_duration"		"1.25 2.0 2.75 3.5"
+			"cast_range_tooltip"		"700 800 900 1000"
 			"damage_per_second"		"37.5 50 62.5 75"
 		}
 	}
@@ -2218,6 +2391,7 @@
 		"AbilityDuration"		"15.0 15.0 15.0 15.0"
 		"AbilityValues"
 		{
+			"duration_tooltip"		"15"
 			"slow_resist"		"0"
 		}
 	}
@@ -2251,6 +2425,7 @@
 			"hits_to_kill_tooltip"		"3 3 4 5"
 			"tower_hits_to_kill_tooltip"		"6 6 8 10"
 			"stun_duration"		"2.2 2.4 2.6 2.8"
+			"min_damage"		"50"
 			"pre_flight_time"		"3"
 			"hero_damage"		"34 34 26 21"
 			"speed"		"340"
@@ -2268,6 +2443,8 @@
 			"AbilityCooldown"		"30 30 30 30"
 			"radius"		"1000"
 			"max_attacks"		"3 4 5 6"
+			"fire_rate"		"1.2"
+			"scepter_radius"		"600"
 		}
 	}
 	"alchemist_acid_spray"
@@ -2300,6 +2477,8 @@
 		"AbilityValues"
 		{
 			"max_stun"		"1.75 2.5 3.25 4.0"
+			"movement_speed"		"900"
+			"vision_range"		"400"
 			"midair_explosion_radius"		"175"
 		}
 	}
@@ -2321,13 +2500,15 @@
 	"invoker_quas"
 	{
 		"MaxLevel"		"7"
-		"HasScepterUpgrade"		"0"
 		"AbilityValues"
 		{
+			"health_regen_per_instance"		"1.0 2.0 3.0 4.0 5.0 6.0 7.0"
+			"bonus_strength"		"2 4 6 8 10 12 14"
 			"max_level"		"7"
 			"hp_regen_per_instance"		"1 2 3 4 5 6 7"
 			"strength_bonus"		"0"
 		}
+		"HasScepterUpgrade"		"0"
 	}
 	"invoker_wex"
 	{
@@ -2336,6 +2517,7 @@
 		{
 			"attack_speed_per_instance"		"2 4 6 8 10 12 14"
 			"move_speed_per_instance"		"1 2 3 4 5 6 7"
+			"bonus_agility"		"2 4 6 8 10 12 14"
 			"max_level"		"7"
 			"agility_bonus"		"0"
 		}
@@ -2347,6 +2529,7 @@
 		"AbilityValues"
 		{
 			"bonus_damage_per_instance"		"3 6 9 12 15 18 21"
+			"bonus_intelligence"		"2 4 6 8 10 12 14"
 			"max_level"		"7"
 			"intelligence_bonus"		"0"
 		}
@@ -2464,6 +2647,9 @@
 			"duration"		"3.0 4.5 6.0 7.5 9.0 10.5 12.0 13.5"
 			"slow"		"-20 -40 -60 -80 -100 -120 -140 -160"
 			"damage_per_second"		"6 12 18 24 30 36 42 48"
+			"num_wall_elements"		"15"
+			"wall_element_spacing"		"80"
+			"wall_element_radius"		"105"
 		}
 		"HasScepterUpgrade"		"0"
 	}
@@ -2500,6 +2686,7 @@
 		{
 			"AbilityCooldown"		"130.0"
 			"AbilityDuration"		"4.0 5.0 6.0"
+			"tooltip_duration"		"4.0 5.0 6.0"
 		}
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
@@ -2514,7 +2701,9 @@
 			"AbilityCastRange"		"225 350 475 600"
 			"AbilityCooldown"		"22 18 14 10"
 			"prison_duration"		"4.0"
+			"radius"		"400"
 			"damage"		"100 175 250 325"
+			"cast_range_tooltip"		"225 350 475 600"
 			"has_mana_steal"		"0"
 			"mana_capacity_steal"		"0"
 		}
@@ -2529,6 +2718,7 @@
 			"wolf_bat"		"1.25 1.2 1.15 1.1"
 			"wolf_damage"		"18 29 37 46"
 			"wolf_hp"		"200 240 280 320"
+			"bash_chance"		"0"
 		}
 		"HasShardUpgrade"		"0"
 	}
@@ -2601,6 +2791,7 @@
 			"movement_slow"		"25 35 45 55"
 			"attack_speed_slow"		"25 35 45 55"
 			"duration"		"4.0"
+			"duration_creeps"		"8.0 8.0 8.0 8.0"
 		}
 	}
 	"brewmaster_primal_split"
@@ -2611,6 +2802,7 @@
 		{
 			"AbilityCooldown"		"140 120 100"
 			"duration"		"16 18 20"
+			"give_brawler_passive"		"0"
 		}
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
@@ -2644,6 +2836,7 @@
 		{
 			"duration_hero"		"6.0"
 			"duration_unit"		"20.0 20.0 20.0 20.0"
+			"landing_damage"		"0"
 		}
 	}
 	"brewmaster_storm_wind_walk"
@@ -2692,6 +2885,7 @@
 			"bonus_stack_damage"		"50"
 			"radius"		"190"
 			"speed"		"1000 1000 1000 1000"
+			"tooltip_duration"		"10.0 10.0 10.0 10.0"
 		}
 	}
 	"shadow_demon_demonic_purge"
@@ -2702,6 +2896,12 @@
 		{
 			"AbilityCooldown"		"50.0 50.0 50.0"
 			"purge_damage"		"200 300 400"
+			"slow_rate"		"5 3 2"
+			"tooltip_duration"		"5.0 5.0 5.0"
+			"creep_root_duration"		"3.0 3.0 3.0"
+			"max_charges"		"3"
+			"charge_restore_time"		"40"
+			"charge_restore_time_tooltip_scepter"		"40"
 		}
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
@@ -2728,6 +2928,7 @@
 		"AbilityValues"
 		{
 			"images_count"		"1 2 3"
+			"extra_phantasm_chance_pct_tooltip"		"50"
 			"illusion_duration"		"42"
 			"outgoing_damage"		"0 0 0"
 			"outgoing_damage_tooltip"		"100 100 100"
@@ -2746,6 +2947,7 @@
 		{
 			"AbilityCooldown"		"20 16 12 8"
 			"speed"		"857"
+			"tooltip_range"		"500 750 1000 1250"
 		}
 	}
 	"meepo_poof"
@@ -2764,6 +2966,10 @@
 		"AbilityValues"
 		{
 			"tooltip_clones"		"1 2 3"
+			"tooltip_share_percentage"		"20"
+			"tooltip_share_percentage_scepter"		"100"
+			"respawn"		"0.0"
+			"tooltip_respawn"		"20"
 			"max_level"		"3"
 			"dps_penalty_pct"		"0 0 0"
 			"attribute_penalty_pct"		"0"
@@ -2777,6 +2983,7 @@
 		{
 			"AbilityCooldown"		"70"
 			"duration"		"3.0 3.75 4.5"
+			"eyes_radius"		"800"
 			"damage"		"0"
 		}
 		"RequiredLevel"		"6"
@@ -2790,6 +2997,7 @@
 		{
 			"AbilityCooldown"		"10.0 8.0 6.0 4.0"
 			"decay_duration"		"45"
+			"str_steal_scepter"		"10"
 			"creep_damage_multiplier"		"1"
 		}
 	}
@@ -2818,17 +3026,27 @@
 			"hits_to_destroy_tooltip"		"3 4 5 7"
 			"duration"		"15.0 20.0 25.0 30.0"
 			"radius"		"600 800 1000 1200"
+			"health_threshold"		"100 200 300 400"
 			"health_threshold_pct_tooltip"		"20 25 30 35"
 			"zombie_interval"		"3.0"
 		}
 		"HasShardUpgrade"		"0"
+	}
+	"undying_tombstone_zombie_aura"
+	{
+		"AbilityValues"
+		{
+			"bonus_speed"		"50"
+		}
 	}
 	"undying_tombstone_zombie_deathstrike"
 	{
 		"AbilityValues"
 		{
 			"slow"		"-7"
+			"health_threshold"		"100 200 300 400"
 			"health_threshold_pct"		"20 25 30 35"
+			"bonus_speed"		"50"
 			"bonus_move_speed"		"50"
 			"bonus_attack_speed"		"50"
 		}
@@ -2842,6 +3060,8 @@
 			"lift_duration"		"1.5 1.75 2.0 2.25"
 			"stun_duration"		"1.0 1.25 1.5 1.75"
 			"radius"		"325 325 325 325"
+			"cast_range_tooltip"		"550 575 600 625"
+			"max_land_distance_allied"		"950"
 		}
 		"HasShardUpgrade"		"0"
 	}
@@ -2859,6 +3079,9 @@
 		"AbilityValues"
 		{
 			"projectile_speed"		"900"
+			"cast_range_scepter"		"1400"
+			"cooldown_scepter"		"2"
+			"stolen_spell_cooldown_percent"		"0"
 		}
 		"HasShardUpgrade"		"0"
 		"RequiredLevel"		"6"
@@ -2874,6 +3097,7 @@
 		{
 			"strike_damage"		"40 60 80 100"
 			"radius"		"240 240 240 240"
+			"duration"		"6.0 6.0 6.0 6.0"
 			"slow_amount"		"0"
 		}
 	}
@@ -2885,6 +3109,7 @@
 			"AbilityCooldown"		"60.0 46.0 32.0 18.0"
 			"min_damage"		"0"
 			"max_damage"		"0"
+			"damage_to_distance_pct"		"0"
 		}
 	}
 	"disruptor_kinetic_field"
@@ -2909,6 +3134,7 @@
 			"width"		"125 125 125 125"
 			"duration"		"1.6 2.0 2.4 2.8"
 			"length"		"700"
+			"cooldown_upgrade"		"7"
 		}
 	}
 	"nyx_assassin_spiked_carapace"
@@ -2918,6 +3144,10 @@
 		{
 			"reflect_duration"		"2.25"
 			"stun_duration"		"0.6 1.2 1.8 2.4"
+			"bonus_damage"		"0"
+			"bonus_armor"		"0"
+			"bonus_intellect"		"0"
+			"burrow_aoe"		"300"
 			"damage_reflect_pct"		"100"
 		}
 	}
@@ -2930,6 +3160,7 @@
 			"AbilityManaCost"		"160 210 260"
 			"duration"		"40 50 60"
 			"bonus_damage"		"250 400 550"
+			"cooldown_scepter"		"70 60 50"
 			"break_duration"		"0"
 			"attack_range_bonus"		"0"
 			"attack_animation_bonus"		"0"
@@ -2944,6 +3175,11 @@
 		{
 			"health_regen_rate"		"1.5"
 			"mana_regen_rate"		"1.5"
+			"impale_burn_range_increase_pct_tooltip"		"75"
+			"mana_burn_burrow_range_tooltip"		"1050"
+			"impale_burrow_range_tooltip"		"1225"
+			"impale_burrow_cooldown_tooltip"		"7"
+			"carapace_burrow_range_tooltip"		"300"
 		}
 		"HasScepterUpgrade"		"0"
 	}
@@ -2982,6 +3218,7 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"10.0 10.0 10.0 10.0"
+			"damage_per_second"		"100.0 100.0 100.0 100.0"
 			"max_channel_time"		"2.0 3.0 4.0 5.0"
 			"radius"		"375"
 			"speed"		"1050.0"
@@ -3000,6 +3237,7 @@
 			"duration"		"5.0 6.0 7.0 8.0"
 			"mana_leak_pct"		"5.0"
 			"stun_duration"		"1.5 2.0 2.5 3.0"
+			"cast_range_tooltip"		"550 700 850 1000"
 		}
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
 		"MaxLevel"		"4"
@@ -3050,6 +3288,14 @@
 			"familiar_hp"		"300 450 600"
 			"familiar_armor"		"0 1 2"
 			"familiar_base_movespeed"		"380 390 400"
+			"familiar_speed"		"380 390 400"
+			"familiar_max_damage"		"56 98 154"
+			"damage_charge_time"		"15.0"
+			"damage_per_charge"		"8 14 22"
+			"max_damage_charges"		"7"
+			"familiar_attacks_to_destroy_tooltip"		"3"
+			"familiar_attacks_to_destroy_creeps_tooltip"		"6"
+			"familiar_attacks_to_destroy_tower_tooltip"		"12"
 			"familiar_attack_damage"		"0 0 0"
 		}
 		"RequiredLevel"		"6"
@@ -3065,6 +3311,7 @@
 			"stun_duration"		"1.0 1.25 1.5"
 			"stone_duration"		"8.0"
 			"hp_regen"		"50.0 68.7 87.5"
+			"max_damage_charges"		"7"
 		}
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
 	}
@@ -3078,8 +3325,11 @@
 		{
 			"radius"		"900 900 900 900"
 			"movespeed"		"13 14 15 16"
+			"tether_duration"		"12.0 12.0 12.0 12.0"
 			"tether_heal_amp"		"150"
 			"slow"		"100"
+			"attackslow_tooltip"		"-100"
+			"stun_duration"		"0.75 1.25 1.75 2.25"
 			"slow_duration"		"0.75 1.25 1.75 2.25"
 		}
 		"HasShardUpgrade"		"0"
@@ -3154,6 +3404,10 @@
 			"damage_modifier"		"-20"
 			"damage_modifier_tooltip"		"80"
 			"arrow_count"		"1 2 3 4"
+			"total_arrow_count"		"2 3 4 5"
+			"range"		"700"
+			"projectile_speed"		"1200"
+			"split_shot_bonus_range"		"100"
 		}
 		"HasScepterUpgrade"		"0"
 	}
@@ -3169,6 +3423,7 @@
 			"snake_damage"		"80 120 160 200"
 			"snake_mana_steal"		"11 14 17 20"
 			"snake_scale"		"35"
+			"movement_slow"		"0"
 		}
 	}
 	"medusa_stone_gaze"
@@ -3238,6 +3493,7 @@
 		{
 			"edge_damage"		"175 250 325 400"
 			"radius"		"190"
+			"strength_damage"		"0"
 		}
 		"HasShardUpgrade"		"0"
 	}
@@ -3252,6 +3508,9 @@
 			"shock_width"		"150"
 			"pull_distance"		"0"
 			"movement_slow"		"0"
+			"slow_duration"		"0"
+			"basic_slow_duration"		"0"
+			"pull_duration"		"0"
 		}
 	}
 	"magnataur_skewer"
@@ -3278,6 +3537,7 @@
 			"pull_radius"		"410"
 			"polarity_damage"		"50 125 200"
 			"hero_stun_duration"		"2.25 3.0 3.75"
+			"creep_stun_duration"		"3.0 4.0 5.0"
 		}
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
@@ -3302,6 +3562,7 @@
 		"AbilityValues"
 		{
 			"AbilityCastRange"		"850 1050 1250 1450"
+			"range"		"850 1050 1250 1450"
 			"speed"		"1600 2000 2400 2800"
 			"damage"		"100 140 180 220"
 		}
@@ -3314,6 +3575,7 @@
 			"bonus_hp_regen"		"1 1.2 1.4 1.6"
 			"stack_limit"		"5 10 15 20"
 			"stack_duration"		"10 13 16 19"
+			"stacks_per_hero_attack"		"1"
 		}
 		"HasScepterUpgrade"		"0"
 	}
@@ -3373,6 +3635,7 @@
 			"shard_damage"		"60 120 180 240"
 			"shard_speed"		"1100.0"
 			"shard_duration"		"7.0"
+			"cast_range_tooltip"		"1800"
 		}
 	}
 	"tusk_snowball"
@@ -3408,8 +3671,10 @@
 		"AbilityCooldown"		"8"
 		"AbilityValues"
 		{
+			"crit_multiplier"		"0.0"
 			"push_length"		"900"
 			"slow_duration"		"4"
+			"cooldown_scepter"		"8"
 			"damage"		"350"
 		}
 		"HasScepterUpgrade"		"0"
@@ -3455,7 +3720,10 @@
 		"SpellImmunityType"		"SPELL_IMMUNITY_ALLIES_YES"
 		"AbilityValues"
 		{
+			"projectile_speed"		"1250"
 			"self_damage"		"75 100 125 150"
+			"target_damage"		"100 150 200 250"
+			"heal_amount"		"100 150 200 250"
 			"damage_heal"		"100 150 200 250"
 			"missile_speed"		"1250"
 			"self_damage_enemy_target"		"50"
@@ -3526,6 +3794,8 @@
 		"AbilityValues"
 		{
 			"duration"		"1.0 2.0 2.0 3.0"
+			"chains_damage"		"80 60 120 100"
+			"total_damage_tooltip"		"80 120 240 300"
 			"tick_interval"		"1.0"
 			"damage_per_second"		"80 60 120 100"
 		}
@@ -3562,6 +3832,8 @@
 		"AbilityCooldown"		"0.0"
 		"AbilityValues"
 		{
+			"max_charges"		"3"
+			"charge_restore_time"		"35.0"
 			"damage"		"100 150 200"
 			"AbilityChargeRestoreTime"		"35"
 		}
@@ -3599,7 +3871,10 @@
 		{
 			"radius"		"150"
 			"speed"		"800"
+			"rock_distance"		"1600.0"
 			"damage"		"100"
+			"move_slow"		"80"
+			"slow_duration"		"1.4 1.6 1.8 2.0"
 			"damage_str"		"0"
 		}
 	}
@@ -3610,6 +3885,8 @@
 		"AbilityManaCost"		"100"
 		"AbilityValues"
 		{
+			"miss_rate"		"75"
+			"miss_duration"		"2.5 3 3.5 4"
 			"rock_damage"		"50 100 150 200"
 			"pull_units_per_second"		"1000"
 			"duration"		"2.5 3 3.5 4"
@@ -3620,8 +3897,14 @@
 	{
 		"AbilityValues"
 		{
+			"max_charges"		"6"
+			"charge_restore_time"		"30.0"
 			"duration"		"120.0"
-			"AbilityCharges"		"6"
+			"AbilityCharges"
+			{
+				"value"		"6"
+				"hero_levelup"		"0"
+			}
 			"AbilityChargeRestoreTime"		"30"
 		}
 		"Innate"		"0"
@@ -3662,6 +3945,7 @@
 			"radius"		"400"
 			"wave_damage"		"25 40 55 70"
 			"burn_damage"		"0.75 1.5 2.25 3"
+			"first_wave_delay"		"0.0"
 		}
 		"HasShardUpgrade"		"0"
 	}
@@ -3784,6 +4068,8 @@
 			"base_damage"		"10 15 20 25"
 			"hp_perc_damage"		"1.25 2.5 3.75 5.0"
 			"hp_perc_heal"		"0.625 1.25 1.875 2.5"
+			"beam_range"		"1300"
+			"tooltip_duration"		"6"
 		}
 		"HasShardUpgrade"		"0"
 	}
@@ -3798,6 +4084,9 @@
 			"damage_per_sec"		"60 90 120"
 			"stun_duration"		"1.5 2.0 2.5"
 			"max_hero_attacks"		"5 8 11"
+			"max_hero_attacks_scepter"		"7 10 13"
+			"tooltip_duration"		"6"
+			"cast_range_tooltip_scepter"		"500"
 		}
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
@@ -3827,6 +4116,7 @@
 			"minimum_purge_duration"		"0.5"
 			"maximum_purge_duration"		"2.5"
 			"radius"		"300"
+			"max_channel_time_tooltip"		"2.5"
 		}
 	}
 	"oracle_fates_edict"
@@ -3869,12 +4159,17 @@
 	"necronomicon_archer_mana_burn"
 	{
 		"AbilityCooldown"		"20"
+		"AbilityValues"
+		{
+			"cast_range_tooltip"		"600"
+		}
 	}
 	"necronomicon_archer_aoe"
 	{
 		"AbilityValues"
 		{
 			"radius"		"900"
+			"speed_bonus"		"5 7 9"
 			"as_bonus"		"5 7 9"
 		}
 	}
@@ -3895,6 +4190,15 @@
 		{
 			"duration"		"4.0"
 			"movement_speed"		"800"
+			"damage_absorb"		"250"
+		}
+	}
+	"roshan_slam"
+	{
+		"AbilityValues"
+		{
+			"slow_duration_hero"		"2.0"
+			"slow_duration_unit"		"4.0"
 		}
 	}
 	"kobold_taskmaster_speed_aura"
@@ -3930,6 +4234,7 @@
 		{
 			"damage_per_second"		"2"
 			"hero_duration"		"10.0"
+			"regen_reduction"		"0"
 		}
 	}
 	"ghost_frost_attack"
@@ -3971,6 +4276,18 @@
 		"AbilityValues"
 		{
 			"duration"		"40.0"
+			"skeletons_created"		"2"
+			"skeletons_health"		"250"
+			"skeletons_damage"		"24"
+		}
+	}
+	"mud_golem_rock_destroy"
+	{
+		"AbilityValues"
+		{
+			"shard_health_tooltip"		"240"
+			"shard_damage_tooltip"		"9"
+			"shard_duration_tooltip"		"60"
 		}
 	}
 	"mud_golem_hurl_boulder"
@@ -3979,6 +4296,7 @@
 		{
 			"damage"		"125"
 			"duration"		"0.6"
+			"damage_creeps"		"125"
 		}
 	}
 	"alpha_wolf_critical_strike"
@@ -4033,6 +4351,7 @@
 		"AbilityValues"
 		{
 			"burn_amount"		"100"
+			"int_multiplier"		"0"
 		}
 	}
 	"satyr_hellcaller_shockwave"
@@ -4072,7 +4391,9 @@
 		"AbilityValues"
 		{
 			"speed_bonus"		"15"
+			"damage_bonus"		"15"
 			"radius"		"900"
+			"accuracy"		"0"
 		}
 	}
 	"black_dragon_dragonhide_aura"
@@ -4098,6 +4419,18 @@
 			"bonus_magical_armor"		"5"
 			"bonus_magical_armor_creeps"		"20"
 			"radius"		"900"
+		}
+	}
+	"black_dragon_splash_attack"
+	{
+		"AbilityValues"
+		{
+			"range_close"		"50"
+			"damage_percent_close"		"100.0"
+			"range_mid"		"150"
+			"damage_percent_mid"		"50.0"
+			"range_far"		"250"
+			"damage_percent_far"		"25.0"
 		}
 	}
 	"blue_dragonspawn_overseer_devotion_aura"
@@ -4132,6 +4465,13 @@
 			"radius"		"900"
 		}
 	}
+	"roshan_halloween_toss"
+	{
+		"AbilityValues"
+		{
+			"tooltip_range"		"1300"
+		}
+	}
 	"greevil_laguna_blade"
 	{
 		"RequiredLevel"		"6"
@@ -4141,6 +4481,13 @@
 	{
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
+	}
+	"greevil_phantom_strike"
+	{
+		"AbilityValues"
+		{
+			"tooltip_range"		"1000 1000 1000 1000"
+		}
 	}
 	"greevil_echo_slam"
 	{
@@ -4156,6 +4503,13 @@
 	{
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
+	}
+	"greevil_miniboss_black_nightmare"
+	{
+		"AbilityValues"
+		{
+			"nightmare_dot_interval"		"1.0"
+		}
 	}
 	"greevil_miniboss_green_overgrowth"
 	{
@@ -4199,7 +4553,10 @@
 			"percent_damage"		"8"
 			"tick_rate"		"1.0"
 			"damage_duration"		"5.0"
+			"bonus_movespeed"		"-19 -26 -33 -40"
+			"night_vision_bonus"		"400"
 			"tree_destruction_radius"		"250"
+			"mana_cost_scepter"		"40"
 			"move_slow"		"19 26 33 40"
 		}
 	}
@@ -4216,6 +4573,7 @@
 			"projectile_speed"		"650"
 			"bonus_movespeed"		"-25"
 			"movespeed_slow_tooltip"		"25"
+			"duration"		"4.0"
 			"secondary_projectile_speed"		"650"
 		}
 	}
@@ -4237,6 +4595,7 @@
 		"AbilityValues"
 		{
 			"radius"		"500"
+			"damage_amplification"		"0"
 			"bonus_attack_speed"		"70"
 			"duration"		"3.25 4 4.75"
 			"bonus_duration_per_hero"		"0"
@@ -4252,6 +4611,7 @@
 		{
 			"AbilityCastRange"		"600 700 800 900"
 			"move_speed_slow_pct"		"20 30 40 50"
+			"cast_range_tooltip"		"600 700 800 900"
 		}
 		"HasScepterUpgrade"		"0"
 	}
@@ -4272,7 +4632,10 @@
 	{
 		"AbilityValues"
 		{
+			"activation_delay"		"2.0"
 			"duration"		"50"
+			"wraith_speed"		"400"
+			"spark_damage"		"100 160 220 280"
 			"ministun_duration"		"0.4 0.5 0.6 0.7"
 			"base_activation_delay"		"2.0"
 			"spark_damage_base"		"100 160 220 280"
@@ -6637,7 +7000,11 @@
 	{
 		"AbilityValues"
 		{
-			"necromastery_damage_per_soul"		"2"
+			"necromastery_damage_per_soul"
+			{
+				"value"		"2"
+				"hero_levelup"		"0"
+			}
 			"necromastery_max_souls"		"18 24 30 36"
 			"souls_per_kill"		"1"
 			"souls_per_hero_kill"		"12"
@@ -6761,6 +7128,29 @@
 		"AbilityValues"
 		{
 			"strength_damage"		"0"
+		}
+	}
+	"roshan_spell_block"
+	{
+		"AbilityValues"
+		{
+			"status_resistance"		"0"
+		}
+	}
+	"roshan_devotion"
+	{
+		"AbilityValues"
+		{
+			"slow_resistance"		"0"
+		}
+	}
+	"brewmaster_earth_spell_immunity"
+	{
+		"AbilityValues"
+		{
+			"magic_resist"		"0"
+			"status_resist"		"0"
+			"slow_resist"		"0"
 		}
 	}
 }

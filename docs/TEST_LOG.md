@@ -197,3 +197,22 @@ pagina HTML, imaginea de previzualizare și tagline‑ul din `addoninfo.txt`). R
 | `items2` (lotul 2 de iteme) | OK – Manta +10 %, Vlad +4 armură / +3 regen, Vlad + Basilius +0, block‑ul nu se cumulează, Mekansm 252 apoi lockout, HotD +3, Flutter 35 → 0, Scythe omoară iluzia |
 | `audit1` (Eclipse, Omnislash, Poison Touch, Toss, Tricks, Bloodrage) | OK – fără erori; trei linii ieșeau din așteptări din cauza condițiilor de test, re‑rulate cu condiții corecte (`recheck`, `recheck3`): **Omnislash** exact 9 lovituri de 189‑199 pe un Axe cu 1,86 armură (= 200‑225 × 0,90; diferențele inițiale erau creep‑ul care prelua lovituri și atacurile normale ale lui Juggernaut după ultimate); **Toss** aliatul aruncat 520 → 520 HP lângă o țintă imobilizată (codul nu dă daune aliaților); **Bloodrage** ucigașul din echipa adversă creep‑ului 100 → 240 HP (+137 = 25 % din 550, plus regen) |
 | Test de fum eroii 1‑30 (nivel 25, fiecare abilitate activă lansată) | OK – 0 erori Lua, jocul stabil; închis curat cu `quit` |
+
+## 11. Verificare completă a valorilor 6.88 în motor (2026‑10‑13, după‑amiaza)
+
+Metodă nouă: pentru fiecare abilitate din sloturile celor 112 eroi (630) și fiecare item din shop (156), scriptul de test
+citește din motor ce s‑a încărcat efectiv (nivel maxim, cooldown, mana, cost și toate valorile speciale pe fiecare nivel,
+17 664 de valori) și le compară cu fișierele 6.88f. Apoi teste țintite pe eroi de nivel 25, pe invocări și pe neutrali.
+
+| Problemă găsită | Corecție | Verificat în joc |
+|---|---|---|
+| Pasivele care azi cresc cu nivelul eroului (Desolate +1,5/nivel, Poison Sting, Hunter in the Night, încărcăturile Stone Remnant) păstrau creșterea peste valorile 6.88 | generatorul scrie `"hero_levelup" "0"` pentru orice cheie suprascrisă care are creștere | Desolate 65, Poison Sting 15 s / 24, Stone Remnant 6 încărcături la nivel 25 |
+| Night Stalker nu putea învăța Hunter in the Night (motorul îi forțează nivelul maxim la 0) | rescris în Lua (`dota688_night_stalker_hunter_in_the_night`) | se învață, noaptea +35 % viteză (295 → 398) |
+| Serpent Wards făceau 0 daune (în 6.88 daunele veneau din abilitate) | generatorul de unități pune 40–45 / 60–65 / 80–85 | 80–85 la nivel 3 |
+| Mecanici 6.88 lipsă la abilități built‑in | `dota688/extras_688.lua` | Morph +6 AGI/+6 STR; splash la wards (2 ținte lovite); Phantom Strike se termină după 4 atacuri; Corrosive Skin −25 % viteză la 1300; Thunder Clap 8 s creep / 4 s erou; Reverse Polarity 5 s creep / 3,75 s erou |
+| Mecanici moderne active (chei care există doar în clientul curent) | `tools/manual_overrides.json` (187 de intrări) | Death Ward, Glimpse, Double Edge, Shockwave, Skeleton Walk, Coup de Grace pe dagger, Spell Steal, Reactive Armor, lupi, golemi, panda, Corrosive Skin, spiderlings, Split Shot, Mystic Snake; la unități: Roshan, Satyr, Mud Golem, Dark Troll, Vhoul, Thunder Lizard, Cyclone, Earth Brewling, Arcane Boots |
+| Diferențe rămase în verificarea de valori | toate explicate: costurile citite 0 fără erou sunt corecte la cast (Blade Fury 90, Hoof Stomp 130, Searing Arrows 10, Healing Ward 140), Manta 30 s melee / 45 s ranged, Unrefined Fireblast 60 % din mana curentă, Magic Stick/Wand 13 s și +15 HP/mana pe încărcătură | – |
+| Invocări comparate cu unitățile 6.88 | Golem, Panda, lupi, Eidolon, Boar, Spirit Bear, zombi, Plague Ward, Death Ward (60/105/150) identice; Familiars primesc daunele din încărcături prin Lua | – |
+| Unități (după corecții) | Earth Brewling imun la vrăji (Fire/Storm nu); Dark Troll: 2 scheleți, 250 HP, 23–25 daune; Satyr: −100 mana fix la un Lion cu 112 INT; Arcane Boots fără aură de mana; Roshan 0 % rezistență la status și la slow | – |
+| Statistici de bază ale eroilor (nivel 1) | atribute de bază și creșteri, atribut principal, viteză, rază de atac, BAT, attack point, viteza proiectilului, daune, viziune zi/noapte și armura efectivă (bază + AGI/7): **0 diferențe** la 111 eroi (Silencer verificat separat ca erou al jucătorului, crash doar în Workshop Tools) | – |
+| Test de fum pe build‑ul corectat (nivel 25, fiecare abilitate activă lansată) | **0 erori Lua**: eroii 1–80 și 82–112 | – |
