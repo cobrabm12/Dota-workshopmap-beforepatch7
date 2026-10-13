@@ -2,8 +2,16 @@
 {
 	"addontitle"		"Dota 6.88 Classic"
 	"addontagline"		"Dota 2 as it was in 6.88f, the last patch before 7.00: no talents, no backpack, no shrines, the old map, 112 heroes."
+	// Valve format (see dota_addons/conquest, manyplayer_example): "maps" is a space-separated string and each map
+	// gets its own block. Written as a block, the Arcade found no map: empty map list in Create Lobby, Play did nothing.
+	"maps"			"dota_688"
+	"IsPlayable"	"1"
 	"MaxPlayers"		"10"
 	"TeamCount"			"2"
+	"dota_688"
+	{
+		"MaxPlayers"	"10"
+	}
 	"Default_Keys"
 	{
 		"01"
@@ -11,14 +19,6 @@
 			"Key"		"F1"
 			"Command"	"+dota_camera_center_on_hero"
 			"Name"		"Camera on hero"
-		}
-	}
-	"maps"
-	{
-		"dota_688"
-		{
-			"MaxPlayers"	"10"
-			"TeamCount"		"2"
 		}
 	}
 }

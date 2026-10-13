@@ -72,6 +72,21 @@ def main():
     units = kv.load(os.path.join(NPC, "npc_units_custom.txt"))["DOTAUnits"]
     shops = kv.load(os.path.join(ADDON, "scripts", "shops.txt"))["dota_shops"]
 
+    # addoninfo.txt in formatul Valve: "maps" text cu numele hartilor (nu bloc), IsPlayable 1, harta compilata exista.
+    # Cu "maps" ca bloc, Arcade-ul nu vedea nicio harta (Create Lobby fara harti, Play nu pornea nimic).
+    info = kv.load(os.path.join(ADDON, "addoninfo.txt"), follow_base=False)["AddonInfo"]
+    maps = info.get("maps")
+    if not isinstance(maps, str) or not maps.split():
+        err('addoninfo.txt: "maps" trebuie sa fie un text cu numele hartilor (ex. "maps" "dota_688"), nu un bloc')
+    else:
+        for m in maps.split():
+            if not os.path.exists(os.path.join(ADDON, "maps", m + ".vpk")):
+                err(f"addoninfo.txt: harta {m} nu are maps/{m}.vpk compilat")
+            if info.get_kv(m) is None:
+                warn(f'addoninfo.txt: harta {m} nu are bloc propriu cu "MaxPlayers"')
+    if info.get_str("IsPlayable") != "1":
+        err('addoninfo.txt: lipseste "IsPlayable" "1" (necesar ca jocul sa poata fi pornit din Arcade)')
+
     known_ab = {n for n, _ in AN.blocks()} | {n for n, _ in custom_ab.blocks()}
     known_it = {n for n, _ in IN.blocks()} | {n for n, _ in custom_it.blocks()}
 
