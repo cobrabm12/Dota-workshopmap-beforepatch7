@@ -7,6 +7,8 @@ The addon runs on the current engine, so anything not listed here (interface, ma
 engine fixes) stays as it is today. The exact numbers below come from Valve's original 6.88f game files
 (`reference/6.88f/`) and from the 7.00+ changelogs; see `docs/REGULI_6.88.md` for every rule and its source.
 
+**Full version with every hero and every item (pictures, values current → 6.88):** https://cobrabm12.github.io/Dota-workshopmap-beforepatch7/patchnotes/
+
 ![Dota 6.88 Classic](../content/dota_addons/dota_688/workshop/preview.jpg)
 
 | | |

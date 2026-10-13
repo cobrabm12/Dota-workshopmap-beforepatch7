@@ -5,7 +5,7 @@ before 7.00: no talents, no backpack, no shrines / outposts / neutral items, the
 Attribute Bonus, 25 levels, and the gold / XP / respawn / buyback / rune rules of that time.
 
 Steam Workshop: **[Dota 6.88 Classic](https://steamcommunity.com/sharedfiles/filedetails/?id=3818931233)** ·
-**[Full patch notes](docs/PATCH_NOTES.md)** (everything that differs from the current Dota 2, Valve‑style)
+**[Full patch notes](https://cobrabm12.github.io/Dota-workshopmap-beforepatch7/patchnotes/)** (Valve‑style: every hero with its abilities, every item, the map and the rules; [text version](docs/PATCH_NOTES.md))
 
 ![Mid lane on the 6.88 map](docs/img/mid_lane.jpg)
 
@@ -81,6 +81,7 @@ docs/                             <- documentation (Romanian)
 ```
 python tools/gen_overrides.py     # regenerates KV, shop, tooltips, docs/STATUS.md
 python tools/check_addon.py      # consistency checks (slots, Lua scripts, recipes, shop, syntax, sounds, particles) – must report 0 errors
+python tools/gen_patchnotes.py   # regenerates docs/patchnotes/index.html (the HTML patch notes, published with GitHub Pages)
 ```
 
 The generator reads `reference/6.88f` and `reference/current` and writes the files in `scripts/npc/` and `docs/STATUS.md`.
