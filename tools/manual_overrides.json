@@ -70,7 +70,8 @@
     "creep_multiplier": "1"
   },
   "doom_bringer_devour": {
-    "hero_ability_steal_time": "99999"
+    "hero_ability_steal_time": "99999",
+    "creep_level": "99"
   },
   "earthshaker_fissure": {
     "AbilityCastRange": "1400",
@@ -329,7 +330,8 @@
   "item_blade_mail": {
     "passive_reflection_constant": "0",
     "passive_reflection_pct": "0",
-    "active_reflection_pct": "100"
+    "active_reflection_pct": "100",
+    "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
   },
   "item_desolator": {
     "bonus_damage_per_kill": "0",
@@ -358,7 +360,9 @@
   },
   "item_radiance": {
     "evasion": "0",
-    "aura_damage_illusions": "0"
+    "aura_damage_illusions": "0",
+    "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE",
+    "upgrade_day_vision": "0"
   },
   "item_vanguard": {
     "block_chance": "100"
@@ -368,7 +372,8 @@
   },
   "item_refresher": {
     "refresh_items": "1",
-    "bonus_mana_regen": "0"
+    "bonus_mana_regen": "0",
+    "CooldownPausedOutOfInventory": "0"
   },
   "item_bottle": {
     "rune_expire_time": "120"
@@ -726,5 +731,6 @@
   },
   "_comentariu_valori_motor_2026_10_13": "Chei ale motorului curent care adaugau efecte inexistente in 6.88: Phantasm cu 50% sansa fara Scepter, Shadow Word fara arie, Gust fara reveal, Insatiable Hunger fara aura, Amplify Damage fara balti, Snowball fara stun per aliat, Stone Remnant fara bonus de daune, Grave Chill fara Familiars, Spark Wraith fara slow, Phase Shift blocat de root.",
   "_comentariu_hoof_stomp_windup": "Hoof Stomp: in motorul curent windup_time (0.5) este intarzierea (abilitatea e IMMEDIATE, cast point-ul nu se aplica); ramane 0.5 = cast point-ul 6.88. Testat: cu 0, stun dupa 0.1 s.",
-  "_comentariu_comportament_2026_10_13": "Comportament 6.88 redat prin cheie top-level: Waning Rift fara tinta (acum punct; max_distance 0 opreste teleportul). Phantom Edge ramane toggle (ca PASSIVE motorul nu mai declanseaza rush-ul; implicit e activ). Mana Drain pe aliati e blocat in Dota688Extras.OrderFilter (motorul ignora AbilityUnitTargetTeam)."
+  "_comentariu_comportament_2026_10_13": "Comportament 6.88 redat prin cheie top-level: Waning Rift fara tinta (acum punct; max_distance 0 opreste teleportul). Phantom Edge ramane toggle (ca PASSIVE motorul nu mai declanseaza rush-ul; implicit e activ). Mana Drain pe aliati e blocat in Dota688Extras.OrderFilter (motorul ignora AbilityUnitTargetTeam).",
+  "_comentariu_iteme_2026_10_13": "Audit iteme built-in: Refresher fara cooldown oprit in stash, Blade Mail si Radiance cu comportamentul 6.88 (fara IGNORE_CHANNEL / IGNORE_INVISIBLE adaugate dupa), Radiance fara upgrade_day_vision."
 }
