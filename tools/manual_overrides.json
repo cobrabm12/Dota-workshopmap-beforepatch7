@@ -529,9 +529,7 @@
     "move_slow": "0"
   },
   "earth_spirit_rolling_boulder": {
-    "damage_str": "0",
-    "stun_duration": "0",
-    "rock_bonus_duration": "0"
+    "damage_str": "0"
   },
   "earthshaker_enchant_totem": {
     "bonus_attack_range": "0"
@@ -725,6 +723,6 @@
   "puck_phase_shift": {
     "AbilityBehavior": "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
   },
-  "_comentariu_valori_motor_2026_10_13": "Chei ale motorului curent care adaugau efecte inexistente in 6.88: Phantasm cu 50% sansa fara Scepter, Shadow Word fara arie, Gust fara reveal, Insatiable Hunger fara aura, Amplify Damage fara balti, Snowball fara stun per aliat, Stone Remnant fara bonus de daune, Grave Chill fara Familiars, Spark Wraith fara slow, Rolling Boulder fara stun, Phase Shift blocat de root.",
+  "_comentariu_valori_motor_2026_10_13": "Chei ale motorului curent care adaugau efecte inexistente in 6.88: Phantasm cu 50% sansa fara Scepter, Shadow Word fara arie, Gust fara reveal, Insatiable Hunger fara aura, Amplify Damage fara balti, Snowball fara stun per aliat, Stone Remnant fara bonus de daune, Grave Chill fara Familiars, Spark Wraith fara slow, Phase Shift blocat de root.",
   "_comentariu_hoof_stomp_windup": "Hoof Stomp: in motorul curent windup_time (0.5) este intarzierea (abilitatea e IMMEDIATE, cast point-ul nu se aplica); ramane 0.5 = cast point-ul 6.88. Testat: cu 0, stun dupa 0.1 s."
 }

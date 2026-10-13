@@ -7,6 +7,7 @@
 --   Thunder Clap: creepii raman incetiniti 8 s (eroii 4 s).
 --   Reverse Polarity: creepii sunt stunati 3/4/5 s (eroii 2.25/3/3.75 s).
 --   Earth Brewling (Primal Split): Spell Immunity = imun la vraji (motorul curent da doar 60% rezistenta la magie).
+--   Frostbite: pe creepi tine 10 s (eroii 1.5-3 s); Frost Arrows: pe creepi 7 s (eroii 1.5 s).
 Dota688Extras = Dota688Extras or {}
 local F = "dota688/extras_688"
 LinkLuaModifier("modifier_dota688_extra_morph", F, LUA_MODIFIER_MOTION_NONE)
@@ -16,6 +17,7 @@ LinkLuaModifier("modifier_dota688_extra_corrosive", F, LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_extra_corrosive_slow", F, LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_extra_creep_duration", F, LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_extra_spell_immunity", F, LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_dota688_extra_frost_arrows", F, LUA_MODIFIER_MOTION_NONE)
 
 local function val(unit, ability, key)
 	local a = unit and not unit:IsNull() and unit:FindAbilityByName(ability)
@@ -103,6 +105,7 @@ function modifier_dota688_extra_corrosive_slow:GetModifierMoveSpeedBonus_Percent
 local CREEP_DURATION = {
 	brewmaster_thunder_clap = { modifier = "modifier_brewmaster_thunder_clap", key = "duration_creeps", radius = "radius" },
 	magnataur_reverse_polarity = { modifier = "modifier_magnataur_reverse_polarity_stun", key = "creep_stun_duration", radius = "pull_radius" },
+	crystal_maiden_frostbite = { modifier = "modifier_crystal_maiden_frostbite", key = "creep_duration", target = true },
 }
 modifier_dota688_extra_creep_duration = hidden(class({}))
 function modifier_dota688_extra_creep_duration:DeclareFunctions() return { MODIFIER_EVENT_ON_ABILITY_EXECUTED } end
@@ -113,17 +116,41 @@ function modifier_dota688_extra_creep_duration:OnAbilityExecuted(params)
 	if not cfg then return end
 	local caster, ability = self:GetParent(), params.ability
 	local dur = ability:GetSpecialValueFor(cfg.key)
-	local radius = ability:GetSpecialValueFor(cfg.radius) + 200
 	if dur <= 0 then return end
+	local target = params.target
 	Dota688Timers:After(0.1, function()
 		if caster:IsNull() then return end
-		for _, u in ipairs(FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY,
-			DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)) do
+		local units
+		if cfg.target then
+			units = (target and not target:IsNull()) and { target } or {}
+		else
+			units = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ability:GetSpecialValueFor(cfg.radius) + 200, DOTA_UNIT_TARGET_TEAM_ENEMY,
+				DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+		end
+		for _, u in ipairs(units) do
 			if not u:IsConsideredHero() then
 				for _, m in ipairs(u:FindAllModifiersByName(cfg.modifier)) do
 					if m:GetCaster() == caster then m:SetDuration(dur, true) end
 				end
 			end
+		end
+	end)
+end
+
+------------------------------------------------------------------------------------------------
+-- Frost Arrows: incetinirea pe creepi tine frost_arrows_creep_duration (7 s)
+modifier_dota688_extra_frost_arrows = hidden(class({}))
+function modifier_dota688_extra_frost_arrows:DeclareFunctions() return { MODIFIER_EVENT_ON_ATTACK_LANDED } end
+function modifier_dota688_extra_frost_arrows:OnAttackLanded(params)
+	if not IsServer() or params.attacker ~= self:GetParent() then return end
+	local t, caster = params.target, self:GetParent()
+	if not t or t:IsNull() or t:IsConsideredHero() or t:IsBuilding() then return end
+	local dur = val(caster, "drow_ranger_frost_arrows", "frost_arrows_creep_duration")
+	if dur <= 0 then return end
+	Dota688Timers:After(0, function()
+		if t:IsNull() then return end
+		for _, m in ipairs(t:FindAllModifiersByName("modifier_drow_ranger_frost_arrows_slow")) do
+			if m:GetCaster() == caster and m:GetElapsedTime() < 0.2 then m:SetDuration(dur, true) end
 		end
 	end)
 end
@@ -140,6 +167,8 @@ local HERO_EXTRAS = {
 	npc_dota_hero_viper = { "modifier_dota688_extra_corrosive" },
 	npc_dota_hero_brewmaster = { "modifier_dota688_extra_creep_duration" },
 	npc_dota_hero_magnataur = { "modifier_dota688_extra_creep_duration" },
+	npc_dota_hero_crystal_maiden = { "modifier_dota688_extra_creep_duration" },
+	npc_dota_hero_drow_ranger = { "modifier_dota688_extra_frost_arrows" },
 }
 -- apelat din gamemode la npc_spawned, pentru orice unitate (eroi, iluzii, invocari)
 function Dota688Extras.OnSpawned(unit)
