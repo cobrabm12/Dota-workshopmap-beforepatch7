@@ -217,3 +217,15 @@ citește din motor ce s‑a încărcat efectiv (nivel maxim, cooldown, mana, cos
 | Statistici de bază ale eroilor (nivel 1) | atribute de bază și creșteri, atribut principal, viteză, rază de atac, BAT, attack point, viteza proiectilului, daune, viziune zi/noapte și armura efectivă (bază + AGI/7): **0 diferențe** la 111 eroi (Silencer verificat separat ca erou al jucătorului, crash doar în Workshop Tools) | – |
 | Test de fum pe build‑ul corectat (nivel 25, fiecare abilitate activă lansată) | **0 erori Lua**: eroii 1–80 și 82–112 | – |
 | Meci jucat prin HUD pe build‑ul final (Techies pe mid, ~22 min de joc la viteză dublă, mouse + tastatură) | OK – 0 erori Lua. Abilități învățate din „+” (Land Mines 60 mana, Stasis Trap 80, Suicide 100, Minefield Sign cu punct de abilitate ca în 6.88, Remote Mines la nivel 6 cu 300/450/600 și „următorul nivel la 11”); Land Mines au omorât creepi Dire (aurul la Techies), Remote Mines plantate și detonate cu Focused Detonate; aur pasiv 1,67/s; valuri de creepi la 30 s; respawn real 20,2 s la nivel 4 și 39,2 s la nivel 9 (5 + 3,8 × nivel), buyback 100 + 1,5 × nivel² + 0,25 × timp; Suicide: respawn la jumătate (~21,5 s la nivel 10), cooldown 160. Mesajele de client „unknown modifier type modifier_dota688_tower_aura/fountain” la încărcarea hărții sunt inofensive (surse de aură ascunse, calculate pe server; efectele ajung normal la client) | – |
+
+## 12. Test din Arcade, cu versiunea descărcată din Workshop (2026‑10‑13, după‑amiaza)
+
+Până aici testele rulau în Workshop Tools, din fișierele proiectului. Testat acum ca un jucător: clientul Dota normal → Arcade →
+„Dota 6.88 Classic” → Update → Play / Create Custom Lobby.
+
+| Test | Rezultat |
+|---|---|
+| Play / Create Custom Lobby pe versiunea publicată dimineață | **BUG** – lista de hărți din Create Lobby era goală, iar Play nu pornea nimic (exact ce a pățit un prieten al autorului). Cauza: în `addoninfo.txt`, `"maps"` era scris ca bloc; Dota cere un text cu numele hărților (ca în exemplele Valve `conquest`, `manyplayer_example`) și `"IsPlayable" "1"`. REPARAT, plus o verificare nouă în `check_addon.py` |
+| Jucător care nu alege eroul la timp | **BUG** – rămânea fără erou (HUD gol, 0 aur). REPARAT: la Strategy Time / Pre‑game primește un erou random (fără bonusul de +200 pentru random voluntar); testat în Workshop Tools (Dazzle random, 567 aur după penalizarea de întârziere a motorului) |
+| După re‑upload: Arcade → Update → Create Custom Lobby | OK – harta `dota_688` apare, lobby creat, Start Game → Accept → încărcare → Custom Game Setup → alegerea eroului (grila 6.88 fără Universal, 112 eroi) → Strategy Time cu 625 aur → joc pe harta 6.88 cu dialogul „Dota 6.88 rules”, regulile 6.88 active (creepi 6.88, aur pasiv), 0 erori Lua |
+| Notă pentru jucători | Jocul este „Player‑Hosted”: Play caută un lobby existent; dacă nu există niciunul, se folosește **Create Custom Lobby** → Create → Start Game |
