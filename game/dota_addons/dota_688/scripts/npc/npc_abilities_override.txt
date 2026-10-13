@@ -2836,6 +2836,7 @@
 		{
 			"duration_hero"		"6.0"
 			"duration_unit"		"20.0 20.0 20.0 20.0"
+			"landing_damage"		"0"
 		}
 	}
 	"brewmaster_storm_wind_walk"
@@ -4233,6 +4234,7 @@
 		{
 			"damage_per_second"		"2"
 			"hero_duration"		"10.0"
+			"regen_reduction"		"0"
 		}
 	}
 	"ghost_frost_attack"
@@ -4274,6 +4276,9 @@
 		"AbilityValues"
 		{
 			"duration"		"40.0"
+			"skeletons_created"		"2"
+			"skeletons_health"		"250"
+			"skeletons_damage"		"24"
 		}
 	}
 	"mud_golem_rock_destroy"
@@ -4291,6 +4296,7 @@
 		{
 			"damage"		"125"
 			"duration"		"0.6"
+			"damage_creeps"		"125"
 		}
 	}
 	"alpha_wolf_critical_strike"
@@ -4345,6 +4351,7 @@
 		"AbilityValues"
 		{
 			"burn_amount"		"100"
+			"int_multiplier"		"0"
 		}
 	}
 	"satyr_hellcaller_shockwave"
@@ -4386,6 +4393,7 @@
 			"speed_bonus"		"15"
 			"damage_bonus"		"15"
 			"radius"		"900"
+			"accuracy"		"0"
 		}
 	}
 	"black_dragon_dragonhide_aura"
@@ -7120,6 +7128,29 @@
 		"AbilityValues"
 		{
 			"strength_damage"		"0"
+		}
+	}
+	"roshan_spell_block"
+	{
+		"AbilityValues"
+		{
+			"status_resistance"		"0"
+		}
+	}
+	"roshan_devotion"
+	{
+		"AbilityValues"
+		{
+			"slow_resistance"		"0"
+		}
+	}
+	"brewmaster_earth_spell_immunity"
+	{
+		"AbilityValues"
+		{
+			"magic_resist"		"0"
+			"status_resist"		"0"
+			"slow_resist"		"0"
 		}
 	}
 }

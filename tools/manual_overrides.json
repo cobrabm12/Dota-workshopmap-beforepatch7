@@ -660,5 +660,37 @@
   "medusa_mystic_snake": {
     "movement_slow": "0"
   },
-  "_comentariu_2026_10_13": "Mecanici moderne gasite de verificarea din 13.10.2026 (chei care exista doar in clientul curent): Death Ward +50 raza, Glimpse daune pe distanta, Double Edge daune din STR, Shockwave slow/pull, scheleti la Skeleton Walk, crit 34% pe Stifling Dagger (6.88: aceeasi sansa ca Coup de Grace, 15%), reducere de cooldown la Spell Steal, 4 stack-uri Reactive Armor pe atac de erou, bash la lupii lui Lycan, 60% rezistenta la slow pentru golemi, Brawler pe panda, Corrosive Skin 1200 (6.88: 1400), bonus de daune la spiderlings, Split Shot = raza de atac + 150 (6.88: 700 fix; Medusa are 600), slow la Mystic Snake."
+  "_comentariu_2026_10_13": "Mecanici moderne gasite de verificarea din 13.10.2026 (chei care exista doar in clientul curent): Death Ward +50 raza, Glimpse daune pe distanta, Double Edge daune din STR, Shockwave slow/pull, scheleti la Skeleton Walk, crit 34% pe Stifling Dagger (6.88: aceeasi sansa ca Coup de Grace, 15%), reducere de cooldown la Spell Steal, 4 stack-uri Reactive Armor pe atac de erou, bash la lupii lui Lycan, 60% rezistenta la slow pentru golemi, Brawler pe panda, Corrosive Skin 1200 (6.88: 1400), bonus de daune la spiderlings, Split Shot = raza de atac + 150 (6.88: 700 fix; Medusa are 600), slow la Mystic Snake.",
+  "roshan_spell_block": {
+    "status_resistance": "0"
+  },
+  "roshan_devotion": {
+    "slow_resistance": "0"
+  },
+  "satyr_soulstealer_mana_burn": {
+    "int_multiplier": "0"
+  },
+  "mud_golem_hurl_boulder": {
+    "damage_creeps": "125"
+  },
+  "dark_troll_warlord_raise_dead": {
+    "skeletons_created": "2",
+    "skeletons_health": "250",
+    "skeletons_damage": "24"
+  },
+  "gnoll_assassin_envenomed_weapon": {
+    "regen_reduction": "0"
+  },
+  "big_thunder_lizard_wardrums_aura": {
+    "accuracy": "0"
+  },
+  "brewmaster_storm_cyclone": {
+    "landing_damage": "0"
+  },
+  "brewmaster_earth_spell_immunity": {
+    "magic_resist": "0",
+    "status_resist": "0",
+    "slow_resist": "0"
+  },
+  "_comentariu_2026_10_13_unitati": "Abilitati de unitati/iteme cu mecanici moderne: rezistente la Roshan, mana burn cu INT la Satyr, Mud Golem 150 pe creepi, Dark Troll 3 scheleti (6.88: 2, 250 HP, 24-25 daune), regen reduction la Vhoul, accuracy la Wardrums, daune la aterizare la Cyclone, Earth Brewling cu rezistente in loc de imunitate la vraji (imunitatea e in extras_688.lua), aura de mana si regen la Arcane Boots (6.88: doar Replenish Mana)."
 }

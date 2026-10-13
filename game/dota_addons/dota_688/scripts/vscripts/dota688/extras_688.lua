@@ -6,6 +6,7 @@
 --   Corrosive Skin: atacatorul e incetinit si la miscare (-10/15/20/25%), nu doar la atac.
 --   Thunder Clap: creepii raman incetiniti 8 s (eroii 4 s).
 --   Reverse Polarity: creepii sunt stunati 3/4/5 s (eroii 2.25/3/3.75 s).
+--   Earth Brewling (Primal Split): Spell Immunity = imun la vraji (motorul curent da doar 60% rezistenta la magie).
 Dota688Extras = Dota688Extras or {}
 local F = "dota688/extras_688"
 LinkLuaModifier("modifier_dota688_extra_morph", F, LUA_MODIFIER_MOTION_NONE)
@@ -14,6 +15,7 @@ LinkLuaModifier("modifier_dota688_extra_phantom_strike", F, LUA_MODIFIER_MOTION_
 LinkLuaModifier("modifier_dota688_extra_corrosive", F, LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_extra_corrosive_slow", F, LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dota688_extra_creep_duration", F, LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_dota688_extra_spell_immunity", F, LUA_MODIFIER_MOTION_NONE)
 
 local function val(unit, ability, key)
 	local a = unit and not unit:IsNull() and unit:FindAbilityByName(ability)
@@ -127,6 +129,11 @@ function modifier_dota688_extra_creep_duration:OnAbilityExecuted(params)
 end
 
 ------------------------------------------------------------------------------------------------
+-- Earth Brewling: imunitate la vraji permanenta (6.88: "Immune to spells.")
+modifier_dota688_extra_spell_immunity = hidden(class({}))
+function modifier_dota688_extra_spell_immunity:CheckState() return { [MODIFIER_STATE_MAGIC_IMMUNE] = true } end
+
+------------------------------------------------------------------------------------------------
 local HERO_EXTRAS = {
 	npc_dota_hero_morphling = { "modifier_dota688_extra_morph" },
 	npc_dota_hero_phantom_assassin = { "modifier_dota688_extra_phantom_strike" },
@@ -139,6 +146,7 @@ function Dota688Extras.OnSpawned(unit)
 	local name = unit:GetUnitName()
 	local list = HERO_EXTRAS[name]
 	if string.find(name, "npc_dota_shadow_shaman_ward", 1, true) == 1 then list = { "modifier_dota688_extra_ward_splash" } end
+	if string.find(name, "npc_dota_brewmaster_earth_", 1, true) == 1 then list = { "modifier_dota688_extra_spell_immunity" } end
 	if not list then return end
 	for _, m in ipairs(list) do
 		if not unit:HasModifier(m) then unit:AddNewModifier(unit, nil, m, {}) end
