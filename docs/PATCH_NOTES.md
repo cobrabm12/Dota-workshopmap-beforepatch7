@@ -126,6 +126,9 @@ The **original 6.88 map** (decompiled from the December 2016 client and recompil
   Orb, Caustic Finale), then the oldest item (Morbid Mask, Mask of Madness, Satanic, Helm of the Dominator,
   Desolator, Blight Stone, Eye of Skadi). Eye of Skadi works together with lifesteal and with Liquid Fire; on
   buildings, where lifesteal and Skadi do nothing, Desolator applies.
+* **Meepo:** clones only get Meepo's boots (the current game gives them every item's passive); they keep their
+  Attribute Bonus and boot attributes and get 20 % of Meepo's other item attributes.
+* **Skull Basher** cannot bash on Troll Warlord again (also Spirit Breaker, Faceless Void, Slardar).
 * **Black King Bar** gives 6.88 spell immunity again (the current item only gives debuff immunity).
 * **Stout Shield, Poor Man's Shield and Vanguard** follow the 6.88 damage block rule with Crimson Guard and Abyssal
   Blade: only the highest block applies. **Healing Salve** heals allies fully.
@@ -226,7 +229,6 @@ The **original 6.88 map** (decompiled from the December 2016 client and recompil
 * The 6.82–6.88 networth "comeback" component of kill gold and the 6.88 illusion kill bounty rules are
   approximated (see `docs/REGULI_6.88.md`, marked TODO).
 * Lone Druid's bear leash (Scepter) is in C++ and cannot be reproduced.
-* Meepo's clones share all of Meepo's items (6.88: only boots); not yet changed.
 * A Chain Lightning proc cannot cancel the built‑in hero orbs (Frost Arrows, Liquid Fire, Mana Break) on that
   attack; it does cancel the item orb effects.
 
