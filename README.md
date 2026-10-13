@@ -1,90 +1,92 @@
-# Dota 6.88 Classic – hartă Workshop „înainte de 7.00”
+# Dota 6.88 Classic – the "before 7.00" Workshop map
 
-Custom game pentru Dota 2 care recreează jocul așa cum era în **6.88f** (decembrie 2016), ultimul patch
-dinaintea lui 7.00: fără talente, fără backpack, fără shrine‑uri/outpost‑uri/iteme neutre, harta veche,
-112 eroi, Attribute Bonus, 25 de niveluri, aur/XP/respawn/buyback/rune după regulile de atunci.
+A Dota 2 custom game that recreates the game as it was in **6.88f** (December 2016), the last patch
+before 7.00: no talents, no backpack, no shrines / outposts / neutral items, the old map, 112 heroes,
+Attribute Bonus, 25 levels, and the gold / XP / respawn / buyback / rune rules of that time.
 
-Proiectul rulează pe motorul curent al Dota 2 (Workshop Tools), deci nu „dă jocul înapoi”, ci
-**suprascrie** tot ce s‑a schimbat: valorile eroilor, abilităților, itemelor și unităților vin direct
-din fișierele originale Valve de la 6.88f, iar regulile de joc sunt implementate în Lua.
+Steam Workshop: **[Dota 6.88 Classic](https://steamcommunity.com/sharedfiles/filedetails/?id=3818931233)**
 
-## Stare actuală (fundația)
+The project runs on the current Dota 2 engine (Workshop Tools), so it does not "roll the game back":
+it **overrides** everything that changed since. Hero, ability, item and unit values come straight from
+Valve's original 6.88f files, and the game rules are implemented in Lua.
 
-| Zonă | Stare |
+## Current state
+
+| Area | State |
 |---|---|
-| Date de referință 6.88f (eroi, abilități, iteme, unități, texte) | ✅ `reference/6.88f/` (fișierele originale Valve, din istoricul GameTracking‑Dota2) |
-| Generator automat de override‑uri 6.88 → motor curent | ✅ `tools/gen_overrides.py` + `tools/kv.py` |
-| 112 eroi activați cu statistici 6.88, 15 eroi noi dezactivați, talente/inate/fațete scoase | ✅ generat în `npc_heroes_custom.txt` |
-| Valori 6.88 pentru 530 abilități și 303 iteme (cooldown, mana, damage, rețete, prețuri, niveluri de ultimate 6/11/16) | ✅ generat în `npc_abilities_override.txt` |
-| 72 iteme apărute după 6.88 scoase din shop | ✅ |
-| Turnuri, barăci, Ancient, fântână, creepi, neutrali, Roshan, curieri cu statistici 6.88 | ✅ generat în `npc_units_custom.txt` (98 unități) |
-| Reguli de joc în Lua (aur, XP, nivel 25, respawn, buyback, rune, zi/noapte 4+4, Roshan, fără backpack, curier cumpărat) | ✅ `game/dota_addons/dota_688/scripts/vscripts/` – **netestat încă în joc** |
-| Abilități reworkate după 6.88 rescrise în Lua cu mecanica originală | ✅ 91 abilități de erou (toate cele dispărute + cele cu rework major: Riki, Techies, Lycan, Treant, Necrophos, Viper, Io, OD, Pudge, Slardar, Sven, Tiny, Undying, Visage, Wraith King…) – lista în `docs/STATUS.md` |
-| Iteme cu mecanica 6.88 rescrise în Lua (Heart, Skadi, S&Y, Halberd, Abyssal, Dagon, Veil, Medallion, Solar Crest, Octarine, Shiva, Scythe, Urn, Mek, Pipe, Greaves, Vlad, Basilius/Aquila, Soul Ring, Atos, E-Blade, Manta, Armlet, Battle Fury, Drums, Silver Edge, HotD, Bloodstone, Linken, MKB, Butterfly, Satanic, MoM, Phase, Treads, Diffusal, Midas, Iron Talon…) | ✅ 64 iteme + shop-ul cu layout-ul 6.88 (`shops.txt`) |
-| Abilități built-in cu mecanici noi dezactivate prin override manual (`tools/manual_overrides.json`) | ✅ 83 abilități/iteme (Mana Break, Heartstopper, Necromastery, Psionic Trap, Culling Blade, Invoker, consumabile…) |
-| Panorama: talente, backpack, slot neutru, slot TP ascunse | ✅ `content/.../panorama` – de verificat ID-urile la patch-uri noi |
-| Aghanim's Scepter ca în 6.88: item propriu (fără upgrade‑urile moderne), upgrade‑urile 6.88 reproduse per erou (built‑in unde sunt identice, altfel ultimate‑ul rescris în Lua), Alchemist îl poate da aliaților | ✅ `docs/AGHANIM.md` – 84 eroi: 83 reproduse, 1 imposibilă (Lone Druid: lesa ursului e în C++) |
-| Abilități rămase cu diferențe minore (Ogre Multicast, Medusa Split Shot, zombii lui Undying…) | 🔜 ~65, listate în `docs/STATUS.md`; nimic blocant |
-| Localizare | ✅ engleză, generată din textele 6.88 (jocul rămâne în engleză) |
-| Resurse (particule/modele) verificate față de clientul curent | ✅ |
-| Panou cu regulile 6.88 în HUD, spawn neutrali la 0:30 | ✅ de verificat în joc |
-| Harta 6.88: harta 6.88f originală, sursă Hammer în repo, compilată de noi în formatul curent (trigger‑e de shop/camp‑uri refăcute ca mesh‑uri, world layer‑ele bazei) | ✅ `docs/HARTA.md` – testată în joc |
-| Testare în Workshop Tools | 🔜 |
+| 6.88f reference data (heroes, abilities, items, units, texts) | ✅ `reference/6.88f/` (Valve's original files, from the GameTracking‑Dota2 history) |
+| Automatic 6.88 → current engine override generator | ✅ `tools/gen_overrides.py` + `tools/kv.py` |
+| 112 heroes enabled with 6.88 stats, 15 newer heroes disabled, talents / innates / facets removed | ✅ generated into `npc_heroes_custom.txt` |
+| 6.88 values for 530 abilities and 303 items (cooldown, mana, damage, recipes, prices, ultimate levels 6/11/16) | ✅ generated into `npc_abilities_override.txt` |
+| 72 items added after 6.88 removed from the shop | ✅ |
+| Towers, barracks, Ancient, fountain, creeps, neutrals, Roshan, couriers with 6.88 stats | ✅ generated into `npc_units_custom.txt` (98 units) |
+| Game rules in Lua (gold, XP, level 25, respawn, buyback, runes, 4+4 day/night, Roshan, no backpack, bought courier) | ✅ `game/dota_addons/dota_688/scripts/vscripts/` |
+| Abilities reworked after 6.88 rewritten in Lua with their original mechanics | ✅ ~190 hero abilities (every removed one plus those with major reworks: Riki, Techies, Lycan, Treant, Necrophos, Viper, Io, OD, Pudge, Slardar, Sven, Tiny, Undying, Visage, Wraith King…) – list in `docs/STATUS.md` |
+| Items with 6.88 mechanics rewritten in Lua (Heart, Skadi, S&Y, Halberd, Abyssal, Dagon, Veil, Medallion, Solar Crest, Octarine, Shiva, Scythe, Urn, Mek, Pipe, Greaves, Vlad, Basilius/Aquila, Soul Ring, Atos, E‑Blade, Manta, Armlet, Battle Fury, Drums, Silver Edge, HotD, Bloodstone, Linken, Lotus, MKB, Butterfly, Satanic, MoM, Phase, Treads, Diffusal, Midas, Iron Talon…) | ✅ 76 items + the shop with the 6.88 layout (`shops.txt`) |
+| Built‑in abilities with new mechanics disabled through manual overrides (`tools/manual_overrides.json`) | ✅ 124 abilities / items (Mana Break, Heartstopper, Necromastery, Psionic Trap, Culling Blade, Invoker, consumables…) |
+| Panorama: talents, backpack, neutral slot, TP slot, 7.x timers hidden; 6.88 courier controls | ✅ `content/.../panorama` – IDs to be re‑checked after new patches |
+| Aghanim's Scepter as in 6.88: own item (no modern upgrades), the 6.88 upgrades reproduced per hero, Alchemist can give it to allies | ✅ `docs/AGHANIM.md` – 84 heroes: 83 reproduced, 1 impossible (Lone Druid: the bear leash is in C++) |
+| Localization | ✅ English, generated from the 6.88 texts |
+| Assets (particles / models) verified against the current client | ✅ |
+| The 6.88 map: the original 6.88f map, Hammer source in the repo, compiled by us in the current format | ✅ `docs/HARTA.md` – tested in game |
+| In‑game testing (112 heroes, 76 items, rules, map, courier, play‑through) | ✅ `docs/TEST_LOG.md` |
+| Steam Workshop | ✅ published (id 3818931233); republish from Workshop Tools → Asset Browser → Tools → Workshop Manager |
 
-Detalii: `docs/REGULI_6.88.md` (toate regulile și sursa lor), `docs/STATUS.md` (raport generat), `docs/AGHANIM.md` (scepter per erou),
-`docs/HARTA.md` (harta 6.88: import, compilare, teste), `docs/ROADMAP.md`.
+Details (in Romanian): `docs/REGULI_6.88.md` (every rule and its source), `docs/STATUS.md` (generated report),
+`docs/AGHANIM.md` (scepter per hero), `docs/HARTA.md` (the 6.88 map: import, compilation, tests),
+`docs/TEST_LOG.md` (in‑game test results), `docs/ROADMAP.md`.
 
-## Structura repo‑ului
+## Repository layout
 
 ```
-game/dota_addons/dota_688/        <- addon-ul (se copiază/linkează în dota 2 beta/game/dota_addons/)
+game/dota_addons/dota_688/        <- the addon (copy or link into dota 2 beta/game/dota_addons/)
   addoninfo.txt
-  resource/addon_*.txt            <- texte
-  scripts/npc/                    <- KV: eroi, abilități, iteme, unități (generate + custom)
-  scripts/vscripts/               <- Lua: reguli de joc, modifiers, abilități custom
-content/dota_addons/dota_688/     <- sursa hărții (Hammer), panorama (se copiază în .../content/dota_addons/)
-reference/6.88f/                  <- fișierele originale Valve din 6.88f
-reference/current/                <- fișierele Valve curente (pentru diff)
-tools/                            <- generatorul (Python 3, fără dependențe)
-docs/                             <- documentație (română)
+  resource/addon_*.txt            <- texts
+  scripts/npc/                    <- KV: heroes, abilities, items, units (generated + custom)
+  scripts/vscripts/               <- Lua: game rules, modifiers, custom abilities and items
+content/dota_addons/dota_688/     <- map source (Hammer), panorama, sound events, Workshop preview
+reference/6.88f/                  <- Valve's original 6.88f files
+reference/current/                <- Valve's current files (for diffs)
+tools/                            <- the generator and checks (Python 3, no dependencies)
+docs/                             <- documentation (Romanian)
 ```
 
-## Instalare pentru testare
+## Installing for testing
 
-1. În Steam: Dota 2 → Proprietăți → DLC → bifează **Dota 2 Workshop Tools DLC**.
-2. Clonează repo‑ul și copiază (sau fă symlink/junction):
+1. In Steam: Dota 2 → Properties → DLC → enable **Dota 2 Workshop Tools DLC**.
+2. Clone the repository and copy (or symlink / junction):
    * `game/dota_addons/dota_688` → `...\dota 2 beta\game\dota_addons\dota_688`
    * `content/dota_addons/dota_688` → `...\dota 2 beta\content\dota_addons\dota_688`
-3. Pornește `dota2cfg.exe` / Workshop Tools, alege addon‑ul `dota_688`.
-4. Construiește harta 6.88 (`docs/HARTA.md`): `python tools/import_harta_688.py` (are nevoie de `maps/dota.vpk` din
-   clientul 6.88f, descărcat o dată cu DepotDownloader, și de Source2Viewer‑CLI; scrie sursa Hammer
-   `content/dota_addons/dota_688/maps/dota_688.vmap` și fișierele ei), apoi `python tools/compile_harta_688.py`
-   și în consolă `dota_launch_custom_game dota_688 dota_688`.
+3. Start Workshop Tools and pick the `dota_688` addon.
+4. Build the 6.88 map (`docs/HARTA.md`): `python tools/import_harta_688.py` (needs `maps/dota.vpk` from the
+   6.88f client, downloaded once with DepotDownloader, and Source2Viewer‑CLI; it writes the Hammer source
+   `content/dota_addons/dota_688/maps/dota_688.vmap` and its files), then `python tools/compile_harta_688.py`,
+   and in the console `dota_launch_custom_game dota_688 dota_688`.
 
-## Cum adaugi o reimplementare 6.88
+## Adding a 6.88 reimplementation
 
-1. Abilitate de erou: creează `scripts/vscripts/abilities/heroes/dota688_<nume_original>.lua` (clasa Lua cu același nume).
-   Item: `scripts/vscripts/items/item_dota688_<nume_fără_item_>.lua` (poți folosi `Dota688DefineItem` din `items/dota688_item_base.lua`).
-2. Rulează `python3 tools/gen_overrides.py`. Generatorul:
-   * copiază blocul KV original din 6.88 (`AbilitySpecial`, cooldown, mana, etc.) în `npc_abilities_generated.txt` / `npc_items_generated.txt`, cu `BaseClass ability_lua/item_lua` și textura originală;
-   * pune abilitatea în slotul eroului în locul celei built-in; pentru iteme scoate built-in-ul din shop, generează rețeta custom și rescrie rețetele care îl folosesc;
-   * copiază tooltip-urile 6.88 în `resource/addon_english.txt`.
-3. Valorile se citesc în Lua cu `self:GetSpecialValueFor("cheie_din_6.88")`.
+1. Hero ability: create `scripts/vscripts/abilities/heroes/dota688_<original_name>.lua` (a Lua class with the same name).
+   Item: `scripts/vscripts/items/item_dota688_<name_without_item_>.lua` (you can use `Dota688DefineItem` from `items/dota688_item_base.lua`).
+2. Run `python tools/gen_overrides.py`. The generator:
+   * copies the original 6.88 KV block (`AbilitySpecial`, cooldown, mana, etc.) into `npc_abilities_generated.txt` / `npc_items_generated.txt`, with `BaseClass ability_lua/item_lua` and the original texture;
+   * puts the ability into the hero's slot in place of the built‑in one; for items it removes the built‑in from the shop, generates the custom recipe and rewrites the recipes that use it;
+   * copies the 6.88 tooltips into `resource/addon_english.txt`.
+3. Values are read in Lua with `self:GetSpecialValueFor("key_from_6.88")`.
 
-## Regenerarea fișierelor KV și verificările
+## Regenerating the KV files and running the checks
 
 ```
-python3 tools/gen_overrides.py     # regenerează KV, shop, tooltip-uri, docs/STATUS.md
-python3 tools/check_addon.py      # verificări de consistență (sloturi, scripturi Lua, rețete, shop, sintaxă)
+python tools/gen_overrides.py     # regenerates KV, shop, tooltips, docs/STATUS.md
+python tools/check_addon.py      # consistency checks (slots, Lua scripts, recipes, shop, syntax, sounds, particles) – must report 0 errors
 ```
 
-Citește `reference/6.88f` și `reference/current`, scrie fișierele din `scripts/npc/` și `docs/STATUS.md`.
-Abilitățile/itemele definite manual în `npc_abilities_custom.txt` / `npc_items_custom.txt` (reimplementări Lua)
-sunt detectate după nume și puse automat în sloturile eroilor în locul variantei built‑in.
+The generator reads `reference/6.88f` and `reference/current` and writes the files in `scripts/npc/` and `docs/STATUS.md`.
+Abilities / items defined manually in `npc_abilities_custom.txt` / `npc_items_custom.txt` (Lua reimplementations)
+are detected by name and placed automatically into the heroes' slots in place of the built‑in variant.
 
-Pentru a actualiza `reference/current` după un patch nou al Dota 2, vezi `tools/README.md`.
+To update `reference/current` after a new Dota 2 patch, see `tools/README.md`.
 
-## Licență
+## License
 
-Codul proiectului: GPL‑3.0 (vezi `LICENSE`). Fișierele din `reference/` sunt date de joc Valve,
-incluse doar ca referință pentru un custom game publicat în Steam Workshop al Dota 2.
+Project code: GPL‑3.0 (see `LICENSE`). The files under `reference/` are Valve game data, included only as
+reference for a custom game published in the Dota 2 Steam Workshop.

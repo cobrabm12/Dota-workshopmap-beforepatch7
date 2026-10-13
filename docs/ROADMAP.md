@@ -33,4 +33,4 @@
 - [x] Panorama: panou cu regulile 6.88 (buton „6.88” sus, apare automat la start)
 - [x] Timing neutrali 0:30 (încercare prin input pe `npc_dota_neutral_spawner`; de verificat în joc)
 - [ ] Durate rune (Haste 25 s), viteză maximă 522, bounty iluzii
-- [ ] Publicare în Workshop
+- [x] Publicare în Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3818931233 (2026‑10‑13; Workshop Tools → Asset Browser → Tools → Workshop Manager; imaginea: `content/dota_addons/dota_688/workshop/preview.jpg`)
