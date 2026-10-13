@@ -501,6 +501,32 @@ def build_ability_override(name: str, old: kv.KV, cur: kv.KV, top_keys: list[str
     return out if len(out) else None
 
 
+def _hidden_688(aname: str, A0) -> bool:
+    if aname == "generic_hidden":
+        return True
+    orig = aname[len(CUSTOM_ABILITY_PREFIX):] if aname.startswith(CUSTOM_ABILITY_PREFIX) else aname
+    old = A0.get_kv(orig)
+    return old is not None and "DOTA_ABILITY_BEHAVIOR_HIDDEN" in (old.get_str("AbilityBehavior") or "")
+
+
+def arrange_hotkey_slots(slots: list[str], A0) -> list[str]:
+    """Motorul curent leaga tastele de pozitie: pozitiile 1-6 = Q W E D F R (ultimate-ul e mereu pe pozitia 6).
+    In 6.88 tastele veneau din ordinea abilitatilor vizibile (Q W E R / Q W E D R / Q W E D F R). Fara rearanjare,
+    la eroii cu 4 abilitati ultimate-ul ajungea pe D si Attribute Bonus pe F (gasit in joc).
+    Ordinea: 3 vizibile (Q W E), abilitatile vizibile din mijloc si apoi sub-abilitatile ascunse (care apar mai tarziu:
+    Battle Cry, Launch Snowball, Spirits In/Out...) pe D/F, ultima vizibila (ultimate-ul) pe R; restul ascunse si
+    Attribute Bonus dupa pozitia 6, fara tasta."""
+    attr = [s for s in slots if "attribute_bonus" in s]
+    body = [s for s in slots if s not in attr]
+    vis = [s for s in body if not _hidden_688(s, A0)]
+    hid = [s for s in body if _hidden_688(s, A0)]
+    if len(vis) < 4:
+        return slots
+    middle = vis[3:-1] + hid
+    df = middle[:2] + ["generic_hidden"] * (2 - len(middle[:2]))
+    return vis[:3] + df + [vis[-1]] + middle[2:] + attr
+
+
 def gen_heroes(H0, HN, A0, AN, custom: set[str], report: dict) -> tuple[kv.KV, list[str]]:
     base0 = H0.get_kv("npc_dota_hero_base")
     baseN = HN.get_kv("npc_dota_hero_base")
@@ -571,6 +597,7 @@ def gen_heroes(H0, HN, A0, AN, custom: set[str], report: dict) -> tuple[kv.KV, l
                     used_slots.append("dota688_empty")
         if not own_attribute_bonus:
             used_slots.append("dota688_attribute_bonus")  # Attribute Bonus clasic, implementat in Lua
+        used_slots = arrange_hotkey_slots(used_slots, A0)
         for i, aname in enumerate(used_slots, start=1):
             o[f"Ability{i}"] = aname
         for i in range(len(used_slots) + 1, MAX_ABILITY_SLOT + 1):
