@@ -50,21 +50,23 @@ local function TeamNetWorth(team)
 	return nw
 end
 
--- componenta "comeback" a aurului AoE (6.82-6.88), doar pentru echipa cu net worth mai mic (vezi C.AOE_COMEBACK)
-local function ComebackGold(n, killerTeam, victimTeam, victimPID)
-	local allied, enemy = TeamNetWorth(killerTeam), TeamNetWorth(victimTeam)
+-- componenta "comeback" a aurului AoE (6.82-6.88), doar pentru echipa cu net worth mai mic (vezi C.AOE_COMEBACK).
+-- nw = net worth-urile din momentul mortii (inainte de pierderea de aur si de aurul de kill): { [echipa] = ..., dying = ... }
+local function ComebackGold(n, killerTeam, victimTeam, nw)
+	local allied, enemy = nw[killerTeam] or 0, nw[victimTeam] or 0
 	if allied <= 0 or enemy <= allied then return 0 end
 	local nwFactor = math.min(1, enemy / allied - 1)
 	local disadvantage = math.min(1, (enemy - allied) / C.AOE_COMEBACK_NW_CAP)
-	local dyingNW = (victimPID >= 0) and (PlayerResource:GetNetWorth(victimPID) or 0) or 0
 	local c = C.AOE_COMEBACK[n]
-	return c[1] * dyingNW * nwFactor + c[2] * disadvantage
+	return c[1] * nw.dying * nwFactor + c[2] * disadvantage
 end
 
 function M:OnHeroKilled(victim, attacker)
 	local victimPID = OwnerPlayerID(victim)
 	local level = victim:GetLevel()
 	local victimTeam = victim:GetTeamNumber()
+	local nw = { [DOTA_TEAM_GOODGUYS] = TeamNetWorth(DOTA_TEAM_GOODGUYS), [DOTA_TEAM_BADGUYS] = TeamNetWorth(DOTA_TEAM_BADGUYS),
+		dying = (victimPID >= 0) and (PlayerResource:GetNetWorth(victimPID) or 0) or 0 }
 
 	-- pierdere de aur: 30 x nivel, doar din aurul nesigur. GoldFilter blocheaza DOTA_ModifyGold_Death negativ cat
 	-- timp awarding e false (pierderea moderna a motorului), deci pierderea noastra trece doar cu awarding = true.
@@ -133,7 +135,7 @@ function M:OnHeroKilled(victim, attacker)
 	-- aur AoE pentru eroii din raza
 	if n > 0 then
 		local aoe = C.AOE_GOLD[n]
-		local aoeGold = math.floor(aoe[1] + aoe[2] * level + ComebackGold(n, killerTeam, victimTeam, victimPID))
+		local aoeGold = math.floor(aoe[1] + aoe[2] * level + ComebackGold(n, killerTeam, victimTeam, nw))
 		for _, hero in ipairs(nearby) do
 			local pid = OwnerPlayerID(hero)
 			if pid >= 0 then Dota688GiveGold(pid, aoeGold, true, DOTA_ModifyGold_HeroKill) end
