@@ -30,7 +30,7 @@ Dota688DefineItem("item_dota688_vladmir", "items/item_dota688_vladmir", {
 	modifier = {
 		GetModifierConstantHealthRegen = function() return 0 end,   -- hp_regen e al aurei
 		OnDestroy = function(self)
-			if IsServer() and not self:GetParent():HasItemInInventory("item_dota688_vladmir") then self:GetParent():RemoveModifierByName("modifier_dota688_vladmir_aura") end
+			if IsServer() then Dota688ReapplyAura(self:GetParent(), "modifier_dota688_vladmir_aura", { "item_dota688_vladmir" }) end
 		end,
 	},
 })

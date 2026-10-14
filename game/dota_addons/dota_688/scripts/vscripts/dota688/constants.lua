@@ -16,7 +16,19 @@ C.KILL_STREAK_GOLD     = { [3]=60, [4]=120, [5]=180, [6]=240, [7]=300, [8]=360, 
 C.KILL_RADIUS          = 1300         -- raza pentru aur/XP de asistenta (7.07 -> 1500)
 -- aur "AoE" per erou aflat in raza, dupa numarul de eroi (1..5): a + b x nivel victima
 C.AOE_GOLD = { {150, 6}, {100, 5}, {40, 4}, {25, 3}, {20, 3} }
--- TODO: componenta "comeback" (diferenta de networth intre echipe) din 6.82-6.88 nu este inca implementata.
+-- Componenta "comeback" a aurului AoE (6.82-6.88, scoasa in 7.00), adunata la aurul AoE al fiecarui erou din raza:
+--   comeback = c1[n] x NW-ul eroului ucis x NWfactor + c2[n] x min(1, dezavantaj de NW al echipei / 4000)
+--   NWfactor = (NW echipa inamica / NW echipa proprie) - 1, intre 0 si 1  -> 0 cand echipa ucigasului nu e in urma
+--   c1 = 0.0375/0.0375/0.0375/0.03/0.0225, c2 = 100/75/50/35/25 pentru 1..5 eroi in raza
+-- Sursa: Dota 2 Wiki, "Gold", sectiunea "Assists (AoE gold)", arhiva din 19.11.2016 (6.88):
+--   https://web.archive.org/web/20161119102248/http://dota2.gamepedia.com/Gold
+-- Pe wiki, toata suma AoE (si partea fixa) se mai inmulteste cu [1.2 - 0.1 x (rangul de NW al eroului ucis - 1)] si cu
+-- un factor 0.75-1.25 dupa rangul de NW al fiecarui erou care ajuta; acesti doi factori NU sunt aplicati aici.
+C.AOE_COMEBACK = { {0.0375, 100}, {0.0375, 75}, {0.0375, 50}, {0.03, 35}, {0.0225, 25} }
+C.AOE_COMEBACK_NW_CAP = 4000
+-- First Blood: bonus de aur sigur o singura data pe meci. Wiki-ul "Gold" (aceeasi arhiva 6.88): "The first hero that is
+-- killed in a match gives a bonus 150 reliable gold to the killer".
+C.FIRST_BLOOD_GOLD = 150
 
 -- Experienta ----------------------------------------------------------------
 -- XP total necesar pentru a atinge nivelul N (6.88, 25 niveluri; tabelul din notele 7.00)
@@ -91,7 +103,7 @@ C.ROSHAN_EXTRA_DROPS = { "item_refresher_shard", "item_aghanims_blessing_roshan"
 C.DISABLE_BACKPACK     = true            -- 7.00 a adaugat backpack-ul; refuzam itemele in sloturile 7-9
 C.PREGAME_TIME         = 90
 C.TREE_REGROW_TIME     = 300
-C.ILLUSION_BOUNTY      = false           -- 7.00 a adaugat bounty pentru iluzii (TODO: filtrare)
+C.ILLUSION_BOUNTY      = false           -- 7.00 a adaugat bounty pentru iluzii; false = fara aur/XP (Dota688GoldXP:OnUnitSpawned)
 
 -- Abilitati 7.x pe care motorul le adauga singur unitatilor (nu sunt in KV) -> {ability = {modifieri de scos}}
 C.MODERN_UNIT_ABILITIES = {

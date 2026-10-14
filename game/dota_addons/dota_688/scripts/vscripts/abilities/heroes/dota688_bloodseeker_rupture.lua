@@ -48,7 +48,7 @@ function modifier_dota688_rupture:OnIntervalThink()
 	local d = (pos - self.last):Length2D()
 	self.last = pos
 	if d <= 1 then return end
-	local dmg = math.min(a:GetSpecialValueFor("damage_cap_amount"), d * a:GetSpecialValueFor("movement_damage_pct") / 100)
+	local dmg = math.min(Dota688Val(self, "damage_cap_amount"), d * Dota688Val(self, "movement_damage_pct") / 100)
 	if d > 1300 then return end   -- teleport/blink: fara daune (6.88)
 	ApplyDamage({ victim = p, attacker = self:GetCaster(), damage = dmg, damage_type = DAMAGE_TYPE_PURE, ability = a })
 end

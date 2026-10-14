@@ -71,6 +71,7 @@ function modifier_dota688_tossed:Land()
 	local me, a, caster = self:GetParent(), self:GetAbility(), self:GetCaster()
 	local pos = GetGroundPosition(me:GetAbsOrigin(), me)
 	me:SetAbsOrigin(pos)
+	if not a or a:IsNull() or not caster or caster:IsNull() then self:Destroy() return end   -- abilitatea a disparut in zbor
 	local dmg = a:Damage()
 	EmitSoundOnLocationWithCaster(pos, "Ability.TossImpact", caster)
 	local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_tiny/tiny_toss_impact.vpcf", PATTACH_WORLDORIGIN, nil)
@@ -93,4 +94,5 @@ function modifier_dota688_tossed:OnDestroy()
 	FindClearSpaceForUnit(me, me:GetAbsOrigin(), true)
 end
 function modifier_dota688_tossed:CheckState() return { [MODIFIER_STATE_STUNNED] = true, [MODIFIER_STATE_NO_UNIT_COLLISION] = true } end
+function modifier_dota688_tossed:DeclareFunctions() return { MODIFIER_PROPERTY_OVERRIDE_ANIMATION } end
 function modifier_dota688_tossed:GetOverrideAnimation() return ACT_DOTA_FLAIL end

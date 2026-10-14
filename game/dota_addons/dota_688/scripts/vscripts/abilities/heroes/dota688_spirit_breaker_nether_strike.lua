@@ -13,6 +13,13 @@ function dota688_spirit_breaker_nether_strike:GetCooldown(level)
 	if Dota688HasScepter(self:GetCaster()) then return self:GetLevelSpecialValueFor("cooldown_scepter", level) end
 	return self.BaseClass.GetCooldown(self, level)
 end
+-- chei 6.88 ale lui Greater Bash care nu mai exista in KV-ul curent (GetSpecialValueFor ar da 0)
+local BASH_688 = { knockback_distance = { 143, 152, 158, 162 }, knockback_duration = { 0.5, 0.5, 0.5, 0.5 }, movespeed_duration = { 3, 3, 3, 3 } }
+local function bashVal(bash, key)
+	local v = bash:GetSpecialValueFor(key)
+	if v ~= 0 or not BASH_688[key] then return v end
+	return BASH_688[key][math.max(1, math.min(4, bash:GetLevel()))]
+end
 function dota688_spirit_breaker_nether_strike:Bash(target)
 	local caster = self:GetCaster()
 	local bash = caster:FindAbilityByName("spirit_breaker_greater_bash")
@@ -20,12 +27,12 @@ function dota688_spirit_breaker_nether_strike:Bash(target)
 	local dmg = caster:GetMoveSpeedModifier(caster:GetBaseMoveSpeed(), false) * bash:GetSpecialValueFor("damage") / 100
 	ApplyDamage({ victim = target, attacker = caster, damage = dmg, damage_type = DAMAGE_TYPE_MAGICAL, ability = bash })
 	local dir = target:GetAbsOrigin() - caster:GetAbsOrigin(); dir.z = 0
-	Dota688Knockback(target, caster, bash, dir:Normalized(), bash:GetSpecialValueFor("knockback_distance"), bash:GetSpecialValueFor("knockback_duration"))
+	Dota688Knockback(target, caster, bash, dir:Normalized(), bashVal(bash, "knockback_distance"), bashVal(bash, "knockback_duration"))
 	Dota688Stun(target, caster, bash, bash:GetSpecialValueFor("duration"))
 	target:EmitSound("Hero_SpiritBreaker.GreaterBash")
 	local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 	ParticleManager:ReleaseParticleIndex(fx)
-	caster:AddNewModifier(caster, bash, "modifier_dota688_nether_strike_haste", { duration = bash:GetSpecialValueFor("movespeed_duration") })
+	caster:AddNewModifier(caster, bash, "modifier_dota688_nether_strike_haste", { duration = bashVal(bash, "movespeed_duration") })
 end
 function dota688_spirit_breaker_nether_strike:OnSpellStart()
 	local caster, target = self:GetCaster(), self:GetCursorTarget()

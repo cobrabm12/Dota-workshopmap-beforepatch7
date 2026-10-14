@@ -30,6 +30,7 @@ function modifier_dota688_fiends_grip:IsDebuff() return true end
 function modifier_dota688_fiends_grip:IsPurgable() return false end
 function modifier_dota688_fiends_grip:IsStunDebuff() return true end
 function modifier_dota688_fiends_grip:GetEffectName() return "particles/units/heroes/hero_bane/bane_fiends_grip.vpcf" end
+function modifier_dota688_fiends_grip:DeclareFunctions() return { MODIFIER_PROPERTY_OVERRIDE_ANIMATION } end
 function modifier_dota688_fiends_grip:GetOverrideAnimation() return ACT_DOTA_FLAIL end
 function modifier_dota688_fiends_grip:OnCreated()
 	if not IsServer() then return end

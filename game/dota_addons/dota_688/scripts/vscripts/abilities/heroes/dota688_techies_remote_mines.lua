@@ -35,9 +35,10 @@ function Dota688Techies.DetonateRemote(mine)
 	local m = mine:FindModifierByName("modifier_dota688_techies_remote_mine")
 	if not m then return end
 	local a, caster = m:GetAbility(), m:GetCaster()
-	if GameRules:GetGameTime() - m.start < a:GetSpecialValueFor("activation_time") then return end
-	local damage, radius = a:GetSpecialValueFor("damage"), a:GetSpecialValueFor("radius")
-	if Dota688HasScepter(caster) then damage, radius = a:GetSpecialValueFor("damage_scepter"), a:GetSpecialValueFor("radius_scepter") end
+	if not caster or caster:IsNull() then return end
+	if GameRules:GetGameTime() - m.start < Dota688Val(m, "activation_time") then return end
+	local damage, radius = Dota688Val(m, "damage"), Dota688Val(m, "radius")
+	if Dota688HasScepter(caster) then damage, radius = Dota688Val(m, "damage_scepter"), Dota688Val(m, "radius_scepter") end
 	Dota688Techies.Explode(mine, caster, a, damage, DAMAGE_TYPE_MAGICAL, radius,
 		"particles/units/heroes/hero_techies/techies_remote_mines_detonate.vpcf", "Hero_Techies.RemoteMine.Detonate")
 	AddFOWViewer(caster:GetTeamNumber(), mine:GetAbsOrigin(), a:GetSpecialValueFor("vision_radius"), a:GetSpecialValueFor("vision_duration"), false)

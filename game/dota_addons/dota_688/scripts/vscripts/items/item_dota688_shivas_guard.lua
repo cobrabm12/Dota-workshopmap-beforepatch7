@@ -12,8 +12,8 @@ Dota688DefineItem("item_dota688_shivas_guard", "items/item_dota688_shivas_guard"
 	end,
 	modifier = {
 		OnDestroy = function(self)
-			if IsServer() and not self:GetParent():HasItemInInventory("item_dota688_shivas_guard") then
-				self:GetParent():RemoveModifierByName("modifier_dota688_shivas_aura")
+			if IsServer() then
+				Dota688ReapplyAura(self:GetParent(), "modifier_dota688_shivas_aura", { "item_dota688_shivas_guard" })
 			end
 		end,
 	},

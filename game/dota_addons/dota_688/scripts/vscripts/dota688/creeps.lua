@@ -331,7 +331,7 @@ local function HeroesNear(team, pos, radius)
 		FIND_ANY_ORDER, false)
 	local out, seen = {}, {}
 	for _, u in ipairs(units) do
-		if u:IsRealHero() and u:IsAlive() and u:GetTeamNumber() == team then
+		if u:IsRealHero() and u:IsAlive() and u:GetTeamNumber() == team and not u.dota688_copy then
 			local hero = u
 			if u:IsClone() or u:IsTempestDouble() then
 				local pid = u:GetPlayerOwnerID()

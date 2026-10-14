@@ -6,7 +6,10 @@ local TRANSFER_DURATION = 20   -- Liquipedia (6.84-7.06): "Transfers Spellblock 
 LinkLuaModifier("modifier_dota688_linkens", "items/item_dota688_sphere", LUA_MODIFIER_MOTION_NONE)
 Dota688DefineItem("item_dota688_sphere", "items/item_dota688_sphere", {
 	onCreated = function(self)
-		if IsServer() and not self:GetParent():HasModifier("modifier_dota688_linkens") then self:GetParent():AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_dota688_linkens", {}) end
+		if not IsServer() then return end
+		local m = self:GetParent():FindModifierByName("modifier_dota688_linkens")
+		if m and m:GetDuration() > 0 then m:Destroy(); m = nil end   -- blocul primit prin Transfer e inlocuit de cel propriu
+		if not m then self:GetParent():AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_dota688_linkens", {}) end
 	end,
 	modifier = {
 		OnDestroy = function(self)
@@ -19,7 +22,12 @@ Dota688DefineItem("item_dota688_sphere", "items/item_dota688_sphere", {
 			if not target or target == caster then return end
 			local own = caster:FindModifierByName("modifier_dota688_linkens")
 			if own then own.transferred_until = GameRules:GetGameTime() + TRANSFER_DURATION end
-			target:AddNewModifier(caster, self, "modifier_dota688_linkens", { duration = TRANSFER_DURATION })
+			local tm = target:FindModifierByName("modifier_dota688_linkens")
+			if tm and tm:GetDuration() <= 0 then
+				tm.ready = 0   -- aliatul are propriul Linken's: nu-l inlocuim cu unul temporar, doar ii reincarcam blocul
+			else
+				target:AddNewModifier(caster, self, "modifier_dota688_linkens", { duration = TRANSFER_DURATION })
+			end
 			target:EmitSound("DOTA_Item.LinkensSphere.Activate")
 		end,
 	},

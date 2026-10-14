@@ -19,7 +19,11 @@ function modifier_dota688_brewmaster_drunken_brawler:GetModifierEvasion_Constant
 	if self:GetParent():PassivesDisabled() then return 0 end
 	local a = self:GetAbility()
 	if not a or a:IsNull() then return 0 end
-	if GameRules:GetGameTime() - (self.lastDodge or 0) >= a:GetSpecialValueFor("last_proc") then return 100 end
+	if GameRules:GetGameTime() - (self.lastDodge or 0) >= a:GetSpecialValueFor("last_proc") then
+		-- atacul evitat garantat nu ajunge in OnAttacked: resetam cronometrul aici, altfel evaziunea ramane 100% la nesfarsit
+		if IsServer() then self.lastDodge = GameRules:GetGameTime() end
+		return 100
+	end
 	return a:GetSpecialValueFor("dodge_chance")
 end
 function modifier_dota688_brewmaster_drunken_brawler:GetModifierPreAttack_CriticalStrike(params)

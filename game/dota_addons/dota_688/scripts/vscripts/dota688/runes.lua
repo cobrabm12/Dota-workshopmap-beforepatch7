@@ -268,6 +268,9 @@ function M:AwardBounty(pid)
 	-- Greevil's Greed (Alchemist, 6.88): runele Bounty valoreaza x3/4/5/6
 	local greed = hero and hero:FindAbilityByName("dota688_alchemist_goblins_greed")
 	if greed and greed:GetLevel() > 0 then gold = gold * (2 + greed:GetLevel()) end
+	-- ModifyGold din Lua nu trece prin filtrul de aur: penalizarea de buyback (-60%) se aplica aici
+	if Dota688GoldXP then gold = Dota688GoldXP:Penalize(pid, gold, DOTA_ModifyGold_BountyRune) end
+	if gold <= 0 then gold = 0 end
 	self.awarding = true
 	local ok, err = pcall(function() PlayerResource:ModifyGold(pid, gold, false, DOTA_ModifyGold_BountyRune) end)
 	self.awarding = false

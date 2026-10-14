@@ -6,7 +6,12 @@ Dota688DefineItem("item_dota688_orb_of_venom", "items/item_dota688_orb_of_venom"
 	onAttackLanded = function(self, params)
 		local target = params.target
 		if not target or target:IsBuilding() or target:IsOther() or target:IsMagicImmune() or target:GetTeamNumber() == self:GetParent():GetTeamNumber() then return end
-		target:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_dota688_venom", { duration = Dota688Val(self, "poison_duration") })
+		-- otrava e Unique Attack Modifier (6.88): se aplica doar daca itemul castiga atacul (dota688/uam.lua)
+		local parent, a, dur = self:GetParent(), self:GetAbility(), Dota688Val(self, "poison_duration")
+		Dota688UAM:Queue(parent, target, a, function()
+			if target:IsNull() or not target:IsAlive() or a:IsNull() or parent:IsNull() then return end
+			target:AddNewModifier(parent, a, "modifier_dota688_venom", { duration = dur })
+		end)
 	end,
 })
 modifier_dota688_venom = class({})

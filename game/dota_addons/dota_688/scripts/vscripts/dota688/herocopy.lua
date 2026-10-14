@@ -4,8 +4,11 @@ LinkLuaModifier("modifier_dota688_herocopy", "dota688/herocopy", LUA_MODIFIER_MO
 
 -- noUltimates: Hybrid (6.88: "can cast all of that hero's current, non-ultimate abilities"); Vengeance Illusion le are pe toate
 function Dota688CreateHeroCopy(source, owner, pos, duration, outPct, inPct, noUltimates)
-	local u = CreateUnitByName(source:GetUnitName(), pos, true, owner, owner:GetPlayerOwner(), owner:GetTeamNumber())
-	if not u then return nil end
+	-- npc_spawned vine chiar in timpul CreateUnitByName: indicatorul ii spune lui OnNPCSpawned ca unitatea e o copie
+	Dota688HeroCopySpawning = true
+	local ok, u = pcall(CreateUnitByName, source:GetUnitName(), pos, true, owner, owner:GetPlayerOwner(), owner:GetTeamNumber())
+	Dota688HeroCopySpawning = false
+	if not ok or not u then return nil end
 	u.dota688_copy = true
 	u:SetOwner(owner)
 	u:SetControllableByPlayer(owner:GetPlayerOwnerID(), true)

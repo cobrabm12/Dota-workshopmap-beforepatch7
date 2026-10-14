@@ -6,14 +6,18 @@ local function Feedback(self, params)
 	if not target or target:IsBuilding() or target:IsOther() or target:GetTeamNumber() == self:GetParent():GetTeamNumber() or target:IsMagicImmune() then return end
 	local a = self:GetAbility()
 	local parent = self:GetParent()
-	local burn = a:GetSpecialValueFor("feedback_mana_burn")
-	if parent:IsIllusion() then burn = parent:IsRangedAttacker() and a:GetSpecialValueFor("feedback_mana_burn_illusion_ranged") or a:GetSpecialValueFor("feedback_mana_burn_illusion_melee") end
-	burn = math.min(burn, target:GetMana())
-	if burn <= 0 then return end
-	target:Script_ReduceMana(burn, a)
-	ApplyDamage({ victim = target, attacker = parent, damage = burn * a:GetSpecialValueFor("damage_per_burn"), damage_type = DAMAGE_TYPE_PHYSICAL, ability = a })
-	local fx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_manaburn.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
-	ParticleManager:ReleaseParticleIndex(fx)
+	-- Feedback e Unique Attack Modifier (6.88): se aplica doar daca itemul castiga atacul (dota688/uam.lua)
+	Dota688UAM:Queue(parent, target, a, function()
+		if target:IsNull() or not target:IsAlive() or a:IsNull() or parent:IsNull() then return end
+		local burn = a:GetSpecialValueFor("feedback_mana_burn")
+		if parent:IsIllusion() then burn = parent:IsRangedAttacker() and a:GetSpecialValueFor("feedback_mana_burn_illusion_ranged") or a:GetSpecialValueFor("feedback_mana_burn_illusion_melee") end
+		burn = math.min(burn, target:GetMana())
+		if burn <= 0 then return end
+		target:Script_ReduceMana(burn, a)
+		ApplyDamage({ victim = target, attacker = parent, damage = burn * a:GetSpecialValueFor("damage_per_burn"), damage_type = DAMAGE_TYPE_PHYSICAL, ability = a })
+		local fx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_manaburn.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+		ParticleManager:ReleaseParticleIndex(fx)
+	end)
 end
 local function Purge(self)
 	local caster, target = self:GetCaster(), self:GetCursorTarget()

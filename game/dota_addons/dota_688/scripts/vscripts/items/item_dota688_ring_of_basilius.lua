@@ -22,8 +22,8 @@ local function Define(name)
 		end,
 		modifier = {
 			OnDestroy = function(self)
-				if IsServer() and not self:GetParent():HasItemInInventory("item_dota688_ring_of_basilius") and not self:GetParent():HasItemInInventory("item_dota688_ring_of_aquila") then
-					self:GetParent():RemoveModifierByName("modifier_dota688_basilius_aura")
+				if IsServer() then
+					Dota688ReapplyAura(self:GetParent(), "modifier_dota688_basilius_aura", { "item_dota688_ring_of_aquila", "item_dota688_ring_of_basilius" })
 				end
 			end,
 		},

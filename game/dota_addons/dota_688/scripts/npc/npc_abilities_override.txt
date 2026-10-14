@@ -137,10 +137,19 @@
 		"AbilityValues"
 		{
 			"tooltip_duration"		"14.0 14.0 14.0 14.0"
-			"distance_scepter"		"900"
+			"distance_scepter"
+			{
+				"value"		"900"
+				"special_bonus_scepter"		"=900"
+			}
 			"duration"		"0.75"
 			"aftershock_range"		"300"
 			"bonus_attack_range"		"0"
+			"scepter_cleave_pct"
+			{
+				"value"		"0"
+				"special_bonus_scepter"		"=0"
+			}
 		}
 	}
 	"earthshaker_aftershock"
@@ -810,9 +819,17 @@
 			"projectile_speed"		"4000 4000 4000 4000"
 			"armor_bonus"		"-3 -4 -5 -6"
 			"speed_scepter"		"1500"
-			"aoe_scepter"		"240"
+			"aoe_scepter"
+			{
+				"value"		"240"
+				"special_bonus_scepter"		"=240"
+			}
 			"cooldown_scepter"		"7"
-			"cast_range_scepter"		"1800"
+			"cast_range_scepter"
+			{
+				"value"		"1800"
+				"special_bonus_scepter"		"=1800"
+			}
 		}
 	}
 	"tidehunter_kraken_shell"
@@ -996,15 +1013,23 @@
 		"AbilityCastRange"		"600"
 		"AbilityCooldown"		"80.0"
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NONE"
 		"AbilityValues"
 		{
 			"damage"		"60 105 150"
 			"bounces"		"0 0 0"
 			"bounces_scepter"		"4 4 4"
-			"bounce_radius"		"650 650 650"
+			"bounce_radius"
+			{
+				"value"		"650 650 650"
+				"special_bonus_scepter"		"=650 =650 =650"
+			}
 			"bonus_accuracy"		"0"
 			"bonus_attack_range"		"0"
+			"scepter_lifesteal"
+			{
+				"value"		"0"
+				"special_bonus_scepter"		"=0"
+			}
 		}
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"		"5"
@@ -1947,7 +1972,6 @@
 	"weaver_geminate_attack"
 	{
 		"AbilityCooldown"		"6.0 5.0 4.0 3.0"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NONE"
 		"AbilityValues"
 		{
 			"bonus_damage"		"0"
@@ -1958,7 +1982,11 @@
 		"AbilityCastRange"		"1000"
 		"AbilityValues"
 		{
-			"AbilityCooldown"		"60 50 40"
+			"AbilityCooldown"
+			{
+				"value"		"60 50 40"
+				"special_bonus_scepter"		"=16 =16 =16"
+			}
 			"cooldown_scepter"		"16"
 			"cast_range_tooltip_scepter"		"1000"
 		}
@@ -2066,7 +2094,11 @@
 		{
 			"duration"		"3.0 3.5 4.0"
 			"grab_radius"		"400"
-			"grab_radius_scepter"		"400"
+			"grab_radius_scepter"
+			{
+				"value"		"400"
+				"special_bonus_scepter"		"=400"
+			}
 			"damage_scepter"		"100"
 			"damage"		"0 0 0"
 		}
@@ -2765,8 +2797,16 @@
 			"slow_rate"		"5 3 2"
 			"tooltip_duration"		"5.0 5.0 5.0"
 			"creep_root_duration"		"3.0 3.0 3.0"
-			"max_charges"		"3"
-			"charge_restore_time"		"40"
+			"max_charges"
+			{
+				"value"		"0"
+				"special_bonus_scepter"		"=3"
+			}
+			"charge_restore_time"
+			{
+				"value"		"40"
+				"special_bonus_scepter"		"=40"
+			}
 			"charge_restore_time_tooltip_scepter"		"40"
 		}
 		"RequiredLevel"		"6"
@@ -2867,6 +2907,11 @@
 			"decay_duration"		"45"
 			"str_steal_scepter"		"10"
 			"creep_damage_multiplier"		"1"
+			"str_steal"
+			{
+				"value"		"4"
+				"special_bonus_scepter"		"=10"
+			}
 		}
 	}
 	"undying_soul_rip"
@@ -4370,8 +4415,17 @@
 			"bonus_movespeed"		"-19 -26 -33 -40"
 			"night_vision_bonus"		"400"
 			"tree_destruction_radius"		"250"
-			"mana_cost_scepter"		"40"
+			"mana_cost_scepter"
+			{
+				"value"		"40"
+				"special_bonus_scepter"		"=40"
+			}
 			"move_slow"		"19 26 33 40"
+			"movement_scepter"
+			{
+				"value"		"0"
+				"special_bonus_scepter"		"=0"
+			}
 		}
 	}
 	"winter_wyvern_splinter_blast"
@@ -4504,11 +4558,6 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"AbilityValues"
-		{
-			"damage_bonus"		"140"
-			"damage_bonus_ranged"		"115"
-		}
 	}
 	"item_faerie_fire"
 	{
@@ -4740,11 +4789,6 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"AbilityValues"
-		{
-			"health_regen"		"50"
-		}
-		"AbilityDuration"		"8"
 	}
 	"item_dust"
 	{
@@ -4814,21 +4858,11 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"AbilityValues"
-		{
-			"health_regen"		"7.2"
-		}
-		"AbilityDuration"		"16"
 	}
 	"item_tango_single"
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"AbilityValues"
-		{
-			"health_regen"		"7.2"
-		}
-		"AbilityDuration"		"16"
 	}
 	"item_courier"
 	{
@@ -5512,10 +5546,6 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"AbilityValues"
-		{
-			"block_chance"		"100"
-		}
 	}
 	"item_recipe_crimson_guard"
 	{
@@ -5878,12 +5908,6 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-		"AbilityValues"
-		{
-			"bonus_damage_per_kill"		"0"
-			"bonus_damage_per_assist"		"0"
-			"max_damage"		"0"
-		}
 	}
 	"item_recipe_yasha"
 	{
@@ -6532,196 +6556,6 @@
 	{
 		"ItemPurchasable"		"0"
 		"ShouldBeSuggested"		"0"
-	}
-	"nevermore_necromastery"
-	{
-		"AbilityValues"
-		{
-			"necromastery_damage_per_soul"
-			{
-				"value"		"2"
-				"hero_levelup"		"0"
-			}
-			"necromastery_max_souls"		"18 24 30 36"
-			"souls_per_kill"		"1"
-			"souls_per_hero_kill"		"12"
-			"necromastery_soul_release"		"0.5"
-		}
-	}
-	"bloodseeker_thirst"
-	{
-		"AbilityValues"
-		{
-			"min_bonus_pct"		"75"
-			"bonus_movement_speed"		"16 24 32 40"
-		}
-	}
-	"axe_culling_blade"
-	{
-		"AbilityValues"
-		{
-			"damage"		"250 325 400"
-			"armor_bonus"		"0"
-			"armor_per_stack"		"0"
-			"speed_bonus"		"40 40 40"
-		}
-	}
-	"lion_finger_of_death"
-	{
-		"AbilityValues"
-		{
-			"damage_per_kill"		"0"
-		}
-	}
-	"pudge_meat_hook"
-	{
-		"AbilityValues"
-		{
-			"damage"		"90 180 270 360"
-			"AbilityCastRange"		"1000 1100 1200 1300"
-		}
-	}
-	"bane_fiends_grip"
-	{
-		"AbilityValues"
-		{
-			"AbilityChannelTime"		"5 5 5"
-		}
-	}
-	"bane_nightmare"
-	{
-		"AbilityDuration"		"4 5 6 7"
-	}
-	"bloodseeker_rupture"
-	{
-		"AbilityValues"
-		{
-			"hp_pct"		"0"
-		}
-	}
-	"bounty_hunter_track"
-	{
-		"AbilityValues"
-		{
-			"target_damage_amp"		"0"
-		}
-	}
-	"broodmother_spin_web"
-	{
-		"AbilityCharges"		"1 2 3 4"
-		"AbilityValues"
-		{
-			"AbilityChargeRestoreTime"		"40"
-			"health_regen"		"2 4 6 8"
-		}
-	}
-	"dark_seer_wall_of_replica"
-	{
-		"AbilityValues"
-		{
-			"wall_damage"		"150 150 150"
-			"movement_slow"		"0"
-		}
-	}
-	"jakiro_macropyre"
-	{
-		"AbilityValues"
-		{
-			"path_width"		"480"
-		}
-	}
-	"naga_siren_song_of_the_siren"
-	{
-		"AbilityValues"
-		{
-			"heal_pct"		"0 0 0"
-		}
-	}
-	"obsidian_destroyer_sanity_eclipse"
-	{
-		"AbilityValues"
-		{
-			"base_damage"		"0 0 0"
-			"percentage_damage"		"0"
-		}
-	}
-	"rattletrap_power_cogs"
-	{
-		"AbilityValues"
-		{
-			"damage"		"80 120 160 200"
-			"mana_burn"		"80 120 160 200"
-			"mana_burn_as_damage_pct"		"0"
-		}
-	}
-	"sandking_epicenter"
-	{
-		"AbilityValues"
-		{
-			"epicenter_radius_base"		"275"
-			"epicenter_radius_increment"		"47"
-		}
-	}
-	"venomancer_poison_nova"
-	{
-		"AbilityValues"
-		{
-			"damage_base"		"30 55 80"
-			"hp_damage"		"0"
-		}
-	}
-	"ancient_apparition_ice_blast"
-	{
-		"AbilityValues"
-		{
-			"damage_per_second"		"12.5 20 32"
-		}
-	}
-	"phantom_lancer_phantom_edge"
-	{
-		"AbilityValues"
-		{
-			"evasion"		"0"
-		}
-	}
-	"shredder_whirling_death"
-	{
-		"AbilityValues"
-		{
-			"tree_damage_scale"		"0"
-		}
-	}
-	"winter_wyvern_winters_curse"
-	{
-		"AbilityValues"
-		{
-			"bonus_duration_per_hero"		"0"
-			"bonus_duration_per_creep"		"0"
-		}
-	}
-	"earth_spirit_rolling_boulder"
-	{
-		"AbilityValues"
-		{
-			"damage_str"		"0"
-		}
-	}
-	"enchantress_enchant"
-	{
-		"AbilityValues"
-		{
-			"attack_range_bonus"		"0"
-			"enchant_health"		"0"
-			"enchant_damage"		"0"
-			"xp_gain_pct"		"0"
-		}
-	}
-	"centaur_stampede"
-	{
-		"AbilityValues"
-		{
-			"strength_damage"		"0"
-		}
 	}
 	"roshan_spell_block"
 	{

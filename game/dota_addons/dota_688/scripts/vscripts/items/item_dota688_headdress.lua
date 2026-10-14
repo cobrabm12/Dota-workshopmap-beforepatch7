@@ -14,7 +14,7 @@ Dota688DefineItem("item_dota688_headdress", "items/item_dota688_headdress", {
 	end,
 	modifier = {
 		OnDestroy = function(self)
-			if IsServer() and not self:GetParent():HasItemInInventory("item_dota688_headdress") then self:GetParent():RemoveModifierByName("modifier_dota688_headdress_aura") end
+			if IsServer() then Dota688ReapplyAura(self:GetParent(), "modifier_dota688_headdress_aura", { "item_dota688_headdress" }) end
 		end,
 	},
 })

@@ -31,8 +31,10 @@ function Dota688:Init()
 
 	-- Reguli generale ------------------------------------------------------
 	GameRules:SetStartingGold(C.STARTING_GOLD)
+	-- aurul pasiv il da Dota688GoldXP:OnHorn (ca sa poata fi redus de penalizarea de buyback). Aurul pasiv al motorului
+	-- nu trece prin filtrul de aur, iar cu SetGoldPerTick(1) se adauga peste al nostru (testat: 19 aur in 6 s in loc de 10).
 	GameRules:SetGoldTickTime(C.GOLD_TICK_TIME)
-	GameRules:SetGoldPerTick(C.GOLD_PER_TICK)
+	GameRules:SetGoldPerTick(0)
 	GameRules:SetHeroRespawnEnabled(true)
 	GameRules:SetUseUniversalShopMode(false)
 	GameRules:SetSameHeroSelectionEnabled(false)
@@ -161,7 +163,9 @@ end
 function Dota688:OnNPCSpawned(ev)
 	local unit = EntIndexToHScript(ev.entindex)
 	if not unit then return end
+	if Dota688HeroCopySpawning then unit.dota688_copy = true end   -- copie (Vengeance Illusion / Hybrid), vezi dota688/herocopy.lua
 	Dota688Meepo688.OnSpawned(unit)   -- clonele Meepo: doar cizmele (6.88)
+	Dota688GoldXP:OnUnitSpawned(unit)   -- iluziile: fara aur / XP la moarte (6.88)
 	if unit:IsRealHero() then
 		-- motorul adauga fiecarui erou "special_bonus_attributes" (atributele-talent din 7.x, 0/7): cat exista,
 		-- HUD-ul ofera "+" la talente la fiecare level up. In 6.88 nu exista (inlocuit de dota688_attribute_bonus).
@@ -176,7 +180,7 @@ function Dota688:OnNPCSpawned(ev)
 				if not unit:IsNull() then Dota688Backpack:OnHeroFirstSpawn(unit) end
 			end)
 		end
-		Dota688Respawn:OnHeroSpawned(unit)
+		if not unit.dota688_copy then Dota688Respawn:OnHeroSpawned(unit) end
 		Dota688Aghanim.OnHeroSpawned(unit)
 		if unit:GetUnitName() == "npc_dota_hero_invoker" and not unit:HasModifier("modifier_dota688_invoker_orbs") then
 			unit:AddNewModifier(unit, nil, "modifier_dota688_invoker_orbs", {})
@@ -211,9 +215,19 @@ function Dota688:OnEntityKilled(ev)
 	if killed.dota688_copy then
 		return   -- copie (Vengeance Illusion / Hybrid): fara aur, XP sau respawn
 	end
-	if killed:IsRealHero() and not killed:IsReincarnating() then
-		Dota688Respawn:OnHeroKilled(killed, attacker)
-		Dota688GoldXP:OnHeroKilled(killed, attacker)
+	if killed:IsRealHero() then
+		-- Meepo: moartea unei clone omoara toti Meepo; motorul trimite entity_killed doar pentru clona lovita, iar daca vin mai multe
+		-- in aceeasi secunda doar prima conteaza
+		local isClone = killed.IsClone ~= nil and killed:IsClone()
+		local prime = killed
+		if isClone and killed.GetCloneSource then prime = killed:GetCloneSource() or killed end
+		local now = GameRules:GetGameTime()
+		local duplicate = prime ~= nil and not prime:IsNull() and prime.dota688_kill_time ~= nil and now - prime.dota688_kill_time < 1.0
+		if prime and not prime:IsNull() then prime.dota688_kill_time = now end
+		-- respawn-ul il are Meepo principal: la moartea unei clone motorul nu trimite entity_killed si pentru el (testat)
+		if not duplicate and prime and not prime:IsNull() and not prime:IsReincarnating() then Dota688Respawn:OnHeroKilled(prime, attacker) end
+		-- 6.88: si moartea cu Aegis / Reincarnation dadea aurul si XP-ul de kill
+		if not duplicate then Dota688GoldXP:OnHeroKilled(killed, attacker) end
 	elseif killed:GetUnitName() == "npc_dota_roshan" then
 		Dota688Roshan:OnRoshanKilled(killed, attacker)
 		Dota688Buildings:OnRoshanKilled(killed, attacker)

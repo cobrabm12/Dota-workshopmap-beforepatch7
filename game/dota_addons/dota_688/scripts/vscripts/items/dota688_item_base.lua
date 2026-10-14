@@ -32,7 +32,7 @@ local STAT_MAP = {
 	bonus_evasion    = { MODIFIER_PROPERTY_EVASION_CONSTANT, "GetModifierEvasion_Constant" },
 	bonus_magical_armor = { MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS, "GetModifierMagicalResistanceBonus" },
 	magic_resistance = { MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS, "GetModifierMagicalResistanceBonus" },
-	cast_range_bonus = { MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING, "GetModifierCastRangeBonusStacking" },
+	cast_range_bonus = { MODIFIER_PROPERTY_CAST_RANGE_BONUS, "GetModifierCastRangeBonus" },   -- unic (6.88: doua Aether Lens nu se cumuleaza)
 	spell_amp        = { MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE, "GetModifierSpellAmplify_Percentage" },
 	bonus_attack_range = { MODIFIER_PROPERTY_ATTACK_RANGE_BONUS, "GetModifierAttackRangeBonus" },
 }
@@ -212,6 +212,20 @@ function Dota688DefineItem(itemName, scriptPath, opts)
 	if opts.modifier then for k, v in pairs(opts.modifier) do mod[k] = Dota688GuardItemFn(k, v) end end
 	LinkLuaModifier(modName, scriptPath, LUA_MODIFIER_MOTION_NONE)
 	return item, mod
+end
+
+-- Aura unui item cu sursa disparuta (vandut/combinat) se leaga de alt exemplar ramas in inventar, altfel se scoate.
+-- (modifierul pastrat cu abilitatea nula ar avea raza 0 cat timp al doilea item e inca purtat)
+function Dota688ReapplyAura(parent, auraName, itemNames)
+	if not parent or parent:IsNull() then return end
+	parent:RemoveModifierByName(auraName)
+	for _, name in ipairs(itemNames) do
+		local it = parent:FindItemInInventory(name)
+		if it and not it:IsNull() then
+			parent:AddNewModifier(parent, it, auraName, {})
+			return
+		end
+	end
 end
 
 -- Aura generica (ex. Vladmir, Basilius, Headdress): defineste modifier-ul de aura + efectul.

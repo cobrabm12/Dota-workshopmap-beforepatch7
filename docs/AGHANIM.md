@@ -115,7 +115,7 @@ Eroii care **nu** aveau upgrade în 6.88 (Anti‑Mage, Phantom Lancer, Sniper, R
 Death Prophet, Templar Assassin, Ember, Arc Warden, Underlord, Io, Chaos Knight, Broodmother, Bounty Hunter, Slardar,
 Dragon Knight…) nu primesc nimic de la scepter în afară de statistici, exact ca în 6.88.
 
-Bilanț: 84 de eroi cu upgrade în 6.88 – 83 reproduse, 1 imposibilă (Lone Druid).
+Bilanț: toate upgrade‑urile din 6.88 sunt reproduse (ursul lui Lone Druid a fost rescris în Lua pe PC‑ul de test); de (re)testat în joc: Invoker, Lone Druid, Ogre Magi, Wraith King (rândurile marcate).
 
 ## Note de implementare
 

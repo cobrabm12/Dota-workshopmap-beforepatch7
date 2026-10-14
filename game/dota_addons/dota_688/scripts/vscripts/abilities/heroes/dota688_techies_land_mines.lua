@@ -11,7 +11,7 @@ end
 modifier_dota688_techies_land_mine = Dota688Techies.MineModifier("fade_time")
 function modifier_dota688_techies_land_mine:OnIntervalThink()
 	local a, mine, caster = self:GetAbility(), self:GetParent(), self:GetCaster()
-	if self.exploding or GameRules:GetGameTime() - self.start < a:GetSpecialValueFor("activation_time") then return end
+	if self.exploding or GameRules:GetGameTime() - self.start < Dota688Val(self, "activation_time") then return end
 	local near = FindUnitsInRadius(caster:GetTeamNumber(), mine:GetAbsOrigin(), nil, a:GetSpecialValueFor("small_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY,
 		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #near == 0 then return end

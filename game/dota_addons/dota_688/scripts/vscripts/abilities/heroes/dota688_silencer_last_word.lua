@@ -23,11 +23,13 @@ function modifier_dota688_silencer_last_word:DeclareFunctions() return { MODIFIE
 function modifier_dota688_silencer_last_word:OnAbilityExecuted(params)
 	if not IsServer() or params.unit ~= self:GetParent() or not params.ability or params.ability:IsItem() then return end
 	self.triggered = true
-	self:GetAbility():Trigger(self:GetParent())
+	local a = self:GetAbility()
+	if a and not a:IsNull() then a:Trigger(self:GetParent()) end
 	self:Destroy()
 end
 function modifier_dota688_silencer_last_word:OnDestroy()
-	if IsServer() and not self.triggered and self:GetParent():IsAlive() and self:GetRemainingTime() <= 0.05 then self:GetAbility():Trigger(self:GetParent()) end
+	local a = self:GetAbility()
+	if IsServer() and not self.triggered and self:GetParent():IsAlive() and self:GetRemainingTime() <= 0.05 and a and not a:IsNull() then a:Trigger(self:GetParent()) end
 end
 modifier_dota688_silencer_last_word_silence = class({})
 function modifier_dota688_silencer_last_word_silence:IsDebuff() return true end

@@ -16,6 +16,8 @@ M.ITEM_KIND = {
 	item_dota688_helm_of_the_dominator = "lifesteal",
 	item_dota688_skadi = "skadi",
 	item_dota688_desolator = "corruption", item_dota688_blight_stone = "corruption",
+	item_dota688_diffusal_blade = "feedback", item_dota688_diffusal_blade_2 = "feedback",
+	item_dota688_orb_of_venom = "venom",
 }
 -- debuff-urile puse de orb-urile built-in ale eroilor (arata daca orb-ul s-a aplicat pe atac)
 M.ORB_DEBUFF = {

@@ -30,7 +30,7 @@ Valve's original 6.88f files, and the game rules are implemented in Lua.
 | Built‑in abilities with new mechanics disabled through manual overrides (`tools/manual_overrides.json`) | ✅ 187 abilities / items (Mana Break, Heartstopper, Necromastery, Psionic Trap, Culling Blade, Invoker, Glimpse, Double Edge, Roshan resistances, consumables…); no ability scales with hero level |
 | 6.88 details on built‑in abilities restored in Lua (`dota688/extras_688.lua`) | ✅ Morph passive stats, Serpent Ward splash, Phantom Strike 4 attacks, Corrosive Skin movement slow, creep durations of Thunder Clap / Reverse Polarity, Earth Brewling spell immunity |
 | Panorama: talents, backpack, neutral slot, TP slot, 7.x timers hidden | ✅ `content/.../panorama` – IDs to be re‑checked after new patches |
-| Aghanim's Scepter as in 6.88: own item (no modern upgrades), the 6.88 upgrades reproduced per hero, Alchemist can give it to allies | ✅ `docs/AGHANIM.md` – 84 heroes: 83 reproduced, 1 impossible (Lone Druid: the bear leash is in C++) |
+| Aghanim's Scepter as in 6.88: own item (no modern upgrades), the 6.88 upgrades reproduced per hero, Alchemist can give it to allies | ✅ `docs/AGHANIM.md` – 84 heroes, all reproduced (the Spirit Bear is in Lua too); Invoker, Lone Druid, Ogre Magi and Wraith King still need an in‑game re‑test |
 | Localization | ✅ English, generated from the 6.88 texts |
 | Assets (particles / models) verified against the current client | ✅ |
 | The 6.88 map: the original 6.88f map, Hammer source in the repo, compiled by us in the current format | ✅ `docs/HARTA.md` – tested in game |
