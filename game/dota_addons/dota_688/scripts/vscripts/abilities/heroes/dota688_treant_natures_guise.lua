@@ -15,7 +15,7 @@ function modifier_dota688_treant_natures_guise:OnCreated()
 end
 function modifier_dota688_treant_natures_guise:OnIntervalThink()
 	local p, a = self:GetParent(), self:GetAbility()
-	if #GridNav:GetAllTreesAroundPoint(p:GetAbsOrigin(), a:GetSpecialValueFor("radius"), false) > 0 then
+	if #GridNav:GetAllTreesAroundPoint(p:GetAbsOrigin(), Dota688Val(self, "radius"), false) > 0 then
 		self.lastNear = GameRules:GetGameTime()
 	elseif GameRules:GetGameTime() - self.lastNear > a:GetSpecialValueFor("grace_time") then
 		self:Destroy()

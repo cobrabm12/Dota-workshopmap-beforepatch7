@@ -89,4 +89,5 @@ function modifier_dota688_enigma_black_hole_pull:OnDestroy()
 	if IsServer() then FindClearSpaceForUnit(self:GetParent(), self:GetParent():GetAbsOrigin(), false) end
 end
 function modifier_dota688_enigma_black_hole_pull:CheckState() return { [MODIFIER_STATE_STUNNED] = true, [MODIFIER_STATE_NO_UNIT_COLLISION] = true } end
+function modifier_dota688_enigma_black_hole_pull:DeclareFunctions() return { MODIFIER_PROPERTY_OVERRIDE_ANIMATION } end
 function modifier_dota688_enigma_black_hole_pull:GetOverrideAnimation() return ACT_DOTA_FLAIL end

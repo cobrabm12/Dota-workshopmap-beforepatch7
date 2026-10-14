@@ -14,6 +14,7 @@ function modifier_dota688_stunned:IsStunDebuff() return true end
 function modifier_dota688_stunned:GetAttributes() return MODIFIER_ATTRIBUTE_MULTIPLE end
 function modifier_dota688_stunned:GetEffectName() return "particles/generic_gameplay/generic_stunned.vpcf" end
 function modifier_dota688_stunned:GetEffectAttachType() return PATTACH_OVERHEAD_FOLLOW end
+function modifier_dota688_stunned:DeclareFunctions() return { MODIFIER_PROPERTY_OVERRIDE_ANIMATION } end
 function modifier_dota688_stunned:GetOverrideAnimation() return ACT_DOTA_DISABLED end
 function modifier_dota688_stunned:CheckState() return { [MODIFIER_STATE_STUNNED] = true } end
 

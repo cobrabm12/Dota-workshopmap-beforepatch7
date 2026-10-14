@@ -27,6 +27,7 @@ end
 function modifier_dota688_walrus_punch_buff:OnAttackLanded(params)
 	if not IsServer() or params.attacker ~= self:GetParent() or params.target ~= self.punchTarget then return end
 	local a, t = self:GetAbility(), params.target
+	if not a or a:IsNull() then return end
 	t:EmitSound("Hero_Tusk.WalrusPunch.Target")
 	if not t:IsMagicImmune() or true then
 		t:AddNewModifier(self:GetParent(), a, "modifier_knockback", { duration = a:GetSpecialValueFor("air_time"), knockback_duration = a:GetSpecialValueFor("air_time"),

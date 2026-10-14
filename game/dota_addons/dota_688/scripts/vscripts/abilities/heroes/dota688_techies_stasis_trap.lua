@@ -11,7 +11,7 @@ end
 modifier_dota688_techies_stasis_trap = Dota688Techies.MineModifier("fade_time")
 function modifier_dota688_techies_stasis_trap:OnIntervalThink()
 	local a, mine, caster = self:GetAbility(), self:GetParent(), self:GetCaster()
-	if self.exploding or GameRules:GetGameTime() - self.start < a:GetSpecialValueFor("activation_time") then return end
+	if self.exploding or GameRules:GetGameTime() - self.start < Dota688Val(self, "activation_time") then return end
 	local near = FindUnitsInRadius(caster:GetTeamNumber(), mine:GetAbsOrigin(), nil, a:GetSpecialValueFor("activation_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY,
 		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)   -- 6.88: nu o declanseaza invizibilii
 	if #near == 0 then return end

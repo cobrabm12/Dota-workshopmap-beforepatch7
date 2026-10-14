@@ -18,7 +18,7 @@ Dota688DefineItem("item_dota688_ancient_janggo", "items/item_dota688_ancient_jan
 	end,
 	modifier = {
 		OnDestroy = function(self)
-			if IsServer() and not self:GetParent():HasItemInInventory("item_dota688_ancient_janggo") then self:GetParent():RemoveModifierByName("modifier_dota688_janggo_aura") end
+			if IsServer() then Dota688ReapplyAura(self:GetParent(), "modifier_dota688_janggo_aura", { "item_dota688_ancient_janggo" }) end
 		end,
 	},
 	item = {

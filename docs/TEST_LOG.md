@@ -290,3 +290,40 @@ Rezolvate apoi (aceeași seară):
 | Skull Basher | built‑in‑ul dădea bash pe Troll (4 în 15 s); Lua: pe Troll doar bash‑ul lui, pe Sven bash‑ul itemului |
 | Bottle | motorul umple Bottle‑ul la 3 când stochezi runa, ca în 6.88; nimic de schimbat |
 | Smoke | invizibilitatea nu se vede cu True Sight și în 6.88; nimic de schimbat |
+
+## 16. Revizuire de cod fără joc (2026‑10‑14, sesiunea cloud) – de re‑testat pe PC
+
+Patru revizuiri paralele (abilități, reguli/iteme, generator/KV, documentație) peste commit‑ul `055c15b`. Corectate în cod
+(verificare sintactică și checker OK; **netestate în joc**):
+
+| Ce | Problema | Corecție |
+|---|---|---|
+| Nether Strike (Lua) | citea `knockback_distance`/`knockback_duration`/`movespeed_duration` din Greater Bash, chei care nu mai există în KV‑ul curent → bash fără knockback, haste de 0 s | valori 6.88 de rezervă în `dota688_spirit_breaker_nether_strike.lua` |
+| Stun/Hook/Toss/Grip/Black Hole/Song | `GetOverrideAnimation` fără `MODIFIER_PROPERTY_OVERRIDE_ANIMATION` declarat → unitățile nu jucau animația | declarat în `stun.lua` și cele 5 abilități |
+| Rubick fură alt spell cât timp efectul primului e activ | Frostbite, Rupture, minele Techies, Nature's Guise, Song (scepter), Last Word, Toss, Walrus Punch citeau `GetAbility()` nul în think → erori la fiecare tick, efect oprit | `Dota688Val` / garduri |
+| Drunken Brawler | evaziunea garantată rămânea 100 % pentru totdeauna (atacul evitat nu ajunge în `OnAttacked`) | cronometrul se resetează când se aplică evaziunea garantată |
+| Meepo | moartea unei clone omora toți Meepo și fiecare moarte dădea aur/XP de kill și pierdere de aur | doar prima moarte dintr‑o secundă contează (`gamemode.lua`) |
+| Aegis / Reincarnation | moartea cu Aegis sau cu Reincarnation nu dădea deloc aur/XP de kill (6.88 dădea) | aurul/XP‑ul se dau; doar respawn‑ul se sare |
+| Vengeance Illusion / Hybrid | copiile de erou intrau în aurul de zonă (de două ori pentru același jucător), în împărțirea XP‑ului la creepi și în costul de buyback | excluse (`dota688_copy`) |
+| Linken's Transfer | transferul pe un aliat cu propriul Linken's îi înlocuia blocul permanent cu unul de 20 s (apoi dispărea); cumpărarea în timpul unui transfer primit lăsa blocul temporar | `item_dota688_sphere.lua` |
+| Aure de iteme (Basilius/Aquila, Mek, Pipe, Greaves, Vlad, Drum, Headdress, Shiva) | la vânzarea/combinarea unui exemplar din două, aura rămânea legată de itemul dispărut (rază 0) | `Dota688ReapplyAura` re‑leagă aura de exemplarul rămas |
+| Diffusal (Feedback) și Orb of Venom | se aplicau în afara regulilor UAM (se cumulau cu Desolator/Skadi/lifesteal) | trec prin `dota688/uam.lua` |
+| Runa Bounty după buyback | aurul ocolea penalizarea de −60 % | `Dota688GoldXP:Penalize` în `runes.lua` |
+| Timere | lista de timere era modificată în timpul iterării (`pairs`) | se adună întâi cele scadente |
+| Aether Lens | două Aether Lens se cumulau | bonus de cast range unic (`MODIFIER_PROPERTY_CAST_RANGE_BONUS`) |
+| Generator: flaguri de țintire | Death Ward și Geminate Attack primeau `DOTA_UNIT_TARGET_FLAG_NONE` deși în 6.88 treceau prin imunitate | regula sare abilitățile cu `SPELL_IMMUNITY_ENEMIES_YES` |
+| Generator: scepter built‑in | sub‑cheia modernă `special_bonus_scepter` supraviețuia override‑ului: Lasso 400+650, Decay +4 în loc de 10, Gush 260/2200, Death Ward 575 + lifesteal, Arctic Burn 20 mana + 25 MS, Enchant Totem cleave, Demonic Purge 2 încărcături/70 s, Time Lapse cd modern | override cu bloc `{value, special_bonus_scepter "=…"}` din `manual_overrides.json` (acum acceptă blocuri) |
+| Tooltip‑uri | 156 de modifieri Lua vizibili fără nume în HUD | generatorul dă fiecărui `LinkLuaModifier` fără token numele abilității/itemului |
+| Override‑uri manuale inerte | 30 de intrări țintesc abilități/iteme înlocuite de Lua | generatorul le sare și avertizează |
+
+Rămase deschise (nu se pot rezolva fără joc sau sunt decizii):
+
+* De re‑testat în joc tot tabelul de mai sus, plus Aghanim la Invoker, Lone Druid, Ogre Magi, Wraith King, Rupture (încărcături),
+  Ursa (Enrage sub stun), Venge/Hybrid (copii), Rubick (Death Ward furat), Alchemist (dă scepter‑ul), Tiny (copacul),
+  HOOKS (Primal Roar, Chronosphere, Hookshot, Time Lapse, Impetus, Viper Strike, Invoke) – nu au rând în TEST_LOG.
+* Iluziile −30 % daune pe clădiri (TEST_LOG §6) – nu există cod; Astral Imprisonment (daune în arie) – încă built‑in.
+* Comeback / First Blood / bounty iluzii (commit `1298a63`), Omnislash fără BKB (`e1bdc3d`), Rum pe toți aliații (`055c15b`) – fără test.
+* Octarine ×2 și Pipe + Hood se cumulează (6.88: nu); Lotus Orb reflectă prin iteme reale în inventar 3 s; Tempest Double
+  moare ca erou (pierdere de aur 30×nivel); random forțat și pentru sloturile fără echipă; viteză maximă 550 (fără API).
+* Documentație: TEST_LOG §2/§6–8 descriu curierul 6.88 scos apoi (f94b009); numerele din README/PATCH_NOTES (abilități/iteme)
+  diferă de STATUS.md; `dota_688.vmap` (31 MB) este comis direct (candidat Git LFS).

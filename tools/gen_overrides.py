@@ -475,7 +475,10 @@ def build_ability_override(name: str, old: kv.KV, cur: kv.KV, top_keys: list[str
         if ov is not None and cv is not None and ov.replace(" ", "") != cv.replace(" ", ""):
             out[key] = ov
             changed.append(key)
-        elif key == "AbilityUnitTargetFlags" and ov is None and cv and "MAGIC_IMMUNE" in cv:
+        elif key == "AbilityUnitTargetFlags" and ov is None and cv and "MAGIC_IMMUNE" in cv \
+                and old.get_str("SpellImmunityType") != "SPELL_IMMUNITY_ENEMIES_YES":
+            # flag modern (tinte imune) pe o abilitate care in 6.88 nu trecea prin imunitate; daca trecea (Death Ward,
+            # Geminate Attack: SPELL_IMMUNITY_ENEMIES_YES), flagurile curente raman
             out[key] = "DOTA_UNIT_TARGET_FLAG_NONE"
             changed.append(key)
 
@@ -1030,6 +1033,25 @@ def gen_localization_lang(lang: str, scripts: dict[str, str], hero_abilities: se
     # tooltip-urile 6.88 pentru abilitățile și itemele built-in pe care le suprascriem
     for n in sorted(hero_abilities | item_names):
         copy_tokens(n, n)
+    # modifierii Lua (LinkLuaModifier) fara token: numele abilitatii / itemului din fisierul care ii defineste,
+    # altfel buff-ul/debuff-ul apare in HUD fara nume
+    base = os.path.join(ADDON, "scripts", "vscripts")
+    lower_out = {k.lower(): k for k in out.keys()}
+    for cname, script in sorted(scripts.items()):
+        path = os.path.join(base, script + ".lua")
+        if not os.path.exists(path):
+            continue
+        with open(path, encoding="utf-8", errors="replace") as f:
+            mods = re.findall(r'LinkLuaModifier\(\s*"(modifier_[A-Za-z0-9_]+)"', f.read())
+        name_key = lower_out.get(("DOTA_Tooltip_ability_" + cname).lower())
+        if name_key is None:
+            continue
+        title = out.get_str(name_key) or ""
+        for m in mods:
+            tok = "DOTA_Tooltip_" + m
+            if tok.lower() not in lower_out and title:
+                out[tok] = title
+                lower_out[tok.lower()] = tok
     # runele si glyph-ul cu textul 6.88 (motorul curent: "Amplify Damage", Arcane 25/30 %, glyph 7 s)
     for k, v in tokens.scalars():
         if k.startswith(("DOTA_Chat_Rune_", "DOTA_Tooltip_rune_", "DOTA_Hotkeys_Tooltip_ActivateGlyph")) and k not in out:
@@ -1382,6 +1404,9 @@ def main() -> None:
         for name, vals in manual.items():
             if name.startswith("_"):
                 continue
+            if custom_name_for(name) in custom and name not in custom:
+                print(f"[gen] avertisment: override manual inert pentru {name} (inlocuit de {custom_name_for(name)} in Lua)")
+                continue
             blk = merged.get_kv(name)
             if blk is None:
                 blk = kv.KV()
@@ -1393,7 +1418,7 @@ def main() -> None:
                     if av is None:
                         av = kv.KV()
                         blk["AbilityValues"] = av
-                    av[key] = str(val)
+                    av[key] = kv.KV([(k2, str(v2)) for k2, v2 in val.items()]) if isinstance(val, dict) else str(val)
                 else:
                     blk[key] = str(val)
     neutralize_hero_levelup(merged, AN, IN)

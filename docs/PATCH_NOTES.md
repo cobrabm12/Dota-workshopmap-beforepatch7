@@ -51,8 +51,8 @@ engine fixes) stays as it is today. The exact numbers below come from Valve's or
 
 * **Starting gold 625**, passive gold **1 per 0.6 s** (100/min).
 * **Hero kill bounty:** 110 + 9.9 × victim level (+ streak bonus 60…480), plus the 6.88 "assist" gold for
-  every hero within 1300: 150 + 6L / 100 + 5L / 40 + 4L / 25 + 3L / 20 + 3L for 1–5 heroes. No networth‑based
-  comeback multiplier on kills.
+  every hero within 1300: 150 + 6L / 100 + 5L / 40 + 4L / 25 + 3L / 20 + 3L for 1–5 heroes, with the 6.82–6.88
+  networth "comeback" component, First Blood +150 and the 6.88 illusion bounty rules (`dota688/gold_xp.lua`).
 * **Death:** you lose **30 × level** unreliable gold (not the 7.x networth formula).
 * **Respawn time: 5 + 3.8 × level** (8.8 s at level 1, 100 s at 25). No 26 s minimum for deaths to neutrals.
 * **Buyback cost: 100 + 1.5 × level² + 0.25 × game seconds**; 7 minute cooldown; after buying back you
@@ -226,9 +226,6 @@ The **original 6.88 map** (decompiled from the December 2016 client and recompil
 ## Not changed (engine limitations, documented)
 
 * The movement speed cap stays 550 in the engine (6.88: 522); no 6.88 source reaches it in practice.
-* The 6.82–6.88 networth "comeback" component of kill gold and the 6.88 illusion kill bounty rules are
-  approximated (see `docs/REGULI_6.88.md`, marked TODO).
-* Lone Druid's bear leash (Scepter) is in C++ and cannot be reproduced.
 * A Chain Lightning proc cannot cancel the built‑in hero orbs (Frost Arrows, Liquid Fire, Mana Break) on that
   attack; it does cancel the item orb effects.
 

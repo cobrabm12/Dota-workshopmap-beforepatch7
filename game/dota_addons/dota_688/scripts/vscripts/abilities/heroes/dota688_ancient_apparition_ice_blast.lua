@@ -60,7 +60,10 @@ function modifier_dota688_ice_blast_tracer:OnIntervalThink()
 	self.pos = self.pos + self.dir * step
 	self.travelled = self.travelled + step
 	ParticleManager:SetParticleControl(self.fx, 0, self.pos)
-	if self.travelled >= self.maxDist then self:GetAbility():Release() end
+	if self.travelled >= self.maxDist then
+		local a = self:GetAbility()
+		if a and not a:IsNull() then a:Release() else self:Destroy() end
+	end
 end
 function modifier_dota688_ice_blast_tracer:OnDestroy()
 	if IsServer() then ParticleManager:DestroyParticle(self.fx, false); UTIL_Remove(self:GetParent()) end
@@ -121,7 +124,7 @@ function modifier_dota688_frostbite:OnCreated()
 end
 function modifier_dota688_frostbite:OnIntervalThink()
 	local p, a, caster = self:GetParent(), self:GetAbility(), self:GetCaster()
-	if p:GetHealth() / p:GetMaxHealth() * 100 < a:GetSpecialValueFor("kill_pct") and not p:IsInvulnerable() then
+	if p:GetHealth() / p:GetMaxHealth() * 100 < Dota688Val(self, "kill_pct") and not p:IsInvulnerable() then
 		local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_death.vpcf", PATTACH_ABSORIGIN, p)
 		ParticleManager:ReleaseParticleIndex(fx)
 		p:Kill(a, caster)
@@ -130,7 +133,7 @@ function modifier_dota688_frostbite:OnIntervalThink()
 	self.acc = self.acc + 0.1
 	if self.acc >= 1 then
 		self.acc = self.acc - 1
-		ApplyDamage({ victim = p, attacker = caster, damage = a:GetSpecialValueFor("dot_damage"), damage_type = DAMAGE_TYPE_MAGICAL, ability = a })
+		ApplyDamage({ victim = p, attacker = caster, damage = Dota688Val(self, "dot_damage"), damage_type = DAMAGE_TYPE_MAGICAL, ability = a })
 	end
 end
 function modifier_dota688_frostbite:DeclareFunctions() return { MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET, MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE, MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE } end

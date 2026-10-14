@@ -30,9 +30,9 @@ end
 function modifier_dota688_siren_song:OnIntervalThink()
 	if not Dota688HasScepter(self:GetParent()) then return end
 	local p, a = self:GetParent(), self:GetAbility()
-	for _, u in ipairs(FindUnitsInRadius(p:GetTeamNumber(), p:GetAbsOrigin(), nil, a:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+	for _, u in ipairs(FindUnitsInRadius(p:GetTeamNumber(), p:GetAbsOrigin(), nil, Dota688Val(self, "radius"), DOTA_UNIT_TARGET_TEAM_FRIENDLY,
 		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
-		u:Heal(u:GetMaxHealth() * a:GetSpecialValueFor("regen_rate") / 100 * 0.25, a)
+		u:Heal(u:GetMaxHealth() * Dota688Val(self, "regen_rate") / 100 * 0.25, a)
 	end
 end
 function modifier_dota688_siren_song:IsAura() return true end
@@ -57,5 +57,6 @@ function modifier_dota688_siren_song_sleep:IsDebuff() return true end
 function modifier_dota688_siren_song_sleep:IsPurgable() return false end
 function modifier_dota688_siren_song_sleep:GetTexture() return "naga_siren_song_of_the_siren" end
 function modifier_dota688_siren_song_sleep:GetEffectName() return "particles/units/heroes/hero_siren/naga_siren_song_debuff.vpcf" end
+function modifier_dota688_siren_song_sleep:DeclareFunctions() return { MODIFIER_PROPERTY_OVERRIDE_ANIMATION } end
 function modifier_dota688_siren_song_sleep:GetOverrideAnimation() return ACT_DOTA_IDLE end
 function modifier_dota688_siren_song_sleep:CheckState() return { [MODIFIER_STATE_STUNNED] = true, [MODIFIER_STATE_INVULNERABLE] = true } end

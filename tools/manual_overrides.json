@@ -112,7 +112,11 @@
     "damage_impact": "0"
   },
   "batrider_flaming_lasso": {
-    "damage": "0 0 0"
+    "damage": "0 0 0",
+    "grab_radius_scepter": {
+      "value": "400",
+      "special_bonus_scepter": "=400"
+    }
   },
   "bloodseeker_rupture": {
     "hp_pct": "0"
@@ -233,7 +237,15 @@
     "epicenter_radius_increment": "47"
   },
   "shadow_demon_demonic_purge": {
-    "AbilityCooldown": "50.0 50.0 50.0"
+    "AbilityCooldown": "50.0 50.0 50.0",
+    "max_charges": {
+      "value": "0",
+      "special_bonus_scepter": "=3"
+    },
+    "charge_restore_time": {
+      "value": "40",
+      "special_bonus_scepter": "=40"
+    }
   },
   "shredder_timber_chain": {
     "AbilityCastRange": "850 1050 1250 1450"
@@ -263,7 +275,15 @@
     "max_damage": "0"
   },
   "winter_wyvern_arctic_burn": {
-    "move_slow": "19 26 33 40"
+    "move_slow": "19 26 33 40",
+    "mana_cost_scepter": {
+      "value": "40",
+      "special_bonus_scepter": "=40"
+    },
+    "movement_scepter": {
+      "value": "0",
+      "special_bonus_scepter": "=0"
+    }
   },
   "wisp_tether": {
     "slow_duration": "0.75 1.25 1.75 2.25"
@@ -520,11 +540,23 @@
     "pull_units_per_second": "0"
   },
   "undying_decay": {
-    "creep_damage_multiplier": "1"
+    "creep_damage_multiplier": "1",
+    "str_steal": {
+      "value": "4",
+      "special_bonus_scepter": "=10"
+    }
   },
   "witch_doctor_death_ward": {
     "bonus_accuracy": "0",
-    "bonus_attack_range": "0"
+    "bonus_attack_range": "0",
+    "bounce_radius": {
+      "value": "650 650 650",
+      "special_bonus_scepter": "=650 =650 =650"
+    },
+    "scepter_lifesteal": {
+      "value": "0",
+      "special_bonus_scepter": "=0"
+    }
   },
   "disruptor_glimpse": {
     "min_damage": "0",
@@ -538,7 +570,15 @@
     "damage_str": "0"
   },
   "earthshaker_enchant_totem": {
-    "bonus_attack_range": "0"
+    "bonus_attack_range": "0",
+    "distance_scepter": {
+      "value": "900",
+      "special_bonus_scepter": "=900"
+    },
+    "scepter_cleave_pct": {
+      "value": "0",
+      "special_bonus_scepter": "=0"
+    }
   },
   "juggernaut_blade_fury": {
     "immunity_resist": "100"
@@ -732,5 +772,22 @@
   "_comentariu_valori_motor_2026_10_13": "Chei ale motorului curent care adaugau efecte inexistente in 6.88: Phantasm cu 50% sansa fara Scepter, Shadow Word fara arie, Gust fara reveal, Insatiable Hunger fara aura, Amplify Damage fara balti, Snowball fara stun per aliat, Stone Remnant fara bonus de daune, Grave Chill fara Familiars, Spark Wraith fara slow, Phase Shift blocat de root.",
   "_comentariu_hoof_stomp_windup": "Hoof Stomp: in motorul curent windup_time (0.5) este intarzierea (abilitatea e IMMEDIATE, cast point-ul nu se aplica); ramane 0.5 = cast point-ul 6.88. Testat: cu 0, stun dupa 0.1 s.",
   "_comentariu_comportament_2026_10_13": "Comportament 6.88 redat prin cheie top-level: Waning Rift fara tinta (acum punct; max_distance 0 opreste teleportul). Phantom Edge ramane toggle (ca PASSIVE motorul nu mai declanseaza rush-ul; implicit e activ). Mana Drain pe aliati e blocat in Dota688Extras.OrderFilter (motorul ignora AbilityUnitTargetTeam).",
-  "_comentariu_iteme_2026_10_13": "Audit iteme built-in: Refresher fara cooldown oprit in stash, Blade Mail si Radiance cu comportamentul 6.88 (fara IGNORE_CHANNEL / IGNORE_INVISIBLE adaugate dupa), Radiance fara upgrade_day_vision."
+  "_comentariu_iteme_2026_10_13": "Audit iteme built-in: Refresher fara cooldown oprit in stash, Blade Mail si Radiance cu comportamentul 6.88 (fara IGNORE_CHANNEL / IGNORE_INVISIBLE adaugate dupa), Radiance fara upgrade_day_vision.",
+  "_scepter": "Eroii cu upgrade de Aghanim built-in (dota688/aghanim.lua BUILTIN): cheile moderne cu special_bonus_scepter primesc valoarea 6.88 si cu scepter (altfel bonusul modern se aduna peste valoarea 6.88).",
+  "tidehunter_gush": {
+    "aoe_scepter": {
+      "value": "240",
+      "special_bonus_scepter": "=240"
+    },
+    "cast_range_scepter": {
+      "value": "1800",
+      "special_bonus_scepter": "=1800"
+    }
+  },
+  "weaver_time_lapse": {
+    "AbilityCooldown": {
+      "value": "60 50 40",
+      "special_bonus_scepter": "=16 =16 =16"
+    }
+  }
 }

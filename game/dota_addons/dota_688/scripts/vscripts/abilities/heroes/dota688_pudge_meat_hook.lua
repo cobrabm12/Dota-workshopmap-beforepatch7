@@ -98,4 +98,5 @@ modifier_dota688_meat_hook_target = class({})
 function modifier_dota688_meat_hook_target:IsHidden() return true end
 function modifier_dota688_meat_hook_target:IsPurgable() return false end
 function modifier_dota688_meat_hook_target:CheckState() return { [MODIFIER_STATE_STUNNED] = true, [MODIFIER_STATE_NO_UNIT_COLLISION] = true } end
+function modifier_dota688_meat_hook_target:DeclareFunctions() return { MODIFIER_PROPERTY_OVERRIDE_ANIMATION } end
 function modifier_dota688_meat_hook_target:GetOverrideAnimation() return ACT_DOTA_FLAIL end

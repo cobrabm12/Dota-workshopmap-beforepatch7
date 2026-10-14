@@ -11,10 +11,10 @@ originale 6.88f. Coloana „Implementare” spune unde se face în proiect.
 | Aur pasiv | 1 aur / 0,6 s (100/min), continuu | `SetGoldTickTime/SetGoldPerTick` |
 | Bounty direct la kill | 110 + bonus streak + 9,9 × nivel victimă | `gold_xp.lua` |
 | Aur „AoE” (fiecare erou în 1300) | 1 erou: 150+6L · 2: 100+5L · 3: 40+4L · 4: 25+3L · 5: 20+3L | `gold_xp.lua` |
-| Componenta de „comeback” (diferență networth) | existentă în 6.82–6.88 | **TODO** |
+| Componenta de „comeback” (diferență networth) | existentă în 6.82–6.88 | `gold_xp.lua` (`ComebackGold`, `C.AOE_COMEBACK`) – de verificat în joc |
 | Bonus streak (victima avea 3..10 kill‑uri) | 60/120/…/480 | `gold_xp.lua` (valori de dinainte de 7.25, presupuse neschimbate) |
 | Pierdere la moarte | 30 × nivel (doar aur nesigur) | `SetLoseGoldOnDeath(false)` + `gold_xp.lua` |
-| Bounty pentru iluzii | nu exista (7.00) | **TODO** (filtrare) |
+| Bounty pentru iluzii | nu exista (7.00) | `modifiers/modifier_dota688_illusion_bounty.lua` – de verificat în joc |
 | Deny creep | 0 aur pentru cel care face deny | motorul curent (identic) |
 
 ## Experiență și niveluri
@@ -61,7 +61,7 @@ originale 6.88f. Coloana „Implementare” spune unde se face în proiect.
 |---|---|---|
 | Rune | 2 locuri în râu, la fiecare 2 min de la 0:00; la 0:00 ambele Bounty (100 aur); apoi una Bounty + una de putere | `runes.lua` (`SetUseDefaultDOTARuneSpawnLogic(false)`) |
 | Bounty rune | 50 + 2/min aur, 50 + 5/min XP | `SetBountyRunePickupFilter` |
-| Haste 25 s, Regen 100 HP/67 mana pe s | | **TODO** (în C++) |
+| Haste 25 s, Regen 100 HP/67 mana pe s | | `modifiers/modifier_dota688_runes.lua` (testat: TEST_LOG §7) |
 | Shrine‑uri, outpost‑uri, Tormentor, Lotus, Twin Gates, Watchers | nu există | harta nu le conține |
 | Backpack | nu există | `backpack.lua` (refuză sloturile 7–9) |
 | Iteme neutre | nu există | `SetAllowNeutralItemDrops(false)` |
@@ -71,7 +71,7 @@ originale 6.88f. Coloana „Implementare” spune unde se face în proiect.
 | Turnuri | T1 1300 HP/20 armură/100‑120 dmg; T2‑4 122‑182 dmg; glyph 5 min | `npc_units_custom.txt` |
 | Ancient | 4250 HP, 15 armură, viziune 1900/1200 | idem |
 | Roshan | 8000 HP, 5 armură, 128 rază, +700 HP/+10 dmg/+0,7 armură la 4 min; Aegis, Cheese din a 3‑a moarte | unități + `roshan.lua` + `modifier_dota688_roshan` |
-| Neutrali | spawn la 0:30 și apoi la fiecare minut; ancienții imuni la magie | **TODO** (timing); stats din unități |
+| Neutrali | spawn la 0:30 și apoi la fiecare minut; ancienții imuni la magie | `constants.lua` (`NEUTRAL_FIRST_SPAWN_OFFSET`), testat TEST_LOG §6; stats din unități |
 | Creepi pe lane | statistici 6.88 | `npc_units_custom.txt` |
 | Side shop | există | harta (entitate shop) |
 

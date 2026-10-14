@@ -25,7 +25,7 @@ local function HeroesInRadius(team, pos, radius)
 		DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
 	local out = {}
 	for _, u in ipairs(units) do
-		if u:IsRealHero() and not u:IsClone() and u:IsAlive() then table.insert(out, u) end
+		if u:IsRealHero() and not u:IsClone() and u:IsAlive() and not u.dota688_copy then table.insert(out, u) end
 	end
 	return out
 end

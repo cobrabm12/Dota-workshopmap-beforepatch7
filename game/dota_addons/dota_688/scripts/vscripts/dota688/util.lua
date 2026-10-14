@@ -9,8 +9,13 @@ end
 
 function Dota688Timers:Think()
 	local now = GameRules:GetGameTime()
+	local due = {}
 	for id, t in pairs(self.list) do
-		if now >= t.at then
+		if now >= t.at then due[#due + 1] = id end
+	end
+	for _, id in ipairs(due) do
+		local t = self.list[id]
+		if t ~= nil then
 			local ok, ret = pcall(t.fn)
 			if not ok then
 				print("[dota688] eroare in timer " .. tostring(id) .. ": " .. tostring(ret))
