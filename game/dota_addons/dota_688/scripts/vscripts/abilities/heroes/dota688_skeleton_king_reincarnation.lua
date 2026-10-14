@@ -93,17 +93,28 @@ function modifier_dota688_skeleton_king_reincarnation_scepter:GetMinHealth()
 	if not IsServer() then return 0 end
 	return self:Protects() and 1 or 0
 end
-function modifier_dota688_skeleton_king_reincarnation_scepter:OnTakeDamage(params)
-	if not IsServer() or params.unit ~= self:GetParent() then return end
+function modifier_dota688_skeleton_king_reincarnation_scepter:BecomeWraith(attacker, inflictor)
 	local p = self:GetParent()
-	if p:GetHealth() > 1 or (params.damage or 0) <= 0 or p:HasModifier("modifier_dota688_skeleton_king_reincarnation_scepter_active") then return end
+	if not p:IsAlive() or p:GetHealth() > 1 or p:HasModifier("modifier_dota688_skeleton_king_reincarnation_scepter_active") then return end
 	if not self:Protects() then return end
 	local a = self:GetAbility()
 	p:AddNewModifier(self:GetCaster(), a, "modifier_dota688_skeleton_king_reincarnation_scepter_active", {
 		duration = a:GetSpecialValueFor("scepter_duration"),
-		killer = (params.attacker and not params.attacker:IsNull()) and params.attacker:entindex() or -1,
-		inflictor = (params.inflictor and not params.inflictor:IsNull()) and params.inflictor:entindex() or -1,
+		killer = (attacker and not attacker:IsNull()) and attacker:entindex() or -1,
+		inflictor = (inflictor and not inflictor:IsNull()) and inflictor:entindex() or -1,
 	})
+end
+function modifier_dota688_skeleton_king_reincarnation_scepter:OnTakeDamage(params)
+	if not IsServer() or params.unit ~= self:GetParent() or (params.damage or 0) <= 0 then return end
+	self:BecomeWraith(params.attacker, params.inflictor)
+end
+-- MODIFIER_EVENT_ON_TAKEDAMAGE nu vine pentru daunele cu DOTA_DAMAGE_FLAG_HPLOSS (testat: eroul ramanea la 1 HP pentru
+-- totdeauna); verificarea din fiecare cadru prinde si lovitura fatala de acest tip (fara credit de kill)
+function modifier_dota688_skeleton_king_reincarnation_scepter:OnCreated()
+	if IsServer() then self:StartIntervalThink(FrameTime()) end
+end
+function modifier_dota688_skeleton_king_reincarnation_scepter:OnIntervalThink()
+	self:BecomeWraith(nil, nil)
 end
 
 -- wraith-ul: nu poate muri pana la final, apoi moare cu kill-ul dat celui care a dat lovitura fatala
