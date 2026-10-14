@@ -163,6 +163,7 @@ end
 function Dota688:OnNPCSpawned(ev)
 	local unit = EntIndexToHScript(ev.entindex)
 	if not unit then return end
+	if Dota688HeroCopySpawning then unit.dota688_copy = true end   -- copie (Vengeance Illusion / Hybrid), vezi dota688/herocopy.lua
 	Dota688Meepo688.OnSpawned(unit)   -- clonele Meepo: doar cizmele (6.88)
 	Dota688GoldXP:OnUnitSpawned(unit)   -- iluziile: fara aur / XP la moarte (6.88)
 	if unit:IsRealHero() then
@@ -215,14 +216,16 @@ function Dota688:OnEntityKilled(ev)
 		return   -- copie (Vengeance Illusion / Hybrid): fara aur, XP sau respawn
 	end
 	if killed:IsRealHero() then
-		-- Meepo: moartea unei clone omoara toti Meepo (un entity_killed pentru fiecare); doar prima moarte conteaza
+		-- Meepo: moartea unei clone omoara toti Meepo; motorul trimite entity_killed doar pentru clona lovita, iar daca vin mai multe
+		-- in aceeasi secunda doar prima conteaza
 		local isClone = killed.IsClone ~= nil and killed:IsClone()
 		local prime = killed
 		if isClone and killed.GetCloneSource then prime = killed:GetCloneSource() or killed end
 		local now = GameRules:GetGameTime()
 		local duplicate = prime ~= nil and not prime:IsNull() and prime.dota688_kill_time ~= nil and now - prime.dota688_kill_time < 1.0
 		if prime and not prime:IsNull() then prime.dota688_kill_time = now end
-		if not isClone and not killed:IsReincarnating() then Dota688Respawn:OnHeroKilled(killed, attacker) end
+		-- respawn-ul il are Meepo principal: la moartea unei clone motorul nu trimite entity_killed si pentru el (testat)
+		if not duplicate and prime and not prime:IsNull() and not prime:IsReincarnating() then Dota688Respawn:OnHeroKilled(prime, attacker) end
 		-- 6.88: si moartea cu Aegis / Reincarnation dadea aurul si XP-ul de kill
 		if not duplicate then Dota688GoldXP:OnHeroKilled(killed, attacker) end
 	elseif killed:GetUnitName() == "npc_dota_roshan" then
