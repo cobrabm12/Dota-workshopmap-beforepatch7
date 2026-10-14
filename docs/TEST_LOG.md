@@ -318,12 +318,61 @@ Patru revizuiri paralele (abilități, reguli/iteme, generator/KV, documentație
 
 Rămase deschise (nu se pot rezolva fără joc sau sunt decizii):
 
-* De re‑testat în joc tot tabelul de mai sus, plus Aghanim la Invoker, Lone Druid, Ogre Magi, Wraith King, Rupture (încărcături),
-  Ursa (Enrage sub stun), Venge/Hybrid (copii), Rubick (Death Ward furat), Alchemist (dă scepter‑ul), Tiny (copacul),
-  HOOKS (Primal Roar, Chronosphere, Hookshot, Time Lapse, Impetus, Viper Strike, Invoke) – nu au rând în TEST_LOG.
+* ~~De re‑testat în joc tot tabelul de mai sus, plus Aghanim la Invoker, Lone Druid, Ogre Magi, Wraith King, Rupture,
+  Ursa, Venge/Hybrid, Rubick, Alchemist, Tiny, HOOKS~~ – re‑testate pe PC, vezi „Re‑test în joc” mai jos.
 * Iluziile −30 % daune pe clădiri (TEST_LOG §6) – nu există cod; Astral Imprisonment (daune în arie) – încă built‑in.
-* Comeback / First Blood / bounty iluzii (commit `1298a63`), Omnislash fără BKB (`e1bdc3d`), Rum pe toți aliații (`055c15b`) – fără test.
+* ~~Comeback / First Blood / bounty iluzii, Omnislash fără BKB, Rum pe toți aliații – fără test~~ – testate, vezi mai jos.
 * Octarine ×2 și Pipe + Hood se cumulează (6.88: nu); Lotus Orb reflectă prin iteme reale în inventar 3 s; Tempest Double
   moare ca erou (pierdere de aur 30×nivel); random forțat și pentru sloturile fără echipă; viteză maximă 550 (fără API).
 * Documentație: TEST_LOG §2/§6–8 descriu curierul 6.88 scos apoi (f94b009); numerele din README/PATCH_NOTES (abilități/iteme)
   diferă de STATUS.md; `dota_688.vmap` (31 MB) este comis direct (candidat Git LFS).
+
+### Re‑test în joc pe PC (2026‑10‑14, seara)
+
+Scripturi: `dota688_test/rev16a.lua` (tabelul de mai sus), `rev16b.lua` (Lone Druid, Wraith King, Rupture, Tiny, Rubick + Death Ward,
+Hybrid, comeback), `goldfix.lua` (First Blood, iluzii, Omnislash, Rum, penalizarea de buyback), `aghs_safe.lua` (testul de Aghanim fără
+`UTIL_Remove` pe eroi), plus sonde punctuale. Erori Lua ale addon‑ului în consolă: **niciuna** (singurele erori au venit din scripturile
+de test, corectate; `Script Runtime Error: error in error handling` apare doar la `AddBotPlayerWithEntityScript` fără script de bot).
+
+| Ce | Rezultat |
+|---|---|
+| Nether Strike | OK – knockback 162 (Greater Bash nivel 4), haste 3.0 s |
+| Animațiile de stun | OK vizual pentru stun‑ul Lua (aceeași poză ca `modifier_stunned`, captură în joc). Din script nu se poate verifica: `GetSequence()` pe server dă `idle_anim` și pentru stun‑ul built‑in. Hook / Toss / Grip / Black Hole / Song: doar declarația, neverificate vizual |
+| Rubick fură un al doilea spell | OK – Rupture furat și lansat, apoi furat alt spell cât Rupture era pe o țintă care se mișca: 0 erori. Nature's Guise, Song, cele 3 mine Techies, Toss, Ice Blast și Walrus Punch cu abilitatea scoasă în timpul efectului: 0 erori. (Walrus Punch nu se poate fura prin cast: e abilitate de atac) |
+| Drunken Brawler | OK – 8 lovituri din ~11 atacuri în 12 s (evaziunea nu mai rămâne 100 %) |
+| Meepo | Parțial → **corectat** (`a2cb50a`): kill numărat o dată și pierdere de aur 750 o dată erau OK, dar respawn‑ul 6.88 nu se seta (motorul trimite `entity_killed` doar pentru clona lovită). Re‑test: 1 kill, 1 respawn |
+| Aegis / Reincarnation | OK – kill‑ul dă aur (209 direct + AoE), eroul renaște pe loc după 6 s |
+| Vengeance Illusion / Hybrid | Parțial → **corectat** (`a2cb50a`): aurul de zonă (+420, copia nu e numărată) și XP‑ul de creep (45 / 45) erau OK, dar `OnHeroSpawned` rula pentru copie (`npc_spawned` vine în timpul `CreateUnitByName`, înainte de marcaj) și punea costul de buyback al jucătorului la nivel 1. Re‑test: 0 apeluri |
+| Linken's Transfer | OK – pe un aliat cu Linken's propriu rămâne un singur bloc permanent (și după 20 s); bloc primit + Linken's cumpărat → blocul devine permanent |
+| Aure de iteme duble | OK – Basilius ×2, Aquila + Basilius, Mekansm, Pipe, Greaves, Vladmir, Drum, Headdress, Shiva: după vânzarea unui exemplar aura rămâne pe celălalt (rază 900, ca în 6.88), după vânzarea ambelor dispare |
+| Diffusal / Orb of Venom ca UAM | OK – Desolator înainte de Diffusal: doar corruption; Diffusal înainte: doar mana burn (147); OoV înainte de lifesteal: doar otravă; lifesteal înainte: doar lifesteal (+40 HP) |
+| Runa Bounty după buyback | OK – 54 normal, 21 sub penalizare (40 %) |
+| Timere | OK – nicio eroare de timer în toate testele |
+| Aether Lens ×2 | OK – +200 cu una, tot +200 cu două |
+| Death Ward pe BKB | OK – 1800 daune în 3.5 s pe un Sven cu BKB activat (imun) |
+| Scepter built‑in | OK – Lasso 400; Decay 4 → 10; Gush 240 / 1800; Death Ward 650 / lifesteal 0; Arctic Burn 40 mana / 0 MS; Enchant Totem 900 / cleave 0; Demonic Purge 0 → 3 încărcături / 40 s; Time Lapse 40 → 16 |
+| Tooltip‑uri | OK static (toți modifierii Lua vizibili au nume, mai puțin 4); cei 4 modifieri din fișiere comune (stun Lua, copia de erou, `restore_lockout`, familiarii lui Visage) nu aveau – **adăugate** (`4e591af`) |
+| Override‑uri inerte | OK – generatorul le sare și afișează avertismentul |
+
+Din „Rămase deschise”:
+
+| Ce | Rezultat |
+|---|---|
+| Aghanim (`aghs_safe.lua`) | 88 OK, 6 FAIL, toate din test: Invoke și Spell Steal au cooldown 2 s cu scepter, iar testul îl citește după 2 s (0); Ogre: lista `GRANT` mai conține numele built‑in `ogre_magi_unrefined_fireblast`, care nu mai există (varianta Lua e OK); Meepo: numărarea includea alți Meepo din teste |
+| Invoker / Ursa / Venge / Alchemist | OK (în `aghs_safe.lua`): Quas +1 nivel cu scepter și revine; Enrage sub stun doar cu scepter; copia lui Venge la moarte, marcată; aliatul primește scepter‑ul permanent |
+| Lone Druid | OK – fără scepter ursul nu lovește la 1485 de LD și moare cu el; cu scepter lovește la 1532 și supraviețuiește |
+| Ogre Magi | OK – Unrefined Fireblast (Lua) ascuns fără scepter, deblocat cu scepter, ascuns la vânzare |
+| Wraith King | OK cu daune normale (wraith, moare după 7 s). Cu daune HPLOSS aliatul rămânea la 1 HP pentru totdeauna (`MODIFIER_EVENT_ON_TAKEDAMAGE` nu vine pentru HPLOSS) – **corectat** (`07af074`), re‑test OK |
+| Rupture | OK – cu scepter: după primul cast cooldown 0, ambele ținte cu Rupture, după al doilea 59.6 |
+| Tiny | OK – rază de atac 150 → 235 (+85), cleave pe a doua țintă |
+| Rubick + Death Ward | OK – furat, 1510 daune în 4 s |
+| Hybrid | OK – copie marcată, moartea ei nu dă / nu ia aur |
+| HOOKS | OK – Chronosphere 60, Primal Roar, Hookshot, Time Lapse, Impetus, Viper Strike (vezi `aghs_safe.lua`); Invoke / Spell Steal vezi mai sus |
+| Comeback | Parțial → **corectat** (`241d024`): componenta se aplica, dar net worth‑urile se citeau după aurul de kill și după pierderea la moarte; acum se citesc în momentul morții. Re‑test: +1082 (așteptat 1081 + un tick de aur pasiv) |
+| First Blood / bounty iluzii / Omnislash / Rum / penalizare buyback | OK – FB +150 o dată; iluziile mor fără aur / XP (și la daune HPLOSS); Omnislash refuzat pe BKB și nu sare pe ținta imună; Rum pe creep aliat, daunele amânate ucid; aur pasiv sub penalizare 4 / 6 s, fără 10 / 6 s |
+
+**Rezumat.** Tot tabelul din 9f81e2c a fost re‑testat în joc: toate corecturile funcționează, iar 2 erau incomplete (copiile de erou rulau încă
+`OnHeroSpawned`; la moartea unei clone Meepo nu se seta respawn‑ul) – corectate și re‑testate. Din lista deschisă, toate punctele testabile
+sunt OK, cu două corecturi noi: comeback (net worth‑urile din momentul morții) și Wraith Delay la daune HPLOSS. Nu s‑a schimbat nicio regulă
+6.88. Rămân: animațiile Hook / Toss / Grip / Black Hole / Song nu au fost verificate vizual; restul punctelor din „Rămase deschise”
+(iluzii −30 % pe clădiri, Octarine, Pipe + Hood, Lotus Orb, Tempest Double, viteza 550, documentația) neschimbate.
