@@ -376,3 +376,38 @@ Din „Rămase deschise”:
 sunt OK, cu două corecturi noi: comeback (net worth‑urile din momentul morții) și Wraith Delay la daune HPLOSS. Nu s‑a schimbat nicio regulă
 6.88. Rămân: animațiile Hook / Toss / Grip / Black Hole / Song nu au fost verificate vizual; restul punctelor din „Rămase deschise”
 (iluzii −30 % pe clădiri, Octarine, Pipe + Hood, Lotus Orb, Tempest Double, viteza 550, documentația) neschimbate.
+
+## 17. Invoker: spell‑urile invocate nu scalau cu orburile (2026‑10‑15, seara)
+
+Raportat din joc: Deafening Blast cu 40 daune / 0.25 s knockback la Quas/Wex/Exort 7, un singur Forged Spirit, orburile
+suprapuse pe model. Cauza (testată cu `inv16v`/`inv16x`): motorul leagă valorile cu `levelkey` (quaslevel / wexlevel /
+exortlevel) de nivelurile orburilor **doar dacă `invoker_invoke` (C++) e pe erou de la spawn**; noi îl înlocuiserăm complet
+cu `dota688_invoker_invoke`, deci toate spell‑urile foloseau valorile de nivel 1. Alte constatări: `GetSpecialValueFor` din
+Lua nu rezolvă niciodată `levelkey` (întoarce nivelul 1 și la Invoker‑ul vanilla), deci valorile se verifică doar prin efect;
+override‑ul generat pierdea sub‑cheia `levelkey` (valoare scrisă ca string simplu).
+
+Corecție: generatorul păstrează `levelkey` în `AbilityValues`; Invoker primește `invoker_invoke` pe slotul 18, ascuns din
+`gamemode.lua` (invocarea o face în continuare `dota688_invoker_invoke`, cu regulile 6.88); valorile moderne
+`first/second/third_ability_level` ale Invoke‑ului C++ sunt neutralizate (dădeau +3 puncte de abilitate la 6/12/18);
+Forge Spirit: 2 spirite doar cu Quas și Exort ≥ 4 (motorul curent dă 3 la nivelul 8).
+
+Re‑test (`inv16z`, `inv16z2`–`z4`, toate la Q/W/E 7, pe un Sven nivel 25, 25 % rezistență, cu amplificarea 6.88 de 1 % la 16 INT):
+
+| Ce | Rezultat |
+|---|---|
+| Puncte de abilitate | 25 la nivel 25, orburi fără niveluri gratuite; 7/7/7 + Invoke 4 = 0 rămase |
+| Invoke (Lua) | nivel 4: cd 5, mana 80; max 2 spell‑uri (D Sun Strike / F EMP, Cold Snap ascuns); cu scepter cd 2 |
+| Deafening Blast | knockback 1.75, disarm 5.75, 227 daune (280 × 0.75 × 1.08) |
+| Cold Snap | 6.0 s |
+| EMP | 548 mana arsă (550) |
+| Tornado | 2.6 s în aer, 312 daune ((70 + 315) × 0.75 × 1.08) |
+| Alacrity | +66 pe lovitură după armură (+100 brut), 9 s |
+| Sun Strike | 513 (475 pur × 1.08) |
+| Ice Wall | încetinire −65 %, 34 daune/s (42 × 0.75 × 1.08), 12 s |
+| Chaos Meteor | 426 daune în 6 s (impact + arsură) |
+| Ghost Walk | invizibil, inamic −50 %, Invoker +30 % |
+| Forge Spirit | 2 spirite, 80 s, 82 atac (nivelul 7 din 6.88; 92 e cu scepter) |
+| Scepter | orburi 8/8/8: Deafening Blast 2.0 / 6.5 |
+| Instanțe | maxim 3 după 6 × Exort; cele 3 orburi se văd separat pe model (captură) |
+| Rubick | Deafening Blast furat de la un Invoker 7/7/7 păstrează 1.75 / 5.75 |
+| Statusuri | un singur nivel, la 25 (`invoker_attribute_bonus` 6.88) – corect, nu era bug |
