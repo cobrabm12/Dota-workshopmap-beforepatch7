@@ -49,7 +49,7 @@ upgrade‑urile lui de scepter (modifierul vizibil „Aghanim's Scepter (from Al
 | Faceless Void | Chronosphere cd 60 | ✅ | HOOKS (C++) |
 | Gyrocopter | Side Gunner (atac aleator la 1.2 s în 600) | ✅ | `aghanim_extras` |
 | Huskar | Life Break 65 % HP, cd 4 | ✅ | Lua: `dota688_huskar_life_break` |
-| Invoker | Invoke cd 16/8/4/2 fără mana; +1 nivel la Q/W/E pe spell‑urile invocate | (de retestat) | Lua: `dota688_invoker_invoke` (cd/mana cu scepter); `aghanim_extras` ridică Quas/Wex/Exort cu un nivel cât timp are scepter (atributele orbelor rămân la nivelul de bază) |
+| Invoker | Invoke cd 16/8/4/2 fără mana; +1 nivel la Q/W/E pe spell‑urile invocate | ✅ (2026‑10‑15: Deafening Blast 2.0 / 6.5 cu orburile la 8) | Lua: `dota688_invoker_invoke` (cd/mana cu scepter); `aghanim_extras` ridică Quas/Wex/Exort cu un nivel cât timp are scepter (atributele orbelor rămân la nivelul de bază) |
 | Jakiro | Macropyre 1800, 30 s, 125/175/225 dps | ✅ | Lua: `dota688_jakiro_macropyre` |
 | Juggernaut | Omnislash 6/9/12 sărituri, cd 70 | ✅ | Lua: `dota688_juggernaut_omni_slash` |
 | Keeper of the Light | Spirit Form permanent; ziua Illuminate vindecă aliații | ✅ | Lua: `dota688_keeper_of_the_light_spirit_form`; vindecarea este un val lansat la sfârșitul canalizării Illuminate, pe direcția și distanța undei originale |
@@ -115,7 +115,7 @@ Eroii care **nu** aveau upgrade în 6.88 (Anti‑Mage, Phantom Lancer, Sniper, R
 Death Prophet, Templar Assassin, Ember, Arc Warden, Underlord, Io, Chaos Knight, Broodmother, Bounty Hunter, Slardar,
 Dragon Knight…) nu primesc nimic de la scepter în afară de statistici, exact ca în 6.88.
 
-Bilanț: toate upgrade‑urile din 6.88 sunt reproduse (ursul lui Lone Druid a fost rescris în Lua pe PC‑ul de test); de (re)testat în joc: Invoker, Lone Druid, Ogre Magi, Wraith King (rândurile marcate).
+Bilanț: toate upgrade‑urile din 6.88 sunt reproduse (ursul lui Lone Druid a fost rescris în Lua pe PC‑ul de test); toate re‑testate în joc pe 2026‑10‑14/15 (TEST_LOG §16–17).
 
 ## Note de implementare
 

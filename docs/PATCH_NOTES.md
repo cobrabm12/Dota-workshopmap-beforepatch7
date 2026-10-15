@@ -213,6 +213,8 @@ The **original 6.88 map** (decompiled from the December 2016 client and recompil
 * **Built‑in abilities that gained new mechanics after 6.88 have them disabled** (187 overrides): e.g. Anti‑Mage's
   Mana Break has no mana burn amplification, Necrophos' Heartstopper Aura, Templar Assassin's Psionic Trap,
   Culling Blade's threshold, Invoker's spells, consumables and more use their 6.88 behaviour.
+* **Invoker's invoked spells use the 6.88 values of Quas, Wex and Exort** (damage, durations, Forge Spirit count: two spirits
+  with Quas and Exort at 4 or higher); the three orbs are shown separately again.
 * **No ability scales with hero level** (current passives such as Desolate, Poison Sting, Hunter in the Night and
   Stone Remnant charges grow with hero level; here they use their 6.88 per‑level values only).
 * **6.88 details restored on built‑in abilities:** Morph passively grants +3/4/5/6 Agility and Strength; Serpent Wards

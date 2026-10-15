@@ -182,8 +182,12 @@ function Dota688:OnNPCSpawned(ev)
 		end
 		if not unit.dota688_copy then Dota688Respawn:OnHeroSpawned(unit) end
 		Dota688Aghanim.OnHeroSpawned(unit)
-		if unit:GetUnitName() == "npc_dota_hero_invoker" and not unit:HasModifier("modifier_dota688_invoker_orbs") then
-			unit:AddNewModifier(unit, nil, "modifier_dota688_invoker_orbs", {})
+		if unit:GetUnitName() == "npc_dota_hero_invoker" then
+			if not unit:HasModifier("modifier_dota688_invoker_orbs") then unit:AddNewModifier(unit, nil, "modifier_dota688_invoker_orbs", {}) end
+			-- Invoke-ul C++ sta ascuns pe erou (tools/gen_overrides.py, gen_heroes): fara el motorul nu leaga valorile spell-urilor
+			-- invocate de nivelurile orburilor; invocarea o face dota688_invoker_invoke
+			local bi = unit:FindAbilityByName("invoker_invoke")
+			if bi then bi:SetHidden(true); if bi:GetLevel() < 1 then bi:SetLevel(1) end end
 		end
 	elseif string.find(unit:GetUnitName(), "npc_dota_visage_familiar", 1, true) == 1 then
 		unit:AddNewModifier(unit, nil, "modifier_dota688_familiar", {})
