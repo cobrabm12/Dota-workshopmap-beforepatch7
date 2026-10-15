@@ -411,3 +411,12 @@ Re‑test (`inv16z`, `inv16z2`–`z4`, toate la Q/W/E 7, pe un Sven nivel 25, 25
 | Instanțe | maxim 3 după 6 × Exort; cele 3 orburi se văd separat pe model (captură) |
 | Rubick | Deafening Blast furat de la un Invoker 7/7/7 păstrează 1.75 / 5.75 |
 | Statusuri | un singur nivel, la 25 (`invoker_attribute_bonus` 6.88) – corect, nu era bug |
+
+**Regresie pe aceeași versiune (2026‑10‑16, noaptea):** `goldfix` OK; `rev16a` 54 OK / 5 FAIL și `rev16b` 11 OK / 1 FAIL – toate
+FAIL‑urile sunt artefacte (testul Invoker a rulat în paralel și a pus eroi în raza de kill; BKB simulat cu `AddNewModifier` nu dă
+`IsMagicImmune`; echipa jucătorului era în avans de net worth, deci comeback 0 e corect); `aghs_safe` 106 OK / 6 FAIL (aceleași 6
+artefacte ca în §16); Meepo cu scepter, nivelat ca un jucător: 4 → 5 → 4 Meepo (OK); **test de fum pe toți eroii** (`smoke.lua`,
+1–112, nivel 25, fiecare abilitate activă lansată printr‑un ordin real): **0 erori Lua**, 344 abilități lansate; Silencer sărit (crash
+al Workshop Tools la modelele lui cosmetice, nu al addon‑ului); crash‑ul de la Phoenix → Puck e cel cunoscut al Tools (curățarea
+unităților în mijlocul unei abilități built‑in), jocul a fost repornit și testul a continuat. Abilitățile „nelansate” (45) sunt
+cele cu condiții pe care testul nu le îndeplinește (toggle‑uri, ținte aliate, Spell Steal fără spell recent), ca în rundele anterioare.
