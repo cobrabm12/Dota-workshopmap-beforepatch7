@@ -372,6 +372,20 @@ def value_688(name: str, key: str, ov: str, cv: str | None) -> str:
     return ov
 
 
+def levelkey_of(old: kv.KV, cur: kv.KV, key: str) -> str | None:
+    """Cheia de nivel a unei valori (Invoker: quaslevel / wexlevel / exortlevel), din blocul 6.88 sau din cel curent."""
+    sp = old.get_kv("AbilitySpecial")
+    if sp is not None:
+        for _, entry in sp.blocks():
+            if entry.get_str(key) is not None and entry.get_str("levelkey"):
+                return entry.get_str("levelkey")
+    av = cur.get_kv("AbilityValues")
+    blk = av.get_kv(key) if av is not None else None
+    if blk is not None and blk.get_str("levelkey"):
+        return blk.get_str("levelkey")
+    return None
+
+
 def build_ability_override(name: str, old: kv.KV, cur: kv.KV, top_keys: list[str], report: dict) -> kv.KV | None:
     """Întoarce blocul de override (sau None dacă nu e nimic de schimbat)."""
     out = kv.KV()
@@ -430,7 +444,10 @@ def build_ability_override(name: str, old: kv.KV, cur: kv.KV, top_keys: list[str
             if same_value(ov, cur_vals[key]):
                 continue
             if cur_uses_values:
-                values[key] = ov
+                # o valoare simpla ar inlocui blocul curent cu tot cu "levelkey": spell-urile lui Invoker ar ramane la
+                # valoarea de nivel 1 oricat de sus ar fi Quas / Wex / Exort (testat in joc)
+                lk = levelkey_of(old, cur, key)
+                values[key] = kv.KV([("value", ov), ("levelkey", lk)]) if lk else ov
             else:
                 si = special_index(cur, key)
                 if si is None:
@@ -445,7 +462,8 @@ def build_ability_override(name: str, old: kv.KV, cur: kv.KV, top_keys: list[str
             # cheia nu mai exista in motor: o pastram in AbilityValues cu valoarea 6.88, ca extra-urile Lua
             # (dota688/extras_688.lua) sa o poata citi; motorul o ignora
             if cur_uses_values and not name.startswith("item_") and key.lower() not in SPECIAL_META:
-                values[key] = ov
+                lk = levelkey_of(old, cur, key)
+                values[key] = kv.KV([("value", ov), ("levelkey", lk)]) if lk else ov
 
     # ItemRequirements (rețete): copiem blocul din 6.88 dacă diferă
     if "ItemRequirements" in top_keys or name.startswith("item_"):
@@ -601,6 +619,13 @@ def gen_heroes(H0, HN, A0, AN, custom: set[str], report: dict) -> tuple[kv.KV, l
         if not own_attribute_bonus:
             used_slots.append("dota688_attribute_bonus")  # Attribute Bonus clasic, implementat in Lua
         used_slots = arrange_hotkey_slots(used_slots, A0)
+        # Invoker: Invoke-ul C++ ramane pe erou (ascuns din dota688/gamemode.lua): doar cu el prezent de la spawn motorul leaga
+        # valorile spell-urilor invocate de nivelurile Quas / Wex / Exort ("levelkey") si tine 3 instante / 3 orbe pe model (testat).
+        # Invocarea propriu-zisa o face dota688_invoker_invoke (regulile 6.88).
+        if name == "npc_dota_hero_invoker" and "invoker_invoke" not in used_slots:
+            while len(used_slots) < 17:
+                used_slots.append("")
+            used_slots.append("invoker_invoke")
         for i, aname in enumerate(used_slots, start=1):
             o[f"Ability{i}"] = aname
         for i in range(len(used_slots) + 1, MAX_ABILITY_SLOT + 1):
@@ -868,6 +893,9 @@ ICON_REMAP = {
     "item_diffusal_blade_2": "item_diffusal_blade",
 }
 
+
+# abilitati C++ pastrate pe erou desi au o varianta Lua (vezi gen_heroes): override-urile manuale raman active
+KEEP_BUILTIN = {"invoker_invoke"}
 
 # chei auxiliare dintr-un bloc AbilitySpecial (nu sunt valori); in AbilityValues devin sub-chei ale valorii
 SPECIAL_META = {"levelkey", "calculatespelldamagetooltip", "requiresscepter", "linkedspecialbonus", "damagetypetooltip"}
@@ -1404,7 +1432,7 @@ def main() -> None:
         for name, vals in manual.items():
             if name.startswith("_"):
                 continue
-            if custom_name_for(name) in custom and name not in custom:
+            if custom_name_for(name) in custom and name not in custom and name not in KEEP_BUILTIN:
                 print(f"[gen] avertisment: override manual inert pentru {name} (inlocuit de {custom_name_for(name)} in Lua)")
                 continue
             blk = merged.get_kv(name)
@@ -1413,6 +1441,8 @@ def main() -> None:
                 merged[name] = blk
             cur = AN.get_kv(name) or IN.get_kv(name)
             for key, val in vals.items():
+                if key.startswith("_"):
+                    continue   # comentariu
                 if cur is not None and where_defined(cur, key) == "values":
                     av = blk.get_kv("AbilityValues")
                     if av is None:

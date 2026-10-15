@@ -2438,9 +2438,21 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"20"
-			"duration"		"3.0 3.5 4.0 4.5 5.0 5.5 6.0 6.5"
-			"freeze_cooldown"		"0.77 0.74 0.71 0.69 0.66 0.63 0.60 0.57"
-			"freeze_damage"		"7 14 21 28 35 42 49 56"
+			"duration"
+			{
+				"value"		"3.0 3.5 4.0 4.5 5.0 5.5 6.0 6.5"
+				"levelkey"		"quaslevel"
+			}
+			"freeze_cooldown"
+			{
+				"value"		"0.77 0.74 0.71 0.69 0.66 0.63 0.60 0.57"
+				"levelkey"		"quaslevel"
+			}
+			"freeze_damage"
+			{
+				"value"		"7 14 21 28 35 42 49 56"
+				"levelkey"		"quaslevel"
+			}
 		}
 	}
 	"invoker_ghost_walk"
@@ -2451,8 +2463,16 @@
 			"AbilityCooldown"		"45"
 			"duration"		"100.0"
 			"area_of_effect"		"400"
-			"enemy_slow"		"-20 -25 -30 -35 -40 -45 -50 -55"
-			"self_slow"		"-30 -20 -10 0 10 20 30 40"
+			"enemy_slow"
+			{
+				"value"		"-20 -25 -30 -35 -40 -45 -50 -55"
+				"levelkey"		"quaslevel"
+			}
+			"self_slow"
+			{
+				"value"		"-30 -20 -10 0 10 20 30 40"
+				"levelkey"		"wexlevel"
+			}
 			"health_regen"		"0"
 			"mana_regen"		"0"
 		}
@@ -2464,10 +2484,22 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"30"
-			"travel_distance"		"800 1200 1600 2000 2400 2800 3200 3600"
-			"lift_duration"		"0.8 1.1 1.4 1.7 2.0 2.3 2.6 2.9"
+			"travel_distance"
+			{
+				"value"		"800 1200 1600 2000 2400 2800 3200 3600"
+				"levelkey"		"wexlevel"
+			}
+			"lift_duration"
+			{
+				"value"		"0.8 1.1 1.4 1.7 2.0 2.3 2.6 2.9"
+				"levelkey"		"quaslevel"
+			}
 			"base_damage"		"70"
-			"wex_damage"		"45 90 135 180 225 270 315 360"
+			"wex_damage"
+			{
+				"value"		"45 90 135 180 225 270 315 360"
+				"levelkey"		"wexlevel"
+			}
 		}
 		"HasScepterUpgrade"		"0"
 	}
@@ -2477,7 +2509,11 @@
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
 		"AbilityValues"
 		{
-			"mana_burned"		"100 175 250 325 400 475 550 625"
+			"mana_burned"
+			{
+				"value"		"100 175 250 325 400 475 550 625"
+				"levelkey"		"wexlevel"
+			}
 			"damage_per_mana_pct"		"50"
 			"self_mana_restore_pct"		"50"
 		}
@@ -2489,8 +2525,16 @@
 		"AbilityManaCost"		"45"
 		"AbilityValues"
 		{
-			"bonus_attack_speed"		"10 25 40 55 70 85 100 115"
-			"bonus_damage"		"10 25 40 55 70 85 100 115"
+			"bonus_attack_speed"
+			{
+				"value"		"10 25 40 55 70 85 100 115"
+				"levelkey"		"wexlevel"
+			}
+			"bonus_damage"
+			{
+				"value"		"10 25 40 55 70 85 100 115"
+				"levelkey"		"exortlevel"
+			}
 		}
 	}
 	"invoker_chaos_meteor"
@@ -2498,9 +2542,21 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"55"
-			"travel_distance"		"465 615 780 930 1095 1245 1410 1575"
-			"main_damage"		"57.5 75 92.5 110 127.5 145 162.5 180"
-			"burn_dps"		"11.5 15 18.5 22 25.5 29 32.5 36"
+			"travel_distance"
+			{
+				"value"		"465 615 780 930 1095 1245 1410 1575"
+				"levelkey"		"wexlevel"
+			}
+			"main_damage"
+			{
+				"value"		"57.5 75 92.5 110 127.5 145 162.5 180"
+				"levelkey"		"exortlevel"
+			}
+			"burn_dps"
+			{
+				"value"		"11.5 15 18.5 22 25.5 29 32.5 36"
+				"levelkey"		"exortlevel"
+			}
 		}
 	}
 	"invoker_sun_strike"
@@ -2508,7 +2564,11 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"25"
-			"damage"		"100 162.5 225 287.5 350 412.5 475 537.5"
+			"damage"
+			{
+				"value"		"100 162.5 225 287.5 350 412.5 475 537.5"
+				"levelkey"		"exortlevel"
+			}
 		}
 		"HasShardUpgrade"		"0"
 		"HasScepterUpgrade"		"0"
@@ -2518,12 +2578,46 @@
 		"AbilityCooldown"		"30"
 		"AbilityValues"
 		{
-			"spirit_damage"		"22 32 42 52 62 72 82 92"
-			"spirit_mana"		"100 150 200 250 300 350 400 450"
-			"spirit_armor"		"0 1 2 3 4 5 6 7"
-			"spirit_attack_range"		"300 365 430 495 560 625 690 755"
-			"spirit_hp"		"300 400 500 600 700 800 900 1000"
-			"spirit_duration"		"20 30 40 50 60 70 80 90"
+			"spirit_damage"
+			{
+				"value"		"22 32 42 52 62 72 82 92"
+				"levelkey"		"exortlevel"
+			}
+			"spirit_mana"
+			{
+				"value"		"100 150 200 250 300 350 400 450"
+				"levelkey"		"exortlevel"
+			}
+			"spirit_armor"
+			{
+				"value"		"0 1 2 3 4 5 6 7"
+				"levelkey"		"exortlevel"
+			}
+			"spirit_attack_range"
+			{
+				"value"		"300 365 430 495 560 625 690 755"
+				"levelkey"		"quaslevel"
+			}
+			"spirit_hp"
+			{
+				"value"		"300 400 500 600 700 800 900 1000"
+				"levelkey"		"quaslevel"
+			}
+			"spirit_duration"
+			{
+				"value"		"20 30 40 50 60 70 80 90"
+				"levelkey"		"quaslevel"
+			}
+			"extra_spirit_count_quas"
+			{
+				"value"		"1 1 1 2 2 2 2 2"
+				"levelkey"		"quaslevel"
+			}
+			"extra_spirit_count_exort"
+			{
+				"value"		"1 1 1 2 2 2 2 2"
+				"levelkey"		"exortlevel"
+			}
 		}
 	}
 	"forged_spirit_melting_strike"
@@ -2542,9 +2636,21 @@
 		"AbilityManaCost"		"175"
 		"AbilityValues"
 		{
-			"duration"		"3.0 4.5 6.0 7.5 9.0 10.5 12.0 13.5"
-			"slow"		"-20 -40 -60 -80 -100 -120 -140 -160"
-			"damage_per_second"		"6 12 18 24 30 36 42 48"
+			"duration"
+			{
+				"value"		"3.0 4.5 6.0 7.5 9.0 10.5 12.0 13.5"
+				"levelkey"		"quaslevel"
+			}
+			"slow"
+			{
+				"value"		"-20 -40 -60 -80 -100 -120 -140 -160"
+				"levelkey"		"quaslevel"
+			}
+			"damage_per_second"
+			{
+				"value"		"6 12 18 24 30 36 42 48"
+				"levelkey"		"exortlevel"
+			}
 			"num_wall_elements"		"15"
 			"wall_element_spacing"		"80"
 			"wall_element_radius"		"105"
@@ -2557,9 +2663,21 @@
 		"AbilityManaCost"		"300"
 		"AbilityValues"
 		{
-			"damage"		"40 80 120 160 200 240 280 320"
-			"knockback_duration"		"0.25 0.5 0.75 1.0 1.25 1.5 1.75 2.0"
-			"disarm_duration"		"1.25 2.0 2.75 3.5 4.25 5.0 5.75 6.5"
+			"damage"
+			{
+				"value"		"40 80 120 160 200 240 280 320"
+				"levelkey"		"exortlevel"
+			}
+			"knockback_duration"
+			{
+				"value"		"0.25 0.5 0.75 1.0 1.25 1.5 1.75 2.0"
+				"levelkey"		"quaslevel"
+			}
+			"disarm_duration"
+			{
+				"value"		"1.25 2.0 2.75 3.5 4.25 5.0 5.75 6.5"
+				"levelkey"		"wexlevel"
+			}
 		}
 	}
 	"silencer_curse_of_the_silent"
@@ -6578,6 +6696,15 @@
 			"magic_resist"		"0"
 			"status_resist"		"0"
 			"slow_resist"		"0"
+		}
+	}
+	"invoker_invoke"
+	{
+		"AbilityValues"
+		{
+			"first_ability_level"		"99"
+			"second_ability_level"		"99"
+			"third_ability_level"		"99"
 		}
 	}
 }

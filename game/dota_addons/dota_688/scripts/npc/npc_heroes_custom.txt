@@ -4803,7 +4803,7 @@
 		"Ability15"		"invoker_ice_wall"
 		"Ability16"		"invoker_deafening_blast"
 		"Ability17"		"dota688_invoker_attribute_bonus"
-		"Ability18"		""
+		"Ability18"		"invoker_invoke"
 		"Ability19"		""
 		"Ability20"		""
 		"Ability21"		""

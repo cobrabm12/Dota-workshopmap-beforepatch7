@@ -789,5 +789,22 @@
       "value": "60 50 40",
       "special_bonus_scepter": "=16 =16 =16"
     }
+  },
+  "invoker_forge_spirit": {
+    "_comentariu": "6.88: doua spirite doar daca Quas si Exort sunt amandoua la nivelul 4 sau mai mare, maxim 2 (si cu scepter); motorul curent da 3 la nivelul 8",
+    "extra_spirit_count_quas": {
+      "value": "1 1 1 2 2 2 2 2",
+      "levelkey": "quaslevel"
+    },
+    "extra_spirit_count_exort": {
+      "value": "1 1 1 2 2 2 2 2",
+      "levelkey": "exortlevel"
+    }
+  },
+  "invoker_invoke": {
+    "_comentariu": "Invoke-ul C++ ramane ascuns pe Invoker (vezi gen_heroes); fara punctele de abilitate in plus la nivelurile 6/12/18 ale variantei moderne (testat: 28 de puncte la 25)",
+    "first_ability_level": "99",
+    "second_ability_level": "99",
+    "third_ability_level": "99"
   }
 }
