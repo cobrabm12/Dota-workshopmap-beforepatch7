@@ -172,8 +172,47 @@ function modifier_dota688_extra_frost_arrows:OnAttackLanded(params)
 end
 
 -- Mana Drain (6.88): doar pe inamici; abilitatea curenta poate tinti si aliati (cheia AbilityUnitTargetTeam e ignorata)
+-- Curierul (6.88): "Go to Secret Shop" mergea la secret shop-ul echipei tale. Motorul curent trimite curierii ambelor echipe
+-- la acelasi secret shop (testat: curierul Radiant ajunge la cel Dire, si cu echipa pusa pe entitatile de shop). Comenzile de
+-- shop ale curierului devin un drum pana la shop-ul potrivit: secret = al echipei (Radiant stanga, Dire dreapta, ca pe harta
+-- 6.88), enemy secret = celalalt, side shop = cel mai apropiat de curier, side shop 2 = celalalt.
+local COURIER_SHOP = { courier_go_to_secretshop = "secret", courier_go_to_enemy_secretshop = "enemy", courier_go_to_sideshop = "side", courier_go_to_sideshop2 = "side2" }
+local function shopPositions(shopType)
+	local out = {}
+	for _, e in ipairs(Entities:FindAllByClassname("ent_dota_shop")) do
+		if e:GetShopType() == shopType then out[#out + 1] = e:GetAbsOrigin() end
+	end
+	return out
+end
+function Dota688Extras.CourierShopTarget(courier, kind)
+	if kind == "secret" or kind == "enemy" then
+		local own = (courier:GetTeamNumber() == DOTA_TEAM_GOODGUYS) == (kind == "secret")   -- shop-ul Radiant e cel din stanga
+		for _, p in ipairs(shopPositions(DOTA_SHOP_SECRET)) do
+			if (p.x < 0) == own then return p end
+		end
+	else
+		local list = shopPositions(DOTA_SHOP_SIDE)
+		table.sort(list, function(x, y) return (x - courier:GetAbsOrigin()):Length2D() < (y - courier:GetAbsOrigin()):Length2D() end)
+		return list[kind == "side" and 1 or 2]
+	end
+end
+function Dota688Extras.CourierShopOrderFilter(ev)
+	if ev.order_type ~= DOTA_UNIT_ORDER_CAST_NO_TARGET or not ev.entindex_ability or ev.entindex_ability <= 0 then return true end
+	local a = EntIndexToHScript(ev.entindex_ability)
+	local kind = a and a.GetAbilityName and COURIER_SHOP[a:GetAbilityName()]
+	if not kind then return true end
+	local courier = a:GetCaster()
+	local target = courier and Dota688Extras.CourierShopTarget(courier, kind)
+	if not target then return true end
+	ev.order_type = DOTA_UNIT_ORDER_MOVE_TO_POSITION
+	ev.entindex_ability = 0
+	ev.position_x, ev.position_y, ev.position_z = target.x, target.y, target.z
+	return true
+end
+
 function Dota688Extras.OrderFilter(ev)
 	if not Dota688Extras.DevourOrderFilter(ev) then return false end
+	if not Dota688Extras.CourierShopOrderFilter(ev) then return false end
 	if ev.order_type ~= DOTA_UNIT_ORDER_CAST_TARGET then return true end
 	local a = ev.entindex_ability and EntIndexToHScript(ev.entindex_ability)
 	local t = ev.entindex_target and EntIndexToHScript(ev.entindex_target)
