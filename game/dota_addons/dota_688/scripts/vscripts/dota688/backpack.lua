@@ -50,9 +50,23 @@ function M:ItemAddedToInventoryFilter(ev)
 	end
 	local slot = ev.suggested_slot
 	if slot == nil then return true end
+	-- cumparaturile vin fara slot sugerat (-1): cu sloturile 1-6 pline motorul le-ar pune in backpack (ascuns de HUD, deci
+	-- "itemul dispare" - raportat din joc, 2026-10-17); le tratam ca pe cele cu slot de backpack sugerat
+	if slot < 0 and unit and unit.IsRealHero and unit:IsRealHero() and free_slot(unit, DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6) == nil then
+		slot = DOTA_ITEM_SLOT_7
+	end
 	if slot >= DOTA_ITEM_SLOT_7 and slot <= DOTA_ITEM_SLOT_9 then
-		-- itemul ramane pe jos / in stash in loc sa intre in backpack
-		return false
+		-- 6.88: fara backpack. Un item ridicat de pe jos / adus de curier cu inventarul plin ramane unde era (refuzat); un item
+		-- cumparat cu inventarul plin merge in stash; daca si stash-ul e plin, cumpararea e refuzata (aurul se intoarce)
+		local fromElsewhere = ev.item_parent_entindex_const and ev.inventory_parent_entindex_const
+			and ev.item_parent_entindex_const ~= ev.inventory_parent_entindex_const
+		if fromElsewhere or not unit or not unit.IsRealHero or not unit:IsRealHero() then return false end
+		local s = free_slot(unit, DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6)
+		if s ~= nil then
+			ev.suggested_slot = s
+			return true
+		end
+		return false   -- motorul anuleaza cumparatura si da singur aurul inapoi (testat: o rambursare in plus dubla aurul)
 	end
 	if slot == DOTA_ITEM_NEUTRAL_ACTIVE_SLOT or slot == DOTA_ITEM_NEUTRAL_PASSIVE_SLOT then
 		return false
@@ -67,7 +81,7 @@ function M:Init()
 		for pid = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
 			if PlayerResource:IsValidPlayerID(pid) then
 				local hero = PlayerResource:GetSelectedHeroEntity(pid)
-				if hero and not hero:IsNull() then M:MoveTPScroll(hero) end
+				if hero and not hero:IsNull() then M:MoveTPScroll(hero); M:EmptyBackpack(hero) end
 			end
 		end
 	end)
@@ -86,6 +100,22 @@ function M:MoveTPScroll(hero)
 	end
 	local s = free_slot(hero, DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6) or free_slot(hero, DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6)
 	if s ~= nil then hero:SwapItems(DOTA_ITEM_TP_SCROLL, s) end
+end
+
+-- plasa de siguranta: un item ajuns totusi in sloturile de backpack (6.88 nu le are, HUD-ul le ascunde) e mutat intr-un slot
+-- liber al inventarului sau al stash-ului; daca nu e loc nicaieri, e aruncat pe jos langa erou
+function M:EmptyBackpack(hero)
+	for s = DOTA_ITEM_SLOT_7, DOTA_ITEM_SLOT_9 do
+		local it = hero:GetItemInSlot(s)
+		if it then
+			local free = free_slot(hero, DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6) or free_slot(hero, DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6)
+			if free ~= nil then
+				hero:SwapItems(s, free)
+			elseif hero:IsAlive() then
+				hero:DropItemAtPositionImmediate(it, hero:GetAbsOrigin() + RandomVector(100))
+			end
+		end
+	end
 end
 
 -- TP-ul cu care motorul curent porneste eroii (slotul dedicat): in 6.88 eroii pornesc fara TP
