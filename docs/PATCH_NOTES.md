@@ -213,6 +213,8 @@ The **original 6.88 map** (decompiled from the December 2016 client and recompil
 * **Built‑in abilities that gained new mechanics after 6.88 have them disabled** (187 overrides): e.g. Anti‑Mage's
   Mana Break has no mana burn amplification, Necrophos' Heartstopper Aura, Templar Assassin's Psionic Trap,
   Culling Blade's threshold, Invoker's spells, consumables and more use their 6.88 behaviour.
+* **Buying with a full inventory puts the item in the stash** (no backpack); with a full stash the purchase is refused. The courier's
+  "Go to Secret Shop" goes to your team's secret shop (Radiant west, Dire east, as in 6.88).
 * **Invoker's invoked spells use the 6.88 values of Quas, Wex and Exort** (damage, durations, Forge Spirit count: two spirits
   with Quas and Exort at 4 or higher); the three orbs are shown separately again.
 * **No ability scales with hero level** (current passives such as Desolate, Poison Sting, Hunter in the Night and

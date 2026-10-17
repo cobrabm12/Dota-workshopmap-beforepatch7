@@ -420,3 +420,10 @@ artefacte ca în §16); Meepo cu scepter, nivelat ca un jucător: 4 → 5 → 4 
 al Workshop Tools la modelele lui cosmetice, nu al addon‑ului); crash‑ul de la Phoenix → Puck e cel cunoscut al Tools (curățarea
 unităților în mijlocul unei abilități built‑in), jocul a fost repornit și testul a continuat. Abilitățile „nelansate” (45) sunt
 cele cu condiții pe care testul nu le îndeplinește (toggle‑uri, ținte aliate, Spell Steal fără spell recent), ca în rundele anterioare.
+
+## 18. Inventar plin și curierul la secret shop (2026‑10‑17, raportate de la LAN)
+
+| Ce | Cauza | Corecție / test |
+|---|---|---|
+| Itemul cumpărat cu inventarul plin dispărea | cumpărăturile vin în `ItemAddedToInventoryFilter` fără slot sugerat (−1); cu sloturile 1–6 pline motorul le punea în backpack (7.00), pe care HUD‑ul îl ascunde | cumpărătura merge în stash (6.88); cu stash‑ul plin e refuzată și motorul dă singur aurul înapoi (o rambursare în plus din Lua îl dubla – scoasă); itemele ridicate de pe jos / aduse de curier cu inventarul plin rămân refuzate; plasă de siguranță la 0.2 s: orice item ajuns în backpack e mutat în inventar/stash sau aruncat jos. Test `fullinv3` cu cumpărături reale prin HUD: QB în stash slot 9, backpack gol, −225; tot plin → refuzat, aur 5904 → 5905 |
+| „Go to Secret Shop” trimitea curierul la secret shop‑ul celeilalte echipe | motorul curent alege același secret shop pentru ambele echipe (curierul Radiant ajungea la cel Dire; echipa pusă pe entitățile de shop nu schimbă nimic); pozițiile shop‑urilor sunt cele 6.88 (ward spot Valve `dire_secret_shop` lângă cel din dreapta) | filtrul de ordine transformă comenzile de shop ale curierului în drum spre shop‑ul potrivit: secret = al echipei (Radiant stânga, Dire dreapta), enemy secret = celălalt, side shop = cel mai apropiat, side shop 2 = celălalt. Test `courier7` (ordine prin filtru, 35 s): Radiant → secret Radiant (distanță 0), enemy → spre cel Dire, side → side shop Radiant (71), side 2 → spre cel Dire |
